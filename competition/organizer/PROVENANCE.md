@@ -1,4 +1,4 @@
-# Provenance — competition packaging (1.0-rc1)
+# Provenance — competition packaging (1.0)
 
 ## Primary citation (verified from Crossref VoR metadata)
 
@@ -98,25 +98,73 @@ Built by `competition/organizer/scripts/build_competition_data.py` from:
 
 - frozen population + role map  
 - `SPLIT_MANIFEST.json`  
+- frozen sequence-derived annotations: `organizer/frozen/sequence_derived_annotations_324.csv`  
 
 Outputs:
 
 - `data/distribution/dev.csv`  
 - `data/distribution/test_features.csv`  
 - `data/distribution/sample_submission.csv` (Train medians)  
+- `data/distribution/dev_annotations.csv`  
+- `data/distribution/test_annotations.csv`  
 - `data/secret/solution.csv`  
 
-No rescaling of assay values. No regeneration of Public/Private from seed.
+No rescaling of assay values. No regeneration of Public/Private from seed.  
+Core CSVs (`dev`, `test_features`, `sample_submission`, `solution`) are asserted byte-identical to the v1.0-rc3 freeze; v1.0 adds annotations only.
+
+## Sequence-derived antibody annotations (v1.0)
+
+Participant-facing name: **sequence-derived antibody annotations** (not “BIO features”).
+
+### Input sequence source
+
+Competition `heavy` / `light` sequences for the frozen N=324 population (`gate_b3/frozen/organizer/final_population.csv`), identical to distributed Dev/Test sequences.
+
+### Upstream annotation artifact
+
+- `gate_b1/data/numbering_germline.csv`  
+- Built by Gate B1 scripts:  
+  - `gate_b1/scripts/02_numbering_germline.py` (CDR segment lengths; scheme `AUTHOR_MMC2_IMGT_SEGMENTS`)  
+  - `gate_b1/scripts/02c_anarci_germline_full.py` (ANARCI germline V/J + identity)  
+
+### Software / reference
+
+| Item | Value |
+|---|---|
+| Tool | **ANARCI** (Python package in organizer env: `.venv_b1`) |
+| Numbering scheme | **IMGT** (`scheme="imgt"`) |
+| Species filter | `allowed_species=["human"]` |
+| Germline assignment | `anarci.run_germline_assignment` against ANARCI embedded `all_germlines` |
+| CDR length convention | Author mmc2 **IMGT-segmented** FR/CDR columns; length = `len(segment)`; segments concatenate to VH/VL |
+
+Exact historical pip version string was not pinned in Gate B1 logs; annotations are **frozen** from the Gate B1 artifact rather than recomputed at packaging time. Rebuild path: join `sequence_derived_annotations_324.csv` by `id` in `build_competition_data.py`.
+
+### Column mapping (frozen → distributed)
+
+| Distributed | Source field / transform |
+|---|---|
+| `heavy_v_family` | `PL_vh_family` |
+| `heavy_j_family` | family from `PL_anarci_vh_j_gene` (`IGHJ4*01` → `JH4`) |
+| `light_v_family` | `PL_vl_family` |
+| `light_j_family` | family from `PL_anarci_vl_j_gene` |
+| `light_chain_type` | `PL_kappa_lambda` |
+| `h_cdr*_length` / `l_cdr*_length` | `PL_*_CDR*_len` |
+| `heavy_germline_identity` | `PL_anarci_vh_v_identity` (0–1) |
+| `light_germline_identity` | `PL_anarci_vl_v_identity` (0–1) |
+
+Postprocessing: select participant-safe columns only; drop allele-level V genes, redundant distances, author ORG_* fields, donor/B-cell/assay columns. Split role used **only** to partition Dev vs Test rows.
 
 ## What participants receive
 
 Only:
 
+- `README.md` / `README_ja.md`  
 - `dev.csv`  
 - `test_features.csv`  
+- `dev_annotations.csv`  
+- `test_annotations.csv`  
 - `sample_submission.csv`  
 - `DATA_DICTIONARY.md`  
-- `README.md`  
 
 They do **not** receive Test labels, Public/Private flags, or organizer benchmark results.
 

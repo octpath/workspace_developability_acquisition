@@ -1,0 +1,25 @@
+{
+  "n": 324,
+  "columns": [
+    "id",
+    "heavy_v_family",
+    "heavy_j_family",
+    "light_v_family",
+    "light_j_family",
+    "light_chain_type",
+    "h_cdr1_length",
+    "h_cdr2_length",
+    "h_cdr3_length",
+    "l_cdr1_length",
+    "l_cdr2_length",
+    "l_cdr3_length",
+    "heavy_germline_identity",
+    "light_germline_identity"
+  ],
+  "source_artifact": "gate_b1/data/numbering_germline.csv",
+  "source_sha256": "bf368a4ff2017c1f32281f5e40ad1d55dc515aecfc33c3626cfb49d42eda8533",
+  "frozen_sha256": "bf88b779211e36910c8d2bc0c68f327c1d25e811a5fbd4213fa57a469c7faaab",
+  "germline_tool": "ANARCI (imgt scheme, human)",
+  "cdr_scheme": "AUTHOR_MMC2_IMGT_SEGMENTS",
+  "note": "Frozen extract for competition packaging; rebuild via build_competition_data.py"
+}

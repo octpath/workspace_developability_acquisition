@@ -119,6 +119,92 @@ def validate(dist: Path = DIST, secret: Path = SECRET) -> dict:
         ok,
     )
 
+    # Sequence-derived annotations (optional participant resources)
+    ann_cols = [
+        "id",
+        "heavy_v_family",
+        "heavy_j_family",
+        "light_v_family",
+        "light_j_family",
+        "light_chain_type",
+        "h_cdr1_length",
+        "h_cdr2_length",
+        "h_cdr3_length",
+        "l_cdr1_length",
+        "l_cdr2_length",
+        "l_cdr3_length",
+        "heavy_germline_identity",
+        "light_germline_identity",
+    ]
+    forbidden_ann = {
+        "TmApp",
+        "HIC",
+        "heavy",
+        "light",
+        "is_public",
+        "is_private",
+        "donor",
+        "b_cell_subset",
+        "b_cell_origin",
+        "naive",
+        "memory",
+        "LLPC",
+        "role",
+    }
+    for ann_name, base_df in [
+        ("dev_annotations.csv", dev),
+        ("test_annotations.csv", test),
+    ]:
+        path = dist / ann_name
+        check(path.exists(), f"{ann_name} exists", errors, ok)
+        if not path.exists():
+            continue
+        ann = pd.read_csv(path)
+        check(list(ann.columns) == ann_cols, f"{ann_name} columns", errors, ok)
+        check(len(ann) == 162, f"{ann_name} N=162 (got {len(ann)})", errors, ok)
+        check(ann.id.is_unique, f"{ann_name} IDs unique", errors, ok)
+        check(set(ann.id) == set(base_df.id), f"{ann_name} ID set matches base CSV", errors, ok)
+        check(not forbidden_ann & set(ann.columns), f"{ann_name} no forbidden columns", errors, ok)
+        check(
+            not any(c in ann.columns for c in ("TmApp", "HIC", "is_public", "is_private")),
+            f"{ann_name} no target/split columns",
+            errors,
+            ok,
+        )
+        if "light_chain_type" in ann.columns:
+            check(
+                set(ann.light_chain_type.dropna().astype(str)) <= {"kappa", "lambda"},
+                f"{ann_name} light_chain_type in {{kappa,lambda}}",
+                errors,
+                ok,
+            )
+        for c in (
+            "h_cdr1_length",
+            "h_cdr2_length",
+            "h_cdr3_length",
+            "l_cdr1_length",
+            "l_cdr2_length",
+            "l_cdr3_length",
+        ):
+            if c in ann.columns:
+                vals = ann[c].astype(float)
+                check(vals.notna().all(), f"{ann_name}.{c} non-null", errors, ok)
+                check((vals >= 1).all() and (vals <= 40).all(), f"{ann_name}.{c} in [1,40]", errors, ok)
+        for c in ("heavy_germline_identity", "light_germline_identity"):
+            if c in ann.columns:
+                vals = ann[c].astype(float)
+                check(vals.notna().all(), f"{ann_name}.{c} non-null", errors, ok)
+                check((vals >= 0).all() and (vals <= 1).all(), f"{ann_name}.{c} in [0,1]", errors, ok)
+        for c in ("heavy_v_family", "heavy_j_family", "light_v_family", "light_j_family"):
+            if c in ann.columns:
+                check(ann[c].notna().all(), f"{ann_name}.{c} non-null", errors, ok)
+                check(
+                    ann[c].astype(str).str.len().gt(0).all(),
+                    f"{ann_name}.{c} non-empty",
+                    errors,
+                    ok,
+                )
+
     # HIC bands
     sol2 = sol.copy()
     sol2["band"] = sol2.HIC.map(hic_band)

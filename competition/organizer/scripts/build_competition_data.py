@@ -23,8 +23,34 @@ SECRET = COMP / "data" / "secret"
 
 FROZEN_POP = ROOT / "gate_b3" / "frozen" / "organizer" / "final_population.csv"
 FROZEN_ROLE = ROOT / "gate_b3" / "frozen" / "organizer" / "role_map.csv"
+FROZEN_ANN = ORG_OUT / "frozen" / "sequence_derived_annotations_324.csv"
 B73_SPLIT = ROOT / "gate_b7_3_principled_split" / "config" / "B7_3_RECOMMENDED_SPLIT.json"
 SPLIT_MANIFEST = ORG_OUT / "SPLIT_MANIFEST.json"
+
+ANN_COLUMNS = [
+    "id",
+    "heavy_v_family",
+    "heavy_j_family",
+    "light_v_family",
+    "light_j_family",
+    "light_chain_type",
+    "h_cdr1_length",
+    "h_cdr2_length",
+    "h_cdr3_length",
+    "l_cdr1_length",
+    "l_cdr2_length",
+    "l_cdr3_length",
+    "heavy_germline_identity",
+    "light_germline_identity",
+]
+
+# Production core CSVs must remain byte-identical to v1.0-rc3
+EXPECTED_CORE_SHA256 = {
+    "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
+    "test_features.csv": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
+    "sample_submission.csv": "fb07f0df42bdce9bf7cd2d79e6fbbb98fffaaefae6f2c9c105ad04b421f383e1",
+    "solution.csv": "b5ed604205b5f524cedc752944c6c2de2eabdf2e661c1ee6aa593b79b515d2f7",
+}
 
 AA20 = set("ACDEFGHIKLMNPQRSTVWY")
 HIC_LOW, HIC_HIGH = 10.5, 11.5
@@ -186,6 +212,39 @@ def build(out_dist: Path | None = None, out_secret: Path | None = None) -> dict:
         "solution.csv": write_csv(out_secret / "solution.csv", solution),
     }
 
+    # Core CSV immutability vs production freeze (v1.0-rc3 → v1.0 additive annotations)
+    for name, expected in EXPECTED_CORE_SHA256.items():
+        got = hashes[name]
+        assert got == expected, f"{name} hash changed: {got} != {expected}"
+
+    # Optional sequence-derived annotations (frozen extract; no targets / no split flags)
+    assert FROZEN_ANN.exists(), FROZEN_ANN
+    ann_all = pd.read_csv(FROZEN_ANN)
+    assert list(ann_all.columns) == ANN_COLUMNS, list(ann_all.columns)
+    assert len(ann_all) == 324 and ann_all.id.is_unique
+    forbidden_ann = {
+        "TmApp",
+        "HIC",
+        "heavy",
+        "light",
+        "is_public",
+        "is_private",
+        "donor",
+        "b_cell_subset",
+        "role",
+    }
+    assert not forbidden_ann & set(ann_all.columns)
+    ann_idx = ann_all.set_index("id")
+    assert set(dev["id"]).issubset(set(ann_idx.index))
+    assert set(test_features["id"]).issubset(set(ann_idx.index))
+    # Preserve row order of corresponding base CSVs for convenience; joins remain by id
+    dev_ann = ann_idx.loc[dev["id"]].reset_index()
+    test_ann = ann_idx.loc[test_features["id"]].reset_index()
+    assert list(dev_ann["id"]) == list(dev["id"])
+    assert list(test_ann["id"]) == list(test_features["id"])
+    hashes["dev_annotations.csv"] = write_csv(out_dist / "dev_annotations.csv", dev_ann)
+    hashes["test_annotations.csv"] = write_csv(out_dist / "test_annotations.csv", test_ann)
+
     meta = {
         "n_dev": int(len(dev)),
         "n_test": int(len(test_features)),
@@ -199,6 +258,7 @@ def build(out_dist: Path | None = None, out_secret: Path | None = None) -> dict:
         "hic_high_pub_priv": [4, 3],
         "file_sha256": hashes,
         "split_id": manifest["split_id"],
+        "annotation_source": str(FROZEN_ANN.relative_to(ROOT)),
     }
     return meta
 

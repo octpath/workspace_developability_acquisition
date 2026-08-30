@@ -1,8 +1,8 @@
 # Competition specification (organizer)
 
 Competition title: **Antibody Developability — TmApp & HIC**  
-Package version: **1.0-rc3**  
-Status: **release candidate** — production split frozen.
+Package version: **1.0**  
+Status: **production release** — production split frozen.
 
 ---
 
@@ -43,6 +43,16 @@ Two independent regression tracks, same antibodies / same Public–Private mask:
 ### `data/distribution/sample_submission.csv`
 
 `id,TmApp,HIC` — same IDs as `test_features.csv`.
+
+### `data/distribution/dev_annotations.csv` / `test_annotations.csv`
+
+Optional **sequence-derived antibody annotations** (not submission requirements; **not** used by the scorer):
+
+`id,heavy_v_family,heavy_j_family,light_v_family,light_j_family,light_chain_type,h_cdr1_length,h_cdr2_length,h_cdr3_length,l_cdr1_length,l_cdr2_length,l_cdr3_length,heavy_germline_identity,light_germline_identity`
+
+- Sequence / reference-annotation derived only  
+- Same procedure for Dev and Test  
+- **No** target information, Public/Private flags, donor, or B-cell-origin metadata  
 
 ---
 

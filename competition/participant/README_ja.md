@@ -3,7 +3,7 @@
 English version: [README.md](README.md)
 
 **Competition title:** Antibody Developability — TmApp & HIC  
-**Package version:** 1.0-rc3  
+**Package version:** 1.0  
 
 **Tracks:** TmApp · HIC retention time  
 **各トラックの主評価指標:** Mean Absolute Error（MAE）— 小さいほど良い  
@@ -94,7 +94,50 @@ English version: [README.md](README.md)
 
 ---
 
-## 5. Target 1 — TmApp（apparent melting temperature, °C）
+## 5. 配列由来の抗体アノテーション
+
+抗体配列は、単なる20種類のアミノ酸の文字列として扱うこともできますが、抗体特有の生物学的な観点から整理することもできます。便宜のため、VH/VL 配列そのものから推定した **配列由来の抗体アノテーション（sequence-derived antibody annotations）** を、任意利用の追加ファイルとして提供します。
+
+| ファイル | 役割 | N |
+|---|---|---:|
+| `data/dev_annotations.csv` | Dev ID 向けアノテーション | 162 |
+| `data/test_annotations.csv` | Test ID 向けアノテーション | 162 |
+
+`dev.csv` / `test_features.csv` とは `id` で結合します。`heavy` / `light` / `TmApp` / `HIC` は重複しません。
+
+### 含まれる内容（提供できるもの）
+
+- 重鎖・軽鎖の推定 **V/J family**  
+- **light-chain type**（`kappa` / `lambda`）  
+- **CDR length**（HCDR1–3、LCDR1–3）  
+- 重鎖・軽鎖 V 領域の **germline identity**（0–1）
+
+定義・ツール・番号付け規約の詳細は `DATA_DICTIONARY.md` を参照してください。
+
+### germline（生殖細胞系列）の直感的な説明
+
+抗体可変領域は、生まれつきゲノムに存在する複数の **germline（生殖細胞系列）** gene segment を組み合わせ（**V(D)J recombination**）、その後さらに配列変化を蓄積することで多様化します。観測された抗体配列を reference germline sequence と比較することで、どの **V/J family** に近いか、germline からどの程度離れているか（**germline identity**）を推定できます。
+
+germline identity が低い（つまり inferred germline から遠い）ことは、**somatic hypermutation（体細胞超変異, SHM）** — 抗体の成熟過程で蓄積しうる配列多様化 — などによる配列の乖離を反映し得ます。
+
+**重要:** germline から遠いほど良い／近いほど良い、という意味ではありません。SHM の多さが親和性や developability の良し悪しを直接意味するわけでもありません。記述子として扱い、予測との関係は各自で検討してください。
+
+### CDR length
+
+**CDR**（相補性決定領域）は抗原認識に関わる可変性の高いループです。長さや配列組成は局所的な形・構造・露出する表面の化学的性質に影響しうるため、CDR length は有用な配列由来の記述子になり得ます。特定の CDR が TmApp / HIC を決める、といった主張はしません。
+
+### light-chain type（κ / λ）
+
+ヒト抗体の軽鎖には、よく見られるタイプとして **kappa（κ）** と **lambda（λ）** があります。アノテーションは配列から推定したタイプを記録します。κ / λ に優劣があるという意味ではありません。
+
+### 任意リソースであり、特権的なラベル情報ではない
+
+> これらのアノテーションファイルは **任意の便宜的リソース** です。提供された抗体配列から導出されており、追加の実験的な TmApp / HIC 情報は含みません。
+
+無視して `heavy` / `light` だけを使っても構いません。公式スコアラーはアノテーションファイルを使いません。
+
+
+## 6. Target 1 — TmApp（apparent melting temperature, °C）
 
 ### 直感
 
@@ -148,7 +191,7 @@ TmApp は developability に関連する **1つの軸** として扱ってくだ
 
 ---
 
-## 6. Target 2 — HIC retention time（分）
+## 7. Target 2 — HIC retention time（分）
 
 ### 直感
 
@@ -205,7 +248,7 @@ HIC retention time は **プロトコル依存** です。抗体の普遍的な�
 
 ---
 
-## 7. ターゲット比較表
+## 8. ターゲット比較表
 
 | Target | 実験で主に見ているもの | 単位 | 高い値のおおまかな意味 | Developability 上の直感 |
 |---|---|---|---|---|
@@ -220,7 +263,7 @@ TmApp も HIC も、それ単独で抗体の developability や manufacturabilit
 
 ---
 
-## 8. なぜ配列から予測できる可能性があるのか
+## 9. なぜ配列から予測できる可能性があるのか
 
 アミノ酸配列は、側鎖化学、電荷、疎水性、芳香族性、水素結合、ループ組成、パッキングなどを決めます。それらが折りたたみ安定性、露出表面化学、疎水性パッチ、自己相互作用傾向に影響します。
 
@@ -238,7 +281,7 @@ TmApp も HIC も、それ単独で抗体の developability や manufacturabilit
 
 ---
 
-## 9. 原研究と本コンペの違い
+## 10. 原研究と本コンペの違い
 
 Shehata らの研究は、もともと sequence-to-property の機械学習ベンチマークとして設計されたものではありません。ヒト抗体パネルの生物学的・生物物理学的性質（親和性成熟と物性の関係など）を調べた研究です。
 
@@ -251,7 +294,7 @@ Shehata らの研究は、もともと sequence-to-property の機械学習ベ�
 
 ---
 
-## 10. データセット
+## 11. データセット
 
 配布ファイルの正確な件数:
 
@@ -259,6 +302,8 @@ Shehata らの研究は、もともと sequence-to-property の機械学習ベ�
 |---|---|---:|
 | `data/dev.csv` | ラベル付き開発 / 学習セット | 162 |
 | `data/test_features.csv` | ラベルなしテスト配列 | 162 |
+| `data/dev_annotations.csv` | 任意の配列由来アノテーション（Dev） | 162 |
+| `data/test_annotations.csv` | 任意の配列由来アノテーション（Test） | 162 |
 | `data/sample_submission.csv` | 提出テンプレート例 | 162 |
 
 本パッケージの抗体は、主催者側では TmApp と HIC の両方を持ちます（`dev.csv` にも両方のラベルがあります）。
@@ -277,7 +322,7 @@ Shehata らの研究は、もともと sequence-to-property の機械学習ベ�
 
 ---
 
-## 11. 独立した 2 つのリーダーボード
+## 12. 独立した 2 つのリーダーボード
 
 本コンペには **2つのトラック** があります。
 
@@ -314,7 +359,7 @@ Exact Private MAE の同点を、Pearson・Spearman・RMSE・Public スコア・
 
 ---
 
-## 12. Public / Private リーダーボード
+## 13. Public / Private リーダーボード
 
 - Test 全体: **N = 162**  
 - Public: **N = 81**  
@@ -328,7 +373,7 @@ Public は Test の固定部分集合、最終順位は held-out の Private を
 
 ---
 
-## 13. 推奨する検証の考え方
+## 14. 推奨する検証の考え方
 
 Public leaderboard は有限サンプルなのでノイズを含みます。小さな Public 変動を追いすぎないでください。
 
@@ -344,7 +389,7 @@ Public leaderboard は有限サンプルなのでノイズを含みます。小�
 
 ---
 
-## 14. 提出形式
+## 15. 提出形式
 
 提出 CSV の列:
 
@@ -365,7 +410,7 @@ id,TmApp,HIC
 
 ---
 
-## 15. 重要な科学的注意
+## 16. 重要な科学的注意
 
 - TmApp は assay 依存であり、普遍的な安定性定数ではありません。  
 - HIC retention time はクロマトグラフィプロトコル依存です。  
@@ -376,7 +421,7 @@ id,TmApp,HIC
 
 ---
 
-## 16. データ由来と attribution
+## 17. データ由来と attribution
 
 本コンペデータセットは、次の報告に由来します。
 
@@ -405,6 +450,8 @@ README.md
 README_ja.md
 data/dev.csv
 data/test_features.csv
+data/dev_annotations.csv
+data/test_annotations.csv
 data/sample_submission.csv
 data/DATA_DICTIONARY.md
 ```

@@ -3,7 +3,7 @@
 日本語版: [README_ja.md](README_ja.md)
 
 **Competition title:** Antibody Developability — TmApp & HIC  
-**Package version:** 1.0-rc3  
+**Package version:** 1.0  
 
 **Tracks:** TmApp · HIC retention time  
 **Primary metric (each track):** Mean Absolute Error (MAE) — lower is better  
@@ -85,7 +85,50 @@ You do **not** need to be an immunologist to participate. Many strong approaches
 
 ---
 
-## 5. Target 1 — TmApp (apparent melting temperature, °C)
+## 5. Sequence-derived antibody annotations
+
+Antibody sequences can also be described using antibody-specific biological annotations. For convenience, we provide a small optional set of **sequence-derived antibody annotations** inferred from the VH/VL sequences themselves.
+
+| File | Role | N |
+|---|---|---:|
+| `data/dev_annotations.csv` | Annotations for Dev IDs | 162 |
+| `data/test_annotations.csv` | Annotations for Test IDs | 162 |
+
+Join to `dev.csv` / `test_features.csv` by `id`. These files do **not** duplicate `heavy`, `light`, `TmApp`, or `HIC`.
+
+### What is included (where available)
+
+- Inferred **V/J families** for heavy and light chains  
+- **Light-chain type** (`kappa` / `lambda`)  
+- **CDR lengths** (HCDR1–3, LCDR1–3)  
+- **Germline identity** for heavy and light V regions (0–1 scale)
+
+See `DATA_DICTIONARY.md` for exact definitions, tools, and numbering conventions.
+
+### Germline (short intuition)
+
+Antibody variable regions are assembled from inherited **germline** gene segments (V, D, and J; often summarized as **V(D)J recombination**) and are then further diversified. By comparing an observed antibody sequence with reference germline sequences, one can infer a likely **V/J family** and measure how similar the observed sequence remains to its inferred germline reference (**germline identity**).
+
+Lower germline identity (equivalently, greater distance from the inferred germline) can reflect more sequence divergence, including changes accumulated through **somatic hypermutation (SHM)** — sequence diversification that can accumulate during antibody maturation.
+
+**Important:** germline distance is **not** affinity, and more SHM does **not** mean a “better” or “worse” antibody or developability outcome. Treat these fields as descriptors and investigate predictive relationships yourself.
+
+### CDR lengths
+
+**CDRs** (complementarity-determining regions) are highly variable loops involved in antigen recognition. Their lengths (and sequence composition) can affect local geometry, structure, and exposed surface chemistry, so CDR lengths are useful sequence-derived descriptors. We do **not** claim that any particular CDR determines TmApp or HIC.
+
+### Light-chain type
+
+Human antibodies commonly use one of two light-chain types: **kappa** or **lambda**. The annotation records which type was inferred from the light-chain sequence. Neither type is intrinsically “better.”
+
+### Optional — not privileged label information
+
+> These annotation files are **optional convenience resources**. They are derived from the provided antibody sequences and do **not** contain additional experimental TmApp or HIC information.
+
+Participants are free to ignore them and work directly from `heavy` / `light` sequences. The official scorer does **not** use the annotation files.
+
+
+## 6. Target 1 — TmApp (apparent melting temperature, °C)
 
 ### Intuition
 
@@ -139,7 +182,7 @@ Treat TmApp as **one developability-related axis**.
 
 ---
 
-## 6. Target 2 — HIC retention time (minutes)
+## 7. Target 2 — HIC retention time (minutes)
 
 ### Intuition
 
@@ -196,7 +239,7 @@ The competition target remains **continuous**. Scoring uses the **numerical** HI
 
 ---
 
-## 7. Side-by-side target summary
+## 8. Side-by-side target summary
 
 | Target | Measurement context | Unit | Higher value roughly indicates | Developability intuition |
 |---|---|---|---|---|
@@ -211,7 +254,7 @@ They represent **two distinct physicochemical axes** relevant to early developab
 
 ---
 
-## 8. Why sequence may predict these properties
+## 9. Why sequence may predict these properties
 
 Amino-acid sequence controls side-chain chemistry, charge, hydrophobicity, aromatic content, hydrogen-bonding possibilities, loop composition, and structural packing. Those factors influence folding stability, exposed surface chemistry, hydrophobic patches, and self-interaction tendencies.
 
@@ -221,7 +264,7 @@ Participants may use methods ranging from simple sequence descriptors to protein
 
 ---
 
-## 9. Original study vs this competition
+## 10. Original study vs this competition
 
 The Shehata study was **not** originally designed as a machine-learning sequence-to-property benchmark. It investigated biological and biophysical properties of a collection of human antibodies, including relationships involving antibody maturation and measured physicochemical characteristics.
 
@@ -234,7 +277,7 @@ Do not attribute machine-learning claims (PLMs, sequence models, or this competi
 
 ---
 
-## 10. Dataset
+## 11. Dataset
 
 Exact counts from the distributed files:
 
@@ -242,6 +285,8 @@ Exact counts from the distributed files:
 |---|---|---:|
 | `data/dev.csv` | Labeled development / training set | 162 |
 | `data/test_features.csv` | Unlabeled test sequences | 162 |
+| `data/dev_annotations.csv` | Optional sequence-derived annotations (Dev) | 162 |
+| `data/test_annotations.csv` | Optional sequence-derived annotations (Test) | 162 |
 | `data/sample_submission.csv` | Example submission template | 162 |
 
 Every antibody in this package has **both** TmApp and HIC labels available to organizers (and both labels are present in `dev.csv`).
@@ -260,7 +305,7 @@ See `DATA_DICTIONARY.md` for formal definitions.
 
 ---
 
-## 11. Two independent leaderboards
+## 12. Two independent leaderboards
 
 There are **two** competition tracks:
 
@@ -297,7 +342,7 @@ If a hosting platform later renders ties differently for display, that is a plat
 
 ---
 
-## 12. Public / Private leaderboard
+## 13. Public / Private leaderboard
 
 - Test set size: **N = 162**  
 - Public leaderboard subset: **N = 81**  
@@ -311,7 +356,7 @@ The Public leaderboard uses one fixed subset of Test. Final ranking uses the hel
 
 ---
 
-## 13. Suggested validation strategy
+## 14. Suggested validation strategy
 
 The live leaderboard is finite and therefore noisy. Tiny Public movements can be misleading.
 
@@ -327,7 +372,7 @@ Local CV is not guaranteed to beat Public; use both as incomplete evidence.
 
 ---
 
-## 14. Submission format
+## 15. Submission format
 
 Submit a CSV with columns:
 
@@ -348,7 +393,7 @@ Requirements:
 
 ---
 
-## 15. Important scientific caveats
+## 16. Important scientific caveats
 
 - TmApp is assay-dependent and is not a universal stability constant.  
 - HIC retention time is chromatographic-protocol-dependent.  
@@ -359,7 +404,7 @@ Requirements:
 
 ---
 
-## 16. Data provenance and attribution
+## 17. Data provenance and attribution
 
 This competition dataset is derived from data reported in:
 
@@ -388,6 +433,8 @@ README.md
 README_ja.md
 data/dev.csv
 data/test_features.csv
+data/dev_annotations.csv
+data/test_annotations.csv
 data/sample_submission.csv
 data/DATA_DICTIONARY.md
 ```

@@ -1,5 +1,6 @@
 {
-  "package_version": "1.0-rc3",
+  "package_version": "1.0",
+  "status": "production release",
   "package_name": "antibody_developability_tmapp_hic",
   "competition_title": "Antibody Developability \u2014 TmApp & HIC",
   "production_split": {
@@ -18,39 +19,42 @@
     "HIC"
   ],
   "build_script": "competition/organizer/scripts/build_competition_data.py",
-  "git_commit": "161a82e314474e9f9c95184c241e124dfc0db71d",
-  "git_commit_note": "README polish / rc3 content commit; metadata updated in follow-up commit.",
-  "created_utc": "2026-08-30T20:31:04Z",
+  "git_commit": "PENDING",
+  "created_utc": "2026-08-30T22:00:23Z",
   "file_sha256": {
     "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
     "test_features.csv": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
     "sample_submission.csv": "fb07f0df42bdce9bf7cd2d79e6fbbb98fffaaefae6f2c9c105ad04b421f383e1",
+    "dev_annotations.csv": "999982109f93be9f1d5a0d081cc4afd931826a7fa4f32dad2d659683c754089f",
+    "test_annotations.csv": "820157e7dd2316499e320c045629f86c74a9a950f4c47e1fb2a9e1e7de3951da",
     "solution.csv": "b5ed604205b5f524cedc752944c6c2de2eabdf2e661c1ee6aa593b79b515d2f7",
-    "participant/README.md": "fbb1c097893b3e25eb047df1fdfe6a0210c014d1b4d73b118d0bf4adea13f013",
-    "participant/README_ja.md": "ee3f8bc4ebbb87b6b8ff9e918b0f75bc7d9fe0908b1aef0bd83f08c514ce5ed5",
-    "DATA_DICTIONARY.md": "f9c6133afc489d06d54b735e536c44d239758d376bda10b4bf6bb3fe3a286c02",
-    "COMPETITION_SPEC.md": "4dbf9d515f96ed39c0c5196c9ffa4f2db1c7aadb44256cb05e8ed5e597178247",
+    "participant/README.md": "026bbcd534fbe81219487536884f30b0dbe0c72284ec7663c1fb28b0054cabcd",
+    "participant/README_ja.md": "befd7b5d742b3a47ecf972eaead5d6031a7c56c44f5c30cf54aaccd496a59922",
+    "DATA_DICTIONARY.md": "06e14196e263aef2ee5a45393781fd930cb6011123ff7694592e4552c2da83b6",
+    "COMPETITION_SPEC.md": "ccd7d7621d6981947ec2a83b0b903f1195ef95f5c4f3c7ddd0c5f5dd6413dd12",
+    "PROVENANCE.md": "00d8c109044f7c21433f8d1821c2fe5a882286a7a2b4f81f7f28ca325dd5a8fd",
     "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
-    "PROVENANCE.md": "c9e867d7bbc81a58289ab5ead6b31e6ca4c7cc54f3f4b91a4954c196454e4074",
-    "PACKAGING_AUDIT.md": "511ced240e99bfc2d4cbf414ded0e20a620ae20a2d81ab47fe0bb228e12a3980",
-    "LAUNCH_FINALIZATION_AUDIT.md": "0409abe952550d632795038a3f3dd30ff67b360d424c7c3aaf3f0bf0d9993004",
-    "README_LANGUAGE_SYNC_AUDIT.md": "ea3508bd33b3ee62cca906627452c65d321556472282837d461f79d67d7dc6ad",
-    "LOCALIZATION_FINAL_AUDIT.md": "5e017a58bf3b253a566d98421245ceadd4441eba3a7e421fc87044c10a7c9b31",
-    "README_POLISH_FINAL_AUDIT.md": "cdaadfb502da9182297945b0bd184131bc6649d9813da8558bc3a8ac61017aed"
+    "ANNOTATION_INVENTORY.md": "4fefc6755378fc7605310a3c4ff4991d367953f121803f7480e9ed841fbe9906",
+    "ANNOTATION_LEAKAGE_AUDIT.md": "275756ee8cf1d50724299d5ee79a87d2b3c8f9d9917be98f1ce81f8da5bc34e7"
   },
   "release_archive": {
-    "filename": "antibody_developability_competition_v1.0-rc3.zip",
-    "sha256": "71fab2e1b788eb02f7727c49d5ffa22a91b3d71f46ac16e1aef400e695bc4b0b",
+    "filename": "antibody_developability_competition_v1.0.zip",
+    "sha256": "c52aa9425836cdc934b42c7d0ead6d8663908b703e72dbb1b55e098001320e79",
     "members": [
       {
         "name": "README.md",
-        "sha256": "fbb1c097893b3e25eb047df1fdfe6a0210c014d1b4d73b118d0bf4adea13f013",
-        "nbytes": 17090
+        "sha256": "026bbcd534fbe81219487536884f30b0dbe0c72284ec7663c1fb28b0054cabcd",
+        "nbytes": 20131
       },
       {
         "name": "README_ja.md",
-        "sha256": "ee3f8bc4ebbb87b6b8ff9e918b0f75bc7d9fe0908b1aef0bd83f08c514ce5ed5",
-        "nbytes": 19083
+        "sha256": "befd7b5d742b3a47ecf972eaead5d6031a7c56c44f5c30cf54aaccd496a59922",
+        "nbytes": 22664
+      },
+      {
+        "name": "data/DATA_DICTIONARY.md",
+        "sha256": "06e14196e263aef2ee5a45393781fd930cb6011123ff7694592e4552c2da83b6",
+        "nbytes": 6588
       },
       {
         "name": "data/dev.csv",
@@ -58,9 +62,9 @@
         "nbytes": 41302
       },
       {
-        "name": "data/test_features.csv",
-        "sha256": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
-        "nbytes": 39464
+        "name": "data/dev_annotations.csv",
+        "sha256": "999982109f93be9f1d5a0d081cc4afd931826a7fa4f32dad2d659683c754089f",
+        "nbytes": 13394
       },
       {
         "name": "data/sample_submission.csv",
@@ -68,13 +72,19 @@
         "nbytes": 3415
       },
       {
-        "name": "data/DATA_DICTIONARY.md",
-        "sha256": "f9c6133afc489d06d54b735e536c44d239758d376bda10b4bf6bb3fe3a286c02",
-        "nbytes": 2014
+        "name": "data/test_annotations.csv",
+        "sha256": "820157e7dd2316499e320c045629f86c74a9a950f4c47e1fb2a9e1e7de3951da",
+        "nbytes": 13673
+      },
+      {
+        "name": "data/test_features.csv",
+        "sha256": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
+        "nbytes": 39464
       }
     ],
     "zip_timestamp_normalized": true,
     "zip_rebuild_byte_identical": true
   },
-  "previous_release_archive": "antibody_developability_competition_v1.0-rc2.zip"
+  "previous_release_archive": "antibody_developability_competition_v1.0-rc3.zip",
+  "core_csv_unchanged_vs_rc3": true
 }
