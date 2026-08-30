@@ -96,7 +96,7 @@ English version: [README.md](README.md)
 
 ## 5. 配列由来の抗体アノテーション
 
-抗体配列は、単なる20種類のアミノ酸の文字列として扱うこともできますが、抗体特有の生物学的な観点から整理することもできます。便宜のため、VH/VL 配列そのものから推定した **配列由来の抗体アノテーション（sequence-derived antibody annotations）** を、任意利用の追加ファイルとして提供します。
+抗体配列は、単なる20種類のアミノ酸の文字列として扱うこともできますが、抗体特有の生物学的な観点から整理することもできます。便宜のため、**VH/VL 配列に基づく配列由来の抗体アノテーション（sequence-derived antibody annotations）** を、任意利用の追加ファイルとして提供します。
 
 | ファイル | 役割 | N |
 |---|---|---:|
@@ -107,7 +107,7 @@ English version: [README.md](README.md)
 
 ### 含まれる内容（提供できるもの）
 
-- 重鎖・軽鎖の推定 **V/J family**  
+- 重鎖・軽鎖の推定 **V family** および **J gene**  
 - **light-chain type**（`kappa` / `lambda`）  
 - **CDR length**（HCDR1–3、LCDR1–3）  
 - 重鎖・軽鎖 V 領域の **germline identity**（0–1）
@@ -116,15 +116,17 @@ English version: [README.md](README.md)
 
 ### germline（生殖細胞系列）の直感的な説明
 
-抗体可変領域は、生まれつきゲノムに存在する複数の **germline（生殖細胞系列）** gene segment を組み合わせ（**V(D)J recombination**）、その後さらに配列変化を蓄積することで多様化します。観測された抗体配列を reference germline sequence と比較することで、どの **V/J family** に近いか、germline からどの程度離れているか（**germline identity**）を推定できます。
+抗体可変領域は、生まれつきゲノムに存在する複数の **germline（生殖細胞系列）** gene segment を組み合わせ（**V(D)J recombination**）、その後さらに配列変化を蓄積することで多様化します。観測された抗体配列を reference germline sequence と比較することで、どの **V family / J gene** に近いかを推定できます。また、V領域については、推定された germline V 配列とどの程度似ているかを **germline identity** として表します（0–1 スケール。1.0 は、その計算のもとで assigned germline V reference と一致）。
 
-germline identity が低い（つまり inferred germline から遠い）ことは、**somatic hypermutation（体細胞超変異, SHM）** — 抗体の成熟過程で蓄積しうる配列多様化 — などによる配列の乖離を反映し得ます。
+germline identity が低いことは、推定された germline V reference から配列がより大きく乖離していることを意味します。その乖離には、**somatic hypermutation（体細胞超変異, SHM）** — 抗体の成熟過程で蓄積しうる配列多様化 — などによる変化が含まれ得ます。
 
-**重要:** germline から遠いほど良い／近いほど良い、という意味ではありません。SHM の多さが親和性や developability の良し悪しを直接意味するわけでもありません。記述子として扱い、予測との関係は各自で検討してください。
+**重要:** identity が低いほど良い／高いほど良い、という意味ではありません。SHM の多さが親和性や developability の良し悪しを直接意味するわけでもありません。記述子として扱い、予測との関係は各自で検討してください。
 
 ### CDR length
 
 **CDR**（相補性決定領域）は抗原認識に関わる可変性の高いループです。長さや配列組成は局所的な形・構造・露出する表面の化学的性質に影響しうるため、CDR length は有用な配列由来の記述子になり得ます。特定の CDR が TmApp / HIC を決める、といった主張はしません。
+
+配布している CDR length は、原研究の mmc2 に含まれる IMGT 区分済みの CDR 配列から計算しています。別の IMGT / ANARCI 実装で再計算すると、境界定義の違いにより一部で長さがわずかに異なる場合があります。正確な定義は `DATA_DICTIONARY.md` を参照してください。
 
 ### light-chain type（κ / λ）
 
@@ -132,7 +134,7 @@ germline identity が低い（つまり inferred germline から遠い）こと�
 
 ### 任意リソースであり、特権的なラベル情報ではない
 
-> これらのアノテーションファイルは **任意の便宜的リソース** です。提供された抗体配列から導出されており、追加の実験的な TmApp / HIC 情報は含みません。
+> これらのアノテーションファイルは **任意の便宜的リソース** です。提供された VH/VL 配列に基づく配列由来の抗体アノテーションであり、追加の実験的な TmApp / HIC 情報は含みません。
 
 無視して `heavy` / `light` だけを使っても構いません。公式スコアラーはアノテーションファイルを使いません。
 

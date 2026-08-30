@@ -19,43 +19,44 @@
     "HIC"
   ],
   "build_script": "competition/organizer/scripts/build_competition_data.py",
-  "git_commit": "15168b88bff46a450f91ec5dfd4d381ca5d7a1b9",
-  "created_utc": "2026-08-30T22:00:23Z",
+  "git_commit": "PENDING",
+  "created_utc": "2026-08-30T22:24:02Z",
   "file_sha256": {
     "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
     "test_features.csv": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
     "sample_submission.csv": "fb07f0df42bdce9bf7cd2d79e6fbbb98fffaaefae6f2c9c105ad04b421f383e1",
-    "dev_annotations.csv": "999982109f93be9f1d5a0d081cc4afd931826a7fa4f32dad2d659683c754089f",
-    "test_annotations.csv": "820157e7dd2316499e320c045629f86c74a9a950f4c47e1fb2a9e1e7de3951da",
+    "dev_annotations.csv": "b54a3d6bdf56953e19924c4fc462befd4353b6a8b833a22fda879a6268e517d6",
+    "test_annotations.csv": "5d6cbcfa64ce4f82eb79efb47049a26a5ded18212d3e50a48ca567c67cd2d646",
     "solution.csv": "b5ed604205b5f524cedc752944c6c2de2eabdf2e661c1ee6aa593b79b515d2f7",
-    "participant/README.md": "026bbcd534fbe81219487536884f30b0dbe0c72284ec7663c1fb28b0054cabcd",
-    "participant/README_ja.md": "befd7b5d742b3a47ecf972eaead5d6031a7c56c44f5c30cf54aaccd496a59922",
-    "DATA_DICTIONARY.md": "06e14196e263aef2ee5a45393781fd930cb6011123ff7694592e4552c2da83b6",
-    "COMPETITION_SPEC.md": "ccd7d7621d6981947ec2a83b0b903f1195ef95f5c4f3c7ddd0c5f5dd6413dd12",
-    "PROVENANCE.md": "00d8c109044f7c21433f8d1821c2fe5a882286a7a2b4f81f7f28ca325dd5a8fd",
+    "participant/README.md": "90b96fc1ee0ce09ee0f2a0b9a7754b6ceb149cc0e64c00454495706c042e075f",
+    "participant/README_ja.md": "2f008fac7f543a2e25c1ed8f11f74ddb57e88cc3e7eff703a985a2a994a06c27",
+    "DATA_DICTIONARY.md": "5b7b3a2a0a8deb61c6b8f21538b7952bb8994ff8c0fae3d0ec8c50a0556072ba",
+    "COMPETITION_SPEC.md": "12a41e6f8c97afb6fae5eef51f0ac5306ad239baaf219b50c47bf98e23377708",
+    "PROVENANCE.md": "cbfe6d000480b26748f849a227fc60ffa5676bfee27d01f6bb04768ca12ccd76",
     "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
-    "ANNOTATION_INVENTORY.md": "4fefc6755378fc7605310a3c4ff4991d367953f121803f7480e9ed841fbe9906",
-    "ANNOTATION_LEAKAGE_AUDIT.md": "275756ee8cf1d50724299d5ee79a87d2b3c8f9d9917be98f1ce81f8da5bc34e7",
-    "V1_RELEASE_AUDIT.md": "369258247f73f76daf7c2813e01e64e64634a04dfa7f92105dbc9898574e6d7b"
+    "CDR_ANNOTATION_SOURCE_AUDIT.md": "633bab3d4992ebb9706cea4d4d37c90a990130e38e87cf3d82aed2c3f1467093",
+    "V1_FINAL_CORRECTION_AUDIT.md": "d2ea4676e727066df062a42f8f25787a8c15d8e46304d5305e7c315f6ecd8a8d"
   },
+  "core_csv_unchanged_vs_rc3": true,
+  "superseded_prepublication_v1_0_sha256": "c52aa9425836cdc934b42c7d0ead6d8663908b703e72dbb1b55e098001320e79",
   "release_archive": {
     "filename": "antibody_developability_competition_v1.0.zip",
-    "sha256": "c52aa9425836cdc934b42c7d0ead6d8663908b703e72dbb1b55e098001320e79",
+    "sha256": "36f29a211026dbef3d8e13b0fdada4a88828d13396c3d25e5eb00bdac6032a36",
     "members": [
       {
         "name": "README.md",
-        "sha256": "026bbcd534fbe81219487536884f30b0dbe0c72284ec7663c1fb28b0054cabcd",
-        "nbytes": 20131
+        "sha256": "90b96fc1ee0ce09ee0f2a0b9a7754b6ceb149cc0e64c00454495706c042e075f",
+        "nbytes": 20529
       },
       {
         "name": "README_ja.md",
-        "sha256": "befd7b5d742b3a47ecf972eaead5d6031a7c56c44f5c30cf54aaccd496a59922",
-        "nbytes": 22664
+        "sha256": "2f008fac7f543a2e25c1ed8f11f74ddb57e88cc3e7eff703a985a2a994a06c27",
+        "nbytes": 23303
       },
       {
         "name": "data/DATA_DICTIONARY.md",
-        "sha256": "06e14196e263aef2ee5a45393781fd930cb6011123ff7694592e4552c2da83b6",
-        "nbytes": 6588
+        "sha256": "5b7b3a2a0a8deb61c6b8f21538b7952bb8994ff8c0fae3d0ec8c50a0556072ba",
+        "nbytes": 6990
       },
       {
         "name": "data/dev.csv",
@@ -64,8 +65,8 @@
       },
       {
         "name": "data/dev_annotations.csv",
-        "sha256": "999982109f93be9f1d5a0d081cc4afd931826a7fa4f32dad2d659683c754089f",
-        "nbytes": 13394
+        "sha256": "b54a3d6bdf56953e19924c4fc462befd4353b6a8b833a22fda879a6268e517d6",
+        "nbytes": 13390
       },
       {
         "name": "data/sample_submission.csv",
@@ -74,8 +75,8 @@
       },
       {
         "name": "data/test_annotations.csv",
-        "sha256": "820157e7dd2316499e320c045629f86c74a9a950f4c47e1fb2a9e1e7de3951da",
-        "nbytes": 13673
+        "sha256": "5d6cbcfa64ce4f82eb79efb47049a26a5ded18212d3e50a48ca567c67cd2d646",
+        "nbytes": 13669
       },
       {
         "name": "data/test_features.csv",
@@ -85,9 +86,5 @@
     ],
     "zip_timestamp_normalized": true,
     "zip_rebuild_byte_identical": true
-  },
-  "previous_release_archive": "antibody_developability_competition_v1.0-rc3.zip",
-  "core_csv_unchanged_vs_rc3": true,
-  "git_commit_note": "v1.0 annotation release content commit; metadata SHA updated in follow-up if needed.",
-  "metadata_commit": "6b4007d62aa4dbabab8943bc84041de6b7842370"
+  }
 }

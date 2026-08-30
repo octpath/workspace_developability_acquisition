@@ -28,8 +28,8 @@ Coverage on competition population (N=324): every preferred ANARCI/PL field belo
 | `PL_vl_family` | same | ANARCI V-gene → family (`VK#`/`VL#`) | Yes | Yes | Yes | 0 | Yes | **INCLUDE** as `light_v_family` |
 | `PL_anarci_vh_v_gene` | same | ANARCI allele-level V gene | Yes | Yes | Yes | 0 | Yes (but allele-precise) | **EXCLUDE** — prefer family level for robustness |
 | `PL_anarci_vl_v_gene` | same | ANARCI allele-level V gene | Yes | Yes | Yes | 0 | Yes (but allele-precise) | **EXCLUDE** — prefer family |
-| `PL_anarci_vh_j_gene` | same | ANARCI J allele (e.g. `IGHJ4*01`) | Yes | Yes | Yes | 0 | Yes | **INCLUDE** derived `heavy_j_family` (`JH#`) |
-| `PL_anarci_vl_j_gene` | same | ANARCI J allele | Yes | Yes | Yes | 0 | Yes | **INCLUDE** derived `light_j_family` (`JK#`/`JL#`) |
+| `PL_anarci_vh_j_gene` | same | ANARCI J allele (e.g. `IGHJ4*01`) | Yes | Yes | Yes | 0 | Yes | **INCLUDE** derived `heavy_j_gene` (`JH#`) |
+| `PL_anarci_vl_j_gene` | same | ANARCI J allele | Yes | Yes | Yes | 0 | Yes | **INCLUDE** derived `light_j_gene` (`JK#`/`JL#`) |
 | `PL_kappa_lambda` | same | ANARCI light chain type | Yes | Yes | Yes | 0 | Yes | **INCLUDE** as `light_chain_type` |
 | `PL_H_CDR1_len` … `PL_L_CDR3_len` | same | Length of author mmc2 IMGT CDR segment strings (`AUTHOR_MMC2_IMGT_SEGMENTS`); concat = VH/VL | Yes (segment lengths of provided sequences) | Yes | Yes | 0 | Yes if provenance clear | **INCLUDE** as `h_cdr*_length` / `l_cdr*_length` |
 | `H_CDR1`…`L_FR4` region strings | same | Author mmc2 IMGT segments | Yes | Yes | Yes | 0 | Borderline (full substrings redundant with sequences) | **EXCLUDE** — lengths only; avoid shipping full region text |
@@ -55,9 +55,9 @@ Coverage on competition population (N=324): every preferred ANARCI/PL field belo
 | Distributed column | Source mapping |
 |---|---|
 | `heavy_v_family` | `PL_vh_family` |
-| `heavy_j_family` | family parsed from `PL_anarci_vh_j_gene` |
+| `heavy_j_gene` | family parsed from `PL_anarci_vh_j_gene` |
 | `light_v_family` | `PL_vl_family` |
-| `light_j_family` | family parsed from `PL_anarci_vl_j_gene` |
+| `light_j_gene` | family parsed from `PL_anarci_vl_j_gene` |
 | `light_chain_type` | `PL_kappa_lambda` (`kappa`/`lambda`) |
 | `h_cdr1_length` … `h_cdr3_length` | `PL_H_CDR*_len` |
 | `l_cdr1_length` … `l_cdr3_length` | `PL_L_CDR*_len` |

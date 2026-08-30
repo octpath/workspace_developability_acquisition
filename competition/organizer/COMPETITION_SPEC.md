@@ -48,7 +48,7 @@ Two independent regression tracks, same antibodies / same Public–Private mask:
 
 Optional **sequence-derived antibody annotations** (not submission requirements; **not** used by the scorer):
 
-`id,heavy_v_family,heavy_j_family,light_v_family,light_j_family,light_chain_type,h_cdr1_length,h_cdr2_length,h_cdr3_length,l_cdr1_length,l_cdr2_length,l_cdr3_length,heavy_germline_identity,light_germline_identity`
+`id,heavy_v_family,heavy_j_gene,light_v_family,light_j_gene,light_chain_type,h_cdr1_length,h_cdr2_length,h_cdr3_length,l_cdr1_length,l_cdr2_length,l_cdr3_length,heavy_germline_identity,light_germline_identity`
 
 - Sequence / reference-annotation derived only  
 - Same procedure for Dev and Test  

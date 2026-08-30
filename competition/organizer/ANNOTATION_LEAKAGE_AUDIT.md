@@ -10,9 +10,9 @@ Principle: each distributed annotation must be derivable from sequence + documen
 |---|---|---|---|---|---|
 | `id` | Join key (not a bio feature) | Yes | Yes | Yes | PASS |
 | `heavy_v_family` | Yes (ANARCI on VH) | Yes | Yes | Yes | PASS |
-| `heavy_j_family` | Yes (ANARCI on VH) | Yes | Yes | Yes | PASS |
+| `heavy_j_gene` | Yes (ANARCI on VH) | Yes | Yes | Yes | PASS |
 | `light_v_family` | Yes (ANARCI on VL) | Yes | Yes | Yes | PASS |
-| `light_j_family` | Yes (ANARCI on VL) | Yes | Yes | Yes | PASS |
+| `light_j_gene` | Yes (ANARCI on VL) | Yes | Yes | Yes | PASS |
 | `light_chain_type` | Yes (ANARCI κ/λ) | Yes | Yes | Yes | PASS |
 | `h_cdr1_length` | Yes (IMGT CDR segment length of VH) | Yes | Yes | Yes | PASS |
 | `h_cdr2_length` | Yes | Yes | Yes | Yes | PASS |

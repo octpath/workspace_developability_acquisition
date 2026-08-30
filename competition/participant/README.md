@@ -87,7 +87,7 @@ You do **not** need to be an immunologist to participate. Many strong approaches
 
 ## 5. Sequence-derived antibody annotations
 
-Antibody sequences can also be described using antibody-specific biological annotations. For convenience, we provide a small optional set of **sequence-derived antibody annotations** inferred from the VH/VL sequences themselves.
+Antibody sequences can also be described using antibody-specific biological annotations. For convenience, we provide a small optional set of **sequence-derived antibody annotations based on the provided VH/VL sequences**.
 
 | File | Role | N |
 |---|---|---:|
@@ -98,7 +98,7 @@ Join to `dev.csv` / `test_features.csv` by `id`. These files do **not** duplicat
 
 ### What is included (where available)
 
-- Inferred **V/J families** for heavy and light chains  
+- Inferred **V family** and **J gene** for heavy and light chains  
 - **Light-chain type** (`kappa` / `lambda`)  
 - **CDR lengths** (HCDR1–3, LCDR1–3)  
 - **Germline identity** for heavy and light V regions (0–1 scale)
@@ -107,15 +107,17 @@ See `DATA_DICTIONARY.md` for exact definitions, tools, and numbering conventions
 
 ### Germline (short intuition)
 
-Antibody variable regions are assembled from inherited **germline** gene segments (V, D, and J; often summarized as **V(D)J recombination**) and are then further diversified. By comparing an observed antibody sequence with reference germline sequences, one can infer a likely **V/J family** and measure how similar the observed sequence remains to its inferred germline reference (**germline identity**).
+Antibody variable regions are assembled from inherited **germline** gene segments (V, D, and J; often summarized as **V(D)J recombination**) and are then further diversified. By comparing an observed antibody sequence with reference germline sequences, one can infer a likely **V family / J gene**. For the V region, **germline identity** measures how similar the observed sequence is to its ANARCI-assigned germline V reference (scale 0–1; 1.0 = identical under that calculation).
 
-Lower germline identity (equivalently, greater distance from the inferred germline) can reflect more sequence divergence, including changes accumulated through **somatic hypermutation (SHM)** — sequence diversification that can accumulate during antibody maturation.
+Lower germline identity means greater sequence divergence from the inferred germline V reference. That divergence can include changes accumulated through **somatic hypermutation (SHM)** — sequence diversification that can accumulate during antibody maturation.
 
-**Important:** germline distance is **not** affinity, and more SHM does **not** mean a “better” or “worse” antibody or developability outcome. Treat these fields as descriptors and investigate predictive relationships yourself.
+**Important:** lower identity is **not** inherently good or bad; more SHM is **not** inherently better or worse; germline identity is **not** affinity and **not** a developability score. Treat these fields as descriptors and investigate predictive relationships yourself.
 
 ### CDR lengths
 
 **CDRs** (complementarity-determining regions) are highly variable loops involved in antigen recognition. Their lengths (and sequence composition) can affect local geometry, structure, and exposed surface chemistry, so CDR lengths are useful sequence-derived descriptors. We do **not** claim that any particular CDR determines TmApp or HIC.
+
+The distributed CDR lengths use the IMGT-segmented CDR regions provided with the source-study sequences (Shehata mmc2). Other IMGT/ANARCI implementations may place some boundaries slightly differently. See `DATA_DICTIONARY.md` for the exact convention.
 
 ### Light-chain type
 
@@ -123,7 +125,7 @@ Human antibodies commonly use one of two light-chain types: **kappa** or **lambd
 
 ### Optional — not privileged label information
 
-> These annotation files are **optional convenience resources**. They are derived from the provided antibody sequences and do **not** contain additional experimental TmApp or HIC information.
+> These annotation files are **optional convenience resources**. They are sequence-derived antibody annotations based on the provided VH/VL sequences and do **not** contain additional experimental TmApp or HIC information.
 
 Participants are free to ignore them and work directly from `heavy` / `light` sequences. The official scorer does **not** use the annotation files.
 

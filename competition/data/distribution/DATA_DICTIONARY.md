@@ -113,14 +113,14 @@ Missing-value policy for all distributed annotation columns in this package: **n
 | Method | ANARCI IMGT numbering + germline V assignment; family parsed from assigned V gene |
 | Missing | none in v1.0 |
 
-### `heavy_j_family`
+### `heavy_j_gene`
 
 | | |
 |---|---|
 | Type | categorical string |
-| Definition | Inferred heavy-chain **J-gene family** (e.g. `JH4`) |
+| Definition | Inferred heavy-chain **J gene** (allele suffix removed), e.g. `JH4` |
 | Possible values | `JH1`…`JH6` (observed subset) |
-| Method | ANARCI J-gene assignment; family = gene stem before allele (`IGHJ4*01` → `JH4`) |
+| Method | ANARCI allele-level J call → gene stem (`IGHJ4*01` → `JH4`). This is a **J gene**, not a broad J-gene family. |
 | Missing | none in v1.0 |
 
 ### `light_v_family`
@@ -133,14 +133,14 @@ Missing-value policy for all distributed annotation columns in this package: **n
 | Method | ANARCI (same procedure as heavy) |
 | Missing | none in v1.0 |
 
-### `light_j_family`
+### `light_j_gene`
 
 | | |
 |---|---|
 | Type | categorical string |
-| Definition | Inferred light-chain **J-gene family** (`JK#` or `JL#`) |
+| Definition | Inferred light-chain **J gene** (allele suffix removed): `JK#` or `JL#` |
 | Possible values | e.g. `JK1`, `JL2`, … |
-| Method | ANARCI J assignment; `IGKJ*` → `JK*`, `IGLJ*` → `JL*` |
+| Method | ANARCI allele-level J call → gene stem (`IGKJ1*01` → `JK1`, `IGLJ2*01` → `JL2`). This is a **J gene**, not a broad J-gene family. |
 | Missing | none in v1.0 |
 
 ### `light_chain_type`
@@ -161,7 +161,7 @@ Missing-value policy for all distributed annotation columns in this package: **n
 | Type | integer |
 | Definition | Amino-acid length of heavy-chain CDR1 / CDR2 / CDR3 |
 | Unit | residue count |
-| Method / convention | **`AUTHOR_MMC2_IMGT_SEGMENTS`**: length of the IMGT CDR segment strings published with the source sequences (Shehata mmc2). Those FR/CDR segments concatenate exactly to the distributed `heavy` sequence. |
+| Method / convention | **`AUTHOR_MMC2_IMGT_SEGMENTS`**: length of the IMGT CDR segment strings from Shehata mmc2 (`VH CDR1`…`VH CDR3`), after removing alignment gap characters (`-`). Gap-stripped FR/CDR segments concatenate exactly to the distributed `heavy` sequence. |
 | Missing | none in v1.0 |
 | Note | Participants may also recompute CDR lengths with independent IMGT/ANARCI tools; boundaries can differ slightly by convention |
 
@@ -172,7 +172,7 @@ Missing-value policy for all distributed annotation columns in this package: **n
 | Type | integer |
 | Definition | Amino-acid length of light-chain CDR1 / CDR2 / CDR3 |
 | Unit | residue count |
-| Method / convention | Same `AUTHOR_MMC2_IMGT_SEGMENTS` scheme as heavy |
+| Method / convention | Same `AUTHOR_MMC2_IMGT_SEGMENTS` scheme as heavy (mmc2 `VL CDR*` segments, gap characters removed) |
 | Missing | none in v1.0 |
 
 ### `heavy_germline_identity`
@@ -180,10 +180,10 @@ Missing-value policy for all distributed annotation columns in this package: **n
 | | |
 |---|---|
 | Type | float |
-| Definition | Sequence identity of the observed VH to the ANARCI-assigned germline **V allele** |
-| Scale | **0–1** (1.0 = identical to assigned germline V reference under ANARCI’s identity) |
+| Definition | Sequence **identity** (similarity) of the observed VH V region to the ANARCI-assigned germline **V allele/reference** |
+| Scale | **0–1**; larger = more similar; **1.0** = identical under ANARCI’s identity calculation |
 | Method | ANARCI `run_germline_assignment` V-gene identity |
-| Related distance | germline distance ≈ `1 − identity` (not shipped separately) |
+| Optional relation | approximate divergence descriptor ≈ `1 − identity` (not distributed) |
 | Missing | none in v1.0 |
 | Caution | Not a quality score; not affinity; not developability |
 
@@ -192,7 +192,7 @@ Missing-value policy for all distributed annotation columns in this package: **n
 | | |
 |---|---|
 | Type | float |
-| Definition | Sequence identity of the observed VL to the ANARCI-assigned germline **V allele** |
-| Scale | **0–1** |
+| Definition | Sequence **identity** (similarity) of the observed VL V region to the ANARCI-assigned germline **V allele/reference** |
+| Scale | **0–1**; larger = more similar; **1.0** = identical under ANARCI’s identity calculation |
 | Method | Same as heavy |
 | Missing | none in v1.0 |

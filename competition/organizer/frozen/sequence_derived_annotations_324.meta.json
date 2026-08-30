@@ -3,9 +3,9 @@
   "columns": [
     "id",
     "heavy_v_family",
-    "heavy_j_family",
+    "heavy_j_gene",
     "light_v_family",
-    "light_j_family",
+    "light_j_gene",
     "light_chain_type",
     "h_cdr1_length",
     "h_cdr2_length",
@@ -21,5 +21,6 @@
   "frozen_sha256": "bf88b779211e36910c8d2bc0c68f327c1d25e811a5fbd4213fa57a469c7faaab",
   "germline_tool": "ANARCI (imgt scheme, human)",
   "cdr_scheme": "AUTHOR_MMC2_IMGT_SEGMENTS",
-  "note": "Frozen extract for competition packaging; rebuild via build_competition_data.py"
+  "note": "J columns named *_j_gene (allele-stripped gene stems), not family. V remains family-level.",
+  "sha256": "0c4ffcfd105fd1ea4c994077909cae6f52c841fc0014f74c7a226f5beb8e3d44"
 }

@@ -30,9 +30,9 @@ SPLIT_MANIFEST = ORG_OUT / "SPLIT_MANIFEST.json"
 ANN_COLUMNS = [
     "id",
     "heavy_v_family",
-    "heavy_j_family",
+    "heavy_j_gene",
     "light_v_family",
-    "light_j_family",
+    "light_j_gene",
     "light_chain_type",
     "h_cdr1_length",
     "h_cdr2_length",

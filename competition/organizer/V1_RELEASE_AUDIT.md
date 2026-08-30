@@ -66,9 +66,9 @@ Overall:
 | Column | Meaning | Type | Derivation | Missing N Dev | Missing N Test | Participant-safe |
 |---|---|---|---|---:|---:|---|
 | `heavy_v_family` | Inferred heavy V-gene family | categorical | ANARCI IMGT germline V → family | 0 | 0 | Yes |
-| `heavy_j_family` | Inferred heavy J-gene family | categorical | ANARCI J allele → JH# | 0 | 0 | Yes |
+| `heavy_j_gene` | Inferred heavy J-gene family | categorical | ANARCI J allele → JH# | 0 | 0 | Yes |
 | `light_v_family` | Inferred light V-gene family | categorical | ANARCI IMGT germline V → family | 0 | 0 | Yes |
-| `light_j_family` | Inferred light J-gene family | categorical | ANARCI J allele → JK#/JL# | 0 | 0 | Yes |
+| `light_j_gene` | Inferred light J-gene family | categorical | ANARCI J allele → JK#/JL# | 0 | 0 | Yes |
 | `light_chain_type` | kappa or lambda | categorical | ANARCI chain type | 0 | 0 | Yes |
 | `h_cdr1_length` | Heavy CDR1 AA length | int | AUTHOR_MMC2_IMGT_SEGMENTS | 0 | 0 | Yes |
 | `h_cdr2_length` | Heavy CDR2 AA length | int | AUTHOR_MMC2_IMGT_SEGMENTS | 0 | 0 | Yes |

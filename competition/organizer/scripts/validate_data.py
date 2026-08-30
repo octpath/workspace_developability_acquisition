@@ -123,9 +123,9 @@ def validate(dist: Path = DIST, secret: Path = SECRET) -> dict:
     ann_cols = [
         "id",
         "heavy_v_family",
-        "heavy_j_family",
+        "heavy_j_gene",
         "light_v_family",
-        "light_j_family",
+        "light_j_gene",
         "light_chain_type",
         "h_cdr1_length",
         "h_cdr2_length",
@@ -161,6 +161,12 @@ def validate(dist: Path = DIST, secret: Path = SECRET) -> dict:
             continue
         ann = pd.read_csv(path)
         check(list(ann.columns) == ann_cols, f"{ann_name} columns", errors, ok)
+        check(
+            "heavy_j_family" not in ann.columns and "light_j_family" not in ann.columns,
+            f"{ann_name} has no legacy *_j_family columns",
+            errors,
+            ok,
+        )
         check(len(ann) == 162, f"{ann_name} N=162 (got {len(ann)})", errors, ok)
         check(ann.id.is_unique, f"{ann_name} IDs unique", errors, ok)
         check(set(ann.id) == set(base_df.id), f"{ann_name} ID set matches base CSV", errors, ok)
@@ -175,6 +181,44 @@ def validate(dist: Path = DIST, secret: Path = SECRET) -> dict:
             check(
                 set(ann.light_chain_type.dropna().astype(str)) <= {"kappa", "lambda"},
                 f"{ann_name} light_chain_type in {{kappa,lambda}}",
+                errors,
+                ok,
+            )
+            kappa = ann.light_chain_type.astype(str) == "kappa"
+            lam = ann.light_chain_type.astype(str) == "lambda"
+            check(
+                ann.loc[kappa, "light_v_family"].astype(str).str.startswith("VK").all(),
+                f"{ann_name} kappa rows have VK* V family",
+                errors,
+                ok,
+            )
+            check(
+                ann.loc[kappa, "light_j_gene"].astype(str).str.startswith("JK").all(),
+                f"{ann_name} kappa rows have JK* J gene",
+                errors,
+                ok,
+            )
+            check(
+                ann.loc[lam, "light_v_family"].astype(str).str.startswith("VL").all(),
+                f"{ann_name} lambda rows have VL* V family",
+                errors,
+                ok,
+            )
+            check(
+                ann.loc[lam, "light_j_gene"].astype(str).str.startswith("JL").all(),
+                f"{ann_name} lambda rows have JL* J gene",
+                errors,
+                ok,
+            )
+            check(
+                ann["heavy_v_family"].astype(str).str.startswith("VH").all(),
+                f"{ann_name} heavy_v_family is VH*",
+                errors,
+                ok,
+            )
+            check(
+                ann["heavy_j_gene"].astype(str).str.startswith("JH").all(),
+                f"{ann_name} heavy_j_gene is JH*",
                 errors,
                 ok,
             )
@@ -195,7 +239,7 @@ def validate(dist: Path = DIST, secret: Path = SECRET) -> dict:
                 vals = ann[c].astype(float)
                 check(vals.notna().all(), f"{ann_name}.{c} non-null", errors, ok)
                 check((vals >= 0).all() and (vals <= 1).all(), f"{ann_name}.{c} in [0,1]", errors, ok)
-        for c in ("heavy_v_family", "heavy_j_family", "light_v_family", "light_j_family"):
+        for c in ("heavy_v_family", "heavy_j_gene", "light_v_family", "light_j_gene"):
             if c in ann.columns:
                 check(ann[c].notna().all(), f"{ann_name}.{c} non-null", errors, ok)
                 check(

@@ -15,9 +15,9 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 CAT = [
     "heavy_v_family",
-    "heavy_j_family",
+    "heavy_j_gene",
     "light_v_family",
-    "light_j_family",
+    "light_j_gene",
     "light_chain_type",
 ]
 NUM = [

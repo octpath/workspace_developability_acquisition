@@ -1,4 +1,4 @@
-id,heavy_v_family,heavy_j_family,light_v_family,light_j_family,light_chain_type,h_cdr1_length,h_cdr2_length,h_cdr3_length,l_cdr1_length,l_cdr2_length,l_cdr3_length,heavy_germline_identity,light_germline_identity
+id,heavy_v_family,heavy_j_gene,light_v_family,light_j_gene,light_chain_type,h_cdr1_length,h_cdr2_length,h_cdr3_length,l_cdr1_length,l_cdr2_length,l_cdr3_length,heavy_germline_identity,light_germline_identity
 ADI-37124,VH1,JH5,VL3,JL1,lambda,9,17,16,11,7,11,0.7755102040816326,0.9010989010989012
 ADI-37125,VH3,JH5,VK3,JK5,kappa,9,19,15,12,7,9,0.87,0.978494623655914
 ADI-38498,VH3,JH6,VL3,JL1,lambda,9,17,20,11,7,11,0.9387755102040816,0.956043956043956

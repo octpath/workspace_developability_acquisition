@@ -135,21 +135,22 @@ Competition `heavy` / `light` sequences for the frozen N=324 population (`gate_b
 | Numbering scheme | **IMGT** (`scheme="imgt"`) |
 | Species filter | `allowed_species=["human"]` |
 | Germline assignment | `anarci.run_germline_assignment` against ANARCI embedded `all_germlines` |
-| CDR length convention | Author mmc2 **IMGT-segmented** FR/CDR columns; length = `len(segment)`; segments concatenate to VH/VL |
+| CDR length convention | Author mmc2 **IMGT-segmented** FR/CDR columns; gap characters (`-`) removed; length = `len(gap_stripped_segment)`; segments concatenate to distributed VH/VL |
+| Historical pip version | **Not recoverable as a pinned pip/PyPI version.** Preserved `.venv_b1` has no `anarci` dist-info/METADATA; package `__version__` string is `"1.b"` (source attribute only — not treated as a proven historical install pin). Annotations remain frozen from Gate B1. |
 
-Exact historical pip version string was not pinned in Gate B1 logs; annotations are **frozen** from the Gate B1 artifact rather than recomputed at packaging time. Rebuild path: join `sequence_derived_annotations_324.csv` by `id` in `build_competition_data.py`.
+Exact historical pip version string was not pinned in Gate B1 logs; annotations are **frozen** from the Gate B1 artifact rather than recomputed at packaging time. Rebuild path: join `sequence_derived_annotations_324.csv` by `id` in `build_competition_data.py`. See also `CDR_ANNOTATION_SOURCE_AUDIT.md`.
 
 ### Column mapping (frozen → distributed)
 
 | Distributed | Source field / transform |
 |---|---|
 | `heavy_v_family` | `PL_vh_family` |
-| `heavy_j_family` | family from `PL_anarci_vh_j_gene` (`IGHJ4*01` → `JH4`) |
+| `heavy_j_gene` | allele-stripped J **gene** stem from `PL_anarci_vh_j_gene` (`IGHJ4*01` → `JH4`) |
 | `light_v_family` | `PL_vl_family` |
-| `light_j_family` | family from `PL_anarci_vl_j_gene` |
+| `light_j_gene` | allele-stripped J **gene** stem from `PL_anarci_vl_j_gene` (`IGKJ1*01` → `JK1`) |
 | `light_chain_type` | `PL_kappa_lambda` |
-| `h_cdr*_length` / `l_cdr*_length` | `PL_*_CDR*_len` |
-| `heavy_germline_identity` | `PL_anarci_vh_v_identity` (0–1) |
+| `h_cdr*_length` / `l_cdr*_length` | `PL_*_CDR*_len` (= gap-stripped mmc2 IMGT CDR segment lengths) |
+| `heavy_germline_identity` | `PL_anarci_vh_v_identity` (0–1; similarity to assigned germline V) |
 | `light_germline_identity` | `PL_anarci_vl_v_identity` (0–1) |
 
 Postprocessing: select participant-safe columns only; drop allele-level V genes, redundant distances, author ORG_* fields, donor/B-cell/assay columns. Split role used **only** to partition Dev vs Test rows.
