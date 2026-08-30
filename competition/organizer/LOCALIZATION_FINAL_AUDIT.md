@@ -47,3 +47,6 @@ HIC provenance change:
 
 Overall:
     READY_TO_LAUNCH
+
+Git content commit:
+    a7254e444a7b2d31b406dd2cf2fd9120d15819bc
