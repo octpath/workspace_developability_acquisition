@@ -160,7 +160,9 @@ Focused first commit of competition package + release ZIP:
 
     f4e13fc84fb970e20a24db1acc88d21c3e0f7936
 
-Manifest `git_commit` field updated in a subsequent metadata-only commit.
+Manifest `git_commit` field points to that content commit; metadata update commit:
+
+    bf2b62c0b5d4447619734bb9d81668f767f47862
 
 
 ## Remaining items (non-blocking)
