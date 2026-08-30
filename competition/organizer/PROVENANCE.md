@@ -49,7 +49,8 @@ Confirmed / retained for participant-facing documentation:
 - TmApp = **apparent melting temperature** (°C).  
 - Measurement concerns antibody **Fab** fragments.  
 - Assay method: **differential scanning fluorimetry (DSF)**.  
-- Purified Fab samples heated while fluorescence monitored; apparent transition assigned from the thermal fluorescence curve / derivative per study method.  
+- Purified Fab samples heated while fluorescence monitored; apparent transition assigned from the thermal fluorescence curve (or its derivative) per study method.  
+  (Local audits establish DSF / Fab TmApp; they do **not** independently lock “first derivative only,” so participant docs avoid that stronger claim.)  
 - Used as an indicator related to conformational / thermal stability and resistance to unfolding.  
 
 Supporting artifacts:
@@ -63,7 +64,7 @@ Do not over-attribute generic dye-mechanism details (e.g. SYPRO Orange) as expli
 ### HIC
 
 - Continuous **IgG** HIC retention time in minutes from mmc2.  
-- Hydrophobicity / aggregation-propensity **proxy**, not an aggregation kinetic assay.  
+- Hydrophobicity-related developability readout; associated with self-association / aggregation-related risk, but **not** a direct aggregation assay.  
 
 Interpretive diagnostic bands (not competition classes): LOW < 10.5, MEDIUM 10.5–11.5, HIGH > 11.5 (minutes).
 

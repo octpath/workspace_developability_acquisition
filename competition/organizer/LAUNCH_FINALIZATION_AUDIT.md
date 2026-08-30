@@ -175,3 +175,30 @@ Manifest `git_commit` field points to that content commit; metadata update commi
 ## Decision
 
 **READY_TO_LAUNCH**
+
+
+---
+
+## Localization update (1.0-rc2)
+
+Japanese README:
+    PASS
+
+English/Japanese rule sync:
+    PASS
+
+HIC provenance wording tightened:
+    PASS
+
+New release candidate:
+    filename: antibody_developability_competition_v1.0-rc2.zip
+    SHA-256: 77e7eef1c37d2e457a7d38c1a874019ea974026a82fbf8a65f4f6076f69c3d09
+
+ZIP leakage:
+    PASS
+
+Extracted-ZIP dry run:
+    PASS
+
+Overall remains:
+    READY_TO_LAUNCH
