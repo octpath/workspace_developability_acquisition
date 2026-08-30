@@ -36,7 +36,7 @@
     "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
     "ANNOTATION_INVENTORY.md": "4fefc6755378fc7605310a3c4ff4991d367953f121803f7480e9ed841fbe9906",
     "ANNOTATION_LEAKAGE_AUDIT.md": "275756ee8cf1d50724299d5ee79a87d2b3c8f9d9917be98f1ce81f8da5bc34e7",
-    "V1_RELEASE_AUDIT.md": "07a11d243abf0eb0b942b8be2b44f0377fab74e101b8cad24bfe9fbad5f1defe"
+    "V1_RELEASE_AUDIT.md": "369258247f73f76daf7c2813e01e64e64634a04dfa7f92105dbc9898574e6d7b"
   },
   "release_archive": {
     "filename": "antibody_developability_competition_v1.0.zip",
@@ -88,5 +88,6 @@
   },
   "previous_release_archive": "antibody_developability_competition_v1.0-rc3.zip",
   "core_csv_unchanged_vs_rc3": true,
-  "git_commit_note": "v1.0 annotation release content commit; metadata SHA updated in follow-up if needed."
+  "git_commit_note": "v1.0 annotation release content commit; metadata SHA updated in follow-up if needed.",
+  "metadata_commit": "PENDING"
 }

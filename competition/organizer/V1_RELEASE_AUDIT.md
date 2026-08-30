@@ -52,6 +52,9 @@ SHA-256:
 Git commit:
     15168b88bff46a450f91ec5dfd4d381ca5d7a1b9
 
+Metadata commit:
+    cf144ed1f067a09452d78a2038596f4d74ae6b01
+
 Overall:
     RELEASED_V1_READY
 
