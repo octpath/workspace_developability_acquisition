@@ -1,7 +1,7 @@
 # Competition specification (organizer)
 
-Working title: **Antibody Developability — TmApp & HIC**  
-Package version: **1.0-rc1**  
+Competition title: **Antibody Developability — TmApp & HIC**  
+Package version: **1.0-rc3**  
 Status: **release candidate** — production split frozen.
 
 ---

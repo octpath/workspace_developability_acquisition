@@ -2,8 +2,8 @@
 
 日本語版: [README_ja.md](README_ja.md)
 
-**Working title:** Antibody Developability — TmApp & HIC  
-**Package version:** 1.0-rc2  
+**Competition title:** Antibody Developability — TmApp & HIC  
+**Package version:** 1.0-rc3  
 
 **Tracks:** TmApp · HIC retention time  
 **Primary metric (each track):** Mean Absolute Error (MAE) — lower is better  

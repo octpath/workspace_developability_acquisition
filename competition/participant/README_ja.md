@@ -2,8 +2,8 @@
 
 English version: [README.md](README.md)
 
-**Working title:** Antibody Developability — TmApp & HIC  
-**Package version:** 1.0-rc2  
+**Competition title:** Antibody Developability — TmApp & HIC  
+**Package version:** 1.0-rc3  
 
 **Tracks:** TmApp · HIC retention time  
 **各トラックの主評価指標:** Mean Absolute Error（MAE）— 小さいほど良い  
@@ -73,7 +73,7 @@ English version: [README.md](README.md)
 
 > 高価なプロセス開発や製造に進む前に、将来問題になりうる物性リスクを早期に把握すること。
 
-**注意:** TmApp や HIC だけでは、「この抗体は製造できる / できない」を直接決められません。これらは、定義された測定条件下での **early developability-related risk indicators（早期の開発適性リスク指標）** です。製造成功そのものを直接予測する指標ではありません。
+**注意:** TmApp や HIC だけでは、「この抗体は製造できる / できない」を直接判断することはできません。これらは、定義された測定条件のもとで得られる、**developability に関連する早期リスク指標**です。製造成功そのものを直接予測する指標ではありません。
 
 ---
 
@@ -84,7 +84,7 @@ English version: [README.md](README.md)
 - `heavy` = 重鎖可変領域（VH）のアミノ酸配列  
 - `light` = 軽鎖可変領域（VL）のアミノ酸配列  
 
-可変領域は抗原認識に中心的です。比較的保存された **フレームワーク領域（framework region）** と、より可変な **相補性決定領域（CDR; complementarity-determining region）** を含みます。特に CDR は抗原結合の幾何に強く寄与します。
+可変領域は抗原認識に中心的です。比較的保存された **フレームワーク領域（framework region）** と、より可変な **相補性決定領域（CDR; complementarity-determining region）** を含みます。特に CDR は、抗原結合部位の形状や抗原との結合様式に強く関与します。
 
 配列から物性を予測しうる理由の直感は次のとおりです。
 
@@ -136,7 +136,7 @@ Shehata らの研究では:
 
 ### Developability における意味
 
-構造安定性が高いほど、分子は構造ゆらぎに対して頑健になりえます。熱安定性が低いと、折りたたみ状態が比較的脆く、開発リスクが高まる場合もあります。
+構造安定性が高い分子は、熱などによる構造変化に対してより頑健であることが期待されます。熱安定性が低い場合には、折りたたみ状態が比較的脆く、developability 上のリスクが高まることがあります。
 
 **必須の注意:**
 
@@ -170,7 +170,7 @@ TmApp は developability に関連する **1つの軸** として扱ってくだ
 3. → 抗体分子同士の不要な相互作用 / self-association（自己会合）の傾向が増す可能性  
 4. → 凝集関連・溶解性・製剤化などの developability リスクと関連しうる  
 
-HIC retention time が長い抗体は、その測定条件ではより強い疎水的相互作用を示します。抗体表面に強い疎水性領域が露出していると、抗体同士の不要な相互作用や自己会合が起こりやすくなり、場合によっては凝集、溶解性、製剤化などの問題と **関連します**。
+HIC retention time が長い抗体は、その測定条件ではより強い疎水的相互作用を示します。抗体表面に強い疎水性領域が露出していると、抗体同士の不要な相互作用や自己会合が起こりやすくなり、場合によっては凝集、溶解性、製剤化などの問題と関連する可能性があります。
 
 **必須の注意:**
 
@@ -324,7 +324,7 @@ Public と Private は、TmApp と HIC で **同じ分割** を使います。
 
 Public は Test の固定部分集合、最終順位は held-out の Private を使います。
 
-どの行が Public / Private かは、参加者向けファイルからは分からないようになっています。逆推定しないでください。
+どの行が Public / Private に属するかは非公開です。
 
 ---
 
@@ -359,7 +359,7 @@ id,TmApp,HIC
 - `TmApp` と `HIC` の両方があり、いずれも **有限値**（NaN / Inf 不可）  
 - 採点は **`id` で join**（行順には依存しない）  
 
-**片方のトラックだけ試したい場合:** それでも両列が必要です。積極的にモデル化しない側は、学習セット中央値などの trivial 予測で構いません。
+**片方のトラックだけ試したい場合:** それでも両列が必要です。積極的にモデル化しない側は、学習セット中央値などの単純な予測で構いません。
 
 `sample_submission.csv` は両列とも Train 中央値の placeholder です。
 

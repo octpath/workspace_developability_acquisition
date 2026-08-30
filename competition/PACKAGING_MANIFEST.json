@@ -1,7 +1,7 @@
 {
-  "package_version": "1.0-rc2",
+  "package_version": "1.0-rc3",
   "package_name": "antibody_developability_tmapp_hic",
-  "working_title": "Antibody Developability \u2014 TmApp & HIC",
+  "competition_title": "Antibody Developability \u2014 TmApp & HIC",
   "production_split": {
     "split_id": "GEN_0001_B_20271100",
     "seed": 20271100,
@@ -18,38 +18,39 @@
     "HIC"
   ],
   "build_script": "competition/organizer/scripts/build_competition_data.py",
-  "git_commit": "a7254e444a7b2d31b406dd2cf2fd9120d15819bc",
-  "git_commit_note": "Localization/rc2 content commit; this field updated in follow-up metadata commit.",
-  "created_utc": "2026-08-30T20:19:16Z",
+  "git_commit": null,
+  "git_commit_note": "Filled after polish commit.",
+  "created_utc": "2026-08-30T20:31:04Z",
   "file_sha256": {
     "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
     "test_features.csv": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
     "sample_submission.csv": "fb07f0df42bdce9bf7cd2d79e6fbbb98fffaaefae6f2c9c105ad04b421f383e1",
     "solution.csv": "b5ed604205b5f524cedc752944c6c2de2eabdf2e661c1ee6aa593b79b515d2f7",
-    "participant/README.md": "1ef333810d185d75ea66bf0a0cf6b8862f548958d7d8315e683abdbfce27de6c",
-    "participant/README_ja.md": "6c8a039b201117cfc11ceae94759c24985433650155a75278a933a8e5bf21136",
+    "participant/README.md": "fbb1c097893b3e25eb047df1fdfe6a0210c014d1b4d73b118d0bf4adea13f013",
+    "participant/README_ja.md": "ee3f8bc4ebbb87b6b8ff9e918b0f75bc7d9fe0908b1aef0bd83f08c514ce5ed5",
     "DATA_DICTIONARY.md": "f9c6133afc489d06d54b735e536c44d239758d376bda10b4bf6bb3fe3a286c02",
-    "COMPETITION_SPEC.md": "02508c0f06934f5f5e609435255f1e6c3f5398af3a5a84450f8149e3c7673140",
+    "COMPETITION_SPEC.md": "4dbf9d515f96ed39c0c5196c9ffa4f2db1c7aadb44256cb05e8ed5e597178247",
     "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
     "PROVENANCE.md": "c9e867d7bbc81a58289ab5ead6b31e6ca4c7cc54f3f4b91a4954c196454e4074",
     "PACKAGING_AUDIT.md": "511ced240e99bfc2d4cbf414ded0e20a620ae20a2d81ab47fe0bb228e12a3980",
-    "LAUNCH_FINALIZATION_AUDIT.md": "65196ed5cc8c012ac3bcb0ed8a2c0e3a344abddd65828adaee97e42e0e8c0902",
-    "README_LANGUAGE_SYNC_AUDIT.md": "86b50ec9fac25a0169f991fe27b1c6ac98594c563f64081af2b8bfce7d083832",
-    "LOCALIZATION_FINAL_AUDIT.md": "5e017a58bf3b253a566d98421245ceadd4441eba3a7e421fc87044c10a7c9b31"
+    "LAUNCH_FINALIZATION_AUDIT.md": "0409abe952550d632795038a3f3dd30ff67b360d424c7c3aaf3f0bf0d9993004",
+    "README_LANGUAGE_SYNC_AUDIT.md": "ea3508bd33b3ee62cca906627452c65d321556472282837d461f79d67d7dc6ad",
+    "LOCALIZATION_FINAL_AUDIT.md": "5e017a58bf3b253a566d98421245ceadd4441eba3a7e421fc87044c10a7c9b31",
+    "README_POLISH_FINAL_AUDIT.md": "6ec939aa82709e5f3261aa37bd253370907c0e819dfeb55df1e77b5d258f73a0"
   },
   "release_archive": {
-    "filename": "antibody_developability_competition_v1.0-rc2.zip",
-    "sha256": "77e7eef1c37d2e457a7d38c1a874019ea974026a82fbf8a65f4f6076f69c3d09",
+    "filename": "antibody_developability_competition_v1.0-rc3.zip",
+    "sha256": "71fab2e1b788eb02f7727c49d5ffa22a91b3d71f46ac16e1aef400e695bc4b0b",
     "members": [
       {
         "name": "README.md",
-        "sha256": "1ef333810d185d75ea66bf0a0cf6b8862f548958d7d8315e683abdbfce27de6c",
-        "nbytes": 17086
+        "sha256": "fbb1c097893b3e25eb047df1fdfe6a0210c014d1b4d73b118d0bf4adea13f013",
+        "nbytes": 17090
       },
       {
         "name": "README_ja.md",
-        "sha256": "6c8a039b201117cfc11ceae94759c24985433650155a75278a933a8e5bf21136",
-        "nbytes": 19064
+        "sha256": "ee3f8bc4ebbb87b6b8ff9e918b0f75bc7d9fe0908b1aef0bd83f08c514ce5ed5",
+        "nbytes": 19083
       },
       {
         "name": "data/dev.csv",
@@ -75,5 +76,5 @@
     "zip_timestamp_normalized": true,
     "zip_rebuild_byte_identical": true
   },
-  "previous_release_archive": "antibody_developability_competition_v1.0-rc1.zip"
+  "previous_release_archive": "antibody_developability_competition_v1.0-rc2.zip"
 }

@@ -42,7 +42,7 @@ Overall:
 
 ---
 
-## Working title
+## Competition title
 
 **Antibody Developability — TmApp & HIC**
 
