@@ -68,7 +68,7 @@ Definitive SHA-256:
     36f29a211026dbef3d8e13b0fdada4a88828d13396c3d25e5eb00bdac6032a36
 
 Git commit:
-    PENDING
+    b24c3a714f6cd443f9c056b756c45855c6f2535e
 
 Overall:
     DEFINITIVE_V1_READY

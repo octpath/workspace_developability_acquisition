@@ -19,7 +19,7 @@
     "HIC"
   ],
   "build_script": "competition/organizer/scripts/build_competition_data.py",
-  "git_commit": "PENDING",
+  "git_commit": "b24c3a714f6cd443f9c056b756c45855c6f2535e",
   "created_utc": "2026-08-30T22:24:02Z",
   "file_sha256": {
     "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
@@ -35,7 +35,7 @@
     "PROVENANCE.md": "cbfe6d000480b26748f849a227fc60ffa5676bfee27d01f6bb04768ca12ccd76",
     "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
     "CDR_ANNOTATION_SOURCE_AUDIT.md": "633bab3d4992ebb9706cea4d4d37c90a990130e38e87cf3d82aed2c3f1467093",
-    "V1_FINAL_CORRECTION_AUDIT.md": "d2ea4676e727066df062a42f8f25787a8c15d8e46304d5305e7c315f6ecd8a8d"
+    "V1_FINAL_CORRECTION_AUDIT.md": "2c11cd3fd9038745b3cf4dbe453b9cecac168315bec5b05fb7fb4697f0ca5166"
   },
   "core_csv_unchanged_vs_rc3": true,
   "superseded_prepublication_v1_0_sha256": "c52aa9425836cdc934b42c7d0ead6d8663908b703e72dbb1b55e098001320e79",
