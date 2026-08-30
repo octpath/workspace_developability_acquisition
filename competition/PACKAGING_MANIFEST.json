@@ -89,5 +89,5 @@
   "previous_release_archive": "antibody_developability_competition_v1.0-rc3.zip",
   "core_csv_unchanged_vs_rc3": true,
   "git_commit_note": "v1.0 annotation release content commit; metadata SHA updated in follow-up if needed.",
-  "metadata_commit": "PENDING"
+  "metadata_commit": "6b4007d62aa4dbabab8943bc84041de6b7842370"
 }
