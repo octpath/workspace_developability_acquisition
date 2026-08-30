@@ -1,0 +1,13 @@
+{
+  "registry_sha256": "2bc0963082c69ace8473539382d8e8c0c37658c5bb439cb878072f3c7a31bbe7",
+  "software": {
+    "catboost": "1.2.10",
+    "lightgbm": "4.7.0",
+    "numpy": "2.5.2",
+    "optuna": "4.9.0",
+    "pandas": "3.0.5",
+    "python": "3.12.13",
+    "sklearn": "1.9.0",
+    "xgboost": "3.4.1"
+  }
+}

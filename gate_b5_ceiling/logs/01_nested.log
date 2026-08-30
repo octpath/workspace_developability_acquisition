@@ -1,0 +1,49 @@
+=== HIC nested stack ===
+HIC single CONST/CONST_MEDIAN
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:169: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:170: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = spearmanr(y, p).correlation
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/b5_common.py:182: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:249: RuntimeWarning: Mean of empty slice
+  "fold_pearson_mean": float(np.nanmean(rs)),
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:250: RuntimeWarning: All-NaN slice encountered
+  "fold_pearson_median": float(np.nanmedian(rs)),
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:252: RuntimeWarning: All-NaN slice encountered
+  "fold_pearson_min": float(np.nanmin(rs)),
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:253: RuntimeWarning: All-NaN slice encountered
+  "fold_pearson_max": float(np.nanmax(rs)),
+HIC single ESMFN_STRUCTURE/ElasticNet
+HIC single PLM_ESM2/PCA64/SVR
+HIC single PLM_ESM2/ElasticNet
+HIC single FUSION_ESM2_ESMFN/ElasticNet
+HIC single SEQ_SIMPLE/Ridge
+=== TmApp nested stack ===
+TmApp single CONST_MEDIAN
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:169: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:170: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = spearmanr(y, p).correlation
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/b5_common.py:182: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:249: RuntimeWarning: Mean of empty slice
+  "fold_pearson_mean": float(np.nanmean(rs)),
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:250: RuntimeWarning: All-NaN slice encountered
+  "fold_pearson_median": float(np.nanmedian(rs)),
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:252: RuntimeWarning: All-NaN slice encountered
+  "fold_pearson_min": float(np.nanmin(rs)),
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/01_nested_ensemble_pearson.py:253: RuntimeWarning: All-NaN slice encountered
+  "fold_pearson_max": float(np.nanmax(rs)),
+TmApp single BIO/Ridge
+TmApp single GERMLINE_REL/ElasticNet
+TmApp single PLM_ABLANG2/ElasticNet
+TmApp single PLM_ABLANG2/PCA32/SVR
+TmApp single FUSION_ABLANG2_BIO/ElasticNet
+TmApp single SEQ_SIMPLE/Ridge
+TmApp single IMGT_POS_HL/Ridge
+DONE nested/pearson in 1.5 min

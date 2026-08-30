@@ -1,0 +1,11 @@
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+   Updating https://github.com/facebookresearch/esm.git (HEAD)
+    Updated https://github.com/facebookresearch/esm.git (2b369911bb5b4b0dda914521b9475cad1656b2ac)
+Resolved 1 package in 2.09s
+   Building fair-esm @ git+https://github.com/facebookresearch/esm.git@2b369911bb5b4b0dda914521b9475cad1656b2ac
+      Built fair-esm @ git+https://github.com/facebookresearch/esm.git@2b369911bb5b4b0dda914521b9475cad1656b2ac
+Prepared 1 package in 113ms
+Uninstalled 1 package in 0.99ms
+Installed 1 package in 1ms
+ - fair-esm==2.0.0
+ + fair-esm==2.0.1 (from git+https://github.com/facebookresearch/esm.git@2b369911bb5b4b0dda914521b9475cad1656b2ac)

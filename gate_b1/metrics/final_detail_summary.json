@@ -1,0 +1,432 @@
+{
+  "summary": {
+    "PSR": {
+      "simple": {
+        "rep": "A2_physchem",
+        "model": "ElasticNet",
+        "cv": 0.2530353715536634,
+        "pub": 0.2155445702194051,
+        "priv": 0.1961525780414993
+      },
+      "hydro_only": {
+        "rep": "B_cdr_hydrophobicity_only",
+        "model": "Lasso",
+        "cv": -0.0255833852563905,
+        "pub": null,
+        "priv": null
+      },
+      "bio": {
+        "rep": "C_BIO_SHORTCUT",
+        "model": "Lasso",
+        "cv": 0.2266302791941625,
+        "pub": -0.0811517738123622,
+        "priv": 0.0804050867432004
+      },
+      "ablang2": {
+        "rep": "PLM_ablang2_default",
+        "model": "Ridge",
+        "cv": 0.068438726316382,
+        "pub": 0.0269340772623113,
+        "priv": 0.3125842659898507
+      },
+      "esm1b": {
+        "rep": "PLM_esm1b_t33_650M_UR50S",
+        "model": "ElasticNet",
+        "cv": 0.1784069671881481,
+        "pub": 0.1383159604378891,
+        "priv": 0.2033749052772385
+      },
+      "esm2": {
+        "rep": "PLM_esm2_t33_650M_UR50D",
+        "model": "Ridge",
+        "cv": 0.1890237943129928,
+        "pub": 0.147190055350672,
+        "priv": 0.2588864249277181
+      },
+      "esm2_cdr": {
+        "rep": "PLM_esm2_CDR6",
+        "model": "Ridge",
+        "cv": 0.2248491891049668,
+        "pub": 0.3217219166488373,
+        "priv": 0.2790635992230791
+      },
+      "str_abb": {
+        "rep": "STR_ABB_SASA",
+        "model": "Lasso",
+        "cv": 0.1746105678463417,
+        "pub": 0.122054781111222,
+        "priv": 0.2080062631010533
+      },
+      "str_esm": {
+        "rep": "STR_ESMF_SASA",
+        "model": "Ridge",
+        "cv": 0.1802694640439246,
+        "pub": 0.1749875580639568,
+        "priv": 0.0405648648554409
+      },
+      "str_sasa": {
+        "rep": "STR_ESMF_SASA",
+        "model": "Ridge",
+        "cv": 0.1802694640439246,
+        "pub": 0.1749875580639568,
+        "priv": 0.0405648648554409
+      },
+      "str_rasa": {
+        "rep": "STR_ABB_SASA_RASA",
+        "model": "ElasticNet",
+        "cv": 0.1441953396399012,
+        "pub": 0.1062492985503466,
+        "priv": 0.0375204757964297
+      },
+      "str_surf": {
+        "rep": "STR_ESMF_SURFACE_PHYS",
+        "model": "ElasticNet",
+        "cv": 0.1317981321340715,
+        "pub": 0.1102066652006416,
+        "priv": 0.1359449263319068
+      },
+      "fusion": {
+        "rep": "FUSION_esm2_ABB_SURFACE",
+        "model": "Ridge",
+        "cv": 0.1876313845230513,
+        "pub": 0.1509315656382237,
+        "priv": 0.2627081048103065
+      },
+      "xgb": {
+        "rep": "PLM_esm2_t33_650M_UR50D",
+        "model": "XGBoost",
+        "cv": 0.1697038109540949,
+        "pub": 0.0844717899535712,
+        "priv": 0.233300601984965
+      },
+      "overall": {
+        "rep": "A2_physchem",
+        "model": "ElasticNet",
+        "cv": 0.2530353715536634,
+        "pub": 0.2155445702194051,
+        "priv": 0.1961525780414993
+      },
+      "shadow_best": [
+        0.2530353715536634,
+        0.2477253424590719,
+        0.1540474034791839,
+        0.1306518036879544
+      ],
+      "shadow_std": 0.054677278037558445,
+      "lb": {
+        "cv_pub": 0.4466165413533834,
+        "pub_priv": 0.38496240601503756,
+        "cv_priv": 0.24962406015037594
+      }
+    },
+    "HIC": {
+      "simple": {
+        "rep": "B_cdr_descriptors",
+        "model": "Ridge",
+        "cv": 0.3583853283194548,
+        "pub": 0.4545881781697446,
+        "priv": 0.4593418832057649
+      },
+      "hydro_only": {
+        "rep": "B_cdr_hydrophobicity_only",
+        "model": "Ridge",
+        "cv": 0.0490721870764095,
+        "pub": 0.1240560843930703,
+        "priv": 0.1717884516675048
+      },
+      "bio": {
+        "rep": "C_BIO_SHORTCUT",
+        "model": "Lasso",
+        "cv": 0.2639550812154373,
+        "pub": 0.3488257764118047,
+        "priv": 0.2042264212292797
+      },
+      "ablang2": {
+        "rep": "PLM_ablang2_default",
+        "model": "Lasso",
+        "cv": 0.360403060890449,
+        "pub": 0.252789406640284,
+        "priv": 0.2549763517756355
+      },
+      "esm1b": {
+        "rep": "PLM_esm1b_t33_650M_UR50S",
+        "model": "Ridge",
+        "cv": 0.3651003099348596,
+        "pub": 0.4320762389652234,
+        "priv": 0.3858031724838465
+      },
+      "esm2": {
+        "rep": "PLM_esm2_t33_650M_UR50D",
+        "model": "Lasso",
+        "cv": 0.4752873296881808,
+        "pub": 0.3775448910863103,
+        "priv": 0.4418392906624915
+      },
+      "esm2_cdr": {
+        "rep": "PLM_esm2_CDR6",
+        "model": "Ridge",
+        "cv": 0.4058516269353991,
+        "pub": 0.4255849322237255,
+        "priv": 0.5008346622046669
+      },
+      "str_abb": {
+        "rep": "STR_ABB_SASA_RASA",
+        "model": "Lasso",
+        "cv": 0.4985630992960078,
+        "pub": 0.3816101538941171,
+        "priv": 0.5456660860239619
+      },
+      "str_esm": {
+        "rep": "STR_ESMF_SASA",
+        "model": "ElasticNet",
+        "cv": 0.5129887740864253,
+        "pub": 0.3193198366777234,
+        "priv": 0.4356046243880451
+      },
+      "str_sasa": {
+        "rep": "STR_ESMF_SASA",
+        "model": "ElasticNet",
+        "cv": 0.5129887740864253,
+        "pub": 0.3193198366777234,
+        "priv": 0.4356046243880451
+      },
+      "str_rasa": {
+        "rep": "STR_ESMF_SASA_RASA",
+        "model": "ElasticNet",
+        "cv": 0.5075629556081552,
+        "pub": 0.3193198366777234,
+        "priv": 0.4356046243880451
+      },
+      "str_surf": {
+        "rep": "STR_ESMF_SURFACE_PHYS",
+        "model": "Lasso",
+        "cv": 0.5118362177181393,
+        "pub": 0.4077283746216927,
+        "priv": 0.4768571221309339
+      },
+      "fusion": {
+        "rep": "FUSION_esm2_ABB_SURFACE",
+        "model": "Ridge",
+        "cv": 0.5034971334064229,
+        "pub": 0.5085294072539761,
+        "priv": 0.518564889622058
+      },
+      "xgb": {
+        "rep": "FUSION_esm2_ABB_SURFACE",
+        "model": "XGBoost",
+        "cv": 0.4243896714191567,
+        "pub": 0.5181898704854309,
+        "priv": 0.510863243047742
+      },
+      "overall": {
+        "rep": "STR_ESMF_SASA",
+        "model": "ElasticNet",
+        "cv": 0.5129887740864253,
+        "pub": 0.3193198366777234,
+        "priv": 0.4356046243880451
+      },
+      "shadow_best": [
+        0.5129887740864253,
+        0.5596357117115319,
+        0.5239411988869722,
+        0.5046352402672909
+      ],
+      "shadow_std": 0.020972517834620983,
+      "lb": {
+        "cv_pub": 0.2963520329921854,
+        "pub_priv": 0.631578947368421,
+        "cv_priv": 0.725084669554484
+      }
+    },
+    "TmApp": {
+      "simple": {
+        "rep": "B_cdr_descriptors",
+        "model": "Ridge",
+        "cv": 0.4031697033441539,
+        "pub": 0.303856748689724,
+        "priv": 0.6310410915023766
+      },
+      "hydro_only": {
+        "rep": "B_cdr_hydrophobicity_only",
+        "model": "ElasticNet",
+        "cv": 0.1995922067562673,
+        "pub": -0.0280218760038294,
+        "priv": 0.0284249420133893
+      },
+      "bio": {
+        "rep": "C_BIO_SHORTCUT",
+        "model": "Lasso",
+        "cv": 0.4026015420241039,
+        "pub": 0.349633480814104,
+        "priv": 0.4697409802878648
+      },
+      "ablang2": {
+        "rep": "PLM_ablang2_default",
+        "model": "Ridge",
+        "cv": 0.4559479401922224,
+        "pub": 0.4704271064915946,
+        "priv": 0.6468722110860874
+      },
+      "esm1b": {
+        "rep": "PLM_esm1b_t33_650M_UR50S",
+        "model": "ElasticNet",
+        "cv": 0.4885468289083897,
+        "pub": 0.4268187458888958,
+        "priv": 0.6367149647611786
+      },
+      "esm2": {
+        "rep": "PLM_esm2_t33_650M_UR50D",
+        "model": "ElasticNet",
+        "cv": 0.4251851949221347,
+        "pub": 0.426753037660966,
+        "priv": 0.543830619939631
+      },
+      "esm2_cdr": {
+        "rep": "PLM_esm2_CDR6",
+        "model": "Ridge",
+        "cv": 0.4373464803609236,
+        "pub": 0.4324477507482095,
+        "priv": 0.6048374223674187
+      },
+      "str_abb": {
+        "rep": "STR_ABB_SASA_RASA",
+        "model": "ElasticNet",
+        "cv": 0.424379033762135,
+        "pub": 0.177017966042698,
+        "priv": 0.4998960968709171
+      },
+      "str_esm": {
+        "rep": "STR_ESMF_SASA",
+        "model": "Lasso",
+        "cv": 0.3955962446073732,
+        "pub": 0.3185096835180542,
+        "priv": 0.2873284879965163
+      },
+      "str_sasa": {
+        "rep": "STR_ESMF_SASA",
+        "model": "Lasso",
+        "cv": 0.3955962446073732,
+        "pub": 0.3185096835180542,
+        "priv": 0.2873284879965163
+      },
+      "str_rasa": {
+        "rep": "STR_ABB_SASA_RASA",
+        "model": "ElasticNet",
+        "cv": 0.424379033762135,
+        "pub": 0.177017966042698,
+        "priv": 0.4998960968709171
+      },
+      "str_surf": {
+        "rep": "STR_ESMF_SURFACE_PHYS",
+        "model": "Lasso",
+        "cv": 0.3823654790367253,
+        "pub": 0.2335051393196242,
+        "priv": 0.2917358716886213
+      },
+      "fusion": {
+        "rep": "FUSION_esm2_ABB_SURFACE",
+        "model": "Ridge",
+        "cv": 0.4228396305420351,
+        "pub": 0.3427560196241253,
+        "priv": 0.5665767725575066
+      },
+      "xgb": {
+        "rep": "FUSION_esm2_ABB_SURFACE",
+        "model": "XGBoost",
+        "cv": 0.379980416810847,
+        "pub": 0.3624027797751152,
+        "priv": 0.5877271483213442
+      },
+      "overall": {
+        "rep": "PLM_esm1b_t33_650M_UR50S",
+        "model": "ElasticNet",
+        "cv": 0.4885468289083897,
+        "pub": 0.4268187458888958,
+        "priv": 0.6367149647611786
+      },
+      "shadow_best": [
+        0.4885468289083897,
+        0.5550757921931052,
+        0.5084857862320463,
+        0.4476613904236394
+      ],
+      "shadow_std": 0.03865178969286658,
+      "lb": {
+        "cv_pub": 0.7984962406015037,
+        "pub_priv": 0.7503759398496239,
+        "cv_priv": 0.7999999999999999
+      }
+    }
+  },
+  "org": {
+    "PSR": [
+      {
+        "representation": "ORG_subset_only",
+        "model": "ElasticNet",
+        "cv_spearman": 0.1733782403833457,
+        "public_spearman": -0.0360199379287798,
+        "private_spearman": -0.0148636065262778
+      },
+      {
+        "representation": "ORG_subset_only",
+        "model": "Ridge",
+        "cv_spearman": 0.1524834376126995,
+        "public_spearman": -0.0360199379287798,
+        "private_spearman": -0.0148636065262778
+      },
+      {
+        "representation": "ORG_subset_only",
+        "model": "Lasso",
+        "cv_spearman": 0.1423235494437681,
+        "public_spearman": -0.0360199379287798,
+        "private_spearman": -0.0148636065262778
+      }
+    ],
+    "HIC": [
+      {
+        "representation": "ORG_subset_plus_germline",
+        "model": "ElasticNet",
+        "cv_spearman": 0.2582234565859944,
+        "public_spearman": 0.2305111426292706,
+        "private_spearman": 0.403921791936572
+      },
+      {
+        "representation": "ORG_subset_plus_germline",
+        "model": "Ridge",
+        "cv_spearman": 0.2446450951146052,
+        "public_spearman": 0.2191379624906264,
+        "private_spearman": 0.3879628695629176
+      },
+      {
+        "representation": "ORG_subset_plus_germline",
+        "model": "Lasso",
+        "cv_spearman": 0.220106909679963,
+        "public_spearman": 0.2894596881572424,
+        "private_spearman": 0.3732986063546239
+      }
+    ],
+    "TmApp": [
+      {
+        "representation": "ORG_subset_plus_germline",
+        "model": "ElasticNet",
+        "cv_spearman": 0.2905393242622242,
+        "public_spearman": 0.255200008626724,
+        "private_spearman": 0.4331757172585382
+      },
+      {
+        "representation": "ORG_subset_plus_germline",
+        "model": "Lasso",
+        "cv_spearman": 0.2879403628078267,
+        "public_spearman": 0.2393991051361306,
+        "private_spearman": 0.4110369197096251
+      },
+      {
+        "representation": "ORG_germline_author",
+        "model": "Lasso",
+        "cv_spearman": 0.2847861535797446,
+        "public_spearman": 0.1667088179886301,
+        "private_spearman": 0.2981062616968608
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "candidate_source": "/workspace_developability_acquisition/gate_b6_split_search/config/B6_1_FINAL_CANDIDATE_SET.json",
+  "gate": "B6.2",
+  "models": [
+    "CONST_MEDIAN",
+    "SEQ_SIMPLE_Ridge",
+    "PLM_ESM2_PCA64_SVR",
+    "ESMFN_STRUCTURE_ElasticNet",
+    "FUSION_ESM2_ESMFN_ElasticNet",
+    "NESTED_STACK_NNLS"
+  ],
+  "n_private": 81,
+  "n_public": 81,
+  "n_train": 162,
+  "outer_cv": "/workspace_developability_acquisition/gate_b4_absolute/config/OUTER_CV_FOLDS.json",
+  "predictions_root": "/workspace_developability_acquisition/gate_b5_ceiling/predictions",
+  "private_ids_hash": "c69191fad854fd1672e276c0a176bd89fbe70323f9430285aba763a5c6c089a4",
+  "public_ids_hash": "4d24d59575c0a0a04d2586f1a4aa223048812f0405fb3d3e4bd1b14727c28a10",
+  "rules": [
+    "No new Public/Private split search",
+    "No automatic CONVERT_TO_BINARY / CONVERT_TO_ORDINAL",
+    "Phase-5 CV uses fixed hyperparameters only"
+  ],
+  "split_candidate": "CAND_12528"
+}

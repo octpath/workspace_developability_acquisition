@@ -1,0 +1,56 @@
+[
+  {
+    "type": "directory",
+    "oid": "4414ff96a965be92fe6c72a10eefaf267bc06937",
+    "size": 0,
+    "path": "structures"
+  },
+  {
+    "type": "file",
+    "oid": "ece24c90f989617f0af6c1456347bcc82a35471a",
+    "size": 2872,
+    "path": ".gitattributes"
+  },
+  {
+    "type": "file",
+    "oid": "923c38b1a7b7d2421bd4c6fa7461febc797c446c",
+    "size": 862134,
+    "path": "GDPa1_v1.2_20250814.csv"
+  },
+  {
+    "type": "file",
+    "oid": "3be941a67f1941f6d769134873f22ec9936b0049",
+    "size": 977542,
+    "lfs": {
+      "oid": "****************************************************************",
+      "size": 977542,
+      "pointerSize": 131
+    },
+    "xetHash": "****************************************************************",
+    "path": "GDPa1_v1.2_20250814_full.xlsx"
+  },
+  {
+    "type": "file",
+    "oid": "3d2521783bff0442d02870cf9d000b5a70ea8ae7",
+    "size": 236,
+    "path": "LICENSE.md"
+  },
+  {
+    "type": "file",
+    "oid": "dbcb60758d0a52ef9d7ae63f2dd5bdfdc13f0129",
+    "size": 576184,
+    "lfs": {
+      "oid": "****************************************************************",
+      "size": 576184,
+      "pointerSize": 131
+    },
+    "xetHash": "****************************************************************",
+    "path": "PROPHET-Ab-figure.png"
+  },
+  {
+    "type": "file",
+    "oid": "0d66d6ba01e61f0b19719575e34c21c006845380",
+    "size": 3776,
+    "path": "README.md"
+  }
+]

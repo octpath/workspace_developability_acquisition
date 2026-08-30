@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Database Description - eSOL | LSDB Archive</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Database Archive">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="FUw_Bj3D8NgisKGDid6oaA8An-bZGsV0M7aFPeCFtkfePvaj3vWE57kywejleWGmLL1Wty9UthQX8cjwLZlSeQ" />
+    <meta name="csp-nonce" content="wyvrRwnM/jO3iM0cAno2aA==" />
+
+    
+
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <link rel="stylesheet" href="/assets/actiontext-e646701d.css" data-turbo-track="reload" />
+<link rel="stylesheet" href="/assets/application-8b441ae0.css" data-turbo-track="reload" />
+<link rel="stylesheet" href="/assets/database_metadatum-7803704f.css" data-turbo-track="reload" />
+<link rel="stylesheet" href="/assets/tailwind-f1dc8163.css" data-turbo-track="reload" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <script type="importmap" data-turbo-track="reload" nonce="wyvrRwnM/jO3iM0cAno2aA==">{
+  "imports": {
+    "application": "/assets/application-d2f8354c.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-ad2c7b86.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-4b1e420e.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-1fc53fe7.js",
+    "trix": "/assets/trix-9a18fe03.js",
+    "@rails/actiontext": "/assets/actiontext.esm-c376325e.js",
+    "tinymce": "/assets/tinymce/tinymce.min-b01e51a6.js",
+    "controllers/admin/database_metadata_controller": "/assets/controllers/admin/database_metadata_controller-62bc504f.js",
+    "controllers/admin/databases_controller": "/assets/controllers/admin/databases_controller-c3d857c8.js",
+    "controllers/admin/export_controller": "/assets/controllers/admin/export_controller-df0e9e73.js",
+    "controllers/admin/flash_controller": "/assets/controllers/admin/flash_controller-f13cc4ab.js",
+    "controllers/admin/tinymce_controller": "/assets/controllers/admin/tinymce_controller-8e84d748.js",
+    "controllers/admin/users_controller": "/assets/controllers/admin/users_controller-60b64014.js",
+    "controllers/application": "/assets/controllers/application-3affb389.js",
+    "controllers/confirm_dialog_controller": "/assets/controllers/confirm_dialog_controller-f4369c29.js",
+    "controllers/data_shared_state": "/assets/controllers/data_shared_state-b48fcfd4.js",
+    "controllers/database_shared_state": "/assets/controllers/database_shared_state-7e8bd39c.js",
+    "controllers/detail_search_controller": "/assets/controllers/detail_search_controller-33b563f4.js",
+    "controllers/download_controller": "/assets/controllers/download_controller-8f7eaddb.js",
+    "controllers/export_controller": "/assets/controllers/export_controller-acb41065.js",
+    "controllers/filter_toggle_controller": "/assets/controllers/filter_toggle_controller-135a298d.js",
+    "controllers/home_shared_state": "/assets/controllers/home_shared_state-b908ab28.js",
+    "controllers": "/assets/controllers/index-ee64e1f1.js",
+    "controllers/list_controller": "/assets/controllers/list_controller-9d521029.js",
+    "controllers/modal_controller": "/assets/controllers/modal_controller-504068f9.js",
+    "controllers/poll_controller": "/assets/controllers/poll_controller-3d9731bd.js",
+    "controllers/search_controller": "/assets/controllers/search_controller-8998d715.js",
+    "controllers/tabs_controller": "/assets/controllers/tabs_controller-ae0b47fe.js",
+    "controllers/trix_controller": "/assets/controllers/trix_controller-b1c5208c.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-d2f8354c.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/turbo.min-ad2c7b86.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/stimulus.min-4b1e420e.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc53fe7.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/trix-9a18fe03.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/actiontext.esm-c376325e.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/tinymce/tinymce.min-b01e51a6.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/admin/database_metadata_controller-62bc504f.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/admin/databases_controller-c3d857c8.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/admin/export_controller-df0e9e73.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/admin/flash_controller-f13cc4ab.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/admin/tinymce_controller-8e84d748.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/admin/users_controller-60b64014.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/application-3affb389.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/confirm_dialog_controller-f4369c29.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/data_shared_state-b48fcfd4.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/database_shared_state-7e8bd39c.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/detail_search_controller-33b563f4.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/download_controller-8f7eaddb.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/export_controller-acb41065.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/filter_toggle_controller-135a298d.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/home_shared_state-b908ab28.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/index-ee64e1f1.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/list_controller-9d521029.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/modal_controller-504068f9.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/poll_controller-3d9731bd.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/search_controller-8998d715.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/tabs_controller-ae0b47fe.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<link rel="modulepreload" href="/assets/controllers/trix_controller-b1c5208c.js" nonce="wyvrRwnM/jO3iM0cAno2aA==">
+<script type="module" nonce="wyvrRwnM/jO3iM0cAno2aA==">import "application"</script>
+  </head>
+
+  <body>
+    <!--  Start Common header & Footer  -->
+    <script type="text/javascript"
+            src="/media/dbarchive/common-header-and-footer/script/common-header-and-footer.js"
+            style="display: block" id="common-header-and-footer__script"></script>
+    <!--  End Common header & Footer  -->
+
+    <header class="pt-3">
+      <div class="relative flex items-center w-[960px] mx-auto">
+  <div class="mr-auto">
+    <a href="/index-e.html">
+      <img class="inline-block" src="/assets/logo-06f529d0.png" />
+</a>    <span class="ml-5 text-xs align-top">
+      [<a target="_blank" rel="noopener noreferrer" href="/files/nbdc_riyou_kiyaku_en.pdf">Terms of service</a>]
+    </span>
+  </div>
+
+  <div class="absolute left-1/2 -translate-x-1/2 text-center">
+
+    <img class="block mx-auto" src="/assets/banner_e-103701f3.png" />
+  </div>
+
+  <div class="">
+      <div class="text-xs text-right">
+  [
+    <a href="/jp/esol/desc.html">Japanese</a>
+  |
+    English
+  ]
+</div>
+
+
+    <form id="dbsearch" action="https://dbsearch.biosciencedbc.jp/result.php" method="get" class="mt-4"
+          target="_blank" rel="noopener noreferrer">
+      <input id="dbsearch_lang" name="lang" value="ja" type="hidden">
+      <input id="dbsearch_page" name="page" value="1" type="hidden">
+      <input id="dbsearch_target_node" name="target_node" value="dbarchive_root" type="hidden">
+      <input id="dbsearch_target_node_type" name="target_node_type" value="category" type="hidden">
+      <div class="flex items-center">
+        <input id="dbsearch_text" name="phrase" placeholder="Search across datasets..." type="text"
+               class="text-xs p-1 max-w-[200px]">
+        <button name="button" type="submit">
+          <span class="material-symbols-outlined !text-[16px] bg-gray-400 text-white rounded-md cursor-pointer ml-1 p-1 ">search</span>
+</button>      </div>
+    </form>
+  </div>
+</div>
+
+<nav class="container w-[960px] mx-auto flex items-center justify-between text-sm mt-5 mb-2 bg-blue-400 py-2">
+  <ul class="flex">
+      <li>
+        <a class="text-white bg-blue-400 hover:bg-blue-600 px-5 py-2" href="/index-e.html">Home</a>
+      </li>
+      <li>
+        <a class="text-white bg-blue-400 hover:bg-blue-600 px-5 py-2" href="/contents-en/about/about.html">About Archive</a>
+      </li>
+      <li>
+        <a class="text-white bg-blue-400 hover:bg-blue-600 px-5 py-2" href="/contents-en/update-list/archive-updates.html">Update History</a>
+      </li>
+      <li>
+        <a class="text-white bg-blue-400 hover:bg-blue-600 px-5 py-2" href="/datameta-list-e.html">Data List</a>
+      </li>
+      <li>
+        <a class="text-white bg-blue-400 hover:bg-blue-600 px-5 py-2" href="https://form2.jst.go.jp/s/contact_nbdc">Contact us</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+    <main id="main-content" class="container mx-auto">
+      
+<div class="mt-5 w-[960px] mx-auto">
+  <div class="my-3 p-3 font-bold bg-lime-100 w-full">
+  eSOL
+</div>
+
+
+  <div class="mt-5 flex items-start gap-5 text-sm w-[960px] mx-auto">
+  
+    <div>
+  <div class="bg-[#7fbbe8] text-white font-bold whitespace-nowrap p-3">
+    About This Database
+  </div>
+  <div class="p-3 border border-[#7fbbe8] shrink-0 text-xs">
+    <ul>
+      <li class="flex items-center gap-2">
+        <img src="/assets/sq_blue-ac500e48.png" />
+        <a class="text-orange-400 font-bold" href="/en/esol/desc.html">Database Description</a>
+      </li>
+
+      <li class="flex items-start gap-2 mt-3">
+        <img class="mt-1" src="/assets/sq_blue-ac500e48.png" />
+        <a class="" href="/en/esol/download.html">Download</a>
+
+      </li>
+
+      <li class="flex items-start gap-2 mt-3">
+        <img class="mt-1" src="/assets/sq_blue-ac500e48.png" />
+        <a class="" href="/en/esol/lic.html">License</a>
+      </li>
+
+      <li class="flex items-start gap-2 mt-3">
+        <img class="mt-1" src="/assets/sq_blue-ac500e48.png" />
+        <a class=" whitespace-nowrap" href="/en/esol/update.html">Update History of This Database</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <div class="text-xs">
+  <h1 class="font-bold text-base pl-2 py-1
+           border-l-16 border-b-1 border-blue-700 bg-gray-200">
+  Database Description
+</h1>
+
+
+  <div class="mt-2">
+    <table class="mt-2 table-auto table-th-blue border-collapse border border-gray-400">
+      <tr>
+        <td colspan="2" class="bg-gray-200 text-sm font-bold p-2">General information of database</td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2 w-[190px]">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Name of the database"><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Name of the database">Database name</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <div class="flex items-center">
+              <div class="pr-2">eSOL</div>
+                <div class="pr-2"><a target="_blank" rel="noopener noreferrer" href="https://catalog.integbio.jp/dbcatalog/record/nbdc00440"><img src="/assets/integbio_logo-7d64b954.png" /></a></div>
+          </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Long name such as &quot;DNA Data Bank of Japan&quot;"><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Long name such as &quot;DNA Data Bank of Japan&quot;">Alternative name</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          Solubility database of all E.coli proteins
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="DOI of this database"><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="DOI of this database">DOI</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+              <a href="https://doi.org/10.18908/lsdba.nbdc00440-000">10.18908/lsdba.nbdc00440-000</a><br>
+        </td>
+      </tr>
+
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="People who made the database. The principal creator&amp;#039;s name is added &quot;*&quot;."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="People who made the database. The principal creator&amp;#039;s name is added &quot;*&quot;.">Creator</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-1">
+          <div class="divide-y divide-gray-300 w-full">
+                <div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-1 p-1">
+    <div class="font-medium pr-2">
+      Creator Name
+    </div>
+    <div>
+      <div class="flex items-center"><div class="pr-2">Tatsuya Niwa</div></div>
+    </div>
+    <div class="font-medium pr-2">
+      Creator Affiliation
+    </div>
+    <div>
+      Department of Biomolecular Engineering, School and Graduate School of Bioscience and Biotechnology, Tokyo Institute of Technology
+    </div>
+</div>
+
+
+                <div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-1 p-1">
+    <div class="font-medium pr-2">
+      Creator Name
+    </div>
+    <div>
+      <div class="flex items-center"><div class="pr-2">Hideaki Sugawara</div></div>
+    </div>
+    <div class="font-medium pr-2">
+      Creator Affiliation
+    </div>
+    <div>
+      The Research and Development of Biological Databases Project, National Institute of Genetics
+    </div>
+</div>
+
+
+                <div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-1 p-1">
+    <div class="font-medium pr-2">
+      Creator Name
+    </div>
+    <div>
+      <div class="flex items-center"><div class="pr-2">Takuya Ueda</div></div>
+    </div>
+    <div class="font-medium pr-2">
+      Creator Affiliation
+    </div>
+    <div>
+      Department of Medical Genome Science, Graduate School of Frontier Sciences, The University of Tokyo
+    </div>
+</div>
+
+
+                <div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-1 p-1">
+    <div class="font-medium pr-2">
+      Creator Name
+    </div>
+    <div>
+      <div class="flex items-center"><div class="pr-2">Hideki Taguchi*</div></div>
+    </div>
+    <div class="font-medium pr-2">
+      Creator Affiliation
+    </div>
+    <div>
+      Department of Biomolecular Engineering, School and Graduate School of Bioscience and Biotechnology, Tokyo Institute of Technology
+    </div>
+</div>
+
+
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Contact person, phone number, e-mail address, etc. to whom inquiries can be made about the database."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Contact person, phone number, e-mail address, etc. to whom inquiries can be made about the database.">Contact address</span>
+</div>
+</th>
+        <td class="trix-content border border-gray-400 p-2">
+          <div class="trix-content">
+  <p>Hideki Taguchi<br> Department of Biomolecular Engineering, School and Graduate School of Bioscience and Biotechnology, Tokyo Institute of Technology<br> 4259 Nagatsuta-cho, Midori-ku, Yokohama, Kanagawa 226-8501 Japan<br> Email: <img src="/images/dbarchive_images/mail_address/esol_address.png" alt="esol"><br> Tel.: +81-45-924-5785</p>
+</div>
+        </td>
+      </tr>
+
+        <tr>
+          <th class="border border-gray-400 text-left p-2">
+            <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Database classification based on NAR Database List (http://www3.oup.co.uk/nar/database/cap/). If the database is not classified by these categories, free description is applied."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Database classification based on NAR Database List (http://www3.oup.co.uk/nar/database/cap/). If the database is not classified by these categories, free description is applied.">Database classification</span>
+</div>
+</th>
+          <td class="border border-gray-400 p-2">
+            <p>Protein sequence databases - Protein properties</p>
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <th class="border border-gray-400 text-left p-2">
+            <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="NCBI Taxonomy name and Taxonomy ID."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="NCBI Taxonomy name and Taxonomy ID.">Organism</span>
+</div>
+</th>
+          <td class="border border-gray-400 p-1">
+            <div class="divide-y divide-gray-300 w-full">
+                <div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-1 p-1">
+    <div class="font-medium pr-2">
+      Taxonomy Name
+    </div>
+    <div>
+      Escherichia coli
+    </div>
+    <div class="font-medium pr-2">
+      Taxonomy ID
+    </div>
+    <div>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562">562</a>
+    </div>
+</div>
+
+            </div>
+          </td>
+        </tr>
+
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Short description of the database."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Short description of the database.">Database description</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <p>The database of solubilities and synthetic yields of all E.coli proteins translated by using an in vitro reconstituted translation system. For 788 aggregation-prone proteins, the data of chaperone effects on the prevention of aggregate formation were added on May 2012.
+<br />Gene segments from plasmids of <a href="http://ecoli.naist.jp/GB/index.php/aska-library">ASKA library</a> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/16769691">Kitagawa et al. 2005</a>) , which is the library of all genes of the E. coli strain K-12, were amplified by PCR, and their proteins were synthesized by using an in vitro translation system (<a href="http://www.ncbi.nlm.nih.gov/pubmed/11479568">PURE system</a>). The solubilities were evaluated by SDS-PAGE and autoradiography before and after centrifugation.
+<br />For aggregation-prone proteins (defined as the proteins with less than 30% solubility in the absence of any chaperone), observations of changes in solubility were made by adding the major chaperones of E. coli, Trigger Factor (TF), DnaK/DnaJ/GrpE (KJE) and GroEL/ES (GroE), individually.</p>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Features and practical usage of the database."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Features and practical usage of the database.">Features and manner of utilization of database</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <p>Since PURE system is a reconstituted chaperone-free translation system, it is possible to evaluate the solubilities of translated proteins and the chaperone effects accurately. The acquired data will form the basis of protein folding studies and be useful for planning researches and industries using protein expression and improving their efficiencies.</p>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="License of the database"><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="License of the database">License</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          CC BY-SA
+          <span class="ml-2"><a href="/en/esol/lic.html">Detail</a></span>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Sponsors, grants or projects that have funded the database."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Sponsors, grants or projects that have funded the database.">Background and funding</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <div class="divide-y divide-gray-300 w-full">
+
+
+              -
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Papers related to the database."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Papers related to the database.">Reference(s)</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <div class="divide-y divide-gray-300 w-full">
+                <div>
+                  <div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-1 p-1">
+    <div class="font-medium pr-2">
+      Article title
+    </div>
+    <div>
+      Global analysis of chaperone effects using a reconstituted cell-free translation system.
+    </div>
+    <div class="font-medium pr-2">
+      Author name(s)
+    </div>
+    <div>
+      Niwa T, Kanamori T, Ueda T, Taguchi H.
+    </div>
+    <div class="font-medium pr-2">
+      Journal
+    </div>
+    <div>
+      Proc Natl Acad Sci U S A. 2012 Jun 5;109(23):8937-42.
+    </div>
+    <div class="font-medium pr-2">
+      External Links
+    </div>
+    <div>
+      <div class="flex items-center"><div class="pr-2"><a target="_blank" rel="noopener noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/22615364/"><img src="/assets/pubmed_logo-cb847490.png" /></a></div><div class=""><a target="_blank" rel="noopener noreferrer" href="https://jglobal.jst.go.jp/en/detail/?JGLOBAL_ID=201202263784155208"><img src="/assets/jglobal_logo-033b9100.png" /></a></div></div>
+    </div>
+</div>
+
+
+                </div>
+                <div>
+                  <div class="grid grid-cols-[auto_1fr] gap-x-1 gap-y-1 p-1">
+    <div class="font-medium pr-2">
+      Article title
+    </div>
+    <div>
+      Bimodal protein solubility distribution revealed by an aggregation analysis of the entire ensemble of Escherichia coli proteins.
+    </div>
+    <div class="font-medium pr-2">
+      Author name(s)
+    </div>
+    <div>
+      Niwa T, Ying BW, Saito K, Jin W, Takada S, Ueda T, Taguchi H.
+    </div>
+    <div class="font-medium pr-2">
+      Journal
+    </div>
+    <div>
+      Proc Natl Acad Sci U S A. 2009 Mar 17;106(11):4201-6.
+    </div>
+    <div class="font-medium pr-2">
+      External Links
+    </div>
+    <div>
+      <div class="flex items-center"><div class="pr-2"><a target="_blank" rel="noopener noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/19251648/"><img src="/assets/pubmed_logo-cb847490.png" /></a></div><div class=""><a target="_blank" rel="noopener noreferrer" href="https://jglobal.jst.go.jp/en/detail/?JGLOBAL_ID=200902244689813257"><img src="/assets/jglobal_logo-033b9100.png" /></a></div></div>
+    </div>
+</div>
+
+
+                </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="bg-gray-200 text-sm font-bold p-2">Original website information</td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Site maintaining the original database."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Site maintaining the original database.">Database maintenance site</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <div class="trix-content">
+  <p>The Targeted Proteins Research Program promoted by the MEXT</p>
+</div>
+
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="URL of the original database&amp;#039;s website."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="URL of the original database&amp;#039;s website.">URL of the original website</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+              <a href="http://www.tanpaku.org/tp-esol/download.php?lang=en">http://www.tanpaku.org/tp-esol/download.php?lang=en</a>
+              <a href="http://www.tanpaku.org/tp-esol/index.php?lang=en">http://www.tanpaku.org/tp-esol/index.php?lang=en</a>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Date when the database became accessible."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Date when the database became accessible.">Operation start date</span>
+</div>
+
+        </th>
+        <td class="border border-gray-400 p-2">
+          2009/06/18
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Date when the data were last updated."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Date when the data were last updated.">Last update date</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          2012/05/02
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="The database&amp;#039;s portal site."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="The database&amp;#039;s portal site.">URL of the portal site</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <a target="_blank" rel="noopener noreferrer" href="http://www.tanpaku.org/e_index.php">http://www.tanpaku.org/e_index.php</a>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="URL which users can download the whole dataset via HTTP or FTP from the original database site."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="URL which users can download the whole dataset via HTTP or FTP from the original database site.">Whole data download</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          http://www.tanpaku.org/tp-esol/download.php?lang=en
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="Databases to which the data in the database refer."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="Databases to which the data in the database refer.">Referenced database</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          <div class="trix-content">
+  <p>GenoBase</p>
+</div>
+
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="If users can search data by selecting categories at the original database site, &quot;Available&quot;. Otherwise, &quot;Not available&quot;."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="If users can search data by selecting categories at the original database site, &quot;Available&quot;. Otherwise, &quot;Not available&quot;.">Entry list</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          Not available
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="If users can search data by keywords at the original database site, &quot;Available&quot;. Otherwise, &quot;Not abailable&quot;."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="If users can search data by keywords at the original database site, &quot;Available&quot;. Otherwise, &quot;Not abailable&quot;.">Query search</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          Not available
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="If web services (SOAP, REST, etc.) are provided at the original database site, &quot;Available&quot;. Otherwise, &quot;Not available&quot;."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="If web services (SOAP, REST, etc.) are provided at the original database site, &quot;Available&quot;. Otherwise, &quot;Not available&quot;.">Web services</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          Not available
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="URL of the explanation page of the web services, if any."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="URL of the explanation page of the web services, if any.">URL of Web services</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          -
+        </td>
+      </tr>
+
+      <tr>
+        <th class="border border-gray-400 text-left p-2">
+          <div class="grid grid-cols-[auto_1fr] gap-1">
+  <span title="If user registration is needed to use the original database website, &quot;Yes&quot;. Otherwise, &quot;No&quot;."><img src="/assets/icons/info-c1a480fa.png" /></span>
+  <span title="If user registration is needed to use the original database website, &quot;Yes&quot;. Otherwise, &quot;No&quot;.">Need for user registration</span>
+</div>
+</th>
+        <td class="border border-gray-400 p-2">
+          Not available
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+    </main>
+    <footer class="mt-5 py-10 bg-[#f9f8f5]">
+      <div class="flex gap-20 justify-center text-sm">
+  <div class="text-center">
+    <img alt="NBDC Logo" class="w-[150px] h-[50px] block mx-auto" src="/assets/nbdclogo_web_standard_rgb-20a945c7.svg" />
+    <div class="mt-3">
+      <p class="text-xs text-gray-600">
+        Japan Science and Technology Agency <br/> Department for Information Infrastructure
+      </p>
+      <p class="">Office of NBDC Program</p>
+    </div>
+  </div>
+
+  <div class="text-xs text-gray-600">
+    <div>
+      <p>5-3, Science Plaza 7F,</p>
+      <p class="mt-1">Yonbancho, Chiyoda-ku,</p>
+      <p class="mt-1">Tokyo 102-8666 Japan</p>
+    </div>
+    <div class="mt-3">
+      <p>Tel. 03-5214-8491</p>
+      <p class="mt-1">Fax. 03-5214-8470</p>
+    </div>
+  </div>
+</div>
+
+    </footer>
+  </body>
+</html>

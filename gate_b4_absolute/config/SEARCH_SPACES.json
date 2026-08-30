@@ -1,0 +1,93 @@
+{
+  "catboost": {
+    "fixed": {
+      "iterations": 5000,
+      "learning_rate": 0.03,
+      "od_type": "Iter",
+      "od_wait": 150
+    },
+    "loss_families_preregistered": [
+      "RMSE",
+      "MAE"
+    ],
+    "search": {
+      "bagging_temperature": "float 0-2",
+      "depth": "int 3-7",
+      "l2_leaf_reg": "log",
+      "random_strength": "float 0-2",
+      "rsm": "float 0.35-1.0"
+    }
+  },
+  "elasticnet": {
+    "alpha": "log 1e-4..10",
+    "l1_ratio": "float 0.05-0.95"
+  },
+  "kernel_ridge": {
+    "alpha": "log 1e-3..100",
+    "gamma": "log 1e-4..1"
+  },
+  "lightgbm": {
+    "fixed": {
+      "learning_rate": 0.03,
+      "n_estimators": 5000
+    },
+    "loss_families_preregistered": [
+      "regression_l2",
+      "regression_l1"
+    ],
+    "search": {
+      "colsample_bytree": "float 0.35-1.0",
+      "max_depth": "int 2-5",
+      "min_child_samples": "int 5-50",
+      "min_split_gain": "float 0-1",
+      "num_leaves": "int 3-31",
+      "reg_alpha": "log 1e-5..30",
+      "reg_lambda": "log 1e-3..300",
+      "subsample": "float 0.55-1.0"
+    }
+  },
+  "pca_dims": [
+    8,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96,
+    128
+  ],
+  "pls_components": [
+    2,
+    4,
+    6,
+    8,
+    12,
+    16,
+    24,
+    32
+  ],
+  "svr_rbf": {
+    "C": "log 0.1..100",
+    "epsilon": "log 1e-3..1",
+    "gamma": "log 1e-4..1"
+  },
+  "xgboost": {
+    "fixed": {
+      "learning_rate": 0.03,
+      "n_estimators": 5000
+    },
+    "loss_families_preregistered": [
+      "reg:squarederror",
+      "reg:absoluteerror"
+    ],
+    "search": {
+      "colsample_bytree": "float 0.35-1.0",
+      "gamma": "float 0-3",
+      "max_depth": "int 2-5",
+      "min_child_weight": "int 1-30",
+      "reg_alpha": "log 1e-5..30",
+      "reg_lambda": "log 1e-3..300",
+      "subsample": "float 0.55-1.0"
+    }
+  }
+}

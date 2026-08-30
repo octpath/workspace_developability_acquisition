@@ -1,0 +1,36 @@
+{
+  "decision": "SPLIT_BEHAVIOR_TOO_UNSTABLE_TO_OPTIMIZE",
+  "final_report": "/workspace_developability_acquisition/gate_b7_2_split_reassessment/reports/GATE_B7_2_SPLIT_REASSESSMENT_FINAL.md",
+  "CAND_12528_premodel_rank": 51,
+  "n_valid_seeds": 50,
+  "challengers": [
+    "SEED_20260897",
+    "SEED_20260869",
+    "SEED_20260850"
+  ],
+  "best_challenger": "SEED_20260897",
+  "replacement_recommended": false,
+  "best_challenger_vs_incumbent_selection": {
+    "challenger": "SEED_20260897",
+    "TmApp_cv_public": {
+      "inc": 0.4857142857142857,
+      "ch": 0.942857142857143
+    },
+    "TmApp_pub_priv": {
+      "inc": 0.8285714285714287,
+      "ch": -0.0285714285714285
+    },
+    "TmApp_pub_regret": {
+      "inc": 0.1862387747381282,
+      "ch": 0.142235615357813
+    },
+    "HIC_cv_public": {
+      "inc": 0.4857142857142857,
+      "ch": 0.0285714285714285
+    },
+    "HIC_pub_regret": {
+      "inc": 0.0154982120901784,
+      "ch": 0.0230917341254942
+    }
+  }
+}

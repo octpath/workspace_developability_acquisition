@@ -1,0 +1,10 @@
+POPULATION n=324 n_groups=180
+Generating 2500 candidates (phase-1, no NN)…
+  scored 500/2500
+  scored 1000/2500
+  scored 1500/2500
+  scored 2000/2500
+  scored 2500/2500
+Phase-2 NN refine on top 80…
+BEST seed=20274057 score=4.5318 N=162/81/81
+SPLIT_FROZEN {'Train': 162, 'Public': 81, 'Private': 81, 'pub_priv_diff': 0}

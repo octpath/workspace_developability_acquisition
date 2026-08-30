@@ -1,0 +1,35 @@
+[
+  {
+    "repo": "ginkgo-datapoints/GDPa1",
+    "status": "PARTIAL_DOWNLOAD",
+    "gated": "auto",
+    "files_ok": [
+      "LICENSE.md",
+      "README.md"
+    ],
+    "files_fail": [
+      [
+        ".gitattributes",
+        401
+      ],
+      [
+        "GDPa1_v1.2_20250814.csv",
+        401
+      ],
+      [
+        "GDPa1_v1.2_20250814_full.xlsx",
+        401
+      ],
+      [
+        "PROPHET-Ab-figure.png",
+        401
+      ]
+    ],
+    "access_date": "2026-08-28"
+  },
+  {
+    "repo": "ginkgo-datapoints/GDPa3",
+    "status": "ACCESS_BLOCKED_OR_MISSING",
+    "http": 401
+  }
+]

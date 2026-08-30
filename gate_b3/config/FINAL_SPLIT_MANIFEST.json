@@ -1,0 +1,78 @@
+{
+  "STATUS": "FINAL SPLIT FROZEN \u2014 DO NOT CHANGE BASED ON MODEL PERFORMANCE",
+  "candidate_pool_size": 2500,
+  "clustering": {
+    "n_groups": 180,
+    "threshold_identity": 0.9
+  },
+  "component_scores": {
+    "bcell_js_secondary": 0.009911997237550551,
+    "cluster_size_imbalance": 0.059893522626441875,
+    "donor_js_secondary": 0.0,
+    "hic_quantile_imbalance": 0.09174000000000024,
+    "hic_wass_pub_priv": 0.06593827160493838,
+    "hic_wass_train_priv": 0.07336419753086425,
+    "hic_wass_train_pub": 0.0889197530864199,
+    "len_vh_wass": 0.45061728395061756,
+    "len_vl_wass": 0.6666666666666667,
+    "nn_similarity_asymmetry": 0.00196377826821148,
+    "pub_priv_count_diff": 0.0,
+    "size_deviation_50_25_25": 0.0,
+    "tm_quantile_imbalance": 0.42500000000000004,
+    "tm_wass_pub_priv": 0.5308641975308643,
+    "tm_wass_train_priv": 0.5432098765432102,
+    "tm_wass_train_pub": 0.3888888888888892,
+    "vh_family_js": 0.013458308976104219,
+    "vl_family_js": 0.10343869671362389
+  },
+  "counts": {
+    "Private": 81,
+    "Public": 81,
+    "Train": 162,
+    "pub_priv_diff": 0
+  },
+  "geometry": {
+    "Private": 0.25,
+    "Public": 0.25,
+    "Train": 0.5
+  },
+  "id_list_sha256": {
+    "private": "89f82c0355f06780265d333c74808bd47e5f3b098df84577b928653f3d75061c",
+    "public": "3cd9910d327103943c230d59b3bcc76090fa818870a86033b13cf77841b796f5",
+    "train": "b7233268cac08bef6fa02e64427c94369485e9ed75f0e596ce70d1c9f0a7c754"
+  },
+  "master_seed": 20260829,
+  "population": {
+    "filter": "both HIC and TmApp non-null (triple_core)",
+    "n": 324,
+    "path": "/workspace_developability_acquisition/gate_b3/frozen/organizer/final_population.csv",
+    "sha256": "085b2cdb25e3d0e2360f263910f0d9ea04a3a0aba5e0945edc60f2c6b53b9f91",
+    "source": "/workspace_developability_acquisition/gate_b1/data/triple_core.csv"
+  },
+  "prohibited_note": "No PLM/structure/CV/model scores used in selection.",
+  "quality_weights_frozen": {
+    "bcell_js_secondary": 0.3,
+    "cluster_size_imbalance": 1.0,
+    "donor_js_secondary": 0.2,
+    "hic_quantile_imbalance": 1.2,
+    "hic_wass_pub_priv": 2.0,
+    "hic_wass_train_priv": 1.5,
+    "hic_wass_train_pub": 1.5,
+    "len_vh_wass": 0.8,
+    "len_vl_wass": 0.8,
+    "nn_similarity_asymmetry": 1.5,
+    "pub_priv_count_diff": 3.0,
+    "size_deviation_50_25_25": 2.5,
+    "tm_quantile_imbalance": 1.2,
+    "tm_wass_pub_priv": 2.0,
+    "tm_wass_train_priv": 1.5,
+    "tm_wass_train_pub": 1.5,
+    "vh_family_js": 1.0,
+    "vl_family_js": 1.0
+  },
+  "runtime_s": 104.6310203075409,
+  "selected_seed": 20274057,
+  "selection_score": 4.531803967729261,
+  "split_generation_code_sha256": "53facffe6dd9a244a0a05fa5e2eac3d4fce2fc47832419e4baf6064335cc25f8",
+  "timestamp_utc": "2026-08-29T07:08:26.064531+00:00"
+}

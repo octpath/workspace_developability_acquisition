@@ -1,0 +1,127 @@
+[
+  {
+    "name": "jain2017biophysical_BVPELISA.csv",
+    "size": 33039,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2017biophysical_BVPELISA.csv"
+  },
+  {
+    "name": "jain2017biophysical_CICRT.csv",
+    "size": 32788,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2017biophysical_CICRT.csv"
+  },
+  {
+    "name": "jain2017biophysical_ELISA.csv",
+    "size": 33023,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2017biophysical_ELISA.csv"
+  },
+  {
+    "name": "jain2017biophysical_PSR.csv",
+    "size": 32634,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2017biophysical_PSR.csv"
+  },
+  {
+    "name": "jain2017biophysical_SMACRT.csv",
+    "size": 32780,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2017biophysical_SMACRT.csv"
+  },
+  {
+    "name": "jain2023identifying_DNP.csv",
+    "size": 27012,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_DNP.csv"
+  },
+  {
+    "name": "jain2023identifying_FA2.csv",
+    "size": 27247,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_FA2.csv"
+  },
+  {
+    "name": "jain2023identifying_FVC32.csv",
+    "size": 27730,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_FVC32.csv"
+  },
+  {
+    "name": "jain2023identifying_FvFVIII2.csv",
+    "size": 27735,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_FvFVIII2.csv"
+  },
+  {
+    "name": "jain2023identifying_FvLysM2.csv",
+    "size": 27748,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_FvLysM2.csv"
+  },
+  {
+    "name": "jain2023identifying_Heme2.csv",
+    "size": 27285,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_Heme2.csv"
+  },
+  {
+    "name": "jain2023identifying_HemeC32.csv",
+    "size": 27256,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_HemeC32.csv"
+  },
+  {
+    "name": "jain2023identifying_HemeFVIII2.csv",
+    "size": 27269,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_HemeFVIII2.csv"
+  },
+  {
+    "name": "jain2023identifying_HemeLysM2.csv",
+    "size": 27274,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2023identifying_HemeLysM2.csv"
+  },
+  {
+    "name": "jain2024assessment_Herapin_RT.csv",
+    "size": 10179,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2024assessment_Herapin_RT.csv"
+  },
+  {
+    "name": "jain2024assessment_PSR.csv",
+    "size": 10192,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/jain2024assessment_PSR.csv"
+  },
+  {
+    "name": "rosace2023automated_CICRT1_adalimumab.csv",
+    "size": 3465,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/rosace2023automated_CICRT1_adalimumab.csv"
+  },
+  {
+    "name": "rosace2023automated_CICRT1_golimumab.csv",
+    "size": 1280,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/rosace2023automated_CICRT1_golimumab.csv"
+  },
+  {
+    "name": "rosace2023automated_CICRT2_adalimumab.csv",
+    "size": 3495,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/rosace2023automated_CICRT2_adalimumab.csv"
+  },
+  {
+    "name": "rosace2023automated_CICRT2_golimumab.csv",
+    "size": 1282,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/rosace2023automated_CICRT2_golimumab.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_elisa_ec50.csv",
+    "size": 3175,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/shanehsazzadeh2023unlocking_elisa_ec50.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_polyspecificity.csv",
+    "size": 3190,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/shanehsazzadeh2023unlocking_polyspecificity.csv"
+  },
+  {
+    "name": "shanker2024unsupervised_APC-MFI_Elotuzumab-Ixekuzimab.csv",
+    "size": 1509,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/shanker2024unsupervised_APC-MFI_Elotuzumab-Ixekuzimab.csv"
+  },
+  {
+    "name": "shanker2024unsupervised_APC-MFI_Ly1404.csv",
+    "size": 4980,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/shanker2024unsupervised_APC-MFI_Ly1404.csv"
+  },
+  {
+    "name": "shanker2024unsupervised_APC-MFI_SA58.csv",
+    "size": 3836,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/polyreactivity/shanker2024unsupervised_APC-MFI_SA58.csv"
+  }
+]

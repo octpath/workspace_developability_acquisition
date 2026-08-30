@@ -1,0 +1,81 @@
+model_id,role,stratum,level,n,spearman
+PLM_ABLANG2/ElasticNet,Public,gd_bin,low_gd,37,0.37275917110374374
+PLM_ABLANG2/ElasticNet,Public,gd_bin,high_gd,44,0.29539226324858964
+PLM_ABLANG2/ElasticNet,Public,h3_bin,long_H3,40,0.48757189154333846
+PLM_ABLANG2/ElasticNet,Public,h3_bin,short_H3,41,0.19853473628038235
+PLM_ABLANG2/ElasticNet,Public,b_cell_subset,IgG memory,37,0.10636436170471802
+PLM_ABLANG2/ElasticNet,Public,b_cell_subset,LLPCs,24,0.5342371165166306
+PLM_ABLANG2/ElasticNet,Public,vh_family,VH3,51,0.31544403581814767
+PLM_ABLANG2/ElasticNet,Private,gd_bin,low_gd,44,0.661470412867332
+PLM_ABLANG2/ElasticNet,Private,gd_bin,high_gd,37,0.41497591009455503
+PLM_ABLANG2/ElasticNet,Private,h3_bin,long_H3,32,0.48468191367676805
+PLM_ABLANG2/ElasticNet,Private,h3_bin,short_H3,49,0.644309842614449
+PLM_ABLANG2/ElasticNet,Private,b_cell_subset,IgG memory,29,0.5384339881113978
+PLM_ABLANG2/ElasticNet,Private,b_cell_subset,LLPCs,30,0.485746403630534
+PLM_ABLANG2/ElasticNet,Private,vh_family,VH1,16,0.2638178886202927
+PLM_ABLANG2/ElasticNet,Private,vh_family,VH3,40,0.4649135663098152
+PLM_ABLANG2/ElasticNet,Private,vh_family,VH4,17,0.6383807299934854
+IMGT_POS_HL/Ridge_grid,Public,gd_bin,low_gd,37,0.3974593646652533
+IMGT_POS_HL/Ridge_grid,Public,gd_bin,high_gd,44,-0.17599338378929352
+IMGT_POS_HL/Ridge_grid,Public,h3_bin,long_H3,40,0.2037501659340705
+IMGT_POS_HL/Ridge_grid,Public,h3_bin,short_H3,41,0.034455720927394996
+IMGT_POS_HL/Ridge_grid,Public,b_cell_subset,IgG memory,37,0.028878815524297746
+IMGT_POS_HL/Ridge_grid,Public,b_cell_subset,LLPCs,24,0.03706951420727641
+IMGT_POS_HL/Ridge_grid,Public,vh_family,VH3,51,0.08367720794946122
+IMGT_POS_HL/Ridge_grid,Private,gd_bin,low_gd,44,0.35404926972178086
+IMGT_POS_HL/Ridge_grid,Private,gd_bin,high_gd,37,0.4131959161993825
+IMGT_POS_HL/Ridge_grid,Private,h3_bin,long_H3,32,0.3208586930434017
+IMGT_POS_HL/Ridge_grid,Private,h3_bin,short_H3,49,0.5137417019879102
+IMGT_POS_HL/Ridge_grid,Private,b_cell_subset,IgG memory,29,0.21369561581323118
+IMGT_POS_HL/Ridge_grid,Private,b_cell_subset,LLPCs,30,0.41269513339173747
+IMGT_POS_HL/Ridge_grid,Private,vh_family,VH1,16,-0.07811367651885762
+IMGT_POS_HL/Ridge_grid,Private,vh_family,VH3,40,0.36082703742089317
+IMGT_POS_HL/Ridge_grid,Private,vh_family,VH4,17,-0.06888115776422964
+SEQ_SIMPLE/ElasticNet,Public,gd_bin,low_gd,37,0.3938968367477279
+SEQ_SIMPLE/ElasticNet,Public,gd_bin,high_gd,44,0.4368079573599547
+SEQ_SIMPLE/ElasticNet,Public,h3_bin,long_H3,40,0.48409460550110567
+SEQ_SIMPLE/ElasticNet,Public,h3_bin,short_H3,41,0.3579033492787384
+SEQ_SIMPLE/ElasticNet,Public,b_cell_subset,IgG memory,37,0.340009428868378
+SEQ_SIMPLE/ElasticNet,Public,b_cell_subset,LLPCs,24,0.5050176170826598
+SEQ_SIMPLE/ElasticNet,Public,vh_family,VH3,51,0.4452660962554483
+SEQ_SIMPLE/ElasticNet,Private,gd_bin,low_gd,44,0.40512152939075263
+SEQ_SIMPLE/ElasticNet,Private,gd_bin,high_gd,37,0.3323841933585498
+SEQ_SIMPLE/ElasticNet,Private,h3_bin,long_H3,32,0.31994142976997864
+SEQ_SIMPLE/ElasticNet,Private,h3_bin,short_H3,49,0.30016369104911617
+SEQ_SIMPLE/ElasticNet,Private,b_cell_subset,IgG memory,29,0.19543525141348628
+SEQ_SIMPLE/ElasticNet,Private,b_cell_subset,LLPCs,30,0.33229419267159865
+SEQ_SIMPLE/ElasticNet,Private,vh_family,VH1,16,-0.47605127387907564
+SEQ_SIMPLE/ElasticNet,Private,vh_family,VH3,40,0.3128232321300636
+SEQ_SIMPLE/ElasticNet,Private,vh_family,VH4,17,0.3321055820775357
+ESMFN_STRUCTURE/Ridge_grid,Public,gd_bin,low_gd,37,0.23239557115324191
+ESMFN_STRUCTURE/Ridge_grid,Public,gd_bin,high_gd,44,0.5650982427364325
+ESMFN_STRUCTURE/Ridge_grid,Public,h3_bin,long_H3,40,0.4650165226207476
+ESMFN_STRUCTURE/Ridge_grid,Public,h3_bin,short_H3,41,0.37438975751994763
+ESMFN_STRUCTURE/Ridge_grid,Public,b_cell_subset,IgG memory,37,0.41072093190112346
+ESMFN_STRUCTURE/Ridge_grid,Public,b_cell_subset,LLPCs,24,0.6083761449311834
+ESMFN_STRUCTURE/Ridge_grid,Public,vh_family,VH3,51,0.4308514959694631
+ESMFN_STRUCTURE/Ridge_grid,Private,gd_bin,low_gd,44,0.33521461042396944
+ESMFN_STRUCTURE/Ridge_grid,Private,gd_bin,high_gd,37,0.1357542010718247
+ESMFN_STRUCTURE/Ridge_grid,Private,h3_bin,long_H3,32,0.2920566262579163
+ESMFN_STRUCTURE/Ridge_grid,Private,h3_bin,short_H3,49,0.19406430604077474
+ESMFN_STRUCTURE/Ridge_grid,Private,b_cell_subset,IgG memory,29,0.26576233052061204
+ESMFN_STRUCTURE/Ridge_grid,Private,b_cell_subset,LLPCs,30,0.2697106349365322
+ESMFN_STRUCTURE/Ridge_grid,Private,vh_family,VH1,16,-0.3212977637945464
+ESMFN_STRUCTURE/Ridge_grid,Private,vh_family,VH3,40,0.159417725202618
+ESMFN_STRUCTURE/Ridge_grid,Private,vh_family,VH4,17,0.059040992369339684
+BIO_SHORTCUT/Ridge_grid,Public,gd_bin,low_gd,37,0.008075063279724298
+BIO_SHORTCUT/Ridge_grid,Public,gd_bin,high_gd,44,0.500176866198281
+BIO_SHORTCUT/Ridge_grid,Public,h3_bin,long_H3,40,0.43353298683296454
+BIO_SHORTCUT/Ridge_grid,Public,h3_bin,short_H3,41,0.20437912438705438
+BIO_SHORTCUT/Ridge_grid,Public,b_cell_subset,IgG memory,37,0.2658514828306751
+BIO_SHORTCUT/Ridge_grid,Public,b_cell_subset,LLPCs,24,0.4369841557140113
+BIO_SHORTCUT/Ridge_grid,Public,vh_family,VH3,51,0.42264695932869795
+BIO_SHORTCUT/Ridge_grid,Private,gd_bin,low_gd,44,0.3967975975662517
+BIO_SHORTCUT/Ridge_grid,Private,gd_bin,high_gd,37,0.2851550220066387
+BIO_SHORTCUT/Ridge_grid,Private,h3_bin,long_H3,32,0.19739505644065197
+BIO_SHORTCUT/Ridge_grid,Private,h3_bin,short_H3,49,0.3543627509883796
+BIO_SHORTCUT/Ridge_grid,Private,b_cell_subset,IgG memory,29,0.3694022365732183
+BIO_SHORTCUT/Ridge_grid,Private,b_cell_subset,LLPCs,30,0.2832963894626498
+BIO_SHORTCUT/Ridge_grid,Private,vh_family,VH1,16,0.013264586578673935
+BIO_SHORTCUT/Ridge_grid,Private,vh_family,VH3,40,0.24236754921788706
+BIO_SHORTCUT/Ridge_grid,Private,vh_family,VH4,17,0.07257121978731336

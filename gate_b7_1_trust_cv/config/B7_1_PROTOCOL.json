@@ -1,0 +1,38 @@
+{
+  "bootstrap_draws": 400,
+  "competitive_set_rule": "cv_mae <= best_cv + 0.20*(const_cv-best_cv)",
+  "conditional_action": {
+    "both_STRONG_or_SUPPORTED": "PHASE_2A",
+    "otherwise": "PHASE_2B",
+    "phase3_if": "PUBLIC_DOMINATES after stress"
+  },
+  "dedup_rule": "sha256(round(OOF,6)+round(test,6))",
+  "gate": "B7.1",
+  "primary_clear_improvement_p": 0.8,
+  "primary_clear_worsening_p": 0.2,
+  "primary_metric": "MAE",
+  "seed": 20260830,
+  "sensitivity_thresholds": [
+    {
+      "improve": 0.75,
+      "worsen": 0.25
+    },
+    {
+      "improve": 0.8,
+      "worsen": 0.2
+    },
+    {
+      "improve": 0.85,
+      "worsen": 0.15
+    },
+    {
+      "improve": 0.9,
+      "worsen": 0.1
+    }
+  ],
+  "split": "CAND_12528",
+  "targets": [
+    "TmApp",
+    "HIC"
+  ]
+}

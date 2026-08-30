@@ -1,0 +1,318 @@
+{
+  "BANK_A": {
+    "HIC": [
+      "CONST_MEDIAN",
+      "SEQ_SIMPLE_Ridge",
+      "PLM_ESM2_PCA64_SVR",
+      "ESMFN_STRUCTURE_ElasticNet",
+      "FUSION_ESM2_ESMFN_ElasticNet",
+      "NESTED_STACK_NNLS"
+    ],
+    "TmApp": [
+      "CONST_MEDIAN",
+      "SEQ_SIMPLE_Ridge",
+      "BIO_Ridge",
+      "PLM_ABLANG2_PCA32_SVR",
+      "NESTED_STACK_MEAN"
+    ]
+  },
+  "BANK_B": {
+    "HIC": [
+      [
+        "VAL_CONST_MEDIAN",
+        "CONST",
+        "const",
+        {}
+      ],
+      [
+        "VAL_SEQ_Ridge",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "VAL_SEQ_ENet",
+        "SEQ",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "VAL_ESM2_PCA64_SVR",
+        "ESM2",
+        "svr_pca",
+        {
+          "C": 1.0,
+          "n_pca": 64
+        }
+      ],
+      [
+        "VAL_ESM2_Ridge",
+        "ESM2",
+        "ridge",
+        {
+          "alpha": 50.0
+        }
+      ],
+      [
+        "VAL_STRUCT_ENet",
+        "STRUCT",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "VAL_PHYS_STRUCT_Ridge",
+        "PHYS_STRUCT",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "VAL_ESM2_STRUCT_ENet",
+        "ESM2_STRUCT",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "VAL_ESM2_STRUCT_Huber",
+        "ESM2_STRUCT",
+        "huber",
+        {}
+      ],
+      [
+        "VAL_SEQ_Huber",
+        "SEQ",
+        "huber",
+        {}
+      ]
+    ],
+    "TmApp": [
+      [
+        "VAL_CONST_MEDIAN",
+        "CONST",
+        "const",
+        {}
+      ],
+      [
+        "VAL_SEQ_Ridge",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "VAL_SEQ_ENet",
+        "SEQ",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "VAL_BIO_Ridge",
+        "BIO",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "VAL_BIO_ENet",
+        "BIO",
+        "enet",
+        {
+          "alpha": 0.15,
+          "l1": 0.7
+        }
+      ],
+      [
+        "VAL_ABLANG2_PCA32_SVR",
+        "ABLANG2",
+        "svr_pca",
+        {
+          "C": 1.0,
+          "n_pca": 32
+        }
+      ],
+      [
+        "VAL_ABLANG2_Ridge",
+        "ABLANG2",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "VAL_BIO_ABLANG2_ENet",
+        "BIO_ABLANG2",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "VAL_GERMLINE_Ridge",
+        "GERMLINE",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "VAL_IMGT_Ridge",
+        "IMGT",
+        "ridge",
+        {
+          "alpha": 50.0
+        }
+      ]
+    ]
+  },
+  "BANK_C": {
+    "HIC": [
+      [
+        "STRESS_SEQ_Ridge_a1",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 1.0
+        }
+      ],
+      [
+        "STRESS_SEQ_Ridge_a100",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 100.0
+        }
+      ],
+      [
+        "STRESS_ESM2_PCA32_SVR",
+        "ESM2",
+        "svr_pca",
+        {
+          "C": 3.0,
+          "n_pca": 32
+        }
+      ],
+      [
+        "STRESS_STRUCT_Ridge",
+        "STRUCT",
+        "ridge",
+        {
+          "alpha": 5.0
+        }
+      ],
+      [
+        "STRESS_PHYS_STRUCT_ENet",
+        "PHYS_STRUCT",
+        "enet",
+        {
+          "alpha": 0.15,
+          "l1": 0.7
+        }
+      ],
+      [
+        "STRESS_ESM2_STRUCT_Ridge",
+        "ESM2_STRUCT",
+        "ridge",
+        {
+          "alpha": 20.0
+        }
+      ],
+      [
+        "STRESS_SEQ_Huber",
+        "SEQ",
+        "huber",
+        {}
+      ],
+      [
+        "STRESS_CONST",
+        "CONST",
+        "const",
+        {}
+      ]
+    ],
+    "TmApp": [
+      [
+        "STRESS_SEQ_Ridge_a1",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 1.0
+        }
+      ],
+      [
+        "STRESS_SEQ_Ridge_a100",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 100.0
+        }
+      ],
+      [
+        "STRESS_BIO_Huber",
+        "BIO",
+        "huber",
+        {}
+      ],
+      [
+        "STRESS_ABLANG2_PCA16_SVR",
+        "ABLANG2",
+        "svr_pca",
+        {
+          "C": 3.0,
+          "n_pca": 16
+        }
+      ],
+      [
+        "STRESS_BIO_ABLANG2_Ridge",
+        "BIO_ABLANG2",
+        "ridge",
+        {
+          "alpha": 5.0
+        }
+      ],
+      [
+        "STRESS_IMGT_ENet",
+        "IMGT",
+        "enet",
+        {
+          "alpha": 0.3,
+          "l1": 0.3
+        }
+      ],
+      [
+        "STRESS_GERMLINE_ENet",
+        "GERMLINE",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "STRESS_CONST",
+        "CONST",
+        "const",
+        {}
+      ]
+    ]
+  },
+  "gate": "B7.3",
+  "note": "Hashed BEFORE training Bank B/C. Bank A uses frozen B5 predictions."
+}

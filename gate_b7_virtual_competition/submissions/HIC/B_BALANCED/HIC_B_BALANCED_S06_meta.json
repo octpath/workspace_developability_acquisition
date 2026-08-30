@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_B_BALANCED_S06",
+  "order": 6,
+  "target": "HIC",
+  "persona": "B_BALANCED",
+  "model_name": "ENSEMBLE_CV_PUBLIC",
+  "model_stage": 6,
+  "feature": "STRUCT_ElasticNet+ESM2_PCA64_SVR",
+  "hypothesis": "Blend best-CV and best-Public models to hedge disagreement.",
+  "cv_mae": 0.4732561097708334,
+  "cv_mae_std": 0.004636576712887197,
+  "cv_spearman": 0.524473669283585,
+  "cv_pearson": 0.5310386988932447,
+  "public_mae": 0.5159184901375522,
+  "public_spearman": 0.43171154570050985,
+  "public_pearson": 0.4056447452766768,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.072955898041556,
+  "train_seconds": 0.001234292984008789
+}

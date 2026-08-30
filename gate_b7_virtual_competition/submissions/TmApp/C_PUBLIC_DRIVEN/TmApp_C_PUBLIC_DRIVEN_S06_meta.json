@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_C_PUBLIC_DRIVEN_S06",
+  "order": 6,
+  "target": "TmApp",
+  "persona": "C_PUBLIC_DRIVEN",
+  "model_name": "ENSEMBLE_PUBLIC_BEST2",
+  "model_stage": 6,
+  "feature": "ESM2_PCA64_SVR+SEQ_SIMPLE_Ridge",
+  "hypothesis": "Average the two best Public models so far.",
+  "cv_mae": 3.4600744642741454,
+  "cv_mae_std": 0.19578482760490834,
+  "cv_spearman": 0.19673058887106823,
+  "cv_pearson": 0.25106294371172655,
+  "public_mae": 3.417763928905745,
+  "public_spearman": 0.42398470396853005,
+  "public_pearson": 0.43169720686991575,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.10717756884210239,
+  "train_seconds": 0.004748821258544922
+}

@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_B_BALANCED_S04",
+  "order": 4,
+  "target": "TmApp",
+  "persona": "B_BALANCED",
+  "model_name": "ABLANG2_PCA32_SVR",
+  "model_stage": 3,
+  "feature": "ABLANG2_PCA32",
+  "hypothesis": "AbLang2 antibody PLM embeddings may beat handcrafted descriptors.",
+  "cv_mae": 3.3742529985456033,
+  "cv_mae_std": 0.27204196816939885,
+  "cv_spearman": 0.22969959957469407,
+  "cv_pearson": 0.22790035411383705,
+  "public_mae": 3.6448313552110325,
+  "public_spearman": 0.4013586243378491,
+  "public_pearson": 0.43101236801251175,
+  "personal_public_rank": 2,
+  "delta_public_vs_prev": -0.08878858865920725,
+  "train_seconds": 0.1478254795074463
+}

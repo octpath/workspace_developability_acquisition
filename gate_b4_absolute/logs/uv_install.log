@@ -1,0 +1,17 @@
+Using Python 3.12.13 environment at: .venv_b1
+Resolved 28 packages in 581ms
+Downloading plotly (8.6MiB)
+Downloading catboost (92.6MiB)
+ Downloaded plotly
+ Downloaded catboost
+Prepared 3 packages in 3.96s
+Installed 9 packages in 34ms
+ + alembic==1.19.1
+ + catboost==1.2.10
+ + colorlog==6.12.0
+ + graphviz==0.21
+ + greenlet==3.5.5
+ + mako==1.4.1
+ + optuna==4.9.0
+ + plotly==7.0.0
+ + sqlalchemy==2.0.52

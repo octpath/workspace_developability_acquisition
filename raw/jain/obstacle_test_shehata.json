@@ -1,0 +1,82 @@
+[
+  {
+    "name": "README.md",
+    "path": "data/test/shehata/README.md",
+    "sha": "b39952426c46ad8bdaa915d4691618dedbca5f20",
+    "size": 4559,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/README.md?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/blob/main/data/test/shehata/README.md",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/blobs/b39952426c46ad8bdaa915d4691618dedbca5f20",
+    "download_url": "https://raw.githubusercontent.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/main/data/test/shehata/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/README.md?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/blobs/b39952426c46ad8bdaa915d4691618dedbca5f20",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/blob/main/data/test/shehata/README.md"
+    }
+  },
+  {
+    "name": "canonical",
+    "path": "data/test/shehata/canonical",
+    "sha": "068722c46d2a93394d5e434866c6eecf419f8ea6",
+    "size": 0,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/canonical?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/canonical",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/068722c46d2a93394d5e434866c6eecf419f8ea6",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/canonical?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/068722c46d2a93394d5e434866c6eecf419f8ea6",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/canonical"
+    }
+  },
+  {
+    "name": "fragments",
+    "path": "data/test/shehata/fragments",
+    "sha": "55e1a60a663b90a2ec225acdb2a0a62c708146d6",
+    "size": 0,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/fragments?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/fragments",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/55e1a60a663b90a2ec225acdb2a0a62c708146d6",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/fragments?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/55e1a60a663b90a2ec225acdb2a0a62c708146d6",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/fragments"
+    }
+  },
+  {
+    "name": "processed",
+    "path": "data/test/shehata/processed",
+    "sha": "89f83bea4e9c355231445e6cc515a0a72c4840c2",
+    "size": 0,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/processed?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/processed",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/89f83bea4e9c355231445e6cc515a0a72c4840c2",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/processed?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/89f83bea4e9c355231445e6cc515a0a72c4840c2",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/processed"
+    }
+  },
+  {
+    "name": "raw",
+    "path": "data/test/shehata/raw",
+    "sha": "3073df5ea1230b7f6673ccdb578047a96bc44349",
+    "size": 0,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/raw?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/raw",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/3073df5ea1230b7f6673ccdb578047a96bc44349",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/test/shehata/raw?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/3073df5ea1230b7f6673ccdb578047a96bc44349",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/test/shehata/raw"
+    }
+  }
+]

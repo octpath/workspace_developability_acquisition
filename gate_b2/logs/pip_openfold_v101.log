@@ -1,0 +1,165 @@
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+Resolved 1 package in 2.13s
+   Building openfold @ file:///tmp/openfold_esm
+  × Failed to build `openfold @ file:///tmp/openfold_esm`
+  ├─▶ The build backend returned an error
+  ╰─▶ Call to `setuptools.build_meta:__legacy__.build_editable` failed (exit
+      status: 1)
+
+      [stdout]
+      running editable_wheel
+      creating
+      /root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold.egg-info
+      writing
+      /root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold.egg-info/PKG-INFO
+      writing dependency_links to
+      /root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold.egg-info/dependency_links.txt
+      writing top-level names to
+      /root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold.egg-info/top_level.txt
+      writing manifest file
+      '/root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold.egg-info/SOURCES.txt'
+      reading manifest file
+      '/root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold.egg-info/SOURCES.txt'
+      adding license file 'LICENSE'
+      writing manifest file
+      '/root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold.egg-info/SOURCES.txt'
+      creating
+      '/root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold-1.0.0.dist-info'
+      creating
+      /root/.cache/uv/builds-v0/.tmp2tb9do/.tmp-y2n2_nmi/openfold-1.0.0.dist-info/WHEEL
+      running build_py
+      running build_ext
+      building 'attn_core_inplace_cuda' extension
+      c++ -pthread -fno-strict-overflow -Wsign-compare
+      -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3
+      -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC
+      -fPIC -I/tmp/openfold_esm/openfold/utils/kernel/csrc/
+      -I/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include
+      -I/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include
+      -I/usr/local/cuda/include
+      -I/workspace_developability_acquisition/.venv_b1/include
+      -I/root/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/include/python3.12
+      -c openfold/utils/kernel/csrc/softmax_cuda.cpp -o
+      /tmp/tmp877icyuu.build-temp/openfold/utils/kernel/csrc/softmax_cuda.o
+      -O3 -DVERSION_GE_1_1 -DVERSION_GE_1_3
+      -DVERSION_GE_1_5 -DTORCH_API_INCLUDE_EXTENSION_H
+      -DTORCH_EXTENSION_NAME=attn_core_inplace_cuda -std=c++17
+      /usr/local/cuda/bin/nvcc -I/tmp/openfold_esm/openfold/utils/kernel/csrc/
+      -I/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include
+      -I/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include
+      -I/usr/local/cuda/include
+      -I/workspace_developability_acquisition/.venv_b1/include
+      -I/root/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/include/python3.12
+      -c openfold/utils/kernel/csrc/softmax_cuda_kernel.cu -o
+      /tmp/tmp877icyuu.build-temp/openfold/utils/kernel/csrc/softmax_cuda_kernel.o
+      -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__
+      -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__
+      --expt-relaxed-constexpr --compiler-options '-fPIC'
+      -O3 --use_fast_math -DVERSION_GE_1_1 -DVERSION_GE_1_3
+      -DVERSION_GE_1_5 -std=c++14 -maxrregcount=50
+      -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__
+      --expt-relaxed-constexpr --expt-extended-lambda -gencode
+      arch=compute_86,code=sm_86 -DTORCH_API_INCLUDE_EXTENSION_H
+      -DTORCH_EXTENSION_NAME=attn_core_inplace_cuda
+
+      [stderr]
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/setuptools/dist.py:765:
+      SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+
+      
+      ********************************************************************************
+              Please consider removing the following classifiers in favor of a
+      SPDX license expression:
+
+              License :: OSI Approved :: Apache Software License
+
+              See
+      https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license
+      for details.
+      
+      ********************************************************************************
+
+      !!
+        self._finalize_license_expression()
+      W0829 04:49:07.627000 662222 torch/utils/cpp_extension.py:659] Attempted
+      to use ninja as the BuildExtension backend but we could not find ninja..
+      Falling back to using the slow distutils backend.
+      W0829 04:49:07.647000 662222 torch/utils/cpp_extension.py:535] There are
+      no c++ version bounds defined for CUDA version 12.8
+      In file included from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/extension.h:6,
+                       from
+      openfold/utils/kernel/csrc/softmax_cuda_kernel.cu:18:
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/all.h:5:2:
+      error: #error C++17 or later compatible compiler is required to use
+      PyTorch.
+          5 | #error C++17 or later compatible compiler is required to use
+      PyTorch.
+            |  ^~~~~
+      In file included from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/ATen/core/TensorBase.h:28,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/ATen/core/TensorBody.h:40,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/ATen/core/Tensor.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/ATen/Tensor.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/autograd/function_hook.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/autograd/cpp_hook.h:3,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/autograd/variable.h:7,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/autograd/autograd.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/autograd.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/all.h:8:
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/c10/util/C++17.h:25:2:
+      error: #error You need C++17 to compile PyTorch
+         25 | #error You need C++17 to compile PyTorch
+            |  ^~~~~
+      In file included from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/types.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader_options.h:5,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/base.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:5,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/data/dataloader.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/data.h:4,
+                       from
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include/torch/all.h:10:
+      /workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/ATen/ATen.h:5:2:
+      error: #error C++17 or later compatible compiler is required to use
+      ATen.
+          5 | #error C++17 or later compatible compiler is required to use
+      ATen.
+            |  ^~~~~
+      error: Command '['/usr/local/cuda/bin/nvcc',
+      '-I/tmp/openfold_esm/openfold/utils/kernel/csrc/',
+      '-I/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include',
+      '-I/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/include/torch/csrc/api/include',
+      '-I/usr/local/cuda/include',
+      '-I/workspace_developability_acquisition/.venv_b1/include',
+      '-I/root/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/include/python3.12',
+      '-c', 'openfold/utils/kernel/csrc/softmax_cuda_kernel.cu', '-o',
+      '/tmp/tmp877icyuu.build-temp/openfold/utils/kernel/csrc/softmax_cuda_kernel.o',
+      '-D__CUDA_NO_HALF_OPERATORS__', '-D__CUDA_NO_HALF_CONVERSIONS__',
+      '-D__CUDA_NO_BFLOAT16_CONVERSIONS__', '-D__CUDA_NO_HALF2_OPERATORS__',
+      '--expt-relaxed-constexpr', '--compiler-options', "'-fPIC'",
+      '-O3', '--use_fast_math', '-DVERSION_GE_1_1', '-DVERSION_GE_1_3',
+      '-DVERSION_GE_1_5', '-std=c++14', '-maxrregcount=50',
+      '-U__CUDA_NO_HALF_OPERATORS__', '-U__CUDA_NO_HALF_CONVERSIONS__',
+      '--expt-relaxed-constexpr', '--expt-extended-lambda', '-gencode',
+      'arch=compute_86,code=sm_86', '-DTORCH_API_INCLUDE_EXTENSION_H',
+      '-DTORCH_EXTENSION_NAME=attn_core_inplace_cuda']' returned non-zero exit
+      status 1.
+
+
+hint: Build failures usually indicate a problem with the package or the build environment

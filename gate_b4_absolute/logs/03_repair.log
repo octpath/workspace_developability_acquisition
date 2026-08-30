@@ -1,0 +1,27 @@
+REPAIR FUSION_ABLANG2_BIO ElasticNet
+  pub MAE=3.495 priv MAE=3.230
+REPAIR BIO Ridge_grid
+  pub MAE=3.407 priv MAE=3.906
+REPAIR FUSION_ABLANG2_BIO LGB_L1
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+  pub MAE=3.482 priv MAE=3.588
+REPAIR ENSEMBLE_RIDGE oof_ridge
+  pub MAE=3.414 priv MAE=3.232
+REPAIR CAL_ENSEMBLE_NNLS linear_oof
+  pub MAE=3.398 priv MAE=3.224
+REPAIR RESID_BIO__PLM_ABLANG2 OOF_residual
+  pub MAE=4.148 priv MAE=3.584
+REPAIR SEQ_SIMPLE Ridge_grid
+  pub MAE=3.384 priv MAE=3.846
+REPAIR IMGT_POS_HL Ridge_grid
+  pub MAE=4.019 priv MAE=3.785
+Wrote repaired FINAL /workspace_developability_acquisition/gate_b4_absolute/reports/GATE_B4_ABSOLUTE_FINAL.md

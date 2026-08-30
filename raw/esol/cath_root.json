@@ -1,0 +1,34 @@
+[
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "2e8d20a1f7c13afb92212240d84011225f62b8ae",
+    "size": 1352,
+    "url": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/contents/README.md?ref=main",
+    "html_url": "https://github.com/cath-scripts/ecoli-protein-solubility/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/git/blobs/2e8d20a1f7c13afb92212240d84011225f62b8ae",
+    "download_url": "https://raw.githubusercontent.com/cath-scripts/ecoli-protein-solubility/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/git/blobs/2e8d20a1f7c13afb92212240d84011225f62b8ae",
+      "html": "https://github.com/cath-scripts/ecoli-protein-solubility/blob/main/README.md"
+    }
+  },
+  {
+    "name": "ecoli-protein-solubility",
+    "path": "ecoli-protein-solubility",
+    "sha": "2d8f1bbde47148407b3612386e61448872331dbb",
+    "size": 282147,
+    "url": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/contents/ecoli-protein-solubility?ref=main",
+    "html_url": "https://github.com/cath-scripts/ecoli-protein-solubility/blob/main/ecoli-protein-solubility",
+    "git_url": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/git/blobs/2d8f1bbde47148407b3612386e61448872331dbb",
+    "download_url": "https://raw.githubusercontent.com/cath-scripts/ecoli-protein-solubility/main/ecoli-protein-solubility",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/contents/ecoli-protein-solubility?ref=main",
+      "git": "https://api.github.com/repos/cath-scripts/ecoli-protein-solubility/git/blobs/2d8f1bbde47148407b3612386e61448872331dbb",
+      "html": "https://github.com/cath-scripts/ecoli-protein-solubility/blob/main/ecoli-protein-solubility"
+    }
+  }
+]

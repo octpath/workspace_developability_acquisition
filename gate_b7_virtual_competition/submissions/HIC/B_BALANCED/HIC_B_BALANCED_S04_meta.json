@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_B_BALANCED_S04",
+  "order": 4,
+  "target": "HIC",
+  "persona": "B_BALANCED",
+  "model_name": "STRUCT_ElasticNet",
+  "model_stage": 4,
+  "feature": "ESMFN_STRUCTURE",
+  "hypothesis": "Exposed hydrophobic surface from ESMFold may matter for HIC.",
+  "cv_mae": 0.47795781488736383,
+  "cv_mae_std": 0.0729546600669983,
+  "cv_spearman": 0.5048374329148683,
+  "cv_pearson": 0.5287569401064011,
+  "public_mae": 0.5260061809498255,
+  "public_spearman": 0.37155649982170746,
+  "public_pearson": 0.4113007675958646,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.008165425574413465,
+  "train_seconds": 0.03139019012451172
+}

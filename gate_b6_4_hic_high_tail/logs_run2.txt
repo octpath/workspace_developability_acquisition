@@ -1,0 +1,20 @@
+load
+population columns: ['id', 'heavy', 'light', 'HIC', 'TmApp', 'sequence_group', 'b_cell_subset', 'donor', 'vh_family', 'vl_family', 'vh_germline', 'vl_germline', 'vh_len', 'vl_len', 'seq_pair_hash']
+pred tags: ['CONST_MEDIAN', 'ESMFN_STRUCTURE_ElasticNet', 'FUSION_ESM2_ESMFN_ElasticNet', 'NESTED_STACK_NNLS', 'PLM_ESM2_PCA64_SVR', 'SEQ_SIMPLE_Ridge']
+psr columns: ['antibody_id', 'b_cell_subset', 'heavy', 'light', 'tm_app_C', 'psr_score', 'hic_rt_min', 'vh_germline', 'vl_germline', 'label_source', 'sequence_source', 'join_confidence']
+germline keep: ['id', 'PL_anarci_vh_germline_distance', 'PL_anarci_vh_mutfrac_excl_CDR3', 'PL_anarci_vl_germline_distance', 'PL_anarci_vl_mutfrac_excl_CDR3', 'PL_vh_germline_distance', 'PL_vl_germline_distance', 'PL_combined_germline_distance', 'PL_vh_mutfrac_excl_CDR3', 'PL_vl_mutfrac_excl_CDR3']
+N 324 HIGH 13 severe 10
+neighbors...
+diagnostics...
+PHYSSEQ: ['HL_gravy', 'HL_frac_aromatic', 'HL_frac_hydrophobic', 'HL_charge', 'HL_pI', 'HL_maxwin5', 'HL_maxwin9', 'HL_hydro_run', 'VH_gravy', 'VL_gravy', 'H_CDR3_gravy', 'H_CDR3_frac_aromatic', 'H_CDR3_len', 'L_CDR3_gravy', 'PL_combined_germline_distance', 'PL_vh_mutfrac_excl_CDR3', 'PL_vl_mutfrac_excl_CDR3']
+PHYSSTRUCT: ['ESMFN_Fv_sasa_hydrophobic', 'ESMFN_Fv_sasa_aromatic', 'ESMFN_hydrophobic_sasa_frac', 'ESMFN_largest_hydrophobic_patch_sasa', 'ESMFN_total_hydrophobic_patch_sasa', 'ESMFN_n_hydrophobic_patches', 'ESMFN_H_CDR3_sasa_hydrophobic', 'ESMFN_VH_sasa_hydrophobic', 'ESMFN_VL_sasa_hydrophobic', 'ESMFN_Fv_rasa_w_hydrophobicity_sum']
+FINAL HIC_VALID_BUT_DATA_LIMITED_COMPETITION_TARGET
+done /workspace_developability_acquisition/gate_b6_4_hic_high_tail/reports/GATE_B6_4_HIC_HIGH_TAIL_FINAL.md HIC_VALID_BUT_DATA_LIMITED_COMPETITION_TARGET
+KEY {
+  "n_HIGH": 13,
+  "n_verified": 13,
+  "severe_failures": 10,
+  "winner": "PHYSSEQ_STRUCT_Ridge_elevW2",
+  "train_HIGH_to_LOW": 0.6666666666666666,
+  "decision": "HIC_VALID_BUT_DATA_LIMITED_COMPETITION_TARGET"
+}

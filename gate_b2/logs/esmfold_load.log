@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 420, in esmfold_v1
+    return esm.esmfold.v1.pretrained.esmfold_v1()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/esmfold/v1/pretrained.py", line 59, in esmfold_v1
+    return _load_model("esmfold_3B_v1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/esmfold/v1/pretrained.py", line 34, in _load_model
+    raise RuntimeError(f"Keys '{', '.join(missing_essential_keys)}' are missing.")
+RuntimeError: Keys 'trunk.structure_module.ipa.linear_q_points.linear.weight, trunk.structure_module.ipa.linear_q_points.linear.bias, trunk.structure_module.ipa.linear_kv_points.linear.weight, trunk.structure_module.ipa.linear_kv_points.linear.bias' are missing.
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/models/esmfold_3B_v1.pt" to /root/.cache/torch/hub/checkpoints/esmfold_3B_v1.pt
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t36_3B_UR50D.pt" to /root/.cache/torch/hub/checkpoints/esm2_t36_3B_UR50D.pt
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t36_3B_UR50D-contact-regression.pt" to /root/.cache/torch/hub/checkpoints/esm2_t36_3B_UR50D-contact-regression.pt

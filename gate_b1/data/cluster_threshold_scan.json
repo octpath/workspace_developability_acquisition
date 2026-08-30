@@ -1,0 +1,26 @@
+{
+  "0.85": {
+    "largest_group": 230,
+    "mean_group_size": 5.225806451612903,
+    "median_group_size": 1.0,
+    "n_groups": 62,
+    "n_singletons": 53,
+    "singleton_fraction": 0.8548387096774194
+  },
+  "0.9": {
+    "largest_group": 20,
+    "mean_group_size": 1.8,
+    "median_group_size": 1.0,
+    "n_groups": 180,
+    "n_singletons": 152,
+    "singleton_fraction": 0.8444444444444444
+  },
+  "0.95": {
+    "largest_group": 9,
+    "mean_group_size": 1.148936170212766,
+    "median_group_size": 1.0,
+    "n_groups": 282,
+    "n_singletons": 265,
+    "singleton_fraction": 0.9397163120567376
+  }
+}

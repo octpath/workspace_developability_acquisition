@@ -1,0 +1,18 @@
+{
+  "n_json_entries": 548,
+  "n_unique_ids": 548,
+  "n_with_sequence": 519,
+  "n_with_any_tm": 539,
+  "n_sequence_plus_tm": 514,
+  "n_unique_sequences": 501,
+  "n_exact_duplicate_sequences": 18,
+  "tm_method_counts": {
+    "nanoDSF": 72,
+    "DSF (SYPRO)": 254,
+    "DSC": 16,
+    "Circular dichroism": 304,
+    "Other": 5
+  },
+  "n_unique_dois": 62,
+  "note": "Paper reports 564 Nbs; JSON dump contains 548 entries \u2014 count discrepancy recorded."
+}

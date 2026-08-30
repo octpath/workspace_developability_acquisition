@@ -1,0 +1,4 @@
+candidate_id,validation_bank,dominates_cand_12528,note
+CAND_04974,B7.1_stress_preds_not_remapped,False,Would require remapping all OOF/Public/Private preds onto alternate Public/Private IDs
+CAND_12207,B7.1_stress_preds_not_remapped,False,Same; prior HIC transfer concern remains
+CURRENT_BASELINE_SPLIT,B7.1_stress_preds_not_remapped,False,Control only

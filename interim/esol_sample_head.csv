@@ -1,0 +1,21 @@
+JW_ID,ECK number,B number,Gene name K-12,Locus name K-12,Synonyms of locus names K-12,Solubility (%),Yield (uM),Yield (ug/ml),Minus Sol (%),TF Sol (%),GroE Sol (%),KJE Sol (%),Minus Yield (uM),TF Yield (uM),GroE Yield (uM),KJE Yield (uM),Minus Yield (ug/ml),TF Yield (ug/ml),GroE Yield (ug/ml),KJE Yield (ug/ml),Calculated MW (kDa),Calculated pI,Type of gene product,Gene product description,Cell location,Structure (PDB) ID,SCOP assignment
+JW0002,ECK0003,b0003,thrB,thrB,,32.0,2.3,78.0,,,,,,,,,,,,,33.6,6.2,e,homoserine kinase,Cytoplasmic,,54211; Ribosomal protein S5 domain 2-like 55060; GHMP Kinase
+JW0003,ECK0004,b0004,thrC,thrC,,18.0,1.7,78.0,46.53,45.8,83.44,63.61,0.863,0.761,0.78,0.814,40.62,35.81,36.71,38.33,47.056,5.71,e,threonine synthase,Cytoplasmic,,53686; Tryptophan synthase beta subunit-like PLP-dependent enzymes
+JW0004,ECK0005,b0005,yaaX,yaaX,,78.0,1.2,14.0,,,,,,,,,,,,,11.4,10.9,o,predicted protein,Periplasmic,,
+JW0005,ECK0006,b0006,yaaA,yaaA,,7.0,2.4,71.0,14.01,26.65,52.96,17.69,1.199,1.014,1.162,1.86,35.43,29.98,34.34,54.96,29.555,8.74,o,conserved protein,Cytoplasmic,,
+JW0007,ECK0008,b0008,talB,talB,yaaK,85.0,2.7,94.0,,,,,,,,,,,,,35.2,5.8,e,transaldolase B,Cytoplasmic,1ONR,51569; Aldolase
+JW0008,ECK0009,b0009,mog,mog,bisD | chlG | mogA | yaaG,89.0,2.4,52.0,,,,,,,,,,,,,21.2,5.8,pf,predicted molybdochelatase,Cytoplasmic,1DI7,53218; Molybdenum cofactor biosynthesis proteins
+JW5001,ECK0012,b0012,htgA,htgA,htpY | groPAB | groPC | groPF,46.0,0.8,13.0,,,,,,,,,,,,,17.6,8.6,o,predicted protein,Cytoplasmic,,
+JW0012,ECK0013,b0013,yaaI,yaaI,,59.0,2.9,41.0,,,,,,,,,,,,,14.5,8.2,o,predicted protein,Periplasmic,,
+JW0013,ECK0014,b0014,dnaK,dnaK,grpF | seg | lop | groPAB | groPC | groPF | grpC,116.0,0.6,41.0,,,,,,,,,,,,,69.0,4.8,f,"chaperone Hsp70, co-chaperone with DnaJ",Cytoplasmic,,53067; Actin-like ATPase domain
+JW0014,ECK0015,b0015,dnaJ,dnaJ,groP | grpC,52.0,1.5,61.0,,,,,,,,,,,,,41.1,7.9,f,"chaperone Hsp40, co-chaperone with DnaK",Cytoplasmic,,
+JW5002,ECK0017,b4412,hokC,hokC,gef,32.0,11.8,65.0,,,,,,,,,,,,,5.5,8.2,m,"toxic membrane protein, small",Periplasmic,,
+JW0019,ECK0021,b0020,nhaR,nhaR,yaaB | antO,13.0,0.8,26.0,16.16,30.1,38.47,66.19,0.771,0.614,1.209,1.195,26.42,21.04,41.41,40.91,34.246,6.24,r,DNA-binding transcriptional activator,Cytoplasmic,,
+JW0022,ECK0024,b0023,rpsT,rpsT,sup(s20) | supS20,103.0,5.5,54.0,,,,,,,,,,,,,9.7,11.8,s,30S ribosomal subunit protein S20,Cytoplasmic,1P87,46992; Ribosomal protein S20
+JW0023,ECK0026,b0025,ribF,ribF,yaaC,42.0,1.9,66.0,,,,,,,,,,,,,34.7,9.8,e,bifunctional riboflavin kinase FAD synthetase,Cytoplasmic,,52374; Nucleotidylyl transferase
+JW0025,ECK0028,b0027,lspA,lspA,dapB | ileS,6.0,3.0,54.0,,,,,,,,,,,,,18.1,9.1,e,prolipoprotein signal peptidase (signal peptidase II),Integral Membrane Protein,,
+JW0026,ECK0029,b0028,fkpB,fkpB,slpA | yaaD,110.0,0.8,13.0,,,,,,,,,,,,,16.1,4.7,e,FKBP-type peptidyl-prolyl cis-trans isomerase (rotamase),Cytoplasmic,,54534; FKBP-like
+JW0027,ECK0030,b0029,ispH,ispH,lytB | yaaE,75.0,1.7,61.0,,,,,,,,,,,,,34.7,5.7,c,"1-hydroxy-2-methyl-2-(E)-butenyl 4-diphosphate reductase, 4Fe-4S protein",Cytoplasmic,,
+JW0028,ECK0031,b0030,rihC,rihC,yaaF,57.0,2.0,66.0,,,,,,,,,,,,,32.5,6.1,e,ribonucleoside hydrolase 3,Cytoplasmic,,53590; Nucleoside hydrolase
+JW0029,ECK0032,b0031,dapB,dapB,,94.0,2.0,58.0,,,,,,,,,,,,,28.7,6.1,e,dihydrodipicolinate reductase,Cytoplasmic,,"51735; NAD(P)-binding Rossmann-fold domains 55347; Glyceraldehyde-3-phosphate dehydrogenase-like, C-terminal domain"
+JW0030,ECK0033,b0032,carA,carA,arg+ura | cap | pyrA | arg,60.0,1.1,44.0,,,,,,,,,,,,,41.4,6.4,e,"carbamoyl phosphate synthetase small subunit, glutamine amidotransferase",Cytoplasmic,1CE8,"52021; Carbamoyl phosphate synthetase, small subunit N-terminal domain 52317; Class I glutamine amidotransferase-like"

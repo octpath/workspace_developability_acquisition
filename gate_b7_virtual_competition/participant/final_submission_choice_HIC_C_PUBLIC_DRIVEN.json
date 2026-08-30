@@ -1,0 +1,15 @@
+{
+  "target": "HIC",
+  "persona": "C_PUBLIC_DRIVEN",
+  "FINAL_PRIMARY_SUBMISSION": "HIC_C_PUBLIC_DRIVEN_S08",
+  "FINAL_BACKUP_SUBMISSION": "HIC_C_PUBLIC_DRIVEN_S06",
+  "reason": "Public-driven: minimize Public MAE; CV as tie-break.",
+  "primary_model": "FUSION_ESM2_STRUCT_ENet",
+  "backup_model": "ENSEMBLE_PUBLIC_BEST2",
+  "known_at_selection": {
+    "primary_cv_mae": 0.4852201547789042,
+    "primary_public_mae": 0.513408336546995,
+    "backup_cv_mae": 0.47473715280088025,
+    "backup_public_mae": 0.5157892958653838
+  }
+}

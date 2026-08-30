@@ -1,0 +1,170 @@
+{
+  "gate": "B7.2",
+  "note": "Specs hashed before training; models cached under cache/validation_bank/",
+  "targets": {
+    "HIC": [
+      [
+        "CONST_MEDIAN",
+        "CONST",
+        "const",
+        {}
+      ],
+      [
+        "SEQ_Ridge_a10",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "SEQ_ENet",
+        "SEQ",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "ESM2_PCA64_SVR",
+        "ESM2",
+        "svr_pca",
+        {
+          "C": 1.0,
+          "n_pca": 64
+        }
+      ],
+      [
+        "ESM2_Ridge",
+        "ESM2",
+        "ridge",
+        {
+          "alpha": 50.0
+        }
+      ],
+      [
+        "STRUCT_ENet",
+        "STRUCT",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "STRUCT_Ridge",
+        "STRUCT",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "PHYS_STRUCT_Ridge",
+        "PHYS_STRUCT",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "ESM2_STRUCT_ENet",
+        "ESM2_STRUCT",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "ESM2_STRUCT_Huber",
+        "ESM2_STRUCT",
+        "huber",
+        {}
+      ]
+    ],
+    "TmApp": [
+      [
+        "CONST_MEDIAN",
+        "CONST",
+        "const",
+        {}
+      ],
+      [
+        "SEQ_Ridge_a10",
+        "SEQ",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "SEQ_ENet",
+        "SEQ",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ],
+      [
+        "SEQ_Huber",
+        "SEQ",
+        "huber",
+        {}
+      ],
+      [
+        "BIO_Ridge_a10",
+        "BIO",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "BIO_ENet",
+        "BIO",
+        "enet",
+        {
+          "alpha": 0.15,
+          "l1": 0.7
+        }
+      ],
+      [
+        "ABLANG2_PCA32_SVR",
+        "ABLANG2",
+        "svr_pca",
+        {
+          "C": 1.0,
+          "n_pca": 32
+        }
+      ],
+      [
+        "ABLANG2_Ridge",
+        "ABLANG2",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "BIO_ABLANG2_Ridge",
+        "BIO_ABLANG2",
+        "ridge",
+        {
+          "alpha": 10.0
+        }
+      ],
+      [
+        "BIO_ABLANG2_ENet",
+        "BIO_ABLANG2",
+        "enet",
+        {
+          "alpha": 0.2,
+          "l1": 0.5
+        }
+      ]
+    ]
+  }
+}

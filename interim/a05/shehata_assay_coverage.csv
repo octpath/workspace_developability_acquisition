@@ -1,0 +1,4 @@
+target,n_complete_paired,continuous,missing_fraction,range_min,range_max,assay_consistency
+TmApp,346,True,0.135,52.5,83.5,single_study_Adimab_HT_panel
+PSR,398,True,0.0050000000000000044,0.0,0.71069495966422,single_study_Adimab_HT_panel
+HIC,348,True,0.13,8.465,13.856,single_study_Adimab_HT_panel

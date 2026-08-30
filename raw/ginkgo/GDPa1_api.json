@@ -1,0 +1,812 @@
+{
+  "_id": "684c32059165ab2dd01c2fa6",
+  "id": "ginkgo-datapoints/GDPa1",
+  "author": "ginkgo-datapoints",
+  "sha": "bee2dc5d1289d79a7a0ddfaf15dbb5c58cfe5f2f",
+  "lastModified": "2026-04-06T12:00:30.000Z",
+  "private": false,
+  "gated": "auto",
+  "disabled": false,
+  "tags": [
+    "size_categories:n<1K",
+    "format:csv",
+    "modality:tabular",
+    "modality:text",
+    "library:datasets",
+    "library:pandas",
+    "library:mlcroissant",
+    "library:polars",
+    "region:us",
+    "biology",
+    "protein",
+    "antibody"
+  ],
+  "description": "\n\t\n\t\t\n\t\n\t\n\t\tGDPa1: Antibody developability dataset\n\t\n\nContains the assay data for 242 antibodies across 10 assays as described in our latest preprint, PROPHET-Ab: A high-throughput platform for biophysical antibody developability assessment to enable AI/ML model training.\n\n\n\t\n\t\t\n\t\n\t\n\t\tExample usage\n\t\n\nUsing pandas:\nimport pandas as pd\n\n# Login using e.g. `huggingface-cli login` to access this dataset\ndf = pd.read_csv(\"hf://datasets/ginkgo-datapoints/GDPa1/GDPa1_v1.2_20250814.csv\")\n\nUsing\u2026 See the full description on the dataset page: https://huggingface.co/datasets/ginkgo-datapoints/GDPa1.",
+  "downloads": 178,
+  "likes": 24,
+  "cardData": {
+    "license_name": "cc-by-with-restrictions",
+    "license_link": "LICENSE.md",
+    "tags": [
+      "biology",
+      "protein",
+      "antibody"
+    ],
+    "pretty_name": "GDPa1",
+    "size_categories": [
+      "n<1K"
+    ],
+    "configs": [
+      {
+        "config_name": "default",
+        "data_files": [
+          {
+            "split": "train",
+            "path": "GDPa1_v1.2_20250814.csv"
+          }
+        ]
+      }
+    ],
+    "extra_gated_fields": {
+      "First name": "text",
+      "Last name": "text",
+      "Company": "text",
+      "Work email": "text",
+      "I want to use this dataset for": "text"
+    }
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "GDPa1_v1.2_20250814.csv"
+    },
+    {
+      "rfilename": "GDPa1_v1.2_20250814_full.xlsx"
+    },
+    {
+      "rfilename": "LICENSE.md"
+    },
+    {
+      "rfilename": "PROPHET-Ab-figure.png"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "structures/abagovomab.pdb"
+    },
+    {
+      "rfilename": "structures/abituzumab.pdb"
+    },
+    {
+      "rfilename": "structures/abrezekimab.pdb"
+    },
+    {
+      "rfilename": "structures/abrilumab.pdb"
+    },
+    {
+      "rfilename": "structures/adalimumab.pdb"
+    },
+    {
+      "rfilename": "structures/aducanumab.pdb"
+    },
+    {
+      "rfilename": "structures/alemtuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/alirocumab.pdb"
+    },
+    {
+      "rfilename": "structures/amatuximab.pdb"
+    },
+    {
+      "rfilename": "structures/andecaliximab.pdb"
+    },
+    {
+      "rfilename": "structures/anetumab.pdb"
+    },
+    {
+      "rfilename": "structures/anifrolumab.pdb"
+    },
+    {
+      "rfilename": "structures/anrukinzumab.pdb"
+    },
+    {
+      "rfilename": "structures/atezolizumab.pdb"
+    },
+    {
+      "rfilename": "structures/avelumab.pdb"
+    },
+    {
+      "rfilename": "structures/bapineuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/basiliximab.pdb"
+    },
+    {
+      "rfilename": "structures/bavituximab.pdb"
+    },
+    {
+      "rfilename": "structures/belantamab.pdb"
+    },
+    {
+      "rfilename": "structures/belimumab.pdb"
+    },
+    {
+      "rfilename": "structures/bemarituzumab.pdb"
+    },
+    {
+      "rfilename": "structures/benralizumab.pdb"
+    },
+    {
+      "rfilename": "structures/bevacizumab.pdb"
+    },
+    {
+      "rfilename": "structures/bezlotoxumab.pdb"
+    },
+    {
+      "rfilename": "structures/bimagrumab.pdb"
+    },
+    {
+      "rfilename": "structures/bimekizumab.pdb"
+    },
+    {
+      "rfilename": "structures/bleselumab.pdb"
+    },
+    {
+      "rfilename": "structures/blosozumab.pdb"
+    },
+    {
+      "rfilename": "structures/bococizumab.pdb"
+    },
+    {
+      "rfilename": "structures/brazikumab.pdb"
+    },
+    {
+      "rfilename": "structures/brentuximab.pdb"
+    },
+    {
+      "rfilename": "structures/briakinumab.pdb"
+    },
+    {
+      "rfilename": "structures/brodalumab.pdb"
+    },
+    {
+      "rfilename": "structures/brontictuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/budigalimab.pdb"
+    },
+    {
+      "rfilename": "structures/burosumab.pdb"
+    },
+    {
+      "rfilename": "structures/cabiralizumab.pdb"
+    },
+    {
+      "rfilename": "structures/camidanlumab.pdb"
+    },
+    {
+      "rfilename": "structures/camrelizumab.pdb"
+    },
+    {
+      "rfilename": "structures/carlumab.pdb"
+    },
+    {
+      "rfilename": "structures/cemiplimab.pdb"
+    },
+    {
+      "rfilename": "structures/certolizumab.pdb"
+    },
+    {
+      "rfilename": "structures/cetrelimab.pdb"
+    },
+    {
+      "rfilename": "structures/cetuximab.pdb"
+    },
+    {
+      "rfilename": "structures/cixutumumab.pdb"
+    },
+    {
+      "rfilename": "structures/clazakizumab.pdb"
+    },
+    {
+      "rfilename": "structures/codrituzumab.pdb"
+    },
+    {
+      "rfilename": "structures/coltuximab.pdb"
+    },
+    {
+      "rfilename": "structures/concizumab.pdb"
+    },
+    {
+      "rfilename": "structures/crenezumab.pdb"
+    },
+    {
+      "rfilename": "structures/crizanlizumab.pdb"
+    },
+    {
+      "rfilename": "structures/cusatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/dacetuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/daclizumab.pdb"
+    },
+    {
+      "rfilename": "structures/dalotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/daratumumab.pdb"
+    },
+    {
+      "rfilename": "structures/denosumab.pdb"
+    },
+    {
+      "rfilename": "structures/depatuxizumab.pdb"
+    },
+    {
+      "rfilename": "structures/dinutuximab.pdb"
+    },
+    {
+      "rfilename": "structures/domagrozumab.pdb"
+    },
+    {
+      "rfilename": "structures/dostarlimab.pdb"
+    },
+    {
+      "rfilename": "structures/duligotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/dupilumab.pdb"
+    },
+    {
+      "rfilename": "structures/durvalumab.pdb"
+    },
+    {
+      "rfilename": "structures/eculizumab.pdb"
+    },
+    {
+      "rfilename": "structures/efalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/eldelumab.pdb"
+    },
+    {
+      "rfilename": "structures/elezanumab.pdb"
+    },
+    {
+      "rfilename": "structures/elotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/emactuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/emapalumab.pdb"
+    },
+    {
+      "rfilename": "structures/emibetuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/enavatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/enokizumab.pdb"
+    },
+    {
+      "rfilename": "structures/epratuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/eptinezumab.pdb"
+    },
+    {
+      "rfilename": "structures/erenumab.pdb"
+    },
+    {
+      "rfilename": "structures/etaracizumab.pdb"
+    },
+    {
+      "rfilename": "structures/etrolizumab.pdb"
+    },
+    {
+      "rfilename": "structures/evinacumab.pdb"
+    },
+    {
+      "rfilename": "structures/evolocumab.pdb"
+    },
+    {
+      "rfilename": "structures/farletuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/fasinumab.pdb"
+    },
+    {
+      "rfilename": "structures/fezakinumab.pdb"
+    },
+    {
+      "rfilename": "structures/ficlatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/figitumumab.pdb"
+    },
+    {
+      "rfilename": "structures/fletikumab.pdb"
+    },
+    {
+      "rfilename": "structures/foralumab.pdb"
+    },
+    {
+      "rfilename": "structures/fremanezumab.pdb"
+    },
+    {
+      "rfilename": "structures/fresolimumab.pdb"
+    },
+    {
+      "rfilename": "structures/fulranumab.pdb"
+    },
+    {
+      "rfilename": "structures/galcanezumab.pdb"
+    },
+    {
+      "rfilename": "structures/galiximab.pdb"
+    },
+    {
+      "rfilename": "structures/ganitumab.pdb"
+    },
+    {
+      "rfilename": "structures/gantenerumab.pdb"
+    },
+    {
+      "rfilename": "structures/gatipotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/gemtuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/gevokizumab.pdb"
+    },
+    {
+      "rfilename": "structures/gimsilumab.pdb"
+    },
+    {
+      "rfilename": "structures/girentuximab.pdb"
+    },
+    {
+      "rfilename": "structures/glembatumumab.pdb"
+    },
+    {
+      "rfilename": "structures/golimumab.pdb"
+    },
+    {
+      "rfilename": "structures/guselkumab.pdb"
+    },
+    {
+      "rfilename": "structures/ianalumab.pdb"
+    },
+    {
+      "rfilename": "structures/ibalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/icrucumab.pdb"
+    },
+    {
+      "rfilename": "structures/imgatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/inclacumab.pdb"
+    },
+    {
+      "rfilename": "structures/inebilizumab.pdb"
+    },
+    {
+      "rfilename": "structures/inotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/intetumumab.pdb"
+    },
+    {
+      "rfilename": "structures/ipilimumab.pdb"
+    },
+    {
+      "rfilename": "structures/isatuximab.pdb"
+    },
+    {
+      "rfilename": "structures/iscalimab.pdb"
+    },
+    {
+      "rfilename": "structures/itolizumab.pdb"
+    },
+    {
+      "rfilename": "structures/ixekizumab.pdb"
+    },
+    {
+      "rfilename": "structures/ladiratuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/lampalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/lanadelumab.pdb"
+    },
+    {
+      "rfilename": "structures/landogrozumab.pdb"
+    },
+    {
+      "rfilename": "structures/lebrikizumab.pdb"
+    },
+    {
+      "rfilename": "structures/lenzilumab.pdb"
+    },
+    {
+      "rfilename": "structures/lexatumumab.pdb"
+    },
+    {
+      "rfilename": "structures/ligelizumab.pdb"
+    },
+    {
+      "rfilename": "structures/lintuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/lirilumab.pdb"
+    },
+    {
+      "rfilename": "structures/loncastuximab.pdb"
+    },
+    {
+      "rfilename": "structures/lorvotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/lucatumumab.pdb"
+    },
+    {
+      "rfilename": "structures/lumiliximab.pdb"
+    },
+    {
+      "rfilename": "structures/lumretuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/margetuximab.pdb"
+    },
+    {
+      "rfilename": "structures/matuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/mavrilimumab.pdb"
+    },
+    {
+      "rfilename": "structures/mepolizumab.pdb"
+    },
+    {
+      "rfilename": "structures/milatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/mirikizumab.pdb"
+    },
+    {
+      "rfilename": "structures/mirvetuximab.pdb"
+    },
+    {
+      "rfilename": "structures/mitazalimab.pdb"
+    },
+    {
+      "rfilename": "structures/mogamulizumab.pdb"
+    },
+    {
+      "rfilename": "structures/monalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/mosunetuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/motavizumab.pdb"
+    },
+    {
+      "rfilename": "structures/muromonab.pdb"
+    },
+    {
+      "rfilename": "structures/natalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/necitumumab.pdb"
+    },
+    {
+      "rfilename": "structures/nesvacumab.pdb"
+    },
+    {
+      "rfilename": "structures/nimotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/nivolumab.pdb"
+    },
+    {
+      "rfilename": "structures/obexelimab.pdb"
+    },
+    {
+      "rfilename": "structures/obiltoxaximab.pdb"
+    },
+    {
+      "rfilename": "structures/obinutuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/ocrelizumab.pdb"
+    },
+    {
+      "rfilename": "structures/ofatumumab.pdb"
+    },
+    {
+      "rfilename": "structures/olaratumab.pdb"
+    },
+    {
+      "rfilename": "structures/oleclumab.pdb"
+    },
+    {
+      "rfilename": "structures/olokizumab.pdb"
+    },
+    {
+      "rfilename": "structures/omalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/omburtamab.pdb"
+    },
+    {
+      "rfilename": "structures/onartuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/opicinumab.pdb"
+    },
+    {
+      "rfilename": "structures/orticumab.pdb"
+    },
+    {
+      "rfilename": "structures/osocimab.pdb"
+    },
+    {
+      "rfilename": "structures/otelixizumab.pdb"
+    },
+    {
+      "rfilename": "structures/otlertuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/ozanezumab.pdb"
+    },
+    {
+      "rfilename": "structures/palivizumab.pdb"
+    },
+    {
+      "rfilename": "structures/pamrevlumab.pdb"
+    },
+    {
+      "rfilename": "structures/panitumumab.pdb"
+    },
+    {
+      "rfilename": "structures/panobacumab.pdb"
+    },
+    {
+      "rfilename": "structures/parsatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/patritumab.pdb"
+    },
+    {
+      "rfilename": "structures/pertuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/pidilizumab.pdb"
+    },
+    {
+      "rfilename": "structures/pinatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/plozalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/polatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/ponezumab.pdb"
+    },
+    {
+      "rfilename": "structures/prasinezumab.pdb"
+    },
+    {
+      "rfilename": "structures/prezalumab.pdb"
+    },
+    {
+      "rfilename": "structures/prolgolimab.pdb"
+    },
+    {
+      "rfilename": "structures/quilizumab.pdb"
+    },
+    {
+      "rfilename": "structures/racotumomab.pdb"
+    },
+    {
+      "rfilename": "structures/radretumab.pdb"
+    },
+    {
+      "rfilename": "structures/ramucirumab.pdb"
+    },
+    {
+      "rfilename": "structures/ranibizumab.pdb"
+    },
+    {
+      "rfilename": "structures/relatlimab.pdb"
+    },
+    {
+      "rfilename": "structures/reslizumab.pdb"
+    },
+    {
+      "rfilename": "structures/rilotumumab.pdb"
+    },
+    {
+      "rfilename": "structures/rinucumab.pdb"
+    },
+    {
+      "rfilename": "structures/risankizumab.pdb"
+    },
+    {
+      "rfilename": "structures/rituximab.pdb"
+    },
+    {
+      "rfilename": "structures/robatumumab.pdb"
+    },
+    {
+      "rfilename": "structures/romosozumab.pdb"
+    },
+    {
+      "rfilename": "structures/rontalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/rovalpituzumab.pdb"
+    },
+    {
+      "rfilename": "structures/rozanolixizumab.pdb"
+    },
+    {
+      "rfilename": "structures/sarilumab.pdb"
+    },
+    {
+      "rfilename": "structures/satralizumab.pdb"
+    },
+    {
+      "rfilename": "structures/secukinumab.pdb"
+    },
+    {
+      "rfilename": "structures/selicrelumab.pdb"
+    },
+    {
+      "rfilename": "structures/seribantumab.pdb"
+    },
+    {
+      "rfilename": "structures/setrusumab.pdb"
+    },
+    {
+      "rfilename": "structures/sifalimumab.pdb"
+    },
+    {
+      "rfilename": "structures/siltuximab.pdb"
+    },
+    {
+      "rfilename": "structures/simtuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/sintilimab.pdb"
+    },
+    {
+      "rfilename": "structures/sirukumab.pdb"
+    },
+    {
+      "rfilename": "structures/solanezumab.pdb"
+    },
+    {
+      "rfilename": "structures/spartalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/sutimlimab.pdb"
+    },
+    {
+      "rfilename": "structures/tabalumab.pdb"
+    },
+    {
+      "rfilename": "structures/tanezumab.pdb"
+    },
+    {
+      "rfilename": "structures/tarextumab.pdb"
+    },
+    {
+      "rfilename": "structures/tavolimab.pdb"
+    },
+    {
+      "rfilename": "structures/telisotuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/teplizumab.pdb"
+    },
+    {
+      "rfilename": "structures/teprotumumab.pdb"
+    },
+    {
+      "rfilename": "structures/tezepelumab.pdb"
+    },
+    {
+      "rfilename": "structures/tigatuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/tildrakizumab.pdb"
+    },
+    {
+      "rfilename": "structures/tislelizumab.pdb"
+    },
+    {
+      "rfilename": "structures/tisotumab.pdb"
+    },
+    {
+      "rfilename": "structures/tocilizumab.pdb"
+    },
+    {
+      "rfilename": "structures/toripalimab.pdb"
+    },
+    {
+      "rfilename": "structures/tovetumab.pdb"
+    },
+    {
+      "rfilename": "structures/tralokinumab.pdb"
+    },
+    {
+      "rfilename": "structures/trastuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/tregalizumab.pdb"
+    },
+    {
+      "rfilename": "structures/tremelimumab.pdb"
+    },
+    {
+      "rfilename": "structures/ublituximab.pdb"
+    },
+    {
+      "rfilename": "structures/urelumab.pdb"
+    },
+    {
+      "rfilename": "structures/ustekinumab.pdb"
+    },
+    {
+      "rfilename": "structures/utomilumab.pdb"
+    },
+    {
+      "rfilename": "structures/vadastuximab.pdb"
+    },
+    {
+      "rfilename": "structures/varlilumab.pdb"
+    },
+    {
+      "rfilename": "structures/vatelizumab.pdb"
+    },
+    {
+      "rfilename": "structures/vedolizumab.pdb"
+    },
+    {
+      "rfilename": "structures/veltuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/visilizumab.pdb"
+    },
+    {
+      "rfilename": "structures/xentuzumab.pdb"
+    },
+    {
+      "rfilename": "structures/zalutumumab.pdb"
+    },
+    {
+      "rfilename": "structures/zanolimumab.pdb"
+    },
+    {
+      "rfilename": "structures/zolbetuximab.pdb"
+    }
+  ],
+  "createdAt": "2025-06-13T14:13:25.000Z",
+  "usedStorage": 70747589
+}

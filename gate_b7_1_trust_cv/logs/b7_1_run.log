@@ -1,0 +1,21 @@
+Protocol sha256=563a0ed98b0f68fd7939287589d7d082b1a70cb92e81ee99e4e7aee48a7fd7e4
+Building unique model bank...
+{'HIC': 17, 'TmApp': 18}
+Phase1 pairwise analyses...
+target  n_material_disagreements  trustcv_rate                     verdict
+ TmApp                        19      0.166667 PUBLIC_AT_LEAST_AS_RELIABLE
+   HIC                         3      0.333333 PUBLIC_AT_LEAST_AS_RELIABLE
+target  n_material_disagreements  trustcv_rate               verdict
+ TmApp                         0           NaN TOO_FEW_DISAGREEMENTS
+   HIC                         0           NaN TOO_FEW_DISAGREEMENTS
+Phase1 primary set=ALL_ELIGIBLE (competitive too few) {'TmApp': 'PUBLIC_AT_LEAST_AS_RELIABLE', 'HIC': 'PUBLIC_AT_LEAST_AS_RELIABLE'}
+=> 2B
+Phase 2B stress bank...
+{'HIC': 37, 'TmApp': 38}
+             label target  n_material_disagreements  trustcv_rate                     verdict
+STRESS_COMPETITIVE  TmApp                         0           NaN       TOO_FEW_DISAGREEMENTS
+STRESS_COMPETITIVE    HIC                         0           NaN       TOO_FEW_DISAGREEMENTS
+        STRESS_ALL  TmApp                       113      0.481818          TRUST_CV_AMBIGUOUS
+        STRESS_ALL    HIC                        17      0.133333 PUBLIC_AT_LEAST_AS_RELIABLE
+FINAL FREEZE_CAND_12528_PUBLIC_IS_USEFUL_BUT_TRUST_CV_NOT_DEMONSTRATED
+Done in 262.2s -> /workspace_developability_acquisition/gate_b7_1_trust_cv/reports/GATE_B7_1_TRUST_CV_FINAL.md

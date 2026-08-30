@@ -1,0 +1,24 @@
+{
+  "HIC": {
+    "dropout": 0.3,
+    "hidden": 64,
+    "mae_mean": 0.5536938920904089,
+    "mae_sd": 0.006636762807398722,
+    "mode": "attn",
+    "pearson_fisher_z_mean": 0.1861711425190712,
+    "tag": "POOL_attn_h64_do0.3_wd0.01",
+    "target": "HIC",
+    "wd": 0.01
+  },
+  "TmApp": {
+    "dropout": 0.3,
+    "hidden": 64,
+    "mae_mean": 4.223900300485116,
+    "mae_sd": 0.12744483241328464,
+    "mode": "region",
+    "pearson_fisher_z_mean": 0.16432169759182486,
+    "tag": "POOL_region_h64_do0.3_wd0.01",
+    "target": "TmApp",
+    "wd": 0.01
+  }
+}

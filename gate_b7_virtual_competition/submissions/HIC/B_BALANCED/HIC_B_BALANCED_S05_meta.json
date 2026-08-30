@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_B_BALANCED_S05",
+  "order": 5,
+  "target": "HIC",
+  "persona": "B_BALANCED",
+  "model_name": "ESM2_PHYS_STRUCT_Ridge",
+  "model_stage": 5,
+  "feature": "FUSION_ESM2_STRUCT",
+  "hypothesis": "Ridge on ESM2+structure (alternative fusion head).",
+  "cv_mae": 0.5881960541655518,
+  "cv_mae_std": 0.09980112820881891,
+  "cv_spearman": 0.5462114190536546,
+  "cv_pearson": 0.502969289933012,
+  "public_mae": 0.5888743881791082,
+  "public_spearman": 0.34629521999612445,
+  "public_pearson": 0.44554864734079186,
+  "personal_public_rank": 4,
+  "delta_public_vs_prev": 0.06286820722928266,
+  "train_seconds": 0.07652163505554199
+}

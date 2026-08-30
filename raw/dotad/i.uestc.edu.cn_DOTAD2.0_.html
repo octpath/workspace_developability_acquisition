@@ -1,0 +1,1330 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOTAD</title>
+
+  <!-- Local Tailwind runtime -->
+  <script src="assets/js/tailwindcss.cdn.js"></script>
+
+  <!-- Local Lucide Icons -->
+  <script src="assets/js/lucide.min.js"></script>
+
+  <!-- Local Fuse.js（模糊搜索） -->
+  <script src="assets/js/fuse.min.js"></script>
+
+  <!-- Local Chart.js（用于 Statistics 页面） -->
+  <script src="assets/js/chart.umd.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:'#eef6ff',100:'#d9ebff',200:'#b6d6ff',300:'#86bbff',400:'#5498ff',
+              500:'#2a75ff',600:'#1c5be6',700:'#1649b8',800:'#153e93',900:'#132f6b'
+            },
+            accent: { 500:'#06b6d4', 600:'#0891b2' }
+          },
+          boxShadow: { soft: '0 8px 30px rgba(0,0,0,0.08)' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* sticky footer */
+    html, body { height: 100%; }
+    html { overflow-y: scroll; }
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+    #app { flex: 1; display: flex; flex-direction: column; }
+    main { flex: 1; }
+
+[v-cloak]{display:none!important}
+.stat-value:empty::before{content:attr(data-fallback)}
+.card-hover{transition:transform .25s ease, box-shadow .25s ease}
+    .card-hover:hover{transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,.10)}
+    ::-webkit-scrollbar{height:10px;width:10px}
+    ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:9999px}
+    ::-webkit-scrollbar-track{background:#f1f5f9}
+
+    body{
+      background-image:
+        linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.9)),
+        url('assets/bg-tech.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .card{
+      background: rgba(255,255,255,.92);
+      backdrop-filter: saturate(120%) blur(2px);
+    }
+
+    /* ===== 导航按钮：固定高度，垂直居中 ===== */
+    .nav-btn{
+      display:inline-flex; align-items:center; gap:8px;
+      height:40px; line-height:1; padding:0 12px;
+      border-radius:0.75rem;
+    }
+    /* lucide 会把 <i> 换成 <svg>，两者都约束 */
+    .nav-btn svg, .nav-btn i{ width:20px; height:20px; stroke-width:2; display:block; color:currentColor; }
+    .nav-btn:focus-visible{ outline:none; box-shadow:0 0 0 2px rgba(148,163,184,.35) inset; }
+
+    /* 页面淡入过渡 */
+    .page-fade { transition: opacity .2s ease; }
+
+    /* 表头排序箭头 */
+    .sort-indicator{display:inline-block; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; margin-left:.25rem; opacity:.45}
+    .sort-asc { border-bottom:6px solid currentColor; }
+    .sort-desc{ border-top:6px solid currentColor; }
+  </style>
+
+  <link rel="icon" type="image/png" href="assets/logos/logo2.png">
+  <link rel="preload" as="image" href="assets/logos/logo-header.webp" type="image/webp">
+</head>
+
+<body class="overflow-x-hidden bg-white text-slate-800 antialiased dark:bg-black dark:text-slate-200">
+  <div id="app" v-cloak>
+    <!-- 顶部蓝条已移除 -->
+
+    <!-- Header（固定高度 h-16） -->
+    <header class="sticky top-0 z-[1000] h-16 bg-[#333333] text-white border-b border-[#3f3f3f] shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div class="relative flex items-center justify-between h-full pr-12 md:pr-0">
+          <a href="#" @click.prevent="setPage('home')" class="flex min-w-0 items-center gap-3">
+          <picture>
+            <source srcset="assets/logos/logo-header.webp" type="image/webp">
+            <img
+              src="assets/logos/logo-header.png"
+              width="540"
+              height="178"
+              fetchpriority="high"
+              decoding="async"
+              class="h-10 sm:h-12 md:h-14 w-auto max-w-[180px] sm:max-w-none object-contain rounded-lg filter brightness-150"
+              alt="DOTAD"
+            >
+          </picture>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-4 text-sm">
+            <button :class="navBtn('home')"     @click="setPage('home')"><i data-lucide="home"></i><span class="leading-none">Home</span></button>
+            <button :class="navBtn('dataset')"  @click="setPage('dataset')"><i data-lucide="database"></i><span class="leading-none">Dataset</span></button>
+            <a :class="navBtn('network')" href="Network.html"><i data-lucide="share-2"></i><span class="leading-none">Network</span></a>
+            <button :class="navBtn('download')" @click="setPage('download')"><i data-lucide="download"></i><span class="leading-none">Download</span></button>
+            <button :class="navBtn('tools')"    @click="setPage('tools')"><i data-lucide="wrench"></i><span class="leading-none">Tools</span></button>
+            <button :class="navBtn('stats')"    @click="setPage('stats')"><i data-lucide="bar-chart-2"></i><span class="leading-none">Statistics</span></button>
+            <button :class="navBtn('help')"     @click="setPage('help')"><i data-lucide="help-circle"></i><span class="leading-none">Help</span></button>
+          </nav>
+
+          <div class="ml-3 flex shrink-0 items-center gap-3">
+            <button
+              class="inline-flex md:hidden shrink-0 items-center justify-center"
+              style="width:40px;height:40px;border-radius:12px;background:#4a4a4a;color:#ffffff;border:1px solid rgba(255,255,255,.14);font-size:24px;line-height:1;"
+              @click="menuOpen = !menuOpen" aria-label="Open menu">☰</button>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div v-show="menuOpen" class="md:hidden pt-2 pb-3">
+          <div class="flex flex-col gap-1 text-sm">
+            <button :class="navBtn('home', true)"     @click="setPage('home'); menuOpen=false"><i data-lucide="home"></i><span class="leading-none">Home</span></button>
+            <button :class="navBtn('dataset', true)"  @click="setPage('dataset'); menuOpen=false"><i data-lucide="database"></i><span class="leading-none">Dataset</span></button>
+            <a :class="navBtn('network', true)" href="Network.html"><i data-lucide="share-2"></i><span class="leading-none">Network</span></a>
+            <button :class="navBtn('download', true)" @click="setPage('download'); menuOpen=false"><i data-lucide="download"></i><span class="leading-none">Download</span></button>
+            <button :class="navBtn('tools', true)"    @click="setPage('tools'); menuOpen=false"><i data-lucide="wrench"></i><span class="leading-none">Tools</span></button>
+            <button :class="navBtn('stats', true)"    @click="setPage('stats'); menuOpen=false"><i data-lucide="bar-chart-2"></i><span class="leading-none">Statistics</span></button>
+            <button :class="navBtn('help', true)"     @click="setPage('help'); menuOpen=false"><i data-lucide="help-circle"></i><span class="leading-none">Help</span></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 页面主体 -->
+    <main class="page-fade" :style="{opacity: pageOpacity}">
+<section v-show="page==='home'" class="relative">
+        <div class="relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-accent-50 dark:hidden"></div>
+          <div class="absolute inset-0 hidden dark:block bg-gradient-to-br from-slate-900 via-slate-950 to-black"></div>
+
+          <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid min-h-[46vh] py-6 sm:py-8 place-items-center">
+              <div class="max-w-5xl text-left md:text-justify" v-observe>
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white text-center">
+                  What is DOTAD?
+                </h1>
+                <p class="mt-5 text-slate-600 dark:text-slate-300 text-lg sm:text-xl leading-8">
+                  DOTAD is an antibody developability database integrating metadata, sequence resources, experimental developability data, and literature-curated developability evidence into a unified antibody-centered platform.
+                </p>
+                <p class="text-slate-600 dark:text-slate-300 text-lg sm:text-xl leading-8">
+                  It supports structured exploration, similarity/network analysis, release-centered download, and reusable data assets for benchmarking and computational method development.
+                </p>
+
+                <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center" v-observe>
+                  <button class="px-6 py-3 rounded-xl bg-brand-600 text-white font-medium shadow-soft hover:bg-brand-700 active:scale-[.98]" @click="setPage('dataset')">Browse Dataset</button>
+                  <button class="px-6 py-3 rounded-xl bg-slate-900 text-white font-medium shadow-soft hover:bg-slate-800 active:scale-[.98]" @click="setPage('download')">Download Releases</button>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-2 justify-center text-xs text-slate-600 dark:text-slate-300" v-observe>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Metadata</span>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Sequence Data</span>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Structure (PDB/AF2)</span>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Experimental Developability</span>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Literature-curated Data</span>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Affinity Benchmark</span>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Statistics &amp; Visualization</span>
+                  <span class="px-2.5 py-1 rounded-full bg-slate-100">Batch Download</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-r from-brand-50 via-white to-accent-50 dark:from-slate-900 dark:via-slate-950 dark:to-black border-y border-slate-100 dark:border-slate-800/60">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <dl class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div class="p-4 rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 shadow-soft" v-observe>
+                <dt class="text-xs text-slate-500 dark:text-slate-400" title="Total unique antibody entries in the core DOTAD database.">Total Antibody Entries</dt>
+                <dd class="stat-value mt-1 text-2xl font-semibold" data-fallback="324,126" v-text="statText('entries')"></dd>
+              </div>
+              <div class="p-4 rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 shadow-soft" v-observe>
+                <dt class="text-xs text-slate-500 dark:text-slate-400" title="Total non-empty structured cells in DOTAD releases, including affinity benchmark data.">Data Points</dt>
+                <dd class="stat-value mt-1 text-2xl font-semibold" data-fallback="54,952,801" v-text="statText('points')"></dd>
+              </div>
+              <div class="p-4 rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 shadow-soft" v-observe>
+                <dt class="text-xs text-slate-500 dark:text-slate-400" title="Total number of curated and standardized developability annotations in DOTAD harmonized tables.">Developability Annotations</dt>
+                <dd class="stat-value mt-1 text-2xl font-semibold" data-fallback="2,892,561" v-text="statText('develop')"></dd>
+              </div>
+              <div class="p-4 rounded-xl bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 shadow-soft" v-observe>
+                <dt class="text-xs text-slate-500 dark:text-slate-400" title="Total number of source-linked records collected from databases, literature, benchmark datasets, and supplementary materials before harmonization and cross-source deduplication.">Source Records</dt>
+                <dd class="stat-value mt-1 text-2xl font-semibold" data-fallback="4,646,788" v-text="statText('validated')"></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Site modules -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-white" v-observe>Site Modules</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300 text-sm" v-observe>Navigation: Home / Dataset / Network / Download / Tools / Statistics / Help.</p>
+          <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="p-6 rounded-2xl border border-slate-200 bg-white card-hover" v-observe>
+              <div class="text-sm font-semibold">Dataset</div>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Browse antibody metadata, sequence information, developability annotations, target context, and linked records for integrated entry-level exploration.</p>
+              <button class="mt-4 text-brand-600 text-sm" @click="setPage('dataset')">Go →</button>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-200 bg-white card-hover" v-observe>
+              <div class="text-sm font-semibold">Network</div>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Explore developability similarity neighborhoods and linked annotation context to inspect relationships among related antibodies.</p>
+              <button class="mt-4 text-brand-600 text-sm" @click="setPage('network')">Go →</button>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-200 bg-white card-hover" v-observe>
+              <div class="text-sm font-semibold">Download</div>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Access the release center for metadata, sequence, experimental developability, literature-curated collections, benchmark resources, and release documentation.</p>
+              <button class="mt-4 text-brand-600 text-sm" @click="setPage('download')">Go →</button>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-200 bg-white card-hover" v-observe>
+              <div class="text-sm font-semibold">Tools</div>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Use sequence-based developability analysis utilities for QC, liabilities, physicochemical profiling, and report generation.</p>
+              <button class="mt-4 text-brand-600 text-sm" @click="setPage('tools')">Go →</button>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-200 bg-white card-hover" v-observe>
+              <div class="text-sm font-semibold">Statistics</div>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Review release composition, metric coverage, metadata distributions, and literature-curated developability category summaries.</p>
+              <button class="mt-4 text-brand-600 text-sm" @click="setPage('stats')">Go →</button>
+            </div>
+            <div class="p-6 rounded-2xl border border-slate-200 bg-white card-hover" v-observe>
+              <div class="text-sm font-semibold">Help</div>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Find quick user guidance, FAQs, data interpretation notes, contact information, and supporting documentation references.</p>
+              <button class="mt-4 text-brand-600 text-sm" @click="setPage('help')">Go →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
+
+    <!-- 回到顶部按钮 -->
+    <button
+      v-show="backTopVisible"
+      @click="scrollToTop"
+      class="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center w-[4.5rem] h-[4.5rem] rounded-full bg-brand-600 text-white shadow-soft hover:bg-brand-700 active:scale-[.98] transition text-2xl"
+      aria-label="Back to top"
+    >
+      <i data-lucide="arrow-up" class="w-9 h-9"></i>
+    </button>
+
+    <!-- Footer（原样） -->
+    <footer class="mt-auto bg-[#2f2f2f] text-slate-200 border-t border-[#1f1f1f]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="grid lg:grid-cols-[1.6fr_0.9fr] gap-6 items-start">
+          <div>
+            <h3 class="text-sm md:text-base font-semibold text-slate-100 text-center lg:text-left">Data Sources</h3>
+            <ul class="mt-2 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center">
+              <li class="w-full"><a href="https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/SAbDab.png" alt="SAbDab" title="SAbDab" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+              <li class="w-full"><a href="https://www.rcsb.org" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/PDB.png" alt="RCSB PDB" title="RCSB PDB" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+              <li class="w-full"><a href="https://www.uniprot.org/" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/uniprot.svg" alt="UniProt" title="UniProt" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+              <li class="w-full"><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/pubmed.webp" alt="PubMed" title="PubMed" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+              <li class="w-full"><a href="https://www.imgt.org/" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/IMGT.png" alt="IMGT" title="IMGT" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+              <li class="w-full"><a href="https://i.uestc.edu.cn/DOTAD/" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/DOTAD.png" alt="DOTAD" title="DOTAD" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+              <li class="w-full"><a href="https://opig.stats.ox.ac.uk/webapps/oas/" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/OAS.png" alt="OAS" title="OAS" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+              <li class="w-full"><a href="https://datapoints.ginkgo.bio/" target="_blank" rel="noopener" class="group inline-flex items-center justify-center w-full px-2.5 py-2 transition">
+                <img src="assets/logos/GINKGO.png" alt="GINKGO" title="GINKGO" class="h-7 sm:h-8 object-contain transition group-hover:scale-105 border-0" /></a></li>
+            </ul>
+            <p class="mt-2 text-[11px] sm:text-xs text-slate-400 text-center lg:text-left">
+              * Logos are owned by their respective organizations and used here for identification only.
+            </p>
+          </div>
+
+          <aside class="lg:justify-self-end w-full">
+            <h3 class="text-sm md:text-base font-semibold text-slate-100 text-left lg:text-right">Follow Us On Wechat</h3>
+            <div class="mt-2 flex items-center gap-3 justify-end">
+              <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-xl bg-white border border-slate-200 overflow-hidden p-1.5 shadow-soft">
+                <img src="assets/QR/qr-code.jpg" alt="WeChat QR code" class="w-full h-full object-contain" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <p class="text-center text-[11px] sm:text-sm text-slate-400 whitespace-pre-line leading-relaxed">
+          Copyright © 2026 HLab 
+          <br>
+          Center for Informational Biology | UESTC | Chengdu, 610054, China
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/vue.global.prod.js"></script>
+  <!-- Vue 3 -->
+  <script>
+    (function(){
+      if (window.Vue) return;
+      const sources = ['assets/js/vue.global.prod.js'];
+      let idx = 0;
+      const loadNext = ()=>{
+        if (window.Vue) return;
+        if (idx >= sources.length) {
+          console.error('Vue failed to load');
+          return;
+        }
+        const s = document.createElement('script');
+        s.src = sources[idx++];
+        s.onerror = loadNext;
+        document.head.appendChild(s);
+      };
+      loadNext();
+    })();
+  </script>
+  <script>
+    (function(){
+      function start(){
+        const { createApp, ref, reactive, computed, watch, nextTick, onMounted, onBeforeUnmount } = Vue
+
+    // 进入视口淡入指令
+    const observeDirective = {
+      mounted(el){
+        el.style.opacity = 0; el.style.transform = 'translateY(8px)';
+        const io = new IntersectionObserver(([entry])=>{
+          if(entry.isIntersecting){
+            el.style.transition = 'opacity .35s ease, transform .35s ease';
+            el.style.opacity = 1; el.style.transform = 'translateY(0)';
+            io.unobserve(el);
+          }
+        }, { threshold: 0.12 });
+        io.observe(el);
+      }
+    }
+
+    createApp({
+      setup(){
+        const page = ref('home')
+        const menuOpen = ref(false)
+        const pageOpacity = ref(1)
+        const backTopVisible = ref(false)
+        const statsActual = {
+          entries: 324126,
+          points: 54952801,
+          develop: 2892561,
+          validated: 4646788
+        }
+        const statsDisplay = reactive({
+          entries: 0,
+          points: 0,
+          develop: 0,
+          validated: 0
+        })
+        let statsStarted = false
+
+        const pageMap = {
+          home: 'index.html',
+          dataset: 'Dataset.html',
+          network: 'Network.html',
+          download: 'Download.html',
+          tools: 'Tools.html',
+          stats: 'Statistics.html',
+          help: 'Help.html'
+        }
+        const setPage = (p)=>{
+          const target = pageMap[p]
+          if (!target || p === page.value) return
+          window.location.href = target
+        }
+
+        const navBtn = (key, mobile=false)=>{
+          if (mobile) {
+            return [
+              'nav-btn transition-colors',
+              page.value===key
+                ? 'bg:white/15 text-white'
+                : 'bg-[#3b3b3b] text-white/85 hover:text-white'
+            ].join(' ')
+          }
+          return [
+            'nav-btn transition-colors',
+            page.value===key
+              ? 'text-white bg-white/15 ring-1 ring-white/20'
+              : 'text-white/85 hover:text-white'
+          ].join(' ')
+        }
+
+        /* ===========================
+           Dataset：真实数据 + 搜索 + 排序 + 详情页（Modal）
+        ============================*/
+        const datasetEntries = ref([])
+
+        // Facet filters (overview page)
+        const hcFilter = ref('')         // HC subtype (supports G1 / IgG1)
+        const lcFilter = ref('')         // LC subtype (kappa/lambda)
+        const formatFilter = ref('')
+        const speciesFilter = ref('')
+        const hasStructureFilter = ref('')
+
+        // Search
+        const searchQuery = ref('')
+        const debouncedQuery = ref('')
+
+        // Sort
+        const sortKey = ref('id')        // id/name/format/hc/lc/target/species
+        const sortDir = ref('asc')
+
+        const setSort = (key)=>{
+          if (sortKey.value === key) {
+            sortDir.value = (sortDir.value === 'asc' ? 'desc' : 'asc')
+          } else {
+            sortKey.value = key
+            sortDir.value = 'asc'
+          }
+        }
+
+        const formatNumber = (n)=> Number(n || 0).toLocaleString()
+        const statFallback = {
+          entries: '324,126',
+          points: '54,952,801',
+          develop: '2,892,561',
+          validated: '4,646,788'
+        }
+        const statText = (key)=>{
+          const value = Number(statsDisplay[key] || 0)
+          return value > 0 ? formatNumber(value) : (statFallback[key] || '—')
+        }
+
+        function animateCounter(key, target, duration=1200, fromValue=0){
+          const start = performance.now()
+          const from = Number.isFinite(Number(fromValue)) ? Number(fromValue) : 0
+          const step = (now)=>{
+            const progress = Math.min((now - start) / duration, 1)
+            statsDisplay[key] = Math.floor(from + (target - from) * progress)
+            if (progress < 1) requestAnimationFrame(step)
+          }
+          requestAnimationFrame(step)
+        }
+
+        function animateStatTo(key, target, duration=1200){
+          animateCounter(key, target, duration, statsDisplay[key])
+        }
+
+        function applyHomepageMetrics(raw){
+          const nextMetrics = {
+            entries: Number(raw?.total_antibody_entries),
+            points: Number(raw?.data_points),
+            develop: Number(raw?.developability_annotations),
+            validated: Number(raw?.source_records)
+          }
+          for (const [key, value] of Object.entries(nextMetrics)) {
+            if (!Number.isFinite(value)) continue
+            statsActual[key] = value
+          }
+          if (!statsStarted) return
+          animateStatTo('entries', statsActual.entries, 900)
+          animateStatTo('points', statsActual.points)
+          animateStatTo('develop', statsActual.develop)
+          animateStatTo('validated', statsActual.validated)
+        }
+
+        function startStatsAnimation(){
+          statsStarted = true
+          for (const [k,v] of Object.entries(statsActual)) {
+            statsDisplay[k] = 0
+            animateCounter(k, v)
+          }
+        }
+
+        // Canonicalize isotype (G1 -> IgG1, IGG1 -> IgG1)
+        const canonIsotype = (x)=>{
+          const s0 = String(x || '').trim()
+          if (!s0) return ''
+          const s = s0.replace(/^IG/i,'Ig')
+          if (/^G\d$/i.test(s)) return 'Ig' + s.toUpperCase()
+          if (/^G\d/.test(s)) return 'Ig' + s
+          return s
+        }
+
+        // Field getters (robust to different JSON field names)
+        const getHC = (r)=> canonIsotype(r?.hc_subtype || r?.isotype || '')
+        const getLC = (r)=> String(r?.lc_subtype || r?.lc_type || r?.lc || '').trim()
+        const getFormat = (r)=> String(r?.format || '').trim()
+        const getTarget = (r)=> String(r?.target || '').trim()
+        const getSpecies = (r)=> { const s = String(r?.species || '').trim(); return s || 'na'; }
+
+        // Compare helpers
+        const collator = new Intl.Collator(undefined, { numeric:true, sensitivity:'base' })
+        const cmpText = (a,b)=> collator.compare(String(a||''), String(b||''))
+        const cmp = (a,b,key)=>{
+          const va = (key==='hc') ? getHC(a)
+                   : (key==='lc') ? getLC(a)
+                   : (key==='name') ? (a?.inn || a?.name || '')
+                   : (key==='format') ? getFormat(a)
+                   : (key==='target') ? getTarget(a)
+                   : (key==='species') ? getSpecies(a)
+                   : a?.[key]
+          const vb = (key==='hc') ? getHC(b)
+                   : (key==='lc') ? getLC(b)
+                   : (key==='name') ? (b?.inn || b?.name || '')
+                   : (key==='format') ? getFormat(b)
+                   : (key==='target') ? getTarget(b)
+                   : (key==='species') ? getSpecies(b)
+                   : b?.[key]
+
+          if (va == null && vb == null) return 0
+          if (va == null) return 1
+          if (vb == null) return -1
+          if (typeof va === 'number' && typeof vb === 'number') {
+            if (isNaN(va) && isNaN(vb)) return 0
+            if (isNaN(va)) return 1
+            if (isNaN(vb)) return -1
+            return va - vb
+          }
+          return cmpText(va, vb)
+        }
+
+        // dataset / 分页
+        const datasetOptions = ['Antibody Dataset']
+        const datasetSelected = ref(datasetOptions[0])
+        const rowsPerGroup = ref(25)
+        const currentPage = ref(1)
+        const pageJump = ref(null)
+        const advancedOpen = ref(false)
+
+        fetch('assets/data/homepage_metrics.json')
+          .then(res => {
+            if (!res.ok) throw new Error('homepage metrics not found')
+            return res.json()
+          })
+          .then(data => { applyHomepageMetrics(data) })
+          .catch(err => {
+            console.error('Failed to load homepage_metrics.json:', err)
+          })
+
+        // Advanced form (align to your required fields)
+        const searchForm = ref({
+          id: '',
+          target: '',
+          species: '',
+          format: '',
+          hc: '',
+          lc: ''
+        })
+
+        // Fuse.js index
+        let fuse = null
+        const DATA_ASSET_VERSION = '20260604-adams-ref-title'
+        const versionedAssetUrl = (url)=>{
+          const sep = String(url || '').includes('?') ? '&' : '?'
+          return `${url}${sep}v=${DATA_ASSET_VERSION}`
+        }
+
+        // Load overview table (fast)
+        fetch(versionedAssetUrl('assets/data/dotad_dataset.json'), { cache:'no-cache' })
+          .then(res => res.json())
+          .then(data => {
+            datasetEntries.value = (Array.isArray(data) ? data : []).map(row => ({
+              ...row,
+              has_structure: row.has_structure != null
+                ? !!row.has_structure
+                : !!row.structure_id
+            }))
+          })
+          .catch(err => {
+            console.error('Failed to load dotad_dataset.json:', err)
+            datasetEntries.value = []
+          })
+
+        // Build / update fuzzy index
+        watch(datasetEntries, rows => {
+          if (!rows || !rows.length) {
+            fuse = null
+            return
+          }
+          fuse = new Fuse(rows, {
+            keys: ['id','inn','name','target','format','species','structure_id','hc_subtype','isotype','lc_subtype','lc_type'],
+            threshold: 0.35,
+            ignoreLocation: true
+          })
+        }, { deep:true })
+
+        function doSearch(){
+          debouncedQuery.value = (searchQuery.value || '').trim()
+          currentPage.value = 1
+        }
+
+        function resetSearch(){
+          searchQuery.value = ''
+          debouncedQuery.value = ''
+          hcFilter.value = ''
+          lcFilter.value = ''
+          formatFilter.value = ''
+          speciesFilter.value = ''
+          hasStructureFilter.value = ''
+          advancedOpen.value = false
+          searchForm.value = { id:'', target:'', species:'', format:'', hc:'', lc:'' }
+          currentPage.value = 1
+        }
+
+        function fillExample(){
+          searchQuery.value = 'adalimumab'
+          debouncedQuery.value = 'adalimumab'
+          currentPage.value = 1
+        }
+
+        // Facet options (computed from current dataset)
+        const uniqSorted = (arr)=>{
+          const s = new Set(arr.filter(Boolean))
+          return Array.from(s).sort((a,b)=>cmpText(a,b))
+        }
+        const hcOptions = computed(()=> uniqSorted(datasetEntries.value.map(r=>getHC(r)).filter(Boolean)))
+        const lcOptions = computed(()=> uniqSorted(datasetEntries.value.map(r=>getLC(r)).filter(Boolean)))
+        const formatOptions = computed(()=> uniqSorted(datasetEntries.value.map(r=>getFormat(r)).filter(Boolean)))
+        const speciesOptions = computed(()=> uniqSorted(datasetEntries.value.map(r=>getSpecies(r)).filter(Boolean)))
+
+        const filteredSortedEntries = computed(()=>{
+          let rows = datasetEntries.value.slice()
+
+          // 1) Fuzzy search
+          const q = (debouncedQuery.value || '').trim()
+          if (q && fuse) rows = fuse.search(q).map(r => r.item)
+
+          // 2) Facet filters
+          if (hcFilter.value) {
+            const want = canonIsotype(hcFilter.value)
+            rows = rows.filter(r => getHC(r).includes(want))
+          }
+          if (lcFilter.value) {
+            const want = lcFilter.value.toLowerCase()
+            rows = rows.filter(r => getLC(r).toLowerCase().includes(want))
+          }
+          if (formatFilter.value) {
+            const want = formatFilter.value.toLowerCase()
+            rows = rows.filter(r => getFormat(r).toLowerCase().includes(want))
+          }
+          if (speciesFilter.value) {
+            const want = speciesFilter.value.toLowerCase()
+            rows = rows.filter(r => getSpecies(r).toLowerCase().includes(want))
+          }
+          if (hasStructureFilter.value) {
+            const expect = hasStructureFilter.value === 'Yes'
+            rows = rows.filter(r => !!r.has_structure === expect)
+          }
+
+          // 3) Advanced filters
+          const f = searchForm.value
+          if (f.id) {
+            const v = f.id.toLowerCase()
+            rows = rows.filter(r => (String(r.id) || '').toLowerCase().includes(v))
+          }
+          if (f.target) {
+            const v = f.target.toLowerCase()
+            rows = rows.filter(r => getTarget(r).toLowerCase().includes(v))
+          }
+          if (f.species) {
+            const v = f.species.toLowerCase()
+            rows = rows.filter(r => getSpecies(r).toLowerCase().includes(v))
+          }
+          if (f.format) {
+            const v = f.format.toLowerCase()
+            rows = rows.filter(r => getFormat(r).toLowerCase().includes(v))
+          }
+          if (f.hc) {
+            const v = canonIsotype(f.hc)
+            rows = rows.filter(r => getHC(r).includes(v))
+          }
+          if (f.lc) {
+            const v = f.lc.toLowerCase()
+            rows = rows.filter(r => getLC(r).toLowerCase().includes(v))
+          }
+
+          // 4) Sort
+          rows.sort((a,b) =>
+            sortDir.value === 'asc' ? cmp(a,b,sortKey.value) : cmp(b,a,sortKey.value)
+          )
+
+          return rows
+        })
+
+        const pageCount = computed(()=>{
+          const total = filteredSortedEntries.value.length
+          const size = rowsPerGroup.value || 1
+          return total ? Math.ceil(total / size) : 1
+        })
+
+        const pagedEntries = computed(()=>{
+          const size = rowsPerGroup.value || 1
+          const start = (currentPage.value - 1) * size
+          return filteredSortedEntries.value.slice(start, start + size)
+        })
+
+        function goPage(dir){
+          const max = pageCount.value || 1
+          if (dir === 'prev') currentPage.value = Math.max(1, currentPage.value - 1)
+          else if (dir === 'next') currentPage.value = Math.min(max, currentPage.value + 1)
+          else currentPage.value = 1
+        }
+
+        function jumpToPage(){
+          const max = pageCount.value || 1
+          const target = Math.min(Math.max(1, Math.floor(pageJump.value || 0)), max)
+          if (!target) return
+          currentPage.value = target
+        }
+
+        const handleScroll = ()=>{
+          backTopVisible.value = window.scrollY > 240
+        }
+        const scrollToTop = ()=>{
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+
+        onMounted(()=>{
+          window.addEventListener('scroll', handleScroll, { passive:true })
+          startStatsAnimation()
+          animateStatTo('entries', statsActual.entries, 900)
+          if (page.value === 'stats') {
+            nextTick(()=>{ renderStatsCharts() })
+          }
+        })
+        onBeforeUnmount(()=>{
+          window.removeEventListener('scroll', handleScroll)
+        })
+
+        watch(()=>filteredSortedEntries.value.length, ()=>{
+          const max = pageCount.value || 1
+          if (currentPage.value > max) currentPage.value = max
+        })
+
+        watch(rowsPerGroup, ()=>{ currentPage.value = 1 })
+
+        function exportAll(format){
+          exportRows(datasetEntries.value, format)
+        }
+        function exportCurrentPage(){
+          exportRows(pagedEntries.value, 'csv')
+        }
+        function exportRows(rows, format){
+          if (!rows || !rows.length) return
+
+          if (format === 'json') {
+            const blob = new Blob([JSON.stringify(rows, null, 2)], {type:'application/json'})
+            const url = URL.createObjectURL(blob)
+            const a = document.createElement('a')
+            a.href = url
+            a.download = 'DOTAD_dataset.json'
+            a.click()
+            URL.revokeObjectURL(url)
+            return
+          }
+
+          // CSV (overview-friendly columns)
+          const cols = ['id','inn','format','hc_subtype','isotype','lc_subtype','lc_type','target','species','structure_id']
+          const header = cols.join(',')
+          const lines = rows.map(r =>
+            cols.map(c => {
+              const v = r[c]
+              if (v == null) return ''
+              const s = String(v)
+              return (s.includes(',') || s.includes('"')) ? `"${s.replace(/"/g,'""')}"` : s
+            }).join(',')
+          )
+          const csv = [header, ...lines].join('\n')
+          const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'})
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = url
+          a.download = 'DOTAD_dataset.csv'
+          a.click()
+          URL.revokeObjectURL(url)
+        }
+
+        /* ===========================
+           Dataset detail modal: load release-level linked data nodes when available;
+           otherwise show the overview metadata available for the selected entry.
+        ============================*/
+        const detailOpen = ref(false)
+        const detailLoading = ref(false)
+        const detailRow = ref(null)
+        const detailFull = ref(null)
+        const detailIndex = ref(null)
+        const detailEntryCache = new Map()
+        let detailLoadMode = 'unknown'
+        const test2Index = ref(null)  // from test (2).xlsx (benchmarks)
+
+        const prettyJson = (val)=>{
+          // Recursive pretty printer so nested references keep full fields.
+          const formatObj = (obj, depth=0)=>{
+            if (obj == null) return ''
+            if (typeof obj !== 'object') return String(obj)
+            const pad = '  '.repeat(depth)
+            if (Array.isArray(obj)) {
+              if (obj.length === 1 && obj[0] != null && typeof obj[0] === 'object') {
+                return formatObj(obj[0], depth)
+              }
+              return obj.map((item, i)=>{
+                if (item != null && typeof item === 'object') {
+                  return `${pad}- [${i}]\n${formatObj(item, depth + 1)}`
+                }
+                return `${pad}- ${String(item)}`
+              }).join('\n')
+            }
+            const entries = Object.entries(obj)
+            return entries.map(([k,v])=>{
+              if (v != null && typeof v === 'object') {
+                return `${pad}${k}:\n${formatObj(v, depth + 1)}`
+              }
+              return `${pad}${k}: ${String(v)}`
+            }).join('\n')
+          }
+
+          try{
+            if (Array.isArray(val)) {
+              const parts = val.map(v => formatObj(v)).filter(Boolean)
+              const text = parts.join('\n\n')
+              return text.length > 12000 ? text.slice(0,12000) + "\n…(truncated)" : text
+            }
+            if (typeof val === 'object' && val !== null) {
+              const text = formatObj(val)
+              return text.length > 12000 ? text.slice(0,12000) + "\n…(truncated)" : text
+            }
+            return String(val)
+          }catch(e){
+            return String(val)
+          }
+        }
+
+        async function fetchSplitDetailEntry(id){
+          if (!id || detailLoadMode === 'bundle') return null
+          if (detailEntryCache.has(id)) return detailEntryCache.get(id)
+          try{
+            const res = await fetch(versionedAssetUrl(`assets/data/entry_detail/${encodeURIComponent(id)}.json`), { cache:'no-cache' })
+            if (!res.ok) throw new Error(`detail ${id} not found`)
+            const raw = await res.json()
+            if (raw && typeof raw === 'object') {
+              detailLoadMode = 'split'
+              detailEntryCache.set(id, raw)
+              return raw
+            }
+          }catch(e){
+            if (detailLoadMode === 'unknown') detailLoadMode = 'bundle'
+          }
+          return null
+        }
+
+        async function ensureDetailIndex(){
+          if (detailIndex.value) return
+          try{
+            let res = await fetch(versionedAssetUrl('assets/data/entry_detail_by_id.json'), { cache:'no-cache' })
+            if (!res.ok) throw new Error('entry index not found')
+            const raw = await res.json()
+            if (Array.isArray(raw)) {
+              const mapped = {}
+              for (const item of raw) {
+                const key = String(item?.id || item?.antibody_id || '').trim()
+                if (key && !mapped[key]) mapped[key] = item
+              }
+              detailIndex.value = mapped
+            } else {
+              if (raw && typeof raw === 'object') {
+                const mapped = {}
+                for (const [k, v] of Object.entries(raw)) {
+                  const key = String(k || '').trim()
+                  if (key && !(key in mapped)) mapped[key] = v
+                }
+                detailIndex.value = mapped
+              } else {
+                detailIndex.value = null
+              }
+            }
+          }catch(e){
+            detailIndex.value = null
+          }
+        }
+
+        async function loadDetailEntry(id){
+          const splitEntry = await fetchSplitDetailEntry(id)
+          if (splitEntry) return splitEntry
+          await ensureDetailIndex()
+          const full = (detailIndex.value && id && detailIndex.value[id]) ? detailIndex.value[id] : null
+          if (full) detailEntryCache.set(id, full)
+          return full
+        }
+
+        async function ensureTest2Index(){
+          if (test2Index.value) return
+          // Optional benchmark detail index is not bundled in the current release.
+          test2Index.value = null
+        }
+
+        const mergeDetailWithLatestOverview = (base, full)=>{
+          const latest = (base && typeof base === 'object') ? base : {}
+          const merged = (full && typeof full === 'object') ? ({ ...full, ...latest }) : ({ ...latest })
+          const nodes = (merged.nodes && typeof merged.nodes === 'object') ? { ...merged.nodes } : null
+          if (!nodes) return merged
+          const typeNode = (nodes.Type && typeof nodes.Type === 'object') ? { ...nodes.Type } : {}
+          if (Object.prototype.hasOwnProperty.call(latest, 'target')) typeNode.Target = latest.target ?? ''
+          if (Object.prototype.hasOwnProperty.call(latest, 'species')) typeNode.Species = latest.species ?? ''
+          if (Object.prototype.hasOwnProperty.call(latest, 'highest_trial')) typeNode.Highest_Clin_Trial = latest.highest_trial ?? ''
+          nodes.Type = typeNode
+          return { ...merged, nodes }
+        }
+
+
+
+        async function openDetail(row){
+          detailOpen.value = true
+          detailLoading.value = true
+          detailRow.value = row || {}
+          detailFull.value = null
+          await nextTick()
+          if (window.lucide && lucide.createIcons) lucide.createIcons()
+
+          try{
+            const base = row || {}
+            const id = String(base.id || base.antibody_id || '').trim()
+            const full = await loadDetailEntry(id)
+            // Keep overview exports authoritative for current metadata fields.
+            detailFull.value = mergeDetailWithLatestOverview(base, full)
+
+            // Merge benchmark tables from test (2).xlsx (if available)
+            await ensureTest2Index()
+            const t2 = (test2Index.value && id && test2Index.value[id]) ? test2Index.value[id] : null
+            if (t2 && t2.length){
+              const cur = detailFull.value || {}
+              const nodes = (cur.nodes && typeof cur.nodes === 'object') ? cur.nodes : {}
+              nodes['Literature Benchmarks '] = t2
+              // re-assign to ensure Vue tracks changes
+              detailFull.value = { ...cur, nodes }
+            }
+          }catch(err){
+            console.error('Failed to load detail', err)
+            detailFull.value = row || {}
+          }finally{
+            detailLoading.value = false
+            await nextTick()
+            if (window.lucide && lucide.createIcons) lucide.createIcons()
+          }
+        }
+
+        function closeDetail(){
+          detailOpen.value = false
+          detailRow.value = null
+          detailFull.value = null
+        }
+
+        const detailHeader = computed(()=>{
+          const r = detailFull.value || detailRow.value || {}
+          return {
+            id: r.id || '- ',
+            name: r.inn || r.name || '- ',
+            format: getFormat(r) || '- ',
+            hc: getHC(r) || '- ',
+            lc: getLC(r) || '- ',
+            target: getTarget(r) || '- ',
+            species: getSpecies(r) || '- '
+          }
+        })
+
+        const asKv = (obj)=>{
+          const out = []
+          for (const [k,v] of Object.entries(obj||{})){
+            if (v==null || v==='') continue
+            out.push({ k, v: String(v) })
+          }
+          return out
+        }
+
+        const detailOverview = computed(()=>{
+          const r = detailFull.value || {}
+          const ov = {
+            'Antibody ID': r.id || '',
+            'INN / Name': r.inn || r.name || '',
+            'Format': getFormat(r),
+            'HC subtype': getHC(r),
+            'LC subtype': getLC(r),
+            'Target': getTarget(r),
+            'Species': getSpecies(r),
+            'Highest trial': r.highest_trial || '',
+            'Dataset': r.dataset || '',
+            'Structure': r.structure_id ? ('PDB: ' + r.structure_id) : (r.has_structure ? 'Yes' : 'No')
+          }
+          return asKv(ov)
+        })
+
+        const detailBadges = computed(()=>{
+          const r = detailFull.value || {}
+          const badges = []
+          if (r.structure_id || r.has_structure) badges.push('Structure')
+          if (r.tm1 != null || r.sec_monomer != null || r.smac_rt != null || r.hic_rt != null) badges.push('Developability (avg)')
+          if (r.nodes) badges.push('Nodes: merged')
+          if (r.nodes && Object.keys(r.nodes).some(k=>/benchmark/i.test(k) || /test \(2\)/i.test(k))) badges.push('Benchmarks')
+          // Common node-key patterns
+          const keys = Object.keys(r||{})
+          if (keys.some(k=>/sequence/i.test(k))) badges.push('Sequences')
+          if (keys.some(k=>/assay/i.test(k))) badges.push('Assays')
+          if (keys.some(k=>/literature/i.test(k))) badges.push('Literature')
+          return badges.length ? badges : ['Overview only']
+        })
+
+        const detailNodes = computed(()=>{
+          const r = detailFull.value || {}
+          const nodes = []
+
+          const shouldHideNode = (title='')=>{
+            const t = String(title).toLowerCase()
+            return t.includes('prior literature')
+          }
+
+          const citationHeader =
+`study: Arsiwala, Ammar et al.
+PMID: 41328470
+address: https://pubmed.ncbi.nlm.nih.gov/41328470/
+`
+
+          const shouldAddCitation = (title='')=>{
+            const t = String(title).toLowerCase()
+            return t.includes('assay data - tidy format')
+              || t.includes('assay data - average')
+              || t.includes('nanodsf vs dsf')
+              || t.includes('nanodsf_vs_dsf')
+              || t.includes('assay tidy')
+              || t.includes('assay average')
+          }
+          const shouldMaskVhVlFields = (title='')=>{
+            const t = String(title).toLowerCase()
+            return t.includes('reference')
+              || t.includes('literature')
+              || t.includes('benchmark')
+          }
+          const redactVhVl = (val)=>{
+            if (Array.isArray(val)) return val.map(redactVhVl)
+            if (!val || typeof val !== 'object') return val
+            const out = {}
+            for (const [k, v] of Object.entries(val)) {
+              const key = String(k || '').trim().toLowerCase()
+              if (key === 'vh' || key === 'vl') continue
+              out[k] = redactVhVl(v)
+            }
+            return out
+          }
+
+          const displayDetailNodeTitle = (title='')=>{
+            const raw = String(title || '').trim()
+            let label = raw === 'Type' ? 'Metadata' : raw
+            if (/^assay data\s*-\s*(average|tidy format)/i.test(label)) {
+              label = label.replace(/\s*[\(（]\s*\d+\s*[\)）]\s*$/, '')
+            }
+            return label
+          }
+
+          const pushNode = (title, val)=>{
+            if (val == null) return
+            if (shouldHideNode(title)) return
+            const safeVal = shouldMaskVhVlFields(title) ? redactVhVl(val) : val
+            const isArr = Array.isArray(safeVal)
+            const isObj = (!isArr && typeof safeVal === 'object')
+            const countLabel = isArr ? `${safeVal.length} rows` : isObj ? `${Object.keys(safeVal).length} fields` : 'value'
+            let pretty = prettyJson(safeVal)
+            if (shouldAddCitation(title)) pretty = citationHeader + pretty
+            nodes.push({
+              title: displayDetailNodeTitle(title),
+              countLabel,
+              pretty
+            })
+          }
+
+          if (r.nodes && typeof r.nodes === 'object') {
+            for (const [k,v] of Object.entries(r.nodes)) pushNode(k, v)
+            return nodes
+          }
+
+          // Try common merged-key patterns
+          pushNode('Type', r.type || r.Type)
+          pushNode('Sequences', r.sequences || r.Sequences)
+          pushNode('Assay Average', r.assay_average || r.Assay_avg || r.assayAvg)
+          pushNode('Assay Tidy', r.assay_tidy || r.Assay_tidy)
+          pushNode('NanoDSF vs DSF', r.nanodsf_vs_dsf || r.nanodsf_vs_dsf_by_id)
+          // intentionally skip prior literature nodes
+          // If nothing found, keep empty so UI shows fallback note
+          return nodes
+        })
+
+        const detailNodeCount = computed(()=> detailNodes.value.length)
+
+        function downloadDetailJson(){
+          const r = detailFull.value || detailRow.value
+          if (!r) return
+          const blob = new Blob([JSON.stringify(r, null, 2)], {type:'application/json'})
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = url
+          a.download = `${r.id || 'DOTAD_entry'}.json`
+          a.click()
+          URL.revokeObjectURL(url)
+        }
+
+
+        /* ===========================
+           Tools：序列 QC / liabilities / 热点
+        ============================*/
+        const heavySeq = ref('')
+        const lightSeq = ref('')
+
+        const KD = {A:1.8,R:-4.5,N:-3.5,D:-3.5,C:2.5,Q:-3.5,E:-3.5,G:-0.4,H:-3.2,I:4.5,L:3.8,K:-3.9,M:1.9,F:2.8,P:-1.6,S:-0.8,T:-0.7,W:-0.9,Y:-1.3,V:4.2}
+        const AA = 'ACDEFGHIKLMNPQRSTVWY'.split('')
+
+        function sanitize(seq){
+          return (seq||'').toUpperCase().replace(/[^A-Z]/g,'').replace(/[^ACDEFGHIKLMNPQRSTVWY]/g,'')
+        }
+        function analyze(seq){
+          const s = sanitize(seq)
+          const n = s.length
+          const counts = {}
+          for (const a of AA) counts[a]=0
+          for (const ch of s) counts[ch] = (counts[ch]||0)+1
+
+          const basic = (counts.K||0) + (counts.R||0)
+          const acidic = (counts.D||0) + (counts.E||0)
+          const net = basic - acidic
+
+          let sumKD = 0
+          for (const ch of s) sumKD += (KD[ch]||0)
+          const kdAvg = n ? +(sumKD/n).toFixed(2) : 0
+
+          const hydrophobicSet = ['A','V','I','L','M','F','W','Y']
+          const hydrophobicCount = hydrophobicSet.reduce((acc,a)=>acc+(counts[a]||0),0)
+          const percentHydrophobic = n ? +((100*hydrophobicCount/n).toFixed(1)) : 0
+
+          const win=7, wins=[]
+          for (let i=0;i<=n-win;i++){
+            let sc=0
+            for (let j=0;j<win;j++) sc += KD[s[i+j]]||0
+            wins.push({pos:i+1, seq:s.slice(i,i+win), score:sc})
+          }
+          wins.sort((a,b)=> b.score-a.score)
+          const top = wins.slice(0,3)
+
+          const flags=[]
+          const gly = [...s.matchAll(/N(?!P)[A-Z][ST]/g)].map(m=>m.index+1)
+          if (gly.length) flags.push(`N-glycosylation motif NXS/T ×${gly.length} at ${gly.join(',')}`)
+          const ng  = [...s.matchAll(/NG/g)].map(m=>m.index+1)
+          if (ng.length) flags.push(`Deamidation-prone NG ×${ng.length} at ${ng.join(',')}`)
+          const dg  = [...s.matchAll(/DG/g)].map(m=>m.index+1)
+          if (dg.length) flags.push(`Asp isomerization DG ×${dg.length} at ${dg.join(',')}`)
+          const mox = counts.M||0
+          if (mox>0) flags.push(`Methionine oxidation risk: M ×${mox}`)
+          const cys = counts.C||0
+          if (cys>0) flags.push(`Cysteine count C ×${cys} (check for free Cys)`)
+
+          return { seq:s, length:n, counts, basic, acidic, netCharge:net, kdAvg, percentHydrophobic, hydrophobicWindows:top, flags }
+        }
+
+        const qcHeavy = computed(()=> analyze(heavySeq.value))
+        const qcLight = computed(()=> analyze(lightSeq.value))
+
+        function loadDemo(){
+          heavySeq.value = 'EVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMHWVRQAPGKGLEWVSAISSGSGGSTYYADSVKGRFTISRDNSKNTLYLQMNSLRPEDTAVYYCARGGGGNYAMDYWGQGTLVTVSS'
+          lightSeq.value  = 'DIQMTQSPSSLSASVGDRVTITCRASQSVSSYLNWYQQKPGKAPKLLIYDTNNRPSGIPDRFSGSGSGTDFTLTISSLEPEDFAVYYCQQYNTYPYTFGQGTKVEIK'
+        }
+
+        function downloadReport(){
+          const report = {
+            timestamp: new Date().toISOString(),
+            heavy: qcHeavy.value,
+            light: qcLight.value
+          }
+          const blob = new Blob([JSON.stringify(report,null,2)], {type:'application/json'})
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = url
+          a.download = 'DOTAD_tools_report.json'
+          document.body.appendChild(a)
+          a.click()
+          a.remove()
+          URL.revokeObjectURL(url)
+        }
+
+        /* ===========================
+           Statistics：Chart.js 渲染
+        ============================*/
+        const statsData = {
+          isotypes: { labels:['IgG1','IgG2','IgG3','IgG4','IgM','IgA','IgE'], values:[52,12,4,18,6,7,1] },
+          vgenes:   { labels:['IGHV3-23','IGHV1-69','IGHV3-30','IGHV3-53','IGHV4-34','IGHV2-5'], values:[18,15,12,10,8,6] },
+          cdrh3:    { labels:[11,12,13,14,15,16,17,18,19,20,21], counts:[2,4,8,12,18,20,16,10,6,4,3] },
+          risk:     { labels:['Low','Medium','High'], values:[62,28,10] }
+        }
+
+        let charts = {}
+        function renderStatsCharts(){
+          const colorText = getComputedStyle(document.body).color || '#0f172a'
+          const gridColor = 'rgba(148,163,184,0.25)'
+
+          const make = (id, cfg)=>{
+            const el = document.getElementById(id)
+            if (!el) return
+            if (charts[id]) charts[id].destroy()
+            charts[id] = new Chart(el.getContext('2d'), cfg)
+          }
+
+          make('chartIsotype', {
+            type:'doughnut',
+            data:{ labels:statsData.isotypes.labels, datasets:[{ data:statsData.isotypes.values }] },
+            options:{
+              animation:false,
+              plugins:{ legend:{ position:'bottom', labels:{ color:colorText } } }
+            }
+          })
+
+          make('chartVgene', {
+            type:'bar',
+            data:{ labels:statsData.vgenes.labels, datasets:[{ data:statsData.vgenes.values }] },
+            options:{
+              animation:false,
+              plugins:{ legend:{ display:false } },
+              scales:{
+                x:{ ticks:{ color:colorText }, grid:{ color:gridColor } },
+                y:{ ticks:{ color:colorText }, grid:{ color:gridColor }, beginAtZero:true }
+              }
+            }
+          })
+
+          make('chartCDRH3', {
+            type:'line',
+            data:{ labels:statsData.cdrh3.labels, datasets:[{ data:statsData.cdrh3.counts, fill:true, tension:0.25 }] },
+            options:{
+              animation:false,
+              plugins:{ legend:{ display:false } },
+              scales:{
+                x:{ ticks:{ color:colorText }, grid:{ color:gridColor } },
+                y:{ ticks:{ color:colorText }, grid:{ color:gridColor }, beginAtZero:true }
+              }
+            }
+          })
+
+          make('chartRisk', {
+            type:'pie',
+            data:{ labels:statsData.risk.labels, datasets:[{ data:statsData.risk.values }] },
+            options:{
+              animation:false,
+              plugins:{ legend:{ position:'bottom', labels:{ color:colorText } } }
+            }
+          })
+        }
+
+        window.addEventListener('resize', ()=>{
+          if (page.value==='stats') {
+            for (const k in charts) charts[k]?.resize()
+          }
+        })
+
+        nextTick(()=>{ if (window.lucide && lucide.createIcons) lucide.createIcons() })
+
+        return {
+          page, menuOpen, setPage, navBtn, pageOpacity,
+          // dataset
+          datasetEntries,
+          hcFilter, lcFilter, formatFilter, speciesFilter, hasStructureFilter,
+          hcOptions, lcOptions, formatOptions, speciesOptions,
+          searchQuery, filteredSortedEntries, pagedEntries, sortKey, sortDir, setSort,
+          datasetOptions, datasetSelected, rowsPerGroup, currentPage, pageCount, advancedOpen,
+          pageJump, searchForm, doSearch, resetSearch, fillExample, goPage, jumpToPage,
+          exportAll, exportCurrentPage,
+          // detail modal
+          detailOpen, detailLoading, openDetail, closeDetail,
+          detailHeader, detailOverview, detailBadges, detailNodes, detailNodeCount,
+          downloadDetailJson,
+          // tools
+          heavySeq, lightSeq, qcHeavy, qcLight, loadDemo, downloadReport,
+          // back to top
+          backTopVisible, scrollToTop,
+          // stats
+          statsDisplay, formatNumber, statText, getSpecies
+        }
+      }
+    })
+    .directive('observe', observeDirective)
+    .mount('#app')
+
+        document.getElementById('app')?.removeAttribute('v-cloak')
+
+      }
+
+      if (window.Vue) return start();
+      let tries = 0;
+      const timer = setInterval(()=>{
+        if (window.Vue) {
+          clearInterval(timer);
+          start();
+        } else if (++tries > 200) {
+          clearInterval(timer);
+          console.error('Vue not loaded');
+          const appEl = document.getElementById('app');
+          if (appEl) {
+            appEl.removeAttribute('v-cloak');
+            appEl.innerHTML = '<div style="max-width:720px;margin:56px auto;padding:16px 20px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;color:#334155;font-family:system-ui,-apple-system,Segoe UI,Roboto;">Vue ?????????????? CDN????????????????????</div>';
+          }
+        }
+      }, 50);
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

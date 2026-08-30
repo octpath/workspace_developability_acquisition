@@ -1,0 +1,9 @@
+Using Python 3.12.13 environment at: .venv_b1
+   Updating https://github.com/NVIDIA/dllogger.git (HEAD)
+    Updated https://github.com/NVIDIA/dllogger.git (0478734ff7be75adde8d160e04872664d1c62e5f)
+Resolved 1 package in 1.42s
+   Building dllogger @ git+https://github.com/NVIDIA/dllogger.git@0478734ff7be75adde8d160e04872664d1c62e5f
+      Built dllogger @ git+https://github.com/NVIDIA/dllogger.git@0478734ff7be75adde8d160e04872664d1c62e5f
+Prepared 1 package in 99ms
+Installed 1 package in 0.39ms
+ + dllogger==1.1.0 (from git+https://github.com/NVIDIA/dllogger.git@0478734ff7be75adde8d160e04872664d1c62e5f)

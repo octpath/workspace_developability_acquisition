@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_B_BALANCED_S06",
+  "order": 6,
+  "target": "TmApp",
+  "persona": "B_BALANCED",
+  "model_name": "ENSEMBLE_CV_PUBLIC",
+  "model_stage": 6,
+  "feature": "BIO_Ridge+ESM2_PCA64_SVR",
+  "hypothesis": "Blend best-CV and best-Public models to hedge disagreement.",
+  "cv_mae": 3.156706072962881,
+  "cv_mae_std": 0.0673614289037836,
+  "cv_spearman": 0.42847989214047755,
+  "cv_pearson": 0.41759198848407175,
+  "public_mae": 3.545067541225702,
+  "public_spearman": 0.3669561336306598,
+  "public_pearson": 0.36404724900258345,
+  "personal_public_rank": 2,
+  "delta_public_vs_prev": 0.020126043477854516,
+  "train_seconds": 0.002508401870727539
+}

@@ -1,0 +1,849 @@
+{
+  "sha": "f035d6266e247fa2dec8d7fc5135ba9519206604",
+  "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/f035d6266e247fa2dec8d7fc5135ba9519206604",
+  "tree": [
+    {
+      "path": ".browserslistrc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f9ac26980c156a3d525267010d5f78144b43519",
+      "size": 600,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/4f9ac26980c156a3d525267010d5f78144b43519"
+    },
+    {
+      "path": ".editorconfig",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59d9a3a3e73ffc640517ef488f6f89d6270195d1",
+      "size": 274,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/59d9a3a3e73ffc640517ef488f6f89d6270195d1"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0711527ef9d5c117396e6c03290a76658e6384ed",
+      "size": 548,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/0711527ef9d5c117396e6c03290a76658e6384ed"
+    },
+    {
+      "path": ".vscode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "572a53f73bb332280d19f2f7cb0bcac8b32faab5",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/572a53f73bb332280d19f2f7cb0bcac8b32faab5"
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "77b374577de83b86d846eadda2dd17532d7dabaa",
+      "size": 130,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/77b374577de83b86d846eadda2dd17532d7dabaa"
+    },
+    {
+      "path": ".vscode/launch.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "740e35a0c04be4a5fe627833b54fee2ad99dc2a3",
+      "size": 474,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/740e35a0c04be4a5fe627833b54fee2ad99dc2a3"
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a298b5bd8796ac377fe9ed64caa249e24c7ec3b6",
+      "size": 938,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/a298b5bd8796ac377fe9ed64caa249e24c7ec3b6"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ec5d0b2f9aaad9adddce784d71574a3a2773071",
+      "size": 1054,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/0ec5d0b2f9aaad9adddce784d71574a3a2773071"
+    },
+    {
+      "path": "angular.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5df45561e2489b73aa72de06e2e37901853fb0c2",
+      "size": 3836,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/5df45561e2489b73aa72de06e2e37901853fb0c2"
+    },
+    {
+      "path": "karma.conf.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e88b702fd0e6bfb8fb89325c1bc688c48598c20f",
+      "size": 1426,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/e88b702fd0e6bfb8fb89325c1bc688c48598c20f"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "488e60901891d2251a7c9a0aad787cd21fbfcd5c",
+      "size": 583727,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/488e60901891d2251a7c9a0aad787cd21fbfcd5c"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f11ad2cc21b640d523bd6a5a8210e9fa460d9b1",
+      "size": 1506,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/8f11ad2cc21b640d523bd6a5a8210e9fa460d9b1"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "470cee7c57e07e60103e1aaf43c0f0be746d0e33",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/470cee7c57e07e60103e1aaf43c0f0be746d0e33"
+    },
+    {
+      "path": "src/app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "01d663993b41fa2b1edbd3c46e6cdb56de051ebf",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/01d663993b41fa2b1edbd3c46e6cdb56de051ebf"
+    },
+    {
+      "path": "src/app/app-routing.module.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02972627f8df364102ce4ede71c8bd5f3660e1d8",
+      "size": 245,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/02972627f8df364102ce4ede71c8bd5f3660e1d8"
+    },
+    {
+      "path": "src/app/app.component.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0680b43f9c6ae05df91c576141f20ed411d07c7d",
+      "size": 32,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/0680b43f9c6ae05df91c576141f20ed411d07c7d"
+    },
+    {
+      "path": "src/app/app.component.scss",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/app/app.component.spec.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf088c361e9b6d64548fc1d3f6f4153939f08f62",
+      "size": 1082,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/cf088c361e9b6d64548fc1d3f6f4153939f08f62"
+    },
+    {
+      "path": "src/app/app.component.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ad6df351cbcfd00f28b41c64c8506cdbc14838d",
+      "size": 214,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/3ad6df351cbcfd00f28b41c64c8506cdbc14838d"
+    },
+    {
+      "path": "src/app/app.module.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe5badc5f8121b56bd0d1c33a2c175318f10bd0a",
+      "size": 581,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/fe5badc5f8121b56bd0d1c33a2c175318f10bd0a"
+    },
+    {
+      "path": "src/app/dashboard",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1542481104f7f96844b240ba9bc8d1e2bfcd35b0",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/1542481104f7f96844b240ba9bc8d1e2bfcd35b0"
+    },
+    {
+      "path": "src/app/dashboard/components",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "17bc1dc6becf387346cb202ec645a2d6d35ee4e4",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/17bc1dc6becf387346cb202ec645a2d6d35ee4e4"
+    },
+    {
+      "path": "src/app/dashboard/components/dashboard-page",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1dc0b3867672af67fcbde0b1e4f9b4503aada278",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/1dc0b3867672af67fcbde0b1e4f9b4503aada278"
+    },
+    {
+      "path": "src/app/dashboard/components/dashboard-page/dashboard-page.component.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57fd86cf3d68bfe019622c8ec6ab695acc979436",
+      "size": 20430,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/57fd86cf3d68bfe019622c8ec6ab695acc979436"
+    },
+    {
+      "path": "src/app/dashboard/components/dashboard-page/dashboard-page.component.scss",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef7f193c2babe884db228de0286ec81cc923217d",
+      "size": 2048,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/ef7f193c2babe884db228de0286ec81cc923217d"
+    },
+    {
+      "path": "src/app/dashboard/components/dashboard-page/dashboard-page.component.spec.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "865185a9c69327b258eba2bbf0c7075c35697448",
+      "size": 676,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/865185a9c69327b258eba2bbf0c7075c35697448"
+    },
+    {
+      "path": "src/app/dashboard/components/dashboard-page/dashboard-page.component.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b39da0d0988e66ce9ea562b70611aef422889336",
+      "size": 6574,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/b39da0d0988e66ce9ea562b70611aef422889336"
+    },
+    {
+      "path": "src/app/dashboard/components/pdb-dialog",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "578d3e262b82e755b9f15f44884a115088dca0cf",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/578d3e262b82e755b9f15f44884a115088dca0cf"
+    },
+    {
+      "path": "src/app/dashboard/components/pdb-dialog/pdb-dialog.component.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48dd021f0d59a7be9f315f0273cfdf60bde27e4b",
+      "size": 233,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/48dd021f0d59a7be9f315f0273cfdf60bde27e4b"
+    },
+    {
+      "path": "src/app/dashboard/components/pdb-dialog/pdb-dialog.component.scss",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/app/dashboard/components/pdb-dialog/pdb-dialog.component.spec.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9b2a4e916e22500da8ecaadd4e981473b394c1b",
+      "size": 648,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/d9b2a4e916e22500da8ecaadd4e981473b394c1b"
+    },
+    {
+      "path": "src/app/dashboard/components/pdb-dialog/pdb-dialog.component.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f1eff43ad49bcfe8604523e83741f48ec833694",
+      "size": 481,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/8f1eff43ad49bcfe8604523e83741f48ec833694"
+    },
+    {
+      "path": "src/app/dashboard/dashboard-routing.module.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c4acf463ef199a9d7a46e591c8de3c3616dfa24",
+      "size": 410,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/7c4acf463ef199a9d7a46e591c8de3c3616dfa24"
+    },
+    {
+      "path": "src/app/dashboard/dashboard.module.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b19c5137ff9a0b85d3df1d7adeace3dca8a46ac1",
+      "size": 3161,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/b19c5137ff9a0b85d3df1d7adeace3dca8a46ac1"
+    },
+    {
+      "path": "src/app/dashboard/data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8aef5c1b5682fc35c9dd8a2e5394a9828a521a5a",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/8aef5c1b5682fc35c9dd8a2e5394a9828a521a5a"
+    },
+    {
+      "path": "src/app/dashboard/data/database.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5677b617f24f48ddc8296721db00f653354810d5",
+      "size": 1599274,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/5677b617f24f48ddc8296721db00f653354810d5"
+    },
+    {
+      "path": "src/app/dashboard/helpers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c0a6d855e287f05d45f7d08bf68d5daa5a7c652a",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/c0a6d855e287f05d45f7d08bf68d5daa5a7c652a"
+    },
+    {
+      "path": "src/app/dashboard/helpers/histogram.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81802bb91251d652880b025e70eefae548966e88",
+      "size": 3157,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/81802bb91251d652880b025e70eefae548966e88"
+    },
+    {
+      "path": "src/app/dashboard/helpers/pdbHelper.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3f54267421ea972c17683669c715c8dc6a47a4d",
+      "size": 537,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/c3f54267421ea972c17683669c715c8dc6a47a4d"
+    },
+    {
+      "path": "src/app/dashboard/models",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e448a9e3b08f62f1b2c2c6dc1606ee8f0fea1443",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/e448a9e3b08f62f1b2c2c6dc1606ee8f0fea1443"
+    },
+    {
+      "path": "src/app/dashboard/models/antigen.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57175d5171b1dcad1cab37555bf704e4181cbde7",
+      "size": 231,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/57175d5171b1dcad1cab37555bf704e4181cbde7"
+    },
+    {
+      "path": "src/app/dashboard/models/binding.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "408ee26046b657d2f2021035938ae5216f9cb1c0",
+      "size": 90,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/408ee26046b657d2f2021035938ae5216f9cb1c0"
+    },
+    {
+      "path": "src/app/dashboard/models/cdr.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38ab1cca9300f6cd1e59a8bb34d23fd1f0540176",
+      "size": 60,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/38ab1cca9300f6cd1e59a8bb34d23fd1f0540176"
+    },
+    {
+      "path": "src/app/dashboard/models/database.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40b159abf2c622f2a2541a3fbc63b152e1c9d793",
+      "size": 90,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/40b159abf2c622f2a2541a3fbc63b152e1c9d793"
+    },
+    {
+      "path": "src/app/dashboard/models/nanobody.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97d18c1f2d8732b9f3409eb857b8ffc9140c6e33",
+      "size": 468,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/97d18c1f2d8732b9f3409eb857b8ffc9140c6e33"
+    },
+    {
+      "path": "src/app/dashboard/models/origin.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c687ed238eef8db52d64b8e1210672eea9187ad9",
+      "size": 113,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/c687ed238eef8db52d64b8e1210672eea9187ad9"
+    },
+    {
+      "path": "src/app/dashboard/models/reference.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57fce1870d90d0e501b7ba6d377c7bcaa7b16cc3",
+      "size": 71,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/57fce1870d90d0e501b7ba6d377c7bcaa7b16cc3"
+    },
+    {
+      "path": "src/app/dashboard/models/sequence.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "222d6a0c28c0a39f9d18e713583886f8c8d0d945",
+      "size": 129,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/222d6a0c28c0a39f9d18e713583886f8c8d0d945"
+    },
+    {
+      "path": "src/app/dashboard/models/structure.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e14b6abd7848e2731663ea0628ae91edfd57abbe",
+      "size": 206,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/e14b6abd7848e2731663ea0628ae91edfd57abbe"
+    },
+    {
+      "path": "src/app/dashboard/models/tm.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c3e1216f61da6abf906b6c67b2a286ae9f9c83c",
+      "size": 300,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/8c3e1216f61da6abf906b6c67b2a286ae9f9c83c"
+    },
+    {
+      "path": "src/app/dashboard/models/yield.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a0d0036962836024627e5b10b079e05b9a999b3",
+      "size": 210,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/9a0d0036962836024627e5b10b079e05b9a999b3"
+    },
+    {
+      "path": "src/app/dashboard/network-data.service.spec.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2322caa90682a07cc47f22f485fda37e81ea6c2",
+      "size": 383,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/f2322caa90682a07cc47f22f485fda37e81ea6c2"
+    },
+    {
+      "path": "src/app/dashboard/network-data.service.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a26fca6dc5f63741de66fb5ae1830369e0a0150",
+      "size": 140,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/2a26fca6dc5f63741de66fb5ae1830369e0a0150"
+    },
+    {
+      "path": "src/app/dashboard/services",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4c8becbfe75acc49391f5969eefafb74d3ea934a",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/4c8becbfe75acc49391f5969eefafb74d3ea934a"
+    },
+    {
+      "path": "src/app/dashboard/services/data.mapper.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4974bba571bdd0f1a9c81a888b4d4b3ce1787e58",
+      "size": 2451,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/4974bba571bdd0f1a9c81a888b4d4b3ce1787e58"
+    },
+    {
+      "path": "src/app/dashboard/services/data.service.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b75eec1b2d573f4ede8cb9afb7d26668aca8dc9",
+      "size": 3551,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/3b75eec1b2d573f4ede8cb9afb7d26668aca8dc9"
+    },
+    {
+      "path": "src/app/ngx-mat-range-slider",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "db93103e73ef161aebe332c171c803373ea4d40c",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/db93103e73ef161aebe332c171c803373ea4d40c"
+    },
+    {
+      "path": "src/app/ngx-mat-range-slider/ngx-mat-range-slider.component.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9876660bf7fae951adbc60f8c74408f581920f9d",
+      "size": 1279,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/9876660bf7fae951adbc60f8c74408f581920f9d"
+    },
+    {
+      "path": "src/app/ngx-mat-range-slider/ngx-mat-range-slider.component.scss",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2557aa966254fe96ba61da07afa053bca30f5f8e",
+      "size": 2416,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/2557aa966254fe96ba61da07afa053bca30f5f8e"
+    },
+    {
+      "path": "src/app/ngx-mat-range-slider/ngx-mat-range-slider.component.spec.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe5e40679660a22877361f07a53063ba5d557ca4",
+      "size": 708,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/fe5e40679660a22877361f07a53063ba5d557ca4"
+    },
+    {
+      "path": "src/app/ngx-mat-range-slider/ngx-mat-range-slider.component.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8157b0b0d04682d7134abbe275edccb4e178cb77",
+      "size": 2245,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/8157b0b0d04682d7134abbe275edccb4e178cb77"
+    },
+    {
+      "path": "src/app/ngx-mat-range-slider/ngx-mat-range-slider.module.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4dd1cb9b02a3b077139b114db88b0cba1b482da6",
+      "size": 641,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/4dd1cb9b02a3b077139b114db88b0cba1b482da6"
+    },
+    {
+      "path": "src/assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4b7862d0592acd2e363e77fb3634d1eed828526a",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/4b7862d0592acd2e363e77fb3634d1eed828526a"
+    },
+    {
+      "path": "src/assets/.gitkeep",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "src/assets/1f2x.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66dcf2ee0a0b5cc204935f5eb0959f4dc86ade9f",
+      "size": 194481,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/66dcf2ee0a0b5cc204935f5eb0959f4dc86ade9f"
+    },
+    {
+      "path": "src/assets/1jtp.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7078e904c78aeede748db18bfd158fcf0d5d9029",
+      "size": 411480,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/7078e904c78aeede748db18bfd158fcf0d5d9029"
+    },
+    {
+      "path": "src/assets/1op9.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b8facf1cfc2f9f77405a71dbcf0dca2b15ed684",
+      "size": 204120,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/9b8facf1cfc2f9f77405a71dbcf0dca2b15ed684"
+    },
+    {
+      "path": "src/assets/1zmy.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "972bbef374843f5f51322d39368383b0d10d60a0",
+      "size": 281394,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/972bbef374843f5f51322d39368383b0d10d60a0"
+    },
+    {
+      "path": "src/assets/1zv5.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c3b7a0270d0bc3a8d6728e2d140faf2650c839b",
+      "size": 188568,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/6c3b7a0270d0bc3a8d6728e2d140faf2650c839b"
+    },
+    {
+      "path": "src/assets/1zvh.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f09084043c81a8c0ddf8a9cf3d135ae138e79563",
+      "size": 202014,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/f09084043c81a8c0ddf8a9cf3d135ae138e79563"
+    },
+    {
+      "path": "src/assets/3dwt.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f3d145702417bd8eccab52ebbc23ca8225d2a6e",
+      "size": 689634,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/7f3d145702417bd8eccab52ebbc23ca8225d2a6e"
+    },
+    {
+      "path": "src/assets/3eak.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54105915e1079a4eb3eb8a3a8c35dc414e1f3118",
+      "size": 208413,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/54105915e1079a4eb3eb8a3a8c35dc414e1f3118"
+    },
+    {
+      "path": "src/assets/3g9a.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c911bb70f82ceef863bd742559f981d450494e06",
+      "size": 320355,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/c911bb70f82ceef863bd742559f981d450494e06"
+    },
+    {
+      "path": "src/assets/3jbe.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6132ad34df81fc33afc9ab7cd22b54c8bd3faa0c",
+      "size": 681777,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/6132ad34df81fc33afc9ab7cd22b54c8bd3faa0c"
+    },
+    {
+      "path": "src/assets/3k1k.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce91a887fe4ce819add55846f8673f3e8248a6e4",
+      "size": 530793,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/ce91a887fe4ce819add55846f8673f3e8248a6e4"
+    },
+    {
+      "path": "src/assets/3qyc.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49f4f7b224cd515357ed1b0443927783af1afb93",
+      "size": 200880,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/49f4f7b224cd515357ed1b0443927783af1afb93"
+    },
+    {
+      "path": "src/assets/4nc0.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a779f588ba88ca342cb89d2aa955ce813154d214",
+      "size": 288522,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/a779f588ba88ca342cb89d2aa955ce813154d214"
+    },
+    {
+      "path": "src/assets/4tyu.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52aa3e634cd325ed1d2338455ec32cd0173ae30a",
+      "size": 202662,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/52aa3e634cd325ed1d2338455ec32cd0173ae30a"
+    },
+    {
+      "path": "src/assets/5e0q.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b563f908e462f6cac643e4ccd70b688e0e66277",
+      "size": 583362,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/9b563f908e462f6cac643e4ccd70b688e0e66277"
+    },
+    {
+      "path": "src/assets/6dyx.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b473b9bfa3a5fbff0079510be136b04e5b055ed2",
+      "size": 257013,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/b473b9bfa3a5fbff0079510be136b04e5b055ed2"
+    },
+    {
+      "path": "src/assets/6lr7.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af885da9796c003e0861b02b06ae13fc99eeddd1",
+      "size": 281232,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/af885da9796c003e0861b02b06ae13fc99eeddd1"
+    },
+    {
+      "path": "src/assets/6z3x.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5a0283e07d2163a8b420a38b51485ec9598df61",
+      "size": 375192,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/c5a0283e07d2163a8b420a38b51485ec9598df61"
+    },
+    {
+      "path": "src/assets/7e53.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a291e83656cb56805e043da8249a588125c5a4ce",
+      "size": 485838,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/a291e83656cb56805e043da8249a588125c5a4ce"
+    },
+    {
+      "path": "src/assets/7jvb.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "214e48eb073b33bbd9812a2e884a204cece2a345",
+      "size": 818424,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/214e48eb073b33bbd9812a2e884a204cece2a345"
+    },
+    {
+      "path": "src/assets/7kgj.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd23cd2abb2399407491ed366c3ed18d98561864",
+      "size": 461700,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/bd23cd2abb2399407491ed366c3ed18d98561864"
+    },
+    {
+      "path": "src/assets/7kgk.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce0dc0af80f93ef14621945026f2881ecc1dcff6",
+      "size": 436914,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/ce0dc0af80f93ef14621945026f2881ecc1dcff6"
+    },
+    {
+      "path": "src/assets/7kkj.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f23f87245ca6f86ae8c22f24ddecd744983ebdb7",
+      "size": 346356,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/f23f87245ca6f86ae8c22f24ddecd744983ebdb7"
+    },
+    {
+      "path": "src/assets/7kkk.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ba2b0a3eef606a7bba60f004a98a1e67ab581d8",
+      "size": 4613355,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/8ba2b0a3eef606a7bba60f004a98a1e67ab581d8"
+    },
+    {
+      "path": "src/assets/7kkl.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95af1b331ba1031c9ab06dea7cf572d6be5d1022",
+      "size": 4656609,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/95af1b331ba1031c9ab06dea7cf572d6be5d1022"
+    },
+    {
+      "path": "src/assets/7klw.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d43642ed467e20d1d2bbf26e79d312da65d2bc18",
+      "size": 322704,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/d43642ed467e20d1d2bbf26e79d312da65d2bc18"
+    },
+    {
+      "path": "src/assets/7mfu.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3d55a5b2c253e5e8fbec8af65836ea8b32786c5",
+      "size": 1301994,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/c3d55a5b2c253e5e8fbec8af65836ea8b32786c5"
+    },
+    {
+      "path": "src/assets/7mfv.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16a5143d4cf6154681853d66bafbac08b1dbef09",
+      "size": 190350,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/16a5143d4cf6154681853d66bafbac08b1dbef09"
+    },
+    {
+      "path": "src/assets/7n0i.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc57e24e98c0451534e916dce792cc66ed9cac41",
+      "size": 1801683,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/fc57e24e98c0451534e916dce792cc66ed9cac41"
+    },
+    {
+      "path": "src/assets/7n0r.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00f8f2c78a9f9a0571cf5adb734045d1eef62d87",
+      "size": 1031130,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/00f8f2c78a9f9a0571cf5adb734045d1eef62d87"
+    },
+    {
+      "path": "src/assets/7r98.pdb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30f851efc2e879e241c01ad0334517fdba919374",
+      "size": 1396683,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/30f851efc2e879e241c01ad0334517fdba919374"
+    },
+    {
+      "path": "src/environments",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5825478d74b5576b0f8330bdf5179b3ec6503fb8",
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/trees/5825478d74b5576b0f8330bdf5179b3ec6503fb8"
+    },
+    {
+      "path": "src/environments/environment.prod.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3612073bc31cd4c1f5d6cbb00318521e9a61bd8a",
+      "size": 51,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/3612073bc31cd4c1f5d6cbb00318521e9a61bd8a"
+    },
+    {
+      "path": "src/environments/environment.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f56ff47022c7a46eac3aee615d6d9150338524dc",
+      "size": 658,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/f56ff47022c7a46eac3aee615d6d9150338524dc"
+    },
+    {
+      "path": "src/favicon.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "997406ad22c29aae95893fb3d666c30258a09537",
+      "size": 948,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/997406ad22c29aae95893fb3d666c30258a09537"
+    },
+    {
+      "path": "src/index.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0254dfc567807b5c640b385674794e36ab5f82f",
+      "size": 576,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/d0254dfc567807b5c640b385674794e36ab5f82f"
+    },
+    {
+      "path": "src/main.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7b673cf44b388e9989fe908b78d7d73cd2e1409",
+      "size": 372,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/c7b673cf44b388e9989fe908b78d7d73cd2e1409"
+    },
+    {
+      "path": "src/polyfills.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "429bb9ef2d3400363c014fa434775b0f482f6bea",
+      "size": 2338,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/429bb9ef2d3400363c014fa434775b0f482f6bea"
+    },
+    {
+      "path": "src/styles.scss",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a39c63bcef444dd4b94524c57ea0e93d49abc41",
+      "size": 403,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/3a39c63bcef444dd4b94524c57ea0e93d49abc41"
+    },
+    {
+      "path": "src/test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00025daf1720afc91d3c9df889adf65bf8496033",
+      "size": 745,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/00025daf1720afc91d3c9df889adf65bf8496033"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82d91dc4a4de57f380b66c59cdd16ff6cd5798e4",
+      "size": 287,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/82d91dc4a4de57f380b66c59cdd16ff6cd5798e4"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bb733d4a2c5ed677bed75fe5a89fcd0560677a1",
+      "size": 988,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/9bb733d4a2c5ed677bed75fe5a89fcd0560677a1"
+    },
+    {
+      "path": "tsconfig.spec.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "092345b02e807773164dba19f2b4d1f4ab869f67",
+      "size": 333,
+      "url": "https://api.github.com/repos/Valdes-Tresanco-MS/NbThermo/git/blobs/092345b02e807773164dba19f2b4d1f4ab869f67"
+    }
+  ],
+  "truncated": false
+}

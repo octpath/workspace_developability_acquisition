@@ -1,0 +1,53 @@
+{
+  "Private_ids_sha256": "67614d0342e40b27ade31a303f8a2457e624517501c72f616ee5d82a6796cd2e",
+  "Public_ids_sha256": "56ef2e83084bd67b46a9699f19c27ba363487ee67bed7bac0868b7402537afb8",
+  "Test_ids_sha256": "688137204ab995b31de4b25bc9bf19cc11ae6a3764ffe856dba6b5db7de87ca2",
+  "Train_ids_sha256": "afb2286fb09fe5f4586c5098930006b8c03d7eb423416ae5a761a637d7a555c7",
+  "common_mask": true,
+  "competition_final_ranking_set": "Private",
+  "decision": "SELECT_COMMON_PRODUCTION_SPLIT",
+  "hic_safety_pass_count": 5,
+  "lofo_selection_replay": [
+    {
+      "left_out_family": "ABLANG2_NONLINEAR",
+      "selected_rank_among_shortlist": 3,
+      "selected_still_topk3": true,
+      "shortlist_n": 8
+    },
+    {
+      "left_out_family": "BIO",
+      "selected_rank_among_shortlist": 2,
+      "selected_still_topk3": true,
+      "shortlist_n": 8
+    },
+    {
+      "left_out_family": "CONST",
+      "selected_rank_among_shortlist": 3,
+      "selected_still_topk3": true,
+      "shortlist_n": 8
+    },
+    {
+      "left_out_family": "NESTED_ENSEMBLE",
+      "selected_rank_among_shortlist": 3,
+      "selected_still_topk3": true,
+      "shortlist_n": 8
+    },
+    {
+      "left_out_family": "SEQ_SIMPLE",
+      "selected_rank_among_shortlist": 3,
+      "selected_still_topk3": true,
+      "shortlist_n": 8
+    }
+  ],
+  "model_set_sha256": "94119b285912f023a851ae7fd3bf72a3c41c5f4454782838568575647eebd415",
+  "n_private": 81,
+  "n_public": 81,
+  "overfit_label": null,
+  "protocol_sha256": "7fd0d9872df585dce8b9e3d2ed1c66d8e2a594cca25b1d50bb159a70f2f30172",
+  "role": "production leaderboard partition \u2014 NOT an untouched scientific holdout",
+  "scientific_model_development_evidence": "Train grouped CV remains primary",
+  "selected_candidate_id": "CAND_04974",
+  "title": "FINAL PRODUCTION PUBLIC/PRIVATE MASK",
+  "tmapp_shortlist_sha256": "4fbf2207708735682f900af08beffb184fff081fab5916337491750c26284795",
+  "warning": "FINAL PRODUCTION PUBLIC/PRIVATE MASK \u2014 DO NOT CHANGE BASED ON ANY FURTHER MODEL RESULTS"
+}

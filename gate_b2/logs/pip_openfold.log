@@ -1,0 +1,18 @@
+Using Python 3.12.13 environment at: .venv_b1
+   Updating https://github.com/aqlaboratory/openfold.git (4b41059694619831a7db195b20e01261183f4fe7)
+  × Failed to download and build `openfold @
+  │ git+https://github.com/aqlaboratory/openfold.git@4b41059694619831a7db195b20e01261183f4fe7`
+  ├─▶ Git operation failed
+  ├─▶ failed to find branch, tag, or commit
+  │   `4b41059694619831a7db195b20e01261183f4fe7`
+  ╰─▶ process didn't exit successfully: `/usr/bin/git rev-parse
+      '4b41059694619831a7db195b20e01261183f4fe7^0'` (exit status: 128)
+      --- stdout
+      4b41059694619831a7db195b20e01261183f4fe7^0
+
+      --- stderr
+      fatal: ambiguous argument '4b41059694619831a7db195b20e01261183f4fe7^0':
+      unknown revision or path not in the working tree.
+      Use '--' to separate paths from revisions, like this:
+      'git <command> [<revision>...] -- [<file>...]'
+

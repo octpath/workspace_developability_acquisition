@@ -1,0 +1,676 @@
+FUSION canonical PSR FUSION_ablang2_default_ABB_SURFACE Ridge
+FUSION canonical PSR FUSION_ablang2_default_ABB_SURFACE ElasticNet
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+XGB canonical PSR FUSION_ablang2_default_ABB_SURFACE
+FUSION canonical PSR FUSION_A2_ABB_SURFACE Ridge
+FUSION canonical PSR FUSION_A2_ABB_SURFACE ElasticNet
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+XGB canonical PSR FUSION_A2_ABB_SURFACE
+FUSION canonical PSR FUSION_BIO_ablang2_default Ridge
+FUSION canonical PSR FUSION_BIO_ablang2_default ElasticNet
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+XGB canonical PSR FUSION_BIO_ablang2_default
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:164: RuntimeWarning: Mean of empty slice
+  col_mean = np.nanmean(X, axis=0)
+FUSION canonical HIC FUSION_ablang2_default_ABB_SURFACE Ridge
+FUSION canonical HIC FUSION_ablang2_default_ABB_SURFACE ElasticNet
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+XGB canonical HIC FUSION_ablang2_default_ABB_SURFACE
+FUSION canonical HIC FUSION_A2_ABB_SURFACE Ridge
+FUSION canonical HIC FUSION_A2_ABB_SURFACE ElasticNet
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+XGB canonical HIC FUSION_A2_ABB_SURFACE
+FUSION canonical HIC FUSION_BIO_ablang2_default Ridge
+FUSION canonical HIC FUSION_BIO_ablang2_default ElasticNet
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:106: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sc = spearmanr(y[tr][iva], pred).correlation
+XGB canonical HIC FUSION_BIO_ablang2_default
+/workspace_developability_acquisition/gate_b1/scripts/10_train_plm_structure.py:164: RuntimeWarning: Mean of empty slice
+  col_mean = np.nanmean(X, axis=0)

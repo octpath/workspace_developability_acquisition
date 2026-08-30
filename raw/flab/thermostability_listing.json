@@ -1,0 +1,107 @@
+[
+  {
+    "name": "garbinski2023_tm1.csv",
+    "size": 21015,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/garbinski2023_tm1.csv"
+  },
+  {
+    "name": "hie2023efficient_C143_Tm.csv",
+    "size": 643,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hie2023efficient_C143_Tm.csv"
+  },
+  {
+    "name": "hie2023efficient_MEDIUCA_Tm.csv",
+    "size": 1760,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hie2023efficient_MEDIUCA_Tm.csv"
+  },
+  {
+    "name": "hie2023efficient_MEDI_Tm.csv",
+    "size": 645,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hie2023efficient_MEDI_Tm.csv"
+  },
+  {
+    "name": "hie2023efficient_REGN10987_Tm.csv",
+    "size": 2366,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hie2023efficient_REGN10987_Tm.csv"
+  },
+  {
+    "name": "hie2023efficient_S309_Tm.csv",
+    "size": 3021,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hie2023efficient_S309_Tm.csv"
+  },
+  {
+    "name": "hie2023efficient_mAb114UCA_Tm.csv",
+    "size": 649,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hie2023efficient_mAb114UCA_Tm.csv"
+  },
+  {
+    "name": "hie2023efficient_mAb114_Tm.csv",
+    "size": 2175,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hie2023efficient_mAb114_Tm.csv"
+  },
+  {
+    "name": "hutchinson2023enhancement_multitm1_igg.csv",
+    "size": 3589,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hutchinson2023enhancement_multitm1_igg.csv"
+  },
+  {
+    "name": "hutchinson2023enhancement_singletm1_igg.csv",
+    "size": 5471,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hutchinson2023enhancement_singletm1_igg.csv"
+  },
+  {
+    "name": "hutchinson2023enhancement_top200tm1_igg.csv",
+    "size": 45265,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hutchinson2023enhancement_top200tm1_igg.csv"
+  },
+  {
+    "name": "hutchinson2023enhancement_top27tm1_igg.csv",
+    "size": 6647,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/hutchinson2023enhancement_top27tm1_igg.csv"
+  },
+  {
+    "name": "jain2017biophysical_Tm.csv",
+    "size": 32785,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/jain2017biophysical_Tm.csv"
+  },
+  {
+    "name": "jain2024assessment_Tm.csv",
+    "size": 10220,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/jain2024assessment_Tm.csv"
+  },
+  {
+    "name": "rosace2023automated_tm1_adalimumab.csv",
+    "size": 3397,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/rosace2023automated_tm1_adalimumab.csv"
+  },
+  {
+    "name": "rosace2023automated_tm1_golimumab.csv",
+    "size": 1266,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/rosace2023automated_tm1_golimumab.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_DLS.csv",
+    "size": 3229,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/shanehsazzadeh2023unlocking_DLS.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_DSF1.csv",
+    "size": 3253,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/shanehsazzadeh2023unlocking_DSF1.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_DSF2.csv",
+    "size": 3253,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/shanehsazzadeh2023unlocking_DSF2.csv"
+  },
+  {
+    "name": "sulea2019assisted_sdAb_tm.csv",
+    "size": 5256,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/sulea2019assisted_sdAb_tm.csv"
+  },
+  {
+    "name": "tresanco2023nbthermo_tm.csv",
+    "size": 107580,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/thermostability/tresanco2023nbthermo_tm.csv"
+  }
+]

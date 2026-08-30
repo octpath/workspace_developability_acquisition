@@ -1,0 +1,79 @@
+{
+  "b3_manifest_match": true,
+  "calibration_convention": "observed = intercept + slope * predicted",
+  "candidate_model_families": [
+    "constant_median",
+    "constant_mean",
+    "Ridge",
+    "ElasticNet",
+    "Lasso",
+    "HuberRegressor",
+    "PLS",
+    "LinearSVR",
+    "SVR_RBF",
+    "KernelRidge",
+    "XGBoost",
+    "LightGBM",
+    "CatBoost",
+    "residual_OOF",
+    "ensemble_OOF",
+    "calibration_OOF"
+  ],
+  "cv_protocol": {
+    "early_stopping": "internal group split of fit portion; NEVER outer validation",
+    "inner_for_optuna": "3-fold grouped on Outer Train",
+    "outer": "5-fold grouped \u00d7 3 repeats (15 evaluations)"
+  },
+  "frozen_Private_IDs_sha256": "89f82c0355f06780265d333c74808bd47e5f3b098df84577b928653f3d75061c",
+  "frozen_Public_IDs_sha256": "3cd9910d327103943c230d59b3bcc76090fa818870a86033b13cf77841b796f5",
+  "frozen_Train_IDs_sha256": "b7233268cac08bef6fa02e64427c94369485e9ed75f0e596ce70d1c9f0a7c754",
+  "frozen_counts": {
+    "Private": 81,
+    "Public": 81,
+    "Train": 162
+  },
+  "frozen_population_n": 324,
+  "gate": "B4_ABSOLUTE",
+  "gbdt_fixed": {
+    "early_stopping_rounds": 150,
+    "learning_rate": 0.03,
+    "learning_rate_tunable": false,
+    "n_estimators_ceiling": 5000,
+    "n_estimators_tunable": false
+  },
+  "information_barrier": "Public/Private labels MUST NOT be loaded until FINAL_ABSOLUTE_VALUE_FINALISTS.json is written and hashed",
+  "optuna_budgets": {
+    "gbdt_max_trials_cap": 100,
+    "stage1_cheap_linear_trials": 40,
+    "stage1_screening_trials": 60,
+    "stage2_nested_inner_trials": 25
+  },
+  "outer_cv_path": "/workspace_developability_acquisition/gate_b4_absolute/config/OUTER_CV_FOLDS.json",
+  "primary_metric": "MAE",
+  "primary_metric_direction": "minimize",
+  "random_seeds": {
+    "cv": 20260829,
+    "master": 20260829,
+    "model_default": 20260829,
+    "optuna_sampler": 20260829
+  },
+  "search_spaces_path": "/workspace_developability_acquisition/gate_b4_absolute/config/SEARCH_SPACES.json",
+  "secondary_metrics": [
+    "RMSE",
+    "Pearson",
+    "Spearman",
+    "R2",
+    "calibration_slope",
+    "calibration_intercept"
+  ],
+  "software_versions": {
+    "catboost": "1.2.10",
+    "lightgbm": "4.7.0",
+    "numpy": "2.5.2",
+    "optuna": "4.9.0",
+    "pandas": "3.0.5",
+    "python": "3.12.13",
+    "sklearn": "1.9.0",
+    "xgboost": "3.4.1"
+  }
+}

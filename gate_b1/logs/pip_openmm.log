@@ -1,0 +1,10 @@
+Using Python 3.12.13 environment at: .venv_b1
+Resolved 6 packages in 377ms
+   Building pdbfixer==1.12.0
+Downloading openmm (13.8MiB)
+ Downloaded openmm
+      Built pdbfixer==1.12.0
+Prepared 2 packages in 874ms
+Installed 2 packages in 18ms
+ + openmm==8.6.0
+ + pdbfixer==1.12.0

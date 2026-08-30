@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_B_BALANCED_S01",
+  "order": 1,
+  "target": "TmApp",
+  "persona": "B_BALANCED",
+  "model_name": "CONST_MEDIAN",
+  "model_stage": 0,
+  "feature": "CONST",
+  "hypothesis": "Constant median baseline.",
+  "cv_mae": 3.544381313131313,
+  "cv_mae_std": 0.2695029543697794,
+  "cv_spearman": -0.30530902729909454,
+  "cv_pearson": -0.3126548395126954,
+  "public_mae": 3.7839506172839505,
+  "public_spearman": NaN,
+  "public_pearson": NaN,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": null,
+  "train_seconds": 0.000942230224609375
+}

@@ -1,0 +1,15 @@
+[B5 chain] wait nested
+[B5 chain] learned pooling
+Extracting ESM-2 150M tokens for N=324
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t30_150M_UR50D.pt" to /root/.cache/torch/hub/checkpoints/esm2_t30_150M_UR50D.pt
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t30_150M_UR50D-contact-regression.pt" to /root/.cache/torch/hub/checkpoints/esm2_t30_150M_UR50D-contact-regression.pt
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/gate_b5_ceiling/scripts/02_learned_pooling.py", line 386, in <module>
+    main()
+  File "/workspace_developability_acquisition/gate_b5_ceiling/scripts/02_learned_pooling.py", line 346, in main
+    meta = extract_tokens(pop)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/gate_b5_ceiling/scripts/02_learned_pooling.py", line 100, in extract_tokens
+    if (_ + 1) % 40 == 0:
+       ^^^^^^^^^^^^^^^^^
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()

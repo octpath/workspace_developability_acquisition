@@ -1,0 +1,15 @@
+{
+  "target": "HIC",
+  "persona": "B_BALANCED",
+  "FINAL_PRIMARY_SUBMISSION": "HIC_B_BALANCED_S08",
+  "FINAL_BACKUP_SUBMISSION": "HIC_B_BALANCED_S06",
+  "reason": "Balanced: minimize sum of CV-rank and Public-rank.",
+  "primary_model": "ENSEMBLE_TOP2_PUBLIC",
+  "backup_model": "ENSEMBLE_CV_PUBLIC",
+  "known_at_selection": {
+    "primary_cv_mae": 0.47265089161251994,
+    "primary_public_mae": 0.5091125257852236,
+    "backup_cv_mae": 0.4732561097708334,
+    "backup_public_mae": 0.5159184901375522
+  }
+}

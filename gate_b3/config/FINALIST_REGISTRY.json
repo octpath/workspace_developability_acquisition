@@ -1,0 +1,225 @@
+{
+  "STATUS": "FINALISTS FROZEN BEFORE PUBLIC/PRIVATE OPENING",
+  "targets": {
+    "HIC": [
+      {
+        "mean_spearman": 0.3364654657019086,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.16449876802905847,
+        "slot": "simple_sequence",
+        "tag": "SEQ_SIMPLE",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.44154363846949307,
+        "model": "ElasticNet",
+        "n_eval": 20,
+        "sd_spearman": 0.10986691630775607,
+        "slot": "imgt_positional",
+        "tag": "IMGT_POS_HL",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.4031225653485048,
+        "model": "ElasticNet",
+        "n_eval": 20,
+        "sd_spearman": 0.055539644843602735,
+        "slot": "bio_germline",
+        "tag": "GERMLINE_REL",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.5084231458903997,
+        "model": "ElasticNet",
+        "n_eval": 20,
+        "sd_spearman": 0.16076057726689677,
+        "slot": "plm_linear",
+        "tag": "PLM_ESM1B",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.5170986454831569,
+        "model": "Ridge",
+        "n_eval": 20,
+        "sd_spearman": 0.2017550997118062,
+        "slot": "plm_latent",
+        "tag": "PLM_ESM1B_PCA64",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.473145855040394,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.14247799936908195,
+        "slot": "rank_oriented",
+        "tag": "PLM_ESM2_rank",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.5795807496937042,
+        "model": "ElasticNet",
+        "n_eval": 20,
+        "sd_spearman": 0.14294560520202093,
+        "slot": "structure",
+        "tag": "ESMFN_STRUCTURE",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.516181176091743,
+        "model": "ElasticNet",
+        "n_eval": 20,
+        "sd_spearman": 0.21128757811012766,
+        "slot": "fusion",
+        "tag": "FUSION_ESM2_IMGT",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.4504526700992264,
+        "model": "Ridge_stack",
+        "n_eval": 1,
+        "sd_spearman": NaN,
+        "slot": "residual",
+        "tag": "RESID_PLM_ESM2__ESMFN_STRUCTURE",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.5709781899146693,
+        "model": "nonneg_ridge",
+        "n_eval": 1,
+        "sd_spearman": NaN,
+        "slot": "ensemble",
+        "tag": "ENSEMBLE_NNLS",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.33625082782429855,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.15159690996053427,
+        "slot": "ngram",
+        "tag": "NGRAM_HL_3",
+        "target": "HIC"
+      },
+      {
+        "mean_spearman": 0.5503644847297267,
+        "model": "rank_mean",
+        "n_eval": 1,
+        "sd_spearman": NaN,
+        "slot": "top_fill",
+        "tag": "ENSEMBLE_RANKMEAN",
+        "target": "HIC"
+      }
+    ],
+    "TmApp": [
+      {
+        "mean_spearman": 0.3113697572320793,
+        "model": "ElasticNet",
+        "n_eval": 20,
+        "sd_spearman": 0.08467548621079837,
+        "slot": "simple_sequence",
+        "tag": "SEQ_SIMPLE",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.45591876465615383,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.1383564548295304,
+        "slot": "imgt_positional",
+        "tag": "IMGT_POS_HL",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.43071993269031666,
+        "model": "PLS",
+        "n_eval": 20,
+        "sd_spearman": 0.1886964670446534,
+        "slot": "bio_germline",
+        "tag": "BIO_SHORTCUT",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.47638464771955435,
+        "model": "ElasticNet",
+        "n_eval": 20,
+        "sd_spearman": 0.11071818360655745,
+        "slot": "plm_linear",
+        "tag": "PLM_ABLANG2",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.4800135810299845,
+        "model": "SVR_RBF",
+        "n_eval": 20,
+        "sd_spearman": 0.09030465906468838,
+        "slot": "plm_latent",
+        "tag": "PLM_ABLANG2_PCA64",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.3873980887385286,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.09151587144108556,
+        "slot": "rank_oriented",
+        "tag": "SEQ_CDR_gauss",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.35746327864252087,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.09476070188754328,
+        "slot": "structure",
+        "tag": "ESMFN_STRUCTURE",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.3619450772997558,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.19886398473507524,
+        "slot": "fusion",
+        "tag": "FUSION_ESM2_IMGT",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.390720807796744,
+        "model": "Ridge_stack",
+        "n_eval": 1,
+        "sd_spearman": NaN,
+        "slot": "residual",
+        "tag": "RESID_BIO_SHORTCUT__PLM_ESM2",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.4461473104446746,
+        "model": "nonneg_ridge",
+        "n_eval": 1,
+        "sd_spearman": NaN,
+        "slot": "ensemble",
+        "tag": "ENSEMBLE_NNLS",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.35955950067911246,
+        "model": "Ridge_grid",
+        "n_eval": 20,
+        "sd_spearman": 0.1823418160277989,
+        "slot": "ngram",
+        "tag": "NGRAM_HL_3",
+        "target": "TmApp"
+      },
+      {
+        "mean_spearman": 0.47685845556025946,
+        "model": "SVR_RBF",
+        "n_eval": 20,
+        "sd_spearman": 0.10447074860312668,
+        "slot": "top_fill",
+        "tag": "PLM_ABLANG2_PCA32",
+        "target": "TmApp"
+      }
+    ]
+  }
+}

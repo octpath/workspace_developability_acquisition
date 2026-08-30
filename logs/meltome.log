@@ -1,0 +1,13 @@
+Meltome TM index: rows=358672 sheets=77 unique_protein_ids=65239 tm_nonnull=305237
+Metadata datasets: 77
+Dataset ID                       Organism      Strain/tissue Cells/lysate
+   ma:0001           Oleispira antarctica               RB-8       lysate
+   ma:0002              Bacillus subtilis                168       lysate
+   ma:0003               Escherichia coli         K12 MG1655       lysate
+   ma:0004               Escherichia coli         K12 MG1655        cells
+   ma:0005               Escherichia coli ArcticExpress (D3)       lysate
+   ma:0006 Geobacillus stearothermophilus             NCA 26       lysate
+   ma:0007           Picrophilus torridus           DSM 9790       lysate
+   ma:0008           Thermus thermophilus               HB27       lysate
+   ma:0009           Thermus thermophilus               HB27        cells
+   ma:0010       Saccharomyces cerevisiae             BY4741       lysate

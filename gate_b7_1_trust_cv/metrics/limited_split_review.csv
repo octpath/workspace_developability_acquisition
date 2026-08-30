@@ -1,0 +1,5 @@
+candidate_id,decision,reason,strong_reason_to_switch
+CAND_12528,KEEP,Prior bakeoff winner; Trust-CV not remapped for alternatives; high bar not met,False
+CAND_04974,KEEP_12528,Stronger pre-model balance but higher Public-winner Private regret in B6.1; no remapped Trust-CV audit,False
+CAND_12207,KEEP_12528,Failed HIC Public→Private transfer floor in B6.1; not a Trust-CV fix without remap,False
+CURRENT_BASELINE_SPLIT,KEEP_12528,Control only; already dominated on B6 safety metrics,False

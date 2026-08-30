@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_A_CV_FIRST_S06",
+  "order": 6,
+  "target": "HIC",
+  "persona": "A_CV_FIRST",
+  "model_name": "FUSION_ESM2_STRUCT_ENet",
+  "model_stage": 5,
+  "feature": "FUSION_ESM2_STRUCT",
+  "hypothesis": "ESM2 + structure fusion for HIC.",
+  "cv_mae": 0.4852201547789042,
+  "cv_mae_std": 0.08079351058430573,
+  "cv_spearman": 0.5021572623647212,
+  "cv_pearson": 0.5016962825409647,
+  "public_mae": 0.513408336546995,
+  "public_spearman": 0.4045305441179535,
+  "public_pearson": 0.40193065678944834,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.07546605163211317,
+  "train_seconds": 0.10093998908996582
+}

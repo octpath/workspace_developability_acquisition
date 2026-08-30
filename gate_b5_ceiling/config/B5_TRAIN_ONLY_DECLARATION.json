@@ -1,0 +1,22 @@
+{
+  "b4_ensemble_integrity": "OPTIMISTIC_LEVEL2_INSAMPLE",
+  "frozen_Private_IDs_sha256": "89f82c0355f06780265d333c74808bd47e5f3b098df84577b928653f3d75061c",
+  "frozen_Public_IDs_sha256": "3cd9910d327103943c230d59b3bcc76090fa818870a86033b13cf77841b796f5",
+  "frozen_Train_IDs_sha256": "b7233268cac08bef6fa02e64427c94369485e9ed75f0e596ce70d1c9f0a7c754",
+  "gate": "B5_CEILING",
+  "gbdt_learning_rate_fixed": 0.03,
+  "primary_metric": "MAE",
+  "secondary_priority": "prediction Pearson r",
+  "software": {
+    "catboost": "1.2.10",
+    "lightgbm": "4.7.0",
+    "numpy": "2.5.2",
+    "optuna": "4.9.0",
+    "pandas": "3.0.5",
+    "peft": "0.20.0",
+    "python": "3.12.13",
+    "sklearn": "1.9.0",
+    "torch": "2.10.0+cu128",
+    "xgboost": "3.4.1"
+  }
+}

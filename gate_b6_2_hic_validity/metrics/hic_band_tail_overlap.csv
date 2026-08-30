@@ -1,0 +1,4 @@
+role,train_Q90,train_Q95,n_above_Q90,n_ge_10.5,n_Q90_and_ge10.5,n_Q90_xor_ge10.5,n_above_Q95,n_gt_11.5,n_Q95_and_gt11.5,n_Q95_xor_gt11.5
+Train,10.5372,11.1356,17,18,17,1,9,6,6,3
+Public,10.5372,11.1356,8,8,8,0,5,3,3,2
+Private,10.5372,11.1356,5,5,5,0,5,4,4,1

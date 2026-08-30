@@ -1,0 +1,15 @@
+{
+  "target": "TmApp",
+  "persona": "A_CV_FIRST",
+  "FINAL_PRIMARY_SUBMISSION": "TmApp_A_CV_FIRST_S09",
+  "FINAL_BACKUP_SUBMISSION": "TmApp_A_CV_FIRST_S08",
+  "reason": "CV-first: minimize CV MAE; Public only as tie-break.",
+  "primary_model": "ENSEMBLE_TOP3_CV",
+  "backup_model": "ENSEMBLE_TOP2_CV",
+  "known_at_selection": {
+    "primary_cv_mae": 2.736083958345015,
+    "primary_public_mae": 3.464876434728561,
+    "backup_cv_mae": 2.736083958345015,
+    "backup_public_mae": 3.4648764347285614
+  }
+}

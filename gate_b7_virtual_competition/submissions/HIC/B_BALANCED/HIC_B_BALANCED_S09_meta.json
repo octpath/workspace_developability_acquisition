@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_B_BALANCED_S09",
+  "order": 9,
+  "target": "HIC",
+  "persona": "B_BALANCED",
+  "model_name": "PHYS_STRUCT_Huber",
+  "model_stage": 5,
+  "feature": "PHYS_STRUCT",
+  "hypothesis": "Huber may reduce center-collapse on elevated HIC.",
+  "cv_mae": 1.375136651096398,
+  "cv_mae_std": 0.2881188767919357,
+  "cv_spearman": 0.3106259801905342,
+  "cv_pearson": 0.28662992563854234,
+  "public_mae": 1.0605501056472004,
+  "public_spearman": 0.09246283380056959,
+  "public_pearson": 0.2993286979415138,
+  "personal_public_rank": 9,
+  "delta_public_vs_prev": 0.5514375798619768,
+  "train_seconds": 2.480107545852661
+}

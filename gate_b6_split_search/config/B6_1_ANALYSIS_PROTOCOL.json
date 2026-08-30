@@ -1,0 +1,86 @@
+{
+  "HIC_n_models": 6,
+  "TmApp_n_models": 5,
+  "allowed_decisions": [
+    "SELECT_CAND_04974",
+    "SELECT_CAND_12528",
+    "SELECT_CAND_12207",
+    "NO_CLEAR_WINNER_REQUIRE_HUMAN_DECISION"
+  ],
+  "bootstrap_replicates": 10000,
+  "decision_priority": [
+    "TmApp must be fixed (Public not misleading)",
+    "low Public-selection regret for BOTH targets",
+    "HIC remains useful feedback",
+    "statistical/biological balance",
+    "local/bootstrap robustness"
+  ],
+  "gate": "B6.1",
+  "local_perturbations_per_candidate": 300,
+  "model_set_path": "/workspace_developability_acquisition/gate_b6_split_search/config/FROZEN_SPLIT_EVALUATION_MODEL_SET.json",
+  "perturbation_k": [
+    1,
+    2,
+    3
+  ],
+  "prediction_correlations_Test": {
+    "HIC": {
+      "CONST_MEDIAN__vs__ESMFN_STRUCTURE_ElasticNet": null,
+      "CONST_MEDIAN__vs__FUSION_ESM2_ESMFN_ElasticNet": null,
+      "CONST_MEDIAN__vs__NESTED_STACK_NNLS": null,
+      "CONST_MEDIAN__vs__PLM_ESM2_PCA64_SVR": null,
+      "CONST_MEDIAN__vs__SEQ_SIMPLE_Ridge": null,
+      "ESMFN_STRUCTURE_ElasticNet__vs__FUSION_ESM2_ESMFN_ElasticNet": 0.7326228065369705,
+      "ESMFN_STRUCTURE_ElasticNet__vs__NESTED_STACK_NNLS": 0.8553989215423724,
+      "FUSION_ESM2_ESMFN_ElasticNet__vs__NESTED_STACK_NNLS": 0.8585926579262635,
+      "PLM_ESM2_PCA64_SVR__vs__ESMFN_STRUCTURE_ElasticNet": 0.5365078261008551,
+      "PLM_ESM2_PCA64_SVR__vs__FUSION_ESM2_ESMFN_ElasticNet": 0.770890721817264,
+      "PLM_ESM2_PCA64_SVR__vs__NESTED_STACK_NNLS": 0.8960404953071943,
+      "SEQ_SIMPLE_Ridge__vs__ESMFN_STRUCTURE_ElasticNet": 0.5252356871566817,
+      "SEQ_SIMPLE_Ridge__vs__FUSION_ESM2_ESMFN_ElasticNet": 0.5272764387614342,
+      "SEQ_SIMPLE_Ridge__vs__NESTED_STACK_NNLS": 0.5980419295940358,
+      "SEQ_SIMPLE_Ridge__vs__PLM_ESM2_PCA64_SVR": 0.5241516056372437
+    },
+    "TmApp": {
+      "BIO_Ridge__vs__NESTED_STACK_MEAN": 0.658164311575727,
+      "BIO_Ridge__vs__PLM_ABLANG2_PCA32_SVR": 0.37767841383333706,
+      "CONST_MEDIAN__vs__BIO_Ridge": null,
+      "CONST_MEDIAN__vs__NESTED_STACK_MEAN": null,
+      "CONST_MEDIAN__vs__PLM_ABLANG2_PCA32_SVR": null,
+      "CONST_MEDIAN__vs__SEQ_SIMPLE_Ridge": null,
+      "PLM_ABLANG2_PCA32_SVR__vs__NESTED_STACK_MEAN": 0.801989171872074,
+      "SEQ_SIMPLE_Ridge__vs__BIO_Ridge": 0.424968692019967,
+      "SEQ_SIMPLE_Ridge__vs__NESTED_STACK_MEAN": 0.3253364276062936,
+      "SEQ_SIMPLE_Ridge__vs__PLM_ABLANG2_PCA32_SVR": 0.3239831882538815
+    }
+  },
+  "regret_thresholds": {
+    "HIC": {
+      "0.05*SD": 0.04285,
+      "0.1*SD": 0.0857,
+      "0.25*SD": 0.21425,
+      "0.5*SD": 0.4285,
+      "note": "thresholds are fractions of Test HIC SD (0.857); IQR (0.694) documented for context",
+      "reference_Test_HIC_IQR": 0.694,
+      "reference_Test_HIC_SD": 0.857
+    },
+    "TmApp_C": {
+      "0.1C": 0.1,
+      "0.25C": 0.25,
+      "0.5C": 0.5,
+      "1.0C": 1.0
+    }
+  },
+  "seed": 20260830,
+  "strategies": {
+    "A_public_only": "min Public MAE",
+    "B_cv_only": "min CV MAE",
+    "C_cv_among_public_top2": "among 2 lowest Public MAE, pick lower CV MAE",
+    "D_consensus": "min(CV_rank + Public_rank); ties \u2192 lower CV MAE \u2192 lex model_id"
+  },
+  "tie_break": [
+    "lower CV MAE",
+    "lexicographic model_id"
+  ],
+  "title": "Final production split bake-off analysis protocol"
+}

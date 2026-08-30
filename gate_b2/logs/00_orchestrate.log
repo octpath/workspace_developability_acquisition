@@ -1,0 +1,46 @@
+WAIT ESMFold pdbs=45/370
+WAIT ESMFold pdbs=48/370
+WAIT ESMFold pdbs=48/370
+WAIT ESMFold pdbs=55/370
+WAIT ESMFold pdbs=67/370
+WAIT ESMFold pdbs=78/370
+WAIT ESMFold pdbs=90/370
+WAIT ESMFold pdbs=101/370
+WAIT ESMFold pdbs=112/370
+WAIT ESMFold pdbs=123/370
+WAIT ESMFold pdbs=135/370
+WAIT ESMFold pdbs=147/370
+WAIT ESMFold pdbs=159/370
+WAIT ESMFold pdbs=170/370
+WAIT ESMFold pdbs=182/370
+WAIT ESMFold pdbs=194/370
+WAIT ESMFold pdbs=205/370
+WAIT ESMFold pdbs=217/370
+WAIT ESMFold pdbs=228/370
+WAIT ESMFold pdbs=240/370
+WAIT ESMFold pdbs=252/370
+WAIT ESMFold pdbs=263/370
+WAIT ESMFold pdbs=275/370
+WAIT ESMFold pdbs=286/370
+WAIT ESMFold pdbs=297/370
+WAIT ESMFold pdbs=309/370
+WAIT ESMFold pdbs=321/370
+WAIT ESMFold pdbs=332/370
+WAIT ESMFold pdbs=343/370
+WAIT ESMFold pdbs=355/370
+WAIT ESMFold pdbs=366/370
+ESMFOLD_MANIFEST n=370 ok=370
+START 03_structure_features.py
+DONE 03_structure_features.py rc=0
+START 06_structure_compare.py
+DONE 06_structure_compare.py rc=1
+START 04_modeling.py
+DONE 04_modeling.py rc=-15
+MODELING_FAILED -15
+START 04b_residuals_ensembles.py
+DONE 04b_residuals_ensembles.py rc=1
+START 05_diagnostics_final.py
+DONE 05_diagnostics_final.py rc=1
+START 07_write_gate_b2_final.py
+DONE 07_write_gate_b2_final.py rc=0
+ORCHESTRATOR_DONE

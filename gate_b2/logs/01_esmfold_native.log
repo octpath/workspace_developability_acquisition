@@ -1,0 +1,82 @@
+UNION n=370 hic=348 tm=346
+VALIDATION on 15
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+VAL ADI-38502 chains ['A', 'B'] ok_len True com 22.121788107942173
+VAL ADI-38501 chains ['A', 'B'] ok_len True com 22.334057612652362
+VAL ADI-47173 chains ['A', 'B'] ok_len True com 22.037601068847806
+VAL ADI-47054 chains ['A', 'B'] ok_len True com 22.303834171652788
+VAL ADI-47278 chains ['A', 'B'] ok_len True com 22.261069370484954
+VAL ADI-47055 chains ['A', 'B'] ok_len True com 22.7175946050368
+VAL ADI-47174 chains ['A', 'B'] ok_len True com 22.268031050510878
+VAL ADI-47056 chains ['A', 'B'] ok_len True com 21.92980527173935
+VAL ADI-47279 chains ['A', 'B'] ok_len True com 22.266190514463222
+VAL ADI-47057 chains ['A', 'B'] ok_len True com 21.70283984340535
+VAL ADI-47280 chains ['A', 'B'] ok_len True com 21.933690267555406
+VAL ADI-47058 chains ['A', 'B'] ok_len True com 22.494270128095476
+VAL ADI-47281 chains ['A', 'B'] ok_len True com 22.059120694933295
+VAL ADI-47175 chains ['A', 'B'] ok_len True com 22.215482151654072
+VAL ADI-47282 chains ['A', 'B'] ok_len True com 22.14418690135421
+VALIDATION ok_len=15/15
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PROGRESS 10/370 ok=10 fail=0
+PROGRESS 20/370 ok=20 fail=0
+PROGRESS 30/370 ok=30 fail=0
+PROGRESS 40/370 ok=40 fail=0
+UNION n=370 hic=348 tm=346
+VALIDATION on 15
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+VAL ADI-38502 chains ['A', 'B'] ok_len True com 22.121788107942173
+VAL ADI-38501 chains ['A', 'B'] ok_len True com 22.334057612652362
+VAL ADI-47173 chains ['A', 'B'] ok_len True com 22.037601068847806
+VAL ADI-47054 chains ['A', 'B'] ok_len True com 22.303834171652788
+VAL ADI-47278 chains ['A', 'B'] ok_len True com 22.261069370484954
+VAL ADI-47055 chains ['A', 'B'] ok_len True com 22.7175946050368
+VAL ADI-47174 chains ['A', 'B'] ok_len True com 22.268031050510878
+VAL ADI-47056 chains ['A', 'B'] ok_len True com 21.92980527173935
+VAL ADI-47279 chains ['A', 'B'] ok_len True com 22.266190514463222
+VAL ADI-47057 chains ['A', 'B'] ok_len True com 21.70283984340535
+VAL ADI-47280 chains ['A', 'B'] ok_len True com 21.933690267555406
+VAL ADI-47058 chains ['A', 'B'] ok_len True com 22.494270128095476
+VAL ADI-47281 chains ['A', 'B'] ok_len True com 22.059120694933295
+VAL ADI-47175 chains ['A', 'B'] ok_len True com 22.215482151654072
+VAL ADI-47282 chains ['A', 'B'] ok_len True com 22.14418690135421
+VALIDATION ok_len=15/15
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PROGRESS 50/370 ok=50 fail=0
+PROGRESS 60/370 ok=60 fail=0
+PROGRESS 70/370 ok=70 fail=0
+PROGRESS 80/370 ok=80 fail=0
+PROGRESS 90/370 ok=90 fail=0
+PROGRESS 100/370 ok=100 fail=0
+PROGRESS 110/370 ok=110 fail=0
+PROGRESS 120/370 ok=120 fail=0
+PROGRESS 130/370 ok=130 fail=0
+PROGRESS 140/370 ok=140 fail=0
+PROGRESS 150/370 ok=150 fail=0
+PROGRESS 160/370 ok=160 fail=0
+PROGRESS 170/370 ok=170 fail=0
+PROGRESS 180/370 ok=180 fail=0
+PROGRESS 190/370 ok=190 fail=0
+PROGRESS 200/370 ok=200 fail=0
+PROGRESS 210/370 ok=210 fail=0
+PROGRESS 220/370 ok=220 fail=0
+PROGRESS 230/370 ok=230 fail=0
+PROGRESS 240/370 ok=240 fail=0
+PROGRESS 250/370 ok=250 fail=0
+PROGRESS 260/370 ok=260 fail=0
+PROGRESS 270/370 ok=270 fail=0
+PROGRESS 280/370 ok=280 fail=0
+PROGRESS 290/370 ok=290 fail=0
+PROGRESS 300/370 ok=300 fail=0
+PROGRESS 310/370 ok=310 fail=0
+PROGRESS 320/370 ok=320 fail=0
+PROGRESS 330/370 ok=330 fail=0
+PROGRESS 340/370 ok=340 fail=0
+PROGRESS 350/370 ok=350 fail=0
+PROGRESS 360/370 ok=360 fail=0
+PROGRESS 370/370 ok=370 fail=0
+ESMFOLD_NATIVE_OK {'n_total': 370, 'n_ok': 370, 'n_fail': 0, 'success_rate': 1.0, 'total_runtime_s': 1686.135114185512, 'validation_ok_len': 15, 'model_meta': {'package': 'facebookresearch/esm (fair-esm)', 'esm_file': '/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/__init__.py', 'esm_version': '2.0.1', 'model': 'esmfold_v1', 'input_format': "f'{VH}:{VL}'", 'api': 'model.infer_pdb(sequence)', 'chunk_size': 128, 'load_s': 24.48769050091505, 'gpu': 'NVIDIA GeForce RTX 3090', 'vram_total_mb': 24124.2, 'vram_free_after_load_mb': 15540.8, 'note': 'Official multimer input uses colon-separated chains. ESMFold supports multimer inputs through colon-separated chains and chain-aware inference machinery (internal linker/index-offset). Not an AlphaFold-Multimer equivalent.', 'infer_signature': "(sequences: Union[str, List[str]], residx=None, masking_pattern: Optional[torch.Tensor] = None, num_recycles: Optional[int] = None, residue_index_offset: Optional[int] = 512, chain_linker: Optional[str] = 'GGGGGGGGGGGGGGGGGGGGGGGGG')"}}

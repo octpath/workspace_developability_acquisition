@@ -1,0 +1,68 @@
+[B5 resume] learned pooling
+Extracting ESM-2 150M tokens for N=324
+token cache OK (324)
+=== Learned pooling HIC ===
+HIC attn h=32 mae=0.5701±0.0094 pearson_fz=0.147
+HIC attn h=64 mae=0.5537±0.0066 pearson_fz=0.186
+HIC scalar h=64 mae=0.5723±0.0120 pearson_fz=0.155
+HIC region h=64 mae=0.5834±0.0103 pearson_fz=0.297
+=== Learned pooling TmApp ===
+TmApp attn h=32 mae=4.5972±0.1379 pearson_fz=-0.083
+TmApp attn h=64 mae=4.6297±0.4654 pearson_fz=-0.088
+TmApp scalar h=64 mae=4.3817±0.2061 pearson_fz=0.058
+TmApp region h=64 mae=4.2239±0.1274 pearson_fz=0.164
+DONE pooling in 8.1 min
+[B5 resume] light finetune
+TmApp lora lr=3e-05 seed=0 fold=0
+TmApp lora lr=3e-05 seed=0 fold=1
+TmApp lora lr=3e-05 seed=0 fold=2
+SUMMARY TmApp lora lr=3e-05 mae=62.7765
+TmApp lora lr=0.0001 seed=0 fold=0
+TmApp lora lr=0.0001 seed=0 fold=1
+TmApp lora lr=0.0001 seed=0 fold=2
+SUMMARY TmApp lora lr=0.0001 mae=40.9236
+HIC lora lr=3e-05 seed=0 fold=0
+HIC lora lr=3e-05 seed=0 fold=1
+HIC lora lr=3e-05 seed=0 fold=2
+SUMMARY HIC lora lr=3e-05 mae=2.3383
+HIC lora lr=0.0001 seed=0 fold=0
+HIC lora lr=0.0001 seed=0 fold=1
+HIC lora lr=0.0001 seed=0 fold=2
+SUMMARY HIC lora lr=0.0001 mae=0.5171
+DONE finetune in 5.6 min
+[B5 resume] finalists + oneshot + FINAL
+FINALISTS FROZEN 7d5513badd254fd2629ee1c489b159225ecbea9b1f41056115493899e8997382
+ONESHOT HIC NESTED_STACK_NNLS
+ONESHOT HIC PLM_ESM2/PCA64/SVR
+ONESHOT HIC ESMFN_STRUCTURE/ElasticNet
+ONESHOT HIC FT_lora_lr0.0001
+ONESHOT HIC CONST_MEDIAN
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:169: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:170: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = spearmanr(y, p).correlation
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/b5_common.py:182: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/b5_common.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r0 = pearsonr(y, p)[0]
+ONESHOT HIC FUSION_ESM2_ESMFN/ElasticNet
+ONESHOT HIC POOL_attn_h64_do0.3_wd0.01
+ONESHOT HIC SEQ_SIMPLE/Ridge
+ONESHOT TmApp NESTED_STACK_MEAN
+ONESHOT TmApp PLM_ABLANG2/PCA32/SVR
+ONESHOT TmApp FUSION_ABLANG2_BIO/ElasticNet
+ONESHOT TmApp BIO/Ridge
+ONESHOT TmApp CONST_MEDIAN
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:169: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b4_absolute/scripts/b4_common.py:170: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = spearmanr(y, p).correlation
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/b5_common.py:182: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r = pearsonr(y, p)[0]
+/workspace_developability_acquisition/gate_b5_ceiling/scripts/b5_common.py:121: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r0 = pearsonr(y, p)[0]
+ONESHOT TmApp SEQ_SIMPLE/Ridge
+ONESHOT TmApp POOL_region_h64_do0.3_wd0.01
+ONESHOT TmApp FT_lora_lr0.0001
+GATE B5 FINAL written
+[B5 resume] COMPLETE

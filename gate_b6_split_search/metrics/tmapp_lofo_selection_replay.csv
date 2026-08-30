@@ -1,0 +1,6 @@
+left_out_family,selected_rank_among_shortlist,shortlist_n,selected_still_topk3
+ABLANG2_NONLINEAR,3,8,True
+BIO,2,8,True
+CONST,3,8,True
+NESTED_ENSEMBLE,3,8,True
+SEQ_SIMPLE,3,8,True

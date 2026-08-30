@@ -1,0 +1,42 @@
+{
+  "best_finalist_hic_high": [
+    3,
+    4
+  ],
+  "best_finalist_hic_med": [
+    4,
+    2
+  ],
+  "best_lex_finalist": "GEN_0000_A_20261007",
+  "best_lex_hic_high": [
+    3,
+    4
+  ],
+  "best_lex_hic_med": [
+    4,
+    2
+  ],
+  "cand_12528_percentiles": {
+    "HIC_q8_L1": 5.795454545454545,
+    "L1": 1.0227272727272727,
+    "TmApp_q8_L1": 27.15909090909091,
+    "joint_energy_norm": 0.7954545454545454,
+    "max_abs_SMD": 90.79545454545455
+  },
+  "challenger_clears_bar": true,
+  "chosen_hic_high": [
+    4,
+    3
+  ],
+  "chosen_hic_med": [
+    3,
+    3
+  ],
+  "chosen_split_id": "GEN_0001_B_20271100",
+  "final_decision": "MULTIPLE_MODEL_BLIND_SPLITS_EQUIVALENT",
+  "final_report": "gate_b7_3_principled_split/reports/GATE_B7_3_PRINCIPLED_SPLIT_FINAL.md",
+  "n_near_optimal_10pct": 34,
+  "n_starts": 880,
+  "n_unique_valid": 880,
+  "reason": "Multiple equivalent model-blind splits; chose by lexicographic key then seed."
+}

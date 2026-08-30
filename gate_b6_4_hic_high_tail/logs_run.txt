@@ -1,0 +1,19 @@
+load
+N 324 HIGH 13 severe 10
+neighbors...
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/gate_b6_4_hic_high_tail/scripts/run_gate_b6_4.py", line 1005, in <module>
+    print("done", REPORTS / "GATE_B6_4_HIC_HIGH_TAIL_FINAL.md", decision)
+    ^^^^^^
+  File "/workspace_developability_acquisition/gate_b6_4_hic_high_tail/scripts/run_gate_b6_4.py", line 991, in main
+    shm_df, shm_note = shm(pop)
+                        ^^^^^^^^
+  File "/workspace_developability_acquisition/gate_b6_4_hic_high_tail/scripts/run_gate_b6_4.py", line 545, in neighbors
+    ddf = pd.DataFrame(disc)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/pandas/core/frame.py", line 8361, in sort_values
+    k = self._get_label_or_level_values(by[0], axis=axis)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/pandas/core/generic.py", line 1764, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'abs_HIC_diff'

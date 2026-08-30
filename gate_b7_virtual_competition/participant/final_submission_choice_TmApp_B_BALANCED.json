@@ -1,0 +1,15 @@
+{
+  "target": "TmApp",
+  "persona": "B_BALANCED",
+  "FINAL_PRIMARY_SUBMISSION": "TmApp_B_BALANCED_S07",
+  "FINAL_BACKUP_SUBMISSION": "TmApp_B_BALANCED_S06",
+  "reason": "Balanced: minimize sum of CV-rank and Public-rank.",
+  "primary_model": "ENSEMBLE_TOP2_PUBLIC",
+  "backup_model": "ENSEMBLE_CV_PUBLIC",
+  "known_at_selection": {
+    "primary_cv_mae": 3.2321531701204425,
+    "primary_public_mae": 3.494887249363428,
+    "backup_cv_mae": 3.156706072962881,
+    "backup_public_mae": 3.545067541225702
+  }
+}

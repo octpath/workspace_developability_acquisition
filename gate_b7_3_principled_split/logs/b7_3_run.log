@@ -1,0 +1,111 @@
+[09:53:02] Loaded Test N=162; bands={'LOW': 149, 'HIGH': 7, 'MEDIUM': 6}; groups=95
+[09:53:02] ============================================================
+[09:53:02] PHASE 1–5: MODEL-BLIND SEARCH (no predictions)
+[09:53:02] ============================================================
+[09:53:02] Energy scale (median random) = 0.031815
+[09:53:02] METHOD A — randomized greedy+swaps (400 starts)
+[09:53:54]   A progress 50/400; unique=50
+[09:54:46]   A progress 100/400; unique=100
+[09:55:38]   A progress 150/400; unique=150
+[09:56:30]   A progress 200/400; unique=200
+[09:57:22]   A progress 250/400; unique=250
+[09:58:14]   A progress 300/400; unique=300
+[09:59:06]   A progress 350/400; unique=350
+[09:59:59]   A progress 400/400; unique=400
+[09:59:59] METHOD B — simulated annealing (400 starts)
+[10:01:42]   B progress 50/400; unique=450
+[10:03:27]   B progress 100/400; unique=500
+[10:05:11]   B progress 150/400; unique=550
+[10:06:56]   B progress 200/400; unique=600
+[10:08:40]   B progress 250/400; unique=650
+[10:10:23]   B progress 300/400; unique=700
+[10:12:07]   B progress 350/400; unique=750
+[10:13:51]   B progress 400/400; unique=800
+[10:13:51] METHOD C — scipy milp linearized (80 solves)
+[10:13:59]   C progress 10/80; unique=810
+[10:14:08]   C progress 20/80; unique=820
+[10:14:17]   C progress 30/80; unique=830
+[10:14:25]   C progress 40/80; unique=840
+[10:14:34]   C progress 50/80; unique=850
+[10:14:42]   C progress 60/80; unique=860
+[10:14:51]   C progress 70/80; unique=870
+[10:14:59]   C progress 80/80; unique=880
+[10:14:59] Search done: starts=880 unique_valid=880 runtime=1317.6s
+[10:14:59] FROZEN finalists hash=340dc929ac83357ea41e6bb78ba5a39b83946ee8eefdbed02f6c48a4d8823530; generation CLOSED
+[10:15:00] *** GENERATION CLOSED — loading models ***
+[10:15:00] ============================================================
+[10:15:00] PHASE 6+: MODEL SAFETY (predictions allowed)
+[10:15:00] ============================================================
+[10:15:00] Loading Bank A (frozen B5)
+[10:15:00] Training Bank B (validation)
+[10:15:00]   train bank_b/TmApp/VAL_CONST_MEDIAN
+[10:15:00]   train bank_b/TmApp/VAL_SEQ_Ridge
+[10:15:00]   train bank_b/TmApp/VAL_SEQ_ENet
+[10:15:00]   train bank_b/TmApp/VAL_BIO_Ridge
+[10:15:00]   train bank_b/TmApp/VAL_BIO_ENet
+[10:15:00]   train bank_b/TmApp/VAL_ABLANG2_PCA32_SVR
+[10:15:01]   train bank_b/TmApp/VAL_ABLANG2_Ridge
+[10:15:01]   train bank_b/TmApp/VAL_BIO_ABLANG2_ENet
+[10:15:01]   train bank_b/TmApp/VAL_GERMLINE_Ridge
+[10:15:01]   train bank_b/TmApp/VAL_IMGT_Ridge
+[10:15:01]   train bank_b/HIC/VAL_CONST_MEDIAN
+[10:15:01]   train bank_b/HIC/VAL_SEQ_Ridge
+[10:15:01]   train bank_b/HIC/VAL_SEQ_ENet
+[10:15:01]   train bank_b/HIC/VAL_ESM2_PCA64_SVR
+[10:15:13]   train bank_b/HIC/VAL_ESM2_Ridge
+[10:15:14]   train bank_b/HIC/VAL_STRUCT_ENet
+[10:15:14]   train bank_b/HIC/VAL_PHYS_STRUCT_Ridge
+[10:15:14]   train bank_b/HIC/VAL_ESM2_STRUCT_ENet
+[10:15:14]   train bank_b/HIC/VAL_ESM2_STRUCT_Huber
+[10:15:24]   train bank_b/HIC/VAL_SEQ_Huber
+[10:15:26] Training Bank C (stress)
+[10:15:26]   train bank_c/TmApp/STRESS_SEQ_Ridge_a1
+[10:15:26]   train bank_c/TmApp/STRESS_SEQ_Ridge_a100
+[10:15:26]   train bank_c/TmApp/STRESS_BIO_Huber
+[10:15:26]   train bank_c/TmApp/STRESS_ABLANG2_PCA16_SVR
+[10:15:26]   train bank_c/TmApp/STRESS_BIO_ABLANG2_Ridge
+[10:15:26]   train bank_c/TmApp/STRESS_IMGT_ENet
+[10:15:27]   train bank_c/TmApp/STRESS_GERMLINE_ENet
+[10:15:27]   train bank_c/TmApp/STRESS_CONST
+[10:15:27]   train bank_c/HIC/STRESS_SEQ_Ridge_a1
+[10:15:27]   train bank_c/HIC/STRESS_SEQ_Ridge_a100
+[10:15:27]   train bank_c/HIC/STRESS_ESM2_PCA32_SVR
+[10:15:32]   train bank_c/HIC/STRESS_STRUCT_Ridge
+[10:15:32]   train bank_c/HIC/STRESS_PHYS_STRUCT_ENet
+[10:15:32]   train bank_c/HIC/STRESS_ESM2_STRUCT_Ridge
+[10:15:32]   train bank_c/HIC/STRESS_SEQ_Huber
+[10:15:34]   train bank_c/HIC/STRESS_CONST
+[10:15:34]   eval banks for GEN_0000_A_20261007
+[10:15:34]   eval banks for GEN_0001_B_20271100
+[10:15:34]   eval banks for GEN_0002_B_20270923
+[10:15:34]   eval banks for GEN_0003_A_20260938
+[10:15:34]   eval banks for GEN_0004_B_20271225
+[10:15:34]   eval banks for GEN_0005_A_20261232
+[10:15:34]   eval banks for GEN_0006_A_20261270
+[10:15:34]   eval banks for GEN_0007_B_20271110
+[10:15:34]   eval banks for GEN_0008_B_20270925
+[10:15:34]   eval banks for GEN_0009_B_20271025
+[10:15:34]   eval banks for GEN_0010_B_20270922
+[10:15:34]   eval banks for GEN_0011_A_20261282
+[10:15:34]   eval banks for GEN_0012_A_20260923
+[10:15:34]   eval banks for GEN_0013_A_20260905
+[10:15:34]   eval banks for GEN_0014_A_20261275
+[10:15:34]   eval banks for GEN_0015_B_20271204
+[10:15:34]   eval banks for GEN_0016_A_20261243
+[10:15:34]   eval banks for GEN_0017_B_20271055
+[10:15:34]   eval banks for GEN_0018_A_20260994
+[10:15:34]   eval banks for GEN_0019_B_20271133
+[10:15:34]   eval banks for CAND_12528
+[10:15:34]   eval banks for CAND_04974
+[10:15:34]   eval banks for CAND_12207
+[10:15:34]   eval banks for BASELINE_ROLEMAP
+[10:15:34] PHASE 7 — policy stress
+[10:15:34]   policy stress GEN_0000_A_20261007
+[10:15:34]   policy stress GEN_0001_B_20271100
+[10:15:34]   policy stress GEN_0002_B_20270923
+[10:15:34]   policy stress GEN_0003_A_20260938
+[10:15:34]   policy stress GEN_0004_B_20271225
+[10:15:34]   policy stress CAND_12528
+[10:15:35] PHASE 8–9 — replacement bar + final report
+[10:15:35] FINAL DECISION: MULTIPLE_MODEL_BLIND_SPLITS_EQUIVALENT
+[10:15:35] TOTAL runtime 1353.0s

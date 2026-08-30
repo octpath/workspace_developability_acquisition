@@ -1,0 +1,6 @@
+{
+  "fit": "Train_only",
+  "ngram": 2,
+  "scope": "H",
+  "vocab_size": 389
+}

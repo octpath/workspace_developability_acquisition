@@ -1,0 +1,13 @@
+feature_name,source_gate,n_antibodies,dimension,overlap_324_coverage,target_independent,safe_to_reuse,cache_path,notes
+stage_A_simple,B1,400,99,324,True,True,/workspace_developability_acquisition/gate_b1/cache/features/stage_A_simple.csv,sequence-derived
+stage_B_cdr,B1,400,260,324,True,True,/workspace_developability_acquisition/gate_b1/cache/features/stage_B_cdr.csv,sequence-derived
+stage_C_shortcut,B1,400,11,324,True,True,/workspace_developability_acquisition/gate_b1/cache/features/stage_C_shortcut.csv,sequence-derived
+AbLang2,B1,400,480,324,True,True,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_ablang2_default.csv,embedding; full 400 covers 324
+ESM-1b,B1,400,2560,324,True,True,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm1b_t33_650M_UR50S.csv,embedding; full 400 covers 324
+ESM-2,B1,400,2560,324,True,True,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm2_t33_650M_UR50D.csv,embedding; full 400 covers 324
+ESM-2_CDR6,B1,400,7680,324,True,True,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm2_t33_650M_UR50D_CDR6.csv,embedding; full 400 covers 324
+ABodyBuilder2_PDB,B1,400,PDB,324,True,True,/workspace_developability_acquisition/gate_b1/cache/structures/abb2_manifest.csv,
+ESMFold_native_VHVL,B2,370,PDB,324,True,True,/workspace_developability_acquisition/gate_b2/cache/structures/esmfold_native_manifest.csv,
+ABB_SASA_RASA_PATCH,B2,400,247,324,True,True,/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv,
+ESMFN_SASA_RASA_PATCH,B2,370,189,324,True,True,/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv,
+IMGT_numbering_germline,B1,400,regions+germline,324,True,True,/workspace_developability_acquisition/gate_b1/data/numbering_germline.csv,

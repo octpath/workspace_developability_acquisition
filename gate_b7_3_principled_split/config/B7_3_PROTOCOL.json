@@ -1,0 +1,81 @@
+{
+  "absolute_rules": [
+    "Phases 1-5 never load model predictions or MAE files",
+    "After B7_3_PREMODEL_FINALISTS_FROZEN.json written+hashed, stop generating splits",
+    "Do not modify production split files",
+    "Do not package"
+  ],
+  "energy_scale_definition": "Median joint energy distance over 200 random feasible size+HIGH splits; used to normalize joint_energy_norm = energy_raw / energy_scale.",
+  "energy_scale_value": 0.03181476855598675,
+  "gate": "B7.3",
+  "hard_constraints": {
+    "HIC_HIGH_public_in": [
+      3,
+      4
+    ],
+    "HIC_bands": {
+      "HIGH": ">11.5",
+      "LOW": "<10.5",
+      "MEDIUM": "[10.5,11.5]"
+    },
+    "atomic_sequence_groups": true,
+    "confirmed_test_band_totals": {
+      "HIGH": 7,
+      "LOW": 149,
+      "MEDIUM": 6
+    },
+    "private_size": 81,
+    "public_size": 81
+  },
+  "lexicographic_key": {
+    "L0": "hard feasible (else infinite)",
+    "L1": "max(TmApp_q8_L1, HIC_q8_L1, HIC_MED_imbalance, joint_grid_L1)",
+    "L2": "max(TmApp_W_norm, HIC_W_norm, joint_energy_norm)",
+    "L3": "max(mean_abs_SMD, germline_TV_mean, group_mass_TV)",
+    "L4": "aggregate L1/20 + L2 + L3 + 0.1*MED_pref_penalty + 0.05*max_abs_SMD",
+    "order": "minimize tuple (L0,L1,L2,L3,L4)"
+  },
+  "metrics": {
+    "HIC_MED_imbalance": "|n_pub(MEDIUM) - n_priv(MEDIUM)|",
+    "KS": "two-sample KS statistic Public vs Private",
+    "TV": "0.5 * L1 of categorical probability vectors",
+    "Wasserstein_norm": "W1(Public,Private) / Test_SD(target)",
+    "abs_SMD": "|mean_pub-mean_priv| / sqrt(0.5*(var_pub+var_priv))",
+    "continuous_list": [
+      "vh_len",
+      "vl_len",
+      "H_CDR3_len",
+      "A2_HL_pI",
+      "A2_HL_charge_ph7",
+      "A2_HL_gravy",
+      "nearest_train_VH_identity",
+      "nearest_train_VL_identity",
+      "nearest_train_paired_identity"
+    ],
+    "joint_energy_norm": "energy_distance(z_TmApp,z_HIC) / energy_scale",
+    "joint_grid_L1": "4x4 TmApp\u00d7HIC quartile cell count L1 Public vs Private",
+    "quantile_L1": "For n equal-frequency bins on full Test: L1 = sum_b |n_pub(b)-n_priv(b)|. Primary n=8; sensitivity n in {6,10}."
+  },
+  "near_optimal": {
+    "also_report": [
+      "5%",
+      "20%"
+    ],
+    "diversity_hamming_ids": "prefer >=10\u201320 when selecting finalists",
+    "primary_tol": "within 10% of best L1"
+  },
+  "prefer": {
+    "HIC_MEDIUM": "3/3"
+  },
+  "public_n": 81,
+  "search": {
+    "max_starts": 3000,
+    "method_A": "randomized greedy + local equal/unequal size-preserving swaps",
+    "method_B": "simulated annealing on scalarized lex proxy",
+    "method_C": "scipy.optimize.milp linearized count-alignment + local polish",
+    "min_starts": 500,
+    "target_starts": "~1000 (A400+B400+C80)"
+  },
+  "seed_base": 20260901,
+  "title": "Principled Production Split Design"
+}

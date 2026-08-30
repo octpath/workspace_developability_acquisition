@@ -1,0 +1,13 @@
+name,path,N,N_match_324,dim,version_note,target_independent,notes,sha256
+SEQ_SIMPLE,/workspace_developability_acquisition/gate_b1/cache/features/stage_A_simple.csv,400,324,99,cached B1/B2/B3,True,,df5a239845cb7d416c32004d3e2a7fe24a5bb1e5d63a0637b9a3fc38ccacd353
+SEQ_CDR,/workspace_developability_acquisition/gate_b1/cache/features/stage_B_cdr.csv,400,324,260,cached B1/B2/B3,True,,390b1f1d80186207391a63fed906b8d6ced7c2d343a0cc454fa35a191b070a20
+BIO_SHORTCUT,/workspace_developability_acquisition/gate_b1/cache/features/stage_C_shortcut.csv,400,324,11,cached B1/B2/B3,True,,f024b15d3563e056ca011585555a76f9bf58a19332baef2e5a96b30328b21f70
+ABB_SASA_B2,/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv,400,324,247,cached B1/B2/B3,True,,ac6d524a96a0514f40a36bd93741d7ed7b56d29ba74ab1325a51f6174cbf49c1
+ESMFN_SASA_B2,/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv,370,324,189,cached B1/B2/B3,True,,bf22f4556642ae775f1e30fa5ee7b5689bf8cb5c8ba74258923b23be144369c7
+GERMLINE_REL,/workspace_developability_acquisition/gate_b3/features/germline/germline_relative.csv,324,324,59,cached B1/B2/B3,True,,f5f8601cfb73e70ae7634794b726c6785959c6f0e422da780d874b61b21b0bb7
+STRUCTURE_EXT,/workspace_developability_acquisition/gate_b3/features/structure_ext/structure_extended.csv,324,324,450,cached B1/B2/B3,True,,f01335c6500421a15b67aaabb27d2acfd6fb106bfc0c84c847922fd1da908276
+IMGT_POS,/workspace_developability_acquisition/gate_b3/features/imgt/positional_onehot.npz,324,324,"Xh=2816,Xl=2794,Xhl=5610",ANARCI/IMGT B3,True,,5ed01f87568a4e4dc4bc5f1a6bdb7aab5ddd387cec69f234b4e24838b9421cf7
+PLM_AbLang2,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_ablang2_default.csv,400,324,480,ablang2_default,True,embeddings on disk; not recomputed,032b59865a18658970ddc1e87b706e74b68fcfab12540632b307718c49098cd8
+PLM_ESM-1b,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm1b_t33_650M_UR50S.csv,400,324,2560,esm1b_t33_650M_UR50S,True,embeddings on disk; not recomputed,d7f91fa09ab849dc01e11908ec34342bcfb9500e4679977f19d45dd4c60591f1
+PLM_ESM-2,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm2_t33_650M_UR50D.csv,400,324,2560,esm2_t33_650M_UR50D,True,embeddings on disk; not recomputed,ed4cbb42b6692ec590195a85b4bec3a4e417a335c19c705e29c7ba9c08240d91
+PLM_ESM-2 CDR6,/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm2_t33_650M_UR50D_CDR6.csv,400,324,7680,esm2_t33_650M_UR50D_CDR6,True,embeddings on disk; not recomputed,44982cc2e373492a42fb02f4a2bb15c02f2bf66fd1b781562998df1109f40b9c

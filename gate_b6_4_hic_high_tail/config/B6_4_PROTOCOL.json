@@ -1,0 +1,25 @@
+{
+  "gate": "B6.4",
+  "split": "CAND_12528",
+  "bands": {
+    "LOW": "<10.5",
+    "MEDIUM": "10.5-11.5",
+    "HIGH": ">11.5"
+  },
+  "constraints": [
+    "read_only_prior_gates",
+    "continuous_HIC_target",
+    "no_classification_redesign",
+    "no_new_split_search",
+    "descriptive_all_N324_ok",
+    "new_models_train_only_groupCV_then_oneshot_holdout"
+  ],
+  "advanced_models_for_consensus": [
+    "SEQ_SIMPLE_Ridge",
+    "PLM_ESM2_PCA64_SVR",
+    "ESMFN_STRUCTURE_ElasticNet",
+    "FUSION_ESM2_ESMFN_ElasticNet",
+    "NESTED_STACK_NNLS"
+  ],
+  "consensus_severe_failure": "true HIGH & >=3/5 ADVANCED predict LOW(<10.5)"
+}

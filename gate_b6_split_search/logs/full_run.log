@@ -1,0 +1,38 @@
+=== Gate B6 path check ===
+ROOT=/workspace_developability_acquisition
+ORG=/workspace_developability_acquisition/gate_b3/frozen/organizer
+PRED=/workspace_developability_acquisition/gate_b5_ceiling/predictions
+OUTER=/workspace_developability_acquisition/gate_b4_absolute/config/OUTER_CV_FOLDS.json
+FEAT_C=/workspace_developability_acquisition/gate_b1/cache/features/stage_C_shortcut.csv
+NUM=/workspace_developability_acquisition/gate_b1/data/numbering_germline.csv
+B6=/workspace_developability_acquisition/gate_b6_split_search
+OK: 41 key files present
+=== P0 freeze (before any model-based candidate scoring) ===
+P0 frozen 94119b285912f023 7fd0d9872df585dc
+=== Features ===
+=== Candidates ===
+generated 20001 incl baseline
+=== Pre-model balance ===
+balance survivors 2001 (keep=2000+baseline)
+=== Load models (TmApp scoring starts) ===
+=== TmApp scoring ===
+  scored 200/2001
+  scored 400/2001
+  scored 600/2001
+  scored 800/2001
+  scored 1000/2001
+  scored 1200/2001
+  scored 1400/2001
+  scored 1600/2001
+  scored 1800/2001
+  scored 2000/2001
+=== Bootstrap screen ===
+=== Freeze TmApp shortlist (BEFORE HIC) ===
+shortlist n=8 hash=4fbf22077087
+=== Bootstrap final 5000 ===
+=== HIC safety on shortlist only ===
+=== Final selection ===
+=== DECISION ===
+SELECT_COMMON_PRODUCTION_SPLIT CAND_04974
+FINAL_REPORT=/workspace_developability_acquisition/gate_b6_split_search/reports/GATE_B6_COMMON_SPLIT_FINAL.md
+elapsed_s=476.4

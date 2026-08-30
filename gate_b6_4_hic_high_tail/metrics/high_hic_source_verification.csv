@@ -1,0 +1,14 @@
+id,processed_HIC,source_HIC,exact_match,sequence_match,VH_match,VL_match,any_issue
+ADI-45486,13.856,13.856,True,True,True,True,NONE
+ADI-47126,12.905,12.905,True,True,True,True,NONE
+ADI-45497,12.74,12.74,True,True,True,True,NONE
+ADI-45498,12.449,12.449,True,True,True,True,NONE
+ADI-45499,12.216,12.216,True,True,True,True,NONE
+ADI-47163,12.148,12.148,True,True,True,True,NONE
+ADI-45433,12.08,12.08,True,True,True,True,NONE
+ADI-45435,11.905,11.905,True,True,True,True,NONE
+ADI-47265,11.886,11.886,True,True,True,True,NONE
+ADI-47162,11.866,11.866,True,True,True,True,NONE
+ADI-47161,11.775,11.775,True,True,True,True,NONE
+ADI-47160,11.745,11.745,True,True,True,True,NONE
+ADI-45438,11.643,11.643,True,True,True,True,NONE

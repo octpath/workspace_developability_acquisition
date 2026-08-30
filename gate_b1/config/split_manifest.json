@@ -1,0 +1,745 @@
+{
+  "canonical_threshold": 0.9,
+  "full_targets": {
+    "hic": {
+      "cluster_stats": {
+        "largest_group": 24,
+        "mean_group_size": 1.7938144329896908,
+        "median_group_size": 1.0,
+        "n_groups": 194,
+        "n_singletons": 166,
+        "singleton_fraction": 0.8556701030927835
+      },
+      "manifests": {
+        "canonical": {
+          "n": {
+            "Dev": 205,
+            "Private": 70,
+            "Public": 73
+          },
+          "n_groups": {
+            "Dev": 132,
+            "Private": 28,
+            "Public": 34
+          },
+          "path": "/workspace_developability_acquisition/gate_b1/splits/hic_full_canonical.csv",
+          "seed": 20261163,
+          "sha256": "1fca5fca66d4030008f690914c6b522b4c9d8145b4b31a422ba11a8e0f03c379"
+        }
+      }
+    },
+    "psr": {
+      "cluster_stats": {
+        "largest_group": 29,
+        "mean_group_size": 1.886255924170616,
+        "median_group_size": 1.0,
+        "n_groups": 211,
+        "n_singletons": 177,
+        "singleton_fraction": 0.8388625592417062
+      },
+      "manifests": {
+        "canonical": {
+          "n": {
+            "Dev": 236,
+            "Private": 81,
+            "Public": 81
+          },
+          "n_groups": {
+            "Dev": 125,
+            "Private": 36,
+            "Public": 50
+          },
+          "path": "/workspace_developability_acquisition/gate_b1/splits/psr_full_canonical.csv",
+          "seed": 20260848,
+          "sha256": "1b0bb1aff08c082d2317ad07c4d4263cd3418995d0e4bba381de373a6d60668f"
+        }
+      }
+    },
+    "tmapp": {
+      "cluster_stats": {
+        "largest_group": 22,
+        "mean_group_size": 1.8210526315789475,
+        "median_group_size": 1.0,
+        "n_groups": 190,
+        "n_singletons": 160,
+        "singleton_fraction": 0.8421052631578947
+      },
+      "manifests": {
+        "canonical": {
+          "n": {
+            "Dev": 205,
+            "Private": 70,
+            "Public": 71
+          },
+          "n_groups": {
+            "Dev": 106,
+            "Private": 53,
+            "Public": 31
+          },
+          "path": "/workspace_developability_acquisition/gate_b1/splits/tmapp_full_canonical.csv",
+          "seed": 20260584,
+          "sha256": "51d6c03ad87709899475d3c8f324e17b835998b30c068d3766bddf06a6905445"
+        }
+      }
+    }
+  },
+  "threshold_reason": "default 90% identity connected-components on either chain",
+  "threshold_scan": {
+    "0.85": {
+      "largest_group": 230,
+      "mean_group_size": 5.225806451612903,
+      "median_group_size": 1.0,
+      "n_groups": 62,
+      "n_singletons": 53,
+      "singleton_fraction": 0.8548387096774194
+    },
+    "0.9": {
+      "largest_group": 20,
+      "mean_group_size": 1.8,
+      "median_group_size": 1.0,
+      "n_groups": 180,
+      "n_singletons": 152,
+      "singleton_fraction": 0.8444444444444444
+    },
+    "0.95": {
+      "largest_group": 9,
+      "mean_group_size": 1.148936170212766,
+      "median_group_size": 1.0,
+      "n_groups": 282,
+      "n_singletons": 265,
+      "singleton_fraction": 0.9397163120567376
+    }
+  },
+  "triple_core": {
+    "cluster_stats": {
+      "largest_group": 20,
+      "mean_group_size": 1.8,
+      "median_group_size": 1.0,
+      "n_groups": 180,
+      "n_singletons": 152,
+      "singleton_fraction": 0.8444444444444444
+    },
+    "diagnostics": [
+      {
+        "b_cell_subset": {
+          "Dev": {
+            "IgG memory": 66,
+            "IgM memory": 29,
+            "LLPCs": 66,
+            "Na\u00efve": 20
+          },
+          "Private": {
+            "IgG memory": 28,
+            "IgM memory": 16,
+            "LLPCs": 22,
+            "Na\u00efve": 12
+          },
+          "Public": {
+            "IgG memory": 31,
+            "IgM memory": 6,
+            "LLPCs": 23,
+            "Na\u00efve": 5
+          }
+        },
+        "exact_pair_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "group_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "n": {
+          "Dev": 181,
+          "Private": 78,
+          "Public": 65
+        },
+        "n_groups": {
+          "Dev": 105,
+          "Private": 28,
+          "Public": 47
+        },
+        "nn_similarity": {
+          "Private": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.8981481481481481,
+            "mean_nn_sim": 0.8455831303580076,
+            "median_nn_sim": 0.851159570785739,
+            "p90_nn_sim": 0.8884678041670239
+          },
+          "Public": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.8990825688073395,
+            "mean_nn_sim": 0.8429296298828547,
+            "median_nn_sim": 0.8545454545454545,
+            "p90_nn_sim": 0.889413823272091
+          }
+        },
+        "split": "canonical",
+        "targets": {
+          "HIC": {
+            "Dev": {
+              "mean": 9.444552486187845,
+              "median": 9.164,
+              "sd": 0.8744763917510269
+            },
+            "Private": {
+              "mean": 9.39798717948718,
+              "median": 9.095500000000001,
+              "sd": 0.8877760261241416
+            },
+            "Public": {
+              "mean": 9.16503076923077,
+              "median": 8.93,
+              "sd": 0.5824737110277695
+            }
+          },
+          "PSR": {
+            "Dev": {
+              "mean": 0.027766251277892038,
+              "median": 0.0,
+              "sd": 0.06677630174298128
+            },
+            "Private": {
+              "mean": 0.038025833728386506,
+              "median": 0.0,
+              "sd": 0.1295004144072241
+            },
+            "Public": {
+              "mean": 0.03462590495612386,
+              "median": 0.0,
+              "sd": 0.06851438985619078
+            }
+          },
+          "TmApp": {
+            "Dev": {
+              "mean": 69.97513812154696,
+              "median": 70.0,
+              "sd": 4.657811909724566
+            },
+            "Private": {
+              "mean": 70.07692307692308,
+              "median": 69.0,
+              "sd": 4.945860740208772
+            },
+            "Public": {
+              "mean": 69.43846153846154,
+              "median": 70.5,
+              "sd": 4.511710190842696
+            }
+          }
+        },
+        "vh_family": {
+          "Dev": {
+            "VH1": 31,
+            "VH2": 3,
+            "VH3": 93,
+            "VH4": 39,
+            "VH5": 11,
+            "VH6": 2,
+            "VH7": 2
+          },
+          "Private": {
+            "VH1": 14,
+            "VH2": 3,
+            "VH3": 46,
+            "VH4": 10,
+            "VH5": 3,
+            "VH6": 1,
+            "VH7": 1
+          },
+          "Public": {
+            "VH1": 12,
+            "VH2": 2,
+            "VH3": 40,
+            "VH4": 9,
+            "VH5": 1,
+            "VH7": 1
+          }
+        }
+      },
+      {
+        "b_cell_subset": {
+          "Dev": {
+            "IgG memory": 75,
+            "IgM memory": 32,
+            "LLPCs": 69,
+            "Na\u00efve": 18
+          },
+          "Private": {
+            "IgG memory": 24,
+            "IgM memory": 9,
+            "LLPCs": 22,
+            "Na\u00efve": 10
+          },
+          "Public": {
+            "IgG memory": 26,
+            "IgM memory": 10,
+            "LLPCs": 20,
+            "Na\u00efve": 9
+          }
+        },
+        "exact_pair_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "group_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "n": {
+          "Dev": 194,
+          "Private": 65,
+          "Public": 65
+        },
+        "n_groups": {
+          "Dev": 109,
+          "Private": 27,
+          "Public": 44
+        },
+        "nn_similarity": {
+          "Private": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.8928571428571429,
+            "mean_nn_sim": 0.8615482022540151,
+            "median_nn_sim": 0.8691588785046729,
+            "p90_nn_sim": 0.8878504672897196
+          },
+          "Public": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.8981481481481481,
+            "mean_nn_sim": 0.8416062248150179,
+            "median_nn_sim": 0.8411214953271028,
+            "p90_nn_sim": 0.8909090909090909
+          }
+        },
+        "split": "shadow_1",
+        "targets": {
+          "HIC": {
+            "Dev": {
+              "mean": 9.39720618556701,
+              "median": 9.081,
+              "sd": 0.8619588780947193
+            },
+            "Private": {
+              "mean": 9.283323076923079,
+              "median": 9.1,
+              "sd": 0.7160302478704266
+            },
+            "Public": {
+              "mean": 9.41169230769231,
+              "median": 9.144,
+              "sd": 0.8559985383142623
+            }
+          },
+          "PSR": {
+            "Dev": {
+              "mean": 0.03335252723601107,
+              "median": 0.0,
+              "sd": 0.08479904413023527
+            },
+            "Private": {
+              "mean": 0.016204185578706596,
+              "median": 0.0,
+              "sd": 0.04223439328130606
+            },
+            "Public": {
+              "mean": 0.04182658442859353,
+              "median": 0.0,
+              "sd": 0.1169974250706953
+            }
+          },
+          "TmApp": {
+            "Dev": {
+              "mean": 69.61340206185567,
+              "median": 69.25,
+              "sd": 4.659663286240286
+            },
+            "Private": {
+              "mean": 70.92307692307692,
+              "median": 70.5,
+              "sd": 5.249427624476347
+            },
+            "Public": {
+              "mean": 69.6923076923077,
+              "median": 69.5,
+              "sd": 4.08473942300438
+            }
+          }
+        },
+        "vh_family": {
+          "Dev": {
+            "VH1": 34,
+            "VH2": 4,
+            "VH3": 109,
+            "VH4": 33,
+            "VH5": 9,
+            "VH6": 2,
+            "VH7": 3
+          },
+          "Private": {
+            "VH1": 10,
+            "VH2": 2,
+            "VH3": 35,
+            "VH4": 15,
+            "VH5": 2,
+            "VH6": 1
+          },
+          "Public": {
+            "VH1": 13,
+            "VH2": 2,
+            "VH3": 35,
+            "VH4": 10,
+            "VH5": 4,
+            "VH7": 1
+          }
+        }
+      },
+      {
+        "b_cell_subset": {
+          "Dev": {
+            "IgG memory": 67,
+            "IgM memory": 30,
+            "LLPCs": 71,
+            "Na\u00efve": 19
+          },
+          "Private": {
+            "IgG memory": 25,
+            "IgM memory": 11,
+            "LLPCs": 22,
+            "Na\u00efve": 7
+          },
+          "Public": {
+            "IgG memory": 33,
+            "IgM memory": 10,
+            "LLPCs": 18,
+            "Na\u00efve": 11
+          }
+        },
+        "exact_pair_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "group_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "n": {
+          "Dev": 187,
+          "Private": 65,
+          "Public": 72
+        },
+        "n_groups": {
+          "Dev": 98,
+          "Private": 48,
+          "Public": 34
+        },
+        "nn_similarity": {
+          "Private": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.8990825688073395,
+            "mean_nn_sim": 0.8435410338092716,
+            "median_nn_sim": 0.8504672897196262,
+            "p90_nn_sim": 0.8908479755538579
+          },
+          "Public": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.8981481481481481,
+            "mean_nn_sim": 0.8363421104793309,
+            "median_nn_sim": 0.8498368194629877,
+            "p90_nn_sim": 0.8785046728971962
+          }
+        },
+        "split": "shadow_2",
+        "targets": {
+          "HIC": {
+            "Dev": {
+              "mean": 9.349689839572191,
+              "median": 9.086,
+              "sd": 0.8260199690714581
+            },
+            "Private": {
+              "mean": 9.479553846153847,
+              "median": 9.193,
+              "sd": 0.8439979826466045
+            },
+            "Public": {
+              "mean": 9.356541666666667,
+              "median": 8.9955,
+              "sd": 0.8431777407313293
+            }
+          },
+          "PSR": {
+            "Dev": {
+              "mean": 0.033147225984791535,
+              "median": 0.0,
+              "sd": 0.09091243545991524
+            },
+            "Private": {
+              "mean": 0.03547312639646706,
+              "median": 0.0,
+              "sd": 0.10062737086540535
+            },
+            "Public": {
+              "mean": 0.02414035915742057,
+              "median": 0.0,
+              "sd": 0.05439413476001542
+            }
+          },
+          "TmApp": {
+            "Dev": {
+              "mean": 69.82085561497327,
+              "median": 70.0,
+              "sd": 4.834769158126809
+            },
+            "Private": {
+              "mean": 69.83076923076923,
+              "median": 70.0,
+              "sd": 4.002222940009522
+            },
+            "Public": {
+              "mean": 70.13194444444444,
+              "median": 70.25,
+              "sd": 4.936921159192375
+            }
+          }
+        },
+        "vh_family": {
+          "Dev": {
+            "VH1": 31,
+            "VH2": 3,
+            "VH3": 104,
+            "VH4": 34,
+            "VH5": 11,
+            "VH6": 2,
+            "VH7": 2
+          },
+          "Private": {
+            "VH1": 12,
+            "VH2": 2,
+            "VH3": 35,
+            "VH4": 14,
+            "VH5": 2
+          },
+          "Public": {
+            "VH1": 14,
+            "VH2": 3,
+            "VH3": 40,
+            "VH4": 10,
+            "VH5": 2,
+            "VH6": 1,
+            "VH7": 2
+          }
+        }
+      },
+      {
+        "b_cell_subset": {
+          "Dev": {
+            "IgG memory": 74,
+            "IgM memory": 28,
+            "LLPCs": 64,
+            "Na\u00efve": 22
+          },
+          "Private": {
+            "IgG memory": 26,
+            "IgM memory": 11,
+            "LLPCs": 23,
+            "Na\u00efve": 11
+          },
+          "Public": {
+            "IgG memory": 25,
+            "IgM memory": 12,
+            "LLPCs": 24,
+            "Na\u00efve": 4
+          }
+        },
+        "exact_pair_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "group_overlap": {
+          "Dev\u2229Private": 0,
+          "Dev\u2229Public": 0,
+          "Public\u2229Private": 0
+        },
+        "n": {
+          "Dev": 188,
+          "Private": 71,
+          "Public": 65
+        },
+        "n_groups": {
+          "Dev": 114,
+          "Private": 26,
+          "Public": 40
+        },
+        "nn_similarity": {
+          "Private": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.8981481481481481,
+            "mean_nn_sim": 0.8474021133456833,
+            "median_nn_sim": 0.8545454545454545,
+            "p90_nn_sim": 0.8909090909090909
+          },
+          "Public": {
+            "frac_nn_sim_ge_0.9": 0.0,
+            "max_nn_sim": 0.897196261682243,
+            "mean_nn_sim": 0.8442451652632839,
+            "median_nn_sim": 0.8482142857142857,
+            "p90_nn_sim": 0.8878504672897196
+          }
+        },
+        "split": "shadow_3",
+        "targets": {
+          "HIC": {
+            "Dev": {
+              "mean": 9.344909574468087,
+              "median": 9.1075,
+              "sd": 0.8113952974216037
+            },
+            "Private": {
+              "mean": 9.411661971830984,
+              "median": 9.037,
+              "sd": 0.8838220723274561
+            },
+            "Public": {
+              "mean": 9.433276923076923,
+              "median": 9.086,
+              "sd": 0.8436428174087566
+            }
+          },
+          "PSR": {
+            "Dev": {
+              "mean": 0.023794812938462605,
+              "median": 0.0,
+              "sd": 0.05977839676476786
+            },
+            "Private": {
+              "mean": 0.05885366780026881,
+              "median": 0.0,
+              "sd": 0.14572692302731766
+            },
+            "Public": {
+              "mean": 0.02446700135400927,
+              "median": 0.0,
+              "sd": 0.0528235365531315
+            }
+          },
+          "TmApp": {
+            "Dev": {
+              "mean": 69.85372340425532,
+              "median": 69.75,
+              "sd": 4.765757647548943
+            },
+            "Private": {
+              "mean": 70.16901408450704,
+              "median": 70.5,
+              "sd": 4.5903187424123
+            },
+            "Public": {
+              "mean": 69.7,
+              "median": 70.5,
+              "sd": 4.640851215025106
+            }
+          }
+        },
+        "vh_family": {
+          "Dev": {
+            "VH1": 27,
+            "VH2": 4,
+            "VH3": 108,
+            "VH4": 36,
+            "VH5": 9,
+            "VH6": 2,
+            "VH7": 2
+          },
+          "Private": {
+            "VH1": 17,
+            "VH2": 1,
+            "VH3": 36,
+            "VH4": 13,
+            "VH5": 3,
+            "VH6": 1
+          },
+          "Public": {
+            "VH1": 13,
+            "VH2": 3,
+            "VH3": 35,
+            "VH4": 9,
+            "VH5": 3,
+            "VH7": 2
+          }
+        }
+      }
+    ],
+    "manifests": {
+      "canonical": {
+        "n": {
+          "Dev": 181,
+          "Private": 78,
+          "Public": 65
+        },
+        "n_groups": {
+          "Dev": 105,
+          "Private": 28,
+          "Public": 47
+        },
+        "path": "/workspace_developability_acquisition/gate_b1/splits/triple_canonical.csv",
+        "seed": 20260329,
+        "sha256": "656ad65178610ac70af527ee23dc3f91bead8060694ba29394ae7f36b9bef6fe"
+      },
+      "shadow_1": {
+        "n": {
+          "Dev": 194,
+          "Private": 65,
+          "Public": 65
+        },
+        "n_groups": {
+          "Dev": 109,
+          "Private": 27,
+          "Public": 44
+        },
+        "path": "/workspace_developability_acquisition/gate_b1/splits/triple_shadow_1.csv",
+        "seed": 101,
+        "sha256": "e5dd708e07ae90402e7c26ba989bc3c628be1214ff834598a4b399e0ecf24783"
+      },
+      "shadow_2": {
+        "n": {
+          "Dev": 187,
+          "Private": 65,
+          "Public": 72
+        },
+        "n_groups": {
+          "Dev": 98,
+          "Private": 48,
+          "Public": 34
+        },
+        "path": "/workspace_developability_acquisition/gate_b1/splits/triple_shadow_2.csv",
+        "seed": 202,
+        "sha256": "03a7f188a4c78b3b608dcee0afcd639c49cac6daf1ab4d8b39b64f3b3f792647"
+      },
+      "shadow_3": {
+        "n": {
+          "Dev": 188,
+          "Private": 71,
+          "Public": 65
+        },
+        "n_groups": {
+          "Dev": 114,
+          "Private": 26,
+          "Public": 40
+        },
+        "path": "/workspace_developability_acquisition/gate_b1/splits/triple_shadow_3.csv",
+        "seed": 303,
+        "sha256": "eb6055e8b84963e85aab5e8e8d6f013960c68f9e81e614901d7fa8ed8fd18fea"
+      }
+    },
+    "threshold": 0.9
+  }
+}

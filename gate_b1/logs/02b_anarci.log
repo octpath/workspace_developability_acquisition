@@ -1,0 +1,2 @@
+PROBE {'id': 'human_H', 'description': '', 'evalue': 1.2e-59, 'bitscore': 191.1, 'bias': 0.7, 'query_start': 0, 'query_end': 123, 'species': 'human', 'chain_type': 'H', 'scheme': 'imgt', 'query_name': 'x'}
+ANARCI_GERMLINE_OK {'anarci_H_ok': 1.0, 'anarci_L_ok': 1.0, 'family_source': {'author_fallback': 400}, 'family_agree_author_H': 0.0, 'family_agree_author_L': 0.0}

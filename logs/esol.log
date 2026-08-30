@@ -1,0 +1,7 @@
+UniProt records: 4403; index keys: 4917
+Rows with solubility: 3173 / 4132
+sequence_mapping_status  count
+              AMBIGUOUS      7
+          MAPPED_UNIQUE   2659
+             UNRESOLVED    507
+SUCCESS: 2659 unambiguous sequences / 3173 labels; ambiguous=7; unresolved=507

@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_C_PUBLIC_DRIVEN_S09",
+  "order": 9,
+  "target": "TmApp",
+  "persona": "C_PUBLIC_DRIVEN",
+  "model_name": "FUSION_ESM2_STRUCT_ENet",
+  "model_stage": 5,
+  "feature": "FUSION_ESM2_STRUCT",
+  "hypothesis": "ESM2 + structure fusion.",
+  "cv_mae": 3.580062871536774,
+  "cv_mae_std": 0.4161688384507866,
+  "cv_spearman": 0.2781847683642973,
+  "cv_pearson": 0.3230783388737835,
+  "public_mae": 3.5299359232088166,
+  "public_spearman": 0.47958925530866514,
+  "public_pearson": 0.44213951016046016,
+  "personal_public_rank": 3,
+  "delta_public_vs_prev": -0.24628090427746852,
+  "train_seconds": 0.37834811210632324
+}

@@ -1,0 +1,17 @@
+HF_TOKEN present: False
+
+=== ginkgo-datapoints/GDPa1 ===
+API status=200
+gated=auto
+  .gitattributes: HTTP 401 bytes=133
+  GDPa1_v1.2_20250814.csv: HTTP 401 bytes=133
+  GDPa1_v1.2_20250814_full.xlsx: HTTP 401 bytes=133
+  LICENSE.md: HTTP 200 bytes=236
+  PROPHET-Ab-figure.png: HTTP 401 bytes=133
+  README.md: HTTP 200 bytes=3776
+
+=== ginkgo-datapoints/GDPa3 ===
+API status=401
+
+Wrote /workspace_developability_acquisition/raw/ginkgo/download_summary.json
+STATUS: ACCESS_BLOCKED_ONLY_BY_AUTHENTICATION for gated repos without approved HF_TOKEN

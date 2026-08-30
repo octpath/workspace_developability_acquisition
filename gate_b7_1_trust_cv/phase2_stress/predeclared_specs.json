@@ -1,0 +1,351 @@
+{
+  "HIC": [
+    {
+      "feat": "CONST",
+      "kind": "const",
+      "name": "CONST_MEDIAN",
+      "params": {}
+    },
+    {
+      "feat": "SEQ",
+      "kind": "ridge",
+      "name": "SEQ_Ridge_a1",
+      "params": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "feat": "SEQ",
+      "kind": "ridge",
+      "name": "SEQ_Ridge_a10",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "SEQ",
+      "kind": "enet",
+      "name": "SEQ_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "svr_pca",
+      "name": "ESM2_PCA32_SVR",
+      "params": {
+        "C": 1.0,
+        "n_pca": 32
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "svr_pca",
+      "name": "ESM2_PCA64_SVR",
+      "params": {
+        "C": 1.0,
+        "n_pca": 64
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "svr_pca",
+      "name": "ESM2_PCA64_SVR_C3",
+      "params": {
+        "C": 3.0,
+        "n_pca": 64
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "ridge",
+      "name": "ESM2_Ridge",
+      "params": {
+        "alpha": 50.0
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "enet",
+      "name": "ESM2_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "STRUCT",
+      "kind": "enet",
+      "name": "STRUCT_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "STRUCT",
+      "kind": "ridge",
+      "name": "STRUCT_Ridge",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "STRUCT",
+      "kind": "huber",
+      "name": "STRUCT_Huber",
+      "params": {}
+    },
+    {
+      "feat": "PHYS_STRUCT",
+      "kind": "ridge",
+      "name": "PHYS_STRUCT_Ridge",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "PHYS_STRUCT",
+      "kind": "enet",
+      "name": "PHYS_STRUCT_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "PHYS_STRUCT",
+      "kind": "huber",
+      "name": "PHYS_STRUCT_Huber",
+      "params": {}
+    },
+    {
+      "feat": "ESM2_STRUCT",
+      "kind": "enet",
+      "name": "ESM2_STRUCT_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "ESM2_STRUCT",
+      "kind": "ridge",
+      "name": "ESM2_STRUCT_Ridge",
+      "params": {
+        "alpha": 20.0
+      }
+    },
+    {
+      "feat": "ESM2_STRUCT",
+      "kind": "huber",
+      "name": "ESM2_STRUCT_Huber",
+      "params": {}
+    },
+    {
+      "feat": "ESM2_STRUCT",
+      "kind": "enet",
+      "name": "ESM2_STRUCT_ENet_a05",
+      "params": {
+        "alpha": 0.05,
+        "l1": 0.3
+      }
+    },
+    {
+      "feat": "PHYS_STRUCT",
+      "kind": "ridge",
+      "name": "PHYS_STRUCT_Ridge_a1",
+      "params": {
+        "alpha": 1.0
+      }
+    }
+  ],
+  "TmApp": [
+    {
+      "feat": "CONST",
+      "kind": "const",
+      "name": "CONST_MEDIAN",
+      "params": {}
+    },
+    {
+      "feat": "SEQ",
+      "kind": "ridge",
+      "name": "SEQ_Ridge_a1",
+      "params": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "feat": "SEQ",
+      "kind": "ridge",
+      "name": "SEQ_Ridge_a10",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "SEQ",
+      "kind": "ridge",
+      "name": "SEQ_Ridge_a100",
+      "params": {
+        "alpha": 100.0
+      }
+    },
+    {
+      "feat": "SEQ",
+      "kind": "enet",
+      "name": "SEQ_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "BIO",
+      "kind": "ridge",
+      "name": "BIO_Ridge_a1",
+      "params": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "feat": "BIO",
+      "kind": "ridge",
+      "name": "BIO_Ridge_a10",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "BIO",
+      "kind": "enet",
+      "name": "BIO_ENet",
+      "params": {
+        "alpha": 0.15,
+        "l1": 0.7
+      }
+    },
+    {
+      "feat": "ABLANG2",
+      "kind": "svr_pca",
+      "name": "ABLANG2_PCA16_SVR",
+      "params": {
+        "C": 1.0,
+        "n_pca": 16
+      }
+    },
+    {
+      "feat": "ABLANG2",
+      "kind": "svr_pca",
+      "name": "ABLANG2_PCA32_SVR",
+      "params": {
+        "C": 1.0,
+        "n_pca": 32
+      }
+    },
+    {
+      "feat": "ABLANG2",
+      "kind": "svr_pca",
+      "name": "ABLANG2_PCA32_SVR_C3",
+      "params": {
+        "C": 3.0,
+        "n_pca": 32
+      }
+    },
+    {
+      "feat": "ABLANG2",
+      "kind": "ridge",
+      "name": "ABLANG2_Ridge",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "BIO_ABLANG2",
+      "kind": "ridge",
+      "name": "BIO_ABLANG2_Ridge",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "BIO_ABLANG2",
+      "kind": "enet",
+      "name": "BIO_ABLANG2_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "svr_pca",
+      "name": "ESM2_PCA32_SVR",
+      "params": {
+        "C": 1.0,
+        "n_pca": 32
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "svr_pca",
+      "name": "ESM2_PCA64_SVR",
+      "params": {
+        "C": 1.0,
+        "n_pca": 64
+      }
+    },
+    {
+      "feat": "ESM2",
+      "kind": "ridge",
+      "name": "ESM2_Ridge",
+      "params": {
+        "alpha": 50.0
+      }
+    },
+    {
+      "feat": "STRUCT",
+      "kind": "enet",
+      "name": "STRUCT_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "STRUCT",
+      "kind": "ridge",
+      "name": "STRUCT_Ridge",
+      "params": {
+        "alpha": 10.0
+      }
+    },
+    {
+      "feat": "ESM2_STRUCT",
+      "kind": "enet",
+      "name": "ESM2_STRUCT_ENet",
+      "params": {
+        "alpha": 0.2,
+        "l1": 0.5
+      }
+    },
+    {
+      "feat": "ESM2_STRUCT",
+      "kind": "ridge",
+      "name": "ESM2_STRUCT_Ridge",
+      "params": {
+        "alpha": 20.0
+      }
+    }
+  ],
+  "competitive_set_rule": "cv_mae <= best_cv + 0.20*(const_cv-best_cv)",
+  "ensembles": [
+    "ENSEMBLE_TOP2_CV",
+    "ENSEMBLE_TOP3_CV"
+  ],
+  "frozen_before_public_private_disagreement": true,
+  "rule": "Train-only Ridge/ENet/Huber/PCA+SVR on SEQ/BIO/ABLANG2/ESM2/STRUCT/fusions + CV top2/top3 ensembles",
+  "seed": 20260830
+}

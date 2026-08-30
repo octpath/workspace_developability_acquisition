@@ -1,0 +1,6 @@
+PROGRESS 300/400 ok=300 fail=0
+PROGRESS 325/400 ok=325 fail=0
+PROGRESS 350/400 ok=350 fail=0
+PROGRESS 375/400 ok=375 fail=0
+PROGRESS 400/400 ok=400 fail=0
+ABB2_OK {'n_total': 400, 'n_ok': 400, 'n_fail': 0, 'success_rate': 1.0, 'total_runtime_s': 363.4030599799007}

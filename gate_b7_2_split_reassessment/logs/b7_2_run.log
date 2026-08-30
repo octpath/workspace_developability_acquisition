@@ -1,0 +1,118 @@
+[07:54:14] Gate B7.2 split reassessment — start
+[07:54:14] PHASE 1 — pre-model split generation (50 seeds)
+[07:54:16]   seed 20260830: OK total_balance=1.9830 (1/50)
+[07:54:16]   seed 20260831: FAILED constraints
+[07:54:18]   seed 20260832: OK total_balance=2.2886 (2/50)
+[07:54:20]   seed 20260833: OK total_balance=2.0404 (3/50)
+[07:54:22]   seed 20260834: OK total_balance=1.7826 (4/50)
+[07:54:24]   seed 20260835: OK total_balance=2.7821 (5/50)
+[07:54:26]   seed 20260836: OK total_balance=1.9495 (6/50)
+[07:54:26]   seed 20260837: FAILED constraints
+[07:54:28]   seed 20260838: OK total_balance=1.4846 (7/50)
+[07:54:29]   seed 20260839: FAILED constraints
+[07:54:31]   seed 20260840: OK total_balance=1.3207 (8/50)
+[07:54:31]   seed 20260841: FAILED constraints
+[07:54:31]   seed 20260842: FAILED constraints
+[07:54:33]   seed 20260843: OK total_balance=1.6295 (9/50)
+[07:54:33]   seed 20260844: FAILED constraints
+[07:54:35]   seed 20260845: OK total_balance=2.0514 (10/50)
+[07:54:35]   seed 20260846: FAILED constraints
+[07:54:35]   seed 20260847: FAILED constraints
+[07:54:37]   seed 20260848: OK total_balance=1.7854 (11/50)
+[07:54:37]   seed 20260849: FAILED constraints
+[07:54:39]   seed 20260850: OK total_balance=1.2220 (12/50)
+[07:54:41]   seed 20260851: OK total_balance=1.4328 (13/50)
+[07:54:41]   seed 20260852: FAILED constraints
+[07:54:42]   seed 20260853: FAILED constraints
+[07:54:44]   seed 20260854: OK total_balance=1.2291 (14/50)
+[07:54:44]   seed 20260855: FAILED constraints
+[07:54:46]   seed 20260856: OK total_balance=1.2700 (15/50)
+[07:54:46]   seed 20260857: FAILED constraints
+[07:54:48]   seed 20260858: OK total_balance=2.1804 (16/50)
+[07:54:50]   seed 20260859: OK total_balance=1.7710 (17/50)
+[07:54:52]   seed 20260860: OK total_balance=1.3786 (18/50)
+[07:54:54]   seed 20260861: OK total_balance=1.5129 (19/50)
+[07:54:54]   seed 20260862: FAILED constraints
+[07:54:54]   seed 20260863: FAILED constraints
+[07:54:56]   seed 20260864: OK total_balance=1.6688 (20/50)
+[07:54:58]   seed 20260865: OK total_balance=1.9440 (21/50)
+[07:54:58]   seed 20260866: FAILED constraints
+[07:55:00]   seed 20260867: OK total_balance=2.4050 (22/50)
+[07:55:01]   seed 20260868: FAILED constraints
+[07:55:03]   seed 20260869: OK total_balance=1.3085 (23/50)
+[07:55:05]   seed 20260870: OK total_balance=1.4981 (24/50)
+[07:55:07]   seed 20260871: OK total_balance=2.6171 (25/50)
+[07:55:09]   seed 20260872: OK total_balance=1.9580 (26/50)
+[07:55:11]   seed 20260873: OK total_balance=1.8232 (27/50)
+[07:55:11]   seed 20260874: FAILED constraints
+[07:55:11]   seed 20260875: FAILED constraints
+[07:55:13]   seed 20260876: OK total_balance=1.4384 (28/50)
+[07:55:15]   seed 20260877: OK total_balance=1.5944 (29/50)
+[07:55:17]   seed 20260878: OK total_balance=1.5496 (30/50)
+[07:55:17]   seed 20260879: FAILED constraints
+[07:55:17]   seed 20260880: FAILED constraints
+[07:55:17]   seed 20260881: FAILED constraints
+[07:55:19]   seed 20260882: OK total_balance=1.7629 (31/50)
+[07:55:19]   seed 20260883: FAILED constraints
+[07:55:19]   seed 20260884: FAILED constraints
+[07:55:19]   seed 20260885: FAILED constraints
+[07:55:22]   seed 20260886: OK total_balance=1.6169 (32/50)
+[07:55:22]   seed 20260887: FAILED constraints
+[07:55:22]   seed 20260888: FAILED constraints
+[07:55:22]   seed 20260889: FAILED constraints
+[07:55:24]   seed 20260890: OK total_balance=1.5946 (33/50)
+[07:55:26]   seed 20260891: OK total_balance=1.5984 (34/50)
+[07:55:26]   seed 20260892: FAILED constraints
+[07:55:26]   seed 20260893: FAILED constraints
+[07:55:26]   seed 20260894: FAILED constraints
+[07:55:28]   seed 20260895: OK total_balance=1.5862 (35/50)
+[07:55:30]   seed 20260896: OK total_balance=1.6971 (36/50)
+[07:55:32]   seed 20260897: OK total_balance=1.3461 (37/50)
+[07:55:34]   seed 20260898: OK total_balance=1.7761 (38/50)
+[07:55:34]   seed 20260899: FAILED constraints
+[07:55:36]   seed 20260900: OK total_balance=2.6000 (39/50)
+[07:55:38]   seed 20260901: OK total_balance=1.2277 (40/50)
+[07:55:40]   seed 20260902: OK total_balance=2.4935 (41/50)
+[07:55:41]   seed 20260903: FAILED constraints
+[07:55:41]   seed 20260904: FAILED constraints
+[07:55:41]   seed 20260905: FAILED constraints
+[07:55:41]   seed 20260906: FAILED constraints
+[07:55:43]   seed 20260907: OK total_balance=1.5664 (42/50)
+[07:55:45]   seed 20260908: OK total_balance=1.8623 (43/50)
+[07:55:47]   seed 20260909: OK total_balance=1.7562 (44/50)
+[07:55:47]   seed 20260910: FAILED constraints
+[07:55:49]   seed 20260911: OK total_balance=2.4324 (45/50)
+[07:55:51]   seed 20260912: OK total_balance=1.5326 (46/50)
+[07:55:53]   seed 20260913: OK total_balance=1.5924 (47/50)
+[07:55:55]   seed 20260914: OK total_balance=2.6829 (48/50)
+[07:55:55]   seed 20260915: FAILED constraints
+[07:55:57]   seed 20260916: OK total_balance=1.9076 (49/50)
+[07:55:59]   seed 20260917: OK total_balance=1.2883 (50/50)
+[07:55:59] PHASE 1 done: 50 valid splits; 12528 rank #51
+[07:55:59] PHASE 2 — selection bank evaluation
+[07:56:31] PHASE 2 done: challengers=['SEED_20260897', 'SEED_20260869', 'SEED_20260850']
+[07:56:31] PHASE 3 — validation bank
+[07:56:31]   train TmApp/CONST_MEDIAN
+[07:56:31]   train TmApp/SEQ_Ridge_a10
+[07:56:31]   train TmApp/SEQ_ENet
+[07:56:31]   train TmApp/SEQ_Huber
+[07:56:32]   train TmApp/BIO_Ridge_a10
+[07:56:32]   train TmApp/BIO_ENet
+[07:56:32]   train TmApp/ABLANG2_PCA32_SVR
+[07:56:32]   train TmApp/ABLANG2_Ridge
+[07:56:33]   train TmApp/BIO_ABLANG2_Ridge
+[07:56:33]   train TmApp/BIO_ABLANG2_ENet
+[07:56:33]   train HIC/CONST_MEDIAN
+[07:56:33]   train HIC/SEQ_Ridge_a10
+[07:56:33]   train HIC/SEQ_ENet
+[07:56:33]   train HIC/ESM2_PCA64_SVR
+[07:56:46]   train HIC/ESM2_Ridge
+[07:56:46]   train HIC/STRUCT_ENet
+[07:56:46]   train HIC/STRUCT_Ridge
+[07:56:46]   train HIC/PHYS_STRUCT_Ridge
+[07:56:46]   train HIC/ESM2_STRUCT_ENet
+[07:56:46]   train HIC/ESM2_STRUCT_Huber
+[07:56:57] PHASE 3 done
+[07:56:57] Typicality — all 50 seeds on selection bank
+[07:58:48] FINAL DECISION: SPLIT_BEHAVIOR_TOO_UNSTABLE_TO_OPTIMIZE
+[07:58:48] Gate B7.2 complete

@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_B_BALANCED_S08",
+  "order": 8,
+  "target": "HIC",
+  "persona": "B_BALANCED",
+  "model_name": "ENSEMBLE_TOP2_PUBLIC",
+  "model_stage": 6,
+  "feature": "FUSION_ESM2_STRUCT_ENet+ENSEMBLE_CV_PUBLIC",
+  "hypothesis": "CV-best and Public-best differ; blend them.",
+  "cv_mae": 0.47265089161251994,
+  "cv_mae_std": 0.0059820225040354,
+  "cv_spearman": 0.5248900201589369,
+  "cv_pearson": 0.5254495619006925,
+  "public_mae": 0.5091125257852236,
+  "public_spearman": 0.4355622816953798,
+  "public_pearson": 0.4134813783206639,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.004295810761771435,
+  "train_seconds": 0.001188039779663086
+}

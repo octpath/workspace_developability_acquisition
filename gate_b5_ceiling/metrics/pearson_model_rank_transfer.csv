@@ -1,0 +1,7 @@
+target,metric,comparison,spearman,kendall,n_models
+HIC,pearson,CV→Public,0.6571428571428573,0.6,6
+HIC,pearson,Public→Private,0.7714285714285715,0.6,6
+HIC,pearson,CV→Private,0.8857142857142858,0.7333333333333333,6
+TmApp,pearson,CV→Public,0.5428571428571429,0.4666666666666666,6
+TmApp,pearson,Public→Private,0.2571428571428572,0.2,6
+TmApp,pearson,CV→Private,0.7142857142857143,0.4666666666666666,6

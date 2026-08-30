@@ -1,0 +1,98 @@
+=== TARGET HIC ===
+  CV SEQ_SIMPLE d=99
+    best Ridge_grid meanρ=0.336
+  CV SEQ_CDR d=260
+    best ElasticNet meanρ=0.419
+  CV BIO_SHORTCUT d=31
+    best ElasticNet meanρ=0.385
+  CV PLM_ABLANG2 d=480
+    best ElasticNet meanρ=0.373
+  CV PLM_ESM1B d=2560
+    best ElasticNet meanρ=0.508
+  CV PLM_ESM2 d=2560
+    best Ridge_grid meanρ=0.420
+  CV PLM_ESM2_CDR6 d=7680
+    best Ridge_grid meanρ=0.434
+  CV ABB_STRUCTURE d=249
+    best ElasticNet meanρ=0.486
+  CV ESMFN_STRUCTURE d=192
+    best ElasticNet meanρ=0.580
+  CV IMGT_POS_HL d=5610
+    best ElasticNet meanρ=0.442
+  CV IMGT_POS_H d=2816
+    best ElasticNet meanρ=0.427
+  CV IMGT_POS_L d=2794
+    best Ridge_grid meanρ=0.039
+  CV GERMLINE_REL d=59
+    best ElasticNet meanρ=0.403
+  CV NGRAM_HL_2 d=395
+    best Ridge_grid meanρ=0.220
+  CV NGRAM_HL_3 d=3796
+    best Ridge_grid meanρ=0.336
+  PLM latent PCA/PLS…
+  CV FUSION_ESM2_BIO d=2591
+    Ridge meanρ=0.424
+  CV FUSION_ESM2_SEQ d=2820
+    Ridge meanρ=0.445
+  CV FUSION_ESM2_ESMFN d=2752
+    Ridge meanρ=0.462
+  CV FUSION_ESM2_BIO_ESMFN d=2783
+    Ridge meanρ=0.458
+  CV FUSION_ESM2_IMGT d=8170
+    Ridge meanρ=0.493
+  Residuals…
+    RESID BIO_SHORTCUT->PLM_ESM2 meanρ=0.360
+    RESID SEQ_SIMPLE->ESMFN_STRUCTURE meanρ=0.376
+    RESID PLM_ESM2->ESMFN_STRUCTURE meanρ=0.450
+  Ensembles…
+    rankmean=0.550 nnls=0.571
+  Multitask ElasticNet…
+=== TARGET TmApp ===
+  CV SEQ_SIMPLE d=99
+    best ElasticNet meanρ=0.311
+  CV SEQ_CDR d=260
+    best Ridge_grid meanρ=0.401
+  CV BIO_SHORTCUT d=31
+    best PLS meanρ=0.431
+  CV PLM_ABLANG2 d=480
+    best ElasticNet meanρ=0.476
+  CV PLM_ESM1B d=2560
+    best Ridge_grid meanρ=0.472
+  CV PLM_ESM2 d=2560
+    best Ridge_grid meanρ=0.334
+  CV PLM_ESM2_CDR6 d=7680
+    best Ridge_grid meanρ=0.382
+  CV ABB_STRUCTURE d=249
+    best Ridge_grid meanρ=0.271
+  CV ESMFN_STRUCTURE d=192
+    best Ridge_grid meanρ=0.357
+  CV IMGT_POS_HL d=5610
+    best Ridge_grid meanρ=0.456
+  CV IMGT_POS_H d=2816
+    best Ridge_grid meanρ=0.241
+  CV IMGT_POS_L d=2794
+    best Ridge_grid meanρ=0.302
+  CV GERMLINE_REL d=59
+    best ElasticNet meanρ=0.418
+  CV NGRAM_HL_2 d=395
+    best Ridge_grid meanρ=0.290
+  CV NGRAM_HL_3 d=3796
+    best Ridge_grid meanρ=0.360
+  PLM latent PCA/PLS…
+  CV FUSION_ESM2_BIO d=2591
+    Ridge meanρ=0.343
+  CV FUSION_ESM2_SEQ d=2820
+    Ridge meanρ=0.349
+  CV FUSION_ESM2_ESMFN d=2752
+    Ridge meanρ=0.337
+  CV FUSION_ESM2_BIO_ESMFN d=2783
+    Ridge meanρ=0.338
+  CV FUSION_ESM2_IMGT d=8170
+    Ridge meanρ=0.362
+  Residuals…
+    RESID BIO_SHORTCUT->PLM_ESM2 meanρ=0.391
+    RESID SEQ_SIMPLE->ESMFN_STRUCTURE meanρ=0.277
+    RESID PLM_ESM2->ESMFN_STRUCTURE meanρ=0.241
+  Ensembles…
+    rankmean=0.444 nnls=0.446
+MODELING_MARATHON_OK 4012

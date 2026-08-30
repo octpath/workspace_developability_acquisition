@@ -1,0 +1,176 @@
+{
+  "HIC": [
+    {
+      "cv_spearman": 0.3583853283194548,
+      "model": "Ridge",
+      "private_spearman": 0.4593418832057649,
+      "public_spearman": 0.4545881781697446,
+      "representation": "B_cdr_descriptors",
+      "role": "P0_best_simple"
+    },
+    {
+      "cv_spearman": 0.2639550812154373,
+      "model": "Lasso",
+      "private_spearman": 0.2042264212292797,
+      "public_spearman": 0.3488257764118047,
+      "representation": "C_BIO_SHORTCUT",
+      "role": "P1_BIO_SHORTCUT"
+    },
+    {
+      "cv_spearman": 0.360403060890449,
+      "model": "Lasso",
+      "private_spearman": 0.2549763517756355,
+      "public_spearman": 0.252789406640284,
+      "representation": "PLM_ablang2_default",
+      "role": "P2_ab_PLM"
+    },
+    {
+      "cv_spearman": 0.5034971334064229,
+      "model": "Ridge",
+      "private_spearman": 0.518564889622058,
+      "public_spearman": 0.5085294072539761,
+      "representation": "FUSION_esm2_ABB_SURFACE",
+      "role": "P3_generic_PLM"
+    },
+    {
+      "cv_spearman": 0.5129887740864253,
+      "model": "ElasticNet",
+      "private_spearman": 0.4356046243880451,
+      "public_spearman": 0.3193198366777234,
+      "representation": "STR_ESMF_SASA",
+      "role": "P4_structure"
+    },
+    {
+      "cv_spearman": 0.4706568661752073,
+      "model": "ElasticNet",
+      "private_spearman": 0.5273541250393811,
+      "public_spearman": 0.3211557618167329,
+      "representation": "FUSION_A2_ABB_SURFACE",
+      "role": "P5_fusion"
+    },
+    {
+      "cv_spearman": 0.4243896714191567,
+      "model": "XGBoost",
+      "private_spearman": 0.510863243047742,
+      "public_spearman": 0.5181898704854309,
+      "representation": "FUSION_esm2_ABB_SURFACE",
+      "role": "P6_nonlinear"
+    }
+  ],
+  "PSR": [
+    {
+      "cv_spearman": 0.2530353715536634,
+      "model": "ElasticNet",
+      "private_spearman": 0.1961525780414993,
+      "public_spearman": 0.2155445702194051,
+      "representation": "A2_physchem",
+      "role": "P0_best_simple"
+    },
+    {
+      "cv_spearman": 0.2266302791941625,
+      "model": "Lasso",
+      "private_spearman": 0.0804050867432004,
+      "public_spearman": -0.0811517738123622,
+      "representation": "C_BIO_SHORTCUT",
+      "role": "P1_BIO_SHORTCUT"
+    },
+    {
+      "cv_spearman": 0.068438726316382,
+      "model": "Ridge",
+      "private_spearman": 0.3125842659898507,
+      "public_spearman": 0.0269340772623113,
+      "representation": "PLM_ablang2_default",
+      "role": "P2_ab_PLM"
+    },
+    {
+      "cv_spearman": 0.2248491891049668,
+      "model": "Ridge",
+      "private_spearman": 0.2790635992230791,
+      "public_spearman": 0.3217219166488373,
+      "representation": "PLM_esm2_CDR6",
+      "role": "P3_generic_PLM"
+    },
+    {
+      "cv_spearman": 0.1802694640439246,
+      "model": "Ridge",
+      "private_spearman": 0.0405648648554409,
+      "public_spearman": 0.1749875580639568,
+      "representation": "STR_ESMF_SASA",
+      "role": "P4_structure"
+    },
+    {
+      "cv_spearman": 0.1876313845230513,
+      "model": "Ridge",
+      "private_spearman": 0.2627081048103065,
+      "public_spearman": 0.1509315656382237,
+      "representation": "FUSION_esm2_ABB_SURFACE",
+      "role": "P5_fusion"
+    },
+    {
+      "cv_spearman": 0.1697038109540949,
+      "model": "XGBoost",
+      "private_spearman": 0.233300601984965,
+      "public_spearman": 0.0844717899535712,
+      "representation": "PLM_esm2_t33_650M_UR50D",
+      "role": "P6_nonlinear"
+    }
+  ],
+  "TmApp": [
+    {
+      "cv_spearman": 0.4031697033441539,
+      "model": "Ridge",
+      "private_spearman": 0.6310410915023766,
+      "public_spearman": 0.303856748689724,
+      "representation": "B_cdr_descriptors",
+      "role": "P0_best_simple"
+    },
+    {
+      "cv_spearman": 0.4026015420241039,
+      "model": "Lasso",
+      "private_spearman": 0.4697409802878648,
+      "public_spearman": 0.349633480814104,
+      "representation": "C_BIO_SHORTCUT",
+      "role": "P1_BIO_SHORTCUT"
+    },
+    {
+      "cv_spearman": 0.4559479401922224,
+      "model": "Ridge",
+      "private_spearman": 0.6468722110860874,
+      "public_spearman": 0.4704271064915946,
+      "representation": "PLM_ablang2_default",
+      "role": "P2_ab_PLM"
+    },
+    {
+      "cv_spearman": 0.4885468289083897,
+      "model": "ElasticNet",
+      "private_spearman": 0.6367149647611786,
+      "public_spearman": 0.4268187458888958,
+      "representation": "PLM_esm1b_t33_650M_UR50S",
+      "role": "P3_generic_PLM"
+    },
+    {
+      "cv_spearman": 0.424379033762135,
+      "model": "ElasticNet",
+      "private_spearman": 0.4998960968709171,
+      "public_spearman": 0.177017966042698,
+      "representation": "STR_ABB_SASA_RASA",
+      "role": "P4_structure"
+    },
+    {
+      "cv_spearman": 0.4228396305420351,
+      "model": "Ridge",
+      "private_spearman": 0.5665767725575066,
+      "public_spearman": 0.3427560196241253,
+      "representation": "FUSION_esm2_ABB_SURFACE",
+      "role": "P5_fusion"
+    },
+    {
+      "cv_spearman": 0.379980416810847,
+      "model": "XGBoost",
+      "private_spearman": 0.5877271483213442,
+      "public_spearman": 0.3624027797751152,
+      "representation": "FUSION_esm2_ABB_SURFACE",
+      "role": "P6_nonlinear"
+    }
+  ]
+}

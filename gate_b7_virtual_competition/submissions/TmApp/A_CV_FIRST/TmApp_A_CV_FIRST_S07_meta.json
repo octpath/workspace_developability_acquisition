@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_A_CV_FIRST_S07",
+  "order": 7,
+  "target": "TmApp",
+  "persona": "A_CV_FIRST",
+  "model_name": "BIO_ABLANG2_Ridge",
+  "model_stage": 5,
+  "feature": "BIO_ABLANG2",
+  "hypothesis": "Fusing BIO + AbLang2 may combine annotation and representation signal.",
+  "cv_mae": 3.0948278772753293,
+  "cv_mae_std": 0.3853675843506734,
+  "cv_spearman": 0.589166208458578,
+  "cv_pearson": 0.5819443308641262,
+  "public_mae": 4.035457649316087,
+  "public_spearman": 0.504441777340567,
+  "public_pearson": 0.4619752553970912,
+  "personal_public_rank": 7,
+  "delta_public_vs_prev": 0.2592408218298021,
+  "train_seconds": 0.07776474952697754
+}

@@ -1,0 +1,37 @@
+{
+  "elapsed_s": 335.8459327220917,
+  "summary": [
+    {
+      "lr": 3e-05,
+      "mae_mean": 62.77650940565416,
+      "mae_sd": 0.0,
+      "pearson_fisher_z_mean": -0.0958422465091153,
+      "strategy": "lora",
+      "target": "TmApp"
+    },
+    {
+      "lr": 0.0001,
+      "mae_mean": 40.923626216841335,
+      "mae_sd": 0.0,
+      "pearson_fisher_z_mean": -0.07160723163107673,
+      "strategy": "lora",
+      "target": "TmApp"
+    },
+    {
+      "lr": 3e-05,
+      "mae_mean": 2.3383030678784404,
+      "mae_sd": 0.0,
+      "pearson_fisher_z_mean": -0.007740107707805588,
+      "strategy": "lora",
+      "target": "HIC"
+    },
+    {
+      "lr": 0.0001,
+      "mae_mean": 0.5171119761525848,
+      "mae_sd": 0.0,
+      "pearson_fisher_z_mean": -0.003717057533166756,
+      "strategy": "lora",
+      "target": "HIC"
+    }
+  ]
+}

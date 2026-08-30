@@ -1,0 +1,23 @@
+{
+  "CDR_H3_len": {
+    "max": 33,
+    "median": 15.0,
+    "min": 7
+  },
+  "H_concat_exact_match_frac": 1.0,
+  "H_len_delta_abs_mean": 0.0,
+  "L_concat_exact_match_frac": 1.0,
+  "L_len_delta_abs_mean": 0.0,
+  "PL_family_source_counts": {
+    "author_fallback": 400
+  },
+  "anarcii_H_ok_frac": 1.0,
+  "anarcii_L_ok_frac": 1.0,
+  "frozen_cdr_scheme": "AUTHOR_MMC2_IMGT_SEGMENTS",
+  "kappa_lambda": {
+    "kappa": 275,
+    "lambda": 125
+  },
+  "n": 400,
+  "note": "CDR regions frozen from author mmc2 IMGT-segmented FR/CDR columns. Germline distance is Hamming fraction vs Na\u00efve-within-family V-region consensus (FR1-CDR1-FR2-CDR2-FR3); CDR3 excluded from germline-distance numerator. Not claimed as exact SHM count."
+}

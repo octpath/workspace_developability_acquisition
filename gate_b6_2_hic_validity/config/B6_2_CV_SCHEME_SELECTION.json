@@ -1,0 +1,84 @@
+{
+  "note": "Public/Private used only for one-shot confirmation after selection",
+  "preferred_scheme": "SGKF_Q7",
+  "scheme_scores": [
+    {
+      "balance_tail_sd": 1.2656419796695286,
+      "composite": 3.8,
+      "mean_fold_MAE_sd": 0.07303043927225271,
+      "mean_fold_Pearson_sd": 0.16186519600226257,
+      "mean_rank_corr": 0.6666666666666666,
+      "mean_wass": 0.11509578656939766,
+      "rank_corr": 4.0,
+      "rank_mae_sd": 2.0,
+      "rank_pearson_sd": 4.0,
+      "rank_tail": 4.0,
+      "rank_wass": 5.0,
+      "scheme": "CURRENT_GROUP_CV"
+    },
+    {
+      "balance_tail_sd": 1.3068948803114593,
+      "composite": 3.2,
+      "mean_fold_MAE_sd": 0.08561288712226514,
+      "mean_fold_Pearson_sd": 0.15279822590839034,
+      "mean_rank_corr": 1.0,
+      "mean_wass": 0.10110960477240936,
+      "rank_corr": 1.0,
+      "rank_mae_sd": 4.0,
+      "rank_pearson_sd": 3.0,
+      "rank_tail": 5.0,
+      "rank_wass": 3.0,
+      "scheme": "SGKF_Q5"
+    },
+    {
+      "balance_tail_sd": 1.1082994896619862,
+      "composite": 2.2,
+      "mean_fold_MAE_sd": 0.07417020341123268,
+      "mean_fold_Pearson_sd": 0.12262752293921539,
+      "mean_rank_corr": 0.76,
+      "mean_wass": 0.0925048003628952,
+      "rank_corr": 3.0,
+      "rank_mae_sd": 3.0,
+      "rank_pearson_sd": 1.0,
+      "rank_tail": 3.0,
+      "rank_wass": 1.0,
+      "scheme": "SGKF_Q7"
+    },
+    {
+      "balance_tail_sd": 0.894427190999916,
+      "composite": 2.9,
+      "mean_fold_MAE_sd": 0.0914066672086282,
+      "mean_fold_Pearson_sd": 0.15104889052398104,
+      "mean_rank_corr": 0.8799999999999999,
+      "mean_wass": 0.10111715019349136,
+      "rank_corr": 2.0,
+      "rank_mae_sd": 5.0,
+      "rank_pearson_sd": 2.0,
+      "rank_tail": 1.5,
+      "rank_wass": 4.0,
+      "scheme": "SGKF_Q9"
+    },
+    {
+      "balance_tail_sd": 0.894427190999916,
+      "composite": 2.9,
+      "mean_fold_MAE_sd": 0.0679074733798679,
+      "mean_fold_Pearson_sd": 0.16251053126016257,
+      "mean_rank_corr": 0.6399999999999999,
+      "mean_wass": 0.10105897114940249,
+      "rank_corr": 5.0,
+      "rank_mae_sd": 1.0,
+      "rank_pearson_sd": 5.0,
+      "rank_tail": 1.5,
+      "rank_wass": 2.0,
+      "scheme": "TAIL_Q7"
+    }
+  ],
+  "scheme_status": {
+    "CURRENT_GROUP_CV": "OK_EXISTING",
+    "SGKF_Q5": "OK",
+    "SGKF_Q7": "OK",
+    "SGKF_Q9": "OK",
+    "TAIL_Q7": "OK"
+  },
+  "selection_basis": "Train-only composite of fold MAE/Pearson SD, tail balance, Wasserstein, rank correlation"
+}

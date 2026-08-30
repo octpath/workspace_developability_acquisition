@@ -1,0 +1,9 @@
+candidate	molecule_id	label_source	sequence_source	join_key	join_confidence	sequence_complete	label_complete	condition_complete	notes
+eSOL	AGGREGATE	eSOL_LSDB	UniProt_UP000000625	B_number>JW>gene	EXACT_ACCESSION	3173/3173	3173/3173	PURE_system_chaperone_free	6 unresolved; 9 sequences with conflicting multi-gene solubility values
+Shehata2019	AGGREGATE	mmc2_derivative_PSR	mmc2_derivative_VH_VL	ADI_id	AUTHOR_PROVIDED_MAPPING	398/398	398 PSR	PSR_assay; Tm/HIC not in public CSV	Tm/HIC require original mmc2.xlsx
+Jain2017	AGGREGATE	sd03	sd02	Name	EXACT_ID	137/137	12 assays x 137	isotype_matched_IgG1_panel	Footer rows excluded from sd03 CSV
+DeepViscosity	AGGREGATE	notebook_partial	NOT_PUBLIC_for_229	mAbN_anonymized	UNRESOLVED	0/229 training	153 partial continuous	reported_uniform_formulation	PARTIAL_DATASET_RECONSTRUCTABLE
+NbThermo	AGGREGATE	NbThermo_JSON	NbThermo_JSON	id	AUTHOR_PROVIDED_MAPPING	519/548	539/548	HETEROGENEOUS_methods	Paper reports 564 Nbs; JSON dump contains 548 entries — count discrepancy recorded.
+Meltome	AGGREGATE	MOESM4	UniProt_via_Protein_ID_NOT_YET_BATCH_FETCHED	Protein_ID	EXACT_ACCESSION	pending_uniprot_join	305237 Tm rows / 65239 unique IDs	species_celltype_lysate_in_MOESM3	Do not mix lysate vs intact-cell Tm unconditionally
+GDPa1	AGGREGATE	HF_gated	HF_gated_excel	antibody_id	AUTHOR_PROVIDED_MAPPING	blocked	blocked	PROPHET-Ab_platform	ACCESS_BLOCKED_ONLY_BY_AUTHENTICATION
+GDPa3	AGGREGATE	datapoints_gated	OAS_sampled	unknown	UNRESOLVED	blocked	blocked	PROPHET-Ab_subset_assays	Not on HF org API at audit

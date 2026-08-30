@@ -1,0 +1,225 @@
+{
+  "overall": "ADVANCE_TO_COMPETITION_DESIGN",
+  "per_target": {
+    "HIC": {
+      "classification": "STRONG_COMPETITION_CANDIDATE",
+      "flags": [],
+      "lb_canonical": {
+        "cv_to_private": 0.725084669554484,
+        "cv_to_public": 0.2963520329921854,
+        "public_to_private": 0.631578947368421,
+        "split": "canonical",
+        "target": "HIC"
+      },
+      "scores": {
+        "bio": {
+          "cv": 0.2639550812154373,
+          "model": "Lasso",
+          "priv": 0.2042264212292797,
+          "pub": 0.3488257764118047,
+          "rep": "C_BIO_SHORTCUT"
+        },
+        "overall": {
+          "cv": 0.5129887740864253,
+          "model": "ElasticNet",
+          "priv": 0.4356046243880451,
+          "pub": 0.3193198366777234,
+          "rep": "STR_ESMF_SASA"
+        },
+        "plm_ab": {
+          "cv": 0.360403060890449,
+          "model": "Lasso",
+          "priv": 0.2549763517756355,
+          "pub": 0.252789406640284,
+          "rep": "PLM_ablang2_default"
+        },
+        "plm_gen": {
+          "cv": 0.5129887740864253,
+          "model": "ElasticNet",
+          "priv": 0.4356046243880451,
+          "pub": 0.3193198366777234,
+          "rep": "STR_ESMF_SASA"
+        },
+        "simple": {
+          "cv": 0.3583853283194548,
+          "model": "Ridge",
+          "priv": 0.4593418832057649,
+          "pub": 0.4545881781697446,
+          "rep": "B_cdr_descriptors"
+        },
+        "struct": {
+          "cv": 0.5129887740864253,
+          "model": "ElasticNet",
+          "priv": 0.4356046243880451,
+          "pub": 0.3193198366777234,
+          "rep": "STR_ESMF_SASA"
+        }
+      },
+      "shadow_best_cv": [
+        0.5129887740864253,
+        0.5596357117115319,
+        0.5239411988869722,
+        0.5046352402672909
+      ],
+      "shadow_cv_std": 0.020972517834620983,
+      "summary": {
+        "best": 0.5129887740864253,
+        "bio": 0.2639550812154373,
+        "headroom_best_vs_simple": 0.1546034457669705,
+        "headroom_plm_vs_bio": 0.24903369287098798,
+        "plm": 0.5129887740864253,
+        "pub_priv_rank": 0.631578947368421,
+        "simple": 0.3583853283194548
+      }
+    },
+    "PSR": {
+      "classification": "GOOD_BUT_DESCRIPTOR_DRIVEN",
+      "flags": [
+        "TOO_EASY_DESCRIPTOR_RISK"
+      ],
+      "lb_canonical": {
+        "cv_to_private": 0.2496240601503759,
+        "cv_to_public": 0.4466165413533834,
+        "public_to_private": 0.3849624060150375,
+        "split": "canonical",
+        "target": "PSR"
+      },
+      "scores": {
+        "bio": {
+          "cv": 0.2266302791941625,
+          "model": "Lasso",
+          "priv": 0.0804050867432004,
+          "pub": -0.0811517738123622,
+          "rep": "C_BIO_SHORTCUT"
+        },
+        "overall": {
+          "cv": 0.2530353715536634,
+          "model": "ElasticNet",
+          "priv": 0.1961525780414993,
+          "pub": 0.2155445702194051,
+          "rep": "A2_physchem"
+        },
+        "plm_ab": {
+          "cv": 0.068438726316382,
+          "model": "Ridge",
+          "priv": 0.3125842659898507,
+          "pub": 0.0269340772623113,
+          "rep": "PLM_ablang2_default"
+        },
+        "plm_gen": {
+          "cv": 0.2248491891049668,
+          "model": "Ridge",
+          "priv": 0.2790635992230791,
+          "pub": 0.3217219166488373,
+          "rep": "PLM_esm2_CDR6"
+        },
+        "simple": {
+          "cv": 0.2530353715536634,
+          "model": "ElasticNet",
+          "priv": 0.1961525780414993,
+          "pub": 0.2155445702194051,
+          "rep": "A2_physchem"
+        },
+        "struct": {
+          "cv": 0.1802694640439246,
+          "model": "Ridge",
+          "priv": 0.0405648648554409,
+          "pub": 0.1749875580639568,
+          "rep": "STR_ESMF_SASA"
+        }
+      },
+      "shadow_best_cv": [
+        0.2530353715536634,
+        0.2477253424590719,
+        0.1540474034791839,
+        0.1306518036879544
+      ],
+      "shadow_cv_std": 0.054677278037558445,
+      "summary": {
+        "best": 0.2530353715536634,
+        "bio": 0.2266302791941625,
+        "headroom_best_vs_simple": 0.0,
+        "headroom_plm_vs_bio": -0.0017810900891957193,
+        "plm": 0.2248491891049668,
+        "pub_priv_rank": 0.3849624060150375,
+        "simple": 0.2530353715536634
+      }
+    },
+    "TmApp": {
+      "classification": "STRONG_COMPETITION_CANDIDATE",
+      "flags": [],
+      "lb_canonical": {
+        "cv_to_private": 0.7999999999999999,
+        "cv_to_public": 0.7984962406015037,
+        "public_to_private": 0.7503759398496239,
+        "split": "canonical",
+        "target": "TmApp"
+      },
+      "scores": {
+        "bio": {
+          "cv": 0.4026015420241039,
+          "model": "Lasso",
+          "priv": 0.4697409802878648,
+          "pub": 0.349633480814104,
+          "rep": "C_BIO_SHORTCUT"
+        },
+        "overall": {
+          "cv": 0.4885468289083897,
+          "model": "ElasticNet",
+          "priv": 0.6367149647611786,
+          "pub": 0.4268187458888958,
+          "rep": "PLM_esm1b_t33_650M_UR50S"
+        },
+        "plm_ab": {
+          "cv": 0.4559479401922224,
+          "model": "Ridge",
+          "priv": 0.6468722110860874,
+          "pub": 0.4704271064915946,
+          "rep": "PLM_ablang2_default"
+        },
+        "plm_gen": {
+          "cv": 0.4885468289083897,
+          "model": "ElasticNet",
+          "priv": 0.6367149647611786,
+          "pub": 0.4268187458888958,
+          "rep": "PLM_esm1b_t33_650M_UR50S"
+        },
+        "simple": {
+          "cv": 0.4031697033441539,
+          "model": "Ridge",
+          "priv": 0.6310410915023766,
+          "pub": 0.303856748689724,
+          "rep": "B_cdr_descriptors"
+        },
+        "struct": {
+          "cv": 0.424379033762135,
+          "model": "ElasticNet",
+          "priv": 0.4998960968709171,
+          "pub": 0.177017966042698,
+          "rep": "STR_ABB_SASA_RASA"
+        }
+      },
+      "shadow_best_cv": [
+        0.4885468289083897,
+        0.5550757921931052,
+        0.5084857862320463,
+        0.4476613904236394
+      ],
+      "shadow_cv_std": 0.03865178969286658,
+      "summary": {
+        "best": 0.4885468289083897,
+        "bio": 0.4026015420241039,
+        "headroom_best_vs_simple": 0.08537712556423577,
+        "headroom_plm_vs_bio": 0.08594528688428577,
+        "plm": 0.4885468289083897,
+        "pub_priv_rank": 0.7503759398496239,
+        "simple": 0.4031697033441539
+      }
+    }
+  },
+  "ranking": [
+    "HIC",
+    "TmApp",
+    "PSR"
+  ]
+}

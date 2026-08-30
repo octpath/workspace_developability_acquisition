@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+
+<title>eSOL</title>
+
+<style type="text/css">
+<!--
+body {
+font-size:0.9em;
+}
+#pagesize {
+width:800px;
+}
+-->
+</style>
+</head>
+<body>
+<div id="pagesize">
+<h1><a name="Top"></a>eSOL</h1>
+2016/05/30<br />
+<br />
+Website: <a rel="external" target="_blank" href="http://www.tanpaku.org/tp-esol/index.php?lang=en">http://www.tanpaku.org/tp-esol/index.php?lang=en</a><br />
+HTTPS Site: <a rel="external" target="_blank" href="https://dbarchive.biosciencedbc.jp/data/esol/">https://dbarchive.biosciencedbc.jp/data/esol/</a><br />
+<br />
+<p>Database of solubilities of all E.coli proteins translated by using an in vitro translation system, and of chaperone effects on their aggregation.</p>
+<h3>README Content</h3>
+<ol>
+<li><a href="#Sec1">Database Component</a></li>
+<li><a href="#Sec2">Data Description</a></li>
+<li><a href="#Sec3">License</a></li>
+<li><a href="#Sec4">Update History</a></li>
+<li><a href="#Sec5">Literature</a></li>
+<li><a href="#Sec6">Contact address</a></li>
+</ol>
+<h3><a name="Sec1"></a>1. Database Component</h3>
+<ol>
+<li><a href="#2.1">README</a></li>
+<li><a href="#2.2">Solubility</a></li>
+</ol>
+<div style="text-align: right;"><a href="#Top">Return to Top</a></div>
+<h3><a name="Sec2"></a>2. Data Description</h3>
+<h4><a name="2.1"></a>2.1 README</h4>
+<table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>Data name</td>
+<td>README</td>
+</tr>
+<tr>
+<td>Description of data contents</td>
+<td>HTML file to describe "eSOL" data.</td>
+</tr>
+<tr>
+<td>File</td>
+<td>README_e.html(English)</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: right;"><a href="#Top">Return to Top</a></div>
+
+<h4><a name="2.2"></a>2.2&nbsp;Solubility</h4>
+<table border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td>Data name</td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td>Description of data contents</td>
+<td>The solubilities of individual proteins were evaluated by using a cell-free translation system (PURE system) which is chaperone-free.<br />
+The data of chaperone effects on the prevention of aggregate formation are available for 788 aggregation-prone proteins.<br />
+The concentrations of chaperones were as follows:<br />
+ - TF (Trigger factor): 5.0 (monomer) μM<br />
+ - GroE (GroEL and GroES): 0.5 (tetradecamer) and 1.0 (heptamer) μM<br />
+ - KJE (DnaK, DnaJ and GrpE): 5.0 (monomer), 2.0 (monomer), and 2.0 (monomer) μM</td>
+</tr>
+<tr>
+<td>File</td>
+<td>esol.zip (192 KB)</td>
+</tr>
+</tbody>
+</table>
+<br />
+Data items are the following:<br />
+
+<table border="1" cellpadding="2" cellspacing="0">
+<tbody>
+<tr><th>Data item</th><th>Description</th></tr>
+<tr>
+<td>JW_ID</td>
+<td>Gene ID assigned by GenoBase to the E. coli strain K-12 substrain W3110.</td>
+</tr>
+<tr>
+<td>ECK number</td>
+<td>
+<p>Accession number which can refer to genes in both substrains MG1655 and W3110 of the E. coli strain K-12.</p>
+</td>
+</tr>
+<tr>
+<td>B number</td>
+<td>Gene accession number assigned by the Blattner laboratory to the E. coli strain K-12 substrain MG1655.</td>
+</tr>
+<tr>
+<td>Gene name K-12</td>
+<td>Gene name of the E. coli strain K-12.</td>
+</tr>
+<tr>
+<td>Locus name K-12</td>
+<td>Locus name of the E. coli strain K-12.</td>
+</tr>
+<tr>
+<td>Synonyms of locus names K-12</td>
+<td>Synonyms of the locus name of the E. coli strain K-12.</td>
+</tr>
+<tr>
+<td>Solubility (%)</td>
+<td>Solubility determined in Niwa et. al., PNAS 2009. (unit: %)</td>
+</tr>
+<tr>
+<td>Yield (uM)</td>
+<td>Yield of the protein measured in Niwa et. al., PNAS 2009. (unit: μM)</td>
+</tr>
+<tr>
+<td>Yield (ug/ml)</td>
+<td>Yield of the protein measured in Niwa et. al., PNAS 2009. (unit: μg/ml)</td>
+</tr>
+<tr>
+<td>Minus Sol (%)</td>
+<td>Solubility in the absence of any chaperons. (unit: %) It is redetermined to evaluate chaperon effects.</td>
+</tr>
+<tr>
+<td>TF Sol (%)</td>
+<td>Solubility in the presence of Trigger Factor. (unit: %)</td>
+</tr>
+<tr>
+<td>GroE Sol (%)</td>
+<td>Solubility in the presence of GroEL/ES. (unit: %)</td>
+</tr>
+<tr>
+<td>KJE Sol (%)</td>
+<td>Solubility in the presence of DnaK/DnaJ/GrpE. (unit: %)</td>
+</tr>
+<tr>
+<td>Minus Yield (uM)</td>
+<td>Yield in the absence of any chaperons. (unit: μM)</td>
+</tr>
+<tr>
+<td>TF Yield (uM)</td>
+<td>Yield in the presence of Trigger Factor. (unit: μM)</td>
+</tr>
+<tr>
+<td>GroE Yield (uM)</td>
+<td>Yield in the presence of GroEL/ES. (unit: μM)</td>
+</tr>
+<tr>
+<td>KJE Yield (uM)</td>
+<td>Yield in the presence of DnaK/DnaJ/GrpE. (unit: μM)</td>
+</tr>
+<tr>
+<td>Minus Yield (ug/ml)</td>
+<td>Yield in the absence of any chaperons. (unit: μg/ml)</td>
+</tr>
+<tr>
+<td>TF Yield (ug/ml)</td>
+<td>Yield in the presence of Trigger Factor. (unit: μg/ml)</td>
+</tr>
+<tr>
+<td>GroE Yield (ug/ml)</td>
+<td>Yield in the presence of GroEL/ES. (unit: μg/ml)</td>
+</tr>
+<tr>
+<td>KJE Yield (ug/ml)</td>
+<td>Yield in the presence of DnaK/DnaJ/GrpE. (unit: μg/ml)</td>
+</tr>
+<tr>
+<td>Calculated MW (kDa)</td>
+<td>Molecular weight calculated from amino acid sequences. (unit: kDa)</td>
+</tr>
+<tr>
+<td>Calculated pI</td>
+<td>Isoelectric point calculated from amino acid sequences.</td>
+</tr>
+<tr>
+<td>Type of gene product</td>
+<td>Type of gene product obtained from Genobase.<br /> (About the description of "Type of gene product", see <a href="http://nar.oxfordjournals.org/content/34/1/1/T3.expansion.html">this page</a>.)</td>
+</tr>
+<tr>
+<td>Gene product description</td>
+<td>Description obtained from Genobase.</td>
+</tr>
+<tr>
+<td>Cell location</td>
+<td>Localization in the cell.</td>
+</tr>
+<tr>
+<td>Structure (PDB) ID</td>
+<td>PDB ID obtained from Genobase.</td>
+</tr>
+<tr>
+<td>SCOP assignment</td>
+<td>SCOP assignment obtained from Genobase.</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: right;"><a href="#Top">Return to Top</a></div>
+
+<h3><a name="Sec3"></a>3. License</h3>
+<div class="lic_update_date">Last updated : 2012/08/07</div>
+<p>You may use this database in compliance with the terms and conditions of the license described below. The license specifies the license terms regarding the use of this database and the requirements you must follow in using this database.</p>
+
+<div id="cc_by-sa"><a rel="external" target="_blank" href="http://creativecommons.org/licenses/by-sa/2.1/jp/deed.en_US"><img style="border: 0px solid; width: 88px; height: 31px;" src="http://i.creativecommons.org/l/by-sa/2.1/jp/88x31.png" alt="Creative Commons License" /></a><br />
+<p>The license for this database is specified in the <span class="bold">Creative Commons Attribution-Share Alike 2.1 Japan</span>.<br /> If you use data from this database, please be sure attribute this database as follows: <span style="font-weight: bold;">"eSOL &copy; Hideki Taguchi (Tokyo Institute of Technology) licensed under CC Attribution-Share Alike 2.1 Japan"</span>.</p>
+<p>The summary of the Creative Commons Attribution-Share Alike 2.1 Japan is found <a rel="external" target="_blank" href="http://creativecommons.org/licenses/by-sa/2.1/jp/deed.en_US">here</a>.</p>
+<p>With regard to this database, you are licensed to:</p>
+<ol>
+<li>freely access part or whole of this database, and acquire data;</li>
+<li>freely redistribute part or whole of the data from this database; and</li>
+<li>freely create and distribute database and other adapted materials based on part or whole of the data from this database,</li>
+</ol>
+<p>under the license, as long as you comply with the following conditions:</p>
+<ol>
+<li>You must attribute this database in the manner specified by the author or licensor when distributing part or whole of this database or any derivative work.</li>
+<li>You must distribute any derivative work based on part or whole of the data from this database under the license.</li>
+<li>You need to contact the Licensor shown below to request a license for use of this database or any part thereof not licensed under the license.</li>
+</ol>
+<p>
+Hideki Taguchi<br />
+Department of Biomolecular Engineering, School and Graduate School of Bioscience and Biotechnology, Tokyo Institute of Technology<br />
+4259 Nagatsuta-cho, Midori-ku, Yokohama, Kanagawa 226-8501 Japan<br />
+E-mail: taguchi[at]bio[dot]titech[dot]ac[dot]jp<br />
+Tel.: +81-45-924-5785
+</p>
+</div>
+
+<div style="text-align: right;"><a href="#Top">Return to Top</a></div>
+
+
+<h3><a name="Sec4"></a>4. Update History</h3>
+<table border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr><th class="update_col1">Date</th><th class="update_col2">Update contents</th></tr>
+<tr>
+<td class="update_col1">2016/05/30</td>
+<td class="update_col2">eSOL English archive site is opened.</td>
+</tr>
+<tr>
+<td class="update_col1">2009/06/18</td>
+<td class="update_col2">eSOL (http://tp-esol.genes.nig.ac.jp/) is opened.</td>
+</tr>
+</tbody>
+</table>
+
+<div style="text-align: right;"><a href="#Top">Return to Top</a></div>
+
+
+<h3><a name="Sec5"></a>5. Literature</h3>
+Niwa T, Kanamori T, Ueda T, Taguchi H.<br />
+Global analysis of chaperone effects using a reconstituted cell-free translation system.<br />
+Proc Natl Acad Sci U S A. 2012 Jun 5;109(23):8937-42.<br />
+PMID: <a rel="external" target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22615364">22615364</a><br />
+<br />
+Niwa T, Ying BW, Saito K, Jin W, Takada S, Ueda T, Taguchi H.<br />
+Bimodal protein solubility distribution revealed by an aggregation analysis of the entire ensemble of Escherichia coli proteins.<br />
+Proc Natl Acad Sci U S A. 2009 Mar 17;106(11):4201-6.<br />
+PMID: <a rel="external" target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/19251648">19251648</a><br />
+<br />
+<div style="text-align: right;"><a href="#Top">Return to Top</a></div>
+
+<h3><a name="Sec6"></a>6. Contact address</h3>
+When you have any question about "eSOL", contact the following:<br />
+
+<p>
+Hideki Taguchi<br />
+Department of Biomolecular Engineering, School and Graduate School of Bioscience and Biotechnology, Tokyo Institute of Technology<br />
+4259 Nagatsuta-cho, Midori-ku, Yokohama, Kanagawa 226-8501 Japan<br />
+E-mail: taguchi[at]bio[dot]titech[dot]ac[dot]jp<br />
+Tel.: +81-45-924-5785
+</p>
+
+<div style="text-align: right;"><a href="#Top">Return to Top</a></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+[
+  {
+    "name": "jain2017biophyscial_HICRT.csv",
+    "size": 32859,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2017biophyscial_HICRT.csv"
+  },
+  {
+    "name": "jain2017biophysical_ACSINS.csv",
+    "size": 32905,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2017biophysical_ACSINS.csv"
+  },
+  {
+    "name": "jain2017biophysical_CSIBLI.csv",
+    "size": 33151,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2017biophysical_CSIBLI.csv"
+  },
+  {
+    "name": "jain2017biophysical_SAS.csv",
+    "size": 33013,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2017biophysical_SAS.csv"
+  },
+  {
+    "name": "jain2017biophysical_SGACSINS.csv",
+    "size": 32734,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2017biophysical_SGACSINS.csv"
+  },
+  {
+    "name": "jain2024assessment_ACSINS.csv",
+    "size": 10204,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2024assessment_ACSINS.csv"
+  },
+  {
+    "name": "jain2024assessment_CIC.csv",
+    "size": 10209,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2024assessment_CIC.csv"
+  },
+  {
+    "name": "jain2024assessment_CSSINS.csv",
+    "size": 10171,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2024assessment_CSSINS.csv"
+  },
+  {
+    "name": "jain2024assessment_Fab_pI.csv",
+    "size": 10164,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2024assessment_Fab_pI.csv"
+  },
+  {
+    "name": "jain2024assessment_HIC.csv",
+    "size": 10190,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2024assessment_HIC.csv"
+  },
+  {
+    "name": "jain2024assessment_SEC.csv",
+    "size": 10214,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2024assessment_SEC.csv"
+  },
+  {
+    "name": "jain2024assessment_cIEF.csv",
+    "size": 10172,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jain2024assessment_cIEF.csv"
+  },
+  {
+    "name": "jetha2019homology_RT.csv",
+    "size": 23506,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/jetha2019homology_RT.csv"
+  },
+  {
+    "name": "kraft2019herapin_relrt.csv",
+    "size": 30725,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/kraft2019herapin_relrt.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_ACSINS.csv",
+    "size": 3131,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/shanehsazzadeh2023unlocking_ACSINS.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_CGE.csv",
+    "size": 3139,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/shanehsazzadeh2023unlocking_CGE.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_HICRRT.csv",
+    "size": 3140,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/shanehsazzadeh2023unlocking_HICRRT.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_NRCGE.csv",
+    "size": 3146,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/shanehsazzadeh2023unlocking_NRCGE.csv"
+  },
+  {
+    "name": "shanehsazzadeh2023unlocking_SEC.csv",
+    "size": 3147,
+    "download_url": "https://raw.githubusercontent.com/Graylab/FLAb/main/data/aggregation/shanehsazzadeh2023unlocking_SEC.csv"
+  }
+]

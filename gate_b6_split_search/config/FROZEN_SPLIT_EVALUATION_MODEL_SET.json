@@ -1,0 +1,227 @@
+{
+  "HIC": [
+    {
+      "CV_metrics": {
+        "mae": 0.5184650205761318,
+        "pearson": -0.06930382089586305,
+        "spearman": -0.10207134890754056
+      },
+      "model_family": "CONST",
+      "model_id": "HIC__CONST_MEDIAN",
+      "prediction_file_hash": {
+        "oof": "c80f934dc18b235201a2225321f2d249e6489b96bb30b080747982ce53473908",
+        "private": "22cbcdfad0f5bc7bfbaa15fa7bb463723fe6c8d4884db2bee18bf24650a0b2b5",
+        "public": "22cbcdfad0f5bc7bfbaa15fa7bb463723fe6c8d4884db2bee18bf24650a0b2b5"
+      },
+      "tag": "CONST_MEDIAN",
+      "target": "HIC"
+    },
+    {
+      "CV_metrics": {
+        "mae": 0.5646725573788314,
+        "pearson": 0.383419868819198,
+        "spearman": 0.36280815278167705
+      },
+      "model_family": "SEQ_SIMPLE",
+      "model_id": "HIC__SEQ_SIMPLE_Ridge",
+      "prediction_file_hash": {
+        "oof": "deda9953cd43d5cb2fd93aabcb95082add04fb6b8e03036d8c8a521e2fe8b20e",
+        "private": "9e44e12072b87a9ac99690a07ef8ec857c768d6500f7862420c84a49d10093a5",
+        "public": "3c1dff5031345852ccbdf89ab4babaf72a0b64b58d784b52c4744e0f98eca0ba"
+      },
+      "tag": "SEQ_SIMPLE_Ridge",
+      "target": "HIC"
+    },
+    {
+      "CV_metrics": {
+        "mae": 0.4900908734965928,
+        "pearson": 0.5290205556465043,
+        "spearman": 0.5424134522551052
+      },
+      "model_family": "ESM2_PLM",
+      "model_id": "HIC__PLM_ESM2_PCA64_SVR",
+      "prediction_file_hash": {
+        "oof": "64173756252b5b250fc4265c4e55822af9f0d9936a81e70563b6e6c67f93cf09",
+        "private": "af3ab902736abaaec395881a06fc84732a9bb965897fe9911e2cb9686ab52d4d",
+        "public": "d8a462306edff6000c92fcc20070fa26d3de54866f7d9df43984539a70f5c5b2"
+      },
+      "tag": "PLM_ESM2_PCA64_SVR",
+      "target": "HIC"
+    },
+    {
+      "CV_metrics": {
+        "mae": 0.4970255757352063,
+        "pearson": 0.5201533864978658,
+        "spearman": 0.5228901245983482
+      },
+      "model_family": "ESMFOLD_STRUCTURE",
+      "model_id": "HIC__ESMFN_STRUCTURE_ElasticNet",
+      "prediction_file_hash": {
+        "oof": "c4afceb6e458d2b80b7c020d270eeda75a0b6b1ddedca47267dd4e30fc2b5dc3",
+        "private": "ac38a6b216ae6378b874f4f3b515833d03744cec552a2ce6610142e855edcb49",
+        "public": "a47c31d99de08d235e22d6b8e2afe9fb2e09a76290bd2c21d8952176d39be338"
+      },
+      "tag": "ESMFN_STRUCTURE_ElasticNet",
+      "target": "HIC"
+    },
+    {
+      "CV_metrics": {
+        "mae": 0.5212224504834979,
+        "pearson": 0.46442794309422714,
+        "spearman": 0.49632693875089456
+      },
+      "model_family": "PLM_STRUCTURE_FUSION",
+      "model_id": "HIC__FUSION_ESM2_ESMFN_ElasticNet",
+      "prediction_file_hash": {
+        "oof": "e08a73408980cb425c1971604b7816dae7a7e10eb3f93a92c344c67b066f8006",
+        "private": "b864f36ef25f18b89e3c59063a4157c79adec78715778558c80dc15eff346c39",
+        "public": "a6ce3e2577eacf50f679d5d5c66711e132f250d8c9bfb8dfc91e5c474645dc29"
+      },
+      "tag": "FUSION_ESM2_ESMFN_ElasticNet",
+      "target": "HIC"
+    },
+    {
+      "CV_metrics": {
+        "mae": 0.466697778544225,
+        "pearson": 0.5640973216570421,
+        "spearman": 0.5742522976688826
+      },
+      "model_family": "NESTED_ENSEMBLE",
+      "model_id": "HIC__NESTED_STACK_NNLS",
+      "prediction_file_hash": {
+        "oof": "a744c8f4bde52422474e8b14db2ddfe4742c48eaeba924c32e8b9319984530a2",
+        "private": "75d138115b2567e871ce140caff9ba4738101e669c56fe831847bcc4cb790a61",
+        "public": "20a2e0b6ee82e3dafc94e4bfb042d5c64bdfcfc1c9ea19e8a3c3acea7b15a5d0"
+      },
+      "tag": "NESTED_STACK_NNLS",
+      "target": "HIC"
+    }
+  ],
+  "TmApp": [
+    {
+      "CV_metrics": {
+        "mae": 3.54320987654321,
+        "pearson": -0.37413899332150313,
+        "spearman": -0.3868204751103694
+      },
+      "model_family": "CONST",
+      "model_id": "TmApp__CONST_MEDIAN",
+      "prediction_file_hash": {
+        "oof": "8c0f1d09487bd481e8c34e4327f67ae1325040cda0b025b002484cb76524cd19",
+        "private": "884c6a431f3d1dd8313245c1e31deae7206b961f27c955163cf4d732773f025c",
+        "public": "884c6a431f3d1dd8313245c1e31deae7206b961f27c955163cf4d732773f025c"
+      },
+      "tag": "CONST_MEDIAN",
+      "target": "TmApp"
+    },
+    {
+      "CV_metrics": {
+        "mae": 3.633461410789381,
+        "pearson": 0.31514641442116526,
+        "spearman": 0.253606688016708
+      },
+      "model_family": "SEQ_SIMPLE",
+      "model_id": "TmApp__SEQ_SIMPLE_Ridge",
+      "prediction_file_hash": {
+        "oof": "3783b34471cb4c9e2ec1fd64492c2f21afef301615bfba1ef645767136f4f23e",
+        "private": "24c16dafd1b2b8fc48c03034ee520e3280e2b3045b460aba76ccdb3358cd25a7",
+        "public": "4710e4b6357c6dac75d1acad1c8b9367c3ed74da65948c1dad78e389706663b6"
+      },
+      "tag": "SEQ_SIMPLE_Ridge",
+      "target": "TmApp"
+    },
+    {
+      "CV_metrics": {
+        "mae": 3.1680781102364866,
+        "pearson": 0.43992195677206364,
+        "spearman": 0.4672618116681927
+      },
+      "model_family": "BIO",
+      "model_id": "TmApp__BIO_Ridge",
+      "prediction_file_hash": {
+        "oof": "347e7e13abc394414d4768e61e52d8ff61ae4fbd9edeec220bf5cf28c3885100",
+        "private": "1d6ec545282525be6841cf9bfe26e53e295a301e54b570a2ca432734e20a0b51",
+        "public": "710256e3d9ac9ba1228f743241a6d53db40900c01022fe41a19572093495394a"
+      },
+      "tag": "BIO_Ridge",
+      "target": "TmApp"
+    },
+    {
+      "CV_metrics": {
+        "mae": 2.947959052568804,
+        "pearson": 0.5335758319094343,
+        "spearman": 0.5399069269021215
+      },
+      "model_family": "ABLANG2_NONLINEAR",
+      "model_id": "TmApp__PLM_ABLANG2_PCA32_SVR",
+      "prediction_file_hash": {
+        "oof": "013fabf396ffe2d69add96b4fe64c62e1da5e04b49738b5a1043dab5b6d747e9",
+        "private": "33fdf4196b17799687f280f82e718bf77cca3c3e54c2005130a822b5b6896e03",
+        "public": "8e3447be50ae1e62764e47ab8af945b565993947f595b5a9c963b9a11705c445"
+      },
+      "tag": "PLM_ABLANG2_PCA32_SVR",
+      "target": "TmApp"
+    },
+    {
+      "CV_metrics": {
+        "mae": 2.778067764951105,
+        "pearson": 0.5770272634565028,
+        "spearman": 0.5896832253795055
+      },
+      "model_family": "NESTED_ENSEMBLE",
+      "model_id": "TmApp__NESTED_STACK_MEAN",
+      "prediction_file_hash": {
+        "oof": "2611e89a81c8356925362ccaf2df4ac0a67bd3ddd01b2d76bd03e3ad6babbc2a",
+        "private": "528c81b3a3cf47e69c2d4494317ecf63032b8b16ee90695dc387f2856751b3a2",
+        "public": "999b8041be46b4d0a708b2b4ba630bb831d030cc9a177798fa33b1cc2d26907a"
+      },
+      "tag": "NESTED_STACK_MEAN",
+      "target": "TmApp"
+    }
+  ],
+  "diversity_rule": "Near-duplicate Test predictions excluded from primary eval set",
+  "excluded": [
+    {
+      "model_id": "TmApp__FUSION_ABLANG2_BIO_ElasticNet",
+      "reason": "Near-duplicate of NESTED_STACK_MEAN (Test-pred Pearson~0.979)"
+    },
+    {
+      "model_id": "POOL/FT variants",
+      "reason": "B5 not valid / unstable"
+    }
+  ],
+  "gate": "B6",
+  "prediction_correlations_Test": {
+    "HIC": {
+      "CONST_MEDIAN__vs__ESMFN_STRUCTURE_ElasticNet": null,
+      "CONST_MEDIAN__vs__FUSION_ESM2_ESMFN_ElasticNet": null,
+      "CONST_MEDIAN__vs__NESTED_STACK_NNLS": null,
+      "CONST_MEDIAN__vs__PLM_ESM2_PCA64_SVR": null,
+      "CONST_MEDIAN__vs__SEQ_SIMPLE_Ridge": null,
+      "ESMFN_STRUCTURE_ElasticNet__vs__FUSION_ESM2_ESMFN_ElasticNet": 0.7326228065369705,
+      "ESMFN_STRUCTURE_ElasticNet__vs__NESTED_STACK_NNLS": 0.8553989215423724,
+      "FUSION_ESM2_ESMFN_ElasticNet__vs__NESTED_STACK_NNLS": 0.8585926579262635,
+      "PLM_ESM2_PCA64_SVR__vs__ESMFN_STRUCTURE_ElasticNet": 0.5365078261008551,
+      "PLM_ESM2_PCA64_SVR__vs__FUSION_ESM2_ESMFN_ElasticNet": 0.770890721817264,
+      "PLM_ESM2_PCA64_SVR__vs__NESTED_STACK_NNLS": 0.8960404953071943,
+      "SEQ_SIMPLE_Ridge__vs__ESMFN_STRUCTURE_ElasticNet": 0.5252356871566817,
+      "SEQ_SIMPLE_Ridge__vs__FUSION_ESM2_ESMFN_ElasticNet": 0.5272764387614342,
+      "SEQ_SIMPLE_Ridge__vs__NESTED_STACK_NNLS": 0.5980419295940358,
+      "SEQ_SIMPLE_Ridge__vs__PLM_ESM2_PCA64_SVR": 0.5241516056372437
+    },
+    "TmApp": {
+      "BIO_Ridge__vs__NESTED_STACK_MEAN": 0.658164311575727,
+      "BIO_Ridge__vs__PLM_ABLANG2_PCA32_SVR": 0.37767841383333706,
+      "CONST_MEDIAN__vs__BIO_Ridge": null,
+      "CONST_MEDIAN__vs__NESTED_STACK_MEAN": null,
+      "CONST_MEDIAN__vs__PLM_ABLANG2_PCA32_SVR": null,
+      "CONST_MEDIAN__vs__SEQ_SIMPLE_Ridge": null,
+      "PLM_ABLANG2_PCA32_SVR__vs__NESTED_STACK_MEAN": 0.801989171872074,
+      "SEQ_SIMPLE_Ridge__vs__BIO_Ridge": 0.424968692019967,
+      "SEQ_SIMPLE_Ridge__vs__NESTED_STACK_MEAN": 0.3253364276062936,
+      "SEQ_SIMPLE_Ridge__vs__PLM_ABLANG2_PCA32_SVR": 0.3239831882538815
+    }
+  },
+  "purpose": "Frozen organizer models for common Public/Private split evaluation",
+  "source": "gate_b5_ceiling/predictions"
+}

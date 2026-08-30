@@ -1,0 +1,6 @@
+DEVICE cuda:0 NVIDIA GeForce RTX 3090
+=== AbLang2 ===
+hparams.json
+model.pt
+Downloading model ...
+=== AbLang original ===

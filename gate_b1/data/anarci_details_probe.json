@@ -1,0 +1,20 @@
+{
+  "details": [
+    [
+      {
+        "bias": 0.7,
+        "bitscore": 191.1,
+        "chain_type": "H",
+        "description": "",
+        "evalue": 1.2e-59,
+        "id": "human_H",
+        "query_end": 123,
+        "query_name": "x",
+        "query_start": 0,
+        "scheme": "imgt",
+        "species": "human"
+      }
+    ]
+  ],
+  "hit": "[[['id', 'description', 'evalue', 'bitscore', 'bias', 'query_start', 'query_end'], ['human_H', '', 1.2e-59, 191.1, 0.7, 0, 123]]]"
+}

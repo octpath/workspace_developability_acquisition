@@ -1,0 +1,290 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "50066b5279948fe468fecb9a81aa49d9368da863",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/.github?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/.github",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/50066b5279948fe468fecb9a81aa49d9368da863",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/50066b5279948fe468fecb9a81aa49d9368da863",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "4bf2ca4d44d486f415484e618cc806386867fb71",
+    "size": 480,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/4bf2ca4d44d486f415484e618cc806386867fb71",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/4bf2ca4d44d486f415484e618cc806386867fb71",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".streamlit",
+    "path": ".streamlit",
+    "sha": "72fab062ce1833f1cb7715defa1d96bbb709fb8a",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/.streamlit?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/.streamlit",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/72fab062ce1833f1cb7715defa1d96bbb709fb8a",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/.streamlit?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/72fab062ce1833f1cb7715defa1d96bbb709fb8a",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/.streamlit"
+    }
+  },
+  {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "sha": "e2f61320302cc770799ccc36accfab8a366875f5",
+    "size": 5314,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/CLAUDE.md?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/CLAUDE.md",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/e2f61320302cc770799ccc36accfab8a366875f5",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/CLAUDE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/CLAUDE.md?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/e2f61320302cc770799ccc36accfab8a366875f5",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/CLAUDE.md"
+    }
+  },
+  {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "sha": "f56f3774922f47c741fecff14612a9f0758f4720",
+    "size": 553,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/Dockerfile?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/Dockerfile",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/f56f3774922f47c741fecff14612a9f0758f4720",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/Dockerfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/Dockerfile?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/f56f3774922f47c741fecff14612a9f0758f4720",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/Dockerfile"
+    }
+  },
+  {
+    "name": "LICENSES.md",
+    "path": "LICENSES.md",
+    "sha": "046a94ac6d6558926b0e7b0e272840c8d55b61a7",
+    "size": 6689,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/LICENSES.md?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/LICENSES.md",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/046a94ac6d6558926b0e7b0e272840c8d55b61a7",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/LICENSES.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/LICENSES.md?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/046a94ac6d6558926b0e7b0e272840c8d55b61a7",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/LICENSES.md"
+    }
+  },
+  {
+    "name": "METHODS.md",
+    "path": "METHODS.md",
+    "sha": "03d97716420fee2f296846e633ea720ad6a8c5de",
+    "size": 324,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/METHODS.md?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/METHODS.md",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/03d97716420fee2f296846e633ea720ad6a8c5de",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/METHODS.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/METHODS.md?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/03d97716420fee2f296846e633ea720ad6a8c5de",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/METHODS.md"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "be3bb7d47c46ee7b86d8155ad18e9c3f63624e85",
+    "size": 3688,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/README.md?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/be3bb7d47c46ee7b86d8155ad18e9c3f63624e85",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/be3bb7d47c46ee7b86d8155ad18e9c3f63624e85",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/README.md"
+    }
+  },
+  {
+    "name": "data",
+    "path": "data",
+    "sha": "b0713e0b9bae14256955334eac7f474ad4dfbe0f",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/data?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/data",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/b0713e0b9bae14256955334eac7f474ad4dfbe0f",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/data?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/b0713e0b9bae14256955334eac7f474ad4dfbe0f",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/data"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "d11feded30a801feafbfadae22d82abd3647133e",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/docs?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/docs",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/d11feded30a801feafbfadae22d82abd3647133e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/docs?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/d11feded30a801feafbfadae22d82abd3647133e",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/docs"
+    }
+  },
+  {
+    "name": "environment.yml",
+    "path": "environment.yml",
+    "sha": "23a6da5cc242b6b78fc725f165f06d3b950bcf6a",
+    "size": 2122,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/environment.yml?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/environment.yml",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/23a6da5cc242b6b78fc725f165f06d3b950bcf6a",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/environment.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/environment.yml?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/23a6da5cc242b6b78fc725f165f06d3b950bcf6a",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/environment.yml"
+    }
+  },
+  {
+    "name": "envs",
+    "path": "envs",
+    "sha": "dec0bc2a9afa6ab66234ae396c30352258dc430a",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/envs?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/envs",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/dec0bc2a9afa6ab66234ae396c30352258dc430a",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/envs?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/dec0bc2a9afa6ab66234ae396c30352258dc430a",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/envs"
+    }
+  },
+  {
+    "name": "notebooks",
+    "path": "notebooks",
+    "sha": "052952213ef9880b6c90445cfce742c16bef5bdb",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/notebooks?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/notebooks",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/052952213ef9880b6c90445cfce742c16bef5bdb",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/notebooks?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/052952213ef9880b6c90445cfce742c16bef5bdb",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/notebooks"
+    }
+  },
+  {
+    "name": "pytest.ini",
+    "path": "pytest.ini",
+    "sha": "c7b23ecb1408be49fb2fa8ef77ffa48640681e34",
+    "size": 42,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/pytest.ini?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/pytest.ini",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/c7b23ecb1408be49fb2fa8ef77ffa48640681e34",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/pytest.ini",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/pytest.ini?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/c7b23ecb1408be49fb2fa8ef77ffa48640681e34",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/pytest.ini"
+    }
+  },
+  {
+    "name": "reports",
+    "path": "reports",
+    "sha": "7b1770736224e0f66a9205b4882e3b80a0801d62",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/reports?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/reports",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/7b1770736224e0f66a9205b4882e3b80a0801d62",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/reports?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/7b1770736224e0f66a9205b4882e3b80a0801d62",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/reports"
+    }
+  },
+  {
+    "name": "requirements.txt",
+    "path": "requirements.txt",
+    "sha": "16f7e6aebceaeae12a891de2d43fd95b21100b6d",
+    "size": 1007,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/requirements.txt?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/requirements.txt",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/16f7e6aebceaeae12a891de2d43fd95b21100b6d",
+    "download_url": "https://raw.githubusercontent.com/scholaryzeacademy/antibody-developability-triage-pipeline/master/requirements.txt",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/requirements.txt?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/blobs/16f7e6aebceaeae12a891de2d43fd95b21100b6d",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/blob/master/requirements.txt"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "bf31759b5e72763584b36c87ddc1389d32a860ef",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/src?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/src",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/bf31759b5e72763584b36c87ddc1389d32a860ef",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/src?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/bf31759b5e72763584b36c87ddc1389d32a860ef",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/src"
+    }
+  },
+  {
+    "name": "tests",
+    "path": "tests",
+    "sha": "39dd635120eca6d6f76c22414a947394948eafd0",
+    "size": 0,
+    "url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/tests?ref=master",
+    "html_url": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/tests",
+    "git_url": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/39dd635120eca6d6f76c22414a947394948eafd0",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/contents/tests?ref=master",
+      "git": "https://api.github.com/repos/scholaryzeacademy/antibody-developability-triage-pipeline/git/trees/39dd635120eca6d6f76c22414a947394948eafd0",
+      "html": "https://github.com/scholaryzeacademy/antibody-developability-triage-pipeline/tree/master/tests"
+    }
+  }
+]

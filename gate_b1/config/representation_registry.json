@@ -1,0 +1,215 @@
+{
+  "A0_length": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols": [
+      "A0_vh_len",
+      "A0_vl_len",
+      "A0_total_len"
+    ],
+    "file": "stage_A_simple.csv"
+  },
+  "A1_aa_comp": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "A1_"
+    ],
+    "file": "stage_A_simple.csv"
+  },
+  "A2_physchem": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "A2_"
+    ],
+    "file": "stage_A_simple.csv"
+  },
+  "B_cdr_descriptors": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "B_"
+    ],
+    "file": "stage_B_cdr.csv"
+  },
+  "B_cdr_hydrophobicity_only": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols": [
+      "B_H_CDR1_gravy",
+      "B_H_CDR2_gravy",
+      "B_H_CDR3_gravy",
+      "B_L_CDR1_gravy",
+      "B_L_CDR2_gravy",
+      "B_L_CDR3_gravy",
+      "B_all_CDR_gravy",
+      "B_H_full_gravy",
+      "B_L_full_gravy"
+    ],
+    "diagnostic": "HIC_SIMPLE_HYDROPHOBICITY_RISK",
+    "file": "stage_B_cdr.csv"
+  },
+  "C_BIO_SHORTCUT": {
+    "categorical": [
+      "C_vh_family",
+      "C_vl_family",
+      "C_family_pair",
+      "C_kappa_lambda"
+    ],
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "C_"
+    ],
+    "file": "stage_C_shortcut.csv"
+  },
+  "ORG_germline_author": {
+    "categorical": [
+      "ILLEGAL_author_vh_germline",
+      "ILLEGAL_author_vl_germline"
+    ],
+    "class": "ILLEGAL_FOR_PARTICIPANTS",
+    "cols": [
+      "ILLEGAL_author_vh_germline",
+      "ILLEGAL_author_vl_germline"
+    ],
+    "file": "stage_ORG_illegal.csv"
+  },
+  "ORG_subset_only": {
+    "categorical": [
+      "ILLEGAL_b_cell_subset"
+    ],
+    "class": "ILLEGAL_FOR_PARTICIPANTS",
+    "cols": [
+      "ILLEGAL_b_cell_subset"
+    ],
+    "file": "stage_ORG_illegal.csv"
+  },
+  "ORG_subset_plus_germline": {
+    "categorical": [
+      "ILLEGAL_b_cell_subset",
+      "ILLEGAL_author_vh_germline",
+      "ILLEGAL_author_vl_germline"
+    ],
+    "class": "ILLEGAL_FOR_PARTICIPANTS",
+    "cols": [
+      "ILLEGAL_b_cell_subset",
+      "ILLEGAL_author_vh_germline",
+      "ILLEGAL_author_vl_germline"
+    ],
+    "file": "stage_ORG_illegal.csv"
+  },
+  "STR_ABB_INTERFACE": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ABB_"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/abodybuilder2_sasa_rasa.csv",
+    "include_substrings": [
+      "BSA",
+      "interface",
+      "isolated"
+    ]
+  },
+  "STR_ABB_SASA": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ABB_"
+    ],
+    "exclude_substrings": [
+      "_rasa",
+      "weighted",
+      "BSA",
+      "interface"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/abodybuilder2_sasa_rasa.csv",
+    "file": "abodybuilder2_sasa_rasa.csv",
+    "include_substrings": [
+      "_sasa",
+      "_total_sasa",
+      "_mean_sasa"
+    ]
+  },
+  "STR_ABB_SASA_RASA": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ABB_"
+    ],
+    "exclude_substrings": [
+      "weighted",
+      "BSA"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/abodybuilder2_sasa_rasa.csv",
+    "include_substrings": [
+      "sasa",
+      "rasa"
+    ]
+  },
+  "STR_ABB_SURFACE_PHYS": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ABB_"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/abodybuilder2_sasa_rasa.csv",
+    "include_substrings": [
+      "rasa_weighted",
+      "exposed_",
+      "sasa_hydrophobic",
+      "sasa_aromatic"
+    ]
+  },
+  "STR_ESMF_INTERFACE": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ESMF_"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/esmfold_sasa_rasa.csv",
+    "include_substrings": [
+      "BSA",
+      "interface",
+      "isolated"
+    ]
+  },
+  "STR_ESMF_SASA": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ESMF_"
+    ],
+    "exclude_substrings": [
+      "_rasa",
+      "weighted",
+      "BSA",
+      "interface"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/esmfold_sasa_rasa.csv",
+    "file": "esmfold_sasa_rasa.csv",
+    "include_substrings": [
+      "_sasa",
+      "_total_sasa",
+      "_mean_sasa"
+    ]
+  },
+  "STR_ESMF_SASA_RASA": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ESMF_"
+    ],
+    "exclude_substrings": [
+      "weighted",
+      "BSA"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/esmfold_sasa_rasa.csv",
+    "include_substrings": [
+      "sasa",
+      "rasa"
+    ]
+  },
+  "STR_ESMF_SURFACE_PHYS": {
+    "class": "PARTICIPANT_LEGAL",
+    "cols_prefix": [
+      "ESMF_"
+    ],
+    "feature_file": "/workspace_developability_acquisition/gate_b1/cache/structure_features/esmfold_sasa_rasa.csv",
+    "include_substrings": [
+      "rasa_weighted",
+      "exposed_",
+      "sasa_hydrophobic",
+      "sasa_aromatic"
+    ]
+  }
+}

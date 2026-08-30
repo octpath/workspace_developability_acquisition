@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_B_BALANCED_S02",
+  "order": 2,
+  "target": "HIC",
+  "persona": "B_BALANCED",
+  "model_name": "SEQ_SIMPLE_Ridge",
+  "model_stage": 1,
+  "feature": "SEQ_SIMPLE",
+  "hypothesis": "Sequence physchem/composition + Ridge.",
+  "cv_mae": 0.5811113213901968,
+  "cv_mae_std": 0.06888868714385074,
+  "cv_spearman": 0.3484433419025855,
+  "cv_pearson": 0.33966055523376465,
+  "public_mae": 0.669532127226486,
+  "public_spearman": 0.3476954876306225,
+  "public_pearson": 0.2791698458348464,
+  "personal_public_rank": 2,
+  "delta_public_vs_prev": 0.12870496673265897,
+  "train_seconds": 0.017092466354370117
+}

@@ -1,0 +1,276 @@
+[
+  {
+    "id": "5ee5b802-0433-4c7a-803a-1454ac241cd9",
+    "title": "GDPx1 \u2013 DRUG-seq Profiling of LOPAC 1280 in A549 Cells",
+    "slug": "gdpx1",
+    "description": "Transcriptomic profiling data using DRUG-seq of 1,264 compounds from the Library of Pharmacologically Active Compounds (LOPAC 1280), tested at two concentrations in A549 cells (a human lung carcinoma epithelial cell line).",
+    "details": {
+      "dataPackage": [
+        "Raw UMI counts",
+        "Compound metadata",
+        "Experimental setup (PDF)",
+        "Raw FASTQ files (optional, provided via separate link)"
+      ],
+      "methodology": "A subset of 1,264 compounds from the Library of Pharmacologically Active Compounds (LOPAC 1280) was tested at two concentrations (100 nM and 1,000 nM) using four technical replicates in A549 cells. Compounds were arrayed in 384-well format and sequenced using Ginkgo's proprietary DRUG-seq pipeline."
+    },
+    "tags": [
+      "DRUG-seq"
+    ],
+    "file_size": "60 GB",
+    "file_format": "CSV, Excel, PDF, FASTQ",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-video/2024-11-13%20Genomics_Spot_Light_ContrastUpdate.png",
+    "published_date": "2024-09-01T00:00:00+00:00",
+    "status": "published",
+    "created_at": "2025-05-22T23:05:50.986231+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": null,
+    "updated_by_email": "jandrosavich@ginkgobioworks.com",
+    "hubspot_form_id": "2a28db64-36ee-4898-a6f5-4b93c1f06444"
+  },
+  {
+    "id": "03dd5615-9a24-4226-823c-17000d50fcbb",
+    "title": "GDPx3 \u2013 Cell Painting Profiling of 46 Compounds in Primary Human Cell Types",
+    "slug": "gdpx3",
+    "description": "High-content imaging data using Cell Painting for 46 compounds tested in dose response across four cell types: dermal fibroblasts, aortic smooth muscle cells (AoSMCs), aortic endothelial cells, and A549 cells (a human non-small cell lung carcinoma epithelial cell line). Includes compounds that overlap with the LOPAC 1280 library featured in GDPx1 and GDPx2.",
+    "details": {
+      "dataPackage": [
+        "Raw images (TIFF)",
+        "Compound and control metadata",
+        "Experimental setup (README)",
+        "Cell Painting analysis pipeline guide"
+      ],
+      "methodology": "46 compounds were tested in dose response across four cell types using Ginkgo's proprietary Cell Painting protocol. Compounds were arrayed in 384-well format and imaged on the Araceli Endeavor instrument."
+    },
+    "tags": [
+      "Cell Painting"
+    ],
+    "file_size": "220 GB",
+    "file_format": "TIFF, CSV, Parquet, JSON",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-video/2024-11-13%20Genomics_Spot_Light_ContrastUpdate.png",
+    "published_date": "2025-05-05T00:00:00+00:00",
+    "status": "published",
+    "created_at": "2025-05-22T23:05:50.986231+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": null,
+    "updated_by_email": "pheuermann@ginkgobioworks.com",
+    "hubspot_form_id": "b282cb6b-cbe0-49ed-9163-5afb6c793024"
+  },
+  {
+    "id": "a50234f1-489a-481c-bc79-57d1d2b856ea",
+    "title": "GDPx2 \u2013 DRUG-seq Profiling of LOPAC 1280 Across Primary Human Cell Types",
+    "slug": "gdpx2",
+    "description": "Transcriptomic profiling data using DRUG-seq of 85 compounds from the Library of Pharmacologically Active Compounds (LOPAC 1280), tested at six concentrations across four human primary cell types: aortic smooth muscle cells (AoSMCs), skeletal muscle myoblasts (SkMMs), dermal fibroblasts, and melanocytes. Also includes processed data underlying the figures from the associated preprint: Mapping the Transcriptional Landscape of Drug Responses in Primary Human Cells Using High-Throughput DRUG-seq.",
+    "details": {
+      "dataPackage": [
+        "Processed data",
+        "Raw FASTQ files",
+        "Compound and control metadata",
+        "Experimental setup (PDF)"
+      ],
+      "methodology": "An 85-compound subset of the LOPAC 1280 library was tested at six concentrations (9.5, 28.5, 95, 300, 900, and 3,000 nM) using four technical replicates in four human primary cell types: AoSMCs, SkMMs, dermal fibroblasts, and melanocytes. Compounds were arrayed in 384-well format and sequenced using Ginkgo's proprietary DRUG-seq pipeline. Biological and analytical methods are detailed in the corresponding files and described in the associated preprint: https://www.biorxiv.org/content/10.1101/2025.06.03.657593v1"
+    },
+    "tags": [
+      "DRUG-seq"
+    ],
+    "file_size": "2.5 GB - 800 GB",
+    "file_format": "CSV, PDF, FASTQ",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-video/2024-11-13%20Genomics_Spot_Light_ContrastUpdate.png",
+    "published_date": "2024-12-01T00:00:00+00:00",
+    "status": "published",
+    "created_at": "2025-05-22T23:05:50.986231+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": null,
+    "updated_by_email": "jandrosavich@ginkgobioworks.com",
+    "hubspot_form_id": "9a03bc1e-a777-438f-9029-a90b6f5e9eb8"
+  },
+  {
+    "id": "7790af5b-88d6-430a-b4a3-bbf27aa5aba2",
+    "title": "GDPa3 \u2013 Antibody Developability Profiling of 80 IgGs from the Observed Antibody Space",
+    "slug": "gdpa3",
+    "description": "Biophysical assay results for 80 IgGs sampled from the Observed Antibody Space (OAS) database to represent sequence diversity, covering five developability assays: hydrophobicity (HIC), aggregation (SEC), thermostability (nanoDSF), titer, and polyreactivity (CHO). Includes raw measurements and quality control metrics.",
+    "details": {
+      "dataPackage": [
+        "80 IgGs",
+        "Raw data",
+        "Metadata"
+      ],
+      "methodology": "80 IgGs diversely sampled from the Observed Antibody Space (OAS) database were profiled across five developability assays. Biological and analytical methods are detailed in the corresponding files and described in the associated mAbs publication: https://www.tandfonline.com/doi/full/10.1080/19420862.2025.2593055?af=R"
+    },
+    "tags": [
+      "Antibody Developability"
+    ],
+    "file_size": "113 KB",
+    "file_format": "Excel",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-images/AbDev-card.png",
+    "published_date": "2026-01-08T12:30:13.634438+00:00",
+    "status": "published",
+    "created_at": "2026-01-08T12:30:13.634438+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": "smukherjee@ginkgobioworks.com",
+    "updated_by_email": "jandrosavich@ginkgobioworks.com",
+    "hubspot_form_id": "c51ccc77-039e-48f9-93f7-ed006d5d11e9"
+  },
+  {
+    "id": "5e61005d-daa1-4f8e-812f-df7c2bddd650",
+    "title": "GDPa1 \u2013 Antibody Developability Profiling of 246 IgGs",
+    "slug": "gdpa1",
+    "description": "Biophysical assay results for 246 IgGs, covering 10 developability assays: titer (Valita), purity (rCE-SDS), aggregation (SEC), thermostability (nanoDSF and DSF), colloidal stability (SMAC), hydrophobicity (HIC), heparin binding (HAC), self-association (AC-SINS), polyreactivity (bead-based assay against CHO SMP and ovalbumin), and self-association by DLS-kD (performed on a subset of 10 antibodies). Includes raw measurements and quality control metrics.",
+    "details": {
+      "dataPackage": [
+        "246 IgGs",
+        "Raw data",
+        "Metadata"
+      ],
+      "methodology": "246 IgGs were profiled across 10 developability assays spanning biophysical, colloidal, and functional properties. Biological and analytical methods are detailed in the corresponding files and described in the associated mAbs publication: https://www.tandfonline.com/doi/full/10.1080/19420862.2025.2593055?af=R"
+    },
+    "tags": [
+      "Antibody Developability"
+    ],
+    "file_size": "728 KB",
+    "file_format": "Excel",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-images/AbDev-card.png",
+    "published_date": "2025-05-01T00:00:00+00:00",
+    "status": "published",
+    "created_at": "2025-05-22T23:05:50.986231+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": null,
+    "updated_by_email": "jandrosavich@ginkgobioworks.com",
+    "hubspot_form_id": "ff4ff360-5d6c-448b-8c06-0c5df49234ed"
+  },
+  {
+    "id": "b2c5d118-5a3b-4609-9127-0461bcdd8576",
+    "title": "GDPsm1 \u2013 Tier 1 ADME Profiling of 320 LOPAC 1280 Compounds",
+    "slug": "gdpsm1",
+    "description": "Three ADME datasets profiling a 320-compound subset of the Library of Pharmacologically Active Compounds (LOPAC 1280): GDPsm1.1 (kinetic solubility), GDPsm1.2 (microsomal stability), and GDPsm1.3 (P450 inhibition). Each dataset includes raw data across biological replicates, analyzed outputs, and quality control metrics.",
+    "details": {
+      "dataPackage": [
+        "Raw data",
+        "Metadata",
+        "Summary QC metrics"
+      ],
+      "methodology": "A 320-compound subset of the LOPAC 1280 library was tested across three Tier 1 ADME assays: kinetic solubility, microsomal stability, and P450 inhibition. Biological and analytical methods are detailed in the corresponding files."
+    },
+    "tags": [
+      "Small Molecule Developability"
+    ],
+    "file_size": "504 KB",
+    "file_format": "Excel",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/admin-dynamic/uploads/1757106017270-Antibody_Brand_Light.png",
+    "published_date": "2025-09-14T20:35:25.025925+00:00",
+    "status": "published",
+    "created_at": "2025-09-14T20:35:25.025925+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": "nwang@ginkgobioworks.com",
+    "updated_by_email": "nwang@ginkgobioworks.com",
+    "hubspot_form_id": "be42bb28-c749-4fb8-adc2-6ccb23503a23"
+  },
+  {
+    "id": "b2e0710c-051a-49c6-b425-9b33891714f8",
+    "title": "GDPa2.1 \u2013 Antibody Developability Profiling of 18 VHH Constructs",
+    "slug": "gdpa2-1",
+    "description": "Biophysical assay results for 18 VHH (nanobody) constructs \u2014 including both VHH-His and VHH-Fc formats \u2014 covering five developability assays: hydrophobicity (HIC), aggregation (SEC % monomer), colloidal stability (SMAC), heparin binding (HAC), self-association (AC-SINS at pH 7.4 and pH 6.0), and thermostability (nanoDSF Tonset, Tm1, Tm2, Tm3, and DSF Tonset, Tm1). VHH constructs represent a distinct antibody class from conventional IgGs, offering a compact single-domain format of growing interest in drug discovery for applications including intracellular targeting, multispecific formats, and CNS penetration. Includes raw measurements and quality control metrics.",
+    "details": {
+      "dataPackage": [
+        "18 VHH-His and VHH-Fc constructs",
+        "Raw data",
+        "Metadata"
+      ],
+      "methodology": "18 VHH constructs (VHH-His and VHH-Fc) were profiled across five developability assay categories spanning thermostability, aggregation, colloidal stability, hydrophobicity, and self-association. Biological and analytical methods are detailed in the corresponding files and described in the associated mAbs publication: https://www.tandfonline.com/doi/full/10.1080/19420862.2025.2593055?af=R"
+    },
+    "tags": [
+      "Antibody Developability"
+    ],
+    "file_size": "301 KB",
+    "file_format": "Excel",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-images/AbDev-card.png",
+    "published_date": "2025-10-14T21:38:30.097345+00:00",
+    "status": "published",
+    "created_at": "2025-10-14T21:38:30.097345+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": "smukherjee@ginkgobioworks.com",
+    "updated_by_email": "jandrosavich@ginkgobioworks.com",
+    "hubspot_form_id": "1c8041cc-daf7-4f14-8889-80a9f0c06128"
+  },
+  {
+    "id": "302d4ddd-16bb-48d7-9bb4-a750f3c43ac0",
+    "title": "GDPx4 \u2013 DRUG-seq Dose-Response Screen in Engineered HEK293 Cells",
+    "slug": "gdpx4",
+    "description": "Transcriptomic profiling data using DRUG-seq of 406 compounds screened at six concentrations (0.03\u201310 \u00b5M) in engineered HEK293 cells. The cell line carries a clonal, genomically mapped insertion of the adenovirus type-5 E1A region, which synchronizes proliferative state and reduces transcriptomic noise from cell-cycle heterogeneity, enabling high-fidelity detection of compound-induced transcriptional shifts.",
+    "details": {
+      "dataPackage": [
+        "Processed data",
+        "Compound and control metadata",
+        "Experimental setup (PDF)"
+      ],
+      "methodology": "406 compounds were screened at six concentrations (0.03, 0.1, 0.3, 1, 3, and 10 \u00b5M) using two technical replicates in engineered HEK293 cells. Compounds were arrayed in 384-well format and sequenced using Ginkgo's proprietary DRUG-seq pipeline."
+    },
+    "tags": [
+      "DRUG-seq"
+    ],
+    "file_size": "82 MB",
+    "file_format": "CSV, PDF",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-video/2024-11-13%20Genomics_Spot_Light_ContrastUpdate.png",
+    "published_date": "2026-03-05T15:29:02.471685+00:00",
+    "status": "published",
+    "created_at": "2026-03-05T15:29:02.471685+00:00",
+    "updated_at": "2026-04-04T14:05:21.339479+00:00",
+    "created_by_email": "pheuermann@ginkgobioworks.com",
+    "updated_by_email": "jandrosavich@ginkgobioworks.com",
+    "hubspot_form_id": "d9af36d6-b459-4869-aabd-9345e3a8916a"
+  },
+  {
+    "id": "5531fce2-eeb0-4655-b0ed-69d7ee1440a6",
+    "title": "GDPa4 \u2013 Antibody Developability Profiling of 160 Bispecific Antibodies and 65 IgGs derived from GDPa1",
+    "slug": "gdpa4",
+    "description": "Biophysical assay results for 160 bispecific antibodies built from a diverse panel of 65 IgGs selected from GDPa1, covering 10 developability assays: thermostability (nanoDSF), colloidal stability (SMAC), hydrophobicity (HIC), heparin binding (HAC), self-association (AC-SINS in 3 buffer conditions), polyreactivity (CHO lysate, Ovalbumin, Baculovirus Particle). Includes raw measurements and quality control metrics.",
+    "details": {
+      "dataPackage": [
+        "160 Bispecific Antibodies",
+        "65 IgGs",
+        "Raw data",
+        "Metadata"
+      ],
+      "methodology": "160 Bispecific antibodies and 65 IgGs were profiled across 10 developability assays spanning biophysical, colloidal, and binding properties. Biological and analytical methods are detailed in the corresponding files and described in the associated preprint: https://www.biorxiv.org/content/10.64898/2026.06.15.732449v1"
+    },
+    "tags": [
+      "Antibody Developability"
+    ],
+    "file_size": "832 KB",
+    "file_format": "Excel",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-images/AbDev-card.png",
+    "published_date": "2026-06-17T14:40:10.280568+00:00",
+    "status": "published",
+    "created_at": "2026-06-17T14:40:10.280568+00:00",
+    "updated_at": "2026-06-22T15:44:55.050976+00:00",
+    "created_by_email": "smukherjee@ginkgobioworks.com",
+    "updated_by_email": "smukherjee@ginkgobioworks.com",
+    "hubspot_form_id": "eab52483-273d-46bd-b718-f36eb8286c50"
+  },
+  {
+    "id": "7a13d357-c0fc-4b61-b746-8fc02d698262",
+    "title": "GDPa5 - Antibody Developability Profiling of 160 Clinical and Non-clinical VHHs",
+    "slug": "gdpa5",
+    "description": "Biophysical assay results for 160 VHH antibodies built from a diverse selection of VHHs from PLAbDAb-nano, seeding with 36 clinical sequences covering 10 developability assays: thermostability (nanoDSF), colloidal stability (SMAC), hydrophobicity (HIC), heparin binding (HAC), self-association (AC-SINS in 3 buffer conditions), polyreactivity (CHO lysate, Ovalbumin, Baculovirus Particle in two blocking buffers). Includes raw measurements and quality control metrics.",
+    "details": {
+      "dataPackage": [
+        "160 VHH Antibodies",
+        "Raw data",
+        "Metadata"
+      ],
+      "methodology": "124 non-clinical and 36 clinical VHH antibodies were profiled across 10 developability assays spanning biophysical, colloidal, and binding properties. Biological and analytical methods are detailed in the corresponding files and described in the associated preprint: https://www.biorxiv.org/content/10.64898/2026.08.18.745296v1"
+    },
+    "tags": [
+      "Antibody Developability"
+    ],
+    "file_size": "307 KB",
+    "file_format": "Excel",
+    "thumbnail_url": "https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/gdpweb/simon-images/AbDev-card.png",
+    "published_date": "2026-08-18T14:23:03.242535+00:00",
+    "status": "published",
+    "created_at": "2026-08-18T14:23:03.242535+00:00",
+    "updated_at": "2026-08-24T14:30:25.57357+00:00",
+    "created_by_email": "smukherjee@ginkgobioworks.com",
+    "updated_by_email": "smukherjee@ginkgobioworks.com",
+    "hubspot_form_id": "8577c4a8-07ef-4625-ab5b-66f8aa5ff31d"
+  }
+]

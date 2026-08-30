@@ -1,0 +1,22 @@
+{
+  "final_status": "PARTIAL_DATASET_RECONSTRUCTABLE",
+  "detail_status": [
+    "CONTINUOUS_TARGET_NOT_RECOVERED_FOR_FULL_229",
+    "PARTIAL_CONTINUOUS_FROM_NOTEBOOK_OUTPUTS",
+    "BINARY_TARGET_NOT_PUBLICLY_TABLED",
+    "PUBLIC_SEQUENCE_LABEL_JOIN_NOT_RECOVERABLE_FOR_FULL_229"
+  ],
+  "n_continuous_partial_labels": 153,
+  "n_demo_paired_sequences": 16,
+  "n_high_confidence_joined_rows": 6,
+  "training_files_referenced_but_absent": [
+    "data/AZ_seq_vis.csv",
+    "data/AZ_DeepSP_features.csv",
+    "data/AZ_seq_clustered.csv",
+    "data/DeepVis_independent_testset.csv",
+    "data/AZ_Apgar_others.csv"
+  ],
+  "paper_statement": "DV_mAb_229 datasets used for training and validation are proprietary and were not shared.",
+  "formulation_condition_reported": "20 mM histidine-HCl, pH 6.0, 150 mg/mL, 25 C",
+  "binary_threshold_cP": 20
+}

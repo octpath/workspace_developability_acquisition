@@ -1,0 +1,16 @@
+#!/bin/bash
+REAL_MUSCLE=/usr/bin/muscle
+in_file=""; out_file=""; args=()
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -in) in_file="$2"; shift 2 ;;
+    -out) out_file="$2"; shift 2 ;;
+    -gapopen) shift 2 ;; # ignore unsupported
+    *) args+=("$1"); shift ;;
+  esac
+done
+if [[ -n "$in_file" && -n "$out_file" ]]; then
+  exec "$REAL_MUSCLE" -align "$in_file" -output "$out_file" "${args[@]}"
+else
+  exec "$REAL_MUSCLE" "${args[@]}"
+fi

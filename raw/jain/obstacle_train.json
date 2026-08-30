@@ -1,0 +1,50 @@
+[
+  {
+    "name": "BOUGHTER_DATA_PROVENANCE.md",
+    "path": "data/train/BOUGHTER_DATA_PROVENANCE.md",
+    "sha": "ea15c403b1a74c5bdb0ad186af4a91be781c9143",
+    "size": 15665,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/train/BOUGHTER_DATA_PROVENANCE.md?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/blob/main/data/train/BOUGHTER_DATA_PROVENANCE.md",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/blobs/ea15c403b1a74c5bdb0ad186af4a91be781c9143",
+    "download_url": "https://raw.githubusercontent.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/main/data/train/BOUGHTER_DATA_PROVENANCE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/train/BOUGHTER_DATA_PROVENANCE.md?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/blobs/ea15c403b1a74c5bdb0ad186af4a91be781c9143",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/blob/main/data/train/BOUGHTER_DATA_PROVENANCE.md"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "data/train/README.md",
+    "sha": "48251fe7e9a885f9ae732dd725fd9c61ca468304",
+    "size": 1935,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/train/README.md?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/blob/main/data/train/README.md",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/blobs/48251fe7e9a885f9ae732dd725fd9c61ca468304",
+    "download_url": "https://raw.githubusercontent.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/main/data/train/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/train/README.md?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/blobs/48251fe7e9a885f9ae732dd725fd9c61ca468304",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/blob/main/data/train/README.md"
+    }
+  },
+  {
+    "name": "boughter",
+    "path": "data/train/boughter",
+    "sha": "4ac795c7d1a166f5a58b6e7dd768eb431d1cff96",
+    "size": 0,
+    "url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/train/boughter?ref=main",
+    "html_url": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/train/boughter",
+    "git_url": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/4ac795c7d1a166f5a58b6e7dd768eb431d1cff96",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/contents/data/train/boughter?ref=main",
+      "git": "https://api.github.com/repos/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/git/trees/4ac795c7d1a166f5a58b6e7dd768eb431d1cff96",
+      "html": "https://github.com/The-Obstacle-Is-The-Way/antibody_training_pipeline_ESM/tree/main/data/train/boughter"
+    }
+  }
+]

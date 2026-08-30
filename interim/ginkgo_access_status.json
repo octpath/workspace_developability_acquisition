@@ -1,0 +1,38 @@
+{
+  "GDPa1": {
+    "status": "ACCESS_BLOCKED_ONLY_BY_AUTHENTICATION",
+    "expected_antibodies_paper": 246,
+    "expected_antibodies_processed_csv_readme": 242,
+    "explanation_242_vs_246": "Paper/blog and full production batch describe 246 unique antibodies (106 approved + 135 clinical-stage + 5 preregistration/withdrawn). HF README intro and processed averaged CSV describe 242 antibodies. README data-processing note: averaging uses the first production batch (which contained all 246), taking median across replicates. The 4-antibody gap between 246 and 242 is not explicitly itemized in public metadata; likely assay-incomplete filtering in the processed CSV release. Do not silently pick one count \u2014 verify against full Excel after HF access.",
+    "files_after_access": [
+      "GDPa1_v1.2_20250814.csv",
+      "GDPa1_v1.2_20250814_full.xlsx",
+      "structures/",
+      "LICENSE.md",
+      "README.md"
+    ],
+    "assays": [
+      "Titer (Valita)",
+      "Purity (rCE-SDS)",
+      "Aggregation (SEC)",
+      "Thermostability (nanoDSF/DSF) incl Tm2",
+      "SMAC",
+      "HIC",
+      "HAC",
+      "AC-SINS",
+      "Polyreactivity (CHO SMP / ovalbumin)",
+      "DLS-kD (subset ~10)"
+    ],
+    "sequences": "VH+VL in full Excel datasheet per README",
+    "license": "CC BY 4.0 with commercial-use restriction wording in LICENSE.md",
+    "gated": "auto (share contact info / accept conditions)"
+  },
+  "GDPa3": {
+    "status": "ACCESS_LOCATION_UNCLEAR_LIKELY_GATED",
+    "expected_antibodies": 80,
+    "description": "Held-out OAS-diverse IgG panel from 2025 AbDev competition; assays include HIC, SEC, nanoDSF, titer, polyreactivity (CHO).",
+    "claimed_download": "https://datapoints.ginkgo.bio/dataset-access",
+    "huggingface": "Not listed under ginkgo-datapoints org datasets API at audit time (only GDPa1 + GDPx1-4).",
+    "sequences": "Paired sequences expected (OAS-sampled); confirm after access"
+  }
+}

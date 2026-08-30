@@ -1,0 +1,6 @@
+method,n_rows,n_unique_sequences,tm_min,tm_max,tm_median,n_dois
+nanoDSF,72,72,46.8,85.75,66.82499999999999,6
+DSF (SYPRO),245,241,39.0,95.0,67.41467662,24
+DSC,15,15,55.0,81.9,61.0,2
+Circular dichroism,283,267,43.0,98.23,69.5,33
+Other,5,5,57.9,66.7,64.1,2

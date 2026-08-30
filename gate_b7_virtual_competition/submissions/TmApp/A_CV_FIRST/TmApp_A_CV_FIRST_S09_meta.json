@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_A_CV_FIRST_S09",
+  "order": 9,
+  "target": "TmApp",
+  "persona": "A_CV_FIRST",
+  "model_name": "ENSEMBLE_TOP3_CV",
+  "model_stage": 6,
+  "feature": "ENSEMBLE_TOP2_CV+BIO_ABLANG2_Ridge+BIO_Ridge",
+  "hypothesis": "Expand ensemble to top-3 CV.",
+  "cv_mae": 2.736083958345015,
+  "cv_mae_std": 0.20730913409055737,
+  "cv_spearman": 0.6092394610443153,
+  "cv_pearson": 0.5890429322011029,
+  "public_mae": 3.464876434728561,
+  "public_spearman": 0.5027465166289775,
+  "public_pearson": 0.4745007806228978,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -4.440892098500626e-16,
+  "train_seconds": 0.0012602806091308594
+}

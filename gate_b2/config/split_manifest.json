@@ -1,0 +1,292 @@
+{
+  "HIC": {
+    "n_candidates_scored": 120,
+    "selected": {
+      "canonical": {
+        "counts": {
+          "Dev": 208,
+          "Private": 70,
+          "Public": 70
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.3530377668308702,
+        "mean_pen": 0.10966100691438421,
+        "n_groups_priv": 37,
+        "n_groups_pub": 33,
+        "nn_pen": 0.020195095590162415,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/hic_canonical.csv",
+        "q_pen": 0.25582448562861354,
+        "score": 1.1712187324967112,
+        "sd_pen": 0.06378100951589205,
+        "seed": 20262616,
+        "sha256": "4bb92a3fecac6a6d144cc07efabf0b5b0e4b09d26b008cf07c4fd441ef85829a",
+        "size_pen": 0.004597701149425204,
+        "subset_pen": 0.21018062397372744
+      },
+      "shadow_1": {
+        "counts": {
+          "Dev": 207,
+          "Private": 70,
+          "Public": 71
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.26805892828233774,
+        "mean_pen": 0.05950882001681878,
+        "n_groups_priv": 32,
+        "n_groups_pub": 35,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/hic_shadow_1.csv",
+        "q_pen": 0.26131508695936845,
+        "score": 1.221015436592276,
+        "sd_pen": 0.2108917665116767,
+        "seed": 20262605,
+        "sha256": "c7c878c89c09b0effeb207eee657d0d38fc287af3b8dd98da4addbbe5af66cc5",
+        "size_pen": 0.010344827586206834,
+        "subset_pen": 0.2872429982192003
+      },
+      "shadow_2": {
+        "counts": {
+          "Dev": 201,
+          "Private": 70,
+          "Public": 77
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.2926406926406926,
+        "mean_pen": 0.03890311009089613,
+        "n_groups_priv": 36,
+        "n_groups_pub": 52,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/hic_shadow_2.csv",
+        "q_pen": 0.23810136482777927,
+        "score": 1.255984949910434,
+        "sd_pen": 0.12361601929089258,
+        "seed": 20262593,
+        "sha256": "2fb3f75bdd2868ae743144481b8862161ceacfec3ac326ebf8885c0250387167",
+        "size_pen": 0.04482758620689653,
+        "subset_pen": 0.3621734587251829
+      },
+      "shadow_3": {
+        "counts": {
+          "Dev": 204,
+          "Private": 70,
+          "Public": 74
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.24157901744108645,
+        "mean_pen": 0.0754799709285408,
+        "n_groups_priv": 48,
+        "n_groups_pub": 35,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/hic_shadow_3.csv",
+        "q_pen": 0.23392841737158032,
+        "score": 1.2649584654927515,
+        "sd_pen": 0.3004784219854535,
+        "seed": 20262586,
+        "sha256": "52997d59d06a02ad9af587172c4beb5571cfe55941936c2288b29c2c5e605dc3",
+        "size_pen": 0.027586206896551724,
+        "subset_pen": 0.2200372786579684
+      },
+      "shadow_4": {
+        "counts": {
+          "Dev": 208,
+          "Private": 70,
+          "Public": 70
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.21001642036124796,
+        "mean_pen": 0.1330126971290971,
+        "n_groups_priv": 40,
+        "n_groups_pub": 50,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/hic_shadow_4.csv",
+        "q_pen": 0.2737362713088023,
+        "score": 1.3015719038408744,
+        "sd_pen": 0.20346815561752296,
+        "seed": 20262591,
+        "sha256": "d4ef83a5ac56b6c7fa29edae52547c8510352f51a1d0beaf1d0ab9957e5d0d73",
+        "size_pen": 0.004597701149425204,
+        "subset_pen": 0.33021346469622337
+      },
+      "shadow_5": {
+        "counts": {
+          "Dev": 208,
+          "Private": 87,
+          "Public": 53
+        },
+        "frac_priv": 0.25,
+        "frac_pub": 0.15,
+        "geometry": "0.60/0.15/0.25",
+        "germ_pen": 0.22771633051398832,
+        "mean_pen": 0.055210080610486434,
+        "n_groups_priv": 44,
+        "n_groups_pub": 30,
+        "nn_pen": 0.004708231712371669,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/hic_shadow_5.csv",
+        "q_pen": 0.25818825824292546,
+        "score": 1.3404546251809812,
+        "sd_pen": 0.08359685064389213,
+        "seed": 20263600,
+        "sha256": "2968b54bfacf67e5a2d7e0daa5ecff52d708fb43e956d0872e66c2dce98f51d3",
+        "size_pen": 0.09999999999999992,
+        "subset_pen": 0.3167425721101713
+      }
+    },
+    "target": "HIC",
+    "threshold": 0.9
+  },
+  "TmApp": {
+    "n_candidates_scored": 120,
+    "selected": {
+      "canonical": {
+        "counts": {
+          "Dev": 197,
+          "Private": 70,
+          "Public": 79
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.23188911768702494,
+        "mean_pen": 0.10780317269617821,
+        "n_groups_priv": 44,
+        "n_groups_pub": 35,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/tmapp_canonical.csv",
+        "q_pen": 0.2623771327791043,
+        "score": 1.3127479671544486,
+        "sd_pen": 0.08070321423791155,
+        "seed": 20269280,
+        "sha256": "2f5a5be50672052e405b6c03cb1afd0555f2ec7a2b8342f618cdb6401347d38c",
+        "size_pen": 0.06127167630057803,
+        "subset_pen": 0.32633768514356787
+      },
+      "shadow_1": {
+        "counts": {
+          "Dev": 189,
+          "Private": 87,
+          "Public": 70
+        },
+        "frac_priv": 0.25,
+        "frac_pub": 0.2,
+        "geometry": "0.55/0.20/0.25",
+        "germ_pen": 0.28208661977846755,
+        "mean_pen": 0.06399433361088483,
+        "n_groups_priv": 50,
+        "n_groups_pub": 37,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/tmapp_shadow_1.csv",
+        "q_pen": 0.24842400280082721,
+        "score": 1.3418760971589725,
+        "sd_pen": 0.051792400736398625,
+        "seed": 20271268,
+        "sha256": "7ee57306c53a23ccab0c76fcfd71087c9782faa4f04781a070f5f25526fdffb3",
+        "size_pen": 0.10751445086705202,
+        "subset_pen": 0.27103277428172795
+      },
+      "shadow_2": {
+        "counts": {
+          "Dev": 205,
+          "Private": 71,
+          "Public": 70
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.19301008362312605,
+        "mean_pen": 0.10743984532423398,
+        "n_groups_priv": 53,
+        "n_groups_pub": 26,
+        "nn_pen": 0.010549696579243761,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/tmapp_shadow_2.csv",
+        "q_pen": 0.25767459304885443,
+        "score": 1.3505915256991987,
+        "sd_pen": 0.03836062651762659,
+        "seed": 20269288,
+        "sha256": "0d25860a08a18e337f0483f1df818e347814a72120684df5bc47e2db3eb853ce",
+        "size_pen": 0.015028901734104066,
+        "subset_pen": 0.6422535211267606
+      },
+      "shadow_3": {
+        "counts": {
+          "Dev": 202,
+          "Private": 70,
+          "Public": 74
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.3443792264601514,
+        "mean_pen": 0.0920652224159554,
+        "n_groups_priv": 24,
+        "n_groups_pub": 33,
+        "nn_pen": 0.024162001947123812,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/tmapp_shadow_3.csv",
+        "q_pen": 0.2943912540348102,
+        "score": 1.4170102431016849,
+        "sd_pen": 0.1075004523103372,
+        "seed": 20269279,
+        "sha256": "86642c17b6454e3be6cec92b30c1684248565e7b4b0ad2b8d838b7ad5e8509b5",
+        "size_pen": 0.032369942196531776,
+        "subset_pen": 0.32417702591112996
+      },
+      "shadow_4": {
+        "counts": {
+          "Dev": 206,
+          "Private": 70,
+          "Public": 70
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.14137076796036344,
+        "mean_pen": 0.2182356675822903,
+        "n_groups_priv": 41,
+        "n_groups_pub": 47,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/tmapp_shadow_4.csv",
+        "q_pen": 0.3138574722771458,
+        "score": 1.425538885817302,
+        "sd_pen": 0.11542560047075694,
+        "seed": 20269286,
+        "sha256": "64821ffddddecfac2945d2d6a615f87f165165794d43c6138b3658763e959f50",
+        "size_pen": 0.009248554913294793,
+        "subset_pen": 0.4285714285714286
+      },
+      "shadow_5": {
+        "counts": {
+          "Dev": 187,
+          "Private": 71,
+          "Public": 88
+        },
+        "frac_priv": 0.2,
+        "frac_pub": 0.2,
+        "geometry": "0.60/0.20/0.20",
+        "germ_pen": 0.27242197271913143,
+        "mean_pen": 0.07721715192083098,
+        "n_groups_priv": 44,
+        "n_groups_pub": 53,
+        "nn_pen": 0.0,
+        "path": "/workspace_developability_acquisition/gate_b2/splits/tmapp_shadow_5.csv",
+        "q_pen": 0.30548548318878754,
+        "score": 1.4466718060436592,
+        "sd_pen": 0.02891406469864577,
+        "seed": 20269270,
+        "sha256": "9293c9122df60eabae8b76090055a0d5f0e56bff99911b18f9a5439dcf3f618d",
+        "size_pen": 0.11907514450867043,
+        "subset_pen": 0.2675704780443037
+      }
+    },
+    "target": "TmApp",
+    "threshold": 0.9
+  }
+}

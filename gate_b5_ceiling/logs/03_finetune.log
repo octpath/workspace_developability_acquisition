@@ -1,0 +1,17 @@
+TmApp lora lr=3e-05 seed=0 fold=0
+TmApp lora lr=3e-05 seed=0 fold=1
+TmApp lora lr=3e-05 seed=0 fold=2
+SUMMARY TmApp lora lr=3e-05 mae=62.7765
+TmApp lora lr=0.0001 seed=0 fold=0
+TmApp lora lr=0.0001 seed=0 fold=1
+TmApp lora lr=0.0001 seed=0 fold=2
+SUMMARY TmApp lora lr=0.0001 mae=40.9236
+HIC lora lr=3e-05 seed=0 fold=0
+HIC lora lr=3e-05 seed=0 fold=1
+HIC lora lr=3e-05 seed=0 fold=2
+SUMMARY HIC lora lr=3e-05 mae=2.3383
+HIC lora lr=0.0001 seed=0 fold=0
+HIC lora lr=0.0001 seed=0 fold=1
+HIC lora lr=0.0001 seed=0 fold=2
+SUMMARY HIC lora lr=0.0001 mae=0.5171
+DONE finetune in 5.6 min

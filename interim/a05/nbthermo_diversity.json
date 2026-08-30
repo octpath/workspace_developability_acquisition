@@ -1,0 +1,56 @@
+{
+  "n_json": 548,
+  "n_seq_plus_tm": 514,
+  "n_unique_seq_with_tm": 496,
+  "prefix70_families": 400,
+  "prefix70_singletons": 350,
+  "largest_prefix70_family": 19,
+  "method_stats": [
+    {
+      "method": "nanoDSF",
+      "n_rows": 72,
+      "n_unique_sequences": 72,
+      "tm_min": 46.8,
+      "tm_max": 85.75,
+      "tm_median": 66.82499999999999,
+      "n_dois": 6
+    },
+    {
+      "method": "DSF (SYPRO)",
+      "n_rows": 245,
+      "n_unique_sequences": 241,
+      "tm_min": 39.0,
+      "tm_max": 95.0,
+      "tm_median": 67.41467662,
+      "n_dois": 24
+    },
+    {
+      "method": "DSC",
+      "n_rows": 15,
+      "n_unique_sequences": 15,
+      "tm_min": 55.0,
+      "tm_max": 81.9,
+      "tm_median": 61.0,
+      "n_dois": 2
+    },
+    {
+      "method": "Circular dichroism",
+      "n_rows": 283,
+      "n_unique_sequences": 267,
+      "tm_min": 43.0,
+      "tm_max": 98.23,
+      "tm_median": 69.5,
+      "n_dois": 33
+    },
+    {
+      "method": "Other",
+      "n_rows": 5,
+      "n_unique_sequences": 5,
+      "tm_min": 57.9,
+      "tm_max": 66.7,
+      "tm_median": 64.1,
+      "n_dois": 2
+    }
+  ],
+  "paper_claimed_564_vs_json_548": true
+}

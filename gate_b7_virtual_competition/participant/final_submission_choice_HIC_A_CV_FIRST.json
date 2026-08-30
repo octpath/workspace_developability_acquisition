@@ -1,0 +1,15 @@
+{
+  "target": "HIC",
+  "persona": "A_CV_FIRST",
+  "FINAL_PRIMARY_SUBMISSION": "HIC_A_CV_FIRST_S04",
+  "FINAL_BACKUP_SUBMISSION": "HIC_A_CV_FIRST_S06",
+  "reason": "CV-first: minimize CV MAE; Public only as tie-break.",
+  "primary_model": "STRUCT_ElasticNet",
+  "backup_model": "FUSION_ESM2_STRUCT_ENet",
+  "known_at_selection": {
+    "primary_cv_mae": 0.47795781488736383,
+    "primary_public_mae": 0.5260061809498255,
+    "backup_cv_mae": 0.4852201547789042,
+    "backup_public_mae": 0.513408336546995
+  }
+}

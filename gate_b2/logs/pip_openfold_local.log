@@ -1,0 +1,7 @@
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+Resolved 1 package in 1.20s
+   Building openfold @ file:///tmp/openfold_src
+      Built openfold @ file:///tmp/openfold_src
+Prepared 1 package in 36.16s
+Installed 1 package in 0.38ms
+ + openfold==2.2.0 (from file:///tmp/openfold_src)

@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_A_CV_FIRST_S02",
+  "order": 2,
+  "target": "TmApp",
+  "persona": "A_CV_FIRST",
+  "model_name": "SEQ_SIMPLE_Ridge",
+  "model_stage": 1,
+  "feature": "SEQ_SIMPLE",
+  "hypothesis": "Simple sequence descriptors + Ridge.",
+  "cv_mae": 3.7529942297085777,
+  "cv_mae_std": 0.4664063602349572,
+  "cv_spearman": 0.17311308640935516,
+  "cv_pearson": 0.22944785469758397,
+  "public_mae": 3.5762688250328276,
+  "public_spearman": 0.40425186928562845,
+  "public_pearson": 0.3826390536409888,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.20768179225112293,
+  "train_seconds": 0.03527498245239258
+}

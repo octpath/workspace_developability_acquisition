@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_A_CV_FIRST_S03",
+  "order": 3,
+  "target": "TmApp",
+  "persona": "A_CV_FIRST",
+  "model_name": "BIO_Ridge",
+  "model_stage": 2,
+  "feature": "BIO",
+  "hypothesis": "BIO annotations may capture developability-relevant motifs.",
+  "cv_mae": 3.2267017166911938,
+  "cv_mae_std": 0.49117728055917326,
+  "cv_spearman": 0.4550582346739503,
+  "cv_pearson": 0.4316917873353645,
+  "public_mae": 3.7336199438702398,
+  "public_spearman": 0.35488587736414273,
+  "public_pearson": 0.3213463624847796,
+  "personal_public_rank": 2,
+  "delta_public_vs_prev": 0.15735111883741215,
+  "train_seconds": 0.025327444076538086
+}

@@ -1,0 +1,20 @@
+{
+  "submission_id": "TmApp_B_BALANCED_S05",
+  "order": 5,
+  "target": "TmApp",
+  "persona": "B_BALANCED",
+  "model_name": "ESM2_PCA64_SVR",
+  "model_stage": 3,
+  "feature": "ESM2_PCA64",
+  "hypothesis": "General protein LM (ESM2) as alternative PLM.",
+  "cv_mae": 3.361424574498761,
+  "cv_mae_std": 0.31643951131489967,
+  "cv_spearman": 0.19691564137555317,
+  "cv_pearson": 0.23362827025343308,
+  "public_mae": 3.5249414977478475,
+  "public_spearman": 0.4147285804832515,
+  "public_pearson": 0.4359947578736543,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.11988985746318503,
+  "train_seconds": 13.707873582839966
+}

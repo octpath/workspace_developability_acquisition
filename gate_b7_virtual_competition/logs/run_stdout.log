@@ -1,0 +1,20 @@
+Loading competition data...
+Protocol hash d2b485131e570b80b03167d47a1aa34d763b7f623923589ae9c3c40ff5b4f168
+Prewarming features for TmApp...
+=== LIVE SIM TmApp A_CV_FIRST ===
+  n_subs=9 final=TmApp_A_CV_FIRST_S09 cv=2.7361 pub=3.4649 PRIV=3.3518
+=== LIVE SIM TmApp B_BALANCED ===
+  n_subs=8 final=TmApp_B_BALANCED_S07 cv=3.2322 pub=3.4949 PRIV=3.4727
+=== LIVE SIM TmApp C_PUBLIC_DRIVEN ===
+  n_subs=9 final=TmApp_C_PUBLIC_DRIVEN_S06 cv=3.4601 pub=3.4178 PRIV=3.4921
+Prewarming features for HIC...
+=== LIVE SIM HIC A_CV_FIRST ===
+  n_subs=7 final=HIC_A_CV_FIRST_S04 cv=0.4780 pub=0.5260 PRIV=0.4735
+=== LIVE SIM HIC B_BALANCED ===
+  n_subs=9 final=HIC_B_BALANCED_S08 cv=0.4727 pub=0.5091 PRIV=0.4494
+=== LIVE SIM HIC C_PUBLIC_DRIVEN ===
+  n_subs=9 final=HIC_C_PUBLIC_DRIVEN_S08 cv=0.4852 pub=0.5134 PRIV=0.4437
+Analyzing...
+Plotting...
+Wrote final report
+DONE /workspace_developability_acquisition/gate_b7_virtual_competition/reports/GATE_B7_VIRTUAL_COMPETITION_FINAL.md

@@ -1,0 +1,137 @@
+{
+  "b_cell_subset_counts": {
+    "IgG memory": 146,
+    "IgM memory": 65,
+    "LLPCs": 145,
+    "Na\u00efve": 44
+  },
+  "conflicting_labels_same_pair": [],
+  "filter_rules": [
+    "Start from interim/shehata_full_joined.csv (400 ADI clones with VH+VL protein).",
+    "mmc2.xlsx has 402 sheet rows of which 2 are legend footnotes (not clones) \u2192 400 clones.",
+    "Gap characters '-' in author protein strings are stripped for modeling sequences (clean_aa).",
+    "Non-standard letters outside ACDEFGHIKLMNPQRSTVWY are stripped if present.",
+    "Rows are NEVER deleted solely for missing labels; subset tables are created instead.",
+    "TRIPLE_CORE = rows with non-null PSR, HIC, and TmApp.",
+    "PARTICIPANT_LEGAL inputs for future competition: antibody_id, heavy, light only.",
+    "ORGANIZER_ONLY_AUDIT: b_cell_subset, author vh/vl_germline, join metadata."
+  ],
+  "missing_VH": 0,
+  "missing_VL": 0,
+  "n_duplicate_VH_VL_pairs": 0,
+  "n_heavy_with_author_gaps": 13,
+  "n_light_with_author_gaps": 11,
+  "n_rows": 400,
+  "n_triple_complete": 324,
+  "n_unique_VH": 400,
+  "n_unique_VH_VL_pairs": 400,
+  "n_unique_VL": 400,
+  "n_unique_antibody_ids": 400,
+  "organizer_only_columns": [
+    "b_cell_subset",
+    "vh_germline",
+    "vl_germline",
+    "label_source",
+    "sequence_source",
+    "join_confidence"
+  ],
+  "source_csv": "/workspace_developability_acquisition/interim/shehata_full_joined.csv",
+  "source_csv_sha256": "6e3b5fdb00076afb96984a13af3584e2f9102e407079dc65faf3f4412331589e",
+  "source_xlsx": "/workspace_developability_acquisition/raw/shehata/a05/mmc2.xlsx",
+  "source_xlsx_sha256": "f06a0849c89792bd10eb9d30e74a7edf5dcb4b125f05dc516dc6250c4ac651b7",
+  "targets": {
+    "HIC": {
+      "max": 13.856,
+      "mean": 9.389603448275864,
+      "median": 9.1125,
+      "min": 8.465,
+      "missing_frac": 0.13,
+      "n_complete": 348,
+      "n_missing": 52,
+      "outliers_iqr": {
+        "frac": 0.08045977011494253,
+        "iqr_hi": 10.699499999999997,
+        "iqr_lo": 7.767500000000003,
+        "n_outliers_iqr": 28
+      },
+      "quantiles": {
+        "q01": 8.56835,
+        "q05": 8.697,
+        "q10": 8.755700000000001,
+        "q25": 8.867,
+        "q50": 9.1125,
+        "q75": 9.6,
+        "q90": 10.407200000000001,
+        "q95": 11.204549999999998,
+        "q99": 12.479739999999998
+      },
+      "sd": 0.8332142361547926
+    },
+    "PSR": {
+      "max": 0.71069495966422,
+      "mean": 0.03462561523878219,
+      "median": 0.0,
+      "min": 0.0,
+      "missing_frac": 0.005,
+      "n_complete": 398,
+      "n_missing": 2,
+      "outliers_iqr": {
+        "frac": 0.18341708542713567,
+        "iqr_hi": 0.04236378683603294,
+        "iqr_lo": -0.02541827210161976,
+        "n_outliers_iqr": 73
+      },
+      "quantiles": {
+        "q01": 0.0,
+        "q05": 0.0,
+        "q10": 0.0,
+        "q25": 0.0,
+        "q50": 0.0,
+        "q75": 0.016945514734413174,
+        "q90": 0.11416146117865811,
+        "q95": 0.19179799237279352,
+        "q99": 0.45809651707173743
+      },
+      "sd": 0.0883322241720346
+    },
+    "TmApp": {
+      "max": 83.5,
+      "mean": 69.85693641618496,
+      "median": 70.0,
+      "min": 52.5,
+      "missing_frac": 0.135,
+      "n_complete": 346,
+      "n_missing": 54,
+      "outliers_iqr": {
+        "frac": 0.017341040462427744,
+        "iqr_hi": 82.0,
+        "iqr_lo": 58.0,
+        "n_outliers_iqr": 6
+      },
+      "quantiles": {
+        "q01": 57.95,
+        "q05": 61.5,
+        "q10": 64.5,
+        "q25": 67.0,
+        "q50": 70.0,
+        "q75": 73.0,
+        "q90": 75.75,
+        "q95": 77.5,
+        "q99": 80.5
+      },
+      "sd": 4.740258768880174
+    }
+  },
+  "vh_len": {
+    "max": 140,
+    "mean": 122.54,
+    "median": 122.0,
+    "min": 113
+  },
+  "vl_len": {
+    "max": 120,
+    "mean": 109.0575,
+    "median": 108.0,
+    "min": 103
+  }
+}

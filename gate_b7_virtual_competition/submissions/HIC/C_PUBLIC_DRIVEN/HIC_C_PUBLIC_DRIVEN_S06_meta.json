@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_C_PUBLIC_DRIVEN_S06",
+  "order": 6,
+  "target": "HIC",
+  "persona": "C_PUBLIC_DRIVEN",
+  "model_name": "ENSEMBLE_PUBLIC_BEST2",
+  "model_stage": 6,
+  "feature": "STRUCT_ElasticNet+ESM2_PCA64_SVR",
+  "hypothesis": "Average the two best Public models so far.",
+  "cv_mae": 0.47473715280088025,
+  "cv_mae_std": 0.004636576712887197,
+  "cv_spearman": 0.515649853443923,
+  "cv_pearson": 0.5228207277996868,
+  "public_mae": 0.5157892958653838,
+  "public_spearman": 0.4486954370092613,
+  "public_pearson": 0.39238431581928934,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": -0.0730850923137244,
+  "train_seconds": 0.0012879371643066406
+}

@@ -1,0 +1,15 @@
+DESIGN HIC
+HIC canonical 1.1712187324967112 {'Dev': 208, 'Public': 70, 'Private': 70} 0.60/0.20/0.20
+HIC shadow_1 1.221015436592276 {'Dev': 207, 'Public': 71, 'Private': 70} 0.60/0.20/0.20
+HIC shadow_2 1.255984949910434 {'Dev': 201, 'Public': 77, 'Private': 70} 0.60/0.20/0.20
+HIC shadow_3 1.2649584654927515 {'Dev': 204, 'Public': 74, 'Private': 70} 0.60/0.20/0.20
+HIC shadow_4 1.3015719038408744 {'Dev': 208, 'Public': 70, 'Private': 70} 0.60/0.20/0.20
+HIC shadow_5 1.3404546251809812 {'Dev': 208, 'Public': 53, 'Private': 87} 0.60/0.15/0.25
+DESIGN TmApp
+TmApp canonical 1.3127479671544486 {'Dev': 197, 'Public': 79, 'Private': 70} 0.60/0.20/0.20
+TmApp shadow_1 1.3418760971589725 {'Dev': 189, 'Public': 70, 'Private': 87} 0.55/0.20/0.25
+TmApp shadow_2 1.3505915256991987 {'Dev': 205, 'Public': 70, 'Private': 71} 0.60/0.20/0.20
+TmApp shadow_3 1.4170102431016849 {'Dev': 202, 'Public': 74, 'Private': 70} 0.60/0.20/0.20
+TmApp shadow_4 1.425538885817302 {'Dev': 206, 'Public': 70, 'Private': 70} 0.60/0.20/0.20
+TmApp shadow_5 1.4466718060436592 {'Dev': 187, 'Public': 88, 'Private': 71} 0.60/0.20/0.20
+SPLITS_OK

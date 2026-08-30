@@ -1,0 +1,4 @@
+P0 complete
+declaration /workspace_developability_acquisition/gate_b4_absolute/config/TRAIN_ONLY_SEARCH_DECLARATION.json
+outer folds /workspace_developability_acquisition/gate_b4_absolute/config/OUTER_CV_FOLDS.json
+assay audit /workspace_developability_acquisition/gate_b4_absolute/reports/assay_scale_audit.md

@@ -1,0 +1,285 @@
+{
+  "ABB_ALL": {
+    "exclude": [
+      "error"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv",
+    "prefixes": [
+      "ABB_"
+    ]
+  },
+  "ABB_ALL_SURFACE": {
+    "ablation": "S4",
+    "exclude": [
+      "patch",
+      "BSA",
+      "iface",
+      "iso"
+    ],
+    "include": [
+      "sasa",
+      "rasa",
+      "rasa_w",
+      "exposed_"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv"
+  },
+  "ABB_INTERFACE": {
+    "exclude": [],
+    "include": [
+      "BSA",
+      "iface",
+      "iso"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv"
+  },
+  "ABB_PATCH": {
+    "exclude": [],
+    "include": [
+      "patch",
+      "hydrophobic_patch",
+      "cdr_hydrophobic",
+      "h3_hydrophobic"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv"
+  },
+  "ABB_SASA": {
+    "ablation": "S0",
+    "exclude": [
+      "rasa",
+      "patch",
+      "BSA",
+      "iface",
+      "iso",
+      "w_"
+    ],
+    "include": [
+      "_total_sasa",
+      "_mean_sasa",
+      "_sasa_"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv"
+  },
+  "ABB_SASA_RASA": {
+    "ablation": "S1",
+    "exclude": [
+      "patch",
+      "BSA",
+      "iface",
+      "iso",
+      "w_",
+      "rasa_w"
+    ],
+    "include": [
+      "sasa",
+      "rasa"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv"
+  },
+  "ABB_SURFACE": {
+    "ablation": "S2",
+    "exclude": [
+      "rasa",
+      "patch",
+      "BSA",
+      "iface"
+    ],
+    "include": [
+      "sasa_hydrophobic",
+      "sasa_aromatic",
+      "sasa_positive",
+      "sasa_negative",
+      "sasa_polar",
+      "total_sasa",
+      "mean_sasa"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv"
+  },
+  "ABB_SURFACE_RASAW": {
+    "ablation": "S3",
+    "exclude": [
+      "patch",
+      "BSA",
+      "iface"
+    ],
+    "include": [
+      "total_sasa",
+      "mean_sasa",
+      "rasa_w_",
+      "exposed_"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/abb_sasa_rasa_patch.csv"
+  },
+  "BIO_SHORTCUT": {
+    "categorical": [
+      "C_vh_family",
+      "C_vl_family",
+      "C_family_pair",
+      "C_kappa_lambda"
+    ],
+    "kind": "csv_cat",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/features/stage_C_shortcut.csv",
+    "prefixes": [
+      "C_"
+    ]
+  },
+  "ESMF_NATIVE_ALL": {
+    "exclude": [
+      "error"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv",
+    "prefixes": [
+      "ESMFN_"
+    ]
+  },
+  "ESMF_NATIVE_ALL_SURFACE": {
+    "ablation": "S4",
+    "exclude": [
+      "patch",
+      "BSA",
+      "iface",
+      "iso"
+    ],
+    "include": [
+      "sasa",
+      "rasa",
+      "rasa_w",
+      "exposed_"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv"
+  },
+  "ESMF_NATIVE_INTERFACE": {
+    "exclude": [],
+    "include": [
+      "BSA",
+      "iface",
+      "iso"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv"
+  },
+  "ESMF_NATIVE_PATCH": {
+    "exclude": [],
+    "include": [
+      "patch",
+      "hydrophobic_patch",
+      "cdr_hydrophobic",
+      "h3_hydrophobic"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv"
+  },
+  "ESMF_NATIVE_SASA": {
+    "ablation": "S0",
+    "exclude": [
+      "rasa",
+      "patch",
+      "BSA",
+      "iface",
+      "iso",
+      "w_"
+    ],
+    "include": [
+      "_total_sasa",
+      "_mean_sasa",
+      "_sasa_"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv"
+  },
+  "ESMF_NATIVE_SASA_RASA": {
+    "ablation": "S1",
+    "exclude": [
+      "patch",
+      "BSA",
+      "iface",
+      "iso",
+      "w_",
+      "rasa_w"
+    ],
+    "include": [
+      "sasa",
+      "rasa"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv"
+  },
+  "ESMF_NATIVE_SURFACE": {
+    "ablation": "S2",
+    "exclude": [
+      "rasa",
+      "patch",
+      "BSA",
+      "iface"
+    ],
+    "include": [
+      "sasa_hydrophobic",
+      "sasa_aromatic",
+      "sasa_positive",
+      "sasa_negative",
+      "sasa_polar",
+      "total_sasa",
+      "mean_sasa"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv"
+  },
+  "ESMF_NATIVE_SURFACE_RASAW": {
+    "ablation": "S3",
+    "exclude": [
+      "patch",
+      "BSA",
+      "iface"
+    ],
+    "include": [
+      "total_sasa",
+      "mean_sasa",
+      "rasa_w_",
+      "exposed_"
+    ],
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/structure_features/esmfold_native_sasa_rasa_patch.csv"
+  },
+  "PLM_ABLANG2": {
+    "kind": "emb",
+    "manifest": "/workspace_developability_acquisition/gate_b1/cache/plm/manifest_ablang2_default.csv"
+  },
+  "PLM_ESM1B": {
+    "kind": "emb",
+    "manifest": "/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm1b_t33_650M_UR50S.csv"
+  },
+  "PLM_ESM2": {
+    "kind": "emb",
+    "manifest": "/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm2_t33_650M_UR50D.csv"
+  },
+  "PLM_ESM2_CDR6": {
+    "kind": "emb",
+    "manifest": "/workspace_developability_acquisition/gate_b1/cache/plm/manifest_esm2_t33_650M_UR50D_CDR6.csv"
+  },
+  "SEQ_CDR": {
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/features/stage_B_cdr.csv",
+    "prefixes": [
+      "B_"
+    ]
+  },
+  "SEQ_SIMPLE": {
+    "kind": "csv",
+    "path": "/workspace_developability_acquisition/gate_b2/cache/features/stage_A_simple.csv",
+    "prefixes": [
+      "A0_",
+      "A1_",
+      "A2_"
+    ]
+  }
+}

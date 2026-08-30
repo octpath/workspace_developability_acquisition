@@ -1,0 +1,51 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/4498 [00:00<?, ?it/s]Loading weights:   0%|          | 18/4498 [00:01<06:48, 10.98it/s]Loading weights:  15%|█▌        | 694/4498 [00:01<00:06, 550.58it/s]Loading weights:  37%|███▋      | 1644/4498 [00:01<00:01, 1468.00it/s]Loading weights:  74%|███████▎  | 3309/4498 [00:01<00:00, 3403.28it/s]Loading weights: 100%|██████████| 4498/4498 [00:02<00:00, 2234.24it/s]
+[transformers] [1mEsmForProteinFolding LOAD REPORT[0m from: facebook/esmfold_v1
+Key                                | Status  | 
+-----------------------------------+---------+-
+esm.contact_head.regression.bias   | MISSING | 
+esm.contact_head.regression.weight | MISSING | 
+
+Notes:
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+PROGRESS 10/400 ok=10 fail=0
+PROGRESS 20/400 ok=20 fail=0
+PROGRESS 30/400 ok=30 fail=0
+PROGRESS 40/400 ok=40 fail=0
+PROGRESS 50/400 ok=50 fail=0
+PROGRESS 60/400 ok=60 fail=0
+PROGRESS 70/400 ok=70 fail=0
+PROGRESS 80/400 ok=80 fail=0
+PROGRESS 90/400 ok=90 fail=0
+PROGRESS 100/400 ok=100 fail=0
+PROGRESS 110/400 ok=110 fail=0
+PROGRESS 120/400 ok=120 fail=0
+PROGRESS 130/400 ok=130 fail=0
+PROGRESS 140/400 ok=140 fail=0
+PROGRESS 150/400 ok=150 fail=0
+PROGRESS 160/400 ok=160 fail=0
+PROGRESS 170/400 ok=170 fail=0
+PROGRESS 180/400 ok=180 fail=0
+PROGRESS 190/400 ok=190 fail=0
+PROGRESS 200/400 ok=200 fail=0
+PROGRESS 210/400 ok=210 fail=0
+PROGRESS 220/400 ok=220 fail=0
+PROGRESS 230/400 ok=230 fail=0
+PROGRESS 240/400 ok=240 fail=0
+PROGRESS 250/400 ok=250 fail=0
+PROGRESS 260/400 ok=260 fail=0
+PROGRESS 270/400 ok=270 fail=0
+PROGRESS 280/400 ok=280 fail=0
+PROGRESS 290/400 ok=290 fail=0
+PROGRESS 300/400 ok=300 fail=0
+PROGRESS 310/400 ok=310 fail=0
+PROGRESS 320/400 ok=320 fail=0
+PROGRESS 330/400 ok=330 fail=0
+PROGRESS 340/400 ok=340 fail=0
+PROGRESS 350/400 ok=350 fail=0
+PROGRESS 360/400 ok=360 fail=0
+PROGRESS 370/400 ok=370 fail=0
+PROGRESS 380/400 ok=380 fail=0
+PROGRESS 390/400 ok=390 fail=0
+PROGRESS 400/400 ok=400 fail=0
+ESMFOLD_OK {'n_total': 400, 'n_ok': 400, 'n_fail': 0, 'success_rate': 1.0, 'total_runtime_s': 2057.6881112977862, 'multichain_note': 'HF EsmForProteinFolding folds a single polymer with Gly linker; chain boundaries preserved by index bookkeeping, not by native multichain decoder. Linker residues excluded from feature extraction.', 'mean_plddt': 0.7093333982940792}

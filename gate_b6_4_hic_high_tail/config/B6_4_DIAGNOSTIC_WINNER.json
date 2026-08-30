@@ -1,0 +1,46 @@
+{
+  "winner": "PHYSSEQ_STRUCT_Ridge_elevW2",
+  "train_metrics": {
+    "model": "PHYSSEQ_STRUCT_Ridge_elevW2",
+    "overall_MAE": 0.5865645753169687,
+    "Spearman": 0.39306768758691607,
+    "HIGH_MAE": 2.166335171379927,
+    "HIGH_bias": -2.166335171379927,
+    "HIGH_to_LOW_rate": 0.6666666666666666,
+    "HIGH_pred_ge10_5_rate": 0.3333333333333333,
+    "elevated_pred_ge10_5_rate": 0.2777777777777778,
+    "pred_SD_over_obs_SD": 0.7490594879385013
+  },
+  "physseq": [
+    "HL_gravy",
+    "HL_frac_aromatic",
+    "HL_frac_hydrophobic",
+    "HL_charge",
+    "HL_pI",
+    "HL_maxwin5",
+    "HL_maxwin9",
+    "HL_hydro_run",
+    "VH_gravy",
+    "VL_gravy",
+    "H_CDR3_gravy",
+    "H_CDR3_frac_aromatic",
+    "H_CDR3_len",
+    "L_CDR3_gravy",
+    "PL_combined_germline_distance",
+    "PL_vh_mutfrac_excl_CDR3",
+    "PL_vl_mutfrac_excl_CDR3"
+  ],
+  "physstruct": [
+    "ESMFN_Fv_sasa_hydrophobic",
+    "ESMFN_Fv_sasa_aromatic",
+    "ESMFN_hydrophobic_sasa_frac",
+    "ESMFN_largest_hydrophobic_patch_sasa",
+    "ESMFN_total_hydrophobic_patch_sasa",
+    "ESMFN_n_hydrophobic_patches",
+    "ESMFN_H_CDR3_sasa_hydrophobic",
+    "ESMFN_VH_sasa_hydrophobic",
+    "ESMFN_VL_sasa_hydrophobic",
+    "ESMFN_Fv_rasa_w_hydrophobicity_sum"
+  ],
+  "selection": "min HIGH\u2192LOW then HIGH MAE then overall MAE among models with MAE<=nested+0.15"
+}

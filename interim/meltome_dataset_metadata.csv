@@ -1,0 +1,78 @@
+Dataset ID,Dataset source,Organism,Strain/tissue,OGT [°C],Cells/lysate,Replicate/experiment,Lysis conditions,Melting range [°C],Number of identified proteins,Number of fitted melting curves,PRIDE data directory,PRIDE TPP file name,Mass spectrometer,TMT126,TMT127L,TMT127H,TMT128L,TMT128H,TMT129L,TMT129H,TMT130L,TMT130H,TMT131L
+ma:0001,TUM,Oleispira antarctica,RB-8,15,lysate,R1,0.5% NP40,25-55,1945,1917,Oleispira_antarctica_P028248,TPP_O.antarctica_P028248,Q Exactive HF,25,27.9,31.0,34.6,38.2,41.8,45.4,49.0,52.1,55.0
+ma:0002,TUM,Bacillus subtilis,168,30,lysate,R1,0.5% NP40,30-60,1942,1907,Bacillus_subtilis_P023755,TPP_B.subtilis_P023755,Q Exactive Plus,30,32.9,36.0,39.6,43.2,46.8,50.4,54.0,57.1,60.0
+ma:0003,TUM,Escherichia coli,K12 MG1655,37,lysate,R1,0.5% NP40,37-67,2197,2168,Escherichia_coli_P023428,TPP_E.coli_P023428,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0004,TUM,Escherichia coli,K12 MG1655,37,cells,R1,0.5% NP40,37-67,2226,2209,Escherichia_coli_cells_P023756,TPP_E.coli_cells_P023756,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0005,TUM,Escherichia coli,ArcticExpress (D3),37,lysate,R1,0.5% NP40,37-67,1469,1439,Escherichia_coli_ArcticExpress_P028249,TPP_E.coli_ArcticExpress_P028249,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0006,TUM,Geobacillus stearothermophilus,NCA 26,55,lysate,R1,0.5% NP40,55-85,1079,1057,Geobacillus_stearothermophilus_P023429,TPP_G.stearothermophilus_P023429,Q Exactive Plus,55,57.9,61.0,64.6,68.2,71.8,75.4,79.0,82.1,85.0
+ma:0007,TUM,Picrophilus torridus,DSM 9790,60,lysate,R1,0.5% NP40,60-90,1017,1012,Picrophilus_torridus_P023430,TPP_P.torridus_P023430,Q Exactive Plus,60,62.9,66.0,69.9,73.2,76.8,80.4,84.0,87.1,90.0
+ma:0008,TUM,Thermus thermophilus,HB27,70,lysate,R1,0.5% NP40,70-99,1603,1555,Thermus_thermophilus_P023431,TPP_T.thermophilus_P023431,Q Exactive Plus,70,72.6,75.5,79.1,82.8,86.2,89.9,93.5,96.4,99.0
+ma:0009,TUM,Thermus thermophilus,HB27,70,cells,R1,0.5% NP40,70-99,1671,1639,Thermus_thermophilus_cells_P023757,TPP_T.thermophilus_cells_P023757,Q Exactive Plus,70,72.6,75.5,79.1,82.8,86.2,89.9,93.5,96.4,99.0
+ma:0010,Utrecht,Saccharomyces cerevisiae,BY4741,30,lysate,R1,0.5% NP40,37-64,2186,2165,Saccharomyces_cerevisiae_20171013,TPP_S.cerevisiae_20171013,Q Exactive HF-X,37,40.0,43.0,46.0,49.0,52.0,55.0,58.0,61.0,64.0
+ma:0011,TUM,Arabidopsis thaliana,Col-0/seedlings,25,lysate,R1,0.5% NP40,25-70,3074,2963,Arabidopsis_thaliana_P023760,TPP_A.thaliana_P023760,Q Exactive HF,25,30.0,36.0,39.0,45.0,50.0,56.0,59.6,66.9,70.4
+ma:0012,TUM,Caenorhabditis elegans,N2,20,lysate,R1,0.5% NP40,25-55,6129,5983,Caenorhabditis_elegans_P023758,TPP_C.elegans_P023758,Q Exactive Plus,25,27.9,31.0,34.6,38.2,41.8,45.4,49.0,52.1,55.0
+ma:0013,TUM,Drosophila melanogaster,SII cells,28,lysate,R1,0.5% NP40,28-58,1750,1735,Drosophila_melanogaster_P024081,TPP_D.melanogaster_P024081,Q Exactive HF,28,30.9,34.0,37.6,41.2,44.8,48.4,52.0,55.1,58.0
+ma:0014,Utrecht,Danio rerio,Zendo cells,28,lysate,R1,0.5% NP40,40-67,4047,3993,Danio_reiro_20180111,TPP_D.rerio_20180111,Q Exactive HF-X,40,43.0,46.0,49.0,52.0,55.0,58.0,61.0,64.0,67.0
+ma:0015,OS,Mus musculus,BMDC,37,lysate,R1,0.5% NP40,37-67,7045,6065,Mus_musculus_BMDC_P019739,TPP_M.musculus_BMDC_P019739,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0016,OS,Mus musculus,BMDC,37,lysate,R2,0.5% NP40,37-67,7045,6106,Mus_musculus_BMDC_P019743,TPP_M.musculus_BMDC_P019743,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0017,TUM,Mus musculus ,liver tissue,37,lysate,R1,0.5% NP40,37-67,4679,4568,Mus_musculus_liver_P023759,TPP_Mouse_liver_P023759,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0018,OS,Homo sapiens,A549,37,lysate,R1,PBS,40-70,7933,6285,Homo_sapiens_A549_P013701,TPP_H.sapiens_A549_P013701,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0019,OS,Homo sapiens,A549,37,lysate,R2,PBS,40-70,7933,6267,Homo_sapiens_A549_P013697,TPP_H.sapiens_A549_P013697,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0020,TUM,Homo sapiens,K562,37,cells,R1,0.5% NP40,40-70,6562,5548,Homo_sapiens_K562_cells_NP40_R1_P018450,TPP_H.sapiens_K562_cells_R1_P018450,Q Exactive HF,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0021,TUM,Homo sapiens,K562,37,cells,R2,0.5% NP40,40-70,6502,6004,Homo_sapiens_K562_cells_NP40_R2_P018894,TPP_H.sapiens_K562_cells_R2_P018894,Q Exactive HF,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0022,TUM,Homo sapiens,K562,37,lysate,R1,0.5% NP40,37-67,6647,6313,Homo_sapiens_K562_lysate_NP40_R1_P019670,TPP_H.sapiens_K562_lysate_R1_P019670,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0023,TUM,Homo sapiens,K562,37,lysate,R2,0.5% NP40,37-67,6434,6151,Homo_sapiens_K562_lysate_NP40_R2_P019785,TPP_H.sapiens_K562_lysate_R2_P019785,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0024,OS,Homo sapiens,HEK293,37,cells,R1,0.5% NP40,37-67,7235,5566,Homo_sapiens_HEK293_P018221,TPP_H.sapiens_HEK293_PP018221,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0025,OS,Homo sapiens,HEK293,37,cells,R2,0.5% NP40,37-67,7235,5542,Homo_sapiens_HEK293_P018224,TPP_H.sapiens_HEK293_PP018224,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0026,OS,Homo sapiens,K562,37,lysate,R1,PBS,40-70,7291,6556,Homo_sapiens_K562_P018889,TPP_H.sapiens_K562_P018889,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0027,OS,Homo sapiens,K562,37,lysate,R2,PBS,40-70,7291,6393,Homo_sapiens_K562_P018890,TPP_H.sapiens_K562_P018890,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0028,OS,Homo sapiens,K562,37,cells,R1,PBS,37-67,7348,6792,Homo_sapiens_K562_P013109,TPP_H.sapiens_K562_P013109,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0029,OS,Homo sapiens,K562,37,cells,R2,PBS,37-67,7348,6597,Homo_sapiens_K562_P013110,TPP_H.sapiens_K562_P013110,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0030,OS,Homo sapiens,colon cancer spheroids,37,cells,R1,0.5% NP40,40-70,8043,6619,Homo_sapiens_colon_cancer_spheroids_P016043,TPP_H.sapiens_colon_cancer_spheroids_R1_P016043,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0031,OS,Homo sapiens,colon cancer spheroids,37,cells,R2,0.5% NP40,40-70,8043,6441,Homo_sapiens_colon_cancer_spheroids_P016046,TPP_H.sapiens_colon_cancer_spheroids_R2_P016046,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0032,OS,Homo sapiens,hepatocytes,37,lysate,R1,PBS,40-70,5391,4731,Homo_sapiens_hepatocytes_P013190,TPP_H.sapiens_hepatocytes_P013190,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0033,OS,Homo sapiens,hepatocytes,37,lysate,R2,PBS,40-70,5391,4287,Homo_sapiens_hepatocytes_P013194,TPP_H.sapiens_hepatocytes_P013194,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0034,OS,Homo sapiens,hepatocytes,37,lysate,R3,PBS,40-70,4670,3622,Homo_sapiens_hepatocytes_P013553,TPP_H.sapiens_hepatocytes_P013553,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0035,OS,Homo sapiens,hepatocytes,37,lysate,R4,PBS,40-70,4670,3822,Homo_sapiens_hepatocytes_P013558,TPP_H.sapiens_hepatocytes_P013558,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0036,OS,Homo sapiens,Jurkat,37,lysate,R1,0.5% NP40,40-70,8340,6985,Homo_sapiens_Jurkat_P015963,TPP_H.sapiens_Jurkat_P015963,Orbitrap Fusion Lumos,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0037,OS,Homo sapiens,Jurkat,37,lysate,R2,0.5% NP40,40-70,8340,6655,Homo_sapiens_Jurkat_P015964,TPP_H.sapiens_Jurkat_P015964,Orbitrap Fusion Lumos,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0038,OS,Homo sapiens,lung fibroblasts,37,lysate,R1,0.5% NP40,40-70,7415,5794,Homo_sapiens_lung_fibroblasts_P017092,TPP_H.sapiens_lung_fibroblasts_P017092,Q Exactive HF,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0039,OS,Homo sapiens,lung fibroblasts,37,lysate,R2,0.5% NP40,40-70,7415,5842,Homo_sapiens_lung_fibroblasts_P017095,TPP_H.sapiens_lung_fibroblasts_P017095,Q Exactive Plus,40,42.9,46.0,50.0,53.0,57.0,61.0,64.0,67.0,70.0
+ma:0040,TUM,Human body fluids,saliva,37,lysate,R1,PBS,37-67,2036,1965,Homo_sapiens_body_fluids_saliva_P014425,TPP_human_body_fluids_saliva_P014425,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0041,TUM,Human body fluids,breast milk,37,lysate,R1,PBS,37-67,1911,1781,Homo_sapiens_body_fluids_breast_milk_P014818,TPP_human_body_fluids_breast_milk_P014818,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0042,TUM,Human body fluids,blood plasma,37,lysate,R1,PBS,37-67,913,742,Homo_sapiens_body_fluids_blood_plasma_P014819,TPP_human_body_fluids_blood_plasma_P014819,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0043,TUM,Human body fluids,cerebrospinal fluid (CSF),37,lysate,R1,PBS,37-67,477,452,Homo_sapiens_body_fluids_CSF_P014829,TPP_human_body_fluids_CSF_P014820,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0044,TUM,Human body fluids,seminal plasma,37,lysate,R1,PBS,37-67,1413,1316,Homo_sapiens_body_fluids_seminal_plasma_P014428,TPP_human_body_fluids_seminal_plasma_P014428,Q Exactive HF,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0045,EMBL,Homo sapiens,HEK293T,37,cells,R1,PBS,37-67,7531,6367,Homo_sapiens_HEK293T_P0110479B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0046,EMBL,Homo sapiens,HEK293T,37,cells,R2,PBS,37-67,7492,6368,Homo_sapiens_HEK293T_P0110469B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0047,EMBL,Homo sapiens,U937,37,cells,R1,PBS,37-67,7653,6755,Homo_sapiens_U937_P0107995B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0048,EMBL,Homo sapiens,U937,37,cells,R2,PBS,37-67,7621,6754,Homo_sapiens_U937_P0107985B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0049,EMBL,Homo sapiens,HL60,37,cells,R1,PBS,37-67,7530,6527,Homo_sapiens_HL60_P0113864B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0050,EMBL,Homo sapiens,HL60,37,cells,R2,PBS,37-67,7509,6527,Homo_sapiens_HL60_P0113854B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0051,EMBL,Homo sapiens,HAOEC,37,cells,R1,PBS,37-67,7230,6398,Homo_sapiens_HAOEC_P0111855B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0052,EMBL,Homo sapiens,HAOEC,37,cells,R2,PBS,37-67,7227,6398,Homo_sapiens_HAOEC_P0111845B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0053,EMBL,Homo sapiens,HepG2,37,cells,R1,PBS,37-67,7144,6543,Homo_sapiens_HepG2_P0111491B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0054,EMBL,Homo sapiens,HepG2,37,cells,R2,PBS,37-67,7218,6544,Homo_sapiens_HepG2_P0111481B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0055,EMBL,Homo sapiens,HepG2,37,cells,R3,PBS,37-67,6857,6113,Homo_sapiens_HepG2_P0111471B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0056,EMBL,Homo sapiens,HepG2,37,cells,R4,PBS,37-67,7105,6114,Homo_sapiens_HepG2_P0111461B,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0057,EMBL,Homo sapiens,HepG2,37,cells,R5,PBS,37-67,7935,7208,Homo_sapiens_HepG2_P0102042C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0058,EMBL,Homo sapiens,HepG2,37,cells,R6,PBS,37-67,8191,7212,Homo_sapiens_HepG2_P0102022C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0059,EMBL,Homo sapiens,K562,37,cells,R1,PBS,37-67,4748,3589,Homo_sapiens_K562_P85891C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0060,EMBL,Homo sapiens,K562,37,cells,R2,PBS,37-67,4822,3592,Homo_sapiens_K562_P85881C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0061,EMBL,Homo sapiens,K562,37,cells,R3,PBS,37-67,4408,3586,Homo_sapiens_K562_P85202C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0062,EMBL,Homo sapiens,K562,37,cells,R4,PBS,37-67,5317,4485,Homo_sapiens_K562_P82766C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0063,EMBL,Homo sapiens,K562,37,cells,R5,PBS,37-67,5414,4489,Homo_sapiens_K562_P82776C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0064,EMBL,Homo sapiens,K562,37,cells,R6,PBS,37-67,6185,4486,Homo_sapiens_K562_P83137C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0065,EMBL,Homo sapiens,K562,37,cells,R7,PBS,37-67,5662,4486,Homo_sapiens_K562_P83117C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0066,EMBL,Homo sapiens,K562,37,cells,R8,PBS,37-67,4448,3588,Homo_sapiens_K562_P85192C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0067,EMBL,Homo sapiens,primary Tcells,37,cells,R1,PBS,37-67,4627,3713,Homo_sapiens_pTcells_P88680C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0068,EMBL,Homo sapiens,primary Tcells,37,cells,R2,PBS,37-67,4387,3713,Homo_sapiens_pTcells_P88653C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0069,EMBL,Homo sapiens,HaCaT,37,cells,R1,PBS,37-67,5463,4459,Homo_sapiens_HaCaT_P93519C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0070,EMBL,Homo sapiens,HaCaT,37,cells,R2,PBS,37-67,5393,4463,Homo_sapiens_HaCaT_P88835C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0071,EMBL,Homo sapiens,Jurkat,37,cells,R1,PBS,37-67,6321,3729,Homo_sapiens_Jurkat_P0101378C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0072,EMBL,Homo sapiens,Jurkat,37,cells,R2,PBS,37-67,7434,6681,Homo_sapiens_Jurkat_P0101358C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0073,EMBL,Homo sapiens,Jurkat,37,cells,R3,PBS,37-67,7543,6679,Homo_sapiens_Jurkat_P0100960C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0074,EMBL,Homo sapiens,Jurkat,37,cells,R4,PBS,37-67,4729,3726,Homo_sapiens_Jurkat_P87929C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0075,EMBL,Homo sapiens,Jurkat,37,cells,R5,PBS,37-67,4641,3728,Homo_sapiens_Jurkat_P87899C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0076,EMBL,Homo sapiens,Jurkat,37,cells,R6,PBS,37-67,5902,3725,Homo_sapiens_Jurkat_P84392C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0
+ma:0077,EMBL,Homo sapiens,Jurkat,37,cells,R7,PBS,37-67,5715,5508,Homo_sapiens_Jurkat_P83931C,Homo_sapiens_TPP_data,Q Exactive Plus,37,39.9,43.0,46.6,50.2,53.8,57.4,61.0,64.1,67.0

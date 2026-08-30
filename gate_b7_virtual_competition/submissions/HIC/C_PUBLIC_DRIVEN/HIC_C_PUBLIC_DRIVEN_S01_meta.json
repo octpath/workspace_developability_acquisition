@@ -1,0 +1,20 @@
+{
+  "submission_id": "HIC_C_PUBLIC_DRIVEN_S01",
+  "order": 1,
+  "target": "HIC",
+  "persona": "C_PUBLIC_DRIVEN",
+  "model_name": "CONST_MEDIAN",
+  "model_stage": 0,
+  "feature": "CONST",
+  "hypothesis": "Constant median baseline.",
+  "cv_mae": 0.5188811237373737,
+  "cv_mae_std": 0.06143782298869791,
+  "cv_spearman": -0.08373510856185505,
+  "cv_pearson": -0.06469094599104579,
+  "public_mae": 0.5408271604938271,
+  "public_spearman": NaN,
+  "public_pearson": NaN,
+  "personal_public_rank": 1,
+  "delta_public_vs_prev": null,
+  "train_seconds": 0.0009806156158447266
+}

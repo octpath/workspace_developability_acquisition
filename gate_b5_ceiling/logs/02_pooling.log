@@ -1,0 +1,36 @@
+Extracting ESM-2 150M tokens for N=324
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t30_150M_UR50D.pt" to /root/.cache/torch/hub/checkpoints/esm2_t30_150M_UR50D.pt
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t30_150M_UR50D-contact-regression.pt" to /root/.cache/torch/hub/checkpoints/esm2_t30_150M_UR50D-contact-regression.pt
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/gate_b5_ceiling/scripts/02_learned_pooling.py", line 386, in <module>
+    main()
+  File "/workspace_developability_acquisition/gate_b5_ceiling/scripts/02_learned_pooling.py", line 346, in main
+    meta = extract_tokens(pop)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/gate_b5_ceiling/scripts/02_learned_pooling.py", line 100, in extract_tokens
+    if (_ + 1) % 40 == 0:
+       ^^^^^^^^^^^^^^^^^
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+Extracting ESM-2 150M tokens for N=324
+  encoded 40/324
+  encoded 80/324
+  encoded 120/324
+  encoded 160/324
+  encoded 200/324
+  encoded 240/324
+  encoded 280/324
+  encoded 320/324
+=== Learned pooling HIC ===
+Extracting ESM-2 150M tokens for N=324
+token cache OK (324)
+=== Learned pooling HIC ===
+HIC attn h=32 mae=0.5701±0.0094 pearson_fz=0.147
+HIC attn h=64 mae=0.5537±0.0066 pearson_fz=0.186
+HIC scalar h=64 mae=0.5723±0.0120 pearson_fz=0.155
+HIC region h=64 mae=0.5834±0.0103 pearson_fz=0.297
+=== Learned pooling TmApp ===
+TmApp attn h=32 mae=4.5972±0.1379 pearson_fz=-0.083
+TmApp attn h=64 mae=4.6297±0.4654 pearson_fz=-0.088
+TmApp scalar h=64 mae=4.3817±0.2061 pearson_fz=0.058
+TmApp region h=64 mae=4.2239±0.1274 pearson_fz=0.164
+DONE pooling in 8.1 min

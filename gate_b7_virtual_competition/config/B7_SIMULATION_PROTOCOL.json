@@ -1,0 +1,37 @@
+{
+  "allowed_data": [
+    "train labels",
+    "test without labels",
+    "sequence features",
+    "PLM embeddings",
+    "structure features",
+    "local CV",
+    "Public leaderboard scores after submit"
+  ],
+  "forbidden_during_live": [
+    "Private labels/metrics",
+    "B6 Private-bearing organizer reports for decisions",
+    "Public/Private membership for targeting"
+  ],
+  "gate": "B7",
+  "gbdt_learning_rate_policy": "If GBDT used, learning_rate fixed 0.03 (this simulation: Ridge/ElasticNet/SVR/Huber only)",
+  "hic_cv": "OUTER_CV_FOLDS grouped 5\u00d73 (sequence_group constrained); participant may inspect Train band diagnostics",
+  "max_submissions_per_persona_target": 10,
+  "personas": [
+    "A_CV_FIRST",
+    "B_BALANCED",
+    "C_PUBLIC_DRIVEN"
+  ],
+  "preferred_submissions": "7-10",
+  "primary_metric": "MAE",
+  "secondary_metrics": [
+    "Spearman",
+    "Pearson"
+  ],
+  "seed": 20260830,
+  "split": "CAND_12528",
+  "targets": [
+    "TmApp",
+    "HIC"
+  ]
+}
