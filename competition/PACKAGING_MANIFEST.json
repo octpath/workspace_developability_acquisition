@@ -1,0 +1,70 @@
+{
+  "package_version": "1.0-rc1",
+  "package_name": "antibody_developability_tmapp_hic",
+  "working_title": "Antibody Developability \u2014 TmApp & HIC",
+  "production_split": {
+    "split_id": "GEN_0001_B_20271100",
+    "seed": 20271100,
+    "construction_method": "B_simulated_annealing",
+    "public_id_hash": "2a267694613f9aec37613a8c7e532c04b4cbb892ba4a5416d335f20b1ea27376",
+    "private_id_hash": "f9d26ae7ebcc4ed9b06c816a72061c7ee5a7cfb748000cb3534b4fd509725cf0",
+    "public_n": 81,
+    "private_n": 81
+  },
+  "primary_metric": "MAE",
+  "tie_policy": "exact_private_mae_tie_shares_scientific_rank",
+  "targets": [
+    "TmApp",
+    "HIC"
+  ],
+  "build_script": "competition/organizer/scripts/build_competition_data.py",
+  "git_commit": null,
+  "git_commit_note": "Recorded after commit if available; initially null to avoid circular dirty state.",
+  "created_utc": "2026-08-30T20:08:32Z",
+  "file_sha256": {
+    "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
+    "test_features.csv": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
+    "sample_submission.csv": "fb07f0df42bdce9bf7cd2d79e6fbbb98fffaaefae6f2c9c105ad04b421f383e1",
+    "solution.csv": "b5ed604205b5f524cedc752944c6c2de2eabdf2e661c1ee6aa593b79b515d2f7",
+    "participant/README.md": "f2d07d88a75f81e8c66eb0e952dc30e29ac3035c31daf67f99baa01803ef1d8c",
+    "DATA_DICTIONARY.md": "f9c6133afc489d06d54b735e536c44d239758d376bda10b4bf6bb3fe3a286c02",
+    "COMPETITION_SPEC.md": "02508c0f06934f5f5e609435255f1e6c3f5398af3a5a84450f8149e3c7673140",
+    "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
+    "PROVENANCE.md": "0167b665a874456b43cdf0468f238012d6d23cf32f91ab63118389de4ff03892",
+    "PACKAGING_AUDIT.md": "511ced240e99bfc2d4cbf414ded0e20a620ae20a2d81ab47fe0bb228e12a3980",
+    "LAUNCH_FINALIZATION_AUDIT.md": "43414e0f83aba1723a21afa5b01521e4ebcf3e5688a48a7b5ae944ad9292b4f3"
+  },
+  "release_archive": {
+    "filename": "antibody_developability_competition_v1.0-rc1.zip",
+    "sha256": "391a73801b4479de5661d6d215c91d7760141371d6527178ec2e51dc1fe8a3f0",
+    "members": [
+      {
+        "name": "README.md",
+        "sha256": "f2d07d88a75f81e8c66eb0e952dc30e29ac3035c31daf67f99baa01803ef1d8c",
+        "nbytes": 17029
+      },
+      {
+        "name": "data/dev.csv",
+        "sha256": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
+        "nbytes": 41302
+      },
+      {
+        "name": "data/test_features.csv",
+        "sha256": "6fa0426e40257ceed96529fbc15526d81ce282d32decb56a9ca24d696f673d86",
+        "nbytes": 39464
+      },
+      {
+        "name": "data/sample_submission.csv",
+        "sha256": "fb07f0df42bdce9bf7cd2d79e6fbbb98fffaaefae6f2c9c105ad04b421f383e1",
+        "nbytes": 3415
+      },
+      {
+        "name": "data/DATA_DICTIONARY.md",
+        "sha256": "f9c6133afc489d06d54b735e536c44d239758d376bda10b4bf6bb3fe3a286c02",
+        "nbytes": 2014
+      }
+    ],
+    "zip_timestamp_normalized": true,
+    "zip_rebuild_byte_identical": true
+  }
+}
