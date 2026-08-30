@@ -18,8 +18,8 @@
     "HIC"
   ],
   "build_script": "competition/organizer/scripts/build_competition_data.py",
-  "git_commit": null,
-  "git_commit_note": "Filled after polish commit.",
+  "git_commit": "161a82e314474e9f9c95184c241e124dfc0db71d",
+  "git_commit_note": "README polish / rc3 content commit; metadata updated in follow-up commit.",
   "created_utc": "2026-08-30T20:31:04Z",
   "file_sha256": {
     "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
@@ -36,7 +36,7 @@
     "LAUNCH_FINALIZATION_AUDIT.md": "0409abe952550d632795038a3f3dd30ff67b360d424c7c3aaf3f0bf0d9993004",
     "README_LANGUAGE_SYNC_AUDIT.md": "ea3508bd33b3ee62cca906627452c65d321556472282837d461f79d67d7dc6ad",
     "LOCALIZATION_FINAL_AUDIT.md": "5e017a58bf3b253a566d98421245ceadd4441eba3a7e421fc87044c10a7c9b31",
-    "README_POLISH_FINAL_AUDIT.md": "6ec939aa82709e5f3261aa37bd253370907c0e819dfeb55df1e77b5d258f73a0"
+    "README_POLISH_FINAL_AUDIT.md": "cdaadfb502da9182297945b0bd184131bc6649d9813da8558bc3a8ac61017aed"
   },
   "release_archive": {
     "filename": "antibody_developability_competition_v1.0-rc3.zip",
