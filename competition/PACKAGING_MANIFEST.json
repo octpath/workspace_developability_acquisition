@@ -18,8 +18,8 @@
     "HIC"
   ],
   "build_script": "competition/organizer/scripts/build_competition_data.py",
-  "git_commit": null,
-  "git_commit_note": "Recorded after commit if available; initially null to avoid circular dirty state.",
+  "git_commit": "f4e13fc84fb970e20a24db1acc88d21c3e0f7936",
+  "git_commit_note": "Authoritative package inputs/scripts committed in this SHA; manifest metadata updated in follow-up commit.",
   "created_utc": "2026-08-30T20:08:32Z",
   "file_sha256": {
     "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
@@ -32,7 +32,7 @@
     "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
     "PROVENANCE.md": "0167b665a874456b43cdf0468f238012d6d23cf32f91ab63118389de4ff03892",
     "PACKAGING_AUDIT.md": "511ced240e99bfc2d4cbf414ded0e20a620ae20a2d81ab47fe0bb228e12a3980",
-    "LAUNCH_FINALIZATION_AUDIT.md": "43414e0f83aba1723a21afa5b01521e4ebcf3e5688a48a7b5ae944ad9292b4f3"
+    "LAUNCH_FINALIZATION_AUDIT.md": "8a3525a3ea38b3196b23e10c695aaee32151a394a4a50549e917e06ed7feed78"
   },
   "release_archive": {
     "filename": "antibody_developability_competition_v1.0-rc1.zip",

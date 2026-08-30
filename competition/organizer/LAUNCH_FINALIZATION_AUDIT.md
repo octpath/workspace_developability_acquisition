@@ -156,11 +156,11 @@ No organizer benchmarks / Private scores in participant README.
 
 ## Git commit status
 
-Workspace is a Git repository with **no prior commits**.
+Focused first commit of competition package + release ZIP:
 
-Launch finalization will attempt a focused first commit of the competition package + release ZIP if cleanly possible.
+    f4e13fc84fb970e20a24db1acc88d21c3e0f7936
 
-If a commit SHA cannot be recorded without a circular dirty-state loop on the manifest, `git_commit` may remain documented as post-commit / follow-up.
+Manifest `git_commit` field updated in a subsequent metadata-only commit.
 
 
 ## Remaining items (non-blocking)
