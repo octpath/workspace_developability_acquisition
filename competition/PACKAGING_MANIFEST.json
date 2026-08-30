@@ -19,7 +19,7 @@
     "HIC"
   ],
   "build_script": "competition/organizer/scripts/build_competition_data.py",
-  "git_commit": "PENDING",
+  "git_commit": "15168b88bff46a450f91ec5dfd4d381ca5d7a1b9",
   "created_utc": "2026-08-30T22:00:23Z",
   "file_sha256": {
     "dev.csv": "4514d27cc886e13f393a60aa8c9e671825534865fb65b222d013626418ad077b",
@@ -35,7 +35,8 @@
     "PROVENANCE.md": "00d8c109044f7c21433f8d1821c2fe5a882286a7a2b4f81f7f28ca325dd5a8fd",
     "SPLIT_MANIFEST.json": "ac1a82f6815de2ff49d428f22e8ecbbebecf14b067a686bf6b3110c75ec55e59",
     "ANNOTATION_INVENTORY.md": "4fefc6755378fc7605310a3c4ff4991d367953f121803f7480e9ed841fbe9906",
-    "ANNOTATION_LEAKAGE_AUDIT.md": "275756ee8cf1d50724299d5ee79a87d2b3c8f9d9917be98f1ce81f8da5bc34e7"
+    "ANNOTATION_LEAKAGE_AUDIT.md": "275756ee8cf1d50724299d5ee79a87d2b3c8f9d9917be98f1ce81f8da5bc34e7",
+    "V1_RELEASE_AUDIT.md": "07a11d243abf0eb0b942b8be2b44f0377fab74e101b8cad24bfe9fbad5f1defe"
   },
   "release_archive": {
     "filename": "antibody_developability_competition_v1.0.zip",
@@ -86,5 +87,6 @@
     "zip_rebuild_byte_identical": true
   },
   "previous_release_archive": "antibody_developability_competition_v1.0-rc3.zip",
-  "core_csv_unchanged_vs_rc3": true
+  "core_csv_unchanged_vs_rc3": true,
+  "git_commit_note": "v1.0 annotation release content commit; metadata SHA updated in follow-up if needed."
 }
