@@ -1,94 +1,100 @@
 # 予測スコアの科学的解釈
 
-English: [SCORE_INTERPRETATION_TECHNICAL.md](SCORE_INTERPRETATION_TECHNICAL.md)
+英語版: [SCORE_INTERPRETATION_TECHNICAL.md](SCORE_INTERPRETATION_TECHNICAL.md)
 
-コンペ: **Antibody Developability — TmApp & HIC**  
-対象読者: シニアサイエンティスト / プロジェクトリーダー / 部門マネージャ / 科学レビュー / 監査・ガバナンス  
+コンペティション: **Antibody Developability — TmApp & HIC**  
+想定読者: シニア研究者 / プロジェクトリーダー / 部門責任者 / 科学レビュー・監査担当者  
 数値ソース: `SCORE_INTERPRETATION_STATS.json`  
-位置づけ: ドキュメントのみ（採点・リリースデータは変更しない）
+位置づけ: 解説文書のみ（採点規則および配布データは変更しない）
 
 ---
 
-## 組織としての立場（要約段落）
+## 組織としての立場（要約）
 
-本コンペでは、**local cross-validation** における **TmApp MAE おおよそ 2.8–3.0 °C** および **HIC MAE おおよそ 0.45–0.48 min** を、**強い benchmark 級の予測**として解釈すべきである。これらの水準は、定数 baseline（Train-CV 中央値 baseline）に対して意味のある配列→物性 signal を示す（それぞれ MAE 約 **21.6%** / **10.0%** 削減）。おおよそ **2.5 °C** および **0.40 min** を下回るスコアは、現行 organizer benchmark を明確に超える改善とみなせる。これらの目安は **コンペ相対（competition-relative）** であり、普遍的な developability 閾値ではない。関連する DSF / HIC アッセイの公表再現性データは、分析測定が現行 ML 誤差より実質的にタイトに再現し得ることを示しており、現状モデルは **早期スクリーニング / 優先順位付けの補助** として見るべきであり、実験的キャラクタリゼーションの置き換えではない。
+本コンペでは、local CVにおけるTmAppのMAEが約2.8–3.0 °C、HICのMAEが約0.45–0.48 minであれば、現時点の主催者ベンチマークに相当する高い予測性能と位置づける。
+
+これは、単純な中央値予測と比べてMAEをそれぞれ約21.6%、約10.0%低減できており、抗体配列から各物性を予測するための情報をモデルが実際に捉えていることを示している。
+
+一方、TmAppで約2.5 °C、HICで約0.40 minを下回れば、現在の主催者ベンチマークを明確に上回る性能である。
+
+ただし、これらはあくまで本コンペ内での性能の目安（competition-relative）であり、抗体のdevelopabilityを判定する普遍的な基準ではない。また、関連するDSF/HIC研究で報告されている測定再現性は、現在のML予測誤差よりもかなり小さい。したがって、現時点のモデルは候補抗体の早期スクリーニングや優先順位付けを支援する手段として位置づけるべきであり、実験測定を代替するものではない。
 
 ---
 
 ## 1. 目的
 
-本文書は、繰り返し生じるレビュー上の問いに答える。
+本文書は、次のレビュー上の問いに答える。
 
-> *この*コンペで目指すべき予測スコアは何か。そしてそのスコアに、安全に付与できる科学的意味は何か。
+> 本コンペで目指すべき予測スコアは何か。また、そのスコアを科学的にどこまで解釈できるか。
 
-次の2つのものさしを、単一の「有用 / 臨床 / 製造」スケールに潰してはならない。
+ここで用いる評価の軸は次の2つであり、これらを「有用／臨床／製造」といった単一スケールに統合してはならない。
 
-1. **コンペ相対パフォーマンス** — 本 Shehata 由来データセット上での baseline・organizer benchmark に対する改善。  
-2. **科学 / アッセイ相対解釈** — 予測誤差が、関連アッセイで報告される technical variation と qualitatively どう比較できるか。
+1. **本コンペ内での相対評価（competition-relative）** — Shehata et al.由来の本データセット上で、ベースラインおよび主催者ベンチマークに対してどの程度改善しているか。  
+2. **科学的・実験測定との対比** — 予測誤差が、関連アッセイで報告されている測定上のばらつきと定性的にどう比較できるか。
 
-本文中の機械可読数値は `SCORE_INTERPRETATION_STATS.json` に凍結されている。
-
----
-
-## 2. エグゼクティブ結論
-
-1. **強いコンペ相対結果**は、**local CV** 上でおおよそ **TmApp ~2.8–3.0 °C** および **HIC ~0.47 min** である。  
-2. これらの誤差は、関連する DSF / HIC 文脈で報告される technical variation より **数倍大きい** ままである。  
-3. したがって **意味のある配列→物性予測** は示すが、モデルを DSF / HIC の代替と記述する根拠には **ならない**。  
-4. **~2.5 °C**（TmApp）または **~0.40 min**（HIC）を下回るスコアは、現行 organizer benchmark を超える明確な前進である。  
-5. **~1 °C**（TmApp）または **~0.1 min**（HIC）に近づくスコアは、関連実験で報告される再現性の *スケール* に近づくため科学的に注目に値する。ただしアッセイ等価性にはなお **直接的な実験検証** が必要である。  
-6. 参加者向けガイダンスは **local CV** の目安を主とすべきである。Public N=81 はノイズが大きく、Public MAE 帯を local-CV 帯と同一視してはならない。
+本文中の数値は `SCORE_INTERPRETATION_STATS.json` に凍結されている。
 
 ---
 
-## 3. コンペターゲットと評価指標
+## 2. 結論要約
+
+1. **本コンペ内で高い予測性能**とみなせる水準は、**local CV**上でおおよそ **TmApp ~2.8–3.0 °C**、**HIC ~0.47 min** である。  
+2. これらの誤差は、関連するDSF/HICで報告されている測定上のばらつきと比べると、なお **数倍大きい**。  
+3. したがって、配列から物性を予測するうえで明確な情報が得られていることは示せるが、モデルをDSFやHICの代替と記述する根拠には **ならない**。  
+4. **~2.5 °C**（TmApp）または **~0.40 min**（HIC）を下回れば、現在の主催者ベンチマークを明確に上回る。  
+5. **~1 °C**（TmApp）または **~0.1 min**（HIC）に近づくスコアは、関連実験で報告されている測定再現性の水準に近づくため科学的に注目に値する。ただし、実験測定との等価性を主張するには、なお **直接的な実験検証** が必要である。  
+6. 参加者向けの目安は **local CV** を主とすべきである。PublicはN=81と小さくばらつきが大きいため、Public上のMAE帯をlocal CV上の目安と同一視してはならない。
+
+---
+
+## 3. 予測対象と評価指標
 
 | Track | Target | 測定内容 | 単位 | 主評価指標 |
 |---|---|---|---|---|
-| 1 | `TmApp` | **Fab** の **DSF** による apparent melting temperature | °C | MAE（小さいほど良い） |
-| 2 | `HIC` | **IgG** の hydrophobic interaction chromatography retention time | min | MAE（小さいほど良い） |
+| 1 | `TmApp` | **Fab**を対象とした**DSF**による見かけの融解温度（apparent melting temperature） | °C | MAE（小さいほど良い） |
+| 2 | `HIC` | **IgG**の疎水性相互作用クロマトグラフィ保持時間 | min | MAE（小さいほど良い） |
 
-母集団: **N=324**（両ラベル）。Dev **162**、Test **162**、Public/Private **81/81**、split `GEN_0001_B_20271100`。  
-独立したリーダーボードが2つ。**合算スコアなし**。タイ政策: Private MAE が完全一致 → 同率。
+母集団: **N=324**（両ラベルあり）。Dev **162**、Test **162**、Public/Private **81/81**。split ID: `GEN_0001_B_20271100`。  
+リーダーボードは2つ独立。合算スコアはない。同点時の順位規則: Private MAEが完全に同じ場合は同順位とする。
 
-原研究: Shehata et al., *Cell Reports* (2019), DOI `10.1016/j.celrep.2019.08.056`（CC BY 4.0 VoR 由来パッケージ）。
+原研究: Shehata et al., *Cell Reports* (2019), DOI `10.1016/j.celrep.2019.08.056`（CC BY 4.0 VoR由来のパッケージ）。
 
 ---
 
-## 4. 実証的なコンペベンチマーク
+## 4. 本コンペにおける実証ベンチマーク
 
-### 4.1 Local CV（主たる目安のものさし）
+### 4.1 Local CV（主たる比較基準）
 
-凍結 organizer Train-CV / 集約 OOF 成果物（B5 calibration + GEN_0001 再スコア CV）より:
+主催者側で凍結したTrain-CV / 集約OOF結果（B5の校正解析およびGEN_0001再スコアCV）より:
 
-| Target | 定数 / 中央値 baseline MAE | 強い organizer 水準 | およその MAE skill |
+| 対象 | 定数／中央値ベースライン MAE | 強い主催者水準 | およそのMAE skill |
 |---|---:|---:|---:|
-| TmApp | ≈ **3.543 °C** | ≈ **2.78–2.95 °C**（最良 nested ≈ **2.778 °C**） | 誤差削減 ≈ **21.6%** |
-| HIC | ≈ **0.518 min** | ≈ **0.45–0.48 min**（CV最良 ≈ **0.467 min**） | 誤差削減 ≈ **10.0%** |
+| TmApp | ≈ **3.543 °C** | ≈ **2.78–2.95 °C**（nested評価での最良値 ≈ **2.778 °C**） | 誤差低減 ≈ **21.6%** |
+| HIC | ≈ **0.518 min** | ≈ **0.45–0.48 min**（CV最良 ≈ **0.467 min**） | 誤差低減 ≈ **10.0%** |
 
 **MAE skill** = `1 − MAE_model / MAE_baseline`。  
-skill 0 = 定数 baseline から改善なし。0.10 = MAE が 10% 低い。0.20 = MAE が 20% 低い。
+skill 0は定数ベースラインから改善なし、0.10はMAEが10%低い、0.20はMAEが20%低いことを意味する。
 
-skill が測るのは **コンペ相対の予測改善** である。臨床成功、developability 確率、アッセイ置換、製造成功を測るものでは **ない**。
+MAE skillが測るのは、**本コンペ内での相対的な予測改善**である。臨床成功、developabilityの成否、実験測定の代替、製造成功を測る指標ではない。
 
-### 4.2 Final-split の例（転送診断のみ）
+### 4.2 本番split上の例（汎化状況の参考）
 
-本番 split GEN_0001 上（organizer モデル再スコア。参加者目標ではない）:
+本番split GEN_0001上での再スコア結果（参加者向けの目標値ではない）:
 
-| Target | 設定 | Public MAE | Private MAE |
+| 対象 | 設定 | Public MAE | Private MAE |
 |---|---|---:|---:|
-| TmApp | 中央値 baseline | ≈ 3.784 | ≈ 3.772 |
+| TmApp | 中央値ベースライン | ≈ 3.784 | ≈ 3.772 |
 | TmApp | 強い凍結モデル | ≈ 3.5–3.6 | ≈ 3.2–3.3 |
-| HIC | 中央値 baseline | ≈ 0.535 | ≈ 0.510 |
-| HIC | CV最良凍結モデル | ≈ 0.488 | ≈ 0.457 |
+| HIC | 中央値ベースライン | ≈ 0.535 | ≈ 0.510 |
+| HIC | CV最良の凍結モデル | ≈ 0.488 | ≈ 0.457 |
 
-local-CV の目安と Public リーダーボード閾値を **混ぜてはならない**。TmApp の local CV ~2.8–3.0 は Public では mid-3s 付近に見えることがある。比較は同種同士で行う。
+local CV上の目安とPublicリーダーボード上の閾値を混同してはならない。TmAppではlocal CVで約2.8–3.0 °Cのモデルが、Publicでは3 °C台半ば付近に見えることがある。比較は同種の評価条件同士で行う。
 
 ---
 
-## 5. 実際のターゲット分布統計（N=324）
+## 5. 実測ラベルの分布統計（N=324）
 
-凍結コンペラベル（`final_population.csv`）から直接計算。baseline MAE からの推定ではない。
+凍結済みコンペラベル（`final_population.csv`）から直接計算したものであり、ベースラインMAEからの推定ではない。
 
 | 統計量 | TmApp (°C) | HIC (min) |
 |---|---:|---:|
@@ -100,261 +106,261 @@ local-CV の目安と Public リーダーボード閾値を **混ぜてはなら
 | P10–P90 | 64.5–75.5 | 8.75–10.40 |
 | Min–Max | 52.5–83.5 | 8.47–13.86 |
 
-HIC は **右歪み** で **疎な high tail** を持つ。SD だけでは、稀な HIGH-band 抗体のスクリーニング重要性を過小評価しうる。
+HICは高値側に長い裾を持ち、少数の高HIC抗体が存在する。SDだけでは、このような少数の高HIC抗体に対する予測性能の重要性を十分に表せない。
 
-記述的正規化（普遍的解釈ではない）:
+記述的な正規化（普遍的な解釈ではない）:
 
-| Landmark | TmApp MAE/SD | TmApp MAE/IQR | HIC MAE/SD | HIC MAE/IQR |
+| 目安 | TmApp MAE/SD | TmApp MAE/IQR | HIC MAE/SD | HIC MAE/IQR |
 |---|---:|---:|---:|---:|
-| Local-CV baseline | ≈ 0.76 | ≈ 0.59 | ≈ 0.62 | ≈ 0.74 |
-| Local-CV best | ≈ 0.59 | ≈ 0.46 | ≈ 0.56 | ≈ 0.66 |
+| Local-CV ベースライン | ≈ 0.76 | ≈ 0.59 | ≈ 0.62 | ≈ 0.74 |
+| Local-CV 最良 | ≈ 0.59 | ≈ 0.46 | ≈ 0.56 | ≈ 0.66 |
 
 ---
 
-## 6. コンペ相対パフォーマンス尺度
+## 6. 本コンペ内での性能目安
 
-*本*データセットと現行 organizer benchmark に対する **local CV** のおよその目安（「~ / おおよそ / だいたい」を用いる）:
+本データセットおよび現在の主催者ベンチマークに対する **local CV** 上のおおよその目安である（「約」「おおよそ」を用いる）。
 
 ### TmApp MAE (°C)
 
-| 帯 | およその MAE |
+| 水準 | およそのMAE |
 |---|---|
-| baseline 級 | ~3.5 以上（同等またはそれより悪い） |
-| 明確な予測 signal | ~3.3 未満 |
-| 強い organizer-benchmark 級 | **~2.8–3.0** |
-| 現行 benchmark に対して例外的 | ~2.5 未満 |
+| ベースライン付近 | ~3.5 以上（同等またはそれより悪い） |
+| 明確な予測シグナル | ~3.3 未満 |
+| 強いベンチマーク水準 | **~2.8–3.0** |
+| 現在のベンチマークを明確に上回る | ~2.5 未満 |
 | 非常に高い予測精度 | ~2.0 未満 |
 
 ### HIC MAE (min)
 
-| 帯 | およその MAE |
+| 水準 | およそのMAE |
 |---|---|
-| baseline 級 | ~0.52 |
-| 明確な予測 signal | ~0.50 未満 |
-| 強い organizer-benchmark 級 | **~0.45–0.48** |
-| 現行 benchmark に対して例外的 | ~0.40 未満 |
+| ベースライン付近 | ~0.52 |
+| 明確な予測シグナル | ~0.50 未満 |
+| 強いベンチマーク水準 | **~0.45–0.48** |
+| 現在のベンチマークを明確に上回る | ~0.40 未満 |
 | 非常に高い予測精度 | ~0.30 未満 |
 
-これらは **経験的なコンペ landmarks** であり、自然な科学的カットオフでも産業上の受入基準でもない。
+これらは本コンペの実績に基づく経験的な目安であり、自然な科学的カットオフでも、産業上の受入基準でもない。
 
 ---
 
-## 7. 科学的エビデンス階層
+## 7. 科学的エビデンスの階層
 
 | Grade | 意味 |
 |---|---|
-| **A** | Shehata 直接、または極めて近いプロトコルで対応が明確 |
-| **B** | 近縁の抗体アッセイ（同種の測定） |
-| **C** | 一般的な方法論エビデンス |
-| **Inference** | organizer の合成 / コンペ相対解釈 |
+| **A** | Shehataそのもの、または対応が明確な極めて近いプロトコル |
+| **B** | 同種の測定を行う近縁の抗体アッセイ |
+| **C** | 一般的な方法論に関するエビデンス |
+| **Inference** | 主催者による総合的な解釈、または本コンペ内での相対評価 |
 
-**重要な欠落:** Shehata 固有の technical repeatability は、利用可能なパッケージ証拠中の反復統計からは **確立されていない**。関連アッセイの数値を「Shehata noise floor」として書き換えてはならない。
-
----
-
-## 8. TmApp アッセイ解釈
-
-TmApp は、研究条件下で **Fab** 断片に対する **differential scanning fluorimetry（DSF）** により測られた **見かけの（apparent）** 熱転移 / melting temperature である。
-
-- TmApp が高いほど、一般に **そのアッセイ条件下** での熱 / 構造安定性が高いことを示す。  
-- TmApp は **アッセイ依存** であり、普遍的な熱力学定数ではない。  
-- **直接の凝集測定ではない**。  
-- それ単独で developability や製造成功を決定しない。
+**重要な欠落:** Shehataアッセイ固有の測定再現性は、現時点で利用可能なパッケージ証拠中の反復統計からは確立されていない。関連アッセイの数値を「Shehataのnoise floor」として書き換えてはならない。
 
 ---
 
-## 9. TmApp 再現性エビデンス
+## 8. TmAppのアッセイ解釈
 
-文書化の推奨文言:
+TmAppは、研究条件下で**Fab**断片を対象に、**differential scanning fluorimetry（DSF）**により測定された**見かけの**熱転移／融解温度である。
 
-> 関連する抗体 / 治療用タンパクの DSF 研究では、プロトコルと反復設計に応じて、technical variation がおおよそ **サブ °C から約 1 °C** のスケールで報告される。ただし **Shehata アッセイ固有の再現性は、利用可能な証拠からは直接確立されていない。**
-
-例（Grade B/C — Shehata の floor ではない）:
-
-- 治療用タンパクの **nanoDSF** 文献では、一部の comparability 設定で Fab ドメイン再現性が **~0.2 °C** オーダーと報告される（関連方法論）。  
-- より広い DSF プロトコル文献では、複数日 / 装置 / プレート位置効果が一部設計で **~0.5–1 °C** に達し得るとされる。
-
-**書いてはならない:** 「Shehata assay noise floor = 0.2–0.5 °C」。
+- TmAppが高いほど、一般にそのアッセイ条件下での熱的・構造的安定性が高いことを示す。  
+- TmAppはアッセイ条件に依存し、普遍的な熱力学定数ではない。  
+- 凝集を直接測る指標ではない。  
+- 単独でdevelopabilityや製造成功を決定するものではない。
 
 ---
 
-## 10. HIC アッセイ解釈
+## 9. TmAppの測定再現性に関するエビデンス
 
-HIC retention time は、特定プロトコル下でのクロマトグラフィ固定相との **実効的な疎水性相互作用** を反映する。
+文書化に用いる推奨文言:
 
-保持が長いことは、より強い実効疎水性や、self-association / 非特異的相互作用に関連する developability リスクの議論と結び付けられることがある。しかし:
+> 関連する抗体および治療用タンパクのDSF研究では、プロトコルと反復設計に応じて、**1 °C未満のばらつきが報告されており、条件によっては約1 °Cに達する**。ただし、**Shehataアッセイ固有の測定再現性は、利用可能な証拠からは直接確立されていない。**
 
-- HIC は **凝集アッセイではない**。  
-- HIC が高いからといって、抗体が必ず凝集するわけでは **ない**。  
-- 絶対的な保持時間は **プロトコル依存** である。
+例（Grade B/C。Shehata固有の下限ではない）:
+
+- 治療用タンパクの**nanoDSF**文献では、一部の比較評価（comparability）においてFabドメインの反復再現性が**約0.2 °C**のオーダーで報告されている（関連方法論）。  
+- より広いDSFプロトコル文献では、複数日・装置・プレート位置の影響が、一部の設計で**約0.5–1 °C**に達し得るとされる。
+
+**書いてはならない文言:** 「Shehata assay noise floor = 0.2–0.5 °C」。
 
 ---
 
-## 11. HIC 再現性エビデンス
+## 10. HICのアッセイ解釈
 
-文書化上、最も防御可能な比較:
+HIC保持時間は、特定プロトコル下でクロマトグラフィ固定相との実効的な疎水性相互作用の強さを反映する。
+
+保持が長いことは、実効疎水性がより強いことや、自己会合・非特異的相互作用に関連するdevelopabilityリスクの議論と結び付けられることがある。しかし:
+
+- HICは凝集アッセイではない。  
+- HICが高いからといって、その抗体が必ず凝集するわけではない。  
+- 絶対的な保持時間はプロトコルに依存する。
+
+---
+
+## 11. HICの測定再現性に関するエビデンス
+
+文書化上、最も防御可能な比較は次である。
 
 - Jain et al., *Bioinformatics* (2017), DOI `10.1093/bioinformatics/btx519`  
-- Adimab HIC セットアップで定期測定された reference IgG1（adalimumab 可変領域コントロール）: **127** 回測定で **8.6 ± 0.12 min**。
+- AdimabのHICセットアップで定期測定された参照IgG1（adalimumab可変領域コントロール）: **127**回測定で **8.6 ± 0.12 min**。
 
-**~0.12 min** は **有用な近縁プロトコル変動スケール**（Grade A/B）として扱う。普遍的な HIC noise floor でも、直接証明された Shehata 反復統計でも **ない**。
+**約0.12 min**は、近縁プロトコルにおける参照抗体の反復測定で観察されたばらつきの有用な参考尺度（Grade A/B）として扱う。普遍的なHICのnoise floorでも、Shehata固有の反復統計として証明された値でもない。
 
-高度に最適化された固定系 HIC の注入間精度は、他ラボ文脈ではさらに小さくなり得る。再現性は系・カラム・プロトコルに強く依存する。この対比は、単一数値を「唯一の」noise floor と呼ぶことへの警戒を強める。
-
----
-
-## 12. なぜアッセイ再現性 ≠ ML 誤差フロアなのか
-
-分析再現性は、制御条件下で **同一** の実験手順が測定をどれだけタイトに再現するかを記述する。
-
-ML MAE は、**異なる抗体** にわたる **配列→物性予測器** の平均絶対誤差を記述する。
-
-たとえ ML MAE が関連アッセイの再現性スケールに近づいても:
-
-- 自動的に Shehata アッセイ等価にはならない。  
-- 同じデルタでの正しい pairwise 順位付けを保証しない。  
-- 前向き検証なしに実験キャラクタリゼーション置換を正当化しない。
+高度に最適化された固定条件のHICでは、他の実験系でさらに小さな注入間変動が報告される場合もある。測定再現性は装置系・カラム・プロトコルに強く依存する。この対比は、単一の数値を「唯一の」noise floorと呼ぶことへの警戒を強める。
 
 ---
 
-## 13. Baseline に対する MAE skill
+## 12. 測定再現性とML誤差フロアは同義ではない
 
-凍結 local-CV 値を用いる:
+分析測定の反復再現性は、制御条件下で**同一の**実験手順が測定値をどれだけ狭く再現するかを記述する。
 
-| Target | Baseline | Best | Skill | 誤差削減 |
+MLのMAEは、**異なる抗体**に対する**配列→物性予測器**の平均絶対誤差を記述する。
+
+たとえMLのMAEが関連アッセイの測定再現性の水準に近づいても:
+
+- 自動的にShehataアッセイとの等価性を意味しない。  
+- 同じ大きさの差を持つ2抗体を正しく順位付けできることを保証しない。  
+- 前向きな実験検証なしに、実験的キャラクタリゼーションの代替を正当化しない。
+
+---
+
+## 13. ベースラインに対するMAE skill
+
+凍結済みlocal CV値を用いる:
+
+| 対象 | ベースライン | 最良 | Skill（改善率） | 誤差低減 |
 |---|---:|---:|---:|---:|
 | TmApp | 3.543 °C | 2.778 °C | ≈ 0.216 | ≈ **21.6%** |
 | HIC | 0.518 min | 0.467 min | ≈ 0.100 | ≈ **10.0%** |
 
-解釈: 強い organizer モデルは本物の signal を抽出しており、現行の特徴量 / モデル族では相対的な余白（headroom）は TmApp の方が HIC より大きい。
+解釈: 強い主催者モデルは、単純な定数予測では得られない予測情報を抽出している。現行の特徴量・モデル族では、相対的な改善余地はTmAppの方がHICより大きい。
 
 ---
 
-## 14. MAE と順位 / 判別
+## 14. MAEと順位・識別
 
-- **MAE**: アッセイ値そのものの忠実度（コンペ主指標）。  
-- **Spearman**: 順位一致性（診断用）。  
+- **MAE**: アッセイ値そのものへの忠実度（本コンペの主指標）。  
+- **Spearman**: 順位の一致（診断用）。  
 
-コンペ指標は **MAE** のまま。変更しない。
+本コンペの主指標は**MAE**のままとする。変更しない。
 
-スクリーニング有用性の内部科学議論では、有用な診断として次がある:
+スクリーニング有用性に関する内部の科学議論では、次の診断も有用である。
 
-- high-tail recall / top-*k* enrichment（特に HIC HIGH band）、  
-- 選択したデルタでの pairwise ranking accuracy、  
-- calibration / 残差構造。
+- 高値側裾の再現率／top-*k* enrichment（特にHICのHIGH帯）  
+- あらかじめ定めた差での2候補間の順位付け精度  
+- 校正（calibration）および残差構造
 
-### MAE は「分解能」ではない
+### MAEは「分解能」ではない
 
-`TmApp MAE = 2 °C` は、2 °C 差の全ペアを確実に分離できることを **意味しない**。  
-`HIC MAE = 0.3 min` は、0.3 min 差の全ペアを確実に順位付けできることを **意味しない**。
+`TmApp MAE = 2 °C`は、2 °C差のあるすべての抗体ペアを確実に分離できることを意味しない。  
+`HIC MAE = 0.3 min`は、0.3 min差のあるすべての抗体ペアを確実に順位付けできることを意味しない。
 
-ペア判別は、誤差分布・バイアス・calibration・予測誤差相関・真の分離幅に依存する。
-
----
-
-## 15. コンペ相対スコア帯
-
-§6 を参照。参加者ガイダンスは **local CV** を引用すべきである。Public リーダーボード比較は Public baseline / Public ピアを用いる（N=81。順位は揺れうる）。
+2候補間の識別能は、誤差分布、バイアス、校正、予測誤差の相関、および真の差の大きさに依存する。
 
 ---
 
-## 16. スコア landmarks の科学的解釈
+## 15. 本コンペ内でのスコア帯
+
+詳細は§6を参照。参加者向けの目安は**local CV**を引用すべきである。Publicリーダーボードとの比較では、Public上のベースラインおよび他提出を用いる（N=81。順位は変動しうる）。
+
+---
+
+## 16. 各スコア水準の科学的解釈
 
 ### TmApp
 
-| およその MAE | コンペ上の読み | 科学的注意 |
+| およそのMAE | 本コンペ内での読み | 科学的注意 |
 |---|---|---|
-| ~3.5–3.8 °C | baseline 級 | 定数予測からの改善は小さい / 限定的 |
-| ~3.0 °C | 強いコンペ水準 | 意味のある配列→TmApp signal。関連 DSF の technical variation よりなお数倍大きい。**広い**安定性変動は捉えうる — 「3 °C 差がすべて分解される」ではない。アッセイ置換でもない |
-| <2.5 °C | organizer benchmark に対して例外的 | 主要な抗体間ばらつきより誤差が実質的に小さい — 自動的に製造 / 臨床有用ではない |
-| <2.0 °C | 本データでは非常に高い予測精度 | 関連 DSF 再現性 *スケール* への接近として科学的に興味深い — なおアッセイ置換には不十分 |
-| ~1.0 °C | 一部関連 DSF 再現性のオーダーに接近 | **検証済み DSF 置換ではない**。**Shehata noise floor ではない**。DSF と実験的に互換でもない |
+| ~3.5–3.8 °C | ベースライン付近 | 定数予測からの改善は小さい、または限定的 |
+| ~3.0 °C | 強い予測性能 | 配列からTmAppを予測するうえで明確な情報が得られている。関連DSFで報告される測定上のばらつきよりなお数倍大きい。**広い**安定性変動は捉えうるが、「3 °C差がすべて識別される」わけでも、実験測定の代替でもない |
+| <2.5 °C | 現在のベンチマークを明確に上回る | 抗体間の主要なばらつきと比べて誤差がかなり小さい。ただちに製造上・臨床上有用とは言えない |
+| <2.0 °C | 本データでは非常に高い予測精度 | 関連DSFの測定再現性の水準への接近として科学的に興味深い。なお実験測定の代替には不十分 |
+| ~1.0 °C | 一部の関連DSF再現性と同オーダーに接近 | **検証済みのDSF代替ではない**。**Shehata固有のnoise floorではない**。DSFと実験的に互換でもない |
 
 ### HIC
 
-| およその MAE | コンペ上の読み | 科学的注意 |
+| およそのMAE | 本コンペ内での読み | 科学的注意 |
 |---|---|---|
-| ~0.52 min | baseline 級 | 定数水準 |
-| ~0.47 min | 強いコンペ水準 | 本物の配列→HIC signal（CV 誤差削減 ~10%）。近縁プロトコル reference 変動 ~0.12 min よりなお数倍大きい — 無情報ではないが、アッセイ級精度でもない |
-| <0.40 min | organizer benchmark に対して例外的 | 現行実証 organizer モデルを超える明確な前進 |
-| <0.30 min | 本データでは非常に高い予測精度 | 近縁プロトコル分析変動と同程度の広いオーダーに近づく — なお 0.3 min の pairwise 分解能ではない |
-| ~0.1 min | 近縁 reference-control 変動のオーダー | **証明済みアッセイ置換ではない**。**普遍的 noise floor ではない**。最終 developability 判断には不十分 |
+| ~0.52 min | ベースライン付近 | 定数予測水準 |
+| ~0.47 min | 強い予測性能 | 配列からHICを予測する明確なシグナル（CVでの誤差低減約10%）。近縁プロトコルの参照抗体ばらつき約0.12 minよりなお数倍大きい。無情報ではないが、実験測定と同程度の精度でもない |
+| <0.40 min | 現在のベンチマークを明確に上回る | 現時点で実証されている主催者モデルを超える明確な前進 |
+| <0.30 min | 本データでは非常に高い予測精度 | 近縁プロトコルで報告された分析測定のばらつきと、同じオーダーに近づく。なお0.3 min差を識別できる分解能ではない |
+| ~0.1 min | 近縁の参照抗体反復測定で観察されたばらつきと同オーダー | **証明済みのアッセイ代替ではない**。**普遍的なnoise floorではない**。最終的なdevelopability判断には不十分 |
 
 ---
 
 ## 17. 支持される主張
 
-- Local-CV MAE ~2.8–3.0 °C（TmApp）および ~0.45–0.48 min（HIC）は、**本コンペの baseline と organizer benchmark に対して強い**。  
-- これらの水準は、配列からの **再現可能な予測 signal** を示す。  
-- 関連 DSF / HIC 文献は、現行 ML 誤差より **実質的にタイトな** 分析変動を報告する。  
-- Public N=81 は小さく、リーダーボード順位は揺れうる。  
-- HIC ラベル分布は歪みと疎な high tail を持ち、スクリーニング有用性と関連する。
+- Local CVでのMAE約2.8–3.0 °C（TmApp）および約0.45–0.48 min（HIC）は、**本コンペのベースラインおよび主催者ベンチマークに対して高い予測性能**である。  
+- これらの水準は、配列から再現可能な予測シグナルが得られていることを示す。  
+- 関連するDSF/HIC文献は、現在のMLモデルのMAEよりかなり小さい分析測定のばらつきを報告している。  
+- PublicはN=81と小さく、リーダーボード順位は変動しうる。  
+- HICラベル分布は歪みを持ち、高値側の少数サンプルがスクリーニング上重要である。
 
 ---
 
 ## 18. 支持されない主張
 
-- これらの MAE 帯が **産業上の受入閾値** である。  
-- 強い benchmark 水準のモデルが DSF や HIC を **置き換える**。  
-- モデルが developability・製造準備・臨床有用性・「安全な抗体」を認定する。  
-- 引用した関連アッセイ SD が **Shehata noise floor** である。  
-- MAE が同じ数値デルタでの pairwise 分解能に等しい。  
-- Public MAE 帯が local-CV 帯に等しい。
+- これらのMAE帯が産業上の受入閾値であること。  
+- 強いベンチマーク水準のモデルがDSFやHICを代替すること。  
+- モデルがdevelopability、製造準備、臨床有用性、あるいは「安全な抗体」を認定すること。  
+- 引用した関連アッセイのばらつきがShehata固有のnoise floorであること。  
+- MAEが、同じ数値差での2候補間識別能に等しいこと。  
+- Public上のMAE帯がlocal CV上の目安と等しいこと。
 
 ---
 
 ## 19. エビデンス台帳
 
-| 主張 | 出典 | アッセイ / 試料 | 数値観察 | Grade | Shehata への関連 | 解釈 |
+| 主張 | 出典 | アッセイ／試料 | 数値観察 | Grade | Shehataとの関係 | 解釈 |
 |---|---|---|---|---|---|---|
-| TmApp は Fab DSF apparent Tm | Shehata et al. 2019; packaging PROVENANCE | Fab DSF | mmc2 の TmApp (°C) | A | 直接 | アッセイ定義 |
-| HIC は IgG retention time | Shehata et al. 2019; PROVENANCE | IgG HIC | mmc2 の分 | A | 直接 | アッセイ定義 |
-| Local-CV TmApp baseline ≈ 3.543 °C | B5 `calibration_analysis.md` CONST_MEDIAN | Train OOF | MAE 3.54321 | Inference | コンペ母集団 | baseline landmark |
-| Local-CV TmApp best ≈ 2.778 °C | B5 calibration / GEN_0001 3×3 | Train OOF | MAE 2.778 | Inference | コンペ母集団 | 強い benchmark |
-| Local-CV HIC baseline ≈ 0.518 min | B5 calibration CONST_MEDIAN | Train OOF | MAE 0.518465 | Inference | コンペ母集団 | baseline landmark |
-| Local-CV HIC best ≈ 0.467 min | GEN_0001 3×3 CV-best | Train CV | MAE 0.4667 | Inference | コンペ母集団 | 強い benchmark |
-| TmApp N=324 SD ≈ 4.69 °C | `final_population.csv` | コンペラベル | SD 4.691 | A | 直接ラベル | 生物学的ばらつき |
-| HIC N=324 SD ≈ 0.83 min; 歪みあり | `final_population.csv` | コンペラベル | SD 0.832; skew > 2 | A | 直接ラベル | 生物学的ばらつき / 尾部 |
-| 関連 nanoDSF Fab 再現性 ~0.2 °C | 治療用タンパク nanoDSF comparability 文献 | nanoDSF Fab/domain Tm | 再現性 ~0.2 °C | B | 関連方法。Shehata プロトコルではない | 定性的なアッセイタイトネス尺度 |
-| 複数日 / プロトコル DSF 変動 ~0.5–1 °C | 一般 DSF 方法論文献 | DSF プロトコル | クラス効果で最大 ~1 °C | C | 方法クラス | floor 過大主張への警戒 |
-| 近縁プロトコル HIC reference 8.6 ± 0.12 min（n=127） | Jain et al. 2017 Bioinformatics | Adimab HIC reference IgG1 | 8.6 ± 0.12 min | A/B | 近縁の Adimab HIC 系 | 最も近い HIC 変動スケール |
-| 強い ≠ アッセイ置換 | organizer 合成 | — | — | Inference | 方針 | 必須の注意 |
+| TmAppはFab DSFによる見かけの融解温度 | Shehata et al. 2019; packaging PROVENANCE | Fab DSF | mmc2のTmApp (°C) | A | 直接 | アッセイ定義 |
+| HICはIgG保持時間 | Shehata et al. 2019; PROVENANCE | IgG HIC | mmc2の分 | A | 直接 | アッセイ定義 |
+| Local-CV TmAppベースライン ≈ 3.543 °C | B5 `calibration_analysis.md` CONST_MEDIAN | Train OOF | MAE 3.54321 | Inference | コンペ母集団 | ベースライン目安 |
+| Local-CV TmApp最良 ≈ 2.778 °C | B5校正解析 / GEN_0001 3×3 | Train OOF | MAE 2.778 | Inference | コンペ母集団 | 強いベンチマーク |
+| Local-CV HICベースライン ≈ 0.518 min | B5校正解析 CONST_MEDIAN | Train OOF | MAE 0.518465 | Inference | コンペ母集団 | ベースライン目安 |
+| Local-CV HIC最良 ≈ 0.467 min | GEN_0001 3×3 CV-best | Train CV | MAE 0.4667 | Inference | コンペ母集団 | 強いベンチマーク |
+| TmApp N=324 SD ≈ 4.69 °C | `final_population.csv` | コンペラベル | SD 4.691 | A | 直接ラベル | 抗体間のばらつき |
+| HIC N=324 SD ≈ 0.83 min; 歪みあり | `final_population.csv` | コンペラベル | SD 0.832; skew > 2 | A | 直接ラベル | 抗体間のばらつき／高値側の裾 |
+| 関連nanoDSFのFab反復再現性 ~0.2 °C | 治療用タンパクnanoDSFの比較評価（comparability）文献 | nanoDSF Fab/domain Tm | 反復再現性 ~0.2 °C | B | 関連方法。Shehataプロトコルではない | 測定再現性のおおよその参考尺度 |
+| 複数日／プロトコル由来のDSF変動 ~0.5–1 °C | 一般的なDSF方法論文献 | DSFプロトコル | 測定条件による変動が最大で約1 °C規模 | C | 方法クラス | 測定誤差の下限を過度に断定しないための根拠 |
+| 近縁プロトコルHIC参照 8.6 ± 0.12 min（n=127） | Jain et al. 2017 Bioinformatics | Adimab HIC参照IgG1 | 8.6 ± 0.12 min | A/B | 近縁のAdimab HIC系 | 最も近いHIC変動の参考尺度 |
+| 強い予測性能 ≠ 実験測定の代替 | 主催者による総合的な解釈 | — | — | Inference | 方針 | 必須の注意 |
 
 ---
 
 ## 20. 主要参考文献
 
 1. Shehata L, et al. (2019). Affinity Maturation Enhances Antibody Specificity but Compromises Conformational Stability. *Cell Reports* 28:3300–3308.e4. DOI: [10.1016/j.celrep.2019.08.056](https://doi.org/10.1016/j.celrep.2019.08.056).  
-2. Jain T, et al. (2017). Prediction of delayed retention of antibodies in hydrophobic interaction chromatography from sequence using machine learning. *Bioinformatics* 33:3758–3766. DOI: [10.1093/bioinformatics/btx519](https://doi.org/10.1093/bioinformatics/btx519).（Reference-control HIC 8.6 ± 0.12 min, n=127.）  
-3. Jain T, et al. (2017). Biophysical properties of the clinical-stage antibody landscape. *PNAS* 114:944–949. DOI: [10.1073/pnas.1616408114](https://doi.org/10.1073/pnas.1616408114).（Developability アッセイ景観の文脈。）  
-4. 治療用タンパク **nanoDSF** の comparability / 再現性文献で、Fab ドメイン再現性が ~0.2 °C オーダーと報告されるもの（Grade B。プロトコルは Shehata DSF と異なる）。  
-5. プレート内 / 複数日 / 装置寄与がサブ °C〜約 1 °C に達し得ることを記す一般 DSF プロトコル文献（Grade C）。  
-6. Organizer 凍結成果物: `gate_b5_ceiling/reports/calibration_analysis.md`, `gate_b5_ceiling/reports/GATE_B5_CEILING_FINAL.md`, `gate_b7_3_principled_split/reports/07_FINAL_GEN0001_3X3_BENCHMARK.md`, `competition/organizer/SCORE_INTERPRETATION_STATS.json`.
+2. Jain T, et al. (2017). Prediction of delayed retention of antibodies in hydrophobic interaction chromatography from sequence using machine learning. *Bioinformatics* 33:3758–3766. DOI: [10.1093/bioinformatics/btx519](https://doi.org/10.1093/bioinformatics/btx519).（参照抗体のHIC 8.6 ± 0.12 min, n=127。）  
+3. Jain T, et al. (2017). Biophysical properties of the clinical-stage antibody landscape. *PNAS* 114:944–949. DOI: [10.1073/pnas.1616408114](https://doi.org/10.1073/pnas.1616408114).（抗体developabilityを複数の物性指標から評価する際の背景文献。）  
+4. 治療用タンパクの**nanoDSF**に関する比較評価（comparability）および反復再現性に関する文献で、Fabドメインの反復再現性が約0.2 °Cのオーダーと報告されるもの（Grade B。プロトコルはShehata DSFと異なる）。  
+5. プレート内・複数日・装置寄与として、1 °C未満のばらつきが報告され、条件によっては約1 °Cに達し得ることを記す一般的なDSFプロトコル文献（Grade C）。  
+6. 主催者側の凍結成果物: `gate_b5_ceiling/reports/calibration_analysis.md`, `gate_b5_ceiling/reports/GATE_B5_CEILING_FINAL.md`, `gate_b7_3_principled_split/reports/07_FINAL_GEN0001_3X3_BENCHMARK.md`, `competition/organizer/SCORE_INTERPRETATION_STATS.json`.
 
 ---
 
-## 付録 — レビューア Q&A（品質テスト）
+## 付録 — レビューア向けQ&A（品質確認）
 
-**Q1. なぜ TmApp 3.0 °C が「強い」のか？**  
-organizer の local-CV benchmark（~2.8–3.0）近傍であり、中央値 baseline ~3.54 °C を十分下回る（MAE 削減 ~15–20%+）からである。すなわち明確な **コンペ相対** signal であり、3 °C が産業受入基準だからではない。
+**Q1. なぜTmApp 3.0 °Cが「強い」のか？**  
+主催者のlocal CVベンチマーク（約2.8–3.0 °C）に近く、中央値ベースライン約3.54 °CからMAEを約15%低減しているためである。また、主催者最良モデルでは約21.6%の低減に達している。すなわち本コンペ内での相対評価として明確な予測シグナルがあるのであり、3 °Cが産業上の受入基準だからではない。
 
-**Q2. なぜ HIC 0.47 min が「強い」のか？**  
-同じ論理: organizer local-CV 最良（~0.467）近傍で、baseline ~0.518 より約 10% 良い。
+**Q2. なぜHIC 0.47 minが「強い」のか？**  
+理由はTmAppと同じである。主催者のlocal CVでの最良値（約0.467 min）に近く、中央値ベースライン（約0.518 min）からMAEを約10%低減しているためである。
 
 **Q3. これらは産業上の受入閾値か？**  
-**いいえ。** コンペ相対 landmarks のみ。
+いいえ。あくまで本コンペ内で予測性能を比較するための目安であり、産業上の受入基準ではない。
 
-**Q4. モデルはアッセイと同精度か？**  
-**いいえ。** 関連アッセイ再現性は現行 ML MAE より実質的にタイトである。
+**Q4. モデルは実験測定と同精度か？**  
+いいえ。関連アッセイで報告されている測定再現性は、現在のMLモデルのMAEよりかなり小さい。
 
-**Q5. なぜ 0.1 min を HIC noise floor と呼べないのか？**  
-~0.1–0.12 min は関連 Adimab HIC の **近縁 reference-control 変動スケール** であり、証明された Shehata 反復 floor でも普遍値でもない。
+**Q5. なぜ0.1 minをHICのnoise floorと呼べないのか？**  
+約0.1–0.12 minは、関連するAdimab HICにおける参照抗体の反復測定で観察されたばらつきの参考尺度であり、証明されたShehata固有の反復下限でも、普遍的な値でもない。
 
-**Q6. MAE 0.3 は、0.3 min 離れた2抗体を区別できる意味か？**  
-**いいえ。** MAE は平均絶対誤差であり、pairwise 分解能ではない。
+**Q6. MAE 0.3は、0.3 min離れた2抗体を識別できる意味か？**  
+いいえ。MAEは平均絶対誤差であり、2候補間の識別能ではない。
 
-**Q7. 実験再現性比較を支える証拠は何か？**  
-関連 DSF 文献（サブ °C〜約 1 °C）と Jain 2017 HIC reference-control（±0.12 min）。エビデンス台帳参照。Shehata 固有の反復はパッケージ証拠に無い。
+**Q7. 実験測定の再現性比較を支える証拠は何か？**  
+関連DSF文献（1 °C未満のばらつきが報告され、条件によっては約1 °Cに達する）およびJain 2017のHIC参照抗体結果（±0.12 min）。詳細はエビデンス台帳を参照。Shehata固有の反復統計はパッケージ証拠に含まれていない。
 
-**Q8. 直接測定と organizer 推論の境界は？**  
-直接: Shehata アッセイ定義と N=324 ラベル分布。推論: スコア帯、skill、organizer CV 相対の「強い / 例外的」という言語。
+**Q8. 直接測定と主催者による解釈の境界は？**  
+直接測定に属するのは、Shehataのアッセイ定義およびN=324のラベル分布である。スコア帯、MAE skill、ならびに主催者CVに対する「強い／ベンチマーク超え」といった評価言語は、主催者による解釈である。
