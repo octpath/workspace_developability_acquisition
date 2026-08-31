@@ -1,0 +1,169 @@
+{
+  "competition": "Antibody Developability \u2014 TmApp & HIC",
+  "population_N": 324,
+  "dev_N": 162,
+  "test_N": 162,
+  "public_N": 81,
+  "private_N": 81,
+  "production_split_id": "GEN_0001_B_20271100",
+  "primary_metric": "MAE",
+  "targets": {
+    "TmApp": {
+      "unit": "\u00b0C",
+      "definition": "Apparent melting temperature (Fab, DSF)",
+      "distribution_N324": {
+        "N": 324,
+        "mean": 69.89197530864197,
+        "SD": 4.691313076005206,
+        "median": 70.0,
+        "IQR": 6.0,
+        "MAD": 3.0,
+        "P10": 64.5,
+        "P90": 75.5,
+        "min": 52.5,
+        "max": 83.5,
+        "skewness": -0.18147190329076776
+      },
+      "local_cv": {
+        "baseline_mae": 3.54321,
+        "organizer_strong_mae_range": [
+          2.78,
+          2.95
+        ],
+        "organizer_best_mae": 2.77807,
+        "source": "gate_b5_ceiling/reports/calibration_analysis.md CONST_MEDIAN / NESTED_STACK_MEAN aggregated OOF MAE; strong range includes nested stack + competitive singles"
+      },
+      "final_split_examples_GEN_0001": {
+        "median_baseline": {
+          "public_mae": 3.78395,
+          "private_mae": 3.7716
+        },
+        "cv_best_NESTED_STACK_MEAN": {
+          "cv_mae": 2.7781,
+          "public_mae": 3.6291,
+          "private_mae": 3.2823
+        },
+        "public_best_PLM_ABLANG2_PCA32_SVR": {
+          "cv_mae": 2.948,
+          "public_mae": 3.5252,
+          "private_mae": 3.2134
+        },
+        "source": "gate_b7_3_principled_split/reports/07_FINAL_GEN0001_3X3_BENCHMARK.md"
+      },
+      "mae_skill_local_cv": {
+        "baseline": 3.54321,
+        "best": 2.77807,
+        "skill": 0.21594542801583883,
+        "error_reduction_fraction": 0.21594542801583883,
+        "error_reduction_percent_approx": 21.6
+      },
+      "normalized_landmarks": {
+        "note": "Descriptive only; MAE divided by N=324 label SD or IQR",
+        "SD": 4.691313076005206,
+        "IQR": 6.0,
+        "baseline_mae_over_SD": 0.7552704205827914,
+        "best_mae_over_SD": 0.5921732263423378,
+        "baseline_mae_over_IQR": 0.590535,
+        "best_mae_over_IQR": 0.46301166666666665
+      }
+    },
+    "HIC": {
+      "unit": "min",
+      "definition": "IgG HIC retention time",
+      "distribution_N324": {
+        "N": 324,
+        "mean": 9.377265432098765,
+        "SD": 0.8324482248012397,
+        "median": 9.097999999999999,
+        "IQR": 0.7045000000000012,
+        "MAD": 0.27200000000000024,
+        "P10": 8.7522,
+        "P90": 10.3985,
+        "min": 8.465,
+        "max": 13.856,
+        "skewness": 2.2261143556306675
+      },
+      "local_cv": {
+        "baseline_mae": 0.518465,
+        "organizer_strong_mae_range": [
+          0.45,
+          0.48
+        ],
+        "organizer_best_mae": 0.4667,
+        "source": "B5 CONST_MEDIAN aggregated OOF MAE; GEN_0001 CV-best NESTED_STACK_NNLS=0.4667"
+      },
+      "final_split_examples_GEN_0001": {
+        "median_baseline": {
+          "public_mae": 0.53486,
+          "private_mae": 0.51009
+        },
+        "cv_best_NESTED_STACK_NNLS": {
+          "cv_mae": 0.4667,
+          "public_mae": 0.4881,
+          "private_mae": 0.4566
+        },
+        "source": "gate_b7_3_principled_split/reports/07_FINAL_GEN0001_3X3_BENCHMARK.md + packaging dry-run median"
+      },
+      "mae_skill_local_cv": {
+        "baseline": 0.518465,
+        "best": 0.4667,
+        "skill": 0.09984280520382272,
+        "error_reduction_fraction": 0.09984280520382272,
+        "error_reduction_percent_approx": 10.0
+      },
+      "normalized_landmarks": {
+        "note": "Descriptive only; HIC is right-skewed with sparse high tail",
+        "SD": 0.8324482248012397,
+        "IQR": 0.7045000000000012,
+        "baseline_mae_over_SD": 0.6228195154404849,
+        "best_mae_over_SD": 0.5606354678832213,
+        "baseline_mae_over_IQR": 0.7359332860184514,
+        "best_mae_over_IQR": 0.662455642299502
+      }
+    }
+  },
+  "competition_relative_landmarks_local_cv": {
+    "TmApp_MAE_C": {
+      "baseline_like": "~3.5 or worse",
+      "clear_predictive_signal": "below ~3.3",
+      "strong_organizer_benchmark": "~2.8\u20133.0",
+      "exceptional_vs_benchmark": "below ~2.5",
+      "very_high_predictive_precision": "below ~2.0"
+    },
+    "HIC_MAE_min": {
+      "baseline_like": "~0.52",
+      "clear_predictive_signal": "below ~0.50",
+      "strong_organizer_benchmark": "~0.45\u20130.48",
+      "exceptional_vs_benchmark": "below ~0.40",
+      "very_high_predictive_precision": "below ~0.30"
+    },
+    "note": "Approximate competition-relative landmarks for LOCAL CV only; not Public leaderboard targets; not universal developability thresholds."
+  },
+  "assay_repeatability_comparisons": {
+    "TmApp": {
+      "shehata_direct_replicate_statistic": null,
+      "related_literature_scale": "sub-degree to approximately 1 \u00b0C technical variation in related antibody/therapeutic-protein DSF contexts",
+      "examples": [
+        {
+          "claim": "nanoDSF Fab-domain universal repeatability ~0.2 \u00b0C",
+          "grade": "B",
+          "note": "related therapeutic-protein nanoDSF; not Shehata protocol"
+        },
+        {
+          "claim": "multi-day / protocol DSF variation can approach ~0.5\u20131 \u00b0C",
+          "grade": "C",
+          "note": "general DSF method literature"
+        }
+      ]
+    },
+    "HIC": {
+      "shehata_direct_replicate_statistic": null,
+      "closely_matched_protocol": {
+        "value": "8.6 \u00b1 0.12 min over 127 measurements of a reference IgG1",
+        "source": "Jain et al., Bioinformatics 2017 (doi:10.1093/bioinformatics/btx519)",
+        "grade": "A/B",
+        "note": "Adimab HIC setup closely related to Shehata/Adimab developability assays; not a direct Shehata replicate table"
+      }
+    }
+  }
+}
