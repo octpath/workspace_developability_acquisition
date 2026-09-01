@@ -1,0 +1,262 @@
+=== Load data ===
+=== Structure quality audit ===
+structure_source   N                       H/L_chains                     sequence_match complete                           participant_safe reusable                                                                                                      notes
+  ESMFold_native 162 A=VH,B=VL (mapped by length/seq)                162/162 exact VH+VL  162/162 yes (Dev seq → ESMFold, label-independent)      yes path=/workspace_developability_acquisition/esmfold_native/{id}.pdb; also mirrored under gate_b2 hash names
+   ABodyBuilder2 162              H/L (IMGT-numbered) 162/162 usable (exact or prefix±2)  162/162    yes (Dev seq → ABB2, label-independent)      yes                                                 gate_b1/cache/structures/abodybuilder2 + abb2_manifest.csv
+=== Packing features ===
+=== Feature tables ===
+=== Structure-only screen ===
+  TmApp__ESMFold__STRUCT_GLOBAL__Ridge: 3.3955
+  TmApp__ESMFold__STRUCT_GLOBAL__ElasticNet: 3.3952
+  TmApp__ESMFold__STRUCT_SASA__Ridge: 3.5486
+  TmApp__ESMFold__STRUCT_SASA__ElasticNet: 3.5566
+  TmApp__ESMFold__STRUCT_SASA__RidgeOpt: 3.4975 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_SASA__ElasticNetOpt: 3.4471 {'alpha': 1.9666008035489722, 'l1_ratio': 0.4456749155794082}
+  TmApp__ESMFold__STRUCT_RASA__Ridge: 3.6598
+  TmApp__ESMFold__STRUCT_RASA__ElasticNet: 3.7025
+  TmApp__ESMFold__STRUCT_RASA__RidgeOpt: 3.3306 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_RASA__ElasticNetOpt: 3.2414 {'alpha': 2.8771511529266847, 'l1_ratio': 0.06146540695229688}
+  TmApp__ESMFold__STRUCT_SURFACE_CHEM__Ridge: 3.7603
+  TmApp__ESMFold__STRUCT_SURFACE_CHEM__ElasticNet: 3.7775
+  TmApp__ESMFold__STRUCT_SURFACE_CHEM__RidgeOpt: 3.5958 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_SURFACE_CHEM__ElasticNetOpt: 3.4380 {'alpha': 7.553503645583189, 'l1_ratio': 0.054767408732592775}
+  TmApp__ESMFold__STRUCT_PATCH__Ridge: 3.4376
+  TmApp__ESMFold__STRUCT_PATCH__ElasticNet: 3.4467
+  TmApp__ESMFold__STRUCT_PATCH__RidgeOpt: 3.4017 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_PATCH__ElasticNetOpt: 3.4077 {'alpha': 0.7473456802129258, 'l1_ratio': 0.1117853772911628}
+  TmApp__ESMFold__STRUCT_INTERFACE__Ridge: 3.5560
+  TmApp__ESMFold__STRUCT_INTERFACE__ElasticNet: 3.5627
+  TmApp__ESMFold__STRUCT_INTERFACE__RidgeOpt: 3.5041 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_INTERFACE__ElasticNetOpt: 3.4472 {'alpha': 9.625595791895472, 'l1_ratio': 0.11605332238248695}
+  TmApp__ESMFold__STRUCT_PACKING__Ridge: 3.3585
+  TmApp__ESMFold__STRUCT_PACKING__ElasticNet: 3.3639
+  TmApp__ESMFold__STRUCT_PACKING__RidgeOpt: 3.3423 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_PACKING__ElasticNetOpt: 3.3530 {'alpha': 0.2452600528462997, 'l1_ratio': 0.0541834703351409}
+  TmApp__ESMFold__STRUCT_SURFACE_ALL__Ridge: 4.2152
+  TmApp__ESMFold__STRUCT_SURFACE_ALL__ElasticNet: 4.2822
+  TmApp__ESMFold__STRUCT_SURFACE_ALL__RidgeOpt: 3.4663 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_SURFACE_ALL__ElasticNetOpt: 3.3098 {'alpha': 0.8471801418819978, 'l1_ratio': 0.588792635777333}
+  TmApp__ESMFold__STRUCT_GEOMETRY_ALL__Ridge: 3.4613
+  TmApp__ESMFold__STRUCT_GEOMETRY_ALL__ElasticNet: 3.4615
+  TmApp__ESMFold__STRUCT_GEOMETRY_ALL__RidgeOpt: 3.3387 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_GEOMETRY_ALL__ElasticNetOpt: 3.3252 {'alpha': 0.4027878626536784, 'l1_ratio': 0.4804109825972037}
+  TmApp__ESMFold__STRUCT_ALL__Ridge: 4.3548
+  TmApp__ESMFold__STRUCT_ALL__ElasticNet: 4.4312
+  TmApp__ESMFold__STRUCT_ALL__RidgeOpt: 3.4832 {'alpha': 96.68599030214607}
+  TmApp__ESMFold__STRUCT_ALL__ElasticNetOpt: 3.2457 {'alpha': 0.8471801418819978, 'l1_ratio': 0.588792635777333}
+  HIC__ESMFold__STRUCT_GLOBAL__Ridge: 0.5308
+  HIC__ESMFold__STRUCT_GLOBAL__ElasticNet: 0.5278
+  HIC__ESMFold__STRUCT_SASA__Ridge: 0.5122
+  HIC__ESMFold__STRUCT_SASA__ElasticNet: 0.5056
+  HIC__ESMFold__STRUCT_SASA__RidgeOpt: 0.5076 {'alpha': 44.55590260061234}
+  HIC__ESMFold__STRUCT_SASA__ElasticNetOpt: 0.5021 {'alpha': 0.07741159409679625, 'l1_ratio': 0.4546144828456533}
+  HIC__ESMFold__STRUCT_RASA__Ridge: 0.6101
+  HIC__ESMFold__STRUCT_RASA__ElasticNet: 0.5938
+  HIC__ESMFold__STRUCT_RASA__RidgeOpt: 0.5656 {'alpha': 96.68599030214607}
+  HIC__ESMFold__STRUCT_RASA__ElasticNetOpt: 0.5607 {'alpha': 0.11011820861153858, 'l1_ratio': 0.7588108205285777}
+  HIC__ESMFold__STRUCT_SURFACE_CHEM__Ridge: 0.5075
+  HIC__ESMFold__STRUCT_SURFACE_CHEM__ElasticNet: 0.4804
+  HIC__ESMFold__STRUCT_SURFACE_CHEM__RidgeOpt: 0.4733 {'alpha': 89.49360381422966}
+  HIC__ESMFold__STRUCT_SURFACE_CHEM__ElasticNetOpt: 0.4656 {'alpha': 0.09656002743710201, 'l1_ratio': 0.6591755382959771}
+  HIC__ESMFold__STRUCT_PATCH__Ridge: 0.6033
+  HIC__ESMFold__STRUCT_PATCH__ElasticNet: 0.6001
+  HIC__ESMFold__STRUCT_PATCH__RidgeOpt: 0.5930 {'alpha': 96.68599030214607}
+  HIC__ESMFold__STRUCT_PATCH__ElasticNetOpt: 0.5806 {'alpha': 0.8471801418819978, 'l1_ratio': 0.588792635777333}
+  HIC__ESMFold__STRUCT_INTERFACE__Ridge: 0.5528
+  HIC__ESMFold__STRUCT_INTERFACE__ElasticNet: 0.5505
+  HIC__ESMFold__STRUCT_INTERFACE__RidgeOpt: 0.5478 {'alpha': 96.68599030214607}
+  HIC__ESMFold__STRUCT_INTERFACE__ElasticNetOpt: 0.5360 {'alpha': 0.11372017998670853, 'l1_ratio': 0.5721749378543918}
+  HIC__ESMFold__STRUCT_PACKING__Ridge: 0.5521
+  HIC__ESMFold__STRUCT_PACKING__ElasticNet: 0.5449
+  HIC__ESMFold__STRUCT_PACKING__RidgeOpt: 0.5396 {'alpha': 96.68599030214607}
+  HIC__ESMFold__STRUCT_PACKING__ElasticNetOpt: 0.5383 {'alpha': 0.4583217426607268, 'l1_ratio': 0.11880239457172942}
+  HIC__ESMFold__STRUCT_SURFACE_ALL__Ridge: 0.6049
+  HIC__ESMFold__STRUCT_SURFACE_ALL__ElasticNet: 0.5471
+  HIC__ESMFold__STRUCT_SURFACE_ALL__RidgeOpt: 0.5118 {'alpha': 96.68599030214607}
+  HIC__ESMFold__STRUCT_SURFACE_ALL__ElasticNetOpt: 0.4829 {'alpha': 0.12338931179443481, 'l1_ratio': 0.618809973418661}
+  HIC__ESMFold__STRUCT_GEOMETRY_ALL__Ridge: 0.5576
+  HIC__ESMFold__STRUCT_GEOMETRY_ALL__ElasticNet: 0.5476
+  HIC__ESMFold__STRUCT_GEOMETRY_ALL__RidgeOpt: 0.5337 {'alpha': 96.68599030214607}
+  HIC__ESMFold__STRUCT_GEOMETRY_ALL__ElasticNetOpt: 0.5252 {'alpha': 0.6146101326419681, 'l1_ratio': 0.051959727983703866}
+  HIC__ESMFold__STRUCT_ALL__Ridge: 0.6058
+  HIC__ESMFold__STRUCT_ALL__ElasticNet: 0.5361
+  HIC__ESMFold__STRUCT_ALL__RidgeOpt: 0.5110 {'alpha': 96.68599030214607}
+  HIC__ESMFold__STRUCT_ALL__ElasticNetOpt: 0.4807 {'alpha': 0.11011820861153858, 'l1_ratio': 0.7588108205285777}
+=== Structure source ablation ===
+  src TmApp ESMFold SASA: 3.4982
+  src TmApp ABodyBuilder2 SASA: 3.2167
+  src TmApp ESMFold SURFACE_CHEM: 3.6011
+  src TmApp ABodyBuilder2 SURFACE_CHEM: 3.6121
+  src TmApp ESMFold INTERFACE: 3.5058
+  src TmApp ABodyBuilder2 INTERFACE: 3.4901
+  src TmApp ESMFold SURFACE_ALL: 3.4798
+  src TmApp ABodyBuilder2 SURFACE_ALL: 3.6971
+  src TmApp ESMFold ALL: 3.4951
+  src TmApp ABodyBuilder2 ALL: 3.6837
+  src HIC ESMFold SASA: 0.5081
+  src HIC ABodyBuilder2 SASA: 0.5122
+  src HIC ESMFold SURFACE_CHEM: 0.4733
+  src HIC ABodyBuilder2 SURFACE_CHEM: 0.4820
+  src HIC ESMFold INTERFACE: 0.5479
+  src HIC ABodyBuilder2 INTERFACE: 0.5354
+  src HIC ESMFold SURFACE_ALL: 0.5128
+  src HIC ABodyBuilder2 SURFACE_ALL: 0.5168
+  src HIC ESMFold ALL: 0.5121
+  src HIC ABodyBuilder2 ALL: 0.5296
+=== Fusion vs sequence incumbents ===
+  recompute PLM/overall reference OOF
+  REF TmApp PLM 2.8634 (expect ~2.8634)
+  REF HIC PLM 0.4552 (expect ~0.4552)
+  REF TmApp overall 2.7756 (expect ~2.7756)
+  REF HIC overall 0.4485 (expect ~0.4485)
+  TmApp__FUSION_PLM__ESMFold__STRUCT_RASA__RidgeOpt: 3.0249
+  TmApp__FUSION_PLM__ESMFold__STRUCT_RASA__SVROpt: 2.8831
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__RidgeOpt: 2.9317
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt: 2.7539
+  TmApp__FUSION_PLM__ESMFold__STRUCT_PACKING__RidgeOpt: 2.9398
+  TmApp__FUSION_PLM__ESMFold__STRUCT_PACKING__SVROpt: 2.8364
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_PACKING__RidgeOpt: 2.8045
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_PACKING__SVROpt: 2.7767
+  TmApp__FUSION_PLM__ESMFold__STRUCT_INTERFACE__RidgeOpt: 3.0292
+  TmApp__FUSION_PLM__ESMFold__STRUCT_INTERFACE__SVROpt: 2.8851
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_INTERFACE__RidgeOpt: 2.8431
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_INTERFACE__SVROpt: 2.7830
+  TmApp__FUSION_PLM__ESMFold__STRUCT_GEOMETRY_ALL__RidgeOpt: 3.0193
+  TmApp__FUSION_PLM__ESMFold__STRUCT_GEOMETRY_ALL__SVROpt: 2.8668
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_GEOMETRY_ALL__RidgeOpt: 2.9217
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_GEOMETRY_ALL__SVROpt: 2.8227
+  TmApp__FUSION_PLM__ESMFold__STRUCT_SURFACE_ALL__RidgeOpt: 3.3208
+  TmApp__FUSION_PLM__ESMFold__STRUCT_SURFACE_ALL__SVROpt: 2.9112
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_ALL__RidgeOpt: 3.1725
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_ALL__SVROpt: 2.7976
+  TmApp__FUSION_PLM__ESMFold__STRUCT_ALL__RidgeOpt: 3.2806
+  TmApp__FUSION_PLM__ESMFold__STRUCT_ALL__SVROpt: 2.8780
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_ALL__RidgeOpt: 3.1905
+  TmApp__FUSION_OVERALL__ESMFold__STRUCT_ALL__SVROpt: 2.8392
+  HIC__FUSION_PLM__ESMFold__STRUCT_SASA__RidgeOpt: 0.4864
+  HIC__FUSION_PLM__ESMFold__STRUCT_SASA__SVROpt: 0.4546
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_SASA__RidgeOpt: 0.5213
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_SASA__SVROpt: 0.4502
+  HIC__FUSION_PLM__ESMFold__STRUCT_RASA__RidgeOpt: 0.5378
+  HIC__FUSION_PLM__ESMFold__STRUCT_RASA__SVROpt: 0.4583
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_RASA__RidgeOpt: 0.5473
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt: 0.4545
+  HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_CHEM__RidgeOpt: 0.5052
+  HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_CHEM__SVROpt: 0.4438
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_CHEM__RidgeOpt: 0.5194
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_CHEM__SVROpt: 0.4438
+  HIC__FUSION_PLM__ESMFold__STRUCT_PATCH__RidgeOpt: 0.5078
+  HIC__FUSION_PLM__ESMFold__STRUCT_PATCH__SVROpt: 0.4551
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_PATCH__RidgeOpt: 0.5354
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_PATCH__SVROpt: 0.4515
+  HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_ALL__RidgeOpt: 0.5178
+  HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_ALL__SVROpt: 0.4473
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_ALL__RidgeOpt: 0.5479
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_ALL__SVROpt: 0.4405
+  HIC__FUSION_PLM__ESMFold__STRUCT_ALL__RidgeOpt: 0.5202
+  HIC__FUSION_PLM__ESMFold__STRUCT_ALL__SVROpt: 0.4450
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_ALL__RidgeOpt: 0.5541
+  HIC__FUSION_OVERALL__ESMFold__STRUCT_ALL__SVROpt: 0.4408
+=== Shadow audit ===
+  SHADOW TmApp__ESMFold__STRUCT_RASA__ElasticNetOpt: 3.2154 [STRUCT_SHADOW_EVAL]
+  SHADOW TmApp__ESMFold__STRUCT_ALL__ElasticNetOpt: 3.2438 [STRUCT_SHADOW_EVAL]
+  SHADOW TmApp__ESMFold__STRUCT_RASA__SVROpt: 3.2717 [STRUCT_SHADOW_EVAL]
+  SHADOW TmApp__FUSION_PLM__ESMFold__STRUCT_PACKING__SVROpt: 2.9330 [STRUCT_SHADOW_CONFIRMED]
+  SHADOW TmApp__FUSION_PLM__ESMFold__STRUCT_GEOMETRY_ALL__SVROpt: 2.9510 [STRUCT_NO_GAIN]
+  SHADOW TmApp__FUSION_PLM__ESMFold__STRUCT_ALL__SVROpt: 2.9241 [STRUCT_NO_GAIN]
+  SHADOW TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt: 2.8202 [STRUCT_SHADOW_CONFIRMED]
+  SHADOW TmApp__FUSION_OVERALL__ESMFold__STRUCT_PACKING__SVROpt: 2.8001 [STRUCT_NO_GAIN]
+  SHADOW TmApp__FUSION_OVERALL__ESMFold__STRUCT_INTERFACE__SVROpt: 2.8072 [STRUCT_NO_GAIN]
+  SHADOW HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt: 0.4488 [STRUCT_SHADOW_EVAL]
+  SHADOW HIC__ESMFold__STRUCT_SURFACE_CHEM__ElasticNetOpt: 0.4845 [STRUCT_SHADOW_EVAL]
+  SHADOW HIC__ESMFold__STRUCT_SURFACE_CHEM__RidgeOpt: 0.4981 [STRUCT_SHADOW_EVAL]
+  SHADOW HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_CHEM__SVROpt: 0.4422 [STRUCT_SHADOW_CONFIRMED]
+  SHADOW HIC__FUSION_PLM__ESMFold__STRUCT_ALL__SVROpt: 0.4481 [STRUCT_SHADOW_CONFIRMED]
+  SHADOW HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_ALL__SVROpt: 0.4421 [STRUCT_SHADOW_CONFIRMED]
+  SHADOW HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_ALL__SVROpt: 0.4384 [STRUCT_SHADOW_CONFIRMED]
+  SHADOW HIC__FUSION_OVERALL__ESMFold__STRUCT_ALL__SVROpt: 0.4388 [STRUCT_SHADOW_CONFIRMED]
+  SHADOW HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_CHEM__SVROpt: 0.4393 [STRUCT_SHADOW_CONFIRMED]
+=== Residual complementarity ===
+=== DONE modeling ===
+{
+  "TmApp": {
+    "sequence_reference_plm_only": {
+      "primary": 2.8634,
+      "shadow": 2.9803,
+      "name": "Stage2b AbLang2 HL_paired raw Ridge"
+    },
+    "sequence_reference_overall": {
+      "primary": 2.7756,
+      "shadow": 2.8316,
+      "name": "Stage2 AbLang2+SEQ_BASIC"
+    },
+    "best_structure_only": {
+      "experiment_id": "TmApp__ESMFold__STRUCT_RASA__ElasticNetOpt",
+      "family": "STRUCT_RASA",
+      "model": "ElasticNetOpt",
+      "Primary_MAE": 3.241371300305512,
+      "Shadow_MAE": 3.2154054211795184,
+      "status": "STRUCT_SHADOW_EVAL"
+    },
+    "best_plm_structure": {
+      "experiment_id": "TmApp__FUSION_PLM__ESMFold__STRUCT_PACKING__SVROpt",
+      "family": "STRUCT_PACKING",
+      "model": "PLM+SVROpt",
+      "Primary_MAE": 2.836401677219856,
+      "Shadow_MAE": 2.933032969320664,
+      "delta_vs_plm_only": -0.026998322780143802,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "best_overall_structure_fusion": {
+      "experiment_id": "TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt",
+      "family": "STRUCT_RASA",
+      "model": "OVERALL+SVROpt",
+      "Primary_MAE": 2.753910574048997,
+      "Shadow_MAE": 2.8202335452759413,
+      "delta_vs_sequence_incumbent": -0.02168942595100276,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "update_sequence_incumbent": true,
+    "shadow_status": "STRUCT_SHADOW_CONFIRMED"
+  },
+  "HIC": {
+    "sequence_reference_plm_only": {
+      "primary": 0.4552,
+      "shadow": 0.4529,
+      "name": "Stage2 ESM-2 Heavy SVR"
+    },
+    "sequence_reference_overall": {
+      "primary": 0.4485,
+      "shadow": 0.451,
+      "name": "Stage2 ESM-2 Heavy+SEQ_ALL"
+    },
+    "best_structure_only": {
+      "experiment_id": "HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+      "family": "STRUCT_SURFACE_CHEM",
+      "model": "SVROpt",
+      "Primary_MAE": 0.43968592739191437,
+      "Shadow_MAE": 0.4488405283364788,
+      "status": "STRUCT_SHADOW_EVAL"
+    },
+    "best_plm_structure": {
+      "experiment_id": "HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+      "family": "STRUCT_SURFACE_CHEM",
+      "model": "PLM+SVROpt",
+      "Primary_MAE": 0.44379779434200317,
+      "Shadow_MAE": 0.4421734324711952,
+      "delta_vs_plm_only": -0.011402205657996822,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "best_overall_structure_fusion": {
+      "experiment_id": "HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_ALL__SVROpt",
+      "family": "STRUCT_SURFACE_ALL",
+      "model": "OVERALL+SVROpt",
+      "Primary_MAE": 0.4405241930414688,
+      "Shadow_MAE": 0.43839700086131755,
+      "delta_vs_sequence_incumbent": -0.007975806958531229,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "update_sequence_incumbent": true,
+    "shadow_status": "STRUCT_SHADOW_CONFIRMED"
+  }
+}

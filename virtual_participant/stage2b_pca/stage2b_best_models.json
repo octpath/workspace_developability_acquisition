@@ -1,0 +1,115 @@
+{
+  "TmApp": {
+    "stage2_plm_only": {
+      "plm_only": 2.9231,
+      "plm_only_shadow": 3.0361,
+      "fusion": 2.7756,
+      "fusion_shadow": 2.8316
+    },
+    "stage2b_best_plm_only": {
+      "experiment_id": "TmApp__ablang2__HL_paired__RidgeOpt_PCANone",
+      "target": "TmApp",
+      "PLM": "ablang2",
+      "chain": "HL_paired",
+      "regressor": "RidgeOpt",
+      "pca_dim": "None",
+      "Primary_MAE": 2.8634150425593057,
+      "Shadow_MAE": 2.980265860124068,
+      "delta_vs_stage2_primary": -0.05968495744069413,
+      "delta_vs_stage2_shadow": -0.055834139875931665,
+      "status": "PCA_NO_PCA_GAIN_CONFIRMED",
+      "hyperparameters": "{\"alpha\": 54.034535219662935}"
+    },
+    "stage2b_best_fusion": {
+      "target": "TmApp",
+      "PLM": "ablang2",
+      "chain": "HL_paired",
+      "classical": "SEQ_BASIC",
+      "pca_dim": "None",
+      "Primary_MAE": 2.763427305253857,
+      "Shadow_MAE": 2.902786939749023,
+      "hyperparameters": "{\"alpha\": 97.90775331471063}",
+      "delta_vs_stage2_fusion_primary": -0.01217269474614291,
+      "delta_vs_stage2_fusion_shadow": 0.07118693974902301
+    },
+    "update_plm_only_incumbent": true,
+    "fusion_update": "KEEP_STAGE2_FUSION_SHADOW_NOT_IMPROVED"
+  },
+  "HIC": {
+    "stage2_plm_only": {
+      "plm_only": 0.4552,
+      "plm_only_shadow": 0.4529,
+      "fusion": 0.4485,
+      "fusion_shadow": 0.451
+    },
+    "stage2b_best_plm_only": {
+      "experiment_id": "HIC__esm2__H__SVROpt_PCANone",
+      "target": "HIC",
+      "PLM": "esm2",
+      "chain": "H",
+      "regressor": "SVROpt",
+      "pca_dim": "None",
+      "Primary_MAE": 0.4530230116517163,
+      "Shadow_MAE": 0.4479707248506496,
+      "delta_vs_stage2_primary": -0.0021769883482836705,
+      "delta_vs_stage2_shadow": -0.004929275149350432,
+      "status": "PCA_EQUIVALENT",
+      "hyperparameters": "{\"C\": 1.205320138644161, \"gamma\": 0.0004032039081113628, \"epsilon\": 0.016987321928896612}"
+    },
+    "stage2b_best_fusion": null,
+    "update_plm_only_incumbent": false
+  },
+  "update_policy": {
+    "TmApp": "USE_STAGE2B",
+    "HIC": "KEEP_STAGE2"
+  },
+  "stage3_sequence_only_incumbent": {
+    "TmApp": {
+      "source": "stage2_fusion_keep_plus_stage2b_plm_only_note",
+      "primary_mae": 2.7755534883042445,
+      "shadow_mae": 2.8315941278702987,
+      "details": {
+        "experiment_id": "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+        "classical_family": "SEQ_BASIC",
+        "plm": "ablang2",
+        "primary_mae": 2.7755534883042445,
+        "shadow_mae": 2.8315941278702987,
+        "delta_vs_stage1_primary": -0.32554651169575566,
+        "delta_vs_stage1_shadow": -0.34000587212970146,
+        "delta_vs_plm_only_primary": -0.14755269114063196,
+        "status": "PLM_SHADOW_CONFIRMED"
+      },
+      "note": "Overall sequence-only incumbent remains Stage2 AbLang2+SEQ_BASIC fusion (better Shadow than Stage2b raw fusion). Stage2b updates PLM-only track to AbLang2 HL_paired Ridge raw (no PCA): P=2.8634/S=2.9803.",
+      "plm_only_incumbent": {
+        "experiment_id": "TmApp__ablang2__HL_paired__RidgeOpt_PCANone",
+        "target": "TmApp",
+        "PLM": "ablang2",
+        "chain": "HL_paired",
+        "regressor": "RidgeOpt",
+        "pca_dim": "None",
+        "Primary_MAE": 2.8634150425593057,
+        "Shadow_MAE": 2.980265860124068,
+        "delta_vs_stage2_primary": -0.05968495744069413,
+        "delta_vs_stage2_shadow": -0.055834139875931665,
+        "status": "PCA_NO_PCA_GAIN_CONFIRMED",
+        "hyperparameters": "{\"alpha\": 54.034535219662935}"
+      }
+    },
+    "HIC": {
+      "source": "stage2_fusion",
+      "primary_mae": 0.44845173423800827,
+      "shadow_mae": 0.4509899411146513,
+      "details": {
+        "experiment_id": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt",
+        "classical_family": "SEQ_ALL",
+        "plm": "esm2",
+        "primary_mae": 0.44845173423800827,
+        "shadow_mae": 0.4509899411146513,
+        "delta_vs_stage1_primary": -0.02474826576199174,
+        "delta_vs_stage1_shadow": -0.02781005888534871,
+        "delta_vs_plm_only_primary": -0.006710236443690787,
+        "status": "PLM_SHADOW_CONFIRMED"
+      }
+    }
+  }
+}

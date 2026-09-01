@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-09-01T20:46:54.613986+00:00",
+  "targets": {
+    "TmApp": {
+      "finalists": [
+        {
+          "role": "conservative_incumbent",
+          "experiment_id": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+          "branch": "incumbent",
+          "Primary_MAE": 2.74260866109489
+        },
+        {
+          "role": "best_integrated",
+          "experiment_id": "TmApp__META_performance__ridge_100.0",
+          "target": "TmApp",
+          "branch": "stack",
+          "base_model_ids": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt|TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt|TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt|TmApp__ADV_TMAPP_ALL__SVROpt",
+          "meta_model": "ridge_100.0",
+          "meta_set": "performance",
+          "Primary_MAE": 2.7134783500422097,
+          "Primary_fold_SD": 0.2791375611954192,
+          "nested": true,
+          "delta_vs_stage4_primary": -0.02913031105268038
+        },
+        {
+          "role": "diverse_alt",
+          "experiment_id": "TmApp__CAL_ols_affine__incumbent",
+          "target": "TmApp",
+          "branch": "calibration",
+          "calibration_method": "ols_affine",
+          "Primary_MAE": 2.727844801785376,
+          "Primary_fold_SD": 0.2656338745264261,
+          "nested": true,
+          "delta_vs_stage4_primary": -0.014763859309514071
+        }
+      ],
+      "algorithm_frozen": true,
+      "incumbent": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt"
+    },
+    "HIC": {
+      "finalists": [
+        {
+          "role": "conservative_incumbent",
+          "experiment_id": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt",
+          "branch": "incumbent",
+          "Primary_MAE": 0.4372717171539347
+        },
+        {
+          "role": "best_integrated",
+          "experiment_id": "HIC__SIMPLE_blend_seq_surf_adv",
+          "target": "HIC",
+          "branch": "simple_blend",
+          "base_model_ids": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt|HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt|HIC__ADV_SURFACE_PATCH__SVROpt",
+          "Primary_MAE": 0.42517769877091044,
+          "Primary_fold_SD": 0.03396539730581622
+        },
+        {
+          "role": "diverse_alt",
+          "experiment_id": "HIC__SIMPLE_blend_seq_surf",
+          "target": "HIC",
+          "branch": "simple_blend",
+          "base_model_ids": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt|HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+          "Primary_MAE": 0.42577219225843627,
+          "Primary_fold_SD": 0.04183803700965738
+        }
+      ],
+      "algorithm_frozen": true,
+      "incumbent": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt"
+    }
+  }
+}

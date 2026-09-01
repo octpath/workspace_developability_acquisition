@@ -1,0 +1,25 @@
+target,analysis,value,notes,feature
+TmApp,residual_residual_corr,0.876250570775613,Tm_overall vs Tm_struct,
+TmApp,seq_residual_vs_struct_pred,0.19589690895389805,Tm_overall vs Tm_struct,
+HIC,residual_residual_corr,0.8912167474872285,HIC_overall vs HIC_struct,
+HIC,seq_residual_vs_struct_pred,0.4098188341696436,HIC_overall vs HIC_struct,
+TmApp,seq_residual_vs_feature,0.09138445859720357,,Fv_sasa_aromatic
+TmApp,seq_residual_vs_feature,0.021694857238464153,,Fv_sasa_hydrophobic
+TmApp,seq_residual_vs_feature,-0.01840141016262028,,Fv_mean_rasa
+TmApp,seq_residual_vs_feature,0.11016905807355631,,H_CDR3_mean_rasa
+TmApp,seq_residual_vs_feature,-0.03934276632452859,,Fv_contact_density
+TmApp,seq_residual_vs_feature,0.15262242203628265,,Fv_rg
+TmApp,seq_residual_vs_feature,-0.007696340891904229,,BSA
+TmApp,seq_residual_vs_feature,-0.10417014764713027,,Fv_buried_frac
+TmApp,seq_residual_vs_feature,0.1532173095471173,,largest_hydrophobic_patch_sasa
+TmApp,seq_residual_vs_feature,0.051598958712227395,,total_hydrophobic_patch_sasa
+HIC,seq_residual_vs_feature,0.3270725440155958,,Fv_sasa_aromatic
+HIC,seq_residual_vs_feature,0.113207323203364,,Fv_sasa_hydrophobic
+HIC,seq_residual_vs_feature,0.08084789652290537,,Fv_mean_rasa
+HIC,seq_residual_vs_feature,0.19778869622214088,,H_CDR3_mean_rasa
+HIC,seq_residual_vs_feature,0.019975994058835125,,Fv_contact_density
+HIC,seq_residual_vs_feature,0.16891792954384388,,Fv_rg
+HIC,seq_residual_vs_feature,0.02576076813294826,,BSA
+HIC,seq_residual_vs_feature,0.02286885293394661,,Fv_buried_frac
+HIC,seq_residual_vs_feature,0.10278597218010975,,largest_hydrophobic_patch_sasa
+HIC,seq_residual_vs_feature,0.10228351987269835,,total_hydrophobic_patch_sasa

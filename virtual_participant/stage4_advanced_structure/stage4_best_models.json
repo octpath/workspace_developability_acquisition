@@ -1,0 +1,70 @@
+{
+  "TmApp": {
+    "references": {
+      "plm_only": {
+        "primary": 2.8634,
+        "shadow": 2.9803
+      },
+      "seq_overall": {
+        "primary": 2.7756,
+        "shadow": 2.8316
+      },
+      "stage3_prov": {
+        "primary": 2.7539,
+        "shadow": 2.8202,
+        "name": "overall+RASA"
+      }
+    },
+    "best_advanced_only": {
+      "experiment_id": "TmApp__ADV_TMAPP_ALL__SVROpt",
+      "family": "ADV_TMAPP_ALL",
+      "Primary_MAE": 3.223903156878593,
+      "Shadow_MAE": 3.215341067255023,
+      "status": "ADV_ONLY_SHADOW_EVAL"
+    },
+    "best_fusion": {
+      "experiment_id": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+      "family": "ADV_INTERACTIONS",
+      "Primary_MAE": 2.74260866109489,
+      "Shadow_MAE": 2.7704303207517023,
+      "delta_vs_stage3_prov": -0.011291338905109694,
+      "status": "ADV_SHADOW_CONFIRMED"
+    },
+    "update_incumbent": true,
+    "update_note": "Shadow-confirmed small gain (~0.011 Primary, ~0.050 Shadow). Recorded as Stage4 provisional candidate; Stage3 artifacts not overwritten."
+  },
+  "HIC": {
+    "references": {
+      "plm_only": {
+        "primary": 0.4552,
+        "shadow": 0.4529
+      },
+      "seq_overall": {
+        "primary": 0.4485,
+        "shadow": 0.451
+      },
+      "stage3_prov": {
+        "primary": 0.4405,
+        "shadow": 0.4384,
+        "name": "overall+SURFACE_ALL"
+      }
+    },
+    "best_advanced_only": {
+      "experiment_id": "HIC__ADV_SURFACE_PATCH__SVROpt",
+      "family": "ADV_SURFACE_PATCH",
+      "Primary_MAE": 0.4718597082936471,
+      "Shadow_MAE": 0.47825467085756357,
+      "status": "ADV_ONLY_SHADOW_EVAL"
+    },
+    "best_fusion": {
+      "experiment_id": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt",
+      "family": "ADV_SURFACE_PATCH",
+      "Primary_MAE": 0.4372717171539347,
+      "Shadow_MAE": 0.4331720450112299,
+      "delta_vs_stage3_prov": -0.0032282828460653,
+      "status": "ADV_SHADOW_CONFIRMED"
+    },
+    "update_incumbent": false,
+    "update_note": "Shadow-confirmed but margin vs Stage3 provisional is very small (~0.003); keep Stage3 provisional as reference, record Stage4 fusion as candidate."
+  }
+}

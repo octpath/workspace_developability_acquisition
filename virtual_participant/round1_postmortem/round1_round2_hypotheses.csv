@@ -1,0 +1,2 @@
+id,category,observed_failure,mechanism,proposed_experiment,priority
+H1,HIC,Test high-HIC underprediction,MAE-trained models shrink rare high-HIC regime,tail-aware or quantile modeling on Dev only,1

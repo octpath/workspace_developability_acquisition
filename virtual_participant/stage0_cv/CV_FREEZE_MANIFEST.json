@@ -1,0 +1,96 @@
+{
+  "primary_cv": "opt_joint_group_k5_s42",
+  "shadow_cv": "opt_joint_group_k5_s2026",
+  "common_or_target_specific": "common",
+  "n_folds": 5,
+  "sequence_group_rule": "union-find over pairs with min(VH_identity, VL_identity) >= 0.9; exact heavy+light duplicates merged; groups are atomic fold units",
+  "target_stratification_rule": "joint fold assignment optimized for size balance + TmApp/HIC quantile proportion imbalance + mean/median imbalance + Wasserstein imbalance + HIC high-tail (Train q90 = 10.5372) count balance; NOT model-score optimized",
+  "seed": {
+    "primary": 42,
+    "shadow": 2026
+  },
+  "reason": "Selected common 5-fold optimized joint group-aware CV (balance_loss=0.2636, selection_score=0.2915, hic_tail_imb=0.0132). Shadow uses seed=2026 with pairwise co-membership disagreement=0.316.",
+  "sha256": {
+    "cv_primary.csv": "e6c0177cbfc8f9c3f894816ba12c522a86284f0981b2c3706fac40dfd8ad6dfa",
+    "cv_shadow.csv": "d0c9ba8e892f2a8bac6db269c2b56af4d374ff66447c92a309df93bbf8b8991b"
+  },
+  "status": "CV_PROTOCOL_FROZEN_READY_FOR_STAGE1",
+  "files": {
+    "cv_primary.csv": "/workspace_developability_acquisition/virtual_participant/stage0_cv/cv_primary.csv",
+    "cv_shadow.csv": "/workspace_developability_acquisition/virtual_participant/stage0_cv/cv_shadow.csv",
+    "cv_candidate_summary.csv": "/workspace_developability_acquisition/virtual_participant/stage0_cv/cv_candidate_summary.csv",
+    "cv_fold_statistics.csv": "/workspace_developability_acquisition/virtual_participant/stage0_cv/cv_fold_statistics.csv",
+    "cv_stability_results.csv": "/workspace_developability_acquisition/virtual_participant/stage0_cv/cv_stability_results.csv"
+  },
+  "group_info_summary": {
+    "n_groups": 161,
+    "n_multi_member_groups": 1,
+    "n_members_in_multi_groups": 2
+  },
+  "primary_balance": {
+    "size_imb": 0.014814814814814805,
+    "tm_q_imb": 0.013751402918069585,
+    "hic_q_imb": 0.017323232323232327,
+    "tm_mm_imb": 0.056544478600365676,
+    "hic_mm_imb": 0.06589289893504319,
+    "hic_tail_imb": 0.01322250280583614,
+    "balance_loss": 0.2635567597806555,
+    "stab_score_fold_mae_sd": 0.18611964329264666
+  },
+  "shadow_balance": {
+    "size_imb": 0.014814814814814805,
+    "tm_q_imb": 0.017755331088664422,
+    "hic_q_imb": 0.01802188552188552,
+    "tm_mm_imb": 0.02893291335538479,
+    "hic_mm_imb": 0.040385009705621054,
+    "hic_tail_imb": 0.01322250280583614,
+    "balance_loss": 0.23547972548873763,
+    "stab_score_fold_mae_sd": 0.16573872276843757
+  },
+  "primary_shadow_pair_disagreement": 0.31623341768269303,
+  "seed_stability_probe_k5": [
+    {
+      "name": "opt_joint_group_k5_s123",
+      "seed": 123,
+      "balance_loss": 0.23523347812738027,
+      "selection_score": 0.25587073208653194,
+      "stab_score_fold_mae_sd": 0.13758169306101103,
+      "tm_ridge_mean_mae": 3.5726962830528635,
+      "hic_ridge_mean_mae": 0.6018084256748771
+    },
+    {
+      "name": "opt_joint_group_k5_s2026",
+      "seed": 2026,
+      "balance_loss": 0.23547972548873763,
+      "selection_score": 0.26034053390400325,
+      "stab_score_fold_mae_sd": 0.16573872276843757,
+      "tm_ridge_mean_mae": 3.537426434430992,
+      "hic_ridge_mean_mae": 0.5665125938834156
+    },
+    {
+      "name": "opt_joint_group_k5_s7",
+      "seed": 7,
+      "balance_loss": 0.25802015464002004,
+      "selection_score": 0.2903518785672366,
+      "stab_score_fold_mae_sd": 0.21554482618144388,
+      "tm_ridge_mean_mae": 3.4046101657644123,
+      "hic_ridge_mean_mae": 0.5919365876254808
+    },
+    {
+      "name": "opt_joint_group_k5_s42",
+      "seed": 42,
+      "balance_loss": 0.2635567597806555,
+      "selection_score": 0.2914747062745525,
+      "stab_score_fold_mae_sd": 0.18611964329264666,
+      "tm_ridge_mean_mae": 3.277776940208193,
+      "hic_ridge_mean_mae": 0.5875913852987764
+    }
+  ],
+  "common_vs_target_specific_check": {
+    "common_ok": true,
+    "primary_hic_tail_imb": 0.01322250280583614,
+    "best_hic_only_tail_imb": 0.008566696778078885,
+    "primary_tm_q_imb": 0.013751402918069585,
+    "best_tm_only_q_imb": 0.019501656127672386
+  }
+}

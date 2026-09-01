@@ -1,0 +1,84 @@
+{
+  "TmApp": {
+    "sequence_reference_plm_only": {
+      "primary": 2.8634,
+      "shadow": 2.9803,
+      "name": "Stage2b AbLang2 HL_paired raw Ridge"
+    },
+    "sequence_reference_overall": {
+      "primary": 2.7756,
+      "shadow": 2.8316,
+      "name": "Stage2 AbLang2+SEQ_BASIC"
+    },
+    "best_structure_only": {
+      "experiment_id": "TmApp__ESMFold__STRUCT_RASA__ElasticNetOpt",
+      "family": "STRUCT_RASA",
+      "model": "ElasticNetOpt",
+      "Primary_MAE": 3.241371300305512,
+      "Shadow_MAE": 3.2154054211795184,
+      "status": "STRUCT_SHADOW_EVAL"
+    },
+    "best_plm_structure": {
+      "experiment_id": "TmApp__FUSION_PLM__ESMFold__STRUCT_PACKING__SVROpt",
+      "family": "STRUCT_PACKING",
+      "model": "PLM+SVROpt",
+      "Primary_MAE": 2.836401677219856,
+      "Shadow_MAE": 2.933032969320664,
+      "delta_vs_plm_only": -0.026998322780143802,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "best_overall_structure_fusion": {
+      "experiment_id": "TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt",
+      "family": "STRUCT_RASA",
+      "model": "OVERALL+SVROpt",
+      "Primary_MAE": 2.753910574048997,
+      "Shadow_MAE": 2.8202335452759413,
+      "delta_vs_sequence_incumbent": -0.02168942595100276,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "update_sequence_incumbent": true,
+    "shadow_status": "STRUCT_SHADOW_CONFIRMED",
+    "update_note": "Primary/Shadow both slightly improved vs Stage2 overall; recorded as Stage3 provisional incumbent. Margin is small; Stage2 overall kept as reference."
+  },
+  "HIC": {
+    "sequence_reference_plm_only": {
+      "primary": 0.4552,
+      "shadow": 0.4529,
+      "name": "Stage2 ESM-2 Heavy SVR"
+    },
+    "sequence_reference_overall": {
+      "primary": 0.4485,
+      "shadow": 0.451,
+      "name": "Stage2 ESM-2 Heavy+SEQ_ALL"
+    },
+    "best_structure_only": {
+      "experiment_id": "HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+      "family": "STRUCT_SURFACE_CHEM",
+      "model": "SVROpt",
+      "Primary_MAE": 0.43968592739191437,
+      "Shadow_MAE": 0.4488405283364788,
+      "status": "STRUCT_SHADOW_EVAL"
+    },
+    "best_plm_structure": {
+      "experiment_id": "HIC__FUSION_PLM__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+      "family": "STRUCT_SURFACE_CHEM",
+      "model": "PLM+SVROpt",
+      "Primary_MAE": 0.44379779434200317,
+      "Shadow_MAE": 0.4421734324711952,
+      "delta_vs_plm_only": -0.011402205657996822,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "best_overall_structure_fusion": {
+      "experiment_id": "HIC__FUSION_OVERALL__ESMFold__STRUCT_SURFACE_ALL__SVROpt",
+      "family": "STRUCT_SURFACE_ALL",
+      "model": "OVERALL+SVROpt",
+      "Primary_MAE": 0.4405241930414688,
+      "Shadow_MAE": 0.43839700086131755,
+      "delta_vs_sequence_incumbent": -0.007975806958531229,
+      "status": "STRUCT_SHADOW_CONFIRMED"
+    },
+    "update_sequence_incumbent": true,
+    "shadow_status": "STRUCT_SHADOW_CONFIRMED",
+    "update_note": "Primary/Shadow both slightly improved vs Stage2 overall; recorded as Stage3 provisional incumbent. Margin is small; Stage2 overall kept as reference."
+  }
+}

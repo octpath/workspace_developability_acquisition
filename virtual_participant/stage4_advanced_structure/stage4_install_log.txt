@@ -1,0 +1,1489 @@
+=== Stage4 install log 2026-09-01T13:00:07+00:00 ===
+Using CPython 3.14.5 interpreter at: .venv/bin/python
+Creating virtual environment at: .venv_stage4
+Activate with: source .venv_stage4/bin/activate
+Python 3.14.5
+Using Python 3.14.5 environment at: .venv_stage4
+Resolved 29 packages in 198ms
+Installed 29 packages in 206ms
+ + alembic==1.19.1
+ + biopython==1.88
+ + cloudpickle==3.1.2
+ + colorlog==6.12.0
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + fonttools==4.64.0
+ + greenlet==3.5.5
+ + joblib==1.6.0
+ + kiwisolver==1.5.1
+ + mako==1.4.1
+ + markupsafe==3.0.3
+ + matplotlib==3.11.1
+ + narwhals==2.25.0
+ + numpy==2.5.2
+ + optuna==4.9.0
+ + packaging==26.3
+ + pandas==3.0.5
+ + pillow==12.3.0
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + pyyaml==6.0.3
+ + scikit-learn==1.9.0
+ + scipy==1.18.1
+ + six==1.17.0
+ + sqlalchemy==2.0.52
+ + threadpoolctl==3.6.0
+ + tqdm==4.70.0
+ + typing-extensions==4.16.0
+=== try propka ===
+Using Python 3.14.5 environment at: .venv_stage4
+Resolved 1 package in 493ms
+Prepared 1 package in 63ms
+Installed 1 package in 3ms
+ + propka==3.5.1
+propka 3.5.1
+=== try pdb2pqr ===
+Using Python 3.14.5 environment at: .venv_stage4
+Resolved 10 packages in 590ms
+Prepared 4 packages in 125ms
+Installed 8 packages in 14ms
+ + certifi==2026.7.22
+ + charset-normalizer==3.5.1
+ + docutils==0.17.1
+ + idna==3.19
+ + mmcif-pdbx==2.1.0
+ + pdb2pqr==3.7.1
+ + requests==2.34.2
+ + urllib3==2.7.0
+pdb2pqr 3.7.1
+=== try apbs via apt? ===
+apbs - Adaptive Poisson Boltzmann Solver
+apbs-data - data files for APBS (Adaptive Poisson Boltzmann Solver)
+apbs-doc - Adaptive Poisson Boltzmann Solver
+libapbs-dev - Adaptive Poisson Boltzmann Solver
+libapbs3t64 - Adaptive Poisson Boltzmann Solver
+libfetk-dev - FETK libraries for APBS (development headers)
+libfetk1.9t64 - FETK libraries for APBS (shared libraries)
+python3-apbslib - Adaptive Poisson Boltzmann Solver
+=== apt install apbs ===
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  fonts-mathjax gcc-14-base ibverbs-providers libamd-comgr2 libamd3
+  libamdhip64-5 libapbs3t64 libarpack2t64 libasan8 libatomic1 libblas3
+  libcamd3 libcc1-0 libccolamd3 libcholmod5 libcolamd3 libdrm-amdgpu1
+  libdrm-common libdrm2 libelf1t64 libevent-core-2.1-7t64
+  libevent-pthreads-2.1-7t64 libfabric1 libfetk1.9t64 libgcc-s1 libgfortran5
+  libgomp1 libhsa-runtime64-1 libhsakmt1 libhwasan0 libhwloc-plugins
+  libhwloc15 libibverbs1 libicu74 libitm1 libjs-mathjax liblapack3
+  libllvm17t64 liblsan0 libmaloc1 libmunge2 libnl-3-200 libnl-route-3-200
+  libnuma1 libopenmpi3t64 libpciaccess0 libpmix2t64 libpsm-infinipath1
+  libpsm2-2 libquadmath0 librdmacm1t64 libspqr4 libstdc++6
+  libsuitesparseconfig7 libsuperlu6 libtsan2 libubsan1 libucx0 libumfpack6
+  libxml2 libxnvctrl0 ocl-icd-libopencl1
+Suggested packages:
+  libhwloc-contrib-plugins fonts-mathjax-extras fonts-stix libjs-mathjax-doc
+  pciutils opencl-icd
+The following NEW packages will be installed:
+  apbs apbs-data fonts-mathjax ibverbs-providers libamd-comgr2 libamd3
+  libamdhip64-5 libapbs3t64 libarpack2t64 libblas3 libcamd3 libccolamd3
+  libcholmod5 libcolamd3 libdrm-amdgpu1 libdrm-common libdrm2 libelf1t64
+  libevent-core-2.1-7t64 libevent-pthreads-2.1-7t64 libfabric1 libfetk1.9t64
+  libgfortran5 libhsa-runtime64-1 libhsakmt1 libhwloc-plugins libhwloc15
+  libibverbs1 libicu74 libjs-mathjax liblapack3 libllvm17t64 libmaloc1
+  libmunge2 libnl-3-200 libnl-route-3-200 libnuma1 libopenmpi3t64
+  libpciaccess0 libpmix2t64 libpsm-infinipath1 libpsm2-2 librdmacm1t64
+  libspqr4 libsuitesparseconfig7 libsuperlu6 libucx0 libumfpack6 libxml2
+  libxnvctrl0 ocl-icd-libopencl1
+The following packages will be upgraded:
+  gcc-14-base libasan8 libatomic1 libcc1-0 libgcc-s1 libgomp1 libhwasan0
+  libitm1 liblsan0 libquadmath0 libstdc++6 libtsan2 libubsan1
+13 upgraded, 51 newly installed, 0 to remove and 90 not upgraded.
+Need to get 96.3 MB of archives.
+After this operation, 356 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libasan8 amd64 14.2.0-4ubuntu2~24.04.1 [3027 kB]
+Get:2 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64  libxnvctrl0 595.71.05-1ubuntu1 [11.3 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libubsan1 amd64 14.2.0-4ubuntu2~24.04.1 [1184 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libtsan2 amd64 14.2.0-4ubuntu2~24.04.1 [2772 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 gcc-14-base amd64 14.2.0-4ubuntu2~24.04.1 [51.0 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libstdc++6 amd64 14.2.0-4ubuntu2~24.04.1 [792 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libquadmath0 amd64 14.2.0-4ubuntu2~24.04.1 [153 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 liblsan0 amd64 14.2.0-4ubuntu2~24.04.1 [1322 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libitm1 amd64 14.2.0-4ubuntu2~24.04.1 [29.7 kB]
+Get:10 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libhwasan0 amd64 14.2.0-4ubuntu2~24.04.1 [1641 kB]
+Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgomp1 amd64 14.2.0-4ubuntu2~24.04.1 [148 kB]
+Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcc1-0 amd64 14.2.0-4ubuntu2~24.04.1 [48.0 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libatomic1 amd64 14.2.0-4ubuntu2~24.04.1 [10.5 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgcc-s1 amd64 14.2.0-4ubuntu2~24.04.1 [78.4 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libelf1t64 amd64 0.190-1.1ubuntu0.1 [57.8 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libicu74 amd64 74.2-1ubuntu3.1 [10.9 MB]
+Ign:17 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libxml2 amd64 2.9.14+dfsg-1.3ubuntu3.7
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnl-3-200 amd64 3.7.0-0.3build1.1 [55.7 kB]
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnl-route-3-200 amd64 3.7.0-0.3build1.1 [189 kB]
+Get:20 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libibverbs1 amd64 50.0-2ubuntu0.2 [68.0 kB]
+Get:21 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 ibverbs-providers amd64 50.0-2ubuntu0.2 [381 kB]
+Err:22 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libdrm-common all 2.4.125-1ubuntu0.1~24.04.1
+  404  Not Found [IP: 185.125.190.82 80]
+Err:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libdrm2 amd64 2.4.125-1ubuntu0.1~24.04.1
+  404  Not Found [IP: 185.125.190.82 80]
+Get:24 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnuma1 amd64 2.0.18-1ubuntu0.24.04.1 [23.4 kB]
+Get:25 http://archive.ubuntu.com/ubuntu noble/universe amd64 apbs-data all 3.4.1-5.1ubuntu2 [1764 kB]
+Get:26 http://archive.ubuntu.com/ubuntu noble/universe amd64 libmaloc1 amd64 1.5-1build2 [89.7 kB]
+Get:27 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libblas3 amd64 3.12.0-3build1.1 [238 kB]
+Get:28 http://archive.ubuntu.com/ubuntu noble/universe amd64 libsuperlu6 amd64 6.0.1+dfsg1-1build1 [180 kB]
+Get:29 http://archive.ubuntu.com/ubuntu noble/main amd64 libsuitesparseconfig7 amd64 1:7.6.1+dfsg-1build1 [12.9 kB]
+Get:30 http://archive.ubuntu.com/ubuntu noble/universe amd64 libamd3 amd64 1:7.6.1+dfsg-1build1 [27.2 kB]
+Get:31 http://archive.ubuntu.com/ubuntu noble/universe amd64 libcamd3 amd64 1:7.6.1+dfsg-1build1 [23.8 kB]
+Get:32 http://archive.ubuntu.com/ubuntu noble/universe amd64 libccolamd3 amd64 1:7.6.1+dfsg-1build1 [25.9 kB]
+Err:17 http://security.ubuntu.com/ubuntu noble-updates/main amd64 libxml2 amd64 2.9.14+dfsg-1.3ubuntu3.7
+  404  Not Found [IP: 185.125.190.82 80]
+Get:33 http://archive.ubuntu.com/ubuntu noble/main amd64 libcolamd3 amd64 1:7.6.1+dfsg-1build1 [19.4 kB]
+Get:34 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgfortran5 amd64 14.2.0-4ubuntu2~24.04.1 [916 kB]
+Get:35 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 liblapack3 amd64 3.12.0-3build1.1 [2646 kB]
+Get:36 http://archive.ubuntu.com/ubuntu noble/universe amd64 libcholmod5 amd64 1:7.6.1+dfsg-1build1 [667 kB]
+Get:37 http://archive.ubuntu.com/ubuntu noble/universe amd64 libumfpack6 amd64 1:7.6.1+dfsg-1build1 [268 kB]
+Get:38 http://archive.ubuntu.com/ubuntu noble/universe amd64 libfetk1.9t64 amd64 3.4.1-5.1ubuntu2 [598 kB]
+Get:39 http://archive.ubuntu.com/ubuntu noble/universe amd64 libapbs3t64 amd64 3.4.1-5.1ubuntu2 [266 kB]
+Get:40 http://archive.ubuntu.com/ubuntu noble/main amd64 fonts-mathjax all 2.7.9+dfsg-1 [2208 kB]
+Get:41 http://archive.ubuntu.com/ubuntu noble/main amd64 libjs-mathjax all 2.7.9+dfsg-1 [5665 kB]
+Get:42 http://archive.ubuntu.com/ubuntu noble/universe amd64 libarpack2t64 amd64 3.9.1-1.1build2 [106 kB]
+Get:43 http://archive.ubuntu.com/ubuntu noble/main amd64 libevent-core-2.1-7t64 amd64 2.1.12-stable-9ubuntu2 [91.3 kB]
+Get:44 http://archive.ubuntu.com/ubuntu noble/main amd64 libevent-pthreads-2.1-7t64 amd64 2.1.12-stable-9ubuntu2 [7982 B]
+Get:45 http://archive.ubuntu.com/ubuntu noble/universe amd64 libpsm-infinipath1 amd64 3.3+20.604758e7-6.3build1 [178 kB]
+Get:46 http://archive.ubuntu.com/ubuntu noble/universe amd64 libpsm2-2 amd64 11.2.185-2build1 [194 kB]
+Get:47 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 librdmacm1t64 amd64 50.0-2ubuntu0.2 [70.7 kB]
+Get:48 http://archive.ubuntu.com/ubuntu noble/universe amd64 libfabric1 amd64 1.17.0-3build2 [657 kB]
+Get:49 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhwloc15 amd64 2.10.0-1build1 [172 kB]
+Get:50 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libmunge2 amd64 0.5.15-4ubuntu0.1 [14.8 kB]
+Get:51 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpciaccess0 amd64 0.17-3ubuntu0.24.04.2 [18.9 kB]
+Get:52 http://archive.ubuntu.com/ubuntu noble/universe amd64 ocl-icd-libopencl1 amd64 2.3.2-1build1 [38.5 kB]
+Get:53 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhwloc-plugins amd64 2.10.0-1build1 [15.7 kB]
+Get:54 http://archive.ubuntu.com/ubuntu noble/universe amd64 libpmix2t64 amd64 5.0.1-4.1build1 [697 kB]
+Get:55 http://archive.ubuntu.com/ubuntu noble/main amd64 libllvm17t64 amd64 1:17.0.6-9ubuntu1 [26.2 MB]
+Get:56 http://archive.ubuntu.com/ubuntu noble/universe amd64 libamd-comgr2 amd64 6.0+git20231212.4510c28+dfsg-3build2 [14.4 MB]
+Err:57 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libdrm-amdgpu1 amd64 2.4.125-1ubuntu0.1~24.04.1
+  404  Not Found [IP: 185.125.190.82 80]
+Get:58 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhsakmt1 amd64 5.7.0-1build1 [62.9 kB]
+Get:59 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhsa-runtime64-1 amd64 5.7.1-2build1 [491 kB]
+Get:60 http://archive.ubuntu.com/ubuntu noble/universe amd64 libamdhip64-5 amd64 5.7.1-3 [9621 kB]
+Get:61 http://archive.ubuntu.com/ubuntu noble/universe amd64 libucx0 amd64 1.16.0+ds-5ubuntu1 [1140 kB]
+Get:62 http://archive.ubuntu.com/ubuntu noble/universe amd64 libopenmpi3t64 amd64 4.1.6-7ubuntu2 [2563 kB]
+Get:63 http://archive.ubuntu.com/ubuntu noble/universe amd64 libspqr4 amd64 1:7.6.1+dfsg-1build1 [135 kB]
+Get:64 http://archive.ubuntu.com/ubuntu noble/universe amd64 apbs amd64 3.4.1-5.1ubuntu2 [76.9 kB]
+Fetched 95.4 MB in 15s (6308 kB/s)
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.14%2bdfsg-1.3ubuntu3.7_amd64.deb  404  Not Found [IP: 185.125.190.82 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-common_2.4.125-1ubuntu0.1%7e24.04.1_all.deb  404  Not Found [IP: 185.125.190.82 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm2_2.4.125-1ubuntu0.1%7e24.04.1_amd64.deb  404  Not Found [IP: 185.125.190.82 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-amdgpu1_2.4.125-1ubuntu0.1%7e24.04.1_amd64.deb  404  Not Found [IP: 185.125.190.82 80]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+--: line 5: apbs: command not found
+=== foldx/rosetta check ===
+/root/FLAb/score/pyrosetta
+/root/FLAb/models/pyrosetta_score.py
+/root/FLAb/models/scoring_pyrosetta.py
+/root/FLAb/examples/Rosetta_TechTeaTime_23_03_2026.ipynb
+/tmp/AbBiBench/models/diffab/diffab/tools/relax/pyrosetta_relaxer.py
+torch 2.10.0+cu128 cuda True
+esm ok
+fair_esm no No module named 'fair_esm'
+esm attrs []
+W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  apbs-data fonts-mathjax gcc-14-base ibverbs-providers libamd-comgr2 libamd3
+  libamdhip64-5 libapbs3t64 libarpack2t64 libasan8 libatomic1 libblas3
+  libcamd3 libcc1-0 libccolamd3 libcholmod5 libcolamd3 libdrm-amdgpu1
+  libdrm-common libdrm2 libelf1t64 libevent-core-2.1-7t64
+  libevent-pthreads-2.1-7t64 libfabric1 libfetk1.9t64 libgcc-s1 libgfortran5
+  libgomp1 libhsa-runtime64-1 libhsakmt1 libhwasan0 libhwloc-plugins
+  libhwloc15 libibverbs1 libicu74 libitm1 libjs-mathjax liblapack3
+  libllvm17t64 liblsan0 libmaloc1 libmunge2 libnl-3-200 libnl-route-3-200
+  libnuma1 libopenmpi3t64 libpciaccess0 libpmix2t64 libpsm-infinipath1
+  libpsm2-2 libquadmath0 librdmacm1t64 libspqr4 libstdc++6
+  libsuitesparseconfig7 libsuperlu6 libtsan2 libubsan1 libucx0 libumfpack6
+  libxml2 libxnvctrl0 ocl-icd-libopencl1
+Suggested packages:
+  libhwloc-contrib-plugins fonts-mathjax-extras fonts-stix libjs-mathjax-doc
+  pciutils opencl-icd
+The following NEW packages will be installed:
+  apbs apbs-data fonts-mathjax ibverbs-providers libamd-comgr2 libamd3
+  libamdhip64-5 libapbs3t64 libarpack2t64 libblas3 libcamd3 libccolamd3
+  libcholmod5 libcolamd3 libdrm-amdgpu1 libdrm-common libdrm2 libelf1t64
+  libevent-core-2.1-7t64 libevent-pthreads-2.1-7t64 libfabric1 libfetk1.9t64
+  libgfortran5 libhsa-runtime64-1 libhsakmt1 libhwloc-plugins libhwloc15
+  libibverbs1 libicu74 libjs-mathjax liblapack3 libllvm17t64 libmaloc1
+  libmunge2 libnl-3-200 libnl-route-3-200 libnuma1 libopenmpi3t64
+  libpciaccess0 libpmix2t64 libpsm-infinipath1 libpsm2-2 librdmacm1t64
+  libspqr4 libsuitesparseconfig7 libsuperlu6 libucx0 libumfpack6 libxml2
+  libxnvctrl0 ocl-icd-libopencl1
+The following packages will be upgraded:
+  gcc-14-base libasan8 libatomic1 libcc1-0 libgcc-s1 libgomp1 libhwasan0
+  libitm1 liblsan0 libquadmath0 libstdc++6 libtsan2 libubsan1
+13 upgraded, 51 newly installed, 0 to remove and 115 not upgraded.
+Need to get 96.3 MB of archives.
+After this operation, 356 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libasan8 amd64 14.2.0-4ubuntu2~24.04.1 [3027 kB]
+Get:2 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64  libxnvctrl0 610.57.04-1ubuntu1 [11.2 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libubsan1 amd64 14.2.0-4ubuntu2~24.04.1 [1184 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libtsan2 amd64 14.2.0-4ubuntu2~24.04.1 [2772 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 gcc-14-base amd64 14.2.0-4ubuntu2~24.04.1 [51.0 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libstdc++6 amd64 14.2.0-4ubuntu2~24.04.1 [792 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libquadmath0 amd64 14.2.0-4ubuntu2~24.04.1 [153 kB]
+Get:8 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 liblsan0 amd64 14.2.0-4ubuntu2~24.04.1 [1322 kB]
+Get:9 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libitm1 amd64 14.2.0-4ubuntu2~24.04.1 [29.7 kB]
+Get:10 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libhwasan0 amd64 14.2.0-4ubuntu2~24.04.1 [1641 kB]
+Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgomp1 amd64 14.2.0-4ubuntu2~24.04.1 [148 kB]
+Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcc1-0 amd64 14.2.0-4ubuntu2~24.04.1 [48.0 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libatomic1 amd64 14.2.0-4ubuntu2~24.04.1 [10.5 kB]
+Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgcc-s1 amd64 14.2.0-4ubuntu2~24.04.1 [78.4 kB]
+Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libelf1t64 amd64 0.190-1.1ubuntu0.1 [57.8 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libicu74 amd64 74.2-1ubuntu3.1 [10.9 MB]
+Get:17 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libxml2 amd64 2.9.14+dfsg-1.3ubuntu3.8 [764 kB]
+Get:18 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnl-3-200 amd64 3.7.0-0.3build1.1 [55.7 kB]
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnl-route-3-200 amd64 3.7.0-0.3build1.1 [189 kB]
+Get:20 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libibverbs1 amd64 50.0-2ubuntu0.2 [68.0 kB]
+Get:21 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 ibverbs-providers amd64 50.0-2ubuntu0.2 [381 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libdrm-common all 2.4.125-1ubuntu0.1~24.04.2 [9250 B]
+Get:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libdrm2 amd64 2.4.125-1ubuntu0.1~24.04.2 [41.4 kB]
+Get:24 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnuma1 amd64 2.0.18-1ubuntu0.24.04.1 [23.4 kB]
+Get:25 http://archive.ubuntu.com/ubuntu noble/universe amd64 apbs-data all 3.4.1-5.1ubuntu2 [1764 kB]
+Get:26 http://archive.ubuntu.com/ubuntu noble/universe amd64 libmaloc1 amd64 1.5-1build2 [89.7 kB]
+Get:27 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libblas3 amd64 3.12.0-3build1.1 [238 kB]
+Get:28 http://archive.ubuntu.com/ubuntu noble/universe amd64 libsuperlu6 amd64 6.0.1+dfsg1-1build1 [180 kB]
+Get:29 http://archive.ubuntu.com/ubuntu noble/main amd64 libsuitesparseconfig7 amd64 1:7.6.1+dfsg-1build1 [12.9 kB]
+Get:30 http://archive.ubuntu.com/ubuntu noble/universe amd64 libamd3 amd64 1:7.6.1+dfsg-1build1 [27.2 kB]
+Get:31 http://archive.ubuntu.com/ubuntu noble/universe amd64 libcamd3 amd64 1:7.6.1+dfsg-1build1 [23.8 kB]
+Get:32 http://archive.ubuntu.com/ubuntu noble/universe amd64 libccolamd3 amd64 1:7.6.1+dfsg-1build1 [25.9 kB]
+Get:33 http://archive.ubuntu.com/ubuntu noble/main amd64 libcolamd3 amd64 1:7.6.1+dfsg-1build1 [19.4 kB]
+Get:34 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgfortran5 amd64 14.2.0-4ubuntu2~24.04.1 [916 kB]
+Get:35 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 liblapack3 amd64 3.12.0-3build1.1 [2646 kB]
+Get:36 http://archive.ubuntu.com/ubuntu noble/universe amd64 libcholmod5 amd64 1:7.6.1+dfsg-1build1 [667 kB]
+Get:37 http://archive.ubuntu.com/ubuntu noble/universe amd64 libumfpack6 amd64 1:7.6.1+dfsg-1build1 [268 kB]
+Get:38 http://archive.ubuntu.com/ubuntu noble/universe amd64 libfetk1.9t64 amd64 3.4.1-5.1ubuntu2 [598 kB]
+Get:39 http://archive.ubuntu.com/ubuntu noble/universe amd64 libapbs3t64 amd64 3.4.1-5.1ubuntu2 [266 kB]
+Get:40 http://archive.ubuntu.com/ubuntu noble/main amd64 fonts-mathjax all 2.7.9+dfsg-1 [2208 kB]
+Get:41 http://archive.ubuntu.com/ubuntu noble/main amd64 libjs-mathjax all 2.7.9+dfsg-1 [5665 kB]
+Get:42 http://archive.ubuntu.com/ubuntu noble/universe amd64 libarpack2t64 amd64 3.9.1-1.1build2 [106 kB]
+Get:43 http://archive.ubuntu.com/ubuntu noble/main amd64 libevent-core-2.1-7t64 amd64 2.1.12-stable-9ubuntu2 [91.3 kB]
+Get:44 http://archive.ubuntu.com/ubuntu noble/main amd64 libevent-pthreads-2.1-7t64 amd64 2.1.12-stable-9ubuntu2 [7982 B]
+Get:45 http://archive.ubuntu.com/ubuntu noble/universe amd64 libpsm-infinipath1 amd64 3.3+20.604758e7-6.3build1 [178 kB]
+Get:46 http://archive.ubuntu.com/ubuntu noble/universe amd64 libpsm2-2 amd64 11.2.185-2build1 [194 kB]
+Get:47 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 librdmacm1t64 amd64 50.0-2ubuntu0.2 [70.7 kB]
+Get:48 http://archive.ubuntu.com/ubuntu noble/universe amd64 libfabric1 amd64 1.17.0-3build2 [657 kB]
+Get:49 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhwloc15 amd64 2.10.0-1build1 [172 kB]
+Get:50 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 libmunge2 amd64 0.5.15-4ubuntu0.1 [14.8 kB]
+Get:51 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpciaccess0 amd64 0.17-3ubuntu0.24.04.2 [18.9 kB]
+Get:52 http://archive.ubuntu.com/ubuntu noble/universe amd64 ocl-icd-libopencl1 amd64 2.3.2-1build1 [38.5 kB]
+Get:53 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhwloc-plugins amd64 2.10.0-1build1 [15.7 kB]
+Get:54 http://archive.ubuntu.com/ubuntu noble/universe amd64 libpmix2t64 amd64 5.0.1-4.1build1 [697 kB]
+Get:55 http://archive.ubuntu.com/ubuntu noble/main amd64 libllvm17t64 amd64 1:17.0.6-9ubuntu1 [26.2 MB]
+Get:56 http://archive.ubuntu.com/ubuntu noble/universe amd64 libamd-comgr2 amd64 6.0+git20231212.4510c28+dfsg-3build2 [14.4 MB]
+Get:57 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libdrm-amdgpu1 amd64 2.4.125-1ubuntu0.1~24.04.2 [21.4 kB]
+Get:58 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhsakmt1 amd64 5.7.0-1build1 [62.9 kB]
+Get:59 http://archive.ubuntu.com/ubuntu noble/universe amd64 libhsa-runtime64-1 amd64 5.7.1-2build1 [491 kB]
+Get:60 http://archive.ubuntu.com/ubuntu noble/universe amd64 libamdhip64-5 amd64 5.7.1-3 [9621 kB]
+Get:61 http://archive.ubuntu.com/ubuntu noble/universe amd64 libucx0 amd64 1.16.0+ds-5ubuntu1 [1140 kB]
+Get:62 http://archive.ubuntu.com/ubuntu noble/universe amd64 libopenmpi3t64 amd64 4.1.6-7ubuntu2 [2563 kB]
+Get:63 http://archive.ubuntu.com/ubuntu noble/universe amd64 libspqr4 amd64 1:7.6.1+dfsg-1build1 [135 kB]
+Get:64 http://archive.ubuntu.com/ubuntu noble/universe amd64 apbs amd64 3.4.1-5.1ubuntu2 [76.9 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 96.3 MB in 19s (5067 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16837 files and directories currently installed.)
+Preparing to unpack .../libasan8_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libasan8:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../libubsan1_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libubsan1:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../libtsan2_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libtsan2:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../gcc-14-base_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking gcc-14-base:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Setting up gcc-14-base:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16837 files and directories currently installed.)
+Preparing to unpack .../libstdc++6_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libstdc++6:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Setting up libstdc++6:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16837 files and directories currently installed.)
+Preparing to unpack .../0-libquadmath0_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libquadmath0:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../1-liblsan0_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking liblsan0:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../2-libitm1_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libitm1:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../3-libhwasan0_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libhwasan0:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../4-libgomp1_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libgomp1:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../5-libcc1-0_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libcc1-0:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../6-libatomic1_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libatomic1:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Preparing to unpack .../7-libgcc-s1_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libgcc-s1:amd64 (14.2.0-4ubuntu2~24.04.1) over (14.2.0-4ubuntu2~24.04) ...
+Setting up libgcc-s1:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Selecting previously unselected package libelf1t64:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16837 files and directories currently installed.)
+Preparing to unpack .../00-libelf1t64_0.190-1.1ubuntu0.1_amd64.deb ...
+Unpacking libelf1t64:amd64 (0.190-1.1ubuntu0.1) ...
+Selecting previously unselected package libicu74:amd64.
+Preparing to unpack .../01-libicu74_74.2-1ubuntu3.1_amd64.deb ...
+Unpacking libicu74:amd64 (74.2-1ubuntu3.1) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../02-libxml2_2.9.14+dfsg-1.3ubuntu3.8_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.14+dfsg-1.3ubuntu3.8) ...
+Selecting previously unselected package libnl-3-200:amd64.
+Preparing to unpack .../03-libnl-3-200_3.7.0-0.3build1.1_amd64.deb ...
+Unpacking libnl-3-200:amd64 (3.7.0-0.3build1.1) ...
+Selecting previously unselected package libnl-route-3-200:amd64.
+Preparing to unpack .../04-libnl-route-3-200_3.7.0-0.3build1.1_amd64.deb ...
+Unpacking libnl-route-3-200:amd64 (3.7.0-0.3build1.1) ...
+Selecting previously unselected package libibverbs1:amd64.
+Preparing to unpack .../05-libibverbs1_50.0-2ubuntu0.2_amd64.deb ...
+Unpacking libibverbs1:amd64 (50.0-2ubuntu0.2) ...
+Selecting previously unselected package ibverbs-providers:amd64.
+Preparing to unpack .../06-ibverbs-providers_50.0-2ubuntu0.2_amd64.deb ...
+Unpacking ibverbs-providers:amd64 (50.0-2ubuntu0.2) ...
+Selecting previously unselected package libdrm-common.
+Preparing to unpack .../07-libdrm-common_2.4.125-1ubuntu0.1~24.04.2_all.deb ...
+Unpacking libdrm-common (2.4.125-1ubuntu0.1~24.04.2) ...
+Selecting previously unselected package libdrm2:amd64.
+Preparing to unpack .../08-libdrm2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb ...
+Unpacking libdrm2:amd64 (2.4.125-1ubuntu0.1~24.04.2) ...
+Selecting previously unselected package libnuma1:amd64.
+Preparing to unpack .../09-libnuma1_2.0.18-1ubuntu0.24.04.1_amd64.deb ...
+Unpacking libnuma1:amd64 (2.0.18-1ubuntu0.24.04.1) ...
+Selecting previously unselected package apbs-data.
+Preparing to unpack .../10-apbs-data_3.4.1-5.1ubuntu2_all.deb ...
+Unpacking apbs-data (3.4.1-5.1ubuntu2) ...
+Selecting previously unselected package libmaloc1.
+Preparing to unpack .../11-libmaloc1_1.5-1build2_amd64.deb ...
+Unpacking libmaloc1 (1.5-1build2) ...
+Selecting previously unselected package libblas3:amd64.
+Preparing to unpack .../12-libblas3_3.12.0-3build1.1_amd64.deb ...
+Unpacking libblas3:amd64 (3.12.0-3build1.1) ...
+Selecting previously unselected package libsuperlu6:amd64.
+Preparing to unpack .../13-libsuperlu6_6.0.1+dfsg1-1build1_amd64.deb ...
+Unpacking libsuperlu6:amd64 (6.0.1+dfsg1-1build1) ...
+Selecting previously unselected package libsuitesparseconfig7:amd64.
+Preparing to unpack .../14-libsuitesparseconfig7_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libsuitesparseconfig7:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package libamd3:amd64.
+Preparing to unpack .../15-libamd3_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package libcamd3:amd64.
+Preparing to unpack .../16-libcamd3_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libcamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package libccolamd3:amd64.
+Preparing to unpack .../17-libccolamd3_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libccolamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package libcolamd3:amd64.
+Preparing to unpack .../18-libcolamd3_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libcolamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package libgfortran5:amd64.
+Preparing to unpack .../19-libgfortran5_14.2.0-4ubuntu2~24.04.1_amd64.deb ...
+Unpacking libgfortran5:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Selecting previously unselected package liblapack3:amd64.
+Preparing to unpack .../20-liblapack3_3.12.0-3build1.1_amd64.deb ...
+Unpacking liblapack3:amd64 (3.12.0-3build1.1) ...
+Selecting previously unselected package libcholmod5:amd64.
+Preparing to unpack .../21-libcholmod5_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libcholmod5:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package libumfpack6:amd64.
+Preparing to unpack .../22-libumfpack6_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libumfpack6:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package libfetk1.9t64:amd64.
+Preparing to unpack .../23-libfetk1.9t64_3.4.1-5.1ubuntu2_amd64.deb ...
+Unpacking libfetk1.9t64:amd64 (3.4.1-5.1ubuntu2) ...
+Selecting previously unselected package libapbs3t64:amd64.
+Preparing to unpack .../24-libapbs3t64_3.4.1-5.1ubuntu2_amd64.deb ...
+Unpacking libapbs3t64:amd64 (3.4.1-5.1ubuntu2) ...
+Selecting previously unselected package fonts-mathjax.
+Preparing to unpack .../25-fonts-mathjax_2.7.9+dfsg-1_all.deb ...
+Unpacking fonts-mathjax (2.7.9+dfsg-1) ...
+Selecting previously unselected package libjs-mathjax.
+Preparing to unpack .../26-libjs-mathjax_2.7.9+dfsg-1_all.deb ...
+Unpacking libjs-mathjax (2.7.9+dfsg-1) ...
+Selecting previously unselected package libarpack2t64:amd64.
+Preparing to unpack .../27-libarpack2t64_3.9.1-1.1build2_amd64.deb ...
+Unpacking libarpack2t64:amd64 (3.9.1-1.1build2) ...
+Selecting previously unselected package libevent-core-2.1-7t64:amd64.
+Preparing to unpack .../28-libevent-core-2.1-7t64_2.1.12-stable-9ubuntu2_amd64.deb ...
+Unpacking libevent-core-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Selecting previously unselected package libevent-pthreads-2.1-7t64:amd64.
+Preparing to unpack .../29-libevent-pthreads-2.1-7t64_2.1.12-stable-9ubuntu2_amd64.deb ...
+Unpacking libevent-pthreads-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Selecting previously unselected package libpsm-infinipath1.
+Preparing to unpack .../30-libpsm-infinipath1_3.3+20.604758e7-6.3build1_amd64.deb ...
+Unpacking libpsm-infinipath1 (3.3+20.604758e7-6.3build1) ...
+Selecting previously unselected package libpsm2-2.
+Preparing to unpack .../31-libpsm2-2_11.2.185-2build1_amd64.deb ...
+Unpacking libpsm2-2 (11.2.185-2build1) ...
+Selecting previously unselected package librdmacm1t64:amd64.
+Preparing to unpack .../32-librdmacm1t64_50.0-2ubuntu0.2_amd64.deb ...
+Unpacking librdmacm1t64:amd64 (50.0-2ubuntu0.2) ...
+Selecting previously unselected package libfabric1:amd64.
+Preparing to unpack .../33-libfabric1_1.17.0-3build2_amd64.deb ...
+Unpacking libfabric1:amd64 (1.17.0-3build2) ...
+Selecting previously unselected package libhwloc15:amd64.
+Preparing to unpack .../34-libhwloc15_2.10.0-1build1_amd64.deb ...
+Unpacking libhwloc15:amd64 (2.10.0-1build1) ...
+Selecting previously unselected package libmunge2:amd64.
+Preparing to unpack .../35-libmunge2_0.5.15-4ubuntu0.1_amd64.deb ...
+Unpacking libmunge2:amd64 (0.5.15-4ubuntu0.1) ...
+Selecting previously unselected package libpciaccess0:amd64.
+Preparing to unpack .../36-libpciaccess0_0.17-3ubuntu0.24.04.2_amd64.deb ...
+Unpacking libpciaccess0:amd64 (0.17-3ubuntu0.24.04.2) ...
+Selecting previously unselected package libxnvctrl0:amd64.
+Preparing to unpack .../37-libxnvctrl0_610.57.04-1ubuntu1_amd64.deb ...
+Unpacking libxnvctrl0:amd64 (610.57.04-1ubuntu1) ...
+Selecting previously unselected package ocl-icd-libopencl1:amd64.
+Preparing to unpack .../38-ocl-icd-libopencl1_2.3.2-1build1_amd64.deb ...
+Unpacking ocl-icd-libopencl1:amd64 (2.3.2-1build1) ...
+Selecting previously unselected package libhwloc-plugins:amd64.
+Preparing to unpack .../39-libhwloc-plugins_2.10.0-1build1_amd64.deb ...
+Unpacking libhwloc-plugins:amd64 (2.10.0-1build1) ...
+Selecting previously unselected package libpmix2t64:amd64.
+Preparing to unpack .../40-libpmix2t64_5.0.1-4.1build1_amd64.deb ...
+Unpacking libpmix2t64:amd64 (5.0.1-4.1build1) ...
+Selecting previously unselected package libllvm17t64:amd64.
+Preparing to unpack .../41-libllvm17t64_1%3a17.0.6-9ubuntu1_amd64.deb ...
+Unpacking libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+Selecting previously unselected package libamd-comgr2:amd64.
+Preparing to unpack .../42-libamd-comgr2_6.0+git20231212.4510c28+dfsg-3build2_amd64.deb ...
+Unpacking libamd-comgr2:amd64 (6.0+git20231212.4510c28+dfsg-3build2) ...
+Selecting previously unselected package libdrm-amdgpu1:amd64.
+Preparing to unpack .../43-libdrm-amdgpu1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb ...
+Unpacking libdrm-amdgpu1:amd64 (2.4.125-1ubuntu0.1~24.04.2) ...
+Selecting previously unselected package libhsakmt1:amd64.
+Preparing to unpack .../44-libhsakmt1_5.7.0-1build1_amd64.deb ...
+Unpacking libhsakmt1:amd64 (5.7.0-1build1) ...
+Selecting previously unselected package libhsa-runtime64-1.
+Preparing to unpack .../45-libhsa-runtime64-1_5.7.1-2build1_amd64.deb ...
+Unpacking libhsa-runtime64-1 (5.7.1-2build1) ...
+Selecting previously unselected package libamdhip64-5.
+Preparing to unpack .../46-libamdhip64-5_5.7.1-3_amd64.deb ...
+Unpacking libamdhip64-5 (5.7.1-3) ...
+Selecting previously unselected package libucx0:amd64.
+Preparing to unpack .../47-libucx0_1.16.0+ds-5ubuntu1_amd64.deb ...
+Unpacking libucx0:amd64 (1.16.0+ds-5ubuntu1) ...
+Selecting previously unselected package libopenmpi3t64:amd64.
+Preparing to unpack .../48-libopenmpi3t64_4.1.6-7ubuntu2_amd64.deb ...
+Unpacking libopenmpi3t64:amd64 (4.1.6-7ubuntu2) ...
+Selecting previously unselected package libspqr4:amd64.
+Preparing to unpack .../49-libspqr4_1%3a7.6.1+dfsg-1build1_amd64.deb ...
+Unpacking libspqr4:amd64 (1:7.6.1+dfsg-1build1) ...
+Selecting previously unselected package apbs.
+Preparing to unpack .../50-apbs_3.4.1-5.1ubuntu2_amd64.deb ...
+Unpacking apbs (3.4.1-5.1ubuntu2) ...
+Setting up libmaloc1 (1.5-1build2) ...
+Setting up libpciaccess0:amd64 (0.17-3ubuntu0.24.04.2) ...
+Setting up fonts-mathjax (2.7.9+dfsg-1) ...
+Setting up libjs-mathjax (2.7.9+dfsg-1) ...
+Setting up apbs-data (3.4.1-5.1ubuntu2) ...
+Setting up libgomp1:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libelf1t64:amd64 (0.190-1.1ubuntu0.1) ...
+Setting up libxnvctrl0:amd64 (610.57.04-1ubuntu1) ...
+Setting up libblas3:amd64 (3.12.0-3build1.1) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/blas/libblas.so.3 to provide /usr/lib/x86_64-linux-gnu/libblas.so.3 (libblas.so.3-x86_64-linux-gnu) in auto mode
+Setting up libmunge2:amd64 (0.5.15-4ubuntu0.1) ...
+Setting up libquadmath0:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libhwloc15:amd64 (2.10.0-1build1) ...
+Setting up libatomic1:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libgfortran5:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libubsan1:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libicu74:amd64 (74.2-1ubuntu3.1) ...
+Setting up libnuma1:amd64 (2.0.18-1ubuntu0.24.04.1) ...
+Setting up ocl-icd-libopencl1:amd64 (2.3.2-1build1) ...
+Setting up libhwasan0:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libasan8:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libnl-3-200:amd64 (3.7.0-0.3build1.1) ...
+Setting up libpsm2-2 (11.2.185-2build1) ...
+Setting up libsuitesparseconfig7:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up libevent-core-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Setting up libpsm-infinipath1 (3.3+20.604758e7-6.3build1) ...
+update-alternatives: using /usr/lib/libpsm1/libpsm_infinipath.so.1.16 to provide /usr/lib/x86_64-linux-gnu/libpsm_infinipath.so.1 (libpsm_infinipath.so.1) in auto mode
+Setting up libtsan2:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libdrm-common (2.4.125-1ubuntu0.1~24.04.2) ...
+Setting up libxml2:amd64 (2.9.14+dfsg-1.3ubuntu3.8) ...
+Setting up libcc1-0:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up liblsan0:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up libitm1:amd64 (14.2.0-4ubuntu2~24.04.1) ...
+Setting up liblapack3:amd64 (3.12.0-3build1.1) ...
+update-alternatives: using /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3 to provide /usr/lib/x86_64-linux-gnu/liblapack.so.3 (liblapack.so.3-x86_64-linux-gnu) in auto mode
+Setting up libarpack2t64:amd64 (3.9.1-1.1build2) ...
+Setting up libamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up libcolamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up libevent-pthreads-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Setting up libsuperlu6:amd64 (6.0.1+dfsg1-1build1) ...
+Setting up libhwloc-plugins:amd64 (2.10.0-1build1) ...
+Setting up libcamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up libnl-route-3-200:amd64 (3.7.0-0.3build1.1) ...
+Setting up libllvm17t64:amd64 (1:17.0.6-9ubuntu1) ...
+Setting up libpmix2t64:amd64 (5.0.1-4.1build1) ...
+Setting up libccolamd3:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up libdrm2:amd64 (2.4.125-1ubuntu0.1~24.04.2) ...
+Setting up libamd-comgr2:amd64 (6.0+git20231212.4510c28+dfsg-3build2) ...
+Setting up libdrm-amdgpu1:amd64 (2.4.125-1ubuntu0.1~24.04.2) ...
+Setting up libibverbs1:amd64 (50.0-2ubuntu0.2) ...
+Setting up libcholmod5:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up ibverbs-providers:amd64 (50.0-2ubuntu0.2) ...
+Setting up libspqr4:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up libumfpack6:amd64 (1:7.6.1+dfsg-1build1) ...
+Setting up librdmacm1t64:amd64 (50.0-2ubuntu0.2) ...
+Setting up libfetk1.9t64:amd64 (3.4.1-5.1ubuntu2) ...
+Setting up libhsakmt1:amd64 (5.7.0-1build1) ...
+Setting up libfabric1:amd64 (1.17.0-3build2) ...
+Setting up libapbs3t64:amd64 (3.4.1-5.1ubuntu2) ...
+Setting up libhsa-runtime64-1 (5.7.1-2build1) ...
+Setting up libamdhip64-5 (5.7.1-3) ...
+Setting up libucx0:amd64 (1.16.0+ds-5ubuntu1) ...
+Setting up libopenmpi3t64:amd64 (4.1.6-7ubuntu2) ...
+Setting up apbs (3.4.1-5.1ubuntu2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.4) ...
+APBS 3.4.1
+
+
+--- pyrosetta ---
+pyrosetta fail ModuleNotFoundError No module named 'pyrosetta'
+--- esm IF ---
+['Alphabet', 'BatchConverter', 'ESM2', 'FastaBatchedDataset', 'MSATransformer', 'ProteinBertModel', 'axial_attention', 'constants', 'data', 'model', 'modules', 'multihead_attention', 'pretrained', 'rotary_embedding', 'version']
+no inverse_folding No module named 'torch_geometric'
+esm_if1 load fail ModuleNotFoundError No module named 'torch_geometric'
+=== propka test ===
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/.venv_stage4/bin/propka3", line 10, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/propka/run.py", line 41, in main
+    parameters = read_parameter_file(options.parameters, Parameters())
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/propka/input.py", line 153, in read_parameter_file
+    parameters.parse_line(line)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/propka/parameters.py", line 148, in parse_line
+    typeannotation = self.__annotations__.get(words[0])
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Parameters' object has no attribute '__annotations__'. Did you mean: '__annotate_func__'?
+=== pdb2pqr test ===
+INFO:PDB2PQR v3.7.1: biomolecular structure conversion software.
+INFO:Please cite:  Jurrus E, et al.  Improvements to the APBS biomolecular solvation software suite.  Protein Sci 27 112-128 (2018).
+INFO:Please cite:  Dolinsky TJ, et al.  PDB2PQR: expanding and upgrading automated preparation of biomolecular structures for molecular simulations. Nucleic Acids Res 35 W522-W525 (2007).
+INFO:Checking and transforming input arguments.
+INFO:Loading topology files.
+INFO:Loading molecule: /workspace_developability_acquisition/esmfold_native/ADI-37123.pdb
+ERROR:Error parsing line: 'PARENT'
+ERROR:<PARENT N/A>
+ERROR:Truncating remaining errors for record type:PARENT
+WARNING:Warning: /workspace_developability_acquisition/esmfold_native/ADI-37123.pdb is a non-standard PDB file.
+
+ERROR:['PARENT']
+INFO:Setting up molecule.
+INFO:Created biomolecule object with 226 residues and 1724 atoms.
+INFO:Setting termini states for biomolecule chains.
+INFO:Loading forcefield.
+INFO:Loading hydrogen topology definitions.
+WARNING:Missing atom OXT in residue SER A 119
+WARNING:Missing atom OXT in residue LYS B 763
+WARNING:Missing atom OXT in residue SER A 119
+WARNING:Missing atom OXT in residue LYS B 763
+INFO:Attempting to repair 2 missing atoms in biomolecule.
+WARNING:Missing atom OXT in residue SER A 119
+WARNING:Missing atom OXT in residue LYS B 763
+INFO:Added atom OXT to residue SER A 119 at coordinates -12.201, 19.184, -17.223
+INFO:Added atom OXT to residue LYS B 763 at coordinates 24.368, 15.143, 4.147
+INFO:Updating disulfide bridges.
+INFO:Debumping biomolecule.
+INFO:Assigning titration states with PROPKA.
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/.venv_stage4/bin/pdb2pqr", line 10, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/pdb2pqr/main.py", line 841, in main
+    if main_driver(args) == 1:
+       ~~~~~~~~~~~^^^^^^
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/pdb2pqr/main.py", line 803, in main_driver
+    results = non_trivial(
+        args=args,
+    ...<3 lines>...
+        is_cif=is_cif,
+    )
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/pdb2pqr/main.py", line 647, in non_trivial
+    pka_df, pka_str = run_propka(args, biomolecule)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/pdb2pqr/main.py", line 529, in run_propka
+    parameters = pk_in.read_parameter_file(args.parameters, Parameters())
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/propka/input.py", line 153, in read_parameter_file
+    parameters.parse_line(line)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/workspace_developability_acquisition/.venv_stage4/lib/python3.14/site-packages/propka/parameters.py", line 148, in parse_line
+    typeannotation = self.__annotations__.get(words[0])
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Parameters' object has no attribute '__annotations__'. Did you mean: '__annotate_func__'?
+=== torch_geometric attempt ===
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+Resolved 23 packages in 450ms
+Installed 9 packages in 72ms
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.3
+ + aiosignal==1.4.0
+ + frozenlist==1.8.0
+ + multidict==6.7.1
+ + propcache==0.5.2
+ + torch-geometric==2.8.0.post1
+ + xxhash==4.0.1
+ + yarl==1.24.5
+tg 2.8.0.post1
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+  × No solution found when resolving dependencies:
+  ╰─▶ Because protein-mpnn-pytorch was not found in the package registry and
+      you require protein-mpnn-pytorch, we can conclude that your requirements
+      are unsatisfiable.
+Using CPython 3.12.13 interpreter at: .venv_b1/bin/python
+warning: The requested interpreter resolved to Python 3.12.13, which is incompatible with the project's Python requirement: `>=3.14` (from `project.requires-python`)
+Creating virtual environment at: .venv_stage4
+Activate with: source .venv_stage4/bin/activate
+Python 3.12.13
+Using Python 3.12.13 environment at: .venv_stage4
+Resolved 38 packages in 190ms
+Downloading fonttools (5.2MiB)
+ Downloaded fonttools
+Prepared 1 package in 236ms
+Installed 38 packages in 64ms
+ + alembic==1.19.1
+ + biopython==1.88
+ + certifi==2026.7.22
+ + charset-normalizer==3.5.1
+ + cloudpickle==3.1.2
+ + colorlog==6.12.0
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + docutils==0.17.1
+ + fonttools==4.64.0
+ + greenlet==3.5.5
+ + idna==3.19
+ + joblib==1.6.0
+ + kiwisolver==1.5.1
+ + mako==1.4.1
+ + markupsafe==3.0.3
+ + matplotlib==3.11.1
+ + mmcif-pdbx==2.1.0
+ + narwhals==2.25.0
+ + numpy==2.5.2
+ + optuna==4.9.0
+ + packaging==26.3
+ + pandas==3.0.5
+ + pdb2pqr==3.7.1
+ + pillow==12.3.0
+ + propka==3.5.1
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + pyyaml==6.0.3
+ + requests==2.34.2
+ + scikit-learn==1.9.0
+ + scipy==1.18.1
+ + six==1.17.0
+ + sqlalchemy==2.0.52
+ + threadpoolctl==3.6.0
+ + tqdm==4.70.0
+ + typing-extensions==4.16.0
+ + urllib3==2.7.0
+INFO:PDB2PQR v3.7.1: biomolecular structure conversion software.
+INFO:Please cite:  Jurrus E, et al.  Improvements to the APBS biomolecular solvation software suite.  Protein Sci 27 112-128 (2018).
+INFO:Please cite:  Dolinsky TJ, et al.  PDB2PQR: expanding and upgrading automated preparation of biomolecular structures for molecular simulations. Nucleic Acids Res 35 W522-W525 (2007).
+INFO:Checking and transforming input arguments.
+INFO:Loading topology files.
+INFO:Loading molecule: /workspace_developability_acquisition/esmfold_native/ADI-37123.pdb
+ERROR:Error parsing line: 'PARENT'
+ERROR:<PARENT N/A>
+ERROR:Truncating remaining errors for record type:PARENT
+WARNING:Warning: /workspace_developability_acquisition/esmfold_native/ADI-37123.pdb is a non-standard PDB file.
+
+ERROR:['PARENT']
+INFO:Setting up molecule.
+INFO:Created biomolecule object with 226 residues and 1724 atoms.
+INFO:Setting termini states for biomolecule chains.
+INFO:Loading forcefield.
+INFO:Loading hydrogen topology definitions.
+WARNING:Missing atom OXT in residue SER A 119
+WARNING:Missing atom OXT in residue LYS B 763
+WARNING:Missing atom OXT in residue SER A 119
+WARNING:Missing atom OXT in residue LYS B 763
+INFO:Attempting to repair 2 missing atoms in biomolecule.
+WARNING:Missing atom OXT in residue SER A 119
+WARNING:Missing atom OXT in residue LYS B 763
+INFO:Added atom OXT to residue SER A 119 at coordinates -12.201, 19.184, -17.223
+INFO:Added atom OXT to residue LYS B 763 at coordinates 24.368, 15.143, 4.147
+INFO:Updating disulfide bridges.
+INFO:Debumping biomolecule.
+INFO:Assigning titration states with PROPKA.
+INFO:
+propka3.5.1                                                                                  2026-09-01
+
+-------------------------------------------------------------------------------
+--                                                                           --
+--  PROPKA: A PROTEIN PKA PREDICTOR                                          --
+--                                                                           --
+--  VERSION 1.0,  04/25/2004,  IOWA CITY                                     --
+--  BY HUI LI                                                                --
+--                                                                           --
+--  VERSION 2.0,  11/05/2007, IOWA CITY/COPENHAGEN                           --
+--  BY DELPHINE C. BAS AND DAVID M. ROGERS                                   --
+--                                                                           --
+--  VERSION 3.0,  01/06/2011, COPENHAGEN                                     --
+--  BY MATS H.M. OLSSON AND CHRESTEN R. SONDERGARD                           --
+--                                                                           --
+--  VERSION 3.1,  07/01/2011, COPENHAGEN                                     --
+--  BY CHRESTEN R. SONDERGARD AND MATS H.M. OLSSON                           --
+--                                                                           --
+--  VERSION 3.2,  06/17/2020, PLANET EARTH                                   --
+--  SEE ABOVE FOR AUTHORS                                                    --
+--                                                                           --
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+References:
+
+Very Fast Empirical Prediction and Rationalization of Protein pKa Values.
+Hui Li, Andrew D. Robertson and Jan H. Jensen. PROTEINS: Structure, Function,
+and Bioinformatics. 61:704-721 (2005)
+
+Very Fast Prediction and Rationalization of pKa Values for Protein-Ligand
+Complexes.  Delphine C. Bas, David M. Rogers and Jan H. Jensen.  PROTEINS:
+Structure, Function, and Bioinformatics 73:765-783 (2008)
+
+PROPKA3: Consistent Treatment of Internal and Surface Residues in Empirical
+pKa predictions.  Mats H.M. Olsson, Chresten R. Sondergard, Michal Rostkowski,
+and Jan H. Jensen.  Journal of Chemical Theory and Computation, 7(2):525-537
+(2011)
+
+Improved Treatment of Ligands and Coupling Effects in Empirical Calculation
+and Rationalization of pKa Values.  Chresten R. Sondergaard, Mats H.M. Olsson,
+Michal Rostkowski, and Jan H. Jensen.  Journal of Chemical Theory and
+Computation, (2011)
+-------------------------------------------------------------------------------
+
+
+
+INFO:Coupling map:
+Covalent coupling map for Conformation container 1A with 2062 atoms and 569 groups
+            N+  657 B | ASP 657 B | 
+N+  657 B             |     X     | 
+ASP 657 B       X     |           | 
+INFO:Calculating pKas for Conformation container 1A with 2062 atoms and 569 groups
+INFO:Removing penalised groups!!!
+INFO:pKa determinants:
+
+---------  -----   ------   ---------------------    --------------    --------------    --------------
+                            DESOLVATION  EFFECTS       SIDECHAIN          BACKBONE        COULOMBIC
+ RESIDUE    pKa    BURIED     REGULAR      RE        HYDROGEN BOND     HYDROGEN BOND      INTERACTION
+---------  -----   ------   ---------   ---------    --------------    --------------    --------------
+
+ASP  30 A   3.52     0 %    0.32  231   0.00    0    0.00 XXX   0 X   -0.33 ASP  30 A   -0.18 ARG  31 A
+ASP  30 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.10 ARG  72 A
+
+ASP  54 A   1.94     0 %    0.58  237   0.00    0   -0.55 THR  57 A   -0.13 ASP  54 A   -0.10 LYS  56 A
+ASP  54 A                                            0.00 XXX   0 X   -0.80 LYS  56 A   -0.02 LYS  58 A
+ASP  54 A                                            0.00 XXX   0 X   -0.79 THR  57 A   -0.04 ARG  72 A
+ASP  54 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.01 HIS  59 A
+
+ASP  73 A   2.47     0 %    0.49  233   0.00    0   -0.85 SER  75 A   -0.32 SER  75 A   -0.03 ARG  19 A
+ASP  73 A                                            0.00 XXX   0 X   -0.38 ARG  76 A   -0.01 ARG  72 A
+ASP  73 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.24 ARG  76 A
+
+ASP  90 A   3.63    45 %    1.66  406   0.35    0   -0.01 ARG  67 A   -0.81 ARG  87 A   -0.38 ARG  67 A
+ASP  90 A                                           -0.42 ARG  38 A    0.00 XXX   0 X   -0.15 ARG  87 A
+ASP  90 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.42 ARG  38 A
+
+ASP 107 A   4.61    61 %    1.91  451   0.59    0   -0.12 SER 108 A   -0.27 ASP 107 A   -0.63 LYS  98 A
+ASP 107 A                                           -0.58 LYS  98 A   -0.09 SER 108 A    0.00 XXX   0 X
+
+GLU   6 A   6.29    77 %    2.94  498   0.98    0    0.00 XXX   0 X   -0.48 GLU   6 A    0.00 XXX   0 X
+GLU   6 A                                            0.00 XXX   0 X   -0.84 CYS  96 A    0.00 XXX   0 X
+GLU   6 A                                            0.00 XXX   0 X   -0.04 GLN 111 A    0.00 XXX   0 X
+GLU   6 A                                            0.00 XXX   0 X   -0.77 GLY 112 A    0.00 XXX   0 X
+
+GLU  46 A   3.97    67 %    1.61  469   0.19    0   -0.67 SER  63 A    0.00 XXX   0 X   -0.11 LYS  43 A
+GLU  46 A                                           -0.76 ARG  38 A    0.00 XXX   0 X    0.08 ASP  90 A
+GLU  46 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.86 ARG  38 A
+
+GLU  55 A   4.74     0 %    0.32  251   0.00    0   -0.00 ASN  74 A    0.00 XXX   0 X   -0.02 LYS  56 A
+GLU  55 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.05 LYS  58 A
+GLU  55 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.13 ARG  72 A
+GLU  55 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.04 ASP  54 A
+GLU  55 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.09 ASP  73 A
+
+C-  119 A   3.39     0 %    0.19  124   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+HIS  35 A   3.13   100 %   -3.34  600   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.03 HIS  59 A
+
+HIS  59 A   5.91    17 %   -0.57  329   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.03 LYS  65 A
+HIS  59 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.01 ASP  54 A
+
+CYS  22 A  99.99     0 %    0.00    0   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+CYS  96 A  99.99     0 %    0.00    0   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+TYR  53 A  10.27     0 %    0.13  200   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 ASP  30 A
+TYR  53 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.13 ASP  54 A
+
+TYR  60 A  10.35    41 %    1.57  395   0.00    0    0.00 XXX   0 X   -0.85 ILE  70 A   -0.37 LYS  58 A
+
+TYR  80 A  10.31     0 %    0.52  276   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.25 ARG  19 A
+TYR  80 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.21 ASP  73 A
+TYR  80 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.17 ARG  76 A
+
+TYR  94 A  12.49    79 %    3.20  502   0.00    0   -0.60 ARG  38 A    0.00 XXX   0 X   -0.69 ARG  38 A
+TYR  94 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.13 GLU  46 A
+TYR  94 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.04 ARG  67 A
+TYR  94 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.48 ASP  90 A
+
+TYR  95 A  12.26    62 %    2.04  455   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.12 GLU   6 A
+TYR  95 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.10 TYR 743 B
+
+LYS  43 A  10.37     0 %   -0.14  240   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.11 ARG  38 A
+LYS  43 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.11 GLU  46 A
+
+LYS  56 A  10.56     0 %   -0.06   92   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.10 ASP  54 A
+LYS  56 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.02 GLU  55 A
+
+LYS  58 A  10.37    16 %   -0.57  326   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.02 ASP  54 A
+LYS  58 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.05 GLU  55 A
+LYS  58 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.37 TYR  60 A
+
+LYS  65 A  10.39     0 %   -0.11  178   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+LYS  98 A  10.34    36 %   -1.37  383   0.00    0    0.58 ASP 107 A    0.00 XXX   0 X    0.63 ASP 107 A
+
+ARG  16 A  12.42     0 %   -0.08  128   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+ARG  19 A  12.30     1 %   -0.47  283   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.03 ASP  73 A
+ARG  19 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.25 TYR  80 A
+ARG  19 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.01 ARG  76 A
+
+ARG  31 A  12.57     0 %   -0.11  141   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.18 ASP  30 A
+
+ARG  38 A  14.39    69 %   -1.84  474   0.00    0    0.60 TYR  94 A    0.00 XXX   0 X    0.69 TYR  94 A
+ARG  38 A                                            0.76 GLU  46 A    0.00 XXX   0 X    0.86 GLU  46 A
+ARG  38 A                                            0.42 ASP  90 A    0.00 XXX   0 X    0.42 ASP  90 A
+
+ARG  67 A  11.85     3 %   -0.64  291   0.00    0    0.01 ASP  90 A    0.00 XXX   0 X    0.38 ASP  90 A
+ARG  67 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.04 TYR  94 A
+ARG  67 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.05 ARG  38 A
+ARG  67 A                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.38 ARG  87 A
+
+ARG  72 A  10.33    48 %   -2.46  416   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.10 ASP  30 A
+ARG  72 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.04 ASP  54 A
+ARG  72 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.13 GLU  55 A
+ARG  72 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.01 ASP  73 A
+
+ARG  76 A  12.81     0 %   -0.10  124   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.24 ASP  73 A
+ARG  76 A                                            0.00 XXX   0 X    0.00 XXX   0 X    0.17 TYR  80 A
+
+ARG  87 A  12.35     0 %   -0.30  216   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.15 ASP  90 A
+
+N+    1 A   7.84     0 %   -0.16  141   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+ASP 673 B   3.35     0 %    0.34  202   0.00    0    0.00 XXX   0 X   -0.79 SER 670 B   -0.00 LYS 763 B
+
+ASP 737 B   3.73     0 %    0.18  231   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.10 LYS 698 B
+ASP 737 B                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.01 LYS 701 B
+ASP 737 B                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.02 ARG 717 B
+ASP 737 B                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.12 HIS 695 B
+
+ASP 738 B   3.83    41 %    1.73  397   0.33    0   -0.67 ARG 717 B   -0.85 GLN 735 B   -0.04 LYS 701 B
+ASP 738 B                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.08 HIS 695 B
+ASP 738 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.09 ASP 737 B
+ASP 738 B                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.49 ARG 717 B
+
+GLU 761 B   3.67     0 %    0.27  210   0.00    0   -0.69 LYS 759 B    0.00 XXX   0 X   -0.05 LYS 763 B
+GLU 761 B                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.36 LYS 759 B
+
+C-  763 B   3.39     0 %    0.22  162   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.06 LYS 763 B
+C-  763 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.03 ASP 673 B
+
+HIS 688 B   6.05    14 %   -0.45  321   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+HIS 694 B   4.66    68 %   -2.05  472   0.00    0    0.00 XXX   0 X    0.30 LYS 698 B   -0.09 HIS 695 B
+
+HIS 695 B   5.61    31 %   -0.99  367   0.00    0    0.00 XXX   0 X    0.00 ASP 737 B   -0.21 LYS 698 B
+HIS 695 B                                            0.00 XXX   0 X    0.18 PHE 739 B   -0.08 LYS 701 B
+HIS 695 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.12 ASP 737 B
+HIS 695 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.08 ASP 738 B
+
+CYS 679 B  99.99     0 %    0.00    0   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+CYS 744 B  99.99     0 %    0.00    0   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+TYR 692 B  13.89   100 %    4.15  616   0.00    0    0.00 XXX   0 X   -0.50 LEU 106 A    0.24 ASP 107 A
+
+TYR 705 B  10.13     0 %    0.34  263   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.20 ARG 709 B
+
+TYR 742 B  13.31    79 %    2.97  503   0.00    0   -0.15 GLN 693 B    0.00 XXX   0 X   -0.14 ARG 717 B
+TYR 742 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.62 ASP 738 B
+
+TYR 743 B  12.06    71 %    2.21  479   0.00    0   -0.15 GLN  39 A    0.00 XXX   0 X    0.00 XXX   0 X
+
+LYS 698 B  10.44     0 %   -0.16  207   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.10 ASP 737 B
+
+LYS 701 B   9.96    31 %   -0.53  368   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X   -0.04 ARG 717 B
+LYS 701 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.01 ASP 737 B
+LYS 701 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.04 ASP 738 B
+LYS 701 B                                            0.00 XXX   0 X    0.00 XXX   0 X   -0.01 LYS 698 B
+
+LYS 759 B  11.31     0 %   -0.25  238   0.00    0    0.69 GLU 761 B    0.00 XXX   0 X    0.36 GLU 761 B
+
+LYS 763 B  10.49     0 %   -0.12  134   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 ASP 673 B
+LYS 763 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.05 GLU 761 B
+LYS 763 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.06 C-  763 B
+
+ARG 674 B  12.30     0 %   -0.20  209   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+ARG 680 B  12.35     0 %   -0.15  209   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+ARG 709 B  12.56     0 %   -0.15  208   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.20 TYR 705 B
+
+ARG 717 B  13.05    11 %   -0.76  312   0.00    0    0.67 ASP 738 B    0.00 XXX   0 X    0.02 ASP 737 B
+ARG 717 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.14 TYR 742 B
+ARG 717 B                                            0.00 XXX   0 X    0.00 XXX   0 X    0.49 ASP 738 B
+
+N+  657 B   7.80     0 %   -0.20  231   0.00    0    0.00 XXX   0 X    0.00 XXX   0 X    0.00 XXX   0 X
+
+
+INFO:pKa summary:
+--------------------------------------------------------------------------------------------------------
+SUMMARY OF THIS PREDICTION
+       Group      pKa  model-pKa   ligand atom-type
+   ASP  30 A     3.52       3.80                      
+   ASP  54 A     1.94       3.80                      
+   ASP  73 A     2.47       3.80                      
+   ASP  90 A     3.63       3.80                      
+   ASP 107 A     4.61       3.80                      
+   ASP 673 B     3.35       3.80                      
+   ASP 737 B     3.73       3.80                      
+   ASP 738 B     3.83       3.80                      
+   GLU   6 A     6.29       4.50                      
+   GLU  46 A     3.97       4.50                      
+   GLU  55 A     4.74       4.50                      
+   GLU 761 B     3.67       4.50                      
+   C-  119 A     3.39       3.20                      
+   C-  763 B     3.39       3.20                      
+   HIS  35 A     3.13       6.50                      
+   HIS  59 A     5.91       6.50                      
+   HIS 688 B     6.05       6.50                      
+   HIS 694 B     4.66       6.50                      
+   HIS 695 B     5.61       6.50                      
+   CYS  22 A    99.99       9.00                      
+   CYS  96 A    99.99       9.00                      
+   CYS 679 B    99.99       9.00                      
+   CYS 744 B    99.99       9.00                      
+   TYR  53 A    10.27      10.00                      
+   TYR  60 A    10.35      10.00                      
+   TYR  80 A    10.31      10.00                      
+   TYR  94 A    12.49      10.00                      
+   TYR  95 A    12.26      10.00                      
+   TYR 692 B    13.89      10.00                      
+   TYR 705 B    10.13      10.00                      
+   TYR 742 B    13.31      10.00                      
+   TYR 743 B    12.06      10.00                      
+   LYS  43 A    10.37      10.50                      
+   LYS  56 A    10.56      10.50                      
+   LYS  58 A    10.37      10.50                      
+   LYS  65 A    10.39      10.50                      
+   LYS  98 A    10.34      10.50                      
+   LYS 698 B    10.44      10.50                      
+   LYS 701 B     9.96      10.50                      
+   LYS 759 B    11.31      10.50                      
+   LYS 763 B    10.49      10.50                      
+   ARG  16 A    12.42      12.50                      
+   ARG  19 A    12.30      12.50                      
+   ARG  31 A    12.57      12.50                      
+   ARG  38 A    14.39      12.50                      
+   ARG  67 A    11.85      12.50                      
+   ARG  72 A    10.33      12.50                      
+   ARG  76 A    12.81      12.50                      
+   ARG  87 A    12.35      12.50                      
+   ARG 674 B    12.30      12.50                      
+   ARG 680 B    12.35      12.50                      
+   ARG 709 B    12.56      12.50                      
+   ARG 717 B    13.05      12.50                      
+   N+    1 A     7.84       8.00                      
+   N+  657 B     7.80       8.00                      
+
+INFO:PROPKA information:
+--------------------------------------------------------------------------------------------------------
+Free energy of   folding (kcal/mol) as a function of pH (using neutral reference)
+  0.00     20.64
+  1.00     20.56
+  2.00     19.99
+  3.00     18.04
+  4.00     15.09
+  5.00     12.99
+  6.00     10.79
+  7.00      8.75
+  8.00      8.05
+  9.00      8.08
+ 10.00      9.81
+ 11.00     14.31
+ 12.00     19.13
+ 13.00     22.88
+ 14.00     25.64
+
+The pH of optimum stability is  8.5 for which the free energy is    8.0 kcal/mol at 298K
+Could not determine pH values where the free energy is within 80 % of minimum
+Could not determine the pH-range where the free energy is negative
+
+
+Protein charge of folded and unfolded state as a function of pH
+    pH  unfolded  folded
+  0.00     28.00   27.98
+  0.10     28.00   27.98
+  0.20     28.00   27.97
+  0.30     27.99   27.96
+  0.40     27.99   27.96
+  0.50     27.99   27.94
+  0.60     27.99   27.93
+  0.70     27.99   27.91
+  0.80     27.98   27.89
+  0.90     27.98   27.86
+  1.00     27.97   27.83
+  1.10     27.96   27.79
+  1.20     27.96   27.74
+  1.30     27.94   27.69
+  1.40     27.93   27.62
+  1.50     27.91   27.53
+  1.60     27.89   27.44
+  1.70     27.86   27.33
+  1.80     27.83   27.20
+  1.90     27.78   27.05
+  2.00     27.73   26.89
+  2.10     27.66   26.71
+  2.20     27.58   26.51
+  2.30     27.48   26.28
+  2.40     27.35   26.03
+  2.50     27.20   25.76
+  2.60     27.01   25.45
+  2.70     26.79   25.11
+  2.80     26.53   24.74
+  2.90     26.23   24.32
+  3.00     25.87   23.87
+  3.10     25.46   23.37
+  3.20     25.00   22.83
+  3.30     24.48   22.26
+  3.40     23.91   21.65
+  3.50     23.29   21.02
+  3.60     22.63   20.38
+  3.70     21.94   19.72
+  3.80     21.23   19.07
+  3.90     20.50   18.43
+  4.00     19.78   17.80
+  4.10     19.07   17.20
+  4.20     18.38   16.62
+  4.30     17.73   16.08
+  4.40     17.11   15.56
+  4.50     16.54   15.07
+  4.60     16.02   14.61
+  4.70     15.54   14.18
+  4.80     15.10   13.77
+  4.90     14.72   13.39
+  5.00     14.37   13.03
+  5.10     14.06   12.69
+  5.20     13.79   12.37
+  5.30     13.54   12.06
+  5.40     13.31   11.76
+  5.50     13.09   11.47
+  5.60     12.88   11.18
+  5.70     12.66   10.90
+  5.80     12.44   10.62
+  5.90     12.21   10.35
+  6.00     11.96   10.08
+  6.10     11.70    9.83
+  6.20     11.41    9.58
+  6.30     11.12    9.35
+  6.40     10.81    9.13
+  6.50     10.49    8.93
+  6.60     10.18    8.74
+  6.70      9.87    8.57
+  6.80      9.57    8.41
+  6.90      9.29    8.27
+  7.00      9.03    8.13
+  7.10      8.78    7.99
+  7.20      8.55    7.86
+  7.30      8.34    7.73
+  7.40      8.14    7.60
+  7.50      7.94    7.47
+  7.60      7.76    7.33
+  7.70      7.57    7.19
+  7.80      7.39    7.05
+  7.90      7.21    6.91
+  8.00      7.04    6.77
+  8.10      6.86    6.64
+  8.20      6.69    6.51
+  8.30      6.51    6.39
+  8.40      6.34    6.27
+  8.50      6.16    6.16
+  8.60      5.98    6.04
+  8.70      5.79    5.92
+  8.80      5.59    5.80
+  8.90      5.36    5.66
+  9.00      5.10    5.51
+  9.10      4.80    5.33
+  9.20      4.46    5.13
+  9.30      4.06    4.89
+  9.40      3.60    4.60
+  9.50      3.07    4.27
+  9.60      2.47    3.89
+  9.70      1.79    3.44
+  9.80      1.03    2.93
+  9.90      0.21    2.36
+ 10.00     -0.68    1.72
+ 10.10     -1.61    1.03
+ 10.20     -2.57    0.30
+ 10.30     -3.54   -0.47
+ 10.40     -4.51   -1.25
+ 10.50     -5.45   -2.03
+ 10.60     -6.35   -2.80
+ 10.70     -7.20   -3.54
+ 10.80     -8.00   -4.25
+ 10.90     -8.72   -4.92
+ 11.00     -9.39   -5.56
+ 11.10     -9.99   -6.16
+ 11.20    -10.54   -6.74
+ 11.30    -11.05   -7.30
+ 11.40    -11.53   -7.85
+ 11.50    -12.00   -8.40
+ 11.60    -12.46   -8.97
+ 11.70    -12.93   -9.55
+ 11.80    -13.43  -10.16
+ 11.90    -13.95  -10.80
+ 12.00    -14.52  -11.47
+ 12.10    -15.13  -12.17
+ 12.20    -15.77  -12.90
+ 12.30    -16.46  -13.65
+ 12.40    -17.16  -14.40
+ 12.50    -17.88  -15.15
+ 12.60    -18.59  -15.89
+ 12.70    -19.28  -16.60
+ 12.80    -19.93  -17.28
+ 12.90    -20.54  -17.92
+ 13.00    -21.08  -18.52
+ 13.10    -21.56  -19.07
+ 13.20    -21.98  -19.57
+ 13.30    -22.34  -20.03
+ 13.40    -22.64  -20.45
+ 13.50    -22.90  -20.83
+ 13.60    -23.11  -21.18
+ 13.70    -23.28  -21.49
+ 13.80    -23.42  -21.77
+ 13.90    -23.54  -22.03
+ 14.00    -23.63  -22.27
+The pI is 10.24 (folded) and  9.92 (unfolded)
+
+--------------------------------------------------------------------------------------------------------
+INFO:Applying pKa values at a pH of 6.50:
+INFO:Adding hydrogens to biomolecule.
+INFO:Debumping biomolecule (again).
+INFO:Optimizing hydrogen bonds
+INFO:Applying force field to biomolecule states.
+INFO:Regenerating headers.
+INFO:Regenerating PDB lines.
+WARNING:Ignoring 465 header lines in output.
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 347, in esm_if1_gvp4_t16_142M_UR50
+    return load_model_and_alphabet_hub("esm_if1_gvp4_t16_142M_UR50")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 64, in load_model_and_alphabet_hub
+    return load_model_and_alphabet_core(model_name, model_data, regression_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 193, in load_model_and_alphabet_core
+    model, alphabet, model_state = _load_model_and_alphabet_core_v1(model_data)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 129, in _load_model_and_alphabet_core_v1
+    import esm.inverse_folding
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/__init__.py", line 6, in <module>
+    from . import gvp_transformer
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer.py", line 16, in <module>
+    from .features import DihedralFeatures
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/features.py", line 74, in <module>
+    from .util import normalize, norm, nan_to_num, rbf
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/util.py", line 9, in <module>
+    import biotite.structure
+ModuleNotFoundError: No module named 'biotite'
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+Resolved 12 packages in 293ms
+Installed 2 packages in 17ms
+ + biotite==1.7.1
+ + biotraj==1.2.2
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 347, in esm_if1_gvp4_t16_142M_UR50
+    return load_model_and_alphabet_hub("esm_if1_gvp4_t16_142M_UR50")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 64, in load_model_and_alphabet_hub
+    return load_model_and_alphabet_core(model_name, model_data, regression_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 193, in load_model_and_alphabet_core
+    model, alphabet, model_state = _load_model_and_alphabet_core_v1(model_data)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 129, in _load_model_and_alphabet_core_v1
+    import esm.inverse_folding
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/__init__.py", line 6, in <module>
+    from . import gvp_transformer
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer.py", line 16, in <module>
+    from .features import DihedralFeatures
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/features.py", line 74, in <module>
+    from .util import normalize, norm, nan_to_num, rbf
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/util.py", line 12, in <module>
+    from biotite.structure import filter_backbone
+ImportError: cannot import name 'filter_backbone' from 'biotite.structure' (/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/biotite/structure/__init__.py)
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+Resolved 9 packages in 101ms
+Downloading numpy (17.1MiB)
+Downloading biotite (37.2MiB)
+ Downloaded numpy
+ Downloaded biotite
+Prepared 2 packages in 3.05s
+Uninstalled 2 packages in 49ms
+Installed 2 packages in 12ms
+ - biotite==1.7.1
+ + biotite==0.41.2
+ - numpy==2.5.2
+ + numpy==1.26.4
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer.py:12: UserWarning: A NumPy version >=2.0.0 and <2.8.0 is required for this version of SciPy (detected version 1.26.4)
+  from scipy.spatial import transform
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/scipy/sparse/_sputils.py:17: FutureWarning: In the future `np.long` will be defined as the corresponding NumPy scalar.
+  np.uintc, np.long, np.ulong, np.longlong, np.ulonglong,
+filter_backbone ok
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 347, in esm_if1_gvp4_t16_142M_UR50
+    return load_model_and_alphabet_hub("esm_if1_gvp4_t16_142M_UR50")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 64, in load_model_and_alphabet_hub
+    return load_model_and_alphabet_core(model_name, model_data, regression_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 193, in load_model_and_alphabet_core
+    model, alphabet, model_state = _load_model_and_alphabet_core_v1(model_data)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/pretrained.py", line 129, in _load_model_and_alphabet_core_v1
+    import esm.inverse_folding
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/__init__.py", line 6, in <module>
+    from . import gvp_transformer
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer.py", line 12, in <module>
+    from scipy.spatial import transform
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/scipy/spatial/__init__.py", line 111, in <module>
+    from ._kdtree import *
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/scipy/spatial/_kdtree.py", line 7, in <module>
+    from ._ckdtree import cKDTree, cKDTreeNode  # type: ignore[import-not-found]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "scipy/spatial/_ckdtree.pyx", line 11, in init scipy.spatial._ckdtree
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/scipy/sparse/__init__.py", line 250, in <module>
+    from ._base import *
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/scipy/sparse/_base.py", line 8, in <module>
+    from ._sputils import (asmatrix, check_shape,
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/scipy/sparse/_sputils.py", line 17, in <module>
+    np.uintc, np.long, np.ulong, np.longlong, np.ulonglong,
+              ^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/numpy/__init__.py", line 333, in __getattr__
+    raise AttributeError("module {!r} has no attribute "
+AttributeError: module 'numpy' has no attribute 'long'. Did you mean: 'log'?
+Using Python 3.12.13 environment at: /workspace_developability_acquisition/.venv_b1
+Resolved 12 packages in 6ms
+Uninstalled 2 packages in 15ms
+Installed 2 packages in 16ms
+ - biotite==0.41.2
+ + biotite==1.7.1
+ - numpy==1.26.4
+ + numpy==2.5.2
+Using CPython 3.12.13 interpreter at: .venv_b1/bin/python
+warning: The requested interpreter resolved to Python 3.12.13, which is incompatible with the project's Python requirement: `>=3.14` (from `project.requires-python`)
+Creating virtual environment at: .venv_esmif
+Activate with: source .venv_esmif/bin/activate
+Using Python 3.12.13 environment at: .venv_esmif
+Resolved 29 packages in 2.61s
+Downloading nvidia-cuda-nvrtc-cu12 (84.0MiB)
+Downloading nvidia-nccl-cu12 (283.0MiB)
+Downloading setuptools (1.2MiB)
+Downloading sympy (6.0MiB)
+Downloading networkx (2.0MiB)
+Downloading cuda-bindings (7.3MiB)
+ Downloaded setuptools
+Downloading torch (782.3MiB)
+Downloading nvidia-cusparse-cu12 (274.9MiB)
+Downloading nvidia-cublas-cu12 (566.8MiB)
+Downloading nvidia-cufile-cu12 (1.1MiB)
+Downloading nvidia-cusparselt-cu12 (273.9MiB)
+Downloading nvidia-nvjitlink-cu12 (37.4MiB)
+Downloading nvidia-cudnn-cu12 (627.4MiB)
+Downloading nvidia-cufft-cu12 (184.2MiB)
+Downloading triton (179.6MiB)
+Downloading nvidia-nvshmem-cu12 (132.7MiB)
+Downloading nvidia-cuda-cupti-cu12 (9.8MiB)
+Downloading nvidia-cusolver-cu12 (255.1MiB)
+Downloading nvidia-curand-cu12 (60.7MiB)
+ Downloaded nvidia-cufile-cu12
+ Downloaded networkx
+ Downloaded nvidia-cuda-cupti-cu12
+ Downloaded triton
+ Downloaded nvidia-cuda-nvrtc-cu12
+ Downloaded nvidia-nvjitlink-cu12
+ Downloaded sympy
+ Downloaded cuda-bindings
+ Downloaded nvidia-nccl-cu12
+ Downloaded torch
+ Downloaded nvidia-cusparse-cu12
+ Downloaded nvidia-cusparselt-cu12
+ Downloaded nvidia-cublas-cu12
+ Downloaded nvidia-curand-cu12
+ Downloaded nvidia-cufft-cu12
+ Downloaded nvidia-nvshmem-cu12
+ Downloaded nvidia-cusolver-cu12
+ Downloaded nvidia-cudnn-cu12
+Prepared 29 packages in 1m 38s
+Installed 29 packages in 131ms
+ + cuda-bindings==12.9.7
+ + cuda-pathfinder==1.6.0
+ + cuda-toolkit==12.8.1
+ + filelock==3.32.3
+ + fsspec==2026.7.0
+ + jinja2==3.1.6
+ + markupsafe==3.0.3
+ + mpmath==1.3.0
+ + networkx==3.6.1
+ + nvidia-cublas-cu12==12.8.4.1
+ + nvidia-cuda-cupti-cu12==12.8.90
+ + nvidia-cuda-nvrtc-cu12==12.8.93
+ + nvidia-cuda-runtime-cu12==12.8.90
+ + nvidia-cudnn-cu12==9.19.0.56
+ + nvidia-cufft-cu12==11.3.3.83
+ + nvidia-cufile-cu12==1.13.1.3
+ + nvidia-curand-cu12==10.3.9.90
+ + nvidia-cusolver-cu12==11.7.3.90
+ + nvidia-cusparse-cu12==12.5.8.93
+ + nvidia-cusparselt-cu12==0.7.1
+ + nvidia-nccl-cu12==2.28.9
+ + nvidia-nvjitlink-cu12==12.8.93
+ + nvidia-nvshmem-cu12==3.4.5
+ + nvidia-nvtx-cu12==12.8.90
+ + setuptools==78.1.0
+ + sympy==1.14.0
+ + torch==2.11.0+cu128
+ + triton==3.6.0
+ + typing-extensions==4.16.0
+Using Python 3.12.13 environment at: .venv_esmif
+Resolved 28 packages in 135ms
+Downloading scipy (36.4MiB)
+ Downloaded scipy
+Prepared 1 package in 2.06s
+Installed 23 packages in 386ms
+ + aiohappyeyeballs==2.7.1
+ + aiohttp==3.14.3
+ + aiosignal==1.4.0
+ + attrs==26.1.0
+ + biotite==0.41.2
+ + certifi==2026.7.22
+ + charset-normalizer==3.5.1
+ + fair-esm==2.0.0
+ + frozenlist==1.8.0
+ + idna==3.19
+ + msgpack==1.2.2
+ + multidict==6.7.1
+ + numpy==1.26.4
+ + propcache==0.5.2
+ + psutil==7.2.2
+ + pyparsing==3.3.2
+ + requests==2.34.2
+ + scipy==1.13.1
+ + torch-geometric==2.8.0.post1
+ + tqdm==4.70.0
+ + urllib3==2.7.0
+ + xxhash==4.0.1
+ + yarl==1.24.5
+torch 2.11.0+cu128 cuda True
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/pretrained.py", line 347, in esm_if1_gvp4_t16_142M_UR50
+    return load_model_and_alphabet_hub("esm_if1_gvp4_t16_142M_UR50")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/pretrained.py", line 64, in load_model_and_alphabet_hub
+    return load_model_and_alphabet_core(model_name, model_data, regression_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/pretrained.py", line 193, in load_model_and_alphabet_core
+    model, alphabet, model_state = _load_model_and_alphabet_core_v1(model_data)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/pretrained.py", line 129, in _load_model_and_alphabet_core_v1
+    import esm.inverse_folding
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/__init__.py", line 6, in <module>
+    from . import gvp_transformer
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer.py", line 16, in <module>
+    from .features import DihedralFeatures
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/features.py", line 73, in <module>
+    from .gvp_modules import GVP, LayerNorm
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/gvp_modules.py", line 34, in <module>
+    from torch_scatter import scatter_add, scatter
+ModuleNotFoundError: No module named 'torch_scatter'
+Using Python 3.12.13 environment at: .venv_esmif
+Resolved 1 package in 1.71s
+Downloading torch-scatter (10.4MiB)
+ Downloaded torch-scatter
+Prepared 1 package in 1.32s
+Installed 1 package in 2ms
+ + torch-scatter==2.1.2+pt211cu128
+Using Python 3.12.13 environment at: .venv_esmif
+Checked 1 package in 0.98ms
+/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/pretrained.py:215: UserWarning: Regression weights not found, predicting contacts will not produce correct results.
+  warnings.warn(
+/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/cuda/__init__.py:371: UserWarning: Found GPU1 NVIDIA GeForce GTX 1080 Ti which is of compute capability (CC) 6.1.
+The following list shows the CCs this version of PyTorch was built for and the hardware CCs it supports:
+- 7.5 which supports hardware CC >=7.5,<8.0
+- 8.0 which supports hardware CC >=8.0,<9.0 except {8.7}
+- 8.6 which supports hardware CC >=8.6,<9.0 except {8.7}
+- 9.0 which supports hardware CC >=9.0,<10.0
+- 10.0 which supports hardware CC >=10.0,<11.0 except {10.1}
+- 12.0 which supports hardware CC >=12.0,<13.0
+Please follow the instructions at https://pytorch.org/get-started/locally/ to install a PyTorch release that supports one of these CUDA versions: 12.6
+  _warn_unsupported_code(d, device_cc, code_ccs)
+/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/cuda/__init__.py:489: UserWarning: 
+NVIDIA GeForce GTX 1080 Ti with CUDA capability sm_61 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.
+If you want to use the NVIDIA GeForce GTX 1080 Ti GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  queued_call()
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/util.py", line 124, in score_sequence
+    loss, target_padding_mask = get_sequence_loss(model, alphabet, coords, seq)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/util.py", line 116, in get_sequence_loss
+    logits, _ = model.forward(coords, padding_mask, confidence, prev_output_tokens)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer.py", line 78, in forward
+    encoder_out = self.encoder(coords, padding_mask, confidence,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer_encoder.py", line 154, in forward
+    x, encoder_embedding = self.forward_embedding(coords,
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/esm/inverse_folding/gvp_transformer_encoder.py", line 87, in forward_embedding
+    components["tokens"] = self.embed_tokens(mask_tokens) * self.embed_scale
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/nn/modules/sparse.py", line 189, in forward
+    return F.embedding(
+           ^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_esmif/lib/python3.12/site-packages/torch/nn/functional.py", line 2567, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA__index_select)

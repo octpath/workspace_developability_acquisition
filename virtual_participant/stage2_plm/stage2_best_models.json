@@ -1,0 +1,115 @@
+{
+  "TmApp": {
+    "stage1_reference": {
+      "primary": 3.1011,
+      "shadow": 3.1716,
+      "id": "TmApp__SEQ_BASIC__SVROpt"
+    },
+    "best_plm_only": {
+      "experiment_id": "TmApp__ablang2__HL_paired__SVROpt",
+      "plm": "ablang2",
+      "chain": "HL_paired",
+      "model": "SVROpt",
+      "pca_dim": 64,
+      "primary_mae": 2.9231061794448765,
+      "shadow_mae": 3.036110096605598,
+      "delta_vs_stage1_primary": -0.1779938205551237,
+      "delta_vs_stage1_shadow": -0.13548990339440214,
+      "status": "PLM_SHADOW_CONFIRMED"
+    },
+    "best_fusion": {
+      "experiment_id": "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+      "classical_family": "SEQ_BASIC",
+      "plm": "ablang2",
+      "primary_mae": 2.7755534883042445,
+      "shadow_mae": 2.8315941278702987,
+      "delta_vs_stage1_primary": -0.32554651169575566,
+      "delta_vs_stage1_shadow": -0.34000587212970146,
+      "delta_vs_plm_only_primary": -0.14755269114063196,
+      "status": "PLM_SHADOW_CONFIRMED"
+    },
+    "per_plm_best": {
+      "ablang2": {
+        "experiment_id": "TmApp__ablang2__HL_paired__SVROpt",
+        "primary_mae": 2.9231061794448765,
+        "chain": "HL_paired",
+        "model": "SVROpt"
+      },
+      "esm1b": {
+        "experiment_id": "TmApp__esm1b__HL__SVROpt",
+        "primary_mae": 3.1046355030102233,
+        "chain": "HL",
+        "model": "SVROpt"
+      },
+      "esm2": {
+        "experiment_id": "TmApp__esm2__HL__SVROpt",
+        "primary_mae": 3.1152064258388745,
+        "chain": "HL",
+        "model": "SVROpt"
+      }
+    },
+    "shadow_status": "PLM_SHADOW_CONFIRMED",
+    "hic_refs": null
+  },
+  "HIC": {
+    "stage1_reference": {
+      "primary": 0.4732,
+      "shadow": 0.4788,
+      "id": "HIC__SEQ_PLUS_ANTIBODY__SVROpt"
+    },
+    "best_plm_only": {
+      "experiment_id": "HIC__esm2__H__SVROpt",
+      "plm": "esm2",
+      "chain": "H",
+      "model": "SVROpt",
+      "pca_dim": 48,
+      "primary_mae": 0.45516197068169906,
+      "shadow_mae": 0.4529083325338824,
+      "delta_vs_stage1_primary": -0.018038029318300952,
+      "delta_vs_stage1_shadow": -0.025891667466117596,
+      "status": "PLM_SHADOW_CONFIRMED"
+    },
+    "best_fusion": {
+      "experiment_id": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt",
+      "classical_family": "SEQ_ALL",
+      "plm": "esm2",
+      "primary_mae": 0.44845173423800827,
+      "shadow_mae": 0.4509899411146513,
+      "delta_vs_stage1_primary": -0.02474826576199174,
+      "delta_vs_stage1_shadow": -0.02781005888534871,
+      "delta_vs_plm_only_primary": -0.006710236443690787,
+      "status": "PLM_SHADOW_CONFIRMED"
+    },
+    "per_plm_best": {
+      "esm2": {
+        "experiment_id": "HIC__esm2__H__SVROpt",
+        "primary_mae": 0.45516197068169906,
+        "chain": "H",
+        "model": "SVROpt"
+      },
+      "esm1b": {
+        "experiment_id": "HIC__esm1b__H__SVROpt",
+        "primary_mae": 0.46374597031857123,
+        "chain": "H",
+        "model": "SVROpt"
+      },
+      "ablang2": {
+        "experiment_id": "HIC__ablang2__H__SVROpt",
+        "primary_mae": 0.4808183260794923,
+        "chain": "H",
+        "model": "SVROpt"
+      }
+    },
+    "shadow_status": "PLM_SHADOW_CONFIRMED",
+    "hic_refs": {
+      "SEQ_ALL_SVR": {
+        "primary": 0.4766,
+        "shadow": 0.4795
+      },
+      "SEQ_COMBINED_SVR": {
+        "primary": 0.4775,
+        "shadow": 0.4724
+      }
+    }
+  }
+}

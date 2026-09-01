@@ -1,0 +1,30 @@
+=== env snapshot 2026-09-01T12:58:57+00:00 ===
+Python 3.14.5
+/workspace_developability_acquisition/.venv/bin/python
+/root/.local/bin/uv
+uv 0.11.16 (x86_64-unknown-linux-gnu)
+Linux 33943ee6265e 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 21:05:19 UTC  x86_64 x86_64 x86_64 GNU/Linux
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-30487140-e27d-5c79-bb1a-4a1edb6d912a)
+GPU 1: NVIDIA GeForce GTX 1080 Ti (UUID: GPU-950af049-e667-6241-005e-6c07ebe06795)
+/usr/bin/gcc
+/usr/bin/g++
+/usr/bin/make
+PATH=/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv_b1/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/workspace_developability_acquisition/.venv/bin:/root/.cursor-server/bin/bf249e6efb5b097f23d7e21d7283429f0760b740/node_modules/@vscode/ripgrep/bin:/root/.cursor-server/bin/bf249e6efb5b097f23d7e21d7283429f0760b740/bin/remote-cli:/root/.local/bin:/root/.cursor-server/bin/bf249e6efb5b097f23d7e21d7283429f0760b740/bin/remote-cli:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+numpy 2.5.2
+pandas 3.0.5
+sklearn 1.9.0
+optuna 4.9.0
+Bio 1.88
+torch MISSING ModuleNotFoundError
+propka MISSING ModuleNotFoundError
+pdb2pqr MISSING ModuleNotFoundError
+apbs MISSING ModuleNotFoundError
+mdtraj MISSING ModuleNotFoundError
+freesasa MISSING ModuleNotFoundError
+--- binaries ---
+propka: none
+pdb2pqr: none
+apbs: none
+foldx: none
+rosetta: none
+proteinmpnn: none

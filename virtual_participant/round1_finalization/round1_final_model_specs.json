@@ -1,0 +1,405 @@
+{
+  "round": 1,
+  "state": "ROUND1_PRETEST_LOCKED",
+  "timestamp": "2026-09-01T21:05:49.507186+00:00",
+  "git_commit": "3cca698aed8b36171e66b0aec129dc6d2fcb8f17",
+  "primary": {
+    "name": "ROUND1_PRIMARY",
+    "TmApp": {
+      "experiment_id": "TmApp__META_performance__ridge_100.0",
+      "recipe": "nested_stack_full_dev_refit",
+      "base_model_ids": [
+        "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+        "TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt",
+        "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+        "TmApp__ADV_TMAPP_ALL__SVROpt"
+      ],
+      "meta_method": "Ridge",
+      "meta_alpha": 100.0,
+      "meta_set": "performance",
+      "Primary_MAE": 2.7134783500422097,
+      "Shadow_MAE": 2.759100007677969,
+      "status": "STAGE5_SHADOW_CONFIRMED",
+      "note": "Final Test meta fit uses full Dev OOF base matrix; not outer-fold weight average."
+    },
+    "HIC": {
+      "experiment_id": "HIC__SIMPLE_blend_seq_surf_adv",
+      "recipe": "equal_mean_blend_full_dev_refit",
+      "base_model_ids": [
+        "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt",
+        "HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+        "HIC__ADV_SURFACE_PATCH__SVROpt"
+      ],
+      "blend_weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "Primary_MAE": 0.42517769877091044,
+      "Shadow_MAE": 0.43207646713858877,
+      "status": "STAGE5_SHADOW_CONFIRMED"
+    }
+  },
+  "secondary": [
+    {
+      "role": "TmApp_conservative",
+      "target": "TmApp",
+      "experiment_id": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+      "recipe": "single",
+      "output_key": "TmApp_SECONDARY_A",
+      "diagnostic_submission": "ROUND1_DIAGNOSTIC_TM_CONSERVATIVE.csv"
+    },
+    {
+      "role": "TmApp_plm_seq",
+      "target": "TmApp",
+      "experiment_id": "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+      "recipe": "single",
+      "output_key": "TmApp_SECONDARY_B",
+      "diagnostic_submission": null
+    },
+    {
+      "role": "HIC_conservative",
+      "target": "HIC",
+      "experiment_id": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt",
+      "recipe": "single",
+      "output_key": "HIC_SECONDARY_A",
+      "diagnostic_submission": "ROUND1_DIAGNOSTIC_HIC_CONSERVATIVE.csv"
+    },
+    {
+      "role": "HIC_plm_only",
+      "target": "HIC",
+      "experiment_id": "HIC__esm2__H__SVROpt",
+      "recipe": "single",
+      "output_key": "HIC_SECONDARY_B",
+      "diagnostic_submission": null
+    }
+  ],
+  "models": [
+    {
+      "experiment_id": "TmApp__META_performance__ridge_100.0",
+      "recipe": "nested_stack_full_dev_refit",
+      "base_model_ids": [
+        "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+        "TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt",
+        "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+        "TmApp__ADV_TMAPP_ALL__SVROpt"
+      ],
+      "meta_method": "Ridge",
+      "meta_alpha": 100.0,
+      "meta_set": "performance",
+      "Primary_MAE": 2.7134783500422097,
+      "Shadow_MAE": 2.759100007677969,
+      "status": "STAGE5_SHADOW_CONFIRMED",
+      "note": "Final Test meta fit uses full Dev OOF base matrix; not outer-fold weight average.",
+      "target": "TmApp",
+      "base_models": [
+        {
+          "experiment_id": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+          "target": "TmApp",
+          "role": "primary_base",
+          "recipe": "base",
+          "stage": 4,
+          "modality": "incumbent_fusion",
+          "model_kind": "SVR",
+          "hyperparameters": {
+            "C": 19.52123923927889,
+            "gamma": 0.00012102467788883382,
+            "epsilon": 0.012431452761783849
+          },
+          "pca_dim": 48,
+          "plm_key": "ablang2__HL_paired",
+          "classical_fam": "SEQ_BASIC",
+          "struct_fam": null,
+          "s3_subset": "rasa",
+          "adv_fam": "ADV_INTERACTIONS",
+          "random_seed": 0,
+          "training_data": "full Dev N=162",
+          "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+          "Primary_MAE": null,
+          "Shadow_MAE": 2.7707998082463097,
+          "status": "STAGE5_EQUIVALENT"
+        },
+        {
+          "experiment_id": "TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt",
+          "target": "TmApp",
+          "role": "primary_base",
+          "recipe": "base",
+          "stage": 3,
+          "modality": "plm+sequence+structure",
+          "model_kind": "SVR",
+          "hyperparameters": {
+            "C": 19.52123923927889,
+            "gamma": 0.00012102467788883382,
+            "epsilon": 0.012431452761783849
+          },
+          "pca_dim": 48,
+          "plm_key": "ablang2__HL_paired",
+          "classical_fam": "SEQ_BASIC",
+          "struct_fam": "RASA",
+          "s3_subset": null,
+          "adv_fam": null,
+          "random_seed": 0,
+          "training_data": "full Dev N=162",
+          "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+          "Primary_MAE": 2.753910574048997,
+          "Shadow_MAE": 2.8202335452759413,
+          "status": "registry"
+        },
+        {
+          "experiment_id": "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+          "target": "TmApp",
+          "role": "primary_base",
+          "recipe": "base",
+          "stage": 2,
+          "modality": "plm+sequence",
+          "model_kind": "SVR",
+          "hyperparameters": {
+            "C": 18.189956991772025,
+            "gamma": 0.0002907403114744388,
+            "epsilon": 0.3568072708595925
+          },
+          "pca_dim": 48,
+          "plm_key": "ablang2__HL_paired",
+          "classical_fam": "SEQ_BASIC",
+          "struct_fam": null,
+          "s3_subset": null,
+          "adv_fam": null,
+          "random_seed": 0,
+          "training_data": "full Dev N=162",
+          "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+          "Primary_MAE": 2.7755534883042445,
+          "Shadow_MAE": 2.8315941278702987,
+          "status": "registry"
+        },
+        {
+          "experiment_id": "TmApp__ADV_TMAPP_ALL__SVROpt",
+          "target": "TmApp",
+          "role": "primary_base",
+          "recipe": "base",
+          "stage": 4,
+          "modality": "advanced_structure",
+          "model_kind": "SVR",
+          "hyperparameters": {
+            "C": 0.9604879749493795,
+            "gamma": 0.013448255673430626,
+            "epsilon": 0.1297568899580266
+          },
+          "pca_dim": null,
+          "plm_key": null,
+          "classical_fam": null,
+          "struct_fam": null,
+          "s3_subset": null,
+          "adv_fam": "ADV_TMAPP_ALL",
+          "random_seed": 0,
+          "training_data": "full Dev N=162",
+          "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+          "Primary_MAE": 3.223903156878593,
+          "Shadow_MAE": 3.215341067255023,
+          "status": "registry"
+        }
+      ]
+    },
+    {
+      "experiment_id": "HIC__SIMPLE_blend_seq_surf_adv",
+      "recipe": "equal_mean_blend_full_dev_refit",
+      "base_model_ids": [
+        "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt",
+        "HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+        "HIC__ADV_SURFACE_PATCH__SVROpt"
+      ],
+      "blend_weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "Primary_MAE": 0.42517769877091044,
+      "Shadow_MAE": 0.43207646713858877,
+      "status": "STAGE5_SHADOW_CONFIRMED",
+      "target": "HIC",
+      "base_models": [
+        {
+          "experiment_id": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt",
+          "target": "HIC",
+          "role": "primary_base",
+          "recipe": "base",
+          "stage": 2,
+          "modality": "plm+sequence",
+          "model_kind": "SVR",
+          "hyperparameters": {
+            "C": 2.7132375976290684,
+            "gamma": 0.00021035972553881986,
+            "epsilon": 0.0634962699970796
+          },
+          "pca_dim": 8,
+          "plm_key": "esm2__H",
+          "classical_fam": "SEQ_ALL",
+          "struct_fam": null,
+          "s3_subset": null,
+          "adv_fam": null,
+          "random_seed": 0,
+          "training_data": "full Dev N=162",
+          "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+          "Primary_MAE": 0.44845173423800827,
+          "Shadow_MAE": 0.4509899411146513,
+          "status": "registry"
+        },
+        {
+          "experiment_id": "HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+          "target": "HIC",
+          "role": "primary_base",
+          "recipe": "base",
+          "stage": 3,
+          "modality": "structure",
+          "model_kind": "SVR",
+          "hyperparameters": {
+            "C": 8.180867710869865,
+            "gamma": 0.0009546207792024042,
+            "epsilon": 0.0022072069590240878
+          },
+          "pca_dim": null,
+          "plm_key": null,
+          "classical_fam": null,
+          "struct_fam": "SURFACE_CHEM",
+          "s3_subset": null,
+          "adv_fam": null,
+          "random_seed": 0,
+          "training_data": "full Dev N=162",
+          "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+          "Primary_MAE": 0.43968592739191437,
+          "Shadow_MAE": 0.4488405283364788,
+          "status": "registry"
+        },
+        {
+          "experiment_id": "HIC__ADV_SURFACE_PATCH__SVROpt",
+          "target": "HIC",
+          "role": "primary_base",
+          "recipe": "base",
+          "stage": 4,
+          "modality": "advanced_structure",
+          "model_kind": "SVR",
+          "hyperparameters": {
+            "C": 17.765437948660605,
+            "gamma": 0.000301444842345364,
+            "epsilon": 0.01018263277927953
+          },
+          "pca_dim": null,
+          "plm_key": null,
+          "classical_fam": null,
+          "struct_fam": null,
+          "s3_subset": null,
+          "adv_fam": "ADV_SURFACE_PATCH",
+          "random_seed": 0,
+          "training_data": "full Dev N=162",
+          "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+          "Primary_MAE": 0.4718597082936471,
+          "Shadow_MAE": 0.47825467085756357,
+          "status": "registry"
+        }
+      ]
+    },
+    {
+      "experiment_id": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+      "target": "TmApp",
+      "role": "TmApp_conservative",
+      "recipe": "single",
+      "stage": 4,
+      "modality": "incumbent_fusion",
+      "model_kind": "SVR",
+      "hyperparameters": {
+        "C": 19.52123923927889,
+        "gamma": 0.00012102467788883382,
+        "epsilon": 0.012431452761783849
+      },
+      "pca_dim": 48,
+      "plm_key": "ablang2__HL_paired",
+      "classical_fam": "SEQ_BASIC",
+      "struct_fam": null,
+      "s3_subset": "rasa",
+      "adv_fam": "ADV_INTERACTIONS",
+      "random_seed": 0,
+      "training_data": "full Dev N=162",
+      "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+      "Primary_MAE": null,
+      "Shadow_MAE": 2.7707998082463097,
+      "status": "STAGE5_EQUIVALENT"
+    },
+    {
+      "experiment_id": "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+      "target": "TmApp",
+      "role": "TmApp_plm_seq",
+      "recipe": "single",
+      "stage": 2,
+      "modality": "plm+sequence",
+      "model_kind": "SVR",
+      "hyperparameters": {
+        "C": 18.189956991772025,
+        "gamma": 0.0002907403114744388,
+        "epsilon": 0.3568072708595925
+      },
+      "pca_dim": 48,
+      "plm_key": "ablang2__HL_paired",
+      "classical_fam": "SEQ_BASIC",
+      "struct_fam": null,
+      "s3_subset": null,
+      "adv_fam": null,
+      "random_seed": 0,
+      "training_data": "full Dev N=162",
+      "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+      "Primary_MAE": 2.7755534883042445,
+      "Shadow_MAE": 2.8315941278702987,
+      "status": "registry"
+    },
+    {
+      "experiment_id": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt",
+      "target": "HIC",
+      "role": "HIC_conservative",
+      "recipe": "single",
+      "stage": 4,
+      "modality": "incumbent_fusion",
+      "model_kind": "SVR",
+      "hyperparameters": {
+        "C": 2.6655121952884224,
+        "gamma": 0.00010177064690523097,
+        "epsilon": 0.0010170893312632897
+      },
+      "pca_dim": 64,
+      "plm_key": "esm2__H",
+      "classical_fam": "SEQ_ALL",
+      "struct_fam": null,
+      "s3_subset": "surface",
+      "adv_fam": "ADV_SURFACE_PATCH",
+      "random_seed": 0,
+      "training_data": "full Dev N=162",
+      "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+      "Primary_MAE": null,
+      "Shadow_MAE": 0.4338461923340777,
+      "status": "STAGE5_EQUIVALENT"
+    },
+    {
+      "experiment_id": "HIC__esm2__H__SVROpt",
+      "target": "HIC",
+      "role": "HIC_plm_only",
+      "recipe": "single",
+      "stage": 2,
+      "modality": "plm",
+      "model_kind": "SVR",
+      "hyperparameters": {
+        "C": 0.7581105308624507,
+        "gamma": 0.0007535488042221058,
+        "epsilon": 0.006901875186793278
+      },
+      "pca_dim": 48,
+      "plm_key": "esm2__H",
+      "classical_fam": null,
+      "struct_fam": null,
+      "s3_subset": null,
+      "adv_fam": null,
+      "random_seed": 0,
+      "training_data": "full Dev N=162",
+      "cv_artifact": "virtual_participant/stage0_cv/cv_primary.csv",
+      "Primary_MAE": 0.45516197068169906,
+      "Shadow_MAE": 0.4529083325338824,
+      "status": "registry"
+    }
+  ]
+}

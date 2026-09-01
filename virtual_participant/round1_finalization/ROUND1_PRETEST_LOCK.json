@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-09-01T21:05:49.507186+00:00",
+  "git_commit": "3cca698aed8b36171e66b0aec129dc6d2fcb8f17",
+  "state": "ROUND1_PRETEST_LOCKED",
+  "primary_model_ids": {
+    "TmApp": "TmApp__META_performance__ridge_100.0",
+    "HIC": "HIC__SIMPLE_blend_seq_surf_adv"
+  },
+  "secondary_model_ids": {
+    "TmApp_conservative": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+    "TmApp_plm_seq": "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt",
+    "HIC_conservative": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt",
+    "HIC_plm_only": "HIC__esm2__H__SVROpt"
+  },
+  "files": {
+    "virtual_participant/round1_finalization/round1_final_model_specs.json": "8fce3dc8b46566c1a69fe649be632554212e184077575f2c14b1ef34437d9cf7",
+    "virtual_participant/round1_finalization/round1_model_shortlist.csv": "b6a6aeb468a0d93cdcfcb787ef4fe763b8950398f81902bcb306c478709e5b6d",
+    "virtual_participant/stage5_integration/STAGE5_REPORT_JA.md": "23643677938dbbfaf81ea269027eeb3bcbb47af18585fc7b210896440870f8e5"
+  }
+}

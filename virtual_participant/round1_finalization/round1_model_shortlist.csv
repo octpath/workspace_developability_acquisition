@@ -1,0 +1,7 @@
+target,role,experiment_id,Primary_MAE,Shadow_MAE,status
+TmApp,PRIMARY,TmApp__META_performance__ridge_100.0,2.7135,2.7591,STAGE5_SHADOW_CONFIRMED
+HIC,PRIMARY,HIC__SIMPLE_blend_seq_surf_adv,0.4252,0.4321,STAGE5_SHADOW_CONFIRMED
+TmApp,TmApp_conservative,TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt,2.7426,2.7704,STAGE5_EQUIVALENT
+TmApp,TmApp_plm_seq,TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt,2.7756,2.8316,registry
+HIC,HIC_conservative,HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt,0.4373,0.4332,STAGE5_EQUIVALENT
+HIC,HIC_plm_only,HIC__esm2__H__SVROpt,0.4552,0.4529,registry

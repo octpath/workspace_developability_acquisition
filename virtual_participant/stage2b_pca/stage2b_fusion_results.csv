@@ -1,0 +1,2 @@
+target,PLM,chain,classical,pca_dim,Primary_MAE,Shadow_MAE,hyperparameters,delta_vs_stage2_fusion_primary,delta_vs_stage2_fusion_shadow
+TmApp,ablang2,HL_paired,SEQ_BASIC,None,2.763427305253857,2.902786939749023,"{""alpha"": 97.90775331471063}",-0.01217269474614291,0.07118693974902301

@@ -1,0 +1,42 @@
+{
+  "TmApp": {
+    "experiment_id": "TmApp__SEQ_BASIC__SVROpt",
+    "feature_family": "SEQ_BASIC",
+    "model": "SVROpt",
+    "hyperparameters": {
+      "C": 3.156770845698987,
+      "gamma": 0.007924694562845726,
+      "epsilon": 0.03150627458791188
+    },
+    "primary_mae": 3.1010552996956626,
+    "primary_fold_mae_sd": 0.35760216390363947,
+    "delta_vs_median": -0.3363500033346405,
+    "shadow_mae": 3.171603258776206,
+    "shadow_status": "SHADOW_CONFIRMED",
+    "n_features": 78,
+    "median_mae": 3.437405303030303,
+    "stage1_simple_baseline_mae": 3.1360996254254454,
+    "stage1_simple_baseline_id": "TmApp__ANN_CDR_LENGTH__Ridge",
+    "delta_vs_stage1_simple_baseline": -0.03504432572978278
+  },
+  "HIC": {
+    "experiment_id": "HIC__SEQ_PLUS_ANTIBODY__SVROpt",
+    "feature_family": "SEQ_PLUS_ANTIBODY",
+    "model": "SVROpt",
+    "hyperparameters": {
+      "C": 3.0536340543834113,
+      "gamma": 0.00021632816716146515,
+      "epsilon": 0.00619549402697868
+    },
+    "primary_mae": 0.47319766327155754,
+    "primary_fold_mae_sd": 0.028703969155735864,
+    "delta_vs_median": -0.04476559430420002,
+    "shadow_mae": 0.4788491209692337,
+    "shadow_status": "SHADOW_CONFIRMED",
+    "n_features": 256,
+    "median_mae": 0.5179632575757576,
+    "stage1_simple_baseline_mae": 0.5361996258626255,
+    "stage1_simple_baseline_id": "HIC__ANN_CDR_LENGTH__Ridge",
+    "delta_vs_stage1_simple_baseline": -0.06300196259106794
+  }
+}

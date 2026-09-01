@@ -1,0 +1,495 @@
+feature_name,family,structure_source,level,definition,unit,missing_count,label_independent,notes
+Fv_total_sasa,STRUCT_SASA,ESMFold,Fv,Fv_total_sasa,mixed,0,True,gate_b2 precomputed
+Fv_mean_sasa,STRUCT_SASA,ESMFold,Fv,Fv_mean_sasa,mixed,0,True,gate_b2 precomputed
+Fv_mean_rasa,STRUCT_RASA,ESMFold,Fv,Fv_mean_rasa,mixed,0,True,gate_b2 precomputed
+Fv_median_rasa,STRUCT_RASA,ESMFold,Fv,Fv_median_rasa,mixed,0,True,gate_b2 precomputed
+Fv_max_rasa,STRUCT_RASA,ESMFold,Fv,Fv_max_rasa,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,Fv,Fv_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,Fv,Fv_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,Fv,Fv_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_1,STRUCT_RASA,ESMFold,Fv,Fv_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+Fv_n_res,STRUCT_GLOBAL,ESMFold,Fv,Fv_n_res,mixed,0,True,gate_b2 precomputed
+Fv_n_exposed,STRUCT_RASA,ESMFold,Fv,Fv_n_exposed,mixed,0,True,gate_b2 precomputed
+Fv_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+Fv_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+Fv_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_sasa_positive,mixed,0,True,gate_b2 precomputed
+Fv_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_sasa_negative,mixed,0,True,gate_b2 precomputed
+Fv_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_sasa_polar,mixed,0,True,gate_b2 precomputed
+Fv_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+Fv_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+Fv_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_exposed_pos,mixed,0,True,gate_b2 precomputed
+Fv_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,Fv,Fv_exposed_neg,mixed,0,True,gate_b2 precomputed
+VH_total_sasa,STRUCT_SASA,ESMFold,VH,VH_total_sasa,mixed,0,True,gate_b2 precomputed
+VH_mean_sasa,STRUCT_SASA,ESMFold,VH,VH_mean_sasa,mixed,0,True,gate_b2 precomputed
+VH_mean_rasa,STRUCT_RASA,ESMFold,VH,VH_mean_rasa,mixed,0,True,gate_b2 precomputed
+VH_median_rasa,STRUCT_RASA,ESMFold,VH,VH_median_rasa,mixed,0,True,gate_b2 precomputed
+VH_max_rasa,STRUCT_RASA,ESMFold,VH,VH_max_rasa,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,VH,VH_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,VH,VH_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,VH,VH_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_1,STRUCT_RASA,ESMFold,VH,VH_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+VH_n_res,STRUCT_GLOBAL,ESMFold,VH,VH_n_res,mixed,0,True,gate_b2 precomputed
+VH_n_exposed,STRUCT_RASA,ESMFold,VH,VH_n_exposed,mixed,0,True,gate_b2 precomputed
+VH_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+VH_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+VH_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_sasa_positive,mixed,0,True,gate_b2 precomputed
+VH_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_sasa_negative,mixed,0,True,gate_b2 precomputed
+VH_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_sasa_polar,mixed,0,True,gate_b2 precomputed
+VH_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+VH_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+VH_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_exposed_pos,mixed,0,True,gate_b2 precomputed
+VH_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,VH,VH_exposed_neg,mixed,0,True,gate_b2 precomputed
+VL_total_sasa,STRUCT_SASA,ESMFold,VL,VL_total_sasa,mixed,0,True,gate_b2 precomputed
+VL_mean_sasa,STRUCT_SASA,ESMFold,VL,VL_mean_sasa,mixed,0,True,gate_b2 precomputed
+VL_mean_rasa,STRUCT_RASA,ESMFold,VL,VL_mean_rasa,mixed,0,True,gate_b2 precomputed
+VL_median_rasa,STRUCT_RASA,ESMFold,VL,VL_median_rasa,mixed,0,True,gate_b2 precomputed
+VL_max_rasa,STRUCT_RASA,ESMFold,VL,VL_max_rasa,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,VL,VL_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,VL,VL_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,VL,VL_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_1,STRUCT_RASA,ESMFold,VL,VL_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+VL_n_res,STRUCT_GLOBAL,ESMFold,VL,VL_n_res,mixed,0,True,gate_b2 precomputed
+VL_n_exposed,STRUCT_RASA,ESMFold,VL,VL_n_exposed,mixed,0,True,gate_b2 precomputed
+VL_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+VL_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+VL_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_sasa_positive,mixed,0,True,gate_b2 precomputed
+VL_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_sasa_negative,mixed,0,True,gate_b2 precomputed
+VL_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_sasa_polar,mixed,0,True,gate_b2 precomputed
+VL_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+VL_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+VL_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_exposed_pos,mixed,0,True,gate_b2 precomputed
+VL_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,VL,VL_exposed_neg,mixed,0,True,gate_b2 precomputed
+H_CDR1_total_sasa,STRUCT_SASA,ESMFold,CDR,H_CDR1_total_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_mean_sasa,STRUCT_SASA,ESMFold,CDR,H_CDR1_mean_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_mean_rasa,STRUCT_RASA,ESMFold,CDR,H_CDR1_mean_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_median_rasa,STRUCT_RASA,ESMFold,CDR,H_CDR1_median_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_max_rasa,STRUCT_RASA,ESMFold,CDR,H_CDR1_max_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,CDR,H_CDR1_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,CDR,H_CDR1_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,CDR,H_CDR1_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_1,STRUCT_RASA,ESMFold,CDR,H_CDR1_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+H_CDR1_n_res,STRUCT_GLOBAL,ESMFold,CDR,H_CDR1_n_res,mixed,0,True,gate_b2 precomputed
+H_CDR1_n_exposed,STRUCT_RASA,ESMFold,CDR,H_CDR1_n_exposed,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_sasa_positive,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_sasa_negative,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_sasa_polar,mixed,0,True,gate_b2 precomputed
+H_CDR1_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+H_CDR1_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+H_CDR1_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+H_CDR1_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_exposed_pos,mixed,0,True,gate_b2 precomputed
+H_CDR1_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR1_exposed_neg,mixed,0,True,gate_b2 precomputed
+H_CDR2_total_sasa,STRUCT_SASA,ESMFold,CDR,H_CDR2_total_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_mean_sasa,STRUCT_SASA,ESMFold,CDR,H_CDR2_mean_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_mean_rasa,STRUCT_RASA,ESMFold,CDR,H_CDR2_mean_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_median_rasa,STRUCT_RASA,ESMFold,CDR,H_CDR2_median_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_max_rasa,STRUCT_RASA,ESMFold,CDR,H_CDR2_max_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,CDR,H_CDR2_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,CDR,H_CDR2_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,CDR,H_CDR2_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_1,STRUCT_RASA,ESMFold,CDR,H_CDR2_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+H_CDR2_n_res,STRUCT_GLOBAL,ESMFold,CDR,H_CDR2_n_res,mixed,0,True,gate_b2 precomputed
+H_CDR2_n_exposed,STRUCT_RASA,ESMFold,CDR,H_CDR2_n_exposed,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_sasa_positive,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_sasa_negative,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_sasa_polar,mixed,0,True,gate_b2 precomputed
+H_CDR2_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+H_CDR2_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+H_CDR2_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+H_CDR2_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_exposed_pos,mixed,0,True,gate_b2 precomputed
+H_CDR2_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,CDR,H_CDR2_exposed_neg,mixed,0,True,gate_b2 precomputed
+H_CDR3_total_sasa,STRUCT_SASA,ESMFold,HCDR3,H_CDR3_total_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_mean_sasa,STRUCT_SASA,ESMFold,HCDR3,H_CDR3_mean_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_mean_rasa,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_mean_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_median_rasa,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_median_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_max_rasa,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_max_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_1,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+H_CDR3_n_res,STRUCT_GLOBAL,ESMFold,HCDR3,H_CDR3_n_res,mixed,0,True,gate_b2 precomputed
+H_CDR3_n_exposed,STRUCT_RASA,ESMFold,HCDR3,H_CDR3_n_exposed,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_sasa_positive,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_sasa_negative,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_sasa_polar,mixed,0,True,gate_b2 precomputed
+H_CDR3_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+H_CDR3_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+H_CDR3_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+H_CDR3_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_exposed_pos,mixed,0,True,gate_b2 precomputed
+H_CDR3_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,HCDR3,H_CDR3_exposed_neg,mixed,0,True,gate_b2 precomputed
+L_CDR1_empty,STRUCT_GLOBAL,ESMFold,CDR,L_CDR1_empty,mixed,0,True,gate_b2 precomputed
+L_CDR2_empty,STRUCT_GLOBAL,ESMFold,CDR,L_CDR2_empty,mixed,0,True,gate_b2 precomputed
+L_CDR3_empty,STRUCT_GLOBAL,ESMFold,CDR,L_CDR3_empty,mixed,0,True,gate_b2 precomputed
+all_CDR_total_sasa,STRUCT_SASA,ESMFold,CDR,all_CDR_total_sasa,mixed,0,True,gate_b2 precomputed
+all_CDR_mean_sasa,STRUCT_SASA,ESMFold,CDR,all_CDR_mean_sasa,mixed,0,True,gate_b2 precomputed
+all_CDR_mean_rasa,STRUCT_RASA,ESMFold,CDR,all_CDR_mean_rasa,mixed,0,True,gate_b2 precomputed
+all_CDR_median_rasa,STRUCT_RASA,ESMFold,CDR,all_CDR_median_rasa,mixed,0,True,gate_b2 precomputed
+all_CDR_max_rasa,STRUCT_RASA,ESMFold,CDR,all_CDR_max_rasa,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,CDR,all_CDR_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,CDR,all_CDR_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,CDR,all_CDR_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_1,STRUCT_RASA,ESMFold,CDR,all_CDR_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+all_CDR_n_res,STRUCT_GLOBAL,ESMFold,CDR,all_CDR_n_res,mixed,0,True,gate_b2 precomputed
+all_CDR_n_exposed,STRUCT_RASA,ESMFold,CDR,all_CDR_n_exposed,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_sasa_positive,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_sasa_negative,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_sasa_polar,mixed,0,True,gate_b2 precomputed
+all_CDR_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+all_CDR_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+all_CDR_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+all_CDR_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_exposed_pos,mixed,0,True,gate_b2 precomputed
+all_CDR_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,CDR,all_CDR_exposed_neg,mixed,0,True,gate_b2 precomputed
+FR_total_sasa,STRUCT_SASA,ESMFold,Fv,FR_total_sasa,mixed,0,True,gate_b2 precomputed
+FR_mean_sasa,STRUCT_SASA,ESMFold,Fv,FR_mean_sasa,mixed,0,True,gate_b2 precomputed
+FR_mean_rasa,STRUCT_RASA,ESMFold,Fv,FR_mean_rasa,mixed,0,True,gate_b2 precomputed
+FR_median_rasa,STRUCT_RASA,ESMFold,Fv,FR_median_rasa,mixed,0,True,gate_b2 precomputed
+FR_max_rasa,STRUCT_RASA,ESMFold,Fv,FR_max_rasa,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_0_20,STRUCT_RASA,ESMFold,Fv,FR_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_0_25,STRUCT_RASA,ESMFold,Fv,FR_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_0_50,STRUCT_RASA,ESMFold,Fv,FR_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_1,STRUCT_RASA,ESMFold,Fv,FR_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+FR_n_res,STRUCT_GLOBAL,ESMFold,Fv,FR_n_res,mixed,0,True,gate_b2 precomputed
+FR_n_exposed,STRUCT_RASA,ESMFold,Fv,FR_n_exposed,mixed,0,True,gate_b2 precomputed
+FR_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+FR_sasa_aromatic,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+FR_sasa_positive,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_sasa_positive,mixed,0,True,gate_b2 precomputed
+FR_sasa_negative,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_sasa_negative,mixed,0,True,gate_b2 precomputed
+FR_sasa_polar,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_sasa_polar,mixed,0,True,gate_b2 precomputed
+FR_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+FR_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+FR_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+FR_exposed_pos,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_exposed_pos,mixed,0,True,gate_b2 precomputed
+FR_exposed_neg,STRUCT_SURFACE_CHEM,ESMFold,Fv,FR_exposed_neg,mixed,0,True,gate_b2 precomputed
+n_hydrophobic_patches,STRUCT_PATCH,ESMFold,Fv,n_hydrophobic_patches,mixed,0,True,gate_b2 precomputed
+largest_hydrophobic_patch_sasa,STRUCT_PATCH,ESMFold,Fv,largest_hydrophobic_patch_sasa,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+total_hydrophobic_patch_sasa,STRUCT_PATCH,ESMFold,Fv,total_hydrophobic_patch_sasa,mixed,0,True,gate_b2 precomputed
+largest_positive_patch_sasa,STRUCT_PATCH,ESMFold,Fv,largest_positive_patch_sasa,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+largest_negative_patch_sasa,STRUCT_PATCH,ESMFold,Fv,largest_negative_patch_sasa,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+cdr_hydrophobic_sasa_exposed,STRUCT_SURFACE_CHEM,ESMFold,CDR,cdr_hydrophobic_sasa_exposed,mixed,0,True,gate_b2 precomputed
+h3_hydrophobic_sasa_exposed,STRUCT_SURFACE_CHEM,ESMFold,Fv,h3_hydrophobic_sasa_exposed,mixed,0,True,gate_b2 precomputed
+SASA_VH_iso,STRUCT_SASA,ESMFold,Fv,SASA_VH_iso,mixed,0,True,gate_b2 precomputed
+SASA_VL_iso,STRUCT_SASA,ESMFold,Fv,SASA_VL_iso,mixed,0,True,gate_b2 precomputed
+BSA,STRUCT_INTERFACE,ESMFold,interface,BSA,mixed,0,True,gate_b2 precomputed
+interface_area_BSA_over_2,STRUCT_INTERFACE,ESMFold,interface,interface_area_BSA_over_2,mixed,0,True,gate_b2 precomputed
+n_interface_res,STRUCT_INTERFACE,ESMFold,interface,n_interface_res,mixed,0,True,gate_b2 precomputed
+iface_frac_hydrophobic,STRUCT_INTERFACE,ESMFold,interface,iface_frac_hydrophobic,mixed,99,True,gate_b2 precomputed
+iface_frac_aromatic,STRUCT_INTERFACE,ESMFold,interface,iface_frac_aromatic,mixed,99,True,gate_b2 precomputed
+iface_frac_positive,STRUCT_INTERFACE,ESMFold,interface,iface_frac_positive,mixed,99,True,gate_b2 precomputed
+iface_frac_negative,STRUCT_INTERFACE,ESMFold,interface,iface_frac_negative,mixed,99,True,gate_b2 precomputed
+mean_confidence,STRUCT_GLOBAL,ESMFold,Fv,mean_confidence,mixed,0,True,gate_b2 precomputed
+mean_plddt,STRUCT_GLOBAL,ESMFold,Fv,mean_plddt,mixed,0,True,gate_b2 precomputed
+Fv_n_ca,STRUCT_PACKING,ESMFold,Fv,Fv_n_ca,mixed,0,True,gate_b2 precomputed
+Fv_n_contacts,STRUCT_PACKING,ESMFold,Fv,Fv_n_contacts,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_contact_density,STRUCT_PACKING,ESMFold,Fv,Fv_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_mean_nn_dist,STRUCT_PACKING,ESMFold,Fv,Fv_mean_nn_dist,mixed,0,True,gate_b2 precomputed
+Fv_clash_proxy,STRUCT_PACKING,ESMFold,Fv,Fv_clash_proxy,mixed,0,True,gate_b2 precomputed
+Fv_rg,STRUCT_PACKING,ESMFold,Fv,Fv_rg,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_compactness,STRUCT_PACKING,ESMFold,Fv,Fv_compactness,mixed,0,True,gate_b2 precomputed
+VH_n_ca,STRUCT_PACKING,ESMFold,VH,VH_n_ca,mixed,0,True,gate_b2 precomputed
+VH_n_contacts,STRUCT_PACKING,ESMFold,VH,VH_n_contacts,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_contact_density,STRUCT_PACKING,ESMFold,VH,VH_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_mean_nn_dist,STRUCT_PACKING,ESMFold,VH,VH_mean_nn_dist,mixed,0,True,gate_b2 precomputed
+VH_clash_proxy,STRUCT_PACKING,ESMFold,VH,VH_clash_proxy,mixed,0,True,gate_b2 precomputed
+VH_rg,STRUCT_PACKING,ESMFold,VH,VH_rg,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_compactness,STRUCT_PACKING,ESMFold,VH,VH_compactness,mixed,0,True,gate_b2 precomputed
+VL_n_ca,STRUCT_PACKING,ESMFold,VL,VL_n_ca,mixed,0,True,gate_b2 precomputed
+VL_n_contacts,STRUCT_PACKING,ESMFold,VL,VL_n_contacts,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_contact_density,STRUCT_PACKING,ESMFold,VL,VL_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_mean_nn_dist,STRUCT_PACKING,ESMFold,VL,VL_mean_nn_dist,mixed,0,True,gate_b2 precomputed
+VL_clash_proxy,STRUCT_PACKING,ESMFold,VL,VL_clash_proxy,mixed,0,True,gate_b2 precomputed
+VL_rg,STRUCT_PACKING,ESMFold,VL,VL_rg,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_compactness,STRUCT_PACKING,ESMFold,VL,VL_compactness,mixed,0,True,gate_b2 precomputed
+VH_VL_center_dist,STRUCT_INTERFACE,ESMFold,VH,VH_VL_center_dist,mixed,0,True,gate_b2 precomputed
+interface_contact_count,STRUCT_INTERFACE,ESMFold,interface,interface_contact_count,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+interface_contact_density,STRUCT_INTERFACE,ESMFold,interface,interface_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_hydrophobic_sasa_ratio,STRUCT_SASA,ESMFold,Fv,Fv_hydrophobic_sasa_ratio,mixed,0,True,gate_b2 precomputed
+Fv_aromatic_sasa_ratio,STRUCT_SASA,ESMFold,Fv,Fv_aromatic_sasa_ratio,mixed,0,True,gate_b2 precomputed
+Fv_charge_balance,STRUCT_PACKING,ESMFold,Fv,Fv_charge_balance,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_exposed_charge_proxy,STRUCT_PACKING,ESMFold,Fv,Fv_exposed_charge_proxy,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_buried_frac,STRUCT_GLOBAL,ESMFold,Fv,Fv_buried_frac,mixed,0,True,gate_b2 precomputed
+Fv_total_sasa,STRUCT_SASA,ABodyBuilder2,Fv,Fv_total_sasa,mixed,0,True,gate_b2 precomputed
+Fv_mean_sasa,STRUCT_SASA,ABodyBuilder2,Fv,Fv_mean_sasa,mixed,0,True,gate_b2 precomputed
+Fv_mean_rasa,STRUCT_RASA,ABodyBuilder2,Fv,Fv_mean_rasa,mixed,0,True,gate_b2 precomputed
+Fv_median_rasa,STRUCT_RASA,ABodyBuilder2,Fv,Fv_median_rasa,mixed,0,True,gate_b2 precomputed
+Fv_max_rasa,STRUCT_RASA,ABodyBuilder2,Fv,Fv_max_rasa,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,Fv,Fv_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,Fv,Fv_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,Fv,Fv_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+Fv_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,Fv,Fv_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+Fv_n_res,STRUCT_GLOBAL,ABodyBuilder2,Fv,Fv_n_res,mixed,0,True,gate_b2 precomputed
+Fv_n_exposed,STRUCT_RASA,ABodyBuilder2,Fv,Fv_n_exposed,mixed,0,True,gate_b2 precomputed
+Fv_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+Fv_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+Fv_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_sasa_positive,mixed,0,True,gate_b2 precomputed
+Fv_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_sasa_negative,mixed,0,True,gate_b2 precomputed
+Fv_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_sasa_polar,mixed,0,True,gate_b2 precomputed
+Fv_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+Fv_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+Fv_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_exposed_pos,mixed,0,True,gate_b2 precomputed
+Fv_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,Fv_exposed_neg,mixed,0,True,gate_b2 precomputed
+VH_total_sasa,STRUCT_SASA,ABodyBuilder2,VH,VH_total_sasa,mixed,0,True,gate_b2 precomputed
+VH_mean_sasa,STRUCT_SASA,ABodyBuilder2,VH,VH_mean_sasa,mixed,0,True,gate_b2 precomputed
+VH_mean_rasa,STRUCT_RASA,ABodyBuilder2,VH,VH_mean_rasa,mixed,0,True,gate_b2 precomputed
+VH_median_rasa,STRUCT_RASA,ABodyBuilder2,VH,VH_median_rasa,mixed,0,True,gate_b2 precomputed
+VH_max_rasa,STRUCT_RASA,ABodyBuilder2,VH,VH_max_rasa,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,VH,VH_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,VH,VH_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,VH,VH_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+VH_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,VH,VH_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+VH_n_res,STRUCT_GLOBAL,ABodyBuilder2,VH,VH_n_res,mixed,0,True,gate_b2 precomputed
+VH_n_exposed,STRUCT_RASA,ABodyBuilder2,VH,VH_n_exposed,mixed,0,True,gate_b2 precomputed
+VH_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+VH_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+VH_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_sasa_positive,mixed,0,True,gate_b2 precomputed
+VH_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_sasa_negative,mixed,0,True,gate_b2 precomputed
+VH_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_sasa_polar,mixed,0,True,gate_b2 precomputed
+VH_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+VH_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+VH_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_exposed_pos,mixed,0,True,gate_b2 precomputed
+VH_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,VH,VH_exposed_neg,mixed,0,True,gate_b2 precomputed
+VL_total_sasa,STRUCT_SASA,ABodyBuilder2,VL,VL_total_sasa,mixed,0,True,gate_b2 precomputed
+VL_mean_sasa,STRUCT_SASA,ABodyBuilder2,VL,VL_mean_sasa,mixed,0,True,gate_b2 precomputed
+VL_mean_rasa,STRUCT_RASA,ABodyBuilder2,VL,VL_mean_rasa,mixed,0,True,gate_b2 precomputed
+VL_median_rasa,STRUCT_RASA,ABodyBuilder2,VL,VL_median_rasa,mixed,0,True,gate_b2 precomputed
+VL_max_rasa,STRUCT_RASA,ABodyBuilder2,VL,VL_max_rasa,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,VL,VL_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,VL,VL_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,VL,VL_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+VL_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,VL,VL_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+VL_n_res,STRUCT_GLOBAL,ABodyBuilder2,VL,VL_n_res,mixed,0,True,gate_b2 precomputed
+VL_n_exposed,STRUCT_RASA,ABodyBuilder2,VL,VL_n_exposed,mixed,0,True,gate_b2 precomputed
+VL_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+VL_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+VL_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_sasa_positive,mixed,0,True,gate_b2 precomputed
+VL_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_sasa_negative,mixed,0,True,gate_b2 precomputed
+VL_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_sasa_polar,mixed,0,True,gate_b2 precomputed
+VL_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+VL_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+VL_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_exposed_pos,mixed,0,True,gate_b2 precomputed
+VL_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,VL,VL_exposed_neg,mixed,0,True,gate_b2 precomputed
+H_CDR1_total_sasa,STRUCT_SASA,ABodyBuilder2,CDR,H_CDR1_total_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_mean_sasa,STRUCT_SASA,ABodyBuilder2,CDR,H_CDR1_mean_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_mean_rasa,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_mean_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_median_rasa,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_median_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_max_rasa,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_max_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+H_CDR1_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+H_CDR1_n_res,STRUCT_GLOBAL,ABodyBuilder2,CDR,H_CDR1_n_res,mixed,0,True,gate_b2 precomputed
+H_CDR1_n_exposed,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR1_n_exposed,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_sasa_positive,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_sasa_negative,mixed,0,True,gate_b2 precomputed
+H_CDR1_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_sasa_polar,mixed,0,True,gate_b2 precomputed
+H_CDR1_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+H_CDR1_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+H_CDR1_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+H_CDR1_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_exposed_pos,mixed,0,True,gate_b2 precomputed
+H_CDR1_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR1_exposed_neg,mixed,0,True,gate_b2 precomputed
+H_CDR2_total_sasa,STRUCT_SASA,ABodyBuilder2,CDR,H_CDR2_total_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_mean_sasa,STRUCT_SASA,ABodyBuilder2,CDR,H_CDR2_mean_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_mean_rasa,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_mean_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_median_rasa,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_median_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_max_rasa,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_max_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+H_CDR2_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+H_CDR2_n_res,STRUCT_GLOBAL,ABodyBuilder2,CDR,H_CDR2_n_res,mixed,0,True,gate_b2 precomputed
+H_CDR2_n_exposed,STRUCT_RASA,ABodyBuilder2,CDR,H_CDR2_n_exposed,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_sasa_positive,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_sasa_negative,mixed,0,True,gate_b2 precomputed
+H_CDR2_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_sasa_polar,mixed,0,True,gate_b2 precomputed
+H_CDR2_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+H_CDR2_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+H_CDR2_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+H_CDR2_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_exposed_pos,mixed,0,True,gate_b2 precomputed
+H_CDR2_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,H_CDR2_exposed_neg,mixed,0,True,gate_b2 precomputed
+H_CDR3_total_sasa,STRUCT_SASA,ABodyBuilder2,HCDR3,H_CDR3_total_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_mean_sasa,STRUCT_SASA,ABodyBuilder2,HCDR3,H_CDR3_mean_sasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_mean_rasa,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_mean_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_median_rasa,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_median_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_max_rasa,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_max_rasa,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+H_CDR3_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+H_CDR3_n_res,STRUCT_GLOBAL,ABodyBuilder2,HCDR3,H_CDR3_n_res,mixed,0,True,gate_b2 precomputed
+H_CDR3_n_exposed,STRUCT_RASA,ABodyBuilder2,HCDR3,H_CDR3_n_exposed,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_sasa_positive,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_sasa_negative,mixed,0,True,gate_b2 precomputed
+H_CDR3_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_sasa_polar,mixed,0,True,gate_b2 precomputed
+H_CDR3_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+H_CDR3_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+H_CDR3_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+H_CDR3_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_exposed_pos,mixed,0,True,gate_b2 precomputed
+H_CDR3_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,HCDR3,H_CDR3_exposed_neg,mixed,0,True,gate_b2 precomputed
+L_CDR1_total_sasa,STRUCT_SASA,ABodyBuilder2,CDR,L_CDR1_total_sasa,mixed,0,True,gate_b2 precomputed
+L_CDR1_mean_sasa,STRUCT_SASA,ABodyBuilder2,CDR,L_CDR1_mean_sasa,mixed,0,True,gate_b2 precomputed
+L_CDR1_mean_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_mean_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR1_median_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_median_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR1_max_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_max_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR1_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+L_CDR1_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+L_CDR1_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+L_CDR1_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+L_CDR1_n_res,STRUCT_GLOBAL,ABodyBuilder2,CDR,L_CDR1_n_res,mixed,0,True,gate_b2 precomputed
+L_CDR1_n_exposed,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR1_n_exposed,mixed,0,True,gate_b2 precomputed
+L_CDR1_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+L_CDR1_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+L_CDR1_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_sasa_positive,mixed,0,True,gate_b2 precomputed
+L_CDR1_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_sasa_negative,mixed,0,True,gate_b2 precomputed
+L_CDR1_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_sasa_polar,mixed,0,True,gate_b2 precomputed
+L_CDR1_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+L_CDR1_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+L_CDR1_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+L_CDR1_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_exposed_pos,mixed,0,True,gate_b2 precomputed
+L_CDR1_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR1_exposed_neg,mixed,0,True,gate_b2 precomputed
+L_CDR2_total_sasa,STRUCT_SASA,ABodyBuilder2,CDR,L_CDR2_total_sasa,mixed,0,True,gate_b2 precomputed
+L_CDR2_mean_sasa,STRUCT_SASA,ABodyBuilder2,CDR,L_CDR2_mean_sasa,mixed,0,True,gate_b2 precomputed
+L_CDR2_mean_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_mean_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR2_median_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_median_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR2_max_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_max_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR2_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+L_CDR2_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+L_CDR2_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+L_CDR2_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+L_CDR2_n_res,STRUCT_GLOBAL,ABodyBuilder2,CDR,L_CDR2_n_res,mixed,0,True,gate_b2 precomputed
+L_CDR2_n_exposed,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR2_n_exposed,mixed,0,True,gate_b2 precomputed
+L_CDR2_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+L_CDR2_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+L_CDR2_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_sasa_positive,mixed,0,True,gate_b2 precomputed
+L_CDR2_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_sasa_negative,mixed,0,True,gate_b2 precomputed
+L_CDR2_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_sasa_polar,mixed,0,True,gate_b2 precomputed
+L_CDR2_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+L_CDR2_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+L_CDR2_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+L_CDR2_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_exposed_pos,mixed,0,True,gate_b2 precomputed
+L_CDR2_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR2_exposed_neg,mixed,0,True,gate_b2 precomputed
+L_CDR3_total_sasa,STRUCT_SASA,ABodyBuilder2,CDR,L_CDR3_total_sasa,mixed,0,True,gate_b2 precomputed
+L_CDR3_mean_sasa,STRUCT_SASA,ABodyBuilder2,CDR,L_CDR3_mean_sasa,mixed,0,True,gate_b2 precomputed
+L_CDR3_mean_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_mean_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR3_median_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_median_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR3_max_rasa,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_max_rasa,mixed,0,True,gate_b2 precomputed
+L_CDR3_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+L_CDR3_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+L_CDR3_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+L_CDR3_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+L_CDR3_n_res,STRUCT_GLOBAL,ABodyBuilder2,CDR,L_CDR3_n_res,mixed,0,True,gate_b2 precomputed
+L_CDR3_n_exposed,STRUCT_RASA,ABodyBuilder2,CDR,L_CDR3_n_exposed,mixed,0,True,gate_b2 precomputed
+L_CDR3_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+L_CDR3_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+L_CDR3_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_sasa_positive,mixed,0,True,gate_b2 precomputed
+L_CDR3_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_sasa_negative,mixed,0,True,gate_b2 precomputed
+L_CDR3_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_sasa_polar,mixed,0,True,gate_b2 precomputed
+L_CDR3_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+L_CDR3_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+L_CDR3_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+L_CDR3_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_exposed_pos,mixed,0,True,gate_b2 precomputed
+L_CDR3_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,L_CDR3_exposed_neg,mixed,0,True,gate_b2 precomputed
+all_CDR_total_sasa,STRUCT_SASA,ABodyBuilder2,CDR,all_CDR_total_sasa,mixed,0,True,gate_b2 precomputed
+all_CDR_mean_sasa,STRUCT_SASA,ABodyBuilder2,CDR,all_CDR_mean_sasa,mixed,0,True,gate_b2 precomputed
+all_CDR_mean_rasa,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_mean_rasa,mixed,0,True,gate_b2 precomputed
+all_CDR_median_rasa,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_median_rasa,mixed,0,True,gate_b2 precomputed
+all_CDR_max_rasa,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_max_rasa,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+all_CDR_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+all_CDR_n_res,STRUCT_GLOBAL,ABodyBuilder2,CDR,all_CDR_n_res,mixed,0,True,gate_b2 precomputed
+all_CDR_n_exposed,STRUCT_RASA,ABodyBuilder2,CDR,all_CDR_n_exposed,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_sasa_positive,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_sasa_negative,mixed,0,True,gate_b2 precomputed
+all_CDR_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_sasa_polar,mixed,0,True,gate_b2 precomputed
+all_CDR_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+all_CDR_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+all_CDR_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+all_CDR_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_exposed_pos,mixed,0,True,gate_b2 precomputed
+all_CDR_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,all_CDR_exposed_neg,mixed,0,True,gate_b2 precomputed
+FR_total_sasa,STRUCT_SASA,ABodyBuilder2,Fv,FR_total_sasa,mixed,0,True,gate_b2 precomputed
+FR_mean_sasa,STRUCT_SASA,ABodyBuilder2,Fv,FR_mean_sasa,mixed,0,True,gate_b2 precomputed
+FR_mean_rasa,STRUCT_RASA,ABodyBuilder2,Fv,FR_mean_rasa,mixed,0,True,gate_b2 precomputed
+FR_median_rasa,STRUCT_RASA,ABodyBuilder2,Fv,FR_median_rasa,mixed,0,True,gate_b2 precomputed
+FR_max_rasa,STRUCT_RASA,ABodyBuilder2,Fv,FR_max_rasa,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_0_20,STRUCT_RASA,ABodyBuilder2,Fv,FR_frac_rasa_gt_0_20,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_0_25,STRUCT_RASA,ABodyBuilder2,Fv,FR_frac_rasa_gt_0_25,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_0_50,STRUCT_RASA,ABodyBuilder2,Fv,FR_frac_rasa_gt_0_50,mixed,0,True,gate_b2 precomputed
+FR_frac_rasa_gt_1,STRUCT_RASA,ABodyBuilder2,Fv,FR_frac_rasa_gt_1,mixed,0,True,gate_b2 precomputed
+FR_n_res,STRUCT_GLOBAL,ABodyBuilder2,Fv,FR_n_res,mixed,0,True,gate_b2 precomputed
+FR_n_exposed,STRUCT_RASA,ABodyBuilder2,Fv,FR_n_exposed,mixed,0,True,gate_b2 precomputed
+FR_sasa_hydrophobic,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_sasa_hydrophobic,mixed,0,True,gate_b2 precomputed
+FR_sasa_aromatic,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_sasa_aromatic,mixed,0,True,gate_b2 precomputed
+FR_sasa_positive,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_sasa_positive,mixed,0,True,gate_b2 precomputed
+FR_sasa_negative,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_sasa_negative,mixed,0,True,gate_b2 precomputed
+FR_sasa_polar,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_sasa_polar,mixed,0,True,gate_b2 precomputed
+FR_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_rasa_w_hydrophobicity_sum,mixed,0,True,gate_b2 precomputed
+FR_rasa_w_hydrophobicity_mean,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_rasa_w_hydrophobicity_mean,mixed,0,True,gate_b2 precomputed
+FR_rasa_w_charge_sum,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_rasa_w_charge_sum,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+FR_exposed_pos,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_exposed_pos,mixed,0,True,gate_b2 precomputed
+FR_exposed_neg,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,FR_exposed_neg,mixed,0,True,gate_b2 precomputed
+n_hydrophobic_patches,STRUCT_PATCH,ABodyBuilder2,Fv,n_hydrophobic_patches,mixed,0,True,gate_b2 precomputed
+largest_hydrophobic_patch_sasa,STRUCT_PATCH,ABodyBuilder2,Fv,largest_hydrophobic_patch_sasa,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+total_hydrophobic_patch_sasa,STRUCT_PATCH,ABodyBuilder2,Fv,total_hydrophobic_patch_sasa,mixed,0,True,gate_b2 precomputed
+largest_positive_patch_sasa,STRUCT_PATCH,ABodyBuilder2,Fv,largest_positive_patch_sasa,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+largest_negative_patch_sasa,STRUCT_PATCH,ABodyBuilder2,Fv,largest_negative_patch_sasa,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+cdr_hydrophobic_sasa_exposed,STRUCT_SURFACE_CHEM,ABodyBuilder2,CDR,cdr_hydrophobic_sasa_exposed,mixed,0,True,gate_b2 precomputed
+h3_hydrophobic_sasa_exposed,STRUCT_SURFACE_CHEM,ABodyBuilder2,Fv,h3_hydrophobic_sasa_exposed,mixed,0,True,gate_b2 precomputed
+SASA_VH_iso,STRUCT_SASA,ABodyBuilder2,Fv,SASA_VH_iso,mixed,0,True,gate_b2 precomputed
+SASA_VL_iso,STRUCT_SASA,ABodyBuilder2,Fv,SASA_VL_iso,mixed,0,True,gate_b2 precomputed
+BSA,STRUCT_INTERFACE,ABodyBuilder2,interface,BSA,mixed,0,True,gate_b2 precomputed
+interface_area_BSA_over_2,STRUCT_INTERFACE,ABodyBuilder2,interface,interface_area_BSA_over_2,mixed,0,True,gate_b2 precomputed
+n_interface_res,STRUCT_INTERFACE,ABodyBuilder2,interface,n_interface_res,mixed,0,True,gate_b2 precomputed
+iface_frac_hydrophobic,STRUCT_INTERFACE,ABodyBuilder2,interface,iface_frac_hydrophobic,mixed,125,True,gate_b2 precomputed
+iface_frac_aromatic,STRUCT_INTERFACE,ABodyBuilder2,interface,iface_frac_aromatic,mixed,125,True,gate_b2 precomputed
+iface_frac_positive,STRUCT_INTERFACE,ABodyBuilder2,interface,iface_frac_positive,mixed,125,True,gate_b2 precomputed
+iface_frac_negative,STRUCT_INTERFACE,ABodyBuilder2,interface,iface_frac_negative,mixed,125,True,gate_b2 precomputed
+Fv_n_ca,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_n_ca,mixed,0,True,gate_b2 precomputed
+Fv_n_contacts,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_n_contacts,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_contact_density,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_mean_nn_dist,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_mean_nn_dist,mixed,0,True,gate_b2 precomputed
+Fv_clash_proxy,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_clash_proxy,mixed,0,True,gate_b2 precomputed
+Fv_rg,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_rg,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_compactness,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_compactness,mixed,0,True,gate_b2 precomputed
+VH_n_ca,STRUCT_PACKING,ABodyBuilder2,VH,VH_n_ca,mixed,0,True,gate_b2 precomputed
+VH_n_contacts,STRUCT_PACKING,ABodyBuilder2,VH,VH_n_contacts,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_contact_density,STRUCT_PACKING,ABodyBuilder2,VH,VH_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_mean_nn_dist,STRUCT_PACKING,ABodyBuilder2,VH,VH_mean_nn_dist,mixed,0,True,gate_b2 precomputed
+VH_clash_proxy,STRUCT_PACKING,ABodyBuilder2,VH,VH_clash_proxy,mixed,0,True,gate_b2 precomputed
+VH_rg,STRUCT_PACKING,ABodyBuilder2,VH,VH_rg,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VH_compactness,STRUCT_PACKING,ABodyBuilder2,VH,VH_compactness,mixed,0,True,gate_b2 precomputed
+VL_n_ca,STRUCT_PACKING,ABodyBuilder2,VL,VL_n_ca,mixed,0,True,gate_b2 precomputed
+VL_n_contacts,STRUCT_PACKING,ABodyBuilder2,VL,VL_n_contacts,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_contact_density,STRUCT_PACKING,ABodyBuilder2,VL,VL_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_mean_nn_dist,STRUCT_PACKING,ABodyBuilder2,VL,VL_mean_nn_dist,mixed,0,True,gate_b2 precomputed
+VL_clash_proxy,STRUCT_PACKING,ABodyBuilder2,VL,VL_clash_proxy,mixed,0,True,gate_b2 precomputed
+VL_rg,STRUCT_PACKING,ABodyBuilder2,VL,VL_rg,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+VL_compactness,STRUCT_PACKING,ABodyBuilder2,VL,VL_compactness,mixed,0,True,gate_b2 precomputed
+VH_VL_center_dist,STRUCT_INTERFACE,ABodyBuilder2,VH,VH_VL_center_dist,mixed,0,True,gate_b2 precomputed
+interface_contact_count,STRUCT_INTERFACE,ABodyBuilder2,interface,interface_contact_count,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+interface_contact_density,STRUCT_INTERFACE,ABodyBuilder2,interface,interface_contact_density,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_hydrophobic_sasa_ratio,STRUCT_SASA,ABodyBuilder2,Fv,Fv_hydrophobic_sasa_ratio,mixed,0,True,gate_b2 precomputed
+Fv_aromatic_sasa_ratio,STRUCT_SASA,ABodyBuilder2,Fv,Fv_aromatic_sasa_ratio,mixed,0,True,gate_b2 precomputed
+Fv_charge_balance,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_charge_balance,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_exposed_charge_proxy,STRUCT_PACKING,ABodyBuilder2,Fv,Fv_exposed_charge_proxy,mixed,0,True,from gate_b2 SASA cache + Stage3 packing
+Fv_buried_frac,STRUCT_GLOBAL,ABodyBuilder2,Fv,Fv_buried_frac,mixed,0,True,gate_b2 precomputed

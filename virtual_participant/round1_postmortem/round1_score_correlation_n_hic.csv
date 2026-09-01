@@ -1,0 +1,6 @@
+,Primary_CV_MAE,Shadow_CV_MAE,Public_MAE,Private_MAE,All_Test_MAE
+Primary_CV_MAE,180,41,125,125,125
+Shadow_CV_MAE,41,41,36,36,36
+Public_MAE,125,36,125,125,125
+Private_MAE,125,36,125,125,125
+All_Test_MAE,125,36,125,125,125

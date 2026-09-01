@@ -1,0 +1,7 @@
+experiment_id,target,branch,calibration_method,Primary_MAE,Primary_fold_SD,nested,delta_vs_stage4_primary
+TmApp__CAL_identity__incumbent,TmApp,calibration,identity,2.743927237333513,0.3105914750701719,True,0.0013185762386229705
+TmApp__CAL_ols_affine__incumbent,TmApp,calibration,ols_affine,2.727844801785376,0.2656338745264261,True,-0.014763859309514071
+TmApp__CAL_quantile_affine__incumbent,TmApp,calibration,quantile_affine,2.7607109262252885,0.311443208239332,True,0.018102265130398365
+HIC__CAL_identity__incumbent,HIC,calibration,identity,0.4376955171135285,0.041772897740245535,True,0.0004237999595937958
+HIC__CAL_ols_affine__incumbent,HIC,calibration,ols_affine,0.4622793838172612,0.05206838573184117,True,0.02500766666332649
+HIC__CAL_quantile_affine__incumbent,HIC,calibration,quantile_affine,0.4446038046839752,0.03565776009740833,True,0.007332087530040499

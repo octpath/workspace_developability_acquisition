@@ -1,0 +1,21 @@
+{
+  "n_groups": 161,
+  "n_singleton_groups": 160,
+  "n_multi_member_groups": 1,
+  "n_members_in_multi_groups": 2,
+  "identity_threshold": 0.9,
+  "multi_group_members": [
+    {
+      "id": "ADI-47091",
+      "seq_group": 66,
+      "TmApp": 74.5,
+      "HIC": 8.959
+    },
+    {
+      "id": "ADI-47096",
+      "seq_group": 66,
+      "TmApp": 74.5,
+      "HIC": 9.027
+    }
+  ]
+}

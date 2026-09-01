@@ -1,0 +1,26 @@
+collect inventory...
+inventory 354 models, predicting test...
+scored 50/354
+scored 75/354
+scored 100/354
+scored 125/354
+scored 150/354
+scored 175/354
+scored 225/354
+scored 250/354
+scored 300/354
+scored 350/354
+TypeError: only 0-dimensional arrays can be converted to Python scalars
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/virtual_participant/round1_postmortem/scripts/run_model_score_correlation_analysis.py", line 670, in <module>
+    main()
+  File "/workspace_developability_acquisition/virtual_participant/round1_postmortem/scripts/run_model_score_correlation_analysis.py", line 627, in main
+    mat, nmat = corr_matrix(sub, score_cols, method)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/virtual_participant/round1_postmortem/scripts/run_model_score_correlation_analysis.py", line 425, in corr_matrix
+    mat[i, j], _ = pearsonr(sub[a], sub[b])
+    ~~~^^^^^^
+ValueError: setting an array element with a sequence.

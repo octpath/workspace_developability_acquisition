@@ -1,0 +1,9 @@
+tool,version,status,purpose,notes
+PROPKA,3.5.1,INSTALLED,pKa/charge proxy,Stage4 venv py3.12
+PDB2PQR,3.7.1,INSTALLED,PQR protonation,with PROPKA at pH 6.5
+APBS,3.4.1,INSTALLED,electrostatic potential,generic I=0.15M not assay-matched
+FoldX,NA,BLOCKED_BY_LICENSE,energy terms,no authorized binary; not downloaded
+Rosetta/PyRosetta,NA,SKIPPED_OPTIONAL,energy score,no authorized install in env
+ESM-IF1,fair-esm,INSTALLED,inverse folding LL,.venv_esmif CPU scoring
+ProteinMPNN,NA,SKIPPED_OPTIONAL,native LL,FLAb path IgFold-coupled; skipped
+external_cavity_tool,NA,SKIPPED_OPTIONAL,cavity volume,geometry cavity_proxy used instead

@@ -1,0 +1,93 @@
+{
+  "TmApp": {
+    "stage4_incumbent": {
+      "primary": 2.74260866109489,
+      "shadow": 2.7704303207517023,
+      "experiment_id": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt"
+    },
+    "best_stage5_candidate": {
+      "experiment_id": "TmApp__META_performance__ridge_100.0",
+      "target": "TmApp",
+      "branch": "stack",
+      "base_model_ids": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt|TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt|TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt|TmApp__ADV_TMAPP_ALL__SVROpt",
+      "meta_model": "ridge_100.0",
+      "meta_set": "performance",
+      "Primary_MAE": 2.7134783500422097,
+      "Primary_fold_SD": 0.2791375611954192,
+      "nested": true,
+      "delta_vs_stage4_primary": -0.0291303110526803
+    },
+    "adopt_new_incumbent": true,
+    "finalists": [
+      {
+        "role": "conservative_incumbent",
+        "experiment_id": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt",
+        "Primary_MAE": 2.74260866109489
+      },
+      {
+        "experiment_id": "TmApp__META_performance__ridge_100.0",
+        "target": "TmApp",
+        "branch": "stack",
+        "base_model_ids": "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt|TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt|TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt|TmApp__ADV_TMAPP_ALL__SVROpt",
+        "meta_model": "ridge_100.0",
+        "meta_set": "performance",
+        "Primary_MAE": 2.7134783500422097,
+        "Primary_fold_SD": 0.2791375611954192,
+        "nested": true,
+        "delta_vs_stage4_primary": -0.0291303110526803
+      },
+      {
+        "experiment_id": "TmApp__CAL_ols_affine__incumbent",
+        "target": "TmApp",
+        "branch": "calibration",
+        "calibration_method": "ols_affine",
+        "Primary_MAE": 2.727844801785376,
+        "Primary_fold_SD": 0.2656338745264261,
+        "nested": true,
+        "delta_vs_stage4_primary": -0.014763859309514
+      }
+    ]
+  },
+  "HIC": {
+    "stage4_incumbent": {
+      "primary": 0.4372717171539347,
+      "shadow": 0.4331720450112299,
+      "experiment_id": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt"
+    },
+    "best_stage5_candidate": {
+      "experiment_id": "HIC__SIMPLE_blend_seq_surf_adv",
+      "target": "HIC",
+      "branch": "simple_blend",
+      "base_model_ids": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt|HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt|HIC__ADV_SURFACE_PATCH__SVROpt",
+      "Primary_MAE": 0.4251776987709104,
+      "Shadow_MAE": 0.43207646713858877,
+      "Primary_fold_SD": 0.0339653973058162,
+      "status": "STAGE5_SHADOW_CONFIRMED"
+    },
+    "adopt_new_incumbent": false,
+    "adopt_note": "Primary+Shadow とも Stage4 historical を上回るが equal-weight diagnostic blend。Finalization shortlist 候補として保持。learned stack (nnls_norm) は Shadow 未再現。",
+    "finalists": [
+      {
+        "role": "conservative_incumbent",
+        "experiment_id": "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt",
+        "Primary_MAE": 0.4372717171539347
+      },
+      {
+        "experiment_id": "HIC__SIMPLE_blend_seq_surf_adv",
+        "target": "HIC",
+        "branch": "simple_blend",
+        "base_model_ids": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt|HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt|HIC__ADV_SURFACE_PATCH__SVROpt",
+        "Primary_MAE": 0.4251776987709104,
+        "Primary_fold_SD": 0.0339653973058162
+      },
+      {
+        "experiment_id": "HIC__SIMPLE_blend_seq_surf",
+        "target": "HIC",
+        "branch": "simple_blend",
+        "base_model_ids": "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt|HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt",
+        "Primary_MAE": 0.4257721922584362,
+        "Primary_fold_SD": 0.0418380370096573
+      }
+    ]
+  }
+}
