@@ -1,0 +1,10 @@
+{
+  "preprocessing_fit": "outer_train_only for StandardScaler/PCA/aromatic",
+  "ridge_alpha": 100.0,
+  "elasticnet_hp": "nested GroupKFold on outer-train design only; modal HP frozen for Shadow/Test",
+  "neural_hp": "fully frozen lr/epochs/wd/seeds; no early stopping on target",
+  "public_private_in_selection": false,
+  "identical_outer_folds_matched": true,
+  "y_standardize_neural": "outer_train_only; inverse on predict",
+  "implementation_note": "numpy AdamW equivalent (torch unavailable in venv); linear architectures only"
+}

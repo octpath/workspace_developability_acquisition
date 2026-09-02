@@ -1,0 +1,51 @@
+{
+  "state": "MODULATION_FUSION_SPEC_FROZEN_BEFORE_SCORING",
+  "MODULATION_FUSION_SPEC_FROZEN_BEFORE_SCORING": true,
+  "evidence_boundary": "ORGANIZER-EXPLORATORY",
+  "target": "HIC",
+  "physics_family": "AROMATIC-TOPO_v1",
+  "plm": "ESM2_H_1280",
+  "preprocessing": {
+    "name": "P0_CURRENT_with_explicit_z_x_blocks",
+    "esm2": "StandardScaler(raw) -> PCA32(whiten=False, random_state=42) -> StandardScaler(PC scores) => z",
+    "aromatic": "median_impute(train) -> StandardScaler => x",
+    "no_changes": ["PCA dim", "center-only PCA", "raw ESM2", "RobustScaler"]
+  },
+  "ridge_alpha_fixed": 100.0,
+  "baselines": ["B0_PLM_ONLY", "B1_CURRENT_CONCAT"],
+  "M2_FULL_BILINEAR_ELASTICNET": {
+    "features": "z(32) + x(15) + z_i*x_j(480) = 527",
+    "post_concat_StandardScaler": true,
+    "l1_ratio": [0.1, 0.5, 0.9],
+    "alpha": [0.001, 0.01, 0.1, 1.0],
+    "selection": "inner_mean_MAE_nested_GroupKFold"
+  },
+  "M3_MULTIPLICATIVE": {
+    "ranks": [1, 2, 4],
+    "canonical_rank": 2,
+    "form": "p=Wp x; gamma=Wg p; h=(1+gamma)*z; y=b+w^T h",
+    "Wp_bias": false,
+    "Wg_bias": true,
+    "init": "Wg near zero; Wg bias=0",
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "epochs": 1000,
+    "seeds": [11, 23, 42, 77, 101],
+    "canonical_prediction": "mean_across_seeds",
+    "y_standardize_outer_train": true,
+    "implementation": "numpy_AdamW_linear_equiv_no_torch"
+  },
+  "M4_FILM": {
+    "ranks": [1, 2, 4],
+    "canonical_rank": 2,
+    "form": "h=(1+gamma)*z + beta",
+    "add_only_control": "M4_ADD_ONLY_R2"
+  },
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "primary_cv": "virtual_participant/stage0_cv/cv_primary.csv",
+  "shadow_cv": "virtual_participant/stage0_cv/cv_shadow.csv",
+  "bootstrap_B": 10000,
+  "decision_rule": "modulation vs CURRENT_CONCAT; positive if CV/Public/Private all delta_MAE<0",
+  "anti_posthoc": "never select feature/architecture/rank/reg/seed by Public/Private"
+}

@@ -1,0 +1,40 @@
+==== ESMFold ====
+  outer fold 0 n_tr=130 n_te=32
+  outer fold 1 n_tr=129 n_te=33
+  outer fold 2 n_tr=129 n_te=33
+  outer fold 3 n_tr=130 n_te=32
+  outer fold 4 n_tr=130 n_te=32
+  fitting Dev->Test for main models
+  Shadow CV
+  outer fold 0 n_tr=130 n_te=32
+  outer fold 1 n_tr=129 n_te=33
+  outer fold 2 n_tr=130 n_te=32
+  outer fold 3 n_tr=130 n_te=32
+  outer fold 4 n_tr=129 n_te=33
+==== ABB2 ====
+  outer fold 0 n_tr=130 n_te=32
+  outer fold 1 n_tr=129 n_te=33
+  outer fold 2 n_tr=129 n_te=33
+  outer fold 3 n_tr=130 n_te=32
+  outer fold 4 n_tr=130 n_te=32
+  fitting Dev->Test for main models
+  Shadow CV
+  outer fold 0 n_tr=130 n_te=32
+  outer fold 1 n_tr=129 n_te=33
+  outer fold 2 n_tr=130 n_te=32
+  outer fold 3 n_tr=130 n_te=32
+  outer fold 4 n_tr=129 n_te=33
+==== Boltz2 ====
+  outer fold 0 n_tr=130 n_te=32
+  outer fold 1 n_tr=129 n_te=33
+  outer fold 2 n_tr=129 n_te=33
+  outer fold 3 n_tr=130 n_te=32
+  outer fold 4 n_tr=130 n_te=32
+  fitting Dev->Test for main models
+  Shadow CV
+  outer fold 0 n_tr=130 n_te=32
+  outer fold 1 n_tr=129 n_te=33
+  outer fold 2 n_tr=130 n_te=32
+  outer fold 3 n_tr=130 n_te=32
+  outer fold 4 n_tr=129 n_te=33
+DONE
