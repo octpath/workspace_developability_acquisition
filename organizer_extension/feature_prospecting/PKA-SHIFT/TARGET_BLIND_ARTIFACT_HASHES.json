@@ -1,0 +1,62 @@
+{
+  "state": "PKA_SHIFT_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "files": {
+    "organizer_extension/feature_prospecting/PKA-SHIFT/FEATURE_SPEC.json": {
+      "sha256": "e60088a09e73778a7df9a193acecfaa5e3f72a2cf854c60accaedf6e262c0270",
+      "nbytes": 4919
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/SOFTWARE_ENV.json": {
+      "sha256": "6fd5403f51f3c2452bfd08e90fd8b48bc8221e14021141fafebacb4f77b3b7e0",
+      "nbytes": 393
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/cdr_sequence_index_imgt.csv": {
+      "sha256": "adfd2ce2bc6f4300e76efb4dbb80fd094101501cbe0e71b7215169776b99beab",
+      "nbytes": 3609883
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/FEATURE_MANIFEST.csv": {
+      "sha256": "f0c1021e8e6e545c79dca309402a346a9e69da86da10a65164be11ecbbdf1032",
+      "nbytes": 206195
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/extraction_qc.csv": {
+      "sha256": "f683604eed65de0555b5bdca08e5b612ff65d3b93ae21594a618c3ac0f9adecd",
+      "nbytes": 600978
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/features_esmfold.parquet": {
+      "sha256": "f3057ad6fa3f92a0c7c567f16b8bc99803a3d28a88365b9064df68ab2badae64",
+      "nbytes": 110073
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/features_abodybuilder2.parquet": {
+      "sha256": "0f4eec16967620f846e68670dcd08ad4ece3747c04b7610a51121985c33ca8bc",
+      "nbytes": 120419
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/features_boltz2.parquet": {
+      "sha256": "45d201dddeea349f92384238171eb2a8d4a7d3491026dde955f614880eba8ac4",
+      "nbytes": 112058
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/residue_pka_esmfold.parquet": {
+      "sha256": "61f71a3e99c864085de0579eff739f8f060a0a75b8dffa77b2a81d4d86e91b7a",
+      "nbytes": 279353
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/residue_pka_abodybuilder2.parquet": {
+      "sha256": "5435f581f548986b35dcd941f6a5dd65e4322596f3825442bbea3fff37e84b09",
+      "nbytes": 292492
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/residue_pka_boltz2.parquet": {
+      "sha256": "f172ec62e0ce64a6a054fb9bbd79a833a1a4d63e3878a87b4aa7012755fe8add",
+      "nbytes": 279778
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/structure_robustness.csv": {
+      "sha256": "b841874af65fb4dbda8e3a655eb735e109d6ccda804adc086382e62c50734615",
+      "nbytes": 11257
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/structure_robustness_summary.json": {
+      "sha256": "01cdc472c844ef7a45c3b315fa3676aad9496828425259b836920287a3e0f6f8",
+      "nbytes": 1159
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/residue_level_robustness.csv": {
+      "sha256": "7bc104e66142fecd304d74d15bddd8bd1808ea4430d19bb63eb45dac2e39dc45",
+      "nbytes": 379
+    }
+  }
+}

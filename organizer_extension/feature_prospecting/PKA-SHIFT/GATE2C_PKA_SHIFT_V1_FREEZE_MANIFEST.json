@@ -1,0 +1,139 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_GATE2C_PKA_SHIFT_V1_COMPLETE",
+  "gate": "2C",
+  "parent_gate_state": "ORGANIZER_FEATURE_PROSPECTING_GATE2B_VHL_ANGLE_V1_COMPLETE",
+  "family_id": "PKA-SHIFT",
+  "version": "v1",
+  "freeze_timestamp_utc_actual": "2026-09-02T17:19:49Z",
+  "repository_git_head_pre_commit": "da34931bd5fc47803ffbfbc045da24d221ac9507",
+  "gate2ab_audit": "PASS_CONTINUE_PKA",
+  "vhl_technical_review": "VHL-ANGLE_v1_TECHNICAL_REVIEW",
+  "propka_version": "3.5.1",
+  "extraction_success": {
+    "esmfold": 324,
+    "abodybuilder2": 324,
+    "boltz2": 324
+  },
+  "robustness_class": "FRAGILE",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.44917162154138596,
+    "esmfold_vs_boltz2": 0.6307082651559371,
+    "abodybuilder2_vs_boltz2": 0.5083635872909633
+  },
+  "residual_ridge_audit_pass": true,
+  "empirical_verdict_TmApp_esmfold": "MIXED",
+  "empirical_verdict_HIC_esmfold": "NO_EVIDENCE_IN_CURRENT_DATA",
+  "generator_signal_TmApp": "ESMFOLD_ONLY_SIGNAL",
+  "files": [
+    {
+      "path": "organizer_extension/feature_prospecting/GATE2AB_CONSISTENCY_AUDIT.md",
+      "sha256": "40313d5057dc65e75da5fb6fc7290e8392500639962c16e7f51e2b1547159866",
+      "nbytes": 5202
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE_v1_TECHNICAL_REVIEW.md",
+      "sha256": "a136f98133338e0e11c09dae2cdd169bc7b0e3ad0fd99765fac7b5631f7f095b",
+      "nbytes": 709
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/METHOD_REFERENCE_REGISTRY_CURRENT.csv",
+      "sha256": "696c4cb77aaf7939e01fb78bda9aca34d02556a727dfc5892b4b844f4af643b1",
+      "nbytes": 5021
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY_CURRENT.csv",
+      "sha256": "fabdeb7dc7bdf2db23b580457f0d6054f73e9d457d9f5f0782093a2ca52f559d",
+      "nbytes": 8876
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/FEATURE_SPEC.json",
+      "sha256": "e60088a09e73778a7df9a193acecfaa5e3f72a2cf854c60accaedf6e262c0270",
+      "nbytes": 4919
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/SOFTWARE_ENV.json",
+      "sha256": "6fd5403f51f3c2452bfd08e90fd8b48bc8221e14021141fafebacb4f77b3b7e0",
+      "nbytes": 393
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/REPORT_JA.md",
+      "sha256": "33136d01abf0f44ce13e918a4fdc217497b64c045538f28833d49065dd80eba6",
+      "nbytes": 6165
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/FEATURE_MANIFEST.csv",
+      "sha256": "f0c1021e8e6e545c79dca309402a346a9e69da86da10a65164be11ecbbdf1032",
+      "nbytes": 206195
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/extraction_qc.csv",
+      "sha256": "f683604eed65de0555b5bdca08e5b612ff65d3b93ae21594a618c3ac0f9adecd",
+      "nbytes": 600978
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/cdr_sequence_index_imgt.csv",
+      "sha256": "adfd2ce2bc6f4300e76efb4dbb80fd094101501cbe0e71b7215169776b99beab",
+      "nbytes": 3609883
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/features_esmfold.parquet",
+      "sha256": "f3057ad6fa3f92a0c7c567f16b8bc99803a3d28a88365b9064df68ab2badae64",
+      "nbytes": 110073
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/features_abodybuilder2.parquet",
+      "sha256": "0f4eec16967620f846e68670dcd08ad4ece3747c04b7610a51121985c33ca8bc",
+      "nbytes": 120419
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/features_boltz2.parquet",
+      "sha256": "45d201dddeea349f92384238171eb2a8d4a7d3491026dde955f614880eba8ac4",
+      "nbytes": 112058
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/residue_pka_esmfold.parquet",
+      "sha256": "61f71a3e99c864085de0579eff739f8f060a0a75b8dffa77b2a81d4d86e91b7a",
+      "nbytes": 279353
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/residue_pka_abodybuilder2.parquet",
+      "sha256": "5435f581f548986b35dcd941f6a5dd65e4322596f3825442bbea3fff37e84b09",
+      "nbytes": 292492
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/residue_pka_boltz2.parquet",
+      "sha256": "f172ec62e0ce64a6a054fb9bbd79a833a1a4d63e3878a87b4aa7012755fe8add",
+      "nbytes": 279778
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/structure_robustness.csv",
+      "sha256": "b841874af65fb4dbda8e3a655eb735e109d6ccda804adc086382e62c50734615",
+      "nbytes": 11257
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/structure_robustness_summary.json",
+      "sha256": "01cdc472c844ef7a45c3b315fa3676aad9496828425259b836920287a3e0f6f8",
+      "nbytes": 1159
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/residue_level_robustness.csv",
+      "sha256": "7bc104e66142fecd304d74d15bddd8bd1808ea4430d19bb63eb45dac2e39dc45",
+      "nbytes": 379
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TARGET_BLIND_ARTIFACT_HASHES.json",
+      "sha256": "593be2ac0c48814c095613f2e83da73cf5a88a31284d3093b1885a98bf1c4352",
+      "nbytes": 2894
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/EVALUATION_RESULTS.json",
+      "sha256": "9b96a062e463228c26356c9de1c2fbce40f6938c061d67d6478a3ea3265049d0",
+      "nbytes": 29675
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/RESIDUAL_RIDGE_IMPLEMENTATION_AUDIT.json",
+      "sha256": "400d10a72d9e1f461373332e746343656eb0686126a7ad817d27167bcc37a179",
+      "nbytes": 19069
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "family_id": "PKA-SHIFT",
+  "version": "v1",
+  "state": "PKA_SHIFT_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "TmApp",
+  "secondary_target": "HIC",
+  "mechanistic_prior": {
+    "TmApp": "5_LIKELY_RELEVANT",
+    "HIC": "4_PLAUSIBLY_RELEVANT"
+  },
+  "method": {
+    "software": "PROPKA3",
+    "package": "propka",
+    "version": "3.5.1",
+    "installation_source": "pip/uv into .venv_stage4 (Round1 Stage4 reusable env)",
+    "license": "LGPL v2.1",
+    "primary_paper": {
+      "title": "PROPKA3: Consistent Treatment of Internal and Surface Residues in Empirical pKa Predictions",
+      "authors": "Olsson MHM; Sondergaard CR; Rostkowski M; Jensen JH",
+      "year": 2011,
+      "doi": "10.1021/ct100578z",
+      "url": "https://doi.org/10.1021/ct100578z"
+    },
+    "related_paper": {
+      "title": "Improved Treatment of Ligands and Coupling Effects in Empirical Calculation and Rationalization of pKa Values",
+      "authors": "Sondergaard CR; Olsson MHM; Rostkowski M; Jensen JH",
+      "year": 2011,
+      "doi": "10.1021/ct200133y",
+      "url": "https://doi.org/10.1021/ct200133y"
+    },
+    "repository_url": "https://github.com/jensengroup/propka",
+    "documentation_url": "https://github.com/jensengroup/propka",
+    "model_pKa_source": {
+      "file": ".venv_stage4/lib/python3.12/site-packages/propka/propka.cfg",
+      "keys": "model_pkas"
+    }
+  },
+  "delta_pKa_definition": "delta_pKa_i = predicted_pKa_i - model_reference_pKa(residue_type)",
+  "model_reference_pKa": {
+    "ASP": 3.8,
+    "GLU": 4.5,
+    "HIS": 6.5,
+    "CYS": 9.0,
+    "TYR": 10.0,
+    "LYS": 10.5,
+    "ARG": 12.5,
+    "N+": 8.0,
+    "C-": 3.2
+  },
+  "canonical_sidechain_residue_types": ["ASP", "GLU", "HIS", "LYS", "ARG", "TYR", "CYS"],
+  "termini_policy": {
+    "exclude_from_canonical_features": ["N+", "C-"],
+    "reason": "Fv-only predicted structures have artificial VH/VL termini; Fab continues into CH1/CL",
+    "record_as_qc_only": true
+  },
+  "structure_preprocessing": {
+    "coordinates": "native generator PDB as-is",
+    "energy_minimization": false,
+    "geometry_optimization": false,
+    "target_informed_protonation": false,
+    "hetero_water_policy": "PROPKA default on input PDB; competition Fv PDBs contain protein atoms only (no waters/het expected)"
+  },
+  "residue_mapping": {
+    "canonical_key": ["id", "chain", "sequence_index", "amino_acid"],
+    "chain_identity": "match PDB polymer sequence to competition heavy/light",
+    "do_not_use_as_primary_key": "raw PDB residue number"
+  },
+  "region_definitions": {
+    "cdr_framework": {
+      "scheme": "IMGT via ANARCI on competition sequences",
+      "artifact": "cdr_sequence_index_imgt.csv",
+      "note": "Generator-independent sequence_index labels; differs from ABangle Chothia coresets"
+    },
+    "vh_vl_interface": {
+      "definition": "residue has CA–CA contact <= 5.0 Angstrom to any residue on the opposite chain",
+      "source": "Round1 gate_b2 interface CA<=5.0 A convention"
+    },
+    "buried_exposed": {
+      "method": "Bio.PDB.SASA.ShrakeRupley probe=1.4 n_points=100",
+      "max_asa_table": "Stage4 MAX_ASA (Tien/Wilke-like constants used in stage4_advanced_structure)",
+      "rasa_exposed_threshold": 0.20,
+      "buried_rule": "rasa < 0.20",
+      "source": "Stage4 RASA_EXPOSED=0.20"
+    }
+  },
+  "canonical_features": [
+    "mean_abs_delta_pKa",
+    "rms_delta_pKa",
+    "max_abs_delta_pKa",
+    "mean_signed_delta_pKa",
+    "frac_abs_delta_ge_1",
+    "frac_abs_delta_ge_2",
+    "max_positive_delta_pKa",
+    "max_negative_magnitude_delta_pKa",
+    "acidic_mean_abs_delta",
+    "acidic_mean_signed_delta",
+    "basic_mean_abs_delta",
+    "basic_mean_signed_delta",
+    "cdr_mean_abs_delta",
+    "cdr_max_abs_delta",
+    "cdr_frac_abs_ge_1",
+    "framework_mean_abs_delta",
+    "cdr_minus_framework_mean_abs_delta",
+    "interface_mean_abs_delta",
+    "interface_max_abs_delta",
+    "interface_frac_abs_ge_1",
+    "interface_minus_noninterface_mean_abs_delta",
+    "buried_mean_abs_delta",
+    "buried_max_abs_delta",
+    "buried_frac_abs_ge_1",
+    "buried_minus_exposed_mean_abs_delta"
+  ],
+  "canonical_feature_count": 25,
+  "missing_subgroup_rule": "ZERO_IF_EMPTY",
+  "missing_subgroup_rule_note": "If a subgroup has zero titratable side chains, mean/max/frac summaries are 0.0; difference features use 0.0 for the empty side. Subgroup counts recorded in QC only.",
+  "qc_not_canonical": [
+    "n_titratable_sidechain",
+    "n_cdr_titratable",
+    "n_interface_titratable",
+    "n_buried_titratable",
+    "sequence_length_HL",
+    "total_SASA",
+    "n_termini_groups_excluded",
+    "residue_type_counts"
+  ],
+  "excluded_from_v1": {
+    "titration_shape": "TITRATION-SHAPE_v1 (Q(pH), pI, dQ/dpH) — not run",
+    "method_sensitivity": "PKA-METHOD-SENSITIVITY_v1 (pKAI+/PypKa) — not run"
+  },
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only"
+}

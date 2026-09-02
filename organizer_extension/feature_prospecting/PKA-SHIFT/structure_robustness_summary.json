@@ -1,0 +1,35 @@
+{
+  "robustness_class": "FRAGILE",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.44917162154138596,
+    "esmfold_vs_boltz2": 0.6307082651559371,
+    "abodybuilder2_vs_boltz2": 0.5083635872909633
+  },
+  "residue_level": [
+    {
+      "pair": "esmfold_vs_abodybuilder2",
+      "n_residue_pairs": 17504,
+      "pooled_spearman_delta_pKa": 0.7966931844933429,
+      "per_ab_median_spearman": 0.8052554672409726,
+      "per_ab_mean_spearman": 0.7941643169659354,
+      "n_antibodies_with_ge5": 324
+    },
+    {
+      "pair": "esmfold_vs_boltz2",
+      "n_residue_pairs": 17834,
+      "pooled_spearman_delta_pKa": 0.8685911272844935,
+      "per_ab_median_spearman": 0.8709329864305089,
+      "per_ab_mean_spearman": 0.8647765283011634,
+      "n_antibodies_with_ge5": 324
+    },
+    {
+      "pair": "abodybuilder2_vs_boltz2",
+      "n_residue_pairs": 17596,
+      "pooled_spearman_delta_pKa": 0.8328364380783441,
+      "per_ab_median_spearman": 0.83592980742955,
+      "per_ab_mean_spearman": 0.8295943475576221,
+      "n_antibodies_with_ge5": 324
+    }
+  ],
+  "note": "FRAGILE is scientific result for structure-sensitive pKa; do not discard"
+}

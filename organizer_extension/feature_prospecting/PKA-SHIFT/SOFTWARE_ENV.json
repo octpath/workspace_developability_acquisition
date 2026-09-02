@@ -1,0 +1,9 @@
+{
+  "python": "Python 3.12.13",
+  "propka_version": "3.5.1",
+  "propka_cli": "/workspace_developability_acquisition/.venv_stage4/bin/propka3",
+  "propka_package_path": "/workspace_developability_acquisition/.venv_stage4/lib/python3.12/site-packages/propka",
+  "license": "LGPL v2.1",
+  "installation_source": ".venv_stage4 Round1 Stage4 env",
+  "biopython_sasa": "Bio.PDB.SASA.ShrakeRupley"
+}
