@@ -1,0 +1,13 @@
+PCA scale_before 32 {'method': 'scale_before', 'n_comp_requested': 32, 'pairwise_mean_of_mean_cos2': 0.847478938951762, 'pairwise_min_of_min_cos2': 0.0023750407779999758, 'class': 'HIGHLY_FOLD_DEPENDENT'}
+PCA scale_before 64 {'method': 'scale_before', 'n_comp_requested': 64, 'pairwise_mean_of_mean_cos2': 0.8136689151073091, 'pairwise_min_of_min_cos2': 2.1160399013390367e-05, 'class': 'HIGHLY_FOLD_DEPENDENT'}
+PCA center_only 32 {'method': 'center_only', 'n_comp_requested': 32, 'pairwise_mean_of_mean_cos2': 0.8594691116926871, 'pairwise_min_of_min_cos2': 0.000350262720495562, 'class': 'HIGHLY_FOLD_DEPENDENT'}
+PCA center_only 64 {'method': 'center_only', 'n_comp_requested': 64, 'pairwise_mean_of_mean_cos2': 0.817811460174519, 'pairwise_min_of_min_cos2': 0.00032107593317211595, 'class': 'HIGHLY_FOLD_DEPENDENT'}
+cross method {'mean_cos2_scale_before_vs_center_PCA32': 0.7817233845692095, 'min_cos2_scale_before_vs_center_PCA32': 0.09665143228043804, 'frobenius': 3.737606638956353}
+perf P0_CURRENT
+perf P1_CENTER_PCA32
+perf P2_CENTER_PCA64
+perf P3_RAW_ESM2
+perf P4_AROMATIC_UNSCALED_DIAGNOSTIC
+perf P5_GLOBAL_DEV_PREPROCESSING_DIAGNOSTIC_ONLY
+fixed_alpha 100.0 from {0: 100.0, 1: 100.0, 2: 100.0, 3: 100.0, 4: 100.0}
+DONE

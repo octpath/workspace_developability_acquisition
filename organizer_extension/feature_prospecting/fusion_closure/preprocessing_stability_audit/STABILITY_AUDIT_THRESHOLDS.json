@@ -1,0 +1,46 @@
+{
+  "state": "PREPROCESSING_STABILITY_THRESHOLDS_FROZEN_BEFORE_HIC_SCORING",
+  "pca_subspace_class": {
+    "STABLE": "pairwise mean_cos2_principal_angle >= 0.90 AND min_cos2 >= 0.70",
+    "MODERATELY_VARIABLE": "mean_cos2 >= 0.75 AND min_cos2 >= 0.40 (else if not STABLE)",
+    "HIGHLY_FOLD_DEPENDENT": "otherwise"
+  },
+  "aromatic_scaler_feature_flags": {
+    "rare_nonzero": "median fraction_zero across outer folds >= 0.50",
+    "near_zero_variance": "median training SD across folds < 1e-8 OR max/min SD ratio > 5 when min SD > 0",
+    "heavy_tail_or_outlier": "median abs(skewness) >= 2.0 OR median max_abs_z_of_train (using fold scaler) >= 5",
+    "fold_sd_unstable": "CV_of_SDs_across_folds >= 0.25 OR (min_SD>0 and max_SD/min_SD >= 2.0)"
+  },
+  "aromatic_sample_z_instability": {
+    "material_median_abs_z_variation": 0.25,
+    "severe_q90_abs_z_variation": 0.75
+  },
+  "controlled_ridge_alphas_P0_P1_P2_P4_P5": [
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "P3_raw_esm2_ridge_alphas": [
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "fixed_alpha_for_nested_vs_nonnested": {
+    "alpha": 100.0,
+    "source": "mode of P0_CURRENT outer-fold selected Ridge alphas",
+    "p0_outer_alphas": {
+      "0": 100.0,
+      "1": 100.0,
+      "2": 100.0,
+      "3": 100.0,
+      "4": 100.0
+    }
+  },
+  "notes": [
+    "Do not use Public/Private to choose preprocessing variant",
+    "P5 is INVALID_AS_CV_PERFORMANCE_EVIDENCE",
+    "Do not modify historical Fusion Closure result files"
+  ]
+}
