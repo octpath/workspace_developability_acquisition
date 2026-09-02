@@ -1,0 +1,12 @@
+{
+  "n_common_ids": 323,
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.0177219120549313,
+    "esmfold_vs_boltz2": 0.5580755312549632,
+    "abodybuilder2_vs_boltz2": 0.03537598614324958
+  },
+  "minimum_pairwise_median_spearman": 0.0177219120549313,
+  "median_of_pairwise_median_spearman": 0.03537598614324958,
+  "robustness_class": "FRAGILE",
+  "note_angular": "Spearman reported on raw ABangle degrees; also mean/median absolute circular differences for angles"
+}

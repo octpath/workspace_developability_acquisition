@@ -1,0 +1,54 @@
+{
+  "state": "VHL_ANGLE_V1_FEATURES_TARGET_BLIND_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "files": {
+    "organizer_extension/feature_prospecting/VHL-ANGLE/FEATURE_SPEC.json": {
+      "sha256": "7d9cdc313a773f29a4ea46b8a9790be83a76b8e03117907554f0d4b56f068861",
+      "nbytes": 2257
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/FEATURE_MANIFEST.csv": {
+      "sha256": "edcb179eb2de78b4f4823240427418aaa6547169e8e60880e030b01f9b8cd955",
+      "nbytes": 197425
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/extraction_qc.csv": {
+      "sha256": "8508df07865f3c37945f10b3a0e540698c171589d469bbfaf77bd683813a86d5",
+      "nbytes": 324980
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/framework_rmsd_qc.csv": {
+      "sha256": "aa307c9f895329f55c01b3f00d916ba0908529d1c3d6d493a130ee5ffd403fa0",
+      "nbytes": 4318
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/features_esmfold.parquet": {
+      "sha256": "f813ea38fd4e374566ca587f2e9bd3c16016131279cb863c11dd21f0314baa0e",
+      "nbytes": 55028
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/features_abodybuilder2.parquet": {
+      "sha256": "deed8ea3d663ae25f25dfdaf443eb93f7eef1f6e19679ddbdaa164e16fba6af4",
+      "nbytes": 64543
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/features_boltz2.parquet": {
+      "sha256": "21a3ed619338b6bd6b339749a6b7d3ee1255d3c22b3f249dd3078c8a820d7577",
+      "nbytes": 56489
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/structure_robustness.csv": {
+      "sha256": "b746480d054e1915941808855c39c96229cbc2923a4419869d7e528f054e7568",
+      "nbytes": 2466
+    },
+    "organizer_extension/feature_prospecting/VHL-ANGLE/structure_robustness_summary.json": {
+      "sha256": "e180247db9c41e914cf5f0172e6f91666ceb92942a4e42968424f00baabf4c21",
+      "nbytes": 484
+    }
+  },
+  "robustness_summary": {
+    "n_common_ids": 323,
+    "pairwise_median_spearman": {
+      "esmfold_vs_abodybuilder2": 0.0177219120549313,
+      "esmfold_vs_boltz2": 0.5580755312549632,
+      "abodybuilder2_vs_boltz2": 0.03537598614324958
+    },
+    "minimum_pairwise_median_spearman": 0.0177219120549313,
+    "median_of_pairwise_median_spearman": 0.03537598614324958,
+    "robustness_class": "FRAGILE",
+    "note_angular": "Spearman reported on raw ABangle degrees; also mean/median absolute circular differences for angles"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "family_id": "VHL-ANGLE",
+  "version": "v1",
+  "state_before_target_scoring": "VHL_ANGLE_V1_FEATURE_SPEC_FROZEN",
+  "primary_endpoint": "TmApp",
+  "secondary_cross_endpoint_audit": "HIC",
+  "mechanistic_prior_TmApp_display": "5_LIKELY_RELEVANT",
+  "mechanistic_prior_HIC_display": "3_RELATED_BUT_INDIRECT",
+  "orientation_definition": {
+    "framework": "ABangle (Dunbar et al., PEDS 2013)",
+    "preference_path": "A",
+    "parameters": ["HL", "HC1", "LC1", "HC2", "LC2", "dc"],
+    "parameter_meanings": {
+      "HL": "torsion angle between L1 and H1 looking down centroid vector C",
+      "HC1": "bend angle between H1 and C",
+      "LC1": "bend angle between L1 and C",
+      "HC2": "bend angle between H2 and C",
+      "LC2": "bend angle between L2 and C",
+      "dc": "length of centroid vector C (Angstrom)"
+    },
+    "numbering_scheme": "Chothia (ANARCI)",
+    "chain_policy": "ANARCI identifies VH/VL and renames to H/L; input may be H/L or A/B",
+    "alignment": "Bio.PDB Superimposer of coreset CA onto ABangle consensus H/L (not TMalign in this code path)",
+    "no_single_scalar_reduction": true
+  },
+  "software": {
+    "name": "ABangle",
+    "source": "https://github.com/jaredsampson/ABangle",
+    "installation": "vendor at VHL-ANGLE/vendor/ABangle (git 5283cd39); import via sys.path",
+    "primary_paper": {
+      "citation": "Dunbar J, Fuchs A, Shi J, Deane CM. Protein Eng Des Sel. 2013",
+      "doi": "10.1093/protein/gzt020",
+      "url": "https://doi.org/10.1093/protein/gzt020"
+    },
+    "dependencies": {
+      "anarci": "Chothia numbering",
+      "biopython": "PDB + Superimposer",
+      "numpy": true
+    }
+  },
+  "canonical_features": ["HL", "HC1", "LC1", "HC2", "LC2", "dc"],
+  "n_canonical_features": 6,
+  "angular_features": ["HL", "HC1", "LC1", "HC2", "LC2"],
+  "distance_features": ["dc"],
+  "qc_not_canonical": [
+    "n_CA_H",
+    "n_CA_L",
+    "missing_coreset_flag",
+    "framework_CA_rmsd_vs_pair",
+    "extraction_status"
+  ],
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "crosswalk": "organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_v2.csv",
+  "no_posthoc_tuning_in_v1": true,
+  "evaluation_reuse": "organizer_extension/feature_prospecting/common/ridge_eval.py (Gate2A shared)"
+}

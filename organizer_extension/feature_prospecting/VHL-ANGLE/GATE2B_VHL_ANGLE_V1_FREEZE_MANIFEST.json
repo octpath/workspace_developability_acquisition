@@ -1,0 +1,120 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_GATE2B_VHL_ANGLE_V1_COMPLETE",
+  "gate": "2B",
+  "parent_gate_state": "ORGANIZER_FEATURE_PROSPECTING_GATE2A_ANM_SPECTRUM_V1_COMPLETE",
+  "family_id": "VHL-ANGLE",
+  "version": "v1",
+  "freeze_timestamp_utc_actual": "2026-09-02T17:02:20Z",
+  "repository_git_head": "6b4cac333e066138033b0cccba0eb574f0800b3f",
+  "git_status_short_pre_commit": " M organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY_CURRENT.csv\n?? organizer_extension/feature_prospecting/METHOD_REFERENCE_REGISTRY_CURRENT.csv\n?? organizer_extension/feature_prospecting/VHL-ANGLE/\n?? organizer_extension/feature_prospecting/common/\n",
+  "extraction_success": {
+    "esmfold": 324,
+    "abodybuilder2": 323,
+    "boltz2": 324
+  },
+  "abb2_fail_ids": [
+    "ADI-47177"
+  ],
+  "robustness_class": "FRAGILE",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.0177219120549313,
+    "esmfold_vs_boltz2": 0.5580755312549632,
+    "abodybuilder2_vs_boltz2": 0.03537598614324958
+  },
+  "residual_ridge_audit_pass": true,
+  "empirical_verdict_TmApp_esmfold": "PROMISING_BUT_REDUNDANT",
+  "empirical_verdict_HIC_esmfold": "NO_EVIDENCE_IN_CURRENT_DATA",
+  "orientation": "ABangle HL/HC1/LC1/HC2/LC2/dc",
+  "files": [
+    {
+      "path": "organizer_extension/feature_prospecting/METHOD_REFERENCE_REGISTRY_CURRENT.csv",
+      "sha256": "2dd1dac7c85a392801048902c7716adcd4715d9ad7560baa1b6f9674d49d7c40",
+      "nbytes": 4898
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY_CURRENT.csv",
+      "sha256": "540c2782046c1f9b33b5d4b949a0dde97ee12237baf0906e632483532c06f3a9",
+      "nbytes": 8524
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/common/ridge_eval.py",
+      "sha256": "38e06a007422813dc05ffeedd3c97bbacef40e5106f55287a6643ac1a64da5ef",
+      "nbytes": 18556
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/FEATURE_SPEC.json",
+      "sha256": "7d9cdc313a773f29a4ea46b8a9790be83a76b8e03117907554f0d4b56f068861",
+      "nbytes": 2257
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/SOFTWARE_ENV.json",
+      "sha256": "a88a63eb873d653c713328c966a336d294f50c9544c8f29d58e6e55c89c5ae97",
+      "nbytes": 471
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/FEATURE_MANIFEST.csv",
+      "sha256": "edcb179eb2de78b4f4823240427418aaa6547169e8e60880e030b01f9b8cd955",
+      "nbytes": 197425
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/extraction_qc.csv",
+      "sha256": "8508df07865f3c37945f10b3a0e540698c171589d469bbfaf77bd683813a86d5",
+      "nbytes": 324980
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/framework_rmsd_qc.csv",
+      "sha256": "aa307c9f895329f55c01b3f00d916ba0908529d1c3d6d493a130ee5ffd403fa0",
+      "nbytes": 4318
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/features_esmfold.parquet",
+      "sha256": "f813ea38fd4e374566ca587f2e9bd3c16016131279cb863c11dd21f0314baa0e",
+      "nbytes": 55028
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/features_abodybuilder2.parquet",
+      "sha256": "deed8ea3d663ae25f25dfdaf443eb93f7eef1f6e19679ddbdaa164e16fba6af4",
+      "nbytes": 64543
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/features_boltz2.parquet",
+      "sha256": "21a3ed619338b6bd6b339749a6b7d3ee1255d3c22b3f249dd3078c8a820d7577",
+      "nbytes": 56489
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/structure_robustness.csv",
+      "sha256": "b746480d054e1915941808855c39c96229cbc2923a4419869d7e528f054e7568",
+      "nbytes": 2466
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/structure_robustness_summary.json",
+      "sha256": "e180247db9c41e914cf5f0172e6f91666ceb92942a4e42968424f00baabf4c21",
+      "nbytes": 484
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/TARGET_BLIND_ARTIFACT_HASHES.json",
+      "sha256": "9a969eef1b6d0e2c3cd4f5f0413509ef6a5c3c66beb910e9e0ea5ba44e9f8303",
+      "nbytes": 2425
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/EVALUATION_RESULTS.json",
+      "sha256": "e115f96859278bb9cf6d57804b192195f3d745db8bb704ce2f393c931cd583d9",
+      "nbytes": 24467
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/RESIDUAL_RIDGE_IMPLEMENTATION_AUDIT.json",
+      "sha256": "d8e69baf1c7a7668b22d8c29d50ee9a863fac3ae07c26a163539fdb18750b2ea",
+      "nbytes": 19068
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/REPORT_JA.md",
+      "sha256": "b52972a49b74f29c35a00733aaf1700eaff11a27eeb6219b2c7918c391a6b99d",
+      "nbytes": 3944
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE/vendor/ABangle_COMMIT.txt",
+      "sha256": "b557601465501360b75cbf2f7b31c404dc6f7b67a85b8898c896c8b852e9253f",
+      "nbytes": 41
+    }
+  ]
+}
