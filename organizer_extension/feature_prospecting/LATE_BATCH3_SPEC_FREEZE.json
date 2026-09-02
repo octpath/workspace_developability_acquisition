@@ -1,0 +1,24 @@
+{
+  "batch": "LATE_BATCH3",
+  "all_new_family_specs_frozen_before_any_new_target_score": true,
+  "families": {
+    "TITRATION-SHAPE": {
+      "state": "TITRATION_SHAPE_V1_FEATURE_SPEC_FROZEN",
+      "sha256": "e543eebbf9b78547fd51d51939c72823a6aaf16b6b3d61d93bca6acf658cd3e9",
+      "nbytes": 3152,
+      "method_status": "ESTABLISHED_METHOD_IMPLEMENTED"
+    },
+    "OPENMM-STRAIN": {
+      "state": "OPENMM_STRAIN_V1_FEATURE_SPEC_FROZEN",
+      "sha256": "9f78281a0d683d71ab1477df50bb3ed244d514f34806932a7f3defb310b4291c",
+      "nbytes": 2904,
+      "method_status": "ESTABLISHED_METHOD_IMPLEMENTED"
+    },
+    "SURFACE-DL": {
+      "state": "SURFACE_DL_V1_FEATURE_SPEC_FROZEN",
+      "sha256": "5389532957ebcaf616a5ac280268e4c89d36ba864b5fa2d9491c830873159fe4",
+      "nbytes": 1777,
+      "method_status": "METHOD_BLOCKED"
+    }
+  }
+}

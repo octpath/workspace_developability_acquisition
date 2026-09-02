@@ -1,0 +1,81 @@
+{
+  "family_id": "OPENMM-STRAIN",
+  "version": "v1",
+  "state": "OPENMM_STRAIN_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "TmApp",
+  "secondary_target": "HIC",
+  "mechanistic_prior": {"TmApp": "4_PLAUSIBLY_RELEVANT", "HIC": "1_NO_CLEAR_MECHANISTIC_LINK"},
+  "method_status": "ESTABLISHED_METHOD_IMPLEMENTED",
+  "terminology": {
+    "required": "structural strain / relaxation response probe",
+    "forbidden_as_central": ["absolute initial energy as primary descriptor", "ΔG", "binding free energy"]
+  },
+  "method": {
+    "reference_type": "SOFTWARE",
+    "name": "OpenMM local energy minimization strain response",
+    "primary_paper": {
+      "title": "OpenMM 7: Rapid development of high performance algorithms for molecular dynamics",
+      "doi": "10.1371/journal.pcbi.1005659",
+      "url": "https://doi.org/10.1371/journal.pcbi.1005659"
+    },
+    "software": "OpenMM",
+    "software_version": "8.6.0",
+    "repository_url": "https://github.com/openmm/openmm",
+    "force_field_files": ["amber14-all.xml"]
+  },
+  "preparation_aligned_with": "INTERFACE-ENERGY_v1",
+  "protocol": {
+    "MD": false,
+    "protonation": {
+      "tool": "pdb2pqr30",
+      "ff": "AMBER",
+      "with_ph": 7.0,
+      "neutralc": false,
+      "output": "PDB with hydrogens"
+    },
+    "openmm": {
+      "forcefield": "amber14-all.xml",
+      "nonbondedMethod": "NoCutoff",
+      "constraints": null,
+      "removeCMMotion": false,
+      "platform": "CPU",
+      "solvent": "none (vacuum strain probe)"
+    },
+    "minimization": {
+      "engine": "openmm.app.LocalEnergyMinimizer.minimize",
+      "tolerance_kJ_per_mol_per_nm": 10.0,
+      "maxIterations": 500
+    }
+  },
+  "canonical_features": [
+    "delta_E_total",
+    "delta_E_per_residue",
+    "CA_RMSD_pre_post",
+    "all_heavy_RMSD_pre_post",
+    "VH_CA_RMSD",
+    "VL_CA_RMSD",
+    "interface_CA_RMSD",
+    "initial_force_RMS",
+    "initial_force_q95",
+    "initial_force_max",
+    "final_force_RMS",
+    "final_force_q95",
+    "clash_relief_fraction",
+    "severe_clash_count_before",
+    "severe_clash_count_after"
+  ],
+  "canonical_feature_count": 15,
+  "qc_not_canonical": [
+    "E_before",
+    "E_after",
+    "n_residues",
+    "min_HL_atom_distance_before",
+    "GENERATOR_GEOMETRY_ARTIFACT_DOMINATED_flag"
+  ],
+  "interface_definition": {"heavy_atom_cutoff_A": 4.5},
+  "clash_definition": "cross-chain or intra heavy-atom pair distance < 2.2 Å (all heavy pairs within 2.2 counted)",
+  "artifact_rule": "If |Spearman(delta_E_total, severe_clash_count_before)| >= 0.7 OR |Spearman(CA_RMSD_pre_post, severe_clash_count_before)| >= 0.7 on pooled SUCCESS structures per generator => GENERATOR_GEOMETRY_ARTIFACT_DOMINATED",
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only",
+  "anti_posthoc": "Do not retune tolerance/iterations/FF after targets; any change => OPENMM-STRAIN_v2_POSTHOC"
+}

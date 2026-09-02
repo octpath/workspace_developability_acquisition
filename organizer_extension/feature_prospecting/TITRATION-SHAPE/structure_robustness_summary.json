@@ -1,0 +1,26 @@
+{
+  "robustness_class": "ROBUST",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.9410515731258767,
+    "esmfold_vs_boltz2": 0.9437255784005012,
+    "abodybuilder2_vs_boltz2": 0.9528600284018242
+  },
+  "overall_median_spearman": 0.9437255784005012,
+  "curve_agreement": {
+    "esmfold_vs_abodybuilder2": {
+      "median_curve_RMSE": 3.12995419496969,
+      "median_curve_corr": 0.9855586645930883,
+      "n": 324
+    },
+    "esmfold_vs_boltz2": {
+      "median_curve_RMSE": 1.097990039701709,
+      "median_curve_corr": 0.9979162341713856,
+      "n": 324
+    },
+    "abodybuilder2_vs_boltz2": {
+      "median_curve_RMSE": 2.5602644698636765,
+      "median_curve_corr": 0.9868501216927743,
+      "n": 324
+    }
+  }
+}

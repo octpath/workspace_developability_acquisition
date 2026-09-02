@@ -1,0 +1,73 @@
+{
+  "aromatic_features": [
+    "seq_Y_count",
+    "seq_W_count",
+    "seq_F_count",
+    "seq_YWF_total",
+    "seq_YWF_fraction",
+    "CDR_seq_Y_count",
+    "CDR_seq_W_count",
+    "CDR_seq_F_count",
+    "CDR_seq_YWF_total"
+  ],
+  "polar_features": [
+    "seq_polar_count",
+    "seq_polar_fraction",
+    "seq_donor_capable_count",
+    "seq_acceptor_capable_count",
+    "seq_polar_uncharged_count",
+    "seq_charged_count",
+    "CDR_seq_polar_count",
+    "CDR_seq_polar_fraction"
+  ],
+  "DONOR_CAPABLE": [
+    "H",
+    "K",
+    "N",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "W",
+    "Y"
+  ],
+  "ACCEPTOR_CAPABLE": [
+    "D",
+    "E",
+    "H",
+    "N",
+    "Q",
+    "S",
+    "T",
+    "Y"
+  ],
+  "POLAR_UNCHARGED": [
+    "N",
+    "Q",
+    "S",
+    "T",
+    "W",
+    "Y"
+  ],
+  "CHARGED": [
+    "D",
+    "E",
+    "H",
+    "K",
+    "R"
+  ],
+  "POLAR_ALL": [
+    "D",
+    "E",
+    "H",
+    "K",
+    "N",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "W",
+    "Y"
+  ],
+  "note": "POST_COMPETITION_DIAGNOSTIC; does not alter historical family verdicts"
+}

@@ -1,0 +1,185 @@
+{
+  "state": "LATE_BATCH3_TARGET_BLIND_FROZEN",
+  "all_new_family_specs_frozen_before_any_new_target_score": true,
+  "families": {
+    "TITRATION-SHAPE": {
+      "state": "TITRATION_SHAPE_V1_FEATURE_SPEC_FROZEN",
+      "method_status": "ESTABLISHED_METHOD_IMPLEMENTED",
+      "robustness": {
+        "robustness_class": "ROBUST",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.9410515731258767,
+          "esmfold_vs_boltz2": 0.9437255784005012,
+          "abodybuilder2_vs_boltz2": 0.9528600284018242
+        },
+        "overall_median_spearman": 0.9437255784005012,
+        "curve_agreement": {
+          "esmfold_vs_abodybuilder2": {
+            "median_curve_RMSE": 3.12995419496969,
+            "median_curve_corr": 0.9855586645930883,
+            "n": 324
+          },
+          "esmfold_vs_boltz2": {
+            "median_curve_RMSE": 1.097990039701709,
+            "median_curve_corr": 0.9979162341713856,
+            "n": 324
+          },
+          "abodybuilder2_vs_boltz2": {
+            "median_curve_RMSE": 2.5602644698636765,
+            "median_curve_corr": 0.9868501216927743,
+            "n": 324
+          }
+        }
+      }
+    },
+    "OPENMM-STRAIN": {
+      "state": "OPENMM_STRAIN_V1_FEATURE_SPEC_FROZEN",
+      "method_status": "ESTABLISHED_METHOD_IMPLEMENTED",
+      "robustness": {
+        "robustness_class": "FRAGILE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.10775369797041626,
+          "esmfold_vs_boltz2": 0.19191271290342501,
+          "abodybuilder2_vs_boltz2": 0.16577280304834488
+        },
+        "overall_median_spearman": 0.16577280304834488
+      }
+    },
+    "SURFACE-DL": {
+      "state": "SURFACE_DL_V1_FEATURE_SPEC_FROZEN",
+      "method_status": "METHOD_BLOCKED",
+      "robustness": {
+        "robustness_class": "METHOD_BLOCKED",
+        "note": "No embeddings extracted"
+      }
+    }
+  },
+  "signal_source_audit": "organizer_extension/feature_prospecting/SIGNAL_SOURCE_AUDIT/SIGNAL_SOURCE_AUDIT_JA.md",
+  "files": [
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/FEATURE_SPEC.json",
+      "sha256": "e543eebbf9b78547fd51d51939c72823a6aaf16b6b3d61d93bca6acf658cd3e9",
+      "nbytes": 3152
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/FEATURE_MANIFEST.csv",
+      "sha256": "81a597bc5856d184ec37e8503a7233d3cfc8b5c9d1b2d63df2793fc76c3745aa",
+      "nbytes": 264214
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/extraction_qc.csv",
+      "sha256": "81a597bc5856d184ec37e8503a7233d3cfc8b5c9d1b2d63df2793fc76c3745aa",
+      "nbytes": 264214
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/structure_robustness.csv",
+      "sha256": "9bda5970c207625d7508067b6b2439398f90573770a3735e7e85a4ca21d4d53b",
+      "nbytes": 4912
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/structure_robustness_summary.json",
+      "sha256": "a8bee89a1ca1e5b4058a3690312ce7e41cd28fa7a647e1dcfe8ab0ea3a7f1725",
+      "nbytes": 734
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/features_esmfold.parquet",
+      "sha256": "34aa72ee02b2841d3b6bf7dfab5bc39df80489a89161a7dc116f839533a4cf2c",
+      "nbytes": 52197
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/features_abodybuilder2.parquet",
+      "sha256": "aeb8ff6e6c5c26bc33ccd4189f3564b849c81188d20a329e43d95f2007483d72",
+      "nbytes": 52173
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/features_boltz2.parquet",
+      "sha256": "5111f5d93ee61b9f8e6d0a34fd65fb410046902c4b7f0d4300bd2008be0301de",
+      "nbytes": 52188
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/titration_curves_esmfold.parquet",
+      "sha256": "2440de5fb8f987ec5bc162b30169ce62a9e72bdf51854970e915bdb1256c9c10",
+      "nbytes": 162587
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/titration_curves_abodybuilder2.parquet",
+      "sha256": "23217b366b411852bde9a13fe2465b4bf8256f6afcb61eef1e7339a269cf0ef2",
+      "nbytes": 162616
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/TITRATION-SHAPE/titration_curves_boltz2.parquet",
+      "sha256": "58758c33edcfaeae1531db8541ee97e99b380595a60f21455a8351e677714613",
+      "nbytes": 162583
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/FEATURE_SPEC.json",
+      "sha256": "9f78281a0d683d71ab1477df50bb3ed244d514f34806932a7f3defb310b4291c",
+      "nbytes": 2904
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/FEATURE_MANIFEST.csv",
+      "sha256": "a591c23b683925a9cbb20aa50aa73acb7ac8f2d42c42196577bc4824926fb550",
+      "nbytes": 340935
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/extraction_qc.csv",
+      "sha256": "a591c23b683925a9cbb20aa50aa73acb7ac8f2d42c42196577bc4824926fb550",
+      "nbytes": 340935
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/structure_robustness.csv",
+      "sha256": "115c52f1ff5819b61818ff1db1c46a2fb1c4699c1b0cd8d49631668f52689f5e",
+      "nbytes": 5633
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/structure_robustness_summary.json",
+      "sha256": "87800aa5eaa338b3993316982b6292dca1321e5d7ffb19baf1464d476289a11d",
+      "nbytes": 273
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/features_esmfold.parquet",
+      "sha256": "2e72a3678e385ca387d593a3f3644cd5a4cf369f2b8275081e3a9132813a588b",
+      "nbytes": 67252
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/features_abodybuilder2.parquet",
+      "sha256": "a853642fa7be3d82376ce3d0af089a8ce9aaea912c9035ff802a29689b631f13",
+      "nbytes": 66589
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/features_boltz2.parquet",
+      "sha256": "2df7dd08f99b4780f662d1a4d074cfba7fe53f06bebb656be3e505ac465d346c",
+      "nbytes": 67143
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/OPENMM-STRAIN/geometry_artifact_audit.json",
+      "sha256": "31d0e7e6e5be6e9147143dd918172f1fafb5f831597d3f3519abfd852d1a7983",
+      "nbytes": 543
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/SURFACE-DL/FEATURE_SPEC.json",
+      "sha256": "5389532957ebcaf616a5ac280268e4c89d36ba864b5fa2d9491c830873159fe4",
+      "nbytes": 1777
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/SURFACE-DL/structure_robustness_summary.json",
+      "sha256": "45bf3665b99d6785459aac73e4182aa3c20b59e574c4d431296cec56fcce0906",
+      "nbytes": 80
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/SIGNAL_SOURCE_AUDIT/SIGNAL_SOURCE_AUDIT_RESULTS.json",
+      "sha256": "54b306c8f4ef746311004d50808d2fa2476789653deb70cac02e65d2d2a0ec61",
+      "nbytes": 9316
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/SIGNAL_SOURCE_AUDIT/SIGNAL_SOURCE_AUDIT_JA.md",
+      "sha256": "53c5f92c6074a6ce8b4fdb74a3a67adb35cd61303d8c4198219ce0fbc191d8e8",
+      "nbytes": 1849
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/LATE_BATCH3_SPEC_FREEZE.json",
+      "sha256": "3f02f0dc3289a9a730a537a532f159abd87b602038db6f376b9f683a8ecc65d9",
+      "nbytes": 839
+    }
+  ]
+}

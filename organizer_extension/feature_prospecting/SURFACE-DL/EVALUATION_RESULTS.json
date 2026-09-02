@@ -1,0 +1,12 @@
+{
+  "family_id": "SURFACE-DL",
+  "version": "v1",
+  "method_status": "METHOD_BLOCKED",
+  "feasibility_decision": "METHOD_BLOCKED_DEPENDENCY_OR_LICENSE",
+  "TmApp": {
+    "empirical_verdict": "METHOD_BLOCKED"
+  },
+  "HIC": {
+    "empirical_verdict": "METHOD_BLOCKED"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "robustness_class": "FRAGILE",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.10775369797041626,
+    "esmfold_vs_boltz2": 0.19191271290342501,
+    "abodybuilder2_vs_boltz2": 0.16577280304834488
+  },
+  "overall_median_spearman": 0.16577280304834488
+}

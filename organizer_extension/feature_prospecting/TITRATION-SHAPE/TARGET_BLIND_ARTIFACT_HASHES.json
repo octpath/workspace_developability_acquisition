@@ -1,0 +1,50 @@
+{
+  "state": "TITRATION_SHAPE_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "artifacts": {
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/FEATURE_SPEC.json": {
+      "sha256": "e543eebbf9b78547fd51d51939c72823a6aaf16b6b3d61d93bca6acf658cd3e9",
+      "nbytes": 3152
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/FEATURE_MANIFEST.csv": {
+      "sha256": "81a597bc5856d184ec37e8503a7233d3cfc8b5c9d1b2d63df2793fc76c3745aa",
+      "nbytes": 264214
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/extraction_qc.csv": {
+      "sha256": "81a597bc5856d184ec37e8503a7233d3cfc8b5c9d1b2d63df2793fc76c3745aa",
+      "nbytes": 264214
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/structure_robustness.csv": {
+      "sha256": "9bda5970c207625d7508067b6b2439398f90573770a3735e7e85a4ca21d4d53b",
+      "nbytes": 4912
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/structure_robustness_summary.json": {
+      "sha256": "a8bee89a1ca1e5b4058a3690312ce7e41cd28fa7a647e1dcfe8ab0ea3a7f1725",
+      "nbytes": 734
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/features_esmfold.parquet": {
+      "sha256": "34aa72ee02b2841d3b6bf7dfab5bc39df80489a89161a7dc116f839533a4cf2c",
+      "nbytes": 52197
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/features_abodybuilder2.parquet": {
+      "sha256": "aeb8ff6e6c5c26bc33ccd4189f3564b849c81188d20a329e43d95f2007483d72",
+      "nbytes": 52173
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/features_boltz2.parquet": {
+      "sha256": "5111f5d93ee61b9f8e6d0a34fd65fb410046902c4b7f0d4300bd2008be0301de",
+      "nbytes": 52188
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/titration_curves_esmfold.parquet": {
+      "sha256": "2440de5fb8f987ec5bc162b30169ce62a9e72bdf51854970e915bdb1256c9c10",
+      "nbytes": 162587
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/titration_curves_abodybuilder2.parquet": {
+      "sha256": "23217b366b411852bde9a13fe2465b4bf8256f6afcb61eef1e7339a269cf0ef2",
+      "nbytes": 162616
+    },
+    "organizer_extension/feature_prospecting/TITRATION-SHAPE/titration_curves_boltz2.parquet": {
+      "sha256": "58758c33edcfaeae1531db8541ee97e99b380595a60f21455a8351e677714613",
+      "nbytes": 162583
+    }
+  }
+}

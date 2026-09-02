@@ -1,0 +1,17 @@
+{
+  "esmfold": {
+    "spearman_deltaE_vs_clash": -0.15944405753119867,
+    "spearman_CA_RMSD_vs_clash": 0.07124816114109422,
+    "GENERATOR_GEOMETRY_ARTIFACT_DOMINATED": false
+  },
+  "abodybuilder2": {
+    "spearman_deltaE_vs_clash": -0.13201765378314007,
+    "spearman_CA_RMSD_vs_clash": 0.024757069963010112,
+    "GENERATOR_GEOMETRY_ARTIFACT_DOMINATED": false
+  },
+  "boltz2": {
+    "spearman_deltaE_vs_clash": -0.3980485892793558,
+    "spearman_CA_RMSD_vs_clash": 0.064632045969435,
+    "GENERATOR_GEOMETRY_ARTIFACT_DOMINATED": false
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "family_id": "TITRATION-SHAPE",
+  "version": "v1",
+  "state": "TITRATION_SHAPE_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "TmApp",
+  "secondary_target": "HIC",
+  "mechanistic_prior": {"TmApp": "5_LIKELY_RELEVANT", "HIC": "3_RELATED_BUT_INDIRECT"},
+  "method_status": "ESTABLISHED_METHOD_IMPLEMENTED",
+  "method_choice": {
+    "preferred_candidate": "PypKa",
+    "selected": "PROPKA3_HENDERSON_HASSELBALCH_INDEPENDENT_SITE",
+    "reason": "PypKa 2.10.0 installs but delphi4py ships no cp312 extension modules; not reproducible on project Python 3.12. Selected before any target scoring.",
+    "limitation": "independent-site approximation (no PB cooperative electrostatics)"
+  },
+  "method": {
+    "reference_type": "COMPOSITE",
+    "name": "PROPKA3 side-chain pKa → Henderson–Hasselbalch net charge titration Q(pH)",
+    "propka_paper": {
+      "title": "PROPKA3: Consistent Treatment of Internal and Surface Residues in Empirical pKa Predictions",
+      "doi": "10.1021/ct100578z",
+      "url": "https://doi.org/10.1021/ct100578z"
+    },
+    "pypka_paper_not_used": {
+      "title": "PypKa: A Flexible Python Module for Poisson–Boltzmann-Based pKa Calculations",
+      "doi": "10.1021/acs.jcim.0c00718",
+      "url": "https://doi.org/10.1021/acs.jcim.0c00718",
+      "repo": "https://github.com/mms-fcul/PypKa"
+    },
+    "software": "propka==3.5.1",
+    "repository_url": "https://github.com/jensengroup/propka"
+  },
+  "termini_policy": {
+    "primary": "side_chain_only",
+    "exclude_from_primary_Q": ["N+", "C-"],
+    "qc_only": "full_Fv_with_termini Q(pH) retained for QC, not canonical predictors",
+    "rationale": "isolated VH/VL C-termini are artificial relative to Fab"
+  },
+  "pH_grid": {"start": 4.0, "stop": 10.0, "step": 0.25},
+  "report_pH_points": [5.0, 6.0, 6.5, 7.0, 7.4, 8.0],
+  "charge_model": {
+    "acids": {"residues": ["ASP", "GLU", "CYS", "TYR"], "q": "-1/(1+10^(pKa-pH))"},
+    "bases": {"residues": ["HIS", "LYS", "ARG"], "q": "+1/(1+10^(pH-pKa))"},
+    "disulfide_sentinel": "exclude CYS with pKa>=99.0 (PROPKA disulfide sentinel; consistent with PKA technical correction)"
+  },
+  "canonical_features": [
+    "Q_pH5",
+    "Q_pH6",
+    "Q_pH6_5",
+    "Q_pH7",
+    "Q_pH7_4",
+    "Q_pH8",
+    "Q_range_4_10",
+    "max_abs_dQ_dpH",
+    "pH_at_max_abs_dQ_dpH",
+    "mean_abs_dQ_dpH_5_8",
+    "charge_transition_width",
+    "number_of_major_switch_regions",
+    "Q_CDR_pH6_5",
+    "Q_CDR_pH7_4"
+  ],
+  "canonical_feature_count": 14,
+  "feature_definitions": {
+    "Q_range_4_10": "max(Q)-min(Q) on frozen grid",
+    "dQ_dpH": "central finite difference on grid",
+    "charge_transition_width": "pH width where |dQ/dpH| >= 0.5 * max_abs_dQ_dpH (contiguous max span)",
+    "number_of_major_switch_regions": "count of contiguous grid segments where |dQ/dpH| >= 0.5 * max_abs_dQ_dpH"
+  },
+  "qc_not_canonical": ["Q_full_with_termini_pH7_4", "n_sidechain_sites", "n_excluded_cys_sentinel"],
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only",
+  "anti_posthoc": "Do not retune pH grid/thresholds after targets; any change => TITRATION-SHAPE_v2_POSTHOC"
+}

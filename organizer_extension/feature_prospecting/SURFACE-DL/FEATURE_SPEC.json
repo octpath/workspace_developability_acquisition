@@ -1,0 +1,34 @@
+{
+  "family_id": "SURFACE-DL",
+  "version": "v1",
+  "state": "SURFACE_DL_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "HIC",
+  "secondary_target": "TmApp",
+  "mechanistic_prior": {"HIC": "4_PLAUSIBLY_RELEVANT", "TmApp": "3_RELATED_BUT_INDIRECT"},
+  "method_status": "METHOD_BLOCKED",
+  "feasibility_decision": "METHOD_BLOCKED_DEPENDENCY_OR_LICENSE",
+  "feasibility_audit": {
+    "candidates_inspected": ["MaSIF", "dMaSIF"],
+    "dmasif_repo": "https://github.com/FreyrS/dMaSIF",
+    "dmasif_paper_url": "https://doi.org/10.1007/978-3-030-87199-4_5",
+    "dmasif_license": "CC BY-NC-ND 4.0 (non-commercial, no derivatives)",
+    "pretrained_weights": "Not reliably hosted for frozen inference (HF issue #44; no project-local checkpoint)",
+    "masif_notes": "Heavy legacy deps (MSMS/pymesh); not installed in project envs",
+    "decision_rationale": "Cannot guarantee reproducible frozen pretrained inference without violating license constraints or training on N=162 labels (forbidden overfit). METHOD_BLOCKED is an acceptable scientific result.",
+    "forbidden": ["fine-tuning", "supervised surface network training from competition labels"]
+  },
+  "method": {
+    "reference_type": "SOFTWARE",
+    "name": "dMaSIF / MaSIF (not executed)",
+    "primary_paper": {
+      "title": "Fast end-to-end learning on protein surfaces (dMaSIF)",
+      "url": "https://doi.org/10.1007/978-3-030-87199-4_5"
+    },
+    "repository_url": "https://github.com/FreyrS/dMaSIF"
+  },
+  "canonical_features": [],
+  "canonical_feature_count": 0,
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only",
+  "anti_posthoc": "Blocked family; do not un-block post-hoc after seeing other family scores without a new v2 feasibility package"
+}

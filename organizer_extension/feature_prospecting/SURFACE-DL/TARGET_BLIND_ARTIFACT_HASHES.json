@@ -1,0 +1,14 @@
+{
+  "state": "SURFACE_DL_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": false,
+  "artifacts": {
+    "organizer_extension/feature_prospecting/SURFACE-DL/FEATURE_SPEC.json": {
+      "sha256": "5389532957ebcaf616a5ac280268e4c89d36ba864b5fa2d9491c830873159fe4",
+      "nbytes": 1777
+    },
+    "organizer_extension/feature_prospecting/SURFACE-DL/structure_robustness_summary.json": {
+      "sha256": "45bf3665b99d6785459aac73e4182aa3c20b59e574c4d431296cec56fcce0906",
+      "nbytes": 80
+    }
+  }
+}
