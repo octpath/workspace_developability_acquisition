@@ -12,7 +12,7 @@ Software: **PROPKA 3.5.1** (LGPL v2.1; Round1 `.venv_stage4`)
 | Target | Mechanistic prior | Empirical verdict | One-line conclusion |
 |--------|-------------------|-------------------|---------------------|
 | TmApp | `5_LIKELY_RELEVANT` | **MIXED** | ESMFold 25-ΔpKa Ridge is standalone-reproducible vs median baseline, but residual increment is weak/mixed; ABB2/Boltz do not reproduce |
-| HIC | `4_PLAUSIBLY_RELEVANT` | **NO_EVIDENCE_IN_CURRENT_DATA`** | Same frozen features show no standalone/incremental HIC signal |
+| HIC | `4_PLAUSIBLY_RELEVANT` | **NO_EVIDENCE_IN_CURRENT_DATA** | Same frozen features show no standalone/incremental HIC signal |
 
 Pre-Gate2C audit: [GATE2AB_CONSISTENCY_AUDIT.md](../GATE2AB_CONSISTENCY_AUDIT.md) — common Ridge infra **PASS**; VHL ABB2 → `VHL-ANGLE_v1_TECHNICAL_REVIEW`.
 
