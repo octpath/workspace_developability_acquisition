@@ -1,0 +1,35 @@
+family_id,version,target,physical_quantity,mechanistic_prior,evidence_grade,standalone_signal,incremental_signal,split_reproducibility,structure_robustness,empirical_verdict,one_line_interpretation,next_priority
+ANM-SPECTRUM,v1,TmApp,elastic-network low-frequency mode spectrum / collective flexibility,LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Collective flexibility is a primary TmApp mechanistic candidate.,HIGH
+ANM-SPECTRUM,v1,HIC,elastic-network low-frequency mode spectrum / collective flexibility,UNLIKELY_PRIMARY,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Mode spectra are unlikely a primary HIC driver.,LOW
+VHL-ANGLE,v1,TmApp,VH-VL domain orientation / packing angles,LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,VH-VL orientation is a plausible Fab stability geometry signal.,HIGH
+VHL-ANGLE,v1,HIC,VH-VL domain orientation / packing angles,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Orientation may reshape surface only indirectly for HIC.,LOW
+PKA-SHIFT,v1,TmApp,residue ΔpKa / Q(pH) titration summaries,LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,ΔpKa / titration strain is a strong TmApp electrostatic-stability candidate.,HIGH
+PKA-SHIFT,v1,HIC,residue ΔpKa / Q(pH) titration summaries,PLAUSIBLY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Charge/pKa may weakly modulate HIC via surface polarity.,MEDIUM
+3DI-FROZEN,v1,TmApp,Foldseek 3Di / ProstT5-SaProt frozen structural tokens,PLAUSIBLY_RELEVANT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Frozen 3Di embeddings may carry opaque stability correlates.,HIGH
+3DI-FROZEN,v1,HIC,Foldseek 3Di / ProstT5-SaProt frozen structural tokens,PLAUSIBLY_RELEVANT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Frozen 3Di embeddings may carry opaque retention correlates.,HIGH
+AROMATIC-TOPO,v1,TmApp,Tyr/Trp/Phe-specific surface topology / exposure geometry,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Aromatic topology is only an indirect TmApp factor.,LOW
+AROMATIC-TOPO,v1,HIC,Tyr/Trp/Phe-specific surface topology / exposure geometry,LIKELY_RELEVANT,HIGH,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Aromatic surface topology is a primary HIC candidate.,HIGH
+STATIC-SAP,v1,TmApp,canonical static spatial aggregation propensity,RELATED_BUT_INDIRECT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,SAP relates more to aggregation than melting temperature.,LOW
+STATIC-SAP,v1,HIC,canonical static spatial aggregation propensity,LIKELY_RELEVANT,HIGH,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Canonical SAP is a primary HIC/surface-hydrophobicity candidate.,HIGH
+VOID-EXPLICIT,v1,TmApp,explicit cavity / void volume (fpocket/pyKVFinder-style),LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Explicit cavities are classical packing-defect / TmApp candidates.,MEDIUM
+VOID-EXPLICIT,v1,HIC,explicit cavity / void volume (fpocket/pyKVFinder-style),UNLIKELY_PRIMARY,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Internal voids are unlikely primary HIC drivers.,LOW
+POLAR-SAT,v1,TmApp,buried polar / H-bond satisfaction,LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Buried polar satisfaction is a core conformational-stability mechanism.,MEDIUM
+POLAR-SAT,v1,HIC,buried polar / H-bond satisfaction,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Polar satisfaction is only indirectly related to HIC.,LOW
+OPENMM-STRAIN,v1,TmApp,OpenMM relaxation strain / residual force / ΔE proxies,PLAUSIBLY_RELEVANT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Relaxation strain is plausible for TmApp but predicted-PDB fragile.,MEDIUM
+OPENMM-STRAIN,v1,HIC,OpenMM relaxation strain / residual force / ΔE proxies,NO_CLEAR_MECHANISTIC_LINK,SPECULATIVE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,No clear mechanistic link from MM strain to HIC.,STOP_FOR_NOW
+ENCOM-CHEM,v1,TmApp,ENCoM chemically sensitive normal modes,LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Chemically aware modes extend ANM-like TmApp relevance.,MEDIUM
+ENCOM-CHEM,v1,HIC,ENCoM chemically sensitive normal modes,UNLIKELY_PRIMARY,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,ENCoM modes are unlikely primary HIC features.,LOW
+INTERFACE-ENERGY,v1,TmApp,VH-VL interface energetics / contact energy proxies,LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Fv interface energetics are a direct Fab stability candidate.,MEDIUM
+INTERFACE-ENERGY,v1,HIC,VH-VL interface energetics / contact energy proxies,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Interface energy is only indirect for HIC.,LOW
+HYDRO-FIELD,v1,TmApp,continuous molecular-surface hydrophobic field,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Hydrophobic fields are indirect for TmApp.,LOW
+HYDRO-FIELD,v1,HIC,continuous molecular-surface hydrophobic field,LIKELY_RELEVANT,HIGH,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Continuous hydrophobic field is a primary HIC candidate.,MEDIUM
+ELEC-HYDRO-COPATCH,v1,TmApp,electrostatic × hydrophobic co-patches,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Electro-hydrophobic co-patches are indirect for TmApp.,LOW
+ELEC-HYDRO-COPATCH,v1,HIC,electrostatic × hydrophobic co-patches,LIKELY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Co-patches are a plausible HIC surface-chemistry candidate.,MEDIUM
+GEARNET-FROZEN,v1,TmApp,GearNet frozen geometric GNN embedding,PLAUSIBLY_RELEVANT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,GearNet may encode opaque geometry related to stability.,MEDIUM
+GEARNET-FROZEN,v1,HIC,GearNet frozen geometric GNN embedding,PLAUSIBLY_RELEVANT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,GearNet may encode opaque geometry related to retention.,MEDIUM
+SURFACE-DL,v1,TmApp,MaSIF/dMaSIF-like surface deep learning descriptors,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Surface DL is more interaction-oriented than TmApp-primary.,LOW
+SURFACE-DL,v1,HIC,MaSIF/dMaSIF-like surface deep learning descriptors,PLAUSIBLY_RELEVANT,MODERATE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Surface DL is a plausible but license-constrained HIC candidate.,LOW
+SHORT-ENSEMBLE,v1,TmApp,short MD / conformer ensemble summaries,PLAUSIBLY_RELEVANT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Short ensembles may refine flexibility/stability estimates.,LOW
+SHORT-ENSEMBLE,v1,HIC,short MD / conformer ensemble summaries,RELATED_BUT_INDIRECT,LOW,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,Ensembles may weakly affect averaged surface exposure for HIC.,LOW
+MLFF,v1,TmApp,ML force-field energies / forces on predicted structures,PLAUSIBLY_RELEVANT,SPECULATIVE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,MLFF energies are speculative stability proxies on predicted PDBs.,LOW
+MLFF,v1,HIC,ML force-field energies / forces on predicted structures,NO_CLEAR_MECHANISTIC_LINK,SPECULATIVE,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,NOT_RUN,MLFF has no clear HIC mechanistic path under current setup.,STOP_FOR_NOW

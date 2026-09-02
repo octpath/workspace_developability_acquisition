@@ -1,0 +1,31 @@
+{
+  "crosswalk_version": "v1",
+  "n_rows": 324,
+  "split_counts": {
+    "DEV": 162,
+    "PUBLIC": 81,
+    "PRIVATE": 81
+  },
+  "esmfold_exists": 324,
+  "abb2_exists": 324,
+  "mapping_status_counts": {
+    "PASS": 324
+  },
+  "esmfold_heavy_match_counts": {
+    "EXACT_MATCH": 324
+  },
+  "esmfold_light_match_counts": {
+    "EXACT_MATCH": 324
+  },
+  "abb2_heavy_match_counts": {
+    "EXACT_MATCH": 324
+  },
+  "abb2_light_match_counts": {
+    "EXACT_MATCH": 324
+  },
+  "canonical_path_source": {
+    "antibody_id_path": 324,
+    "pair_hash_path_fallback": 0
+  },
+  "output": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK.csv"
+}
