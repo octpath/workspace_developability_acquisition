@@ -1,0 +1,15 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_LATE_BATCH3_AND_POSTMORTEM_COMPLETE",
+  "all_new_family_specs_frozen_before_any_new_target_score": true,
+  "signal_source_audit": {
+    "AROMATIC_HIC": "GEOMETRY_ADDS_SIGNAL",
+    "POLAR_SAT_TmApp": "UNRESOLVED"
+  },
+  "families": {
+    "TITRATION-SHAPE": {"status": "COMPLETE", "robustness": "ROBUST", "TmApp": "MIXED", "HIC": "NO_EVIDENCE_IN_CURRENT_DATA"},
+    "OPENMM-STRAIN": {"status": "COMPLETE", "robustness": "FRAGILE", "TmApp": "MIXED", "HIC": "NO_EVIDENCE_IN_CURRENT_DATA", "artifact_dominated": false},
+    "SURFACE-DL": {"status": "METHOD_BLOCKED_DEPENDENCY_OR_LICENSE"}
+  },
+  "postmortem": "organizer_extension/feature_prospecting/FEATURE_PROSPECTING_POSTMORTEM_V1_JA.md",
+  "freeze_manifest": "organizer_extension/feature_prospecting/LATE_BATCH3_TARGET_BLIND_FREEZE_MANIFEST.json"
+}
