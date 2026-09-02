@@ -1,0 +1,670 @@
+{
+  "TmApp": {
+    "esmfold": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 720404162778,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 751148355585,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 908069017143,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 771638069717,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 285367779282,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "abodybuilder2": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 720404162778,
+          "residual_alpha": 10.0,
+          "reference_inner": [
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 751148355585,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 908069017143,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 771638069717,
+          "residual_alpha": 10.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 285367779282,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "boltz2": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 720404162778,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 751148355585,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 908069017143,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 771638069717,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 285367779282,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    }
+  },
+  "HIC": {
+    "esmfold": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 720404162778,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 751148355585,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 908069017143,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 771638069717,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 285367779282,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "abodybuilder2": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 720404162778,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 751148355585,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 908069017143,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 771638069717,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 285367779282,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "boltz2": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 720404162778,
+          "residual_alpha": 10.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 751148355585,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_ids_hash": 908069017143,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 771638069717,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_ids_hash": 285367779282,
+          "residual_alpha": 100.0,
+          "reference_inner": [],
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    }
+  },
+  "overall_pass": true
+}

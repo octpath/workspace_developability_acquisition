@@ -33,3 +33,5 @@ release_staging/
 !antibody_developability_competition_v1.0-rc3.zip
 !antibody_developability_competition_v1.0.zip
 
+.venv_anm/
+organizer_extension/feature_prospecting/ANM-SPECTRUM/boltz2_rows/

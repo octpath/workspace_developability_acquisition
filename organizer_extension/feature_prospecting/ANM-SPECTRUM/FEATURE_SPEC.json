@@ -1,0 +1,100 @@
+{
+  "family_id": "ANM-SPECTRUM",
+  "version": "v1",
+  "state_before_target_scoring": "ANM_SPECTRUM_V1_FEATURE_SPEC_FROZEN",
+  "primary_endpoint": "TmApp",
+  "secondary_cross_endpoint_audit": "HIC",
+  "mechanistic_prior_TmApp_display": "5_LIKELY_RELEVANT",
+  "mechanistic_prior_HIC_display": "2_UNLIKELY_PRIMARY",
+  "software": {
+    "name": "ProDy",
+    "package": "prody",
+    "installation_source": "pip install prody",
+    "repository_url": "https://github.com/prody/ProDy",
+    "documentation_url": "https://www.bahargroup.org/prody/",
+    "license": "GPL-compatible (ProDy LICENSE; see upstream)",
+    "primary_method_paper": {
+      "citation": "Atilgan AR et al. Biophys J 2001",
+      "doi": "10.1016/S0006-3495(01)76033-X",
+      "url": "https://doi.org/10.1016/S0006-3495(01)76033-X"
+    },
+    "software_paper": {
+      "citation": "Bakan A, Meireles LM, Bahar I. Bioinformatics 2011",
+      "doi": "10.1093/bioinformatics/btr168",
+      "url": "https://doi.org/10.1093/bioinformatics/btr168"
+    }
+  },
+  "anm_definition": {
+    "model": "Anisotropic Network Model",
+    "nodes": "C-alpha atoms only",
+    "scope": "complete Fv VH+VL as one network",
+    "cutoff_angstrom": 15.0,
+    "gamma": 1.0,
+    "n_modes": 20,
+    "n_modes_meaning": "20 non-zero modes after discarding rigid-body zeros",
+    "gamma_interpretation": "arbitrary scale; eigenvalues are NOT experimental frequencies or physical spring constants",
+    "scientific_quantity": "relative low-frequency mechanical softness / rigidity spectrum implied by predicted Fv geometry"
+  },
+  "prody_api": {
+    "build": "ANM.buildHessian(calpha, cutoff=15.0, gamma=1.0)",
+    "modes": "ANM.calcModes(n_modes=20)",
+    "eigenvalues": "ANM.getEigvals() — ProDy returns non-zero mode eigenvalues ascending",
+    "collectivity": "prody.calcCollectivity(mode) — standard ProDy definition on mass-weighted/normalized mode vector"
+  },
+  "canonical_features": [
+    "log_lambda_1",
+    "log_lambda_2",
+    "log_lambda_3",
+    "log_lambda_5",
+    "log_lambda_10",
+    "log_lambda_20",
+    "log_gmean_lambda_1_3",
+    "log_gmean_lambda_1_5",
+    "log_gmean_lambda_1_10",
+    "log_gmean_lambda_1_20",
+    "log_softness_1_5",
+    "log_softness_1_10",
+    "log_softness_1_20",
+    "softness_fraction_first5",
+    "spectral_slope_1_20",
+    "lambda2_over_lambda1",
+    "lambda5_over_lambda1",
+    "collectivity_mode1",
+    "collectivity_mean_modes1_5",
+    "collectivity_mean_modes1_10"
+  ],
+  "n_canonical_features": 20,
+  "feature_formulas": {
+    "lambda_k": "k-th non-zero ANM eigenvalue, ascending",
+    "log_*": "natural logarithm",
+    "log_gmean_lambda_1_K": "mean(log(lambda_1..lambda_K))",
+    "softness_K": "sum_{k=1..K} 1/lambda_k",
+    "softness_fraction_first5": "softness_1_5 / softness_1_20",
+    "spectral_slope_1_20": "OLS slope of log(lambda_k) vs log(k) for k=1..20",
+    "lambda2_over_lambda1": "lambda_2 / lambda_1",
+    "lambda5_over_lambda1": "lambda_5 / lambda_1",
+    "collectivity_mode1": "calcCollectivity(mode_1)",
+    "collectivity_mean_modes1_K": "mean calcCollectivity(mode_k) for k=1..K"
+  },
+  "qc_confound_not_canonical": [
+    "n_residue",
+    "n_CA",
+    "n_edges",
+    "mean_degree",
+    "network_density",
+    "structure_confidence",
+    "severe_clash_count",
+    "severe_clash_per_100_residues",
+    "missing_CA",
+    "nan_coords",
+    "detected_zero_modes",
+    "extra_zero_modes"
+  ],
+  "structure_qc_clash": {
+    "definition": "Cα–Cα pairs with distance < 2.0 Å, excluding same-chain |resseq_i-resseq_j|<=1",
+    "anm_exclusion": false
+  },
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "crosswalk": "organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_v2.csv",
+  "no_posthoc_tuning_in_v1": true
+}

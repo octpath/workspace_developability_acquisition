@@ -1,0 +1,11 @@
+{
+  "n_common_ids": 324,
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.6190115812406835,
+    "esmfold_vs_boltz2": 0.5699494588658676,
+    "abodybuilder2_vs_boltz2": 0.5141947377241496
+  },
+  "minimum_pairwise_median_spearman": 0.5141947377241496,
+  "median_of_pairwise_median_spearman": 0.5699494588658676,
+  "robustness_class": "MODERATE"
+}

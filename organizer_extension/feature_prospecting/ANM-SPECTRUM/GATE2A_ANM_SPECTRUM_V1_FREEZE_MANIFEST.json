@@ -1,0 +1,124 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_GATE2A_ANM_SPECTRUM_V1_COMPLETE",
+  "gate": "2A",
+  "parent_gate_state": "ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN",
+  "family_id": "ANM-SPECTRUM",
+  "version": "v1",
+  "freeze_timestamp_utc_actual": "2026-09-02T16:16:32Z",
+  "repository_git_head": "69f95f297a2b71cfefc7676212ac4326b7cd9b64",
+  "git_status_short_pre_commit": "?? .venv_anm/\n?? organizer_extension/feature_prospecting/ANM-SPECTRUM/\n?? organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY_CURRENT.csv\n?? organizer_extension/feature_prospecting/GATE1_2_METHOD_REFERENCE_ADDENDUM.md\n?? organizer_extension/feature_prospecting/GATE2A_CONTRACT_ADDENDUM.md\n?? organizer_extension/feature_prospecting/METHOD_REFERENCE_REGISTRY.csv\n",
+  "prody_version": "2.6.1",
+  "extraction_success": {
+    "esmfold": 324,
+    "abodybuilder2": 324,
+    "boltz2": 324
+  },
+  "robustness_class": "MODERATE",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.6190115812406835,
+    "esmfold_vs_boltz2": 0.5699494588658676,
+    "abodybuilder2_vs_boltz2": 0.5141947377241496
+  },
+  "residual_ridge_audit_pass": true,
+  "empirical_verdict_TmApp_esmfold": "NO_EVIDENCE_IN_CURRENT_DATA",
+  "empirical_verdict_HIC_esmfold": "NO_EVIDENCE_IN_CURRENT_DATA",
+  "target_scoring_started_after_feature_freeze": true,
+  "no_posthoc_tuning": true,
+  "files": [
+    {
+      "path": "organizer_extension/feature_prospecting/GATE1_2_METHOD_REFERENCE_ADDENDUM.md",
+      "sha256": "62598d5c364e6c7015d215bf4d164f4327246e99cb9b3c7dc87ffed633b75e31",
+      "nbytes": 954
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/GATE2A_CONTRACT_ADDENDUM.md",
+      "sha256": "b15b10d5a609519fa652c654645f1152aa280526e8a307b6c23579217492a792",
+      "nbytes": 2087
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/METHOD_REFERENCE_REGISTRY.csv",
+      "sha256": "a2a82a260dcfad662e57408735018c22949dd46a6b0c403273f75dbd1a56303f",
+      "nbytes": 5522
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY_CURRENT.csv",
+      "sha256": "ddbf0c51f62b3006213a522a6666de7033e733119fc7680430dc06b051c06694",
+      "nbytes": 8272
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/FEATURE_SPEC.json",
+      "sha256": "a9ec73ddac8034eb279f328c41caa708affaa841997d4ae3891a716996df76b5",
+      "nbytes": 3733
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/SOFTWARE_ENV.json",
+      "sha256": "d181344b3cb2e668faf34d726e81f974a9427831ae7fff7c588a5364188466a4",
+      "nbytes": 355
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/FEATURE_MANIFEST.csv",
+      "sha256": "2e6fcc4f1621a1f1cb0fd3007e724ab5fcbcd2b8106a805b0eb5c2a1b06e600d",
+      "nbytes": 206134
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/extraction_qc.csv",
+      "sha256": "081035ed481624e6bca66dc8ab9e95ecb47f54d320a61fa6aeb395747684e1e9",
+      "nbytes": 690747
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/features_esmfold.parquet",
+      "sha256": "c9df639208b78b16cb8919965884c8315bccb74f707eca1bb22a17c5107e7b3f",
+      "nbytes": 123797
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/features_abodybuilder2.parquet",
+      "sha256": "c367e6183fef29fe90f391f6d3ebfccd2e5b2848574a33e31db8da3007b5dbac",
+      "nbytes": 132461
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/features_boltz2.parquet",
+      "sha256": "6a307c8c2bae6ade5f31c5da83c43655cbaf2c9623a5e927afe2cdf14a0ba9fc",
+      "nbytes": 132344
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/structure_robustness.csv",
+      "sha256": "985671442f8a18758fe8aa1b76bd112a3b943bf114952910c0ce61670c3b2ced",
+      "nbytes": 6043
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/structure_robustness_summary.json",
+      "sha256": "537a7a14ca56d1d9ccb8acb944aec8c6fafdc7741ecde8deca68e9b7d8b8968e",
+      "nbytes": 362
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/confound_spearman.csv",
+      "sha256": "cea4d1bba4664c5ef3d987ee6bf91faa5356c025fe069daa8498b33f1c284f9b",
+      "nbytes": 14494
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/TARGET_BLIND_ARTIFACT_HASHES.json",
+      "sha256": "204a04fb17c7938ce78d17dd587f93103127329c755d360a0ba29c9e201b8283",
+      "nbytes": 2335
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/EVALUATION_RESULTS.json",
+      "sha256": "7ba261b50de0e0e4962e8ac71ece9dd14ee780fd7308586c4afb51538e4a4fd8",
+      "nbytes": 23480
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/RESIDUAL_RIDGE_IMPLEMENTATION_AUDIT.json",
+      "sha256": "068850e704a6663a63d7897c566546f909bda90248347ae173ce95037c77a949",
+      "nbytes": 18252
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/REPORT_JA.md",
+      "sha256": "a9929db5631997ccac9f6d4f39f0bceda3c5baf6153daafdf5e6e2730a4bceac",
+      "nbytes": 5060
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ANM-SPECTRUM/BOLTZ2_MSA_PROVENANCE.csv",
+      "sha256": "0e155e820e514c49a7da006d3c7a9768ca96c8206267b266dc95d177ba65d8bb",
+      "nbytes": 27655
+    }
+  ]
+}

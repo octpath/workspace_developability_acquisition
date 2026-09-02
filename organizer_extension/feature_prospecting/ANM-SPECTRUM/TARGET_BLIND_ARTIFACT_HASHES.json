@@ -1,0 +1,53 @@
+{
+  "state": "ANM_SPECTRUM_V1_FEATURES_TARGET_BLIND_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "files": {
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/FEATURE_SPEC.json": {
+      "sha256": "a9ec73ddac8034eb279f328c41caa708affaa841997d4ae3891a716996df76b5",
+      "nbytes": 3733
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/FEATURE_MANIFEST.csv": {
+      "sha256": "2e6fcc4f1621a1f1cb0fd3007e724ab5fcbcd2b8106a805b0eb5c2a1b06e600d",
+      "nbytes": 206134
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/extraction_qc.csv": {
+      "sha256": "081035ed481624e6bca66dc8ab9e95ecb47f54d320a61fa6aeb395747684e1e9",
+      "nbytes": 690747
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/features_esmfold.parquet": {
+      "sha256": "c9df639208b78b16cb8919965884c8315bccb74f707eca1bb22a17c5107e7b3f",
+      "nbytes": 123797
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/features_abodybuilder2.parquet": {
+      "sha256": "c367e6183fef29fe90f391f6d3ebfccd2e5b2848574a33e31db8da3007b5dbac",
+      "nbytes": 132461
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/features_boltz2.parquet": {
+      "sha256": "6a307c8c2bae6ade5f31c5da83c43655cbaf2c9623a5e927afe2cdf14a0ba9fc",
+      "nbytes": 132344
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/structure_robustness.csv": {
+      "sha256": "985671442f8a18758fe8aa1b76bd112a3b943bf114952910c0ce61670c3b2ced",
+      "nbytes": 6043
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/structure_robustness_summary.json": {
+      "sha256": "537a7a14ca56d1d9ccb8acb944aec8c6fafdc7741ecde8deca68e9b7d8b8968e",
+      "nbytes": 362
+    },
+    "organizer_extension/feature_prospecting/ANM-SPECTRUM/confound_spearman.csv": {
+      "sha256": "cea4d1bba4664c5ef3d987ee6bf91faa5356c025fe069daa8498b33f1c284f9b",
+      "nbytes": 14494
+    }
+  },
+  "robustness_summary": {
+    "n_common_ids": 324,
+    "pairwise_median_spearman": {
+      "esmfold_vs_abodybuilder2": 0.6190115812406835,
+      "esmfold_vs_boltz2": 0.5699494588658676,
+      "abodybuilder2_vs_boltz2": 0.5141947377241496
+    },
+    "minimum_pairwise_median_spearman": 0.5141947377241496,
+    "median_of_pairwise_median_spearman": 0.5699494588658676,
+    "robustness_class": "MODERATE"
+  }
+}
