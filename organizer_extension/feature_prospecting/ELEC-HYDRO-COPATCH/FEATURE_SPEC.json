@@ -1,0 +1,80 @@
+{
+  "family_id": "ELEC-HYDRO-COPATCH",
+  "version": "v1",
+  "state": "ELEC_HYDRO_COPATCH_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "HIC",
+  "secondary_target": "TmApp",
+  "mechanistic_prior": {"HIC": "4_PLAUSIBLY_RELEVANT", "TmApp": "3_RELATED_BUT_INDIRECT"},
+  "dependency": {
+    "requires": "HYDRO-FIELD_v1 frozen surface + H(s)",
+    "same_surface_as": "HYDRO-FIELD",
+    "if_hydro_blocked": "METHOD_BLOCKED"
+  },
+  "method_status": "ESTABLISHED_METHOD_IMPLEMENTED",
+  "method": {
+    "reference_type": "COMPOSITE",
+    "name": "APBS electrostatic potential on Fauchère MLP hydrophobic surface (co-patch)",
+    "electrostatics_paper": {
+      "title": "Adaptive Poisson-Boltzmann Solver (APBS)",
+      "url": "https://doi.org/10.1002/jcc.10344",
+      "doi": "10.1002/jcc.10344"
+    },
+    "pdb2pqr_paper": {
+      "title": "PDB2PQR: expanding and upgrading automated preparation of biomolecular structures for molecular simulations",
+      "url": "https://doi.org/10.1093/nar/gkm276"
+    },
+    "hydro_field": "See HYDRO-FIELD FEATURE_SPEC (Audry MLP + Fauchère–Pliska π)",
+    "software": "pdb2pqr30 + APBS + shared HYDRO-FIELD surface",
+    "repository_url_apbs": "https://github.com/Electrostatics/apbs",
+    "repository_url_pdb2pqr": "https://github.com/Electrostatics/pdb2pqr",
+    "documentation_url": "https://apbs.readthedocs.io/"
+  },
+  "electrostatics": {
+    "source_protocol": "Stage4 extract_stage4_features.write_apbs_in (exact reuse)",
+    "pH": 6.5,
+    "ionic_strength_M": 0.15,
+    "pdb2pqr": {
+      "tool": "pdb2pqr30",
+      "ff": "AMBER",
+      "with_ph": 6.5,
+      "neutralc": false,
+      "neutraln": false,
+      "notes": "pdb2pqr --neutralc only works with PARSE FF (tool constraint). Stage4-consistent AMBER@pH6.5 retained; cannot neutralize artificial Fv C-termini without leaving AMBER/OpenMM stack."
+    },
+    "apbs": {
+      "binary": "/usr/bin/apbs",
+      "lpbe": true,
+      "pdie": 2.0,
+      "sdie": 78.54,
+      "srad": 1.4,
+      "sdens": 10.0,
+      "dime": [97, 97, 97],
+      "ion": "±1 at 0.15 M, radius 2.0"
+    },
+    "sampling": "trilinear/nearest interpolation of pot.dx at identical HYDRO surface vertices"
+  },
+  "limitations": ["ARTIFICIAL_FV_C_TERMINUS_LIMITATION"],
+  "thresholds": {
+    "high_H": "within-structure top 20% H(s) (quantile 0.80)",
+    "high_abs_phi": "within-structure top 20% |phi(s)| (quantile 0.80)",
+    "positive_phi": "phi(s) > 0",
+    "negative_phi": "phi(s) < 0"
+  },
+  "patch": {"vertex_link_distance_A": 2.0},
+  "canonical_features": [
+    "corr_H_absPhi",
+    "corr_H_phi",
+    "area_frac_highH_highAbsPhi",
+    "area_frac_highH_positivePhi",
+    "area_frac_highH_negativePhi",
+    "largest_highH_highAbsPhi_patch_area_fraction",
+    "largest_highH_positivePhi_patch_area_fraction",
+    "largest_highH_negativePhi_patch_area_fraction",
+    "CDR_area_frac_highH_highAbsPhi"
+  ],
+  "canonical_feature_count": 9,
+  "prespec_comparison": "HYDRO-FIELD standalone vs ELEC-HYDRO-COPATCH standalone (no post-hoc hydro+copatch joint model in v1)",
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only",
+  "anti_posthoc": "Do not retune electrostatic/co-patch thresholds after targets; any change => ELEC-HYDRO-COPATCH_v2_POSTHOC"
+}

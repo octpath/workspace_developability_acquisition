@@ -1,0 +1,75 @@
+{
+  "family_id": "3DI-FROZEN",
+  "version": "v1",
+  "state": "3DI_FROZEN_V1_FEATURE_SPEC_FROZEN",
+  "method_id": "FOLDSEEK_3DI__PROSTT5_FROZEN",
+  "primary_target": "BOTH",
+  "mechanistic_prior": {"TmApp": "4_PLAUSIBLY_RELEVANT", "HIC": "4_PLAUSIBLY_RELEVANT"},
+  "method_status": "ESTABLISHED_METHOD_IMPLEMENTED",
+  "method": {
+    "reference_type": "COMPOSITE",
+    "name": "Foldseek structure→3Di tokens + frozen ProstT5 encoder embeddings",
+    "foldseek_paper": {
+      "title": "Fast and accurate protein structure search with Foldseek",
+      "authors": "van Kempen M et al.",
+      "year": 2024,
+      "doi": "10.1038/s41587-023-01773-0",
+      "url": "https://doi.org/10.1038/s41587-023-01773-0"
+    },
+    "prostt5_paper": {
+      "title": "Bilingual language model for protein sequence and structure",
+      "authors": "Heinzinger M et al.",
+      "year": 2024,
+      "doi": "10.1093/nargab/lqae152",
+      "url": "https://doi.org/10.1093/nargab/lqae152"
+    },
+    "foldseek_repo": "https://github.com/steineggerlab/foldseek",
+    "prostt5_repo": "https://github.com/mheinzinger/ProstT5",
+    "prostt5_model_card": "https://huggingface.co/Rostlab/ProstT5",
+    "prostt5_model_id": "Rostlab/ProstT5",
+    "software_versions_frozen_at_run": "recorded in extraction_qc / freeze manifest"
+  },
+  "pipeline": {
+    "order": ["generator PDB/mmCIF", "Foldseek structureto3didescriptor", "ProstT5 encoder", "mean-pool per chain", "HL_CONCAT"],
+    "forbidden": "Do NOT use ProstT5 AA→3Di prediction; 3Di must come from structure via Foldseek",
+    "foldseek_cmd": "foldseek structureto3didescriptor <pdb> <out> --chain-name-mode 1 --threads N",
+    "chain_handling": "H and L separately; sequence-index-aligned 3Di strings; no raw HL concat before mapping"
+  },
+  "prostt5_encoding": {
+    "prefix": "<fold2AA>",
+    "3di_case": "lower-case",
+    "whitespace": "space between residue tokens",
+    "extract": "last_hidden_state mean over residue positions excluding special tokens",
+    "fine_tuning": false
+  },
+  "canonical_representation": {
+    "primary": "HL_CONCAT",
+    "definition": "concat(mean_pool(H_emb), mean_pool(L_emb))",
+    "diagnostics_allowed": ["H_mean", "L_mean"],
+    "no_posthoc_choice": true
+  },
+  "dimensionality_reduction": {
+    "scaler": "StandardScaler fold-local (train only)",
+    "pca_n_components": 32,
+    "pca_frozen": true,
+    "model": "Ridge alpha in [0.1,1,10,100]",
+    "fitting": "exact nested Primary CV; scaler+PCA fit on outer-train only"
+  },
+  "embedding_robustness_thresholds_prespecified": {
+    "ROBUST": {
+      "median_token_identity_HL_mean": 0.70,
+      "median_cosine_HL": 0.90,
+      "distance_matrix_spearman": 0.80
+    },
+    "MODERATE": {
+      "median_token_identity_HL_mean": 0.40,
+      "median_cosine_HL": 0.70,
+      "distance_matrix_spearman": 0.50
+    },
+    "else": "FRAGILE",
+    "aggregation": "require ALL three metrics to meet the class floor; label is min over generator pairs then worst-pair drives class"
+  },
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only",
+  "anti_posthoc": "Do not retune pooling/PCA dim/model after targets; any change => 3DI-FROZEN_v2_POSTHOC"
+}

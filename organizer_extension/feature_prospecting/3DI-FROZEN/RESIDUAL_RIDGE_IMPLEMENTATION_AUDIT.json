@@ -1,0 +1,584 @@
+{
+  "audits": {
+    "TmApp_esmfold": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "pca_n": 32,
+      "test_residual_alpha": 100.0
+    },
+    "TmApp_abodybuilder2": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "pca_n": 32,
+      "test_residual_alpha": 100.0
+    },
+    "TmApp_boltz2": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "pca_n": 32,
+      "test_residual_alpha": 100.0
+    },
+    "HIC_esmfold": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "pca_n": 32,
+      "test_residual_alpha": 100.0
+    },
+    "HIC_abodybuilder2": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "pca_n": 32,
+      "test_residual_alpha": 100.0
+    },
+    "HIC_boltz2": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "pca_n": 32,
+      "test_residual_alpha": 100.0
+    }
+  },
+  "overall_pass": true
+}

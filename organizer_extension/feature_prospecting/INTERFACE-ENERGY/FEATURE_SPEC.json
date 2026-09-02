@@ -1,0 +1,85 @@
+{
+  "family_id": "INTERFACE-ENERGY",
+  "version": "v1",
+  "state": "INTERFACE_ENERGY_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "TmApp",
+  "secondary_target": "HIC",
+  "mechanistic_prior": {"TmApp": "5_LIKELY_RELEVANT", "HIC": "3_RELATED_BUT_INDIRECT"},
+  "terminology": {
+    "required": "fixed-coordinate VH–VL force-field interaction proxy",
+    "forbidden": ["ΔG_binding", "experimental interface energy", "folding free energy"]
+  },
+  "method_status": "ESTABLISHED_METHOD_IMPLEMENTED",
+  "method": {
+    "reference_type": "SOFTWARE",
+    "name": "OpenMM fixed-coordinate cross-chain Nonbonded interface energy proxy",
+    "primary_paper": {
+      "title": "OpenMM 7: Rapid development of high performance algorithms for molecular dynamics",
+      "authors": "Eastman P et al.",
+      "year": 2017,
+      "doi": "10.1371/journal.pcbi.1005659",
+      "url": "https://doi.org/10.1371/journal.pcbi.1005659"
+    },
+    "software": "OpenMM",
+    "software_version": "8.6.0",
+    "repository_url": "https://github.com/openmm/openmm",
+    "documentation_url": "https://openmm.org/",
+    "force_field_files": ["amber14-all.xml"]
+  },
+  "protocol": {
+    "minimization": false,
+    "MD": false,
+    "coordinates": "fixed generator PDB after pdb2pqr protonation",
+    "protonation": {
+      "tool": "pdb2pqr30",
+      "ff": "AMBER",
+      "with_ph": 7.0,
+      "neutralc": false,
+      "output": "PDB with hydrogens",
+      "notes": "--neutralc incompatible with AMBER in pdb2pqr30; ARTIFICIAL_FV_C_TERMINUS_LIMITATION recorded"
+    },
+    "limitations": ["ARTIFICIAL_FV_C_TERMINUS_LIMITATION"],
+    "openmm": {
+      "forcefield": "amber14-all.xml",
+      "nonbondedMethod": "NoCutoff",
+      "constraints": null,
+      "removeCMMotion": false,
+      "platform": "CPU"
+    },
+    "interface_definition": {
+      "rule": "residue is interface if any heavy atom is within cutoff of any heavy atom on the other chain",
+      "heavy_atom_cutoff_A": 4.5,
+      "source": "Round1 CONTACT_DIST-compatible structural proximity"
+    },
+    "energy": {
+      "scope": "sum NonbondedForce Coulomb+LJ over atom pairs with i in H-interface and j in L-interface only",
+      "coulomb_constant_kJ_mol_nm": "OpenMM NonbondedForce default (ONE_4PI_EPS0)",
+      "interpretation": "RELATIVE STATIC PROXY — not experimentally calibrated absolute energies"
+    }
+  },
+  "canonical_features": [
+    "E_vdw_interface",
+    "E_coulomb_interface",
+    "E_nonbonded_total_interface",
+    "E_vdw_per_iface_residue",
+    "E_coulomb_per_iface_residue",
+    "E_nonbonded_per_iface_residue",
+    "E_vdw_per_buried_SASA",
+    "favorable_vdw_fraction"
+  ],
+  "canonical_feature_count": 8,
+  "qc_not_canonical": [
+    "interface_residue_count",
+    "interface_contact_count",
+    "buried_interface_SASA",
+    "severe_clash_count",
+    "min_HL_atom_distance",
+    "generator_confidence_if_available"
+  ],
+  "geometry_artifact_rule": "If |Spearman(E_vdw_interface, severe_clash_count)| >= 0.5 on target-blind Dev+Test pooled per generator, record GEOMETRY_ARTIFACT_CONCERN",
+  "clash_definition": "cross-chain heavy-atom pair distance < 2.2 Å",
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only",
+  "feasibility_block": "If consistent parameterization/protonation fails across generators => METHOD_BLOCKED (do not substitute contact counts as INTERFACE-ENERGY)",
+  "anti_posthoc": "Do not retune FF/cutoff/components after targets; any change => INTERFACE-ENERGY_v2_POSTHOC"
+}

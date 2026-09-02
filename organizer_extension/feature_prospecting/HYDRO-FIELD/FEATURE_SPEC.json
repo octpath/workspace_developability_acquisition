@@ -1,0 +1,95 @@
+{
+  "family_id": "HYDRO-FIELD",
+  "version": "v1",
+  "state": "HYDRO_FIELD_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "HIC",
+  "secondary_target": "TmApp",
+  "mechanistic_prior": {"HIC": "5_LIKELY_RELEVANT", "TmApp": "3_RELATED_BUT_INDIRECT"},
+  "method_status": "TRANSPARENT_LITERATURE_INSPIRED_IMPLEMENTATION",
+  "method_status_notes": "No single vendor-canonical protein MHP package frozen here; Fauchère-style exponential MLP on FreeSASA SAS points with Fauchère–Pliska π is literature-supported and fully specified target-blind.",
+  "method": {
+    "reference_type": "REPRESENTATIVE_METHOD",
+    "name": "Molecular Lipophilicity / Hydrophobicity Potential (Fauchère exponential MLP)",
+    "primary_paper": {
+      "title": "A new approach to structure-activity relations: the \"molecular lipophilicity potential\"",
+      "authors": "Audry E; Dubost JP; Colleter JC; Dallet P",
+      "year": 1986,
+      "journal": "Eur J Med Chem 21:71-72",
+      "doi": null,
+      "url": "https://www.sciencedirect.com/journal/european-journal-of-medicinal-chemistry/vol/21/issue/1",
+      "notes": "Foundational MLP note; no stable DOI found in publisher records — cite via journal volume/pages. Related Audry 1989 DOI 10.1016/0223-5234(89)90109-8."
+    },
+    "related_mlp_paper_with_doi": {
+      "title": "Application of molecular lipophilicity potential to a series of β-adrenolytic amines",
+      "year": 1989,
+      "doi": "10.1016/0223-5234(89)90109-8",
+      "url": "https://doi.org/10.1016/0223-5234(89)90109-8"
+    },
+    "parameter_paper": {
+      "title": "Hydrophobic parameters π of amino-acid side chains from the partitioning of N-acetyl-amino-acid amides",
+      "authors": "Fauchère JL; Pliska V",
+      "year": 1983,
+      "journal": "Eur J Med Chem Chim Ther 18:369-375",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6628424/"
+    },
+    "software": "FreeSASA (Lee–Richards SAS) + in-house Fauchère MLP field",
+    "software_version": "freesasa 2.2.1",
+    "repository_url": "https://github.com/mittinatten/freesasa",
+    "documentation_url": "https://freesasa.github.io/"
+  },
+  "surface": {
+    "shared_with": ["ELEC-HYDRO-COPATCH"],
+    "algorithm": "FreeSASA LeeRichards atomic SASA + deterministic Fibonacci SAS-sphere sampling on heavy atoms",
+    "probe_radius_A": 1.4,
+    "atom_radii": "FreeSASA default ProtOr classifier radii",
+    "hydrogens": "IGNORED (heavy atoms only; no protonation for HYDRO surface)",
+    "density_points_per_A2": 0.35,
+    "max_surface_points": 2000,
+    "min_atomic_sasa_A2": 0.5,
+    "point_keep_rule": "point on sphere radius (r_vdw+probe) kept if outside all other atoms' (r_vdw+probe-0.05)"
+  },
+  "hydrophobic_field": {
+    "formula": "H(s) = sum_i f_i * exp(-alpha * ||s - x_i||) for heavy atoms i with ||s-x_i|| <= cutoff",
+    "alpha_per_A": 1.0,
+    "cutoff_A": 7.0,
+    "f_i_assignment": "residue-level Fauchère–Pliska π applied to every heavy atom of that residue",
+    "fauchere_pliska_pi": {
+      "A": 0.31, "R": -1.01, "N": -0.60, "D": -0.77, "C": 1.54,
+      "Q": -0.22, "E": -0.64, "G": 0.00, "H": 0.13, "I": 1.80,
+      "L": 1.70, "K": -0.99, "M": 1.23, "F": 1.79, "P": 0.72,
+      "S": -0.04, "T": 0.26, "W": 2.25, "Y": 0.96, "V": 1.22
+    },
+    "kernel_source": "Fauchère exponential e^{-d} as used in MLP implementations (e.g. ChimeraX mlp method=fauchere)"
+  },
+  "high_H_definition": {
+    "rule": "within-structure surface quantile",
+    "quantile": 0.80,
+    "meaning": "top 20% H(s) vertices are high-H"
+  },
+  "patch": {
+    "vertex_link_distance_A": 2.0,
+    "area_per_vertex": "equal weight 1/N_surface (fraction features); absolute area proxy = n_vertices (not Å²-calibrated)"
+  },
+  "cdr": "IMGT via cdr_sequence_index_imgt.csv; CDR vertices = nearest residue sequence index is CDR",
+  "canonical_features": [
+    "mean_H_surface",
+    "q75_H_surface",
+    "q90_H_surface",
+    "q95_H_surface",
+    "max_H_surface",
+    "positive_H_area_fraction",
+    "top10_H_mean",
+    "top10_H_area_fraction",
+    "high_H_patch_count",
+    "largest_high_H_patch_area_fraction",
+    "largest_high_H_patch_n_vertices",
+    "CDR_mean_H",
+    "CDR_q90_H",
+    "CDR_high_H_area_fraction"
+  ],
+  "canonical_feature_count": 14,
+  "comparisons_prespecified": ["AROMATIC-TOPO", "STATIC-SAP"],
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only",
+  "anti_posthoc": "Do not retune alpha/cutoff/quantile/scale after target scoring; any change => HYDRO-FIELD_v2_POSTHOC"
+}

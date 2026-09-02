@@ -1,0 +1,66 @@
+{
+  "state": "3DI_FROZEN_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "artifacts": {
+    "organizer_extension/feature_prospecting/3DI-FROZEN/FEATURE_SPEC.json": {
+      "sha256": "5e8afea1e05e12e93cfc2ca11f460dad6eb55b1da1b1a7a7479d4e448a2103b8",
+      "nbytes": 3219
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/FEATURE_MANIFEST.csv": {
+      "sha256": "1c59f378d5061965f1cbcc13f5198a6861d0850e95e24bc7befc2b2d51ac5ae8",
+      "nbytes": 42020854
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/extraction_qc.csv": {
+      "sha256": "1c59f378d5061965f1cbcc13f5198a6861d0850e95e24bc7befc2b2d51ac5ae8",
+      "nbytes": 42020854
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/structure_robustness.csv": {
+      "sha256": "459d8f657a18b37e83f54a468b620d2e97feb4ff42497310ba74928f1771e6f5",
+      "nbytes": 661
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/structure_robustness_summary.json": {
+      "sha256": "1cfc4662db4426e04df765378cfc5ba577432b4aa208ec9d038815445e692db8",
+      "nbytes": 1880
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/features_esmfold.parquet": {
+      "sha256": "257171408ed2fd10a8c3781d4288e199bac4b518862002a1cbdbe6cf42205418",
+      "nbytes": 5909010
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/features_abodybuilder2.parquet": {
+      "sha256": "331a3825dce1fc477752c0f476e8cf29929a8cac23be8987f274f2e99a132048",
+      "nbytes": 5917406
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/features_boltz2.parquet": {
+      "sha256": "5e7ad2dfd6ced16741c8f32c3e6bcd11e7585b98a4333666a08da2f3c367a7aa",
+      "nbytes": 5909471
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/tokens_esmfold.parquet": {
+      "sha256": "b1d625985272ea8985fd445668472e84cf521535cb4686bf1195ee950ae40555",
+      "nbytes": 37161
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/tokens_abodybuilder2.parquet": {
+      "sha256": "a9c945b5a8945a319786a8802e2349f9a116626083ff6195cddb5aa7f2f17728",
+      "nbytes": 41402
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/tokens_boltz2.parquet": {
+      "sha256": "a0a4e32b1dffa700b3770d41b4300ef9eba6f7a61f8cf54d6eae61d6e72363b6",
+      "nbytes": 38404
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/embeddings_esmfold.parquet": {
+      "sha256": "247b72a6816fc1946ff1327abcb7ac56208d53703a56cee899bbd716f3dda8b7",
+      "nbytes": 5884350
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/embeddings_abodybuilder2.parquet": {
+      "sha256": "82b119d29f7623d10b1789104b9fc92d1672ace858dc6aea7eb04055901b363a",
+      "nbytes": 5892747
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/embeddings_boltz2.parquet": {
+      "sha256": "f5c7a9bf4c84b6817a07ca2b284b3123ae1f76212d71fbe492bad4858b67e8f1",
+      "nbytes": 5884812
+    },
+    "organizer_extension/feature_prospecting/3DI-FROZEN/method_runtime_meta.json": {
+      "sha256": "2424551a61c6a807b964b7674dc718a2c50220694858b2effaea22b3688a628c",
+      "nbytes": 193
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "robustness_class": "MODERATE",
+  "per_pair_class": {
+    "esmfold_vs_abodybuilder2": "MODERATE",
+    "esmfold_vs_boltz2": "MODERATE",
+    "abodybuilder2_vs_boltz2": "MODERATE"
+  },
+  "pair_stats": {
+    "esmfold_vs_abodybuilder2": {
+      "median_token_identity_H": 0.7580645161290323,
+      "median_token_identity_L": 0.7952545141094274,
+      "median_token_identity_HL_mean": 0.774128136681384,
+      "median_cosine_H": 0.9864360810909611,
+      "median_cosine_L": 0.9901867225492349,
+      "median_cosine_HL": 0.9879328278242301,
+      "distance_matrix_spearman": 0.7126078066121807,
+      "n": 324
+    },
+    "esmfold_vs_boltz2": {
+      "median_token_identity_H": 0.806587150989428,
+      "median_token_identity_L": 0.8349069208158902,
+      "median_token_identity_HL_mean": 0.8199641355578982,
+      "median_cosine_H": 0.9892815181391206,
+      "median_cosine_L": 0.9920759030277071,
+      "median_cosine_HL": 0.9902727920875034,
+      "distance_matrix_spearman": 0.75262149754,
+      "n": 324
+    },
+    "abodybuilder2_vs_boltz2": {
+      "median_token_identity_H": 0.7750968992248062,
+      "median_token_identity_L": 0.822719378049789,
+      "median_token_identity_HL_mean": 0.7977038006629111,
+      "median_cosine_H": 0.9866859107552949,
+      "median_cosine_L": 0.9919720584329683,
+      "median_cosine_HL": 0.988939603143725,
+      "distance_matrix_spearman": 0.7239357969959342,
+      "n": 324
+    }
+  },
+  "thresholds": {
+    "ROBUST": {
+      "median_token_identity_HL_mean": 0.7,
+      "median_cosine_HL": 0.9,
+      "distance_matrix_spearman": 0.8
+    },
+    "MODERATE": {
+      "median_token_identity_HL_mean": 0.4,
+      "median_cosine_HL": 0.7,
+      "distance_matrix_spearman": 0.5
+    },
+    "else": "FRAGILE",
+    "aggregation": "require ALL three metrics to meet the class floor; label is min over generator pairs then worst-pair drives class"
+  }
+}

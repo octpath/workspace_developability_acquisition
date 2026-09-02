@@ -1,0 +1,50 @@
+{
+  "state": "HYDRO_FIELD_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "artifacts": {
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/FEATURE_SPEC.json": {
+      "sha256": "bbdd511e2bf4c78896423a88c5dd9650be934444c4f0ab95ff7bcffe49df5676",
+      "nbytes": 4518
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/FEATURE_MANIFEST.csv": {
+      "sha256": "267e5d3842719a7db9228a827ea2bca62cc9cdddc1594ce1f5b90993c49409cd",
+      "nbytes": 281549
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/extraction_qc.csv": {
+      "sha256": "267e5d3842719a7db9228a827ea2bca62cc9cdddc1594ce1f5b90993c49409cd",
+      "nbytes": 281549
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/structure_robustness.csv": {
+      "sha256": "82d807c751acf8fbef73454d5f131531d1add00989ae8472abda23fc37ac3dcc",
+      "nbytes": 5210
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/structure_robustness_summary.json": {
+      "sha256": "6c97a11295e4dfaf009ceda23cedfd8d89bc0212939c633a3cf354fc82874e08",
+      "nbytes": 266
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/features_esmfold.parquet": {
+      "sha256": "6e3fe0865fed3d05f840e9a759274508a8db57f2320ab566b780a6067593974d",
+      "nbytes": 52706
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/features_abodybuilder2.parquet": {
+      "sha256": "ea4cdf535f07cff6ff1a6ddbfcd749f6f798490b7ba69c1af6b444778238bac6",
+      "nbytes": 52695
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/features_boltz2.parquet": {
+      "sha256": "6cb5348e490f7a0e92d7b3e6bcbfa751a26d55ba37989676f82801bbe1c776eb",
+      "nbytes": 52532
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/surface_field_esmfold.parquet": {
+      "sha256": "bffdcbd3595717f5ecbeb1e4193af95424d564588935d7dde8472f5440d21699",
+      "nbytes": 14798255
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/surface_field_abodybuilder2.parquet": {
+      "sha256": "56c3987b73cb7242a6e64261f4bb09aa79fe875b028842da862e30ed491aec45",
+      "nbytes": 12823588
+    },
+    "organizer_extension/feature_prospecting/HYDRO-FIELD/surface_field_boltz2.parquet": {
+      "sha256": "721f2ffd06aaf21104ec7e5b8d87b580948c2fdf64a1e2537282dad182406bdc",
+      "nbytes": 13792488
+    }
+  }
+}

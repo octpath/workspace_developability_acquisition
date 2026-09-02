@@ -1,0 +1,7 @@
+{
+  "foldseek_version": "941cd33ff0771cd2e3f144e3293e22a2b87e9fda",
+  "prostt5_model": "Rostlab/ProstT5",
+  "hidden_size": 1024,
+  "primary_representation": "HL_CONCAT",
+  "device": "cuda:0"
+}

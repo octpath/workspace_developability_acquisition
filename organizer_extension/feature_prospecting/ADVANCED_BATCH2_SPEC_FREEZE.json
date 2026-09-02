@@ -1,0 +1,30 @@
+{
+  "batch": "ADVANCED_BATCH2",
+  "all_family_specs_frozen_before_any_target_score": true,
+  "families": {
+    "HYDRO-FIELD": {
+      "state": "HYDRO_FIELD_V1_FEATURE_SPEC_FROZEN",
+      "sha256": "bbdd511e2bf4c78896423a88c5dd9650be934444c4f0ab95ff7bcffe49df5676",
+      "nbytes": 4518,
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/FEATURE_SPEC.json"
+    },
+    "ELEC-HYDRO-COPATCH": {
+      "state": "ELEC_HYDRO_COPATCH_V1_FEATURE_SPEC_FROZEN",
+      "sha256": "2c35d9c9fe9e8024d3cbada6db6f555a6553ed9bbe635eeb3d754854e878fe8f",
+      "nbytes": 3281,
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/FEATURE_SPEC.json"
+    },
+    "INTERFACE-ENERGY": {
+      "state": "INTERFACE_ENERGY_V1_FEATURE_SPEC_FROZEN",
+      "sha256": "8502e636d53d01e512cc532979cce3c2ac851f24df2fb5e1fb98415adf603ca1",
+      "nbytes": 3512,
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/FEATURE_SPEC.json"
+    },
+    "3DI-FROZEN": {
+      "state": "3DI_FROZEN_V1_FEATURE_SPEC_FROZEN",
+      "sha256": "5e8afea1e05e12e93cfc2ca11f460dad6eb55b1da1b1a7a7479d4e448a2103b8",
+      "nbytes": 3219,
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/FEATURE_SPEC.json"
+    }
+  }
+}

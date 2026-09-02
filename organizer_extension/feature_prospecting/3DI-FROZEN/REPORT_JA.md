@@ -1,0 +1,5 @@
+# 3DI-FROZEN_v1
+
+See master. Foldseek3Di→ProstT5 HL_CONCAT PCA32. TmApp/HIC: NO_EVIDENCE; emb robustness MODERATE.
+
+Master: [ADVANCED_BATCH2_REPORT_JA.md](../ADVANCED_BATCH2_REPORT_JA.md)

@@ -1,0 +1,14 @@
+{
+  "esmfold": {
+    "spearman_Evdw_vs_clash": 0.6113167079136879,
+    "GEOMETRY_ARTIFACT_CONCERN": true
+  },
+  "abodybuilder2": {
+    "spearman_Evdw_vs_clash": NaN,
+    "GEOMETRY_ARTIFACT_CONCERN": false
+  },
+  "boltz2": {
+    "spearman_Evdw_vs_clash": 0.538624290609467,
+    "GEOMETRY_ARTIFACT_CONCERN": true
+  }
+}

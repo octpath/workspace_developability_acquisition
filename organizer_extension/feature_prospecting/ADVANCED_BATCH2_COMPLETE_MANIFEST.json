@@ -1,0 +1,13 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_ADVANCED_BATCH2_COMPLETE",
+  "all_family_specs_frozen_before_any_target_score": true,
+  "blocked_families": [],
+  "families": [
+    "HYDRO-FIELD",
+    "ELEC-HYDRO-COPATCH",
+    "INTERFACE-ENERGY",
+    "3DI-FROZEN"
+  ],
+  "report": "organizer_extension/feature_prospecting/ADVANCED_BATCH2_REPORT_JA.md",
+  "freeze_manifest": "organizer_extension/feature_prospecting/ADVANCED_BATCH2_TARGET_BLIND_FREEZE_MANIFEST.json"
+}

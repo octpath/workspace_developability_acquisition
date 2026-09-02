@@ -1,0 +1,366 @@
+{
+  "state": "ADVANCED_BATCH2_TARGET_BLIND_FROZEN",
+  "all_family_specs_frozen_before_any_target_score": true,
+  "families": {
+    "HYDRO-FIELD": {
+      "state": "HYDRO_FIELD_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "MODERATE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.63604791264234,
+          "esmfold_vs_boltz2": 0.6357272013618764,
+          "abodybuilder2_vs_boltz2": 0.6810240533460348
+        },
+        "overall_median_spearman": 0.63604791264234
+      }
+    },
+    "ELEC-HYDRO-COPATCH": {
+      "state": "ELEC_HYDRO_COPATCH_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "FRAGILE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.3906436276714915,
+          "esmfold_vs_boltz2": 0.3713621408977447,
+          "abodybuilder2_vs_boltz2": 0.28828415936775076
+        },
+        "overall_median_spearman": 0.3713621408977447
+      }
+    },
+    "INTERFACE-ENERGY": {
+      "state": "INTERFACE_ENERGY_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "FRAGILE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.1923244511479806,
+          "esmfold_vs_boltz2": 0.1486874299877396,
+          "abodybuilder2_vs_boltz2": 0.1488708951866847
+        },
+        "overall_median_spearman": 0.1488708951866847
+      }
+    },
+    "3DI-FROZEN": {
+      "state": "3DI_FROZEN_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "MODERATE",
+        "per_pair_class": {
+          "esmfold_vs_abodybuilder2": "MODERATE",
+          "esmfold_vs_boltz2": "MODERATE",
+          "abodybuilder2_vs_boltz2": "MODERATE"
+        },
+        "pair_stats": {
+          "esmfold_vs_abodybuilder2": {
+            "median_token_identity_H": 0.7580645161290323,
+            "median_token_identity_L": 0.7952545141094274,
+            "median_token_identity_HL_mean": 0.774128136681384,
+            "median_cosine_H": 0.9864360810909611,
+            "median_cosine_L": 0.9901867225492349,
+            "median_cosine_HL": 0.9879328278242301,
+            "distance_matrix_spearman": 0.7126078066121807,
+            "n": 324
+          },
+          "esmfold_vs_boltz2": {
+            "median_token_identity_H": 0.806587150989428,
+            "median_token_identity_L": 0.8349069208158902,
+            "median_token_identity_HL_mean": 0.8199641355578982,
+            "median_cosine_H": 0.9892815181391206,
+            "median_cosine_L": 0.9920759030277071,
+            "median_cosine_HL": 0.9902727920875034,
+            "distance_matrix_spearman": 0.75262149754,
+            "n": 324
+          },
+          "abodybuilder2_vs_boltz2": {
+            "median_token_identity_H": 0.7750968992248062,
+            "median_token_identity_L": 0.822719378049789,
+            "median_token_identity_HL_mean": 0.7977038006629111,
+            "median_cosine_H": 0.9866859107552949,
+            "median_cosine_L": 0.9919720584329683,
+            "median_cosine_HL": 0.988939603143725,
+            "distance_matrix_spearman": 0.7239357969959342,
+            "n": 324
+          }
+        },
+        "thresholds": {
+          "ROBUST": {
+            "median_token_identity_HL_mean": 0.7,
+            "median_cosine_HL": 0.9,
+            "distance_matrix_spearman": 0.8
+          },
+          "MODERATE": {
+            "median_token_identity_HL_mean": 0.4,
+            "median_cosine_HL": 0.7,
+            "distance_matrix_spearman": 0.5
+          },
+          "else": "FRAGILE",
+          "aggregation": "require ALL three metrics to meet the class floor; label is min over generator pairs then worst-pair drives class"
+        }
+      }
+    }
+  },
+  "spec_freeze": {
+    "batch": "ADVANCED_BATCH2",
+    "all_family_specs_frozen_before_any_target_score": true,
+    "families": {
+      "HYDRO-FIELD": {
+        "state": "HYDRO_FIELD_V1_FEATURE_SPEC_FROZEN",
+        "sha256": "bbdd511e2bf4c78896423a88c5dd9650be934444c4f0ab95ff7bcffe49df5676",
+        "nbytes": 4518,
+        "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/FEATURE_SPEC.json"
+      },
+      "ELEC-HYDRO-COPATCH": {
+        "state": "ELEC_HYDRO_COPATCH_V1_FEATURE_SPEC_FROZEN",
+        "sha256": "2c35d9c9fe9e8024d3cbada6db6f555a6553ed9bbe635eeb3d754854e878fe8f",
+        "nbytes": 3281,
+        "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/FEATURE_SPEC.json"
+      },
+      "INTERFACE-ENERGY": {
+        "state": "INTERFACE_ENERGY_V1_FEATURE_SPEC_FROZEN",
+        "sha256": "8502e636d53d01e512cc532979cce3c2ac851f24df2fb5e1fb98415adf603ca1",
+        "nbytes": 3512,
+        "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/FEATURE_SPEC.json"
+      },
+      "3DI-FROZEN": {
+        "state": "3DI_FROZEN_V1_FEATURE_SPEC_FROZEN",
+        "sha256": "5e8afea1e05e12e93cfc2ca11f460dad6eb55b1da1b1a7a7479d4e448a2103b8",
+        "nbytes": 3219,
+        "path": "organizer_extension/feature_prospecting/3DI-FROZEN/FEATURE_SPEC.json"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/FEATURE_SPEC.json",
+      "sha256": "bbdd511e2bf4c78896423a88c5dd9650be934444c4f0ab95ff7bcffe49df5676",
+      "nbytes": 4518
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/FEATURE_MANIFEST.csv",
+      "sha256": "267e5d3842719a7db9228a827ea2bca62cc9cdddc1594ce1f5b90993c49409cd",
+      "nbytes": 281549
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/extraction_qc.csv",
+      "sha256": "267e5d3842719a7db9228a827ea2bca62cc9cdddc1594ce1f5b90993c49409cd",
+      "nbytes": 281549
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/structure_robustness.csv",
+      "sha256": "82d807c751acf8fbef73454d5f131531d1add00989ae8472abda23fc37ac3dcc",
+      "nbytes": 5210
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/structure_robustness_summary.json",
+      "sha256": "6c97a11295e4dfaf009ceda23cedfd8d89bc0212939c633a3cf354fc82874e08",
+      "nbytes": 266
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/features_esmfold.parquet",
+      "sha256": "6e3fe0865fed3d05f840e9a759274508a8db57f2320ab566b780a6067593974d",
+      "nbytes": 52706
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/features_abodybuilder2.parquet",
+      "sha256": "ea4cdf535f07cff6ff1a6ddbfcd749f6f798490b7ba69c1af6b444778238bac6",
+      "nbytes": 52695
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/features_boltz2.parquet",
+      "sha256": "6cb5348e490f7a0e92d7b3e6bcbfa751a26d55ba37989676f82801bbe1c776eb",
+      "nbytes": 52532
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/surface_field_esmfold.parquet",
+      "sha256": "bffdcbd3595717f5ecbeb1e4193af95424d564588935d7dde8472f5440d21699",
+      "nbytes": 14798255
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/surface_field_abodybuilder2.parquet",
+      "sha256": "56c3987b73cb7242a6e64261f4bb09aa79fe875b028842da862e30ed491aec45",
+      "nbytes": 12823588
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/HYDRO-FIELD/surface_field_boltz2.parquet",
+      "sha256": "721f2ffd06aaf21104ec7e5b8d87b580948c2fdf64a1e2537282dad182406bdc",
+      "nbytes": 13792488
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/FEATURE_SPEC.json",
+      "sha256": "2c35d9c9fe9e8024d3cbada6db6f555a6553ed9bbe635eeb3d754854e878fe8f",
+      "nbytes": 3281
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/FEATURE_MANIFEST.csv",
+      "sha256": "d45889701e35f38d8cef2b78495edabf0628ec2f3980b72a6e478cefd4438889",
+      "nbytes": 212597
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/extraction_qc.csv",
+      "sha256": "d45889701e35f38d8cef2b78495edabf0628ec2f3980b72a6e478cefd4438889",
+      "nbytes": 212597
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/structure_robustness.csv",
+      "sha256": "489b31e837850d3b2cefc3249ff0680c550bf72a017e08611ea62628e1f3b137",
+      "nbytes": 3616
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/structure_robustness_summary.json",
+      "sha256": "5689a257208477204d17cb467e55b962732174c8934da0009fd3f19f67b8d6c4",
+      "nbytes": 270
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/features_esmfold.parquet",
+      "sha256": "d5a42bf377642671cc39db8bf725aa10d42df50f3464165adb950c8b0d6003a7",
+      "nbytes": 38723
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/features_abodybuilder2.parquet",
+      "sha256": "c5ab566efa71252bd2e81cb83e6697e083e5dbf47d46cd497b01cdebb6f8366e",
+      "nbytes": 38753
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/features_boltz2.parquet",
+      "sha256": "971d0d5f8311e7875bb26909acee9d2ec63da424873d3ac8fff8091c900d29ff",
+      "nbytes": 38718
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/surface_copatch_esmfold.parquet",
+      "sha256": "9cf0be9ce3f12310d41f81c855e36ffcc7d510b01bcf69bce70afe94a6014f02",
+      "nbytes": 7139010
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/surface_copatch_abodybuilder2.parquet",
+      "sha256": "2eaf96431187b4f647a50ca168b1316d45668161e8912d8693a2f0bb6e8cce2d",
+      "nbytes": 6191295
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/surface_copatch_boltz2.parquet",
+      "sha256": "e6c5bf53e0299b7e4383cd1feee8ad189e336e5aa0d287a1a1e126b7c7617ecc",
+      "nbytes": 6601442
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/FEATURE_SPEC.json",
+      "sha256": "8502e636d53d01e512cc532979cce3c2ac851f24df2fb5e1fb98415adf603ca1",
+      "nbytes": 3512
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/FEATURE_MANIFEST.csv",
+      "sha256": "ffa3e79263c3b17563a23b10de4a83ae4ebf6f35eb8fd23293b45120054a4272",
+      "nbytes": 246552
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/structure_robustness.csv",
+      "sha256": "2926a4513e45cbbb3ca4350eccb53845f88938629455b0ee46b850fe5796b8e8",
+      "nbytes": 3171
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/structure_robustness_summary.json",
+      "sha256": "eb1a3e6ac93183c07cf9f93ecf79b50ccaa48d01adf3ef598cca66e942e193a3",
+      "nbytes": 269
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/features_esmfold.parquet",
+      "sha256": "da0d42846a7bd7c261f5060c73cc6f40e51245ca1a6dc6c6d6f5eb54f20010c3",
+      "nbytes": 49722
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/features_abodybuilder2.parquet",
+      "sha256": "e4d53b40edd31e256b1e9251a753349b90f479fa3bbb7802f584bdd93d5d02e5",
+      "nbytes": 49778
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/features_boltz2.parquet",
+      "sha256": "1fd8490160bef17ce9243cd8bbab01b28fd71d774bbdaad8927b5fa842c43404",
+      "nbytes": 49922
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/interface_energy_qc.csv",
+      "sha256": "ffa3e79263c3b17563a23b10de4a83ae4ebf6f35eb8fd23293b45120054a4272",
+      "nbytes": 246552
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/geometry_artifact_audit.json",
+      "sha256": "24854c27a7190ba573bd037e54dfa2ddd62e68cb3d64f5a1eeab967e60862190",
+      "nbytes": 317
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/FEATURE_SPEC.json",
+      "sha256": "5e8afea1e05e12e93cfc2ca11f460dad6eb55b1da1b1a7a7479d4e448a2103b8",
+      "nbytes": 3219
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/FEATURE_MANIFEST.csv",
+      "sha256": "1c59f378d5061965f1cbcc13f5198a6861d0850e95e24bc7befc2b2d51ac5ae8",
+      "nbytes": 42020854
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/extraction_qc.csv",
+      "sha256": "1c59f378d5061965f1cbcc13f5198a6861d0850e95e24bc7befc2b2d51ac5ae8",
+      "nbytes": 42020854
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/structure_robustness.csv",
+      "sha256": "459d8f657a18b37e83f54a468b620d2e97feb4ff42497310ba74928f1771e6f5",
+      "nbytes": 661
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/structure_robustness_summary.json",
+      "sha256": "1cfc4662db4426e04df765378cfc5ba577432b4aa208ec9d038815445e692db8",
+      "nbytes": 1880
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/features_esmfold.parquet",
+      "sha256": "257171408ed2fd10a8c3781d4288e199bac4b518862002a1cbdbe6cf42205418",
+      "nbytes": 5909010
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/features_abodybuilder2.parquet",
+      "sha256": "331a3825dce1fc477752c0f476e8cf29929a8cac23be8987f274f2e99a132048",
+      "nbytes": 5917406
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/features_boltz2.parquet",
+      "sha256": "5e7ad2dfd6ced16741c8f32c3e6bcd11e7585b98a4333666a08da2f3c367a7aa",
+      "nbytes": 5909471
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/tokens_esmfold.parquet",
+      "sha256": "b1d625985272ea8985fd445668472e84cf521535cb4686bf1195ee950ae40555",
+      "nbytes": 37161
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/tokens_abodybuilder2.parquet",
+      "sha256": "a9c945b5a8945a319786a8802e2349f9a116626083ff6195cddb5aa7f2f17728",
+      "nbytes": 41402
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/tokens_boltz2.parquet",
+      "sha256": "a0a4e32b1dffa700b3770d41b4300ef9eba6f7a61f8cf54d6eae61d6e72363b6",
+      "nbytes": 38404
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/embeddings_esmfold.parquet",
+      "sha256": "247b72a6816fc1946ff1327abcb7ac56208d53703a56cee899bbd716f3dda8b7",
+      "nbytes": 5884350
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/embeddings_abodybuilder2.parquet",
+      "sha256": "82b119d29f7623d10b1789104b9fc92d1672ace858dc6aea7eb04055901b363a",
+      "nbytes": 5892747
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/embeddings_boltz2.parquet",
+      "sha256": "f5c7a9bf4c84b6817a07ca2b284b3123ae1f76212d71fbe492bad4858b67e8f1",
+      "nbytes": 5884812
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/3DI-FROZEN/method_runtime_meta.json",
+      "sha256": "2424551a61c6a807b964b7674dc718a2c50220694858b2effaea22b3688a628c",
+      "nbytes": 193
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/INTERFACE-ENERGY/extraction_qc.csv",
+      "sha256": "ffa3e79263c3b17563a23b10de4a83ae4ebf6f35eb8fd23293b45120054a4272",
+      "nbytes": 246552
+    }
+  ]
+}

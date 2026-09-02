@@ -1,0 +1,46 @@
+{
+  "state": "INTERFACE_ENERGY_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "artifacts": {
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/FEATURE_SPEC.json": {
+      "sha256": "8502e636d53d01e512cc532979cce3c2ac851f24df2fb5e1fb98415adf603ca1",
+      "nbytes": 3512
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/FEATURE_MANIFEST.csv": {
+      "sha256": "ffa3e79263c3b17563a23b10de4a83ae4ebf6f35eb8fd23293b45120054a4272",
+      "nbytes": 246552
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/structure_robustness.csv": {
+      "sha256": "2926a4513e45cbbb3ca4350eccb53845f88938629455b0ee46b850fe5796b8e8",
+      "nbytes": 3171
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/structure_robustness_summary.json": {
+      "sha256": "eb1a3e6ac93183c07cf9f93ecf79b50ccaa48d01adf3ef598cca66e942e193a3",
+      "nbytes": 269
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/features_esmfold.parquet": {
+      "sha256": "da0d42846a7bd7c261f5060c73cc6f40e51245ca1a6dc6c6d6f5eb54f20010c3",
+      "nbytes": 49722
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/features_abodybuilder2.parquet": {
+      "sha256": "e4d53b40edd31e256b1e9251a753349b90f479fa3bbb7802f584bdd93d5d02e5",
+      "nbytes": 49778
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/features_boltz2.parquet": {
+      "sha256": "1fd8490160bef17ce9243cd8bbab01b28fd71d774bbdaad8927b5fa842c43404",
+      "nbytes": 49922
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/interface_energy_qc.csv": {
+      "sha256": "ffa3e79263c3b17563a23b10de4a83ae4ebf6f35eb8fd23293b45120054a4272",
+      "nbytes": 246552
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/geometry_artifact_audit.json": {
+      "sha256": "24854c27a7190ba573bd037e54dfa2ddd62e68cb3d64f5a1eeab967e60862190",
+      "nbytes": 317
+    },
+    "organizer_extension/feature_prospecting/INTERFACE-ENERGY/extraction_qc.csv": {
+      "sha256": "ffa3e79263c3b17563a23b10de4a83ae4ebf6f35eb8fd23293b45120054a4272",
+      "nbytes": 246552
+    }
+  }
+}

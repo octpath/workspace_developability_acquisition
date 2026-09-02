@@ -1,0 +1,50 @@
+{
+  "state": "ELEC_HYDRO_COPATCH_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "artifacts": {
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/FEATURE_SPEC.json": {
+      "sha256": "2c35d9c9fe9e8024d3cbada6db6f555a6553ed9bbe635eeb3d754854e878fe8f",
+      "nbytes": 3281
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/FEATURE_MANIFEST.csv": {
+      "sha256": "d45889701e35f38d8cef2b78495edabf0628ec2f3980b72a6e478cefd4438889",
+      "nbytes": 212597
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/extraction_qc.csv": {
+      "sha256": "d45889701e35f38d8cef2b78495edabf0628ec2f3980b72a6e478cefd4438889",
+      "nbytes": 212597
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/structure_robustness.csv": {
+      "sha256": "489b31e837850d3b2cefc3249ff0680c550bf72a017e08611ea62628e1f3b137",
+      "nbytes": 3616
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/structure_robustness_summary.json": {
+      "sha256": "5689a257208477204d17cb467e55b962732174c8934da0009fd3f19f67b8d6c4",
+      "nbytes": 270
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/features_esmfold.parquet": {
+      "sha256": "d5a42bf377642671cc39db8bf725aa10d42df50f3464165adb950c8b0d6003a7",
+      "nbytes": 38723
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/features_abodybuilder2.parquet": {
+      "sha256": "c5ab566efa71252bd2e81cb83e6697e083e5dbf47d46cd497b01cdebb6f8366e",
+      "nbytes": 38753
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/features_boltz2.parquet": {
+      "sha256": "971d0d5f8311e7875bb26909acee9d2ec63da424873d3ac8fff8091c900d29ff",
+      "nbytes": 38718
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/surface_copatch_esmfold.parquet": {
+      "sha256": "9cf0be9ce3f12310d41f81c855e36ffcc7d510b01bcf69bce70afe94a6014f02",
+      "nbytes": 7139010
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/surface_copatch_abodybuilder2.parquet": {
+      "sha256": "2eaf96431187b4f647a50ca168b1316d45668161e8912d8693a2f0bb6e8cce2d",
+      "nbytes": 6191295
+    },
+    "organizer_extension/feature_prospecting/ELEC-HYDRO-COPATCH/surface_copatch_boltz2.parquet": {
+      "sha256": "e6c5bf53e0299b7e4383cd1feee8ad189e336e5aa0d287a1a1e126b7c7617ecc",
+      "nbytes": 6601442
+    }
+  }
+}
