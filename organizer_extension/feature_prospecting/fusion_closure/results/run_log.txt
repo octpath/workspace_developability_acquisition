@@ -1,0 +1,93 @@
+PLM_ONLY TmApp ridge/svr
+PLM_ONLY HIC ridge/svr
+=== POLAR-SAT / ESMFold / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== POLAR-SAT / ABB2 / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== POLAR-SAT / Boltz2 / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== PKA-SHIFT_CORRECTED / ESMFold / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== PKA-SHIFT_CORRECTED / ABB2 / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== PKA-SHIFT_CORRECTED / Boltz2 / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== VOID-EXPLICIT / ESMFold / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== VOID-EXPLICIT / ABB2 / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== VOID-EXPLICIT / Boltz2 / TmApp ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== AROMATIC-TOPO / ESMFold / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== AROMATIC-TOPO / ABB2 / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== AROMATIC-TOPO / Boltz2 / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== STATIC-SAP / ESMFold / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== STATIC-SAP / ABB2 / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== STATIC-SAP / Boltz2 / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== HYDRO-FIELD / ESMFold / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== HYDRO-FIELD / ABB2 / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+=== HYDRO-FIELD / Boltz2 / HIC ===
+  CV plus/ridge
+  CV ortho/ridge
+  CV plus/svr
+  CV ortho/svr
+DONE

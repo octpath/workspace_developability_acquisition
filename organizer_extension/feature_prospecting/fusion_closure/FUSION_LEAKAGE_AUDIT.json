@@ -1,0 +1,19 @@
+{
+  "scaler_fit": "outer_train_only",
+  "pca_fit": "outer_train_only",
+  "physics_residualizer_fit": "outer_train_only",
+  "ridge_svr_hp_selection": "inner_GroupKFold_on_outer_train_only",
+  "public_private_in_tuning": false,
+  "identical_outer_folds_matched_comparisons": true,
+  "primary_cv": "opt_joint_group_k5_s42 via stage0_cv/cv_primary.csv",
+  "bootstrap_B": 10000,
+  "gate3d_status": "PRIOR_STRUCTURE_GUIDED_POOLING_SPEC_NOT_AVAILABLE",
+  "gate3d_status_file": "GATE3D_STATUS.json",
+  "post_family_selection_exploratory": "HIC ESMFold AROMATIC+STATIC-SAP+HYDRO only; not used to validate family claims",
+  "final_state": "ORGANIZER_FEATURE_PROSPECTING_FUSION_CLOSURE_COMPLETE",
+  "no_optuna": true,
+  "no_plm_finetune": true,
+  "family_by_family_only": true,
+  "plm_embeddings": "virtual_participant/round1_finalization/cache/round1_embeddings.npz",
+  "spec_hash_file": "FUSION_CLOSURE_SPEC_HASH.json"
+}

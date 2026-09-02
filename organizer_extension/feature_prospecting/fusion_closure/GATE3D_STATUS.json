@@ -1,0 +1,14 @@
+{
+  "status": "PRIOR_STRUCTURE_GUIDED_POOLING_SPEC_NOT_AVAILABLE",
+  "gate": "3D",
+  "searched": [
+    "organizer_extension/feature_prospecting",
+    "virtual_participant",
+    "repository-wide STRUCTURE_GUIDED / 3D-loop / loop_mean_embedding patterns"
+  ],
+  "found_related_but_not_equivalent": [
+    "CDR6 / sequence-region pooling in PLM pipelines (not PDB-backbone 3D loop detection)"
+  ],
+  "action": "SKIP_WITHOUT_BLOCKING_FUSION_CLOSURE",
+  "note": "Do not invent a new loop detector. Obtaining the prior code/spec from the user would enable this follow-up."
+}

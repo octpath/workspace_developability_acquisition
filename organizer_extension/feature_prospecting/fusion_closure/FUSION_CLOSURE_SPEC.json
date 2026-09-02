@@ -1,0 +1,64 @@
+{
+  "state": "FUSION_CLOSURE_SPEC_FROZEN_BEFORE_SCORING",
+  "batch": "FUSION_CLOSURE",
+  "evidence_boundary": "ORGANIZER-EXPLORATORY",
+  "plm": {
+    "TmApp": {
+      "name": "AbLang2_HL_paired",
+      "model": "ablang2-paired",
+      "cache_id": "ablang2_default",
+      "embedding_key": "ablang2__HL_paired",
+      "source_npz": "virtual_participant/round1_finalization/cache/round1_embeddings.npz",
+      "dim": 480,
+      "pooling": "seqcoding paired (Round1)"
+    },
+    "HIC": {
+      "name": "ESM2_H",
+      "model": "facebook/esm2_t33_650M_UR50D",
+      "embedding_key": "esm2__H",
+      "source_npz": "virtual_participant/round1_finalization/cache/round1_embeddings.npz",
+      "dim": 1280,
+      "pooling": "mean over residues excluding CLS/EOS; Heavy half of HL concat"
+    }
+  },
+  "physics_families": {
+    "TmApp": {
+      "primary": ["POLAR-SAT", "PKA-SHIFT_CORRECTED"],
+      "secondary_control": ["VOID-EXPLICIT"],
+      "excluded_from_canonical": ["VHL-ANGLE"]
+    },
+    "HIC": {
+      "primary": ["AROMATIC-TOPO"],
+      "negative_controls": ["STATIC-SAP", "HYDRO-FIELD"]
+    }
+  },
+  "pka_source": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/features_{generator}.parquet",
+  "pca_n_components": 32,
+  "ridge_alphas": [0.1, 1.0, 10.0, 100.0],
+  "svr_grid": {
+    "source": "Gate_B1_SVR_small_grid_extended_target_blind",
+    "C": [0.1, 1.0, 10.0, 100.0],
+    "gamma": ["scale", 0.01, 0.1],
+    "epsilon": [0.05, 0.1, 0.2],
+    "notes": "No Optuna; historical Stage2 used broad Optuna — not reused to keep DoF small"
+  },
+  "plm_predictability_thresholds_median_R2": {
+    "HIGHLY_PLM_PREDICTABLE": 0.50,
+    "PARTLY_PLM_PREDICTABLE": 0.20,
+    "WEAKLY_PLM_PREDICTABLE": 0.0,
+    "NOT_USEFULLY_PLM_PREDICTABLE": "<=0"
+  },
+  "fusion_reproducibility": {
+    "REPRODUCIBLE_FUSION_GAIN": "delta_CV<0 AND delta_Public<0 AND delta_Private<0",
+    "WEAK_OR_MIXED_FUSION": "exactly 2/3 improve AND non-improving split bootstrap CI includes 0",
+    "DIRECTION_REVERSAL": "2/3 improve but remaining split CI entirely >0 (worsening)",
+    "NO_FUSION_GAIN": "otherwise"
+  },
+  "bootstrap_B": 10000,
+  "primary_cv": "opt_joint_group_k5_s42",
+  "gate3d": {
+    "status": "PRIOR_STRUCTURE_GUIDED_POOLING_SPEC_NOT_AVAILABLE",
+    "search_result": "No STRUCTURE_GUIDED / 3D-loop PLM pooling implementation found in repository; CDR6 sequence pooling exists but is not the prior MD-SAP method"
+  },
+  "anti_posthoc": "Do not select model/family/generator by Public/Private; Primary CV for ranking description only among pre-specified recipes"
+}

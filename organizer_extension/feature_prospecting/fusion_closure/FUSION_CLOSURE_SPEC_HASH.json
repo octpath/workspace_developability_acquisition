@@ -1,0 +1,6 @@
+{
+  "state": "FUSION_CLOSURE_SPEC_FROZEN_BEFORE_SCORING",
+  "spec_sha256": "f7bea5a41f75b837db89175573a42abbc3e3b5252b428ec225d092ce889ccd21",
+  "embedding_npz_sha256": "18297df829ed14d02f69f1a9afd31da887010d64267e512f1a7c03ce465e1f50",
+  "note": "hashed before fusion target scoring"
+}
