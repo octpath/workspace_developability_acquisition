@@ -1,0 +1,18 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_AROMATIC_TOPO_V1_COMPLETE",
+  "family_id": "AROMATIC-TOPO",
+  "version": "v1",
+  "batch": "PHYSICAL_BATCH1",
+  "empirical_verdict_primary_esmfold": "PROMISING_BUT_REDUNDANT",
+  "robustness": {
+    "robustness_class": "MODERATE",
+    "pairwise_median_spearman": {
+      "esmfold_vs_abodybuilder2": 0.682417859631482,
+      "esmfold_vs_boltz2": 0.6410950916436607,
+      "abodybuilder2_vs_boltz2": 0.6479227141078466
+    }
+  },
+  "residual_ridge_audit_pass": true,
+  "repository_git_head_pre_commit": "c77aeefd4629851f51b8bab9e1f15d96c77c8fa1",
+  "freeze_timestamp_utc_actual": "2026-09-02T17:45:24Z"
+}

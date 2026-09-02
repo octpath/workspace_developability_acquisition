@@ -1,0 +1,34 @@
+{
+  "state": "VOID_EXPLICIT_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "files": {
+    "organizer_extension/feature_prospecting/VOID-EXPLICIT/FEATURE_SPEC.json": {
+      "sha256": "8c3bb52c7b7c584898029ae10db334efd2e0c4270826cafa674135acc594d874",
+      "nbytes": 2300
+    },
+    "organizer_extension/feature_prospecting/VOID-EXPLICIT/FEATURE_MANIFEST.csv": {
+      "sha256": "00d353f7d04237707efc6725419491ca2d8c32e997bd870d772382d0d4dbdef3",
+      "nbytes": 134182
+    },
+    "organizer_extension/feature_prospecting/VOID-EXPLICIT/extraction_qc.csv": {
+      "sha256": "07ed54e8cfef3eb32c88e50006ab667720f8a1cc8730c54810ba7412319f9af3",
+      "nbytes": 210072
+    },
+    "organizer_extension/feature_prospecting/VOID-EXPLICIT/structure_robustness.csv": {
+      "sha256": "3431760348772d08ea0da663f9c1ca99da050032935a111d43b6403934aaa2af",
+      "nbytes": 3806
+    },
+    "organizer_extension/feature_prospecting/VOID-EXPLICIT/features_esmfold.parquet": {
+      "sha256": "8d4c9834db47f088ac761434bcc6e1b1e9347a5aaeb11f4e0916d46dc38c3088",
+      "nbytes": 33640
+    },
+    "organizer_extension/feature_prospecting/VOID-EXPLICIT/features_abodybuilder2.parquet": {
+      "sha256": "9a1cc5244e67df86c21bff9b8d609028b56116e96eaca7b55ff5d7af112ff5ef",
+      "nbytes": 40370
+    },
+    "organizer_extension/feature_prospecting/VOID-EXPLICIT/features_boltz2.parquet": {
+      "sha256": "36657ee1a3488f9c08a2fb66a2a38e77d20683cc73e7fd249ddc8fedcafd7f1c",
+      "nbytes": 31688
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "family_id": "VOID-EXPLICIT",
+  "version": "v1",
+  "state": "VOID_EXPLICIT_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "TmApp",
+  "secondary_target": "HIC",
+  "mechanistic_prior": {"TmApp": "5_LIKELY_RELEVANT", "HIC": "2_UNLIKELY_PRIMARY"},
+  "method": {
+    "reference_type": "CANONICAL_METHOD",
+    "primary_paper": {
+      "title": "pyKVFinder: an efficient and integrable Python package for biomolecular cavity detection and characterization in data science",
+      "authors": "Guerra JVS et al.",
+      "year": 2021,
+      "doi": "10.1186/s12859-021-04519-4",
+      "url": "https://doi.org/10.1186/s12859-021-04519-4"
+    },
+    "software": "pyKVFinder",
+    "software_version": "0.9.4",
+    "repository_url": "https://github.com/LBC-LNBio/pyKVFinder",
+    "documentation_url": "https://github.com/LBC-LNBio/pyKVFinder"
+  },
+  "pykvfinder_params": {
+    "step": 0.6,
+    "probe_in": 1.4,
+    "probe_out": 4.0,
+    "removal_distance": 2.4,
+    "volume_cutoff": 5.0,
+    "include_depth": true,
+    "include_hydropathy": false
+  },
+  "internality_rule": {
+    "definition": "INTERNAL if max_depth >= 2.0 Angstrom AND avg_depth >= 0.5 Angstrom",
+    "rationale": "target-blind depth filter to prefer buried packing defects over shallow solvent-exposed surface pockets; not ligand-pocket ranking",
+    "external_pockets": "recorded as QC only (external_cavity_count, external_cavity_volume_total)"
+  },
+  "interface_cavity_rule": "internal cavity whose lining residues (pyKVFinder residues) include both H and L after sequence-index mapping",
+  "physical_concept": "INTERNAL / BURIED PACKING DEFECT — not ligand-binding surface pocket count",
+  "canonical_features": [
+    "internal_cavity_count",
+    "total_internal_cavity_volume",
+    "max_internal_cavity_volume",
+    "mean_internal_cavity_volume",
+    "max_internal_cavity_depth",
+    "mean_internal_cavity_depth",
+    "internal_cavity_area_total",
+    "volume_per_residue",
+    "interface_cavity_volume",
+    "interface_cavity_count"
+  ],
+  "canonical_feature_count": 10,
+  "qc_not_canonical": ["external_cavity_count", "external_cavity_volume_total", "all_cavity_count"],
+  "missing_subgroup_rule": "ZERO_IF_EMPTY",
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only"
+}

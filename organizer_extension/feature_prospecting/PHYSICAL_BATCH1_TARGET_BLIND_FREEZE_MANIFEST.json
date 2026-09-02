@@ -1,0 +1,232 @@
+{
+  "state": "PHYSICAL_BATCH1_TARGET_BLIND_FROZEN",
+  "all_family_specs_frozen_before_any_target_score": true,
+  "families": {
+    "AROMATIC-TOPO": {
+      "state": "AROMATIC_TOPO_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "MODERATE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.682417859631482,
+          "esmfold_vs_boltz2": 0.6410950916436607,
+          "abodybuilder2_vs_boltz2": 0.6479227141078466
+        }
+      }
+    },
+    "STATIC-SAP": {
+      "state": "STATIC_SAP_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "MODERATE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.741882024749678,
+          "esmfold_vs_boltz2": 0.7323650251823628,
+          "abodybuilder2_vs_boltz2": 0.7378498809100851
+        }
+      }
+    },
+    "VOID-EXPLICIT": {
+      "state": "VOID_EXPLICIT_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "FRAGILE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.34376396813793464,
+          "esmfold_vs_boltz2": 0.20352928153035318,
+          "abodybuilder2_vs_boltz2": 0.2464419342281942
+        }
+      }
+    },
+    "POLAR-SAT": {
+      "state": "POLAR_SAT_V1_FEATURE_SPEC_FROZEN",
+      "robustness": {
+        "robustness_class": "FRAGILE",
+        "pairwise_median_spearman": {
+          "esmfold_vs_abodybuilder2": 0.31091068073119194,
+          "esmfold_vs_boltz2": 0.5007599189603426,
+          "abodybuilder2_vs_boltz2": 0.42976105087698563
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/FEATURE_SPEC.json",
+      "sha256": "54cef7c0e64643791e3c858545461f2a1006d9415b0dd9934cb85cc6e4be6492",
+      "nbytes": 1947
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/FEATURE_MANIFEST.csv",
+      "sha256": "96210f1446ce7cc5e52c955f9448ae08647d89f76cf6f42022668270ea4cd46f",
+      "nbytes": 134182
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/extraction_qc.csv",
+      "sha256": "03c4e133fa9da7c1a065453657b06273890d1af1f6293ca7e68ce2382cc3e064",
+      "nbytes": 280050
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/structure_robustness.csv",
+      "sha256": "245b15a0c4b52cb2397a16b8b945c907058531ed83f005157142946ef4c122c2",
+      "nbytes": 5623
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/structure_robustness_summary.json",
+      "sha256": "fcd446286b660cb68945f65704d24cfaec06df22378adbfd36d323a17b392557",
+      "nbytes": 220
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/features_esmfold.parquet",
+      "sha256": "a04f172fb16f1129065746ec65870fc2d39d0dfa5adb97faf84ecea1d39a611a",
+      "nbytes": 43490
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/features_abodybuilder2.parquet",
+      "sha256": "639dec46141d083665f8a99a8aa2a69d7ee457d00f0933fddcaeacc2c2064272",
+      "nbytes": 52892
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/AROMATIC-TOPO/features_boltz2.parquet",
+      "sha256": "5aba41096e5f6855fe9fc61010dd00900194da16342608cafdb265a43713e2fc",
+      "nbytes": 44335
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/FEATURE_SPEC.json",
+      "sha256": "bc659ec2dda1aaa23cacf9ab2205cb732a13187b2c93fe26325851fb889d68b7",
+      "nbytes": 3086
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/FEATURE_MANIFEST.csv",
+      "sha256": "96210f1446ce7cc5e52c955f9448ae08647d89f76cf6f42022668270ea4cd46f",
+      "nbytes": 134182
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/extraction_qc.csv",
+      "sha256": "4b0f4088f77ca6a9ced292398f6131775d56c5e1d34a0aff12616350e0b79cb8",
+      "nbytes": 436814
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/structure_robustness.csv",
+      "sha256": "be9697bee38cea7fed5b93832f91a626e37cfb636818737d271da48c8cae025f",
+      "nbytes": 6990
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/structure_robustness_summary.json",
+      "sha256": "fe72322e4bad73875c944c236624c3518a41aa679e55888a5e91322e8df0c654",
+      "nbytes": 220
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/features_esmfold.parquet",
+      "sha256": "6d2b75946c37f6a3b4be957d0a974cbd369ed8750803353c8805987c70b0c638",
+      "nbytes": 68545
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/features_abodybuilder2.parquet",
+      "sha256": "f217fcc13cfd55d0e95d278cf4297297e21cf3b41e6ac7488d19d96960886862",
+      "nbytes": 78388
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STATIC-SAP/features_boltz2.parquet",
+      "sha256": "38ccdabe82f26e23d0216c2056351171ba89e4785a7af346fc79babb5744502b",
+      "nbytes": 69988
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/FEATURE_SPEC.json",
+      "sha256": "8c3bb52c7b7c584898029ae10db334efd2e0c4270826cafa674135acc594d874",
+      "nbytes": 2300
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/FEATURE_MANIFEST.csv",
+      "sha256": "00d353f7d04237707efc6725419491ca2d8c32e997bd870d772382d0d4dbdef3",
+      "nbytes": 134182
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/extraction_qc.csv",
+      "sha256": "07ed54e8cfef3eb32c88e50006ab667720f8a1cc8730c54810ba7412319f9af3",
+      "nbytes": 210072
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/structure_robustness.csv",
+      "sha256": "3431760348772d08ea0da663f9c1ca99da050032935a111d43b6403934aaa2af",
+      "nbytes": 3806
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/structure_robustness_summary.json",
+      "sha256": "18c9dc69b480541194df6544447d641c5e1457a21626ecc65c4e767f32336267",
+      "nbytes": 222
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/features_esmfold.parquet",
+      "sha256": "8d4c9834db47f088ac761434bcc6e1b1e9347a5aaeb11f4e0916d46dc38c3088",
+      "nbytes": 33640
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/features_abodybuilder2.parquet",
+      "sha256": "9a1cc5244e67df86c21bff9b8d609028b56116e96eaca7b55ff5d7af112ff5ef",
+      "nbytes": 40370
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/features_boltz2.parquet",
+      "sha256": "36657ee1a3488f9c08a2fb66a2a38e77d20683cc73e7fd249ddc8fedcafd7f1c",
+      "nbytes": 31688
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/FEATURE_SPEC.json",
+      "sha256": "52f150c740b1a54ee87cdd9cd03d0b4be936d02a09b4570552a616f51fe68810",
+      "nbytes": 2623
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/FEATURE_MANIFEST.csv",
+      "sha256": "96210f1446ce7cc5e52c955f9448ae08647d89f76cf6f42022668270ea4cd46f",
+      "nbytes": 134182
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/extraction_qc.csv",
+      "sha256": "af08f300c3b7b121368062751b71c8537903e49ec901ca61cc5f4ec048160e60",
+      "nbytes": 196504
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/structure_robustness.csv",
+      "sha256": "4c744cfa83a002b4f0812b3d90c70f56a05ba22080abac6840a9e5987894a711",
+      "nbytes": 4265
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/structure_robustness_summary.json",
+      "sha256": "8688ad13fddc8e4be16ad81bd00772a54e79f8db9ae4b130afe94d7f13949877",
+      "nbytes": 222
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/features_esmfold.parquet",
+      "sha256": "6e9581f14620f35929e774837d425e27cde60b7910a16efb97cd68aaf74e193e",
+      "nbytes": 21902
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/features_abodybuilder2.parquet",
+      "sha256": "7cfbe74af8718ace49b25adb4402617d6ea5de9261a97b5f9cdd79b038af166e",
+      "nbytes": 31907
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/features_boltz2.parquet",
+      "sha256": "8a7ac3d72ca53198d8807559fd7b2d86c33b6e88007a0b7b060b05b9755ddc05",
+      "nbytes": 23625
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VOID-EXPLICIT/cavity_level.parquet",
+      "sha256": "6ce23d9d639b112b781978488e2b05b1ad38b3ea70eaec4513624d6e2838bf97",
+      "nbytes": 67514
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/POLAR-SAT/residue_level.parquet",
+      "sha256": "599ea37688e7e71c050052519c056db754b462f501f51a9782c093eb94bd527f",
+      "nbytes": 466456
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PHYSICAL_BATCH1_SPEC_FREEZE.json",
+      "sha256": "cd231dc44e24d3be2692db25dd3fcbce161381702ae67938e0ff84bf129c75ac",
+      "nbytes": 682
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/cdr_sequence_index_imgt.csv",
+      "sha256": "adfd2ce2bc6f4300e76efb4dbb80fd094101501cbe0e71b7215169776b99beab",
+      "nbytes": 3609883
+    }
+  ]
+}

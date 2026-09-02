@@ -1,0 +1,67 @@
+{
+  "family_id": "STATIC-SAP",
+  "version": "v1",
+  "state": "STATIC_SAP_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "HIC",
+  "secondary_target": "TmApp",
+  "mechanistic_prior": {"HIC": "5_LIKELY_RELEVANT", "TmApp": "3_RELATED_BUT_INDIRECT"},
+  "naming_required": "static single-structure approximation inspired by Spatial Aggregation Propensity (SAP); NOT identical to canonical dynamic SAP",
+  "method": {
+    "reference_type": "CANONICAL_METHOD",
+    "primary_paper": {
+      "title": "Design of therapeutic proteins with enhanced stability",
+      "authors": "Chennamsetty N; Voynov V; Kayser V; Helk B; Trout BL",
+      "year": 2009,
+      "doi": "10.1073/pnas.0904191106",
+      "url": "https://doi.org/10.1073/pnas.0904191106"
+    },
+    "related_paper": {
+      "title": "Aggregation-Prone Motifs in Human Immunoglobulin G",
+      "doi": "10.1016/j.jmb.2009.06.028",
+      "url": "https://doi.org/10.1016/j.jmb.2009.06.028"
+    },
+    "hydrophobicity_scale": {
+      "name": "Black & Mould 1991",
+      "citation": "Black SD, Mould DR. Anal Biochem. 1991;193:72-82. DOI 10.1016/0003-2697(91)90045-U",
+      "doi": "10.1016/0003-2697(91)90045-u",
+      "normalization": "Gly-centered (subtract Gly=0.501) as used in SAP implementations"
+    },
+    "software": "in-house static SAP on Bio.PDB SASA",
+    "repository_url": "N/A"
+  },
+  "formula": "SAP_i = sum_{j: d(CA_i,CA_j) <= R} (RASA_j * Hphi_j) where Hphi is Black-Mould Gly-centered; RASA_j = SASA_j/MAX_ASA_j; static single structure (no MD)",
+  "radii_A": [5.0, 10.0],
+  "radii_source": "Chennamsetty SAP commonly reports 5A and 10A spatial cutoffs; frozen before target",
+  "sasa": {"engine": "Bio.PDB.SASA.ShrakeRupley", "probe": 1.4, "n_points": 100, "max_asa": "Stage4 MAX_ASA"},
+  "positive_SAP_definition": "SAP_i > 0",
+  "positive_patch": {"contact_radius_A": 8.0, "members": "residues with SAP_i > 0"},
+  "round1_distinction": {
+    "round1": "ADV_SURFACE_PATCH / spatial hydrophobicity uses exposed hydrophobic SASA * local density; Kyte-Doolittle; explicitly 'not claiming SAP formula'",
+    "this_family": "Black-Mould Gly-centered hydrophobicity * RASA neighborhood sum at R=5/10",
+    "overlap_flag": "RELATED_BUT_NOT_IDENTICAL"
+  },
+  "canonical_features": [
+    "R5_max_positive_static_SAP",
+    "R5_mean_positive_static_SAP",
+    "R5_sum_positive_static_SAP",
+    "R5_positive_SAP_residue_fraction",
+    "R5_top3_mean_static_SAP",
+    "R5_top5_mean_static_SAP",
+    "R5_largest_positive_patch_size",
+    "R5_CDR_sum_positive_static_SAP",
+    "R5_CDR_max_positive_static_SAP",
+    "R10_max_positive_static_SAP",
+    "R10_mean_positive_static_SAP",
+    "R10_sum_positive_static_SAP",
+    "R10_positive_SAP_residue_fraction",
+    "R10_top3_mean_static_SAP",
+    "R10_top5_mean_static_SAP",
+    "R10_largest_positive_patch_size",
+    "R10_CDR_sum_positive_static_SAP",
+    "R10_CDR_max_positive_static_SAP"
+  ],
+  "canonical_feature_count": 18,
+  "missing_subgroup_rule": "ZERO_IF_EMPTY",
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only"
+}

@@ -1,0 +1,34 @@
+{
+  "state": "AROMATIC_TOPO_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "files": {
+    "organizer_extension/feature_prospecting/AROMATIC-TOPO/FEATURE_SPEC.json": {
+      "sha256": "54cef7c0e64643791e3c858545461f2a1006d9415b0dd9934cb85cc6e4be6492",
+      "nbytes": 1947
+    },
+    "organizer_extension/feature_prospecting/AROMATIC-TOPO/FEATURE_MANIFEST.csv": {
+      "sha256": "96210f1446ce7cc5e52c955f9448ae08647d89f76cf6f42022668270ea4cd46f",
+      "nbytes": 134182
+    },
+    "organizer_extension/feature_prospecting/AROMATIC-TOPO/extraction_qc.csv": {
+      "sha256": "03c4e133fa9da7c1a065453657b06273890d1af1f6293ca7e68ce2382cc3e064",
+      "nbytes": 280050
+    },
+    "organizer_extension/feature_prospecting/AROMATIC-TOPO/structure_robustness.csv": {
+      "sha256": "245b15a0c4b52cb2397a16b8b945c907058531ed83f005157142946ef4c122c2",
+      "nbytes": 5623
+    },
+    "organizer_extension/feature_prospecting/AROMATIC-TOPO/features_esmfold.parquet": {
+      "sha256": "a04f172fb16f1129065746ec65870fc2d39d0dfa5adb97faf84ecea1d39a611a",
+      "nbytes": 43490
+    },
+    "organizer_extension/feature_prospecting/AROMATIC-TOPO/features_abodybuilder2.parquet": {
+      "sha256": "639dec46141d083665f8a99a8aa2a69d7ee457d00f0933fddcaeacc2c2064272",
+      "nbytes": 52892
+    },
+    "organizer_extension/feature_prospecting/AROMATIC-TOPO/features_boltz2.parquet": {
+      "sha256": "5aba41096e5f6855fe9fc61010dd00900194da16342608cafdb265a43713e2fc",
+      "nbytes": 44335
+    }
+  }
+}

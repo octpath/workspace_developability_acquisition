@@ -1,0 +1,18 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_PHYSICAL_BATCH1_COMPLETE",
+  "all_family_specs_frozen_before_any_target_score": true,
+  "families": [
+    "AROMATIC-TOPO",
+    "STATIC-SAP",
+    "VOID-EXPLICIT",
+    "POLAR-SAT"
+  ],
+  "blocked": [],
+  "recommended_next": [
+    "INTERFACE-ENERGY",
+    "HYDRO-FIELD",
+    "ELEC-HYDRO-COPATCH",
+    "3DI-FROZEN"
+  ],
+  "recommendation_rationale": "HIC surface aromatic shows standalone but redundant; packing defects FRAGILE; next prioritize interface energy and continuous hydro/electrostatic surface fields before embeddings."
+}

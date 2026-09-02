@@ -1,0 +1,8 @@
+{
+  "robustness_class": "MODERATE",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.741882024749678,
+    "esmfold_vs_boltz2": 0.7323650251823628,
+    "abodybuilder2_vs_boltz2": 0.7378498809100851
+  }
+}

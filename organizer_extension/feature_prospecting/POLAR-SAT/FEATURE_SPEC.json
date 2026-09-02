@@ -1,0 +1,62 @@
+{
+  "family_id": "POLAR-SAT",
+  "version": "v1",
+  "state": "POLAR_SAT_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "TmApp",
+  "secondary_target": "HIC",
+  "mechanistic_prior": {"TmApp": "5_LIKELY_RELEVANT", "HIC": "3_RELATED_BUT_INDIRECT"},
+  "method": {
+    "reference_type": "REPRESENTATIVE_METHOD",
+    "notes": "Representative buried-unsatisfied-polar literature; not the exact software used",
+    "representative_paper": {
+      "title": "Protein sequence optimization with a pairwise decomposable penalty for buried unsatisfied hydrogen bonds",
+      "authors": "Coventry B; Baker D",
+      "year": 2021,
+      "doi": "10.1371/journal.pcbi.1008061",
+      "url": "https://doi.org/10.1371/journal.pcbi.1008061"
+    },
+    "software": "pdb2pqr30 (AMBER) + in-house donor/acceptor geometry",
+    "pdb2pqr_version": "3.7.1",
+    "repository_url": "https://github.com/Electrostatics/pdb2pqr",
+    "documentation_url": "https://pdb2pqr.readthedocs.io/"
+  },
+  "protonation_protocol": {
+    "tool": "pdb2pqr30",
+    "flags": ["--ff=AMBER", "--keep-chain"],
+    "target_informed": false,
+    "identical_across_generators": true
+  },
+  "burial": {"rasa_buried": "rasa < 0.20", "sasa_engine": "Bio.PDB ShrakeRupley on original PDB (not PQR)"},
+  "hbond_geometry": {
+    "donor_acceptor_distance_max_A": 3.5,
+    "angle_D_H_A_min_deg": 120.0,
+    "requires_explicit_H": true
+  },
+  "polar_groups": {
+    "donors": "backbone N-H; side-chain N-H / O-H of ASN,GLN,ARG,LYS,HIS,TRP,SER,THR,TYR when H present in PQR",
+    "acceptors": "backbone O; side-chain O/N acceptors of ASP,GLU,ASN,GLN,SER,THR,TYR,HIS"
+  },
+  "unsatisfied_definition": "buried residue polar heavy atom (donor or acceptor) with no qualifying H-bond partner",
+  "round1_distinction": {
+    "round1_proxy": "buried polar/charged residue with zero N/O heavy atoms within 3.5A of CA from neighbors within 6A — no explicit H geometry",
+    "this_family": "pdb2pqr hydrogens + D–A distance + D–H–A angle on polar heavy atoms",
+    "status": "METHOD_ADVANCE_OVER_ROUND1"
+  },
+  "canonical_features": [
+    "buried_polar_count",
+    "buried_unsatisfied_polar_count",
+    "fraction_buried_polar_unsatisfied",
+    "buried_unsatisfied_per_100_res",
+    "VH_buried_unsat_count",
+    "VL_buried_unsat_count",
+    "CDR_buried_unsat_count",
+    "framework_buried_unsat_count",
+    "interface_buried_unsat_count",
+    "donor_unsat_count",
+    "acceptor_unsat_count"
+  ],
+  "canonical_feature_count": 11,
+  "missing_subgroup_rule": "ZERO_IF_EMPTY",
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only"
+}

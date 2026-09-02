@@ -1,0 +1,53 @@
+{
+  "family_id": "AROMATIC-TOPO",
+  "version": "v1",
+  "state": "AROMATIC_TOPO_V1_FEATURE_SPEC_FROZEN",
+  "primary_target": "HIC",
+  "secondary_target": "TmApp",
+  "mechanistic_prior": {"HIC": "5_LIKELY_RELEVANT", "TmApp": "3_RELATED_BUT_INDIRECT"},
+  "method": {
+    "reference_type": "REPRESENTATIVE_METHOD",
+    "notes": "NO_SINGLE_CANONICAL_AROMATIC_TOPO_ALGORITHM",
+    "representative_paper": {
+      "title": "Predicting Antibody Developability Profiles Through Early Stage Discovery Screening",
+      "doi": "10.1080/19420862.2020.1743053",
+      "url": "https://doi.org/10.1080/19420862.2020.1743053"
+    },
+    "software": "Bio.PDB.SASA.ShrakeRupley (Round1 reuse)",
+    "repository_url": "N/A"
+  },
+  "sasa": {
+    "engine": "Bio.PDB.SASA.ShrakeRupley",
+    "probe": 1.4,
+    "n_points": 100,
+    "max_asa": "Stage4/Tien2013 MAX_ASA",
+    "exposed_rasa": 0.20,
+    "strongly_exposed_rasa": 0.50
+  },
+  "aromatic_residues": ["F", "W", "Y"],
+  "patch": {"contact_radius_A": 8.0, "source": "Round1 PATCH_R / PATCH_CONTACT_A"},
+  "local_neighborhood_A": 10.0,
+  "cdr": "IMGT via cdr_sequence_index_imgt.csv",
+  "canonical_features": [
+    "exposed_TYR_count",
+    "exposed_TRP_count",
+    "exposed_PHE_count",
+    "exposed_aromatic_total_count",
+    "aromatic_exposed_SASA_total",
+    "aromatic_exposed_SASA_fraction",
+    "strongly_exposed_aromatic_count",
+    "strongly_exposed_aromatic_SASA",
+    "CDR_exposed_aromatic_count",
+    "CDR_aromatic_SASA",
+    "CDR_aromatic_fraction",
+    "aromatic_patch_count",
+    "largest_aromatic_patch_n_res",
+    "largest_aromatic_patch_exposed_SASA",
+    "max_local_aromatic_SASA"
+  ],
+  "canonical_feature_count": 15,
+  "qc_not_canonical": ["sequence_aromatic_count", "sequence_TYR_count", "sequence_TRP_count", "sequence_PHE_count"],
+  "missing_subgroup_rule": "ZERO_IF_EMPTY",
+  "generators": ["esmfold", "abodybuilder2", "boltz2"],
+  "structure_source": "STRUCTURE_INPUT_CROSSWALK_v2.csv only"
+}

@@ -1,0 +1,34 @@
+{
+  "state": "POLAR_SAT_V1_FEATURE_SPEC_FROZEN",
+  "target_scoring_started_after_feature_freeze": true,
+  "files": {
+    "organizer_extension/feature_prospecting/POLAR-SAT/FEATURE_SPEC.json": {
+      "sha256": "52f150c740b1a54ee87cdd9cd03d0b4be936d02a09b4570552a616f51fe68810",
+      "nbytes": 2623
+    },
+    "organizer_extension/feature_prospecting/POLAR-SAT/FEATURE_MANIFEST.csv": {
+      "sha256": "96210f1446ce7cc5e52c955f9448ae08647d89f76cf6f42022668270ea4cd46f",
+      "nbytes": 134182
+    },
+    "organizer_extension/feature_prospecting/POLAR-SAT/extraction_qc.csv": {
+      "sha256": "af08f300c3b7b121368062751b71c8537903e49ec901ca61cc5f4ec048160e60",
+      "nbytes": 196504
+    },
+    "organizer_extension/feature_prospecting/POLAR-SAT/structure_robustness.csv": {
+      "sha256": "4c744cfa83a002b4f0812b3d90c70f56a05ba22080abac6840a9e5987894a711",
+      "nbytes": 4265
+    },
+    "organizer_extension/feature_prospecting/POLAR-SAT/features_esmfold.parquet": {
+      "sha256": "6e9581f14620f35929e774837d425e27cde60b7910a16efb97cd68aaf74e193e",
+      "nbytes": 21902
+    },
+    "organizer_extension/feature_prospecting/POLAR-SAT/features_abodybuilder2.parquet": {
+      "sha256": "7cfbe74af8718ace49b25adb4402617d6ea5de9261a97b5f9cdd79b038af166e",
+      "nbytes": 31907
+    },
+    "organizer_extension/feature_prospecting/POLAR-SAT/features_boltz2.parquet": {
+      "sha256": "8a7ac3d72ca53198d8807559fd7b2d86c33b6e88007a0b7b060b05b9755ddc05",
+      "nbytes": 23625
+    }
+  }
+}
