@@ -3,8 +3,8 @@
   "gate": "1.1",
   "parent_gate_state": "ORGANIZER_FEATURE_PROSPECTING_GATE1_CONTRACT_FROZEN",
   "purpose": "Contract corrections before feature prospecting execution — no feature extraction or model training",
-  "freeze_timestamp_utc_actual": "2026-09-02T08:21:48Z",
-  "repository_git_head": "6398936bc5675272259c278079fa3f2ee44fd0f0",
+  "freeze_timestamp_utc_actual": "2026-09-02T08:22:04Z",
+  "repository_git_head": "1f2ad03ba21ef5a0d1b8dcc857a02cc6172917ad",
   "git_status_short": " M virtual_participant/round2_gate0/ROUND2_GATE0_DIAGNOSTIC_REPORT_JA.md\n M virtual_participant/round2_gate0/milestone_trajectory_hic.csv\n M virtual_participant/round2_gate0/milestone_trajectory_tmapp.csv\n M virtual_participant/round2_gate0/plots/milestone_trajectory.png\n M virtual_participant/round2_gate0/scripts/run_gate0_diagnostics.py\n?? virtual_participant/round1_pdb_feature_inventory/\n?? virtual_participant/round2_gate0/hic_dynamic_range_regression_audit.csv\n?? virtual_participant/round2_gate0/hic_tail_topk_metric_audit.csv\n?? virtual_participant/round2_gate0/tmapp_regression_audit.csv",
   "evidence_class": "ORGANIZER-EXPLORATORY",
   "round1_immutable": true,
@@ -124,5 +124,5 @@
     "no_public_private_exploration": true,
     "round1_unchanged": true
   },
-  "freeze_commit": "6398936bc5675272259c278079fa3f2ee44fd0f0"
+  "freeze_commit_note": "repository_git_head is HEAD before Gate1.1 tree was added (avoids self-referential amend loop). File sha256 entries are authoritative for Gate1.1 bundle integrity."
 }
