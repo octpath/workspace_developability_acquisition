@@ -1,0 +1,504 @@
+{
+  "sentinel_value": 99.99,
+  "interpretation": "PROPKA cysteine_bridge sentinel (group.py sets pka_value=99.99); NOT a real pKa",
+  "propka_source": ".venv_stage4/lib/python3.12/site-packages/propka/group.py (cysteine_bridge -> 99.99)",
+  "operational_rule": "CYS with predicted_pKa==99.99 treated as is_disulfide_cys",
+  "per_generator": {
+    "esmfold": {
+      "n_cys_total": 1403,
+      "n_sentinel_99_99": 1158,
+      "n_non_disulfide_cys": 245,
+      "antibodies_with_sentinel": 324,
+      "disulfide_cys_count_per_ab": {
+        "mean": 3.574074074074074,
+        "median": 4.0,
+        "min": 2,
+        "max": 6,
+        "value_counts": {
+          "2": 92,
+          "4": 209,
+          "6": 23
+        }
+      },
+      "frac_abs_mass_from_sentinel": {
+        "mean": 0.8593065801830865,
+        "median": 0.8889214621768913,
+        "p95": 0.9248936758723761
+      },
+      "sentinel_region_counts_total": {
+        "cdr": 66,
+        "interface": 0,
+        "buried": 1128
+      },
+      "original_feature_impact": {
+        "mean_abs_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 7.24588038277512
+        },
+        "rms_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 24.16051679822869
+        },
+        "max_abs_delta_pKa": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "mean_signed_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 6.808018518518518
+        },
+        "frac_abs_delta_ge_1": {
+          "n_unique_values": 128,
+          "is_constant_90_99": false,
+          "median": 0.32672684458398743
+        },
+        "frac_abs_delta_ge_2": {
+          "n_unique_values": 110,
+          "is_constant_90_99": false,
+          "median": 0.19230769230769232
+        },
+        "max_positive_delta_pKa": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "max_negative_magnitude_delta_pKa": {
+          "n_unique_values": 234,
+          "is_constant_90_99": false,
+          "median": 2.0999999999999996
+        },
+        "acidic_mean_abs_delta": {
+          "n_unique_values": 316,
+          "is_constant_90_99": false,
+          "median": 0.6214285714285714
+        },
+        "acidic_mean_signed_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 0.009500000000000156
+        },
+        "basic_mean_abs_delta": {
+          "n_unique_values": 318,
+          "is_constant_90_99": false,
+          "median": 0.5274038461538461
+        },
+        "basic_mean_signed_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": -0.050208333333333396
+        },
+        "cdr_mean_abs_delta": {
+          "n_unique_values": 322,
+          "is_constant_90_99": false,
+          "median": 0.9480128205128204
+        },
+        "cdr_max_abs_delta": {
+          "n_unique_values": 236,
+          "is_constant_90_99": false,
+          "median": 3.5549999999999997
+        },
+        "cdr_frac_abs_ge_1": {
+          "n_unique_values": 64,
+          "is_constant_90_99": false,
+          "median": 0.3125
+        },
+        "framework_mean_abs_delta": {
+          "n_unique_values": 322,
+          "is_constant_90_99": false,
+          "median": 9.170465116279068
+        },
+        "cdr_minus_framework_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": -7.915518925518924
+        },
+        "interface_mean_abs_delta": {
+          "n_unique_values": 18,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_max_abs_delta": {
+          "n_unique_values": 18,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_frac_abs_ge_1": {
+          "n_unique_values": 3,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_minus_noninterface_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": -7.223684210526316
+        },
+        "buried_mean_abs_delta": {
+          "n_unique_values": 321,
+          "is_constant_90_99": false,
+          "median": 16.710833333333333
+        },
+        "buried_max_abs_delta": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "buried_frac_abs_ge_1": {
+          "n_unique_values": 71,
+          "is_constant_90_99": false,
+          "median": 0.6666666666666666
+        },
+        "buried_minus_exposed_mean_abs_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 16.20334664209664
+        }
+      }
+    },
+    "abodybuilder2": {
+      "n_cys_total": 1403,
+      "n_sentinel_99_99": 1292,
+      "n_non_disulfide_cys": 111,
+      "antibodies_with_sentinel": 324,
+      "disulfide_cys_count_per_ab": {
+        "mean": 3.9876543209876543,
+        "median": 4.0,
+        "min": 2,
+        "max": 4,
+        "value_counts": {
+          "2": 2,
+          "4": 322
+        }
+      },
+      "frac_abs_mass_from_sentinel": {
+        "mean": 0.8543444893338781,
+        "median": 0.8560139467170588,
+        "p95": 0.8824631265668876
+      },
+      "sentinel_region_counts_total": {
+        "cdr": 0,
+        "interface": 0,
+        "buried": 1292
+      },
+      "original_feature_impact": {
+        "mean_abs_delta_pKa": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 7.7046632996633
+        },
+        "rms_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 24.573113330989678
+        },
+        "max_abs_delta_pKa": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "mean_signed_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 6.828567340067339
+        },
+        "frac_abs_delta_ge_1": {
+          "n_unique_values": 155,
+          "is_constant_90_99": false,
+          "median": 0.5
+        },
+        "frac_abs_delta_ge_2": {
+          "n_unique_values": 123,
+          "is_constant_90_99": false,
+          "median": 0.25
+        },
+        "max_positive_delta_pKa": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "max_negative_magnitude_delta_pKa": {
+          "n_unique_values": 191,
+          "is_constant_90_99": false,
+          "median": 2.795
+        },
+        "acidic_mean_abs_delta": {
+          "n_unique_values": 319,
+          "is_constant_90_99": false,
+          "median": 1.1922712418300654
+        },
+        "acidic_mean_signed_delta": {
+          "n_unique_values": 322,
+          "is_constant_90_99": false,
+          "median": -0.8065476190476191
+        },
+        "basic_mean_abs_delta": {
+          "n_unique_values": 321,
+          "is_constant_90_99": false,
+          "median": 0.9492954545454544
+        },
+        "basic_mean_signed_delta": {
+          "n_unique_values": 322,
+          "is_constant_90_99": false,
+          "median": 0.32419642857142866
+        },
+        "cdr_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 1.0334722222222221
+        },
+        "cdr_max_abs_delta": {
+          "n_unique_values": 255,
+          "is_constant_90_99": false,
+          "median": 3.1400000000000006
+        },
+        "cdr_frac_abs_ge_1": {
+          "n_unique_values": 77,
+          "is_constant_90_99": false,
+          "median": 0.38461538461538464
+        },
+        "framework_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 9.842619047619047
+        },
+        "cdr_minus_framework_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": -8.79602361815014
+        },
+        "interface_mean_abs_delta": {
+          "n_unique_values": 33,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_max_abs_delta": {
+          "n_unique_values": 33,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_frac_abs_ge_1": {
+          "n_unique_values": 7,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_minus_noninterface_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": -7.656160714285713
+        },
+        "buried_mean_abs_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 15.240605413105413
+        },
+        "buried_max_abs_delta": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "buried_frac_abs_ge_1": {
+          "n_unique_values": 89,
+          "is_constant_90_99": false,
+          "median": 0.7307692307692307
+        },
+        "buried_minus_exposed_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 14.39696632071632
+        }
+      }
+    },
+    "boltz2": {
+      "n_cys_total": 1403,
+      "n_sentinel_99_99": 1360,
+      "n_non_disulfide_cys": 43,
+      "antibodies_with_sentinel": 324,
+      "disulfide_cys_count_per_ab": {
+        "mean": 4.197530864197531,
+        "median": 4.0,
+        "min": 2,
+        "max": 6,
+        "value_counts": {
+          "2": 2,
+          "4": 288,
+          "6": 34
+        }
+      },
+      "frac_abs_mass_from_sentinel": {
+        "mean": 0.8883402406065963,
+        "median": 0.8893124180650385,
+        "p95": 0.9204150197103921
+      },
+      "sentinel_region_counts_total": {
+        "cdr": 68,
+        "interface": 0,
+        "buried": 1335
+      },
+      "original_feature_impact": {
+        "mean_abs_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 7.557159932659932
+        },
+        "rms_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 24.793197730133713
+        },
+        "max_abs_delta_pKa": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "mean_signed_delta_pKa": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 7.042845911949684
+        },
+        "frac_abs_delta_ge_1": {
+          "n_unique_values": 140,
+          "is_constant_90_99": false,
+          "median": 0.36666666666666664
+        },
+        "frac_abs_delta_ge_2": {
+          "n_unique_values": 113,
+          "is_constant_90_99": false,
+          "median": 0.2
+        },
+        "max_positive_delta_pKa": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "max_negative_magnitude_delta_pKa": {
+          "n_unique_values": 200,
+          "is_constant_90_99": false,
+          "median": 2.335
+        },
+        "acidic_mean_abs_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 0.7384375000000001
+        },
+        "acidic_mean_signed_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": -0.12176470588235282
+        },
+        "basic_mean_abs_delta": {
+          "n_unique_values": 322,
+          "is_constant_90_99": false,
+          "median": 0.6495095693779904
+        },
+        "basic_mean_signed_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 0.04912137681159437
+        },
+        "cdr_mean_abs_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 1.0054615384615389
+        },
+        "cdr_max_abs_delta": {
+          "n_unique_values": 244,
+          "is_constant_90_99": false,
+          "median": 3.64
+        },
+        "cdr_frac_abs_ge_1": {
+          "n_unique_values": 67,
+          "is_constant_90_99": false,
+          "median": 0.34782608695652173
+        },
+        "framework_mean_abs_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 9.512857142857143
+        },
+        "cdr_minus_framework_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": -8.448520273331319
+        },
+        "interface_mean_abs_delta": {
+          "n_unique_values": 36,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_max_abs_delta": {
+          "n_unique_values": 35,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_frac_abs_ge_1": {
+          "n_unique_values": 4,
+          "is_constant_90_99": false,
+          "median": 0.0
+        },
+        "interface_minus_noninterface_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": -7.524444444444445
+        },
+        "buried_mean_abs_delta": {
+          "n_unique_values": 323,
+          "is_constant_90_99": false,
+          "median": 17.146304347826085
+        },
+        "buried_max_abs_delta": {
+          "n_unique_values": 1,
+          "is_constant_90_99": true,
+          "median": 90.99
+        },
+        "buried_frac_abs_ge_1": {
+          "n_unique_values": 79,
+          "is_constant_90_99": false,
+          "median": 0.7272727272727273
+        },
+        "buried_minus_exposed_mean_abs_delta": {
+          "n_unique_values": 324,
+          "is_constant_90_99": false,
+          "median": 16.509411408199643
+        }
+      }
+    }
+  },
+  "contaminated_canonical_features": [
+    "mean_abs_delta_pKa",
+    "rms_delta_pKa",
+    "max_abs_delta_pKa",
+    "mean_signed_delta_pKa",
+    "frac_abs_delta_ge_1",
+    "frac_abs_delta_ge_2",
+    "max_positive_delta_pKa",
+    "cdr_mean_abs_delta",
+    "cdr_max_abs_delta",
+    "cdr_frac_abs_ge_1",
+    "framework_mean_abs_delta",
+    "cdr_minus_framework_mean_abs_delta",
+    "interface_mean_abs_delta",
+    "interface_max_abs_delta",
+    "interface_frac_abs_ge_1",
+    "interface_minus_noninterface_mean_abs_delta",
+    "buried_mean_abs_delta",
+    "buried_max_abs_delta",
+    "buried_frac_abs_ge_1",
+    "buried_minus_exposed_mean_abs_delta"
+  ],
+  "note": "target-blind audit of original immutable v1 artifacts",
+  "empirically_constant_90_99_features": [
+    "max_abs_delta_pKa",
+    "max_positive_delta_pKa",
+    "buried_max_abs_delta"
+  ],
+  "likely_uncontaminated_or_minimally": [
+    "acidic_mean_abs_delta",
+    "acidic_mean_signed_delta",
+    "basic_mean_abs_delta",
+    "basic_mean_signed_delta",
+    "max_negative_magnitude_delta_pKa"
+  ]
+}

@@ -1,0 +1,702 @@
+{
+  "TmApp": {
+    "esmfold": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "abodybuilder2": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "boltz2": {
+      "target": "TmApp",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 96,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 97,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 97,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 4,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "inner_heldout_fold": 0,
+              "n_train": 98,
+              "n_test": 32
+            },
+            {
+              "inner_heldout_fold": 1,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 2,
+              "n_train": 97,
+              "n_test": 33
+            },
+            {
+              "inner_heldout_fold": 3,
+              "n_train": 98,
+              "n_test": 32
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    }
+  },
+  "HIC": {
+    "esmfold": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "abodybuilder2": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    },
+    "boltz2": {
+      "target": "HIC",
+      "outer_folds": [
+        {
+          "outer_fold": 0,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 1,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 2,
+          "n_outer_test": 33,
+          "n_outer_train": 129,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 0.1,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 3,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        },
+        {
+          "outer_fold": 4,
+          "n_outer_test": 32,
+          "n_outer_train": 130,
+          "outer_test_excluded_from_reference_fit": true,
+          "residual_trained_on_outer_train_only": true,
+          "residual_alpha": 100.0,
+          "reference_inner": [
+            {
+              "note": "equal_mean_of_nested_base_oof_on_outer_train"
+            }
+          ]
+        }
+      ],
+      "pass": true,
+      "failures": [],
+      "test_residual_alpha": 100.0
+    }
+  },
+  "overall_pass": true,
+  "implementation": "organizer_extension/feature_prospecting/common/ridge_eval.py",
+  "reused_from": "Gate2A ANM-SPECTRUM"
+}

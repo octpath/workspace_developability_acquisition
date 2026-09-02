@@ -1,0 +1,100 @@
+{
+  "robustness_class": "FRAGILE",
+  "pairwise_median_spearman": {
+    "esmfold_vs_abodybuilder2": 0.3645746984863589,
+    "esmfold_vs_boltz2": 0.5081374320285653,
+    "abodybuilder2_vs_boltz2": 0.5032599478288468
+  },
+  "residue_level": [
+    {
+      "pair": "esmfold_vs_abodybuilder2",
+      "n_residue_pairs": 16173,
+      "pooled_spearman_delta_pKa": 0.7503637167233387,
+      "per_ab_median_spearman": 0.7632578370299352,
+      "n_antibodies_with_ge5": 324
+    },
+    {
+      "pair": "esmfold_vs_boltz2",
+      "n_residue_pairs": 16466,
+      "pooled_spearman_delta_pKa": 0.8387060540254145,
+      "per_ab_median_spearman": 0.8425281304705865,
+      "n_antibodies_with_ge5": 324
+    },
+    {
+      "pair": "abodybuilder2_vs_boltz2",
+      "n_residue_pairs": 16267,
+      "pooled_spearman_delta_pKa": 0.7914101318334771,
+      "per_ab_median_spearman": 0.7982097522893299,
+      "n_antibodies_with_ge5": 324
+    }
+  ],
+  "comparison_to_original_v1": {
+    "original_v1": {
+      "pairwise_median_spearman": {
+        "esmfold_vs_abodybuilder2": 0.44917162154138596,
+        "esmfold_vs_boltz2": 0.6307082651559371,
+        "abodybuilder2_vs_boltz2": 0.5083635872909633
+      },
+      "robustness_class": "FRAGILE",
+      "residue_level": [
+        {
+          "pair": "esmfold_vs_abodybuilder2",
+          "n_residue_pairs": 17504,
+          "pooled_spearman_delta_pKa": 0.7966931844933429,
+          "per_ab_median_spearman": 0.8052554672409726,
+          "n_antibodies_with_ge5": 324
+        },
+        {
+          "pair": "esmfold_vs_boltz2",
+          "n_residue_pairs": 17834,
+          "pooled_spearman_delta_pKa": 0.8685911272844935,
+          "per_ab_median_spearman": 0.8709329864305089,
+          "n_antibodies_with_ge5": 324
+        },
+        {
+          "pair": "abodybuilder2_vs_boltz2",
+          "n_residue_pairs": 17596,
+          "pooled_spearman_delta_pKa": 0.8328364380783441,
+          "per_ab_median_spearman": 0.83592980742955,
+          "n_antibodies_with_ge5": 324
+        }
+      ]
+    },
+    "technical_correction": {
+      "pairwise_median_spearman": {
+        "esmfold_vs_abodybuilder2": 0.3645746984863589,
+        "esmfold_vs_boltz2": 0.5081374320285653,
+        "abodybuilder2_vs_boltz2": 0.5032599478288468
+      },
+      "robustness_class": "FRAGILE",
+      "residue_level": [
+        {
+          "pair": "esmfold_vs_abodybuilder2",
+          "n_residue_pairs": 16173,
+          "pooled_spearman_delta_pKa": 0.7503637167233387,
+          "per_ab_median_spearman": 0.7632578370299352,
+          "n_antibodies_with_ge5": 324
+        },
+        {
+          "pair": "esmfold_vs_boltz2",
+          "n_residue_pairs": 16466,
+          "pooled_spearman_delta_pKa": 0.8387060540254145,
+          "per_ab_median_spearman": 0.8425281304705865,
+          "n_antibodies_with_ge5": 324
+        },
+        {
+          "pair": "abodybuilder2_vs_boltz2",
+          "n_residue_pairs": 16267,
+          "pooled_spearman_delta_pKa": 0.7914101318334771,
+          "per_ab_median_spearman": 0.7982097522893299,
+          "n_antibodies_with_ge5": 324
+        }
+      ]
+    },
+    "delta_median_spearman": {
+      "esmfold_vs_abodybuilder2": -0.08459692305502708,
+      "esmfold_vs_boltz2": -0.12257083312737183,
+      "abodybuilder2_vs_boltz2": -0.00510363946211656
+    }
+  }
+}

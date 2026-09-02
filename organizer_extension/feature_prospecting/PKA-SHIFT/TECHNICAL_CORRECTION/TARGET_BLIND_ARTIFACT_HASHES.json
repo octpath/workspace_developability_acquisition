@@ -1,0 +1,42 @@
+{
+  "state": "PKA_SHIFT_V1_TECHNICAL_CORRECTION_FEATURE_FREEZE",
+  "target_scoring_started_after_feature_freeze": true,
+  "files": {
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/features_esmfold.parquet": {
+      "sha256": "98c8fd2f591923f2ee661de603a43fd287363146ff265a9211bf2c4120a7ff66",
+      "nbytes": 102668
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/features_boltz2.parquet": {
+      "sha256": "28a6ca2a61fc909d88f55194ca4a01e50764efea758c7149d758e3e2fe6332cc",
+      "nbytes": 104536
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/features_abodybuilder2.parquet": {
+      "sha256": "965e6fe94d844644552a79a22392d59ebf8b7b2f990beba21b4c7f90d9624d92",
+      "nbytes": 111491
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/residue_pka_esmfold.parquet": {
+      "sha256": "966d44adac736abdc786bcb0f5191baabe0d0652a4143c8ea320cdcb0ab730a4",
+      "nbytes": 310412
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/residue_pka_boltz2.parquet": {
+      "sha256": "ff5b12f73207d6cbcc3a4a5a5161c5443a69d5127165c822466c72cc0fbc91dd",
+      "nbytes": 309904
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/residue_pka_abodybuilder2.parquet": {
+      "sha256": "b28236dd98d20a81a96578aa15efa8361445cb6456bcfbf1acfc0cf90e51f17c",
+      "nbytes": 323521
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/structure_robustness.csv": {
+      "sha256": "13ecaf66f81ff7775fa7701b61bd74eebddb3dc7669165359cda891263f0230f",
+      "nbytes": 4920
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/structure_robustness_summary.json": {
+      "sha256": "95b4937dfd18f4010d037f008487440918e4757e657220c6142acc9a1a2179f3",
+      "nbytes": 3294
+    },
+    "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/PKA_SENTINEL_AUDIT.json": {
+      "sha256": "5f1be384b89e20b4bed2dfd9c30d5bd8d544d6f29a4d8634c1f3935cf1ba32bc",
+      "nbytes": 15004
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "state": "ORGANIZER_FEATURE_PROSPECTING_GATE2C1_PKA_TECHNICAL_CORRECTION_COMPLETE",
+  "gate": "2C.1",
+  "parent": "ORGANIZER_FEATURE_PROSPECTING_GATE2C_PKA_SHIFT_V1_COMPLETE",
+  "original_v1_immutable": true,
+  "original_limitation": "TECHNICALLY_COMPROMISED_BY_PROPKA_DISULFIDE_SENTINEL",
+  "corrected_empirical_verdict_TmApp_esmfold": "MIXED",
+  "corrected_empirical_verdict_HIC_esmfold": "NO_EVIDENCE_IN_CURRENT_DATA",
+  "corrected_robustness_class": "FRAGILE",
+  "vhl_summary_bookkeeping": "PROVISIONAL_TECHNICAL_MAPPING_CONCERN",
+  "freeze_timestamp_utc_actual": "2026-09-02T17:25:01Z",
+  "repository_git_head_pre_commit": "2ad8382a92103dba028233e2ac6ca4cad6f87bb6",
+  "files": [
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION_REPORT_JA.md",
+      "sha256": "eba5fba01e4bb07b574c58c1fad51425a9f9730de52931601a727ec17cc9ebd6",
+      "nbytes": 3645
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/PKA_SENTINEL_AUDIT.json",
+      "sha256": "5f1be384b89e20b4bed2dfd9c30d5bd8d544d6f29a4d8634c1f3935cf1ba32bc",
+      "nbytes": 15004
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/PKA_SENTINEL_AUDIT_JA.md",
+      "sha256": "462931d0d143af9c31b12d4b2ad6f75c28a0ed98e4b6ca196ece3a7f5591832a",
+      "nbytes": 2760
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/TARGET_BLIND_ARTIFACT_HASHES.json",
+      "sha256": "9692fc536bb91a0c9a8b4964b76261582e849520ee256915720d7b6a3dfeb257",
+      "nbytes": 2131
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/structure_robustness.csv",
+      "sha256": "13ecaf66f81ff7775fa7701b61bd74eebddb3dc7669165359cda891263f0230f",
+      "nbytes": 4920
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/structure_robustness_summary.json",
+      "sha256": "95b4937dfd18f4010d037f008487440918e4757e657220c6142acc9a1a2179f3",
+      "nbytes": 3294
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/EVALUATION_RESULTS.json",
+      "sha256": "0e53601dde6bb95add2444c7c4f8448da33011f8d611d0ec17d1c6ee89c5392a",
+      "nbytes": 29899
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/RESIDUAL_RIDGE_IMPLEMENTATION_AUDIT.json",
+      "sha256": "cd0faa4a18c2f62f523c7339e194e5f4647fd4f11eaf1c3af5e6b0002a3f741b",
+      "nbytes": 19067
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/features_esmfold.parquet",
+      "sha256": "98c8fd2f591923f2ee661de603a43fd287363146ff265a9211bf2c4120a7ff66",
+      "nbytes": 102668
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/features_abodybuilder2.parquet",
+      "sha256": "965e6fe94d844644552a79a22392d59ebf8b7b2f990beba21b4c7f90d9624d92",
+      "nbytes": 111491
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/features_boltz2.parquet",
+      "sha256": "28a6ca2a61fc909d88f55194ca4a01e50764efea758c7149d758e3e2fe6332cc",
+      "nbytes": 104536
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/residue_pka_esmfold.parquet",
+      "sha256": "966d44adac736abdc786bcb0f5191baabe0d0652a4143c8ea320cdcb0ab730a4",
+      "nbytes": 310412
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/residue_pka_abodybuilder2.parquet",
+      "sha256": "b28236dd98d20a81a96578aa15efa8361445cb6456bcfbf1acfc0cf90e51f17c",
+      "nbytes": 323521
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/residue_pka_boltz2.parquet",
+      "sha256": "ff5b12f73207d6cbcc3a4a5a5161c5443a69d5127165c822466c72cc0fbc91dd",
+      "nbytes": 309904
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY_CURRENT.csv",
+      "sha256": "4fd02feb9f26ad82d3207c54be642d510486cd528ec0632db09b01adcd10dca1",
+      "nbytes": 9133
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/GATE2AB_CONSISTENCY_AUDIT.md",
+      "sha256": "40313d5057dc65e75da5fb6fc7290e8392500639962c16e7f51e2b1547159866",
+      "nbytes": 5202
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/VHL-ANGLE_v1_TECHNICAL_REVIEW.md",
+      "sha256": "a136f98133338e0e11c09dae2cdd169bc7b0e3ad0fd99765fac7b5631f7f095b",
+      "nbytes": 709
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/sentinel_per_antibody_abodybuilder2.csv",
+      "sha256": "b60133ad4b270e2c1a3364077c5d047058cce1e0985e1b6a934c098eb5c4f208",
+      "nbytes": 13048
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/sentinel_per_antibody_boltz2.csv",
+      "sha256": "ca432e5927a2491a70d14cbb0c3dc8116605f756bbed4a4172bb356b21101b1d",
+      "nbytes": 13036
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/PKA-SHIFT/TECHNICAL_CORRECTION/sentinel_per_antibody_esmfold.csv",
+      "sha256": "c3c2e243f4a884f1e23b138674237b4d55e37d022f6e8d0f50eafb1a7c1597c2",
+      "nbytes": 13045
+    }
+  ]
+}
