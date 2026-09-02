@@ -1,0 +1,21 @@
+{
+  "crosswalk_version": "v2",
+  "n_rows": 324,
+  "esmfold_pass": 324,
+  "abb2_pass": 324,
+  "boltz2_exists": 324,
+  "boltz2_pass": 324,
+  "boltz2_mapping_status_counts": {
+    "PASS": 324
+  },
+  "target_labels_used": false,
+  "output": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_v2.csv",
+  "boltz2_sequence_exact_match_HL": 324,
+  "completed_at_utc": "2026-09-02T15:31:37Z",
+  "confidence_median": {
+    "confidence_score": 0.9538266360759734,
+    "ptm": 0.9602946937084198,
+    "iptm": 0.9462789595127106,
+    "complex_plddt": 0.9553740322589874
+  }
+}

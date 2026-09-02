@@ -1,0 +1,86 @@
+{
+  "crosswalk_version": "v2",
+  "n_rows": 324,
+  "esmfold_pass": 324,
+  "abb2_pass": 324,
+  "boltz2_exists": 324,
+  "boltz2_pass": 324,
+  "boltz2_mapping_status_counts": {
+    "PASS": 324
+  },
+  "target_labels_used": false,
+  "output": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_v2.csv",
+  "protocol_id": "BOLTZ2_FV_STANDARD_v1",
+  "completed_at_utc": "2026-09-02T15:31:37Z",
+  "sequence_audit": {
+    "heavy_EXACT_MATCH": 324,
+    "light_EXACT_MATCH": 324,
+    "mapping_PASS": 324,
+    "n": 324
+  },
+  "target_blind_qc": {
+    "all_exist": true,
+    "chains_all_HL": true,
+    "nan_coords_any": 0,
+    "n_res": {
+      "min": 221.0,
+      "median": 231.0,
+      "mean": 231.65740740740742,
+      "max": 247.0,
+      "n_missing": 0
+    },
+    "n_atoms": {
+      "min": 1670.0,
+      "median": 1769.5,
+      "mean": 1771.608024691358,
+      "max": 1914.0,
+      "n_missing": 0
+    }
+  },
+  "confidence_summary": {
+    "confidence_score": {
+      "min": 0.9018544554710388,
+      "median": 0.9538266360759734,
+      "mean": 0.952098708829762,
+      "max": 0.9775983691215516,
+      "n_missing": 0
+    },
+    "ptm": {
+      "min": 0.9302024841308594,
+      "median": 0.9602946937084198,
+      "mean": 0.9594986749651991,
+      "max": 0.9784043431282043,
+      "n_missing": 0
+    },
+    "iptm": {
+      "min": 0.9149048328399658,
+      "median": 0.9462789595127106,
+      "mean": 0.9460698940135814,
+      "max": 0.9718004465103148,
+      "n_missing": 0
+    },
+    "complex_plddt": {
+      "min": 0.8928504586219788,
+      "median": 0.9553740322589874,
+      "mean": 0.9536058994722955,
+      "max": 0.9825617671012878,
+      "n_missing": 0
+    },
+    "protein_iptm": {
+      "min": 0.9149048328399658,
+      "median": 0.9462789595127106,
+      "mean": 0.9460698940135814,
+      "max": 0.9718004465103148,
+      "n_missing": 0
+    },
+    "complex_iplddt": {
+      "min": 0.8650092482566833,
+      "median": 0.9477402567863464,
+      "mean": 0.9451762165552304,
+      "max": 0.9814409017562866,
+      "n_missing": 0
+    }
+  },
+  "feature_extraction_performed": false,
+  "model_training_performed": false
+}

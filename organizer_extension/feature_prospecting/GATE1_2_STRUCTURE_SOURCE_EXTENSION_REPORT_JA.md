@@ -1,6 +1,7 @@
 # Gate 1.2 — Structure Source Extension Report
 
-**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN`（予測完了後に最終数値を同期）
+**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN`  
+**Boltz完了:** 2026-09-02T15:31:37Z — **324/324 PASS**
 
 ---
 
@@ -111,27 +112,57 @@ CLI discrepancy: help 文が checkpoint「Boltz-1 default」と書くが、`--mo
 
 ## 8. Boltz-2 prediction completion
 
-実行中。最新カウントは `structures_mmcif/` と `BOLTZ2_STRUCTURE_AUDIT.json` を参照。
+| Item | Count |
+|------|------:|
+| MSA ready | 324 |
+| mmCIF | 324 |
+| PDB | 324 |
+| confidence JSON | 324 |
+| **PASS** | **324 / 324** |
+| FAIL | 0 |
 
-目標: **324/324 PASS**。未達の場合は success/fail ID を報告し feature experiment に進まない。
+詳細: `structure_sources/boltz2_fv_standard_v1/BOLTZ2_RUN_REPORT_JA.md`
 
 ---
 
 ## 9. Sequence / chain audit
 
-成功構造について H/L を competition VH/VL と照合。ADI-37123 は EXACT_MATCH（H/L）。全件は audit スクリプトで集計。
+Competition VH/VL との照合（PDB 復元）:
+
+| Check | Result |
+|-------|--------|
+| H EXACT_MATCH | 324 / 324 |
+| L EXACT_MATCH | 324 / 324 |
+| mapping_status PASS | 324 / 324 |
+
+silent fix なし。FAIL / PASS_EXPLAINED = 0。
 
 ---
 
 ## 10. Confidence/QC summary
 
-target 相関は計算しない。confidence_score / ptm / iptm / complex_plddt 等を JSON 保存。
+target 相関は計算していない（target-blind QC のみ）。
+
+| Metric | min | median | max |
+|--------|----:|-------:|----:|
+| confidence_score | 0.902 | 0.954 | 0.978 |
+| ptm | 0.930 | 0.960 | 0.978 |
+| iptm | 0.915 | 0.946 | 0.972 |
+| complex_plddt | 0.893 | 0.955 | 0.983 |
+
+QC: 全件 chains=`H,L`、NaN coordinates=0、n_res median=231。
 
 ---
 
 ## 11. Crosswalk v2
 
-`STRUCTURE_INPUT_CROSSWALK_v2.csv` — ESMFold/ABB2 列を維持し Boltz-2 列を追加。
+`STRUCTURE_INPUT_CROSSWALK_v2.csv` + `STRUCTURE_INPUT_CROSSWALK_V2_AUDIT.json`
+
+| Generator | PASS |
+|-----------|-----:|
+| ESMFold | 324 |
+| ABodyBuilder2 | 324 |
+| Boltz-2 | 324 |
 
 ---
 

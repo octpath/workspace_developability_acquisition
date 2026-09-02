@@ -8,6 +8,16 @@ wheels/
 
 .boltz_cache/
 
+# Boltz-2 bulky / regenerable run artifacts (canonical mmCIF/PDB/confidence stay tracked)
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/msa/
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/predictions_native/
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/logs/run_*/
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/logs/*_serial.log
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/logs/predict_loop.log
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/logs/msa_serial.log
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/logs/progress_watch.log
+organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/logs/orchestrate*.log
+
 # Virtual environments
 .venv
 .venv_boltz

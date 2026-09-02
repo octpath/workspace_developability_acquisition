@@ -1,24 +1,25 @@
 {
-  "state": "ORGANIZER_FEATURE_PROSPECTING_GATE1_1_CONTRACT_FROZEN",
-  "gate": "1.1",
-  "parent_gate_state": "ORGANIZER_FEATURE_PROSPECTING_GATE1_CONTRACT_FROZEN",
-  "purpose": "Contract corrections before feature prospecting execution — no feature extraction or model training",
-  "freeze_timestamp_utc_actual": "2026-09-02T08:22:04Z",
-  "repository_git_head": "1f2ad03ba21ef5a0d1b8dcc857a02cc6172917ad",
-  "git_status_short": " M virtual_participant/round2_gate0/ROUND2_GATE0_DIAGNOSTIC_REPORT_JA.md\n M virtual_participant/round2_gate0/milestone_trajectory_hic.csv\n M virtual_participant/round2_gate0/milestone_trajectory_tmapp.csv\n M virtual_participant/round2_gate0/plots/milestone_trajectory.png\n M virtual_participant/round2_gate0/scripts/run_gate0_diagnostics.py\n?? virtual_participant/round1_pdb_feature_inventory/\n?? virtual_participant/round2_gate0/hic_dynamic_range_regression_audit.csv\n?? virtual_participant/round2_gate0/hic_tail_topk_metric_audit.csv\n?? virtual_participant/round2_gate0/tmapp_regression_audit.csv",
+  "state": "ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN",
+  "gate": "1.2",
+  "parent_gate_state": "ORGANIZER_FEATURE_PROSPECTING_GATE1_1_CONTRACT_FROZEN",
+  "purpose": "Final contract corrections + Boltz-2 third structure generator freeze before feature family experiments",
+  "freeze_timestamp_utc_actual": "2026-09-02T15:35:28Z",
+  "repository_git_head": "da65027a04e2d53e18d1f007a3b5c5cdc663609a",
+  "git_status_short_pre_freeze_commit": " M .gitignore\n M organizer_extension/feature_prospecting/GATE1_2_STRUCTURE_SOURCE_EXTENSION_REPORT_JA.md\n M organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/logs/progress_watch.log\n?? organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_V2_AUDIT.json\n?? organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_v2.csv\n?? organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/BOLTZ2_RUN_REPORT_JA.md\n?? organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/BOLTZ2_STRUCTURE_AUDIT.json\n?? organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/BOLTZ2_STRUCTURE_MANIFEST.csv\n",
   "evidence_class": "ORGANIZER-EXPLORATORY",
   "round1_immutable": true,
   "feature_extraction_performed": false,
   "model_training_performed": false,
   "public_private_driven_tuning": false,
-  "gate1_1_corrections": [
-    "TRAIN_MEDIAN_BASELINE",
-    "exact_nested_ridge_primary_folds",
-    "CANONICAL_RESIDUAL_RIDGE",
-    "WEAK_OR_MIXED_bootstrap_CI_rule",
-    "STRUCTURE_INPUT_CROSSWALK_v1",
-    "mechanistic_prior_and_empirical_verdict",
-    "FEATURE_RELEVANCE_SUMMARY"
+  "deep_research_provenance": "DEEP_RESEARCH_FULL_REPORT_NOT_AVAILABLE_IN_REPO",
+  "gate1_2_corrections": [
+    "CANONICAL_RESIDUAL_RIDGE_outer_train_crossfit_leakage_fix",
+    "mechanistic_relevance_numeric_5_level_display",
+    "ELEC_HYDRO_COPATCH_HIC_to_4_PLAUSIBLY_RELEVANT",
+    "BOLTZ2_FV_STANDARD_v1_third_generator",
+    "STRUCTURE_INPUT_CROSSWALK_v2",
+    "three_generator_robustness_minimum_pairwise_median_spearman",
+    "DeepResearch_provenance_status"
   ],
   "primary_cv": {
     "name": "opt_joint_group_k5_s42",
@@ -38,43 +39,72 @@
     "baseline_type": "TRAIN_MEDIAN_BASELINE"
   },
   "canonical_incremental_model": "CANONICAL_RESIDUAL_RIDGE",
-  "structure_crosswalk": {
-    "version": "v1",
-    "path": "organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK.csv",
-    "sha256": "5425c615eed8b2816ba3cb401473a1ade3cc76033d90a91599915f723d65adc0",
-    "n": 324,
-    "mapping_status": "PASS_all_324"
+  "canonical_incremental_outer_train_residual": "reference_recipe_crossfit_on_outer_train_only",
+  "structure_generators": [
+    "ESMFold",
+    "ABodyBuilder2",
+    "Boltz-2"
+  ],
+  "boltz2": {
+    "protocol_id": "BOLTZ2_FV_STANDARD_v1",
+    "package_version": "2.2.1",
+    "checkpoint_path": "/workspace_developability_acquisition/.boltz_cache/boltz2_conf.ckpt",
+    "checkpoint_sha256": "090e82ac8c92f5e943fa1b39e7410a44027bea7243c0bbb3caa67a77fc1428e1",
+    "success_n": 324,
+    "fail_n": 0,
+    "sequence_exact_match_HL": 324,
+    "spec_sha256": "ab8203c2274fd955f612eb4dc5ff8e3115831413cae0c0d531e8e5bf1c343178",
+    "manifest_sha256": "149e5e9c92ddc48f13e07f7e3169b814fcec29c6b38dbffb89b9d4852a9c143c",
+    "audit_sha256": "28a72c7d1fd3e8c8b1984eda32d94862bd0193a324cf9c4974933be89579405d",
+    "run_report_sha256": "2e1b0e7ef0402457f5748cb6cb5741992d9189da79d8f529de4b3271279841b5"
   },
+  "structure_crosswalk": {
+    "version": "v2",
+    "path": "organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_v2.csv",
+    "sha256": "64c55f4a4dea3ebe46fb5ba37acedf4ac959da03b98805daae34b36607f0cf0e",
+    "audit_sha256": "0a0ea312461dd72123093f53ec57994a4ffa962b4b02f1785cb531dc17e8d14b",
+    "n": 324,
+    "esmfold_pass": 324,
+    "abb2_pass": 324,
+    "boltz2_pass": 324,
+    "mapping_status": "PASS_all_324_three_generators"
+  },
+  "gate1_2_report_sha256": "2c6786e52680d5a9d17afa2a55f038939471175f53cdabc724221928753331df",
   "files": [
     {
       "path": "organizer_extension/feature_prospecting/ORGANIZER_FEATURE_PROSPECTING_CONTRACT.md",
-      "sha256": "0c385174f987032b992465e16fe0da151d9f37a432d41c72f2490b7a912f8170",
-      "nbytes": 19264
+      "sha256": "773b488467438d34fd15d09e0c0d59e9c1c0ed5aaf4536ce77ee4c22e2d2bcc0",
+      "nbytes": 19777
     },
     {
       "path": "organizer_extension/feature_prospecting/SIGNAL_CLASSIFICATION_SPEC.md",
-      "sha256": "f47749bfef1ee3034d4e8be4b66c2296e0a83e05aa4d6c608e059ac2acdc1bcb",
-      "nbytes": 11721
+      "sha256": "06daf836dd5e738dacfdaa058b9f1d2ced631a9bfc7b95664eb8c2d3d06b5e4c",
+      "nbytes": 13682
     },
     {
       "path": "organizer_extension/feature_prospecting/STRUCTURE_ROBUSTNESS_SPEC.md",
-      "sha256": "aa2a2f239860520d784b4e5b299c1278556825e2e6824d442ddf7831a3fae326",
-      "nbytes": 5494
+      "sha256": "32d84c8f435fdefed00ce7d1cbe61afa130603c2f31c6f05a823dab337fe2579",
+      "nbytes": 2864
     },
     {
       "path": "organizer_extension/feature_prospecting/FAMILY_REPORT_TEMPLATE.md",
-      "sha256": "44393c737cbcfd341e56ee516a88ff6c38d6ce0a41b2d937e32e39c0bdac1d89",
-      "nbytes": 5081
+      "sha256": "11636bbd318da18171e256504ca7a5ac8b56fd015806a97dc1a3b93e7864f182",
+      "nbytes": 2541
     },
     {
       "path": "organizer_extension/feature_prospecting/FEATURE_FAMILY_REGISTRY.csv",
-      "sha256": "40f36f4708e3cbd42bf9c1aa3bd49ca27678971f0cc27254e5acdd44b258e24c",
-      "nbytes": 6106
+      "sha256": "32c5cc97c6f07d1ef62b9ee63981fb8cccb0741854430b0c901fad9795dce14f",
+      "nbytes": 7192
     },
     {
       "path": "organizer_extension/feature_prospecting/FEATURE_PROSPECTING_SCORE_REGISTRY.csv",
-      "sha256": "5bdd6bba8beeefd229d73993d026f0ef83257f0ba48e68d448c5623d994007eb",
-      "nbytes": 721
+      "sha256": "55fe5b38d5204de4d9738a5f4b595880049d98ec476f8cbbb39631084ead4755",
+      "nbytes": 729
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY.csv",
+      "sha256": "0f743330c5a1949cc9e8f9eebdcdbe44cab45e398092bb4e3808f97e5549b101",
+      "nbytes": 7869
     },
     {
       "path": "organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK.csv",
@@ -87,9 +117,14 @@
       "nbytes": 684
     },
     {
-      "path": "organizer_extension/feature_prospecting/FEATURE_RELEVANCE_SUMMARY.csv",
-      "sha256": "928287b74f35f0c6195944be12e785aa15928f6983d94ca566425ea76e6bbc52",
-      "nbytes": 7000
+      "path": "organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_v2.csv",
+      "sha256": "64c55f4a4dea3ebe46fb5ba37acedf4ac959da03b98805daae34b36607f0cf0e",
+      "nbytes": 363853
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/STRUCTURE_INPUT_CROSSWALK_V2_AUDIT.json",
+      "sha256": "0a0ea312461dd72123093f53ec57994a4ffa962b4b02f1785cb531dc17e8d14b",
+      "nbytes": 616
     },
     {
       "path": "organizer_extension/feature_prospecting/GATE1_1_CORRECTION_REPORT_JA.md",
@@ -97,32 +132,84 @@
       "nbytes": 5805
     },
     {
-      "path": "organizer_extension/feature_prospecting/README.md",
-      "sha256": "a4ea6696f78687c4509321f72bc1342a1d3b530d1926b06e5c8113342e162d86",
-      "nbytes": 2170
+      "path": "organizer_extension/feature_prospecting/GATE1_2_STRUCTURE_SOURCE_EXTENSION_REPORT_JA.md",
+      "sha256": "2c6786e52680d5a9d17afa2a55f038939471175f53cdabc724221928753331df",
+      "nbytes": 5502
     },
     {
-      "path": "organizer_extension/feature_prospecting/scripts/build_structure_input_crosswalk.py",
-      "sha256": "9675266dad961674455da425e62ce0af5a6c34a029dd02ed20ed528ecf07db65",
-      "nbytes": 11520
+      "path": "organizer_extension/feature_prospecting/README.md",
+      "sha256": "2e0818793867f7b62809d6ec5e5e5a46b2633c49e51269518358d2b7bacac018",
+      "nbytes": 1390
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/references/DEEP_RESEARCH_PROVENANCE.md",
+      "sha256": "2341c58696f1e7aee6e3aca7ecf8fd47ca3183ac43ab6b1d010edacc7470a128",
+      "nbytes": 815
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/BOLTZ2_STRUCTURE_SPEC.json",
+      "sha256": "ab8203c2274fd955f612eb4dc5ff8e3115831413cae0c0d531e8e5bf1c343178",
+      "nbytes": 2824
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/BOLTZ2_STRUCTURE_MANIFEST.csv",
+      "sha256": "149e5e9c92ddc48f13e07f7e3169b814fcec29c6b38dbffb89b9d4852a9c143c",
+      "nbytes": 121742
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/BOLTZ2_STRUCTURE_AUDIT.json",
+      "sha256": "28a72c7d1fd3e8c8b1984eda32d94862bd0193a324cf9c4974933be89579405d",
+      "nbytes": 2164
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/BOLTZ2_RUN_REPORT_JA.md",
+      "sha256": "2e1b0e7ef0402457f5748cb6cb5741992d9189da79d8f529de4b3271279841b5",
+      "nbytes": 1657
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/scripts/build_crosswalk_v2_and_audit.py",
+      "sha256": "7183a83cd895feba1b287aac1cc851ae81ec445b277605fe438b213285c942db",
+      "nbytes": 7183
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/scripts/generate_boltz2_inputs.py",
+      "sha256": "f354cddaa543f9d8c8a9d5ad94356d0a4609ea31751cbe42f0ac276e68548e51",
+      "nbytes": 1163
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/scripts/precompute_msa.py",
+      "sha256": "db496738c499ccca32ed77a81164c287eda36cae705d8e064bdb5283c1507e32",
+      "nbytes": 6596
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/scripts/run_boltz2_batch.py",
+      "sha256": "6d36fbc98026b849bb286db905d8b2389397eb170e65108594bf88d4494372fc",
+      "nbytes": 11339
+    },
+    {
+      "path": "organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/scripts/orchestrate_msa_and_predict.py",
+      "sha256": "a159741f6a2deaa3b3e2afdf8d01ce9324ba60cb0388b945266d3991b3b61db6",
+      "nbytes": 2447
     }
   ],
   "validation_checklist": {
-    "train_median_baseline": true,
-    "exact_nested_ridge_documented": true,
-    "canonical_residual_ridge_documented": true,
-    "weak_mixed_deterministic": true,
-    "structure_crosswalk_created": true,
-    "structure_sequence_mapping_audited": true,
-    "bundle_sha256_recorded": true,
-    "git_head_and_status_recorded": true,
-    "mechanistic_relevance_all_families": true,
-    "relevance_summary_created": true,
-    "empirical_verdict_all_NOT_RUN": true,
-    "no_feature_extraction": true,
-    "no_model_training": true,
-    "no_public_private_exploration": true,
+    "canonical_residual_cv_outer_leakage_corrected": true,
+    "mechanistic_relevance_numeric_5_level": true,
+    "all_17_families_score_label_display_TmApp_HIC": true,
+    "elec_hydro_copatch_hic_4_plausibly_relevant": true,
+    "boltz_software_version_pinned": true,
+    "boltz_protocol_frozen": true,
+    "msa_policy_frozen": true,
+    "no_explicit_templates": true,
+    "use_potentials_false": true,
+    "diffusion_samples_1": true,
+    "boltz_yaml_vh_vl_only": true,
+    "boltz_sequence_audited_324": true,
+    "crosswalk_v2_created": true,
+    "no_target_labels_for_structure_qc": true,
+    "no_pdb_derived_feature_family_executed": true,
+    "no_new_tmapp_hic_models_trained": true,
     "round1_unchanged": true
   },
-  "freeze_commit_note": "repository_git_head is HEAD before Gate1.1 tree was added (avoids self-referential amend loop). File sha256 entries are authoritative for Gate1.1 bundle integrity."
+  "freeze_commit_note": "repository_git_head is HEAD before this Gate1.2 freeze commit. Per-structure cif/pdb/confidence sha256 live in BOLTZ2_STRUCTURE_MANIFEST.csv."
 }
