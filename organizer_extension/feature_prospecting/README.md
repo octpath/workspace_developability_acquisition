@@ -1,39 +1,37 @@
 # Organizer Extension — Feature Prospecting
 
-**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_1_CONTRACT_FROZEN`
+**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN`
 
-Round1 Participant simulation とは独立した、主催者側の科学的探索拡張ワークスペース。
+Round1 Participant とは独立した Organizer exploratory workspace。
 
 ## Evidence boundary
 
-| 区分 | 説明 |
-|------|------|
-| **ORGANIZER-EXPLORATORY** | 本ワークスペースの全成果物 |
-| **Round1 PRIMARY** | `virtual_participant/` 配下の frozen artifact（**READ-ONLY**） |
-| **Participant Round2** | 別系統（本ワークスペースとは独立） |
+ORGANIZER-EXPLORATORY。Public/Private は post-hoc replication のみ。unseen-test / prospective evidence ではない。
 
-Public / Private は **post-hoc scientific replication** に利用。unseen-test / prospective evidence とは呼ばない。
+## Gates
 
-## Gate 1 → Gate 1.1
+| Gate | State |
+|------|-------|
+| 1 | Contract frozen |
+| 1.1 | Median baseline, nested Ridge, residual Ridge, crosswalk v1 |
+| **1.2** | Residual leakage fix, 5-level priors, **Boltz-2 third generator**, crosswalk v2 |
 
-Gate1 基本思想は維持。Gate1.1 で baseline（median）、exact nested Ridge、CANONICAL_RESIDUAL_RIDGE、WEAK/MIXED CI 規則、structure crosswalk、mechanistic/empirical relevance UX を追加。
+## Key docs
 
-詳細: [GATE1_1_CORRECTION_REPORT_JA.md](GATE1_1_CORRECTION_REPORT_JA.md)
+- [ORGANIZER_FEATURE_PROSPECTING_CONTRACT.md](ORGANIZER_FEATURE_PROSPECTING_CONTRACT.md)
+- [SIGNAL_CLASSIFICATION_SPEC.md](SIGNAL_CLASSIFICATION_SPEC.md)
+- [STRUCTURE_ROBUSTNESS_SPEC.md](STRUCTURE_ROBUSTNESS_SPEC.md)
+- [GATE1_2_STRUCTURE_SOURCE_EXTENSION_REPORT_JA.md](GATE1_2_STRUCTURE_SOURCE_EXTENSION_REPORT_JA.md)
+- [STRUCTURE_INPUT_CROSSWALK_v2.csv](STRUCTURE_INPUT_CROSSWALK_v2.csv)
+- [FEATURE_RELEVANCE_SUMMARY.csv](FEATURE_RELEVANCE_SUMMARY.csv)
+- Boltz-2: `structure_sources/boltz2_fv_standard_v1/`
 
-## 主要成果物
+## Structure generators
 
-| ファイル | 内容 |
-|----------|------|
-| [ORGANIZER_FEATURE_PROSPECTING_CONTRACT.md](ORGANIZER_FEATURE_PROSPECTING_CONTRACT.md) | 共通実験契約 |
-| [SIGNAL_CLASSIFICATION_SPEC.md](SIGNAL_CLASSIFICATION_SPEC.md) | signal / baseline / residual Ridge / verdict |
-| [STRUCTURE_ROBUSTNESS_SPEC.md](STRUCTURE_ROBUSTNESS_SPEC.md) | dual-structure robustness |
-| [STRUCTURE_INPUT_CROSSWALK.csv](STRUCTURE_INPUT_CROSSWALK.csv) | N=324 canonical structure paths |
-| [FEATURE_FAMILY_REGISTRY.csv](FEATURE_FAMILY_REGISTRY.csv) | family backlog + mechanistic priors |
-| [FEATURE_RELEVANCE_SUMMARY.csv](FEATURE_RELEVANCE_SUMMARY.csv) | family×target 「何が効きそうか」表 |
-| [FEATURE_PROSPECTING_SCORE_REGISTRY.csv](FEATURE_PROSPECTING_SCORE_REGISTRY.csv) | 実験スコア schema |
-| [FAMILY_REPORT_TEMPLATE.md](FAMILY_REPORT_TEMPLATE.md) | Bottom-line 付き REPORT テンプレ |
-| [GATE1_FREEZE_MANIFEST.json](GATE1_FREEZE_MANIFEST.json) | SHA-256 / git freeze |
+1. ESMFold（primary）
+2. ABodyBuilder2
+3. Boltz-2 `BOLTZ2_FV_STANDARD_v1`（third technical replicate; not ESMFold replacement）
 
-## 次のステップ
+## Next
 
-Human review 後に first-wave family の `FEATURE_SPEC.json` 凍結 → extraction → 本契約に従った評価。Gate1.1 時点では実験未開始（empirical = NOT_RUN）。
+Human review 後に first-wave feature family を開始。Gate1.2 では feature family 実験を自動開始しない。

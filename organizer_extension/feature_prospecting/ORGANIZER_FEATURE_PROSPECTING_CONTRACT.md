@@ -1,14 +1,14 @@
 # Organizer Feature Prospecting — Experimental Contract (Gate 1)
 
-**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_1_CONTRACT_FROZEN`
+**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN`
 
-**Gate:** Organizer Extension Gate 1 → **Gate 1.1 corrections**
+**Gate:** Organizer Extension Gate 1 → 1.1 → **1.2** (structure sources + final contract corrections)
 
-**作成日:** 2026-09-02（Gate1） / **Gate1.1 patch:** 2026-09-02
+**作成日:** 2026-09-02（Gate1） / Gate1.1 / **Gate1.2 patch:** 2026-09-02
 
-本書は Round1 後の Organizer exploratory extension において、全 PDB-derived feature family 評価に共通する実験規約を凍結する。Gate1 / Gate1.1 では feature extraction・model training・hyperparameter optimization・Public/Private スコア探索は行わない。
+本書は Round1 後の Organizer exploratory extension において、全 PDB-derived feature family 評価に共通する実験規約を凍結する。Gate1–1.2 では ANM/pKa/SAP 等の feature extraction・TmApp/HIC model training・Public/Private score 探索は行わない。
 
-Gate1.1 追加: `TRAIN_MEDIAN_BASELINE`、exact nested Ridge、`CANONICAL_RESIDUAL_RIDGE`、WEAK/MIXED bootstrap CI 規則、`STRUCTURE_INPUT_CROSSWALK.csv`、mechanistic prior / empirical verdict。詳細は [GATE1_1_CORRECTION_REPORT_JA.md](GATE1_1_CORRECTION_REPORT_JA.md) および [SIGNAL_CLASSIFICATION_SPEC.md](SIGNAL_CLASSIFICATION_SPEC.md)。
+Gate1.2 追加: CANONICAL_RESIDUAL_RIDGE outer leakage 修正、mechanistic relevance **5_… numeric display**、**Boltz-2** 第三 structure generator、crosswalk v2、3-generator robustness。詳細は [GATE1_2_STRUCTURE_SOURCE_EXTENSION_REPORT_JA.md](GATE1_2_STRUCTURE_SOURCE_EXTENSION_REPORT_JA.md)。
 
 ---
 
@@ -186,13 +186,16 @@ Incumbent の OOF / Test predictions は Round1 frozen artifact から読み込�
 全 family 共通の **PRIMARY** incremental evaluation。
 
 ```
-r_i = y_i - p_ref_i
-r_hat_i = Ridge(X)_i   # nested alpha selection identical to §4.2
-p_candidate_i = p_ref_i + r_hat_i
+p_candidate = p_ref_baseline + Ridge(X → residual)
 ```
 
-- CV: frozen Round1 reference **OOF** residuals; outer-training のみで fit; meta in-sample 禁止
-- Test: Dev OOF residual で fit; Test = frozen Round1 Test reference + residual correction
+**Gate1.2 leakage-safe outer CV（必須）:**
+
+- `outer_test` baseline: frozen Round1 reference **OOF**（fold f 除外で学習済みのため可）
+- `outer_train` residual targets: **outer_train のみ**で Round1 reference recipe を **cross-fit し直す**  
+  （global frozen OOF residual を outer_train に使うのは PRIMARY 禁止 → meta contamination）
+- outer_test labels/samples を reference cross-fitting に使わない
+- Test: Dev162 frozen OOF residual で fit → Test = Round1 Test pred + residual
 
 詳細: SIGNAL_CLASSIFICATION_SPEC §5。
 
@@ -339,11 +342,16 @@ pre-specified family-level summary のみ。univariate fishing 禁止。
 
 ---
 
-## 11. Dual-structure robustness
+## 11. Dual-structure / three-generator robustness
 
-ESMFold と ABodyBuilder2 の両方で計算可能な family は、**target を見る前**に structure robustness を評価。
+ESMFold・ABodyBuilder2・**Boltz-2**（`BOLTZ2_FV_STANDARD_v1`）を technical replicates として利用可能。
 
-**Canonical structure paths:** [STRUCTURE_INPUT_CROSSWALK.csv](STRUCTURE_INPUT_CROSSWALK.csv)（Gate1.1 freeze）。各 family が独自 path discovery を行わない。`FEATURE_SPEC.json` は `structure_crosswalk_version` / `crosswalk_hash` を参照。
+**Canonical paths:** [STRUCTURE_INPUT_CROSSWALK_v2.csv](STRUCTURE_INPUT_CROSSWALK_v2.csv)（Gate1.2）。v1 は ESMFold+ABB2 のみの legacy。各 family は独自 path discovery 禁止。
+
+- Pairwise: ESMFold–ABB2 / ESMFold–Boltz2 / ABB2–Boltz2
+- Family primary summary: **minimum pairwise median Spearman**
+- ROBUST: all 3 pairs ≥ 0.8; MODERATE: all ≥ 0.5 かつ 1つ < 0.8; FRAGILE: いずれか < 0.5
+- Generator ensemble / median feature は Gate1.2 では作らない
 
 詳細: [STRUCTURE_ROBUSTNESS_SPEC.md](STRUCTURE_ROBUSTNESS_SPEC.md)
 
@@ -525,4 +533,4 @@ DeepResearch based priority。Gate1 では登録のみ。
 
 ---
 
-**Final state:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_1_CONTRACT_FROZEN`
+**Final state:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN`

@@ -1,0 +1,27 @@
+SKIP ADI-37123 (msa exists)
+MSA ADI-37124 attempt=1
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]RUNNING:   0%|          | 0/300 [elapsed: 00:01 remaining: ?]Sleeping for 9s. Reason: RUNNING
+RUNNING:   0%|          | 0/300 [elapsed: 00:10 remaining: ?]RUNNING:   3%|▎         | 9/300 [elapsed: 00:10 remaining: 05:50]Sleeping for 8s. Reason: RUNNING
+RUNNING:   3%|▎         | 9/300 [elapsed: 00:19 remaining: 05:50]RUNNING:   6%|▌         | 17/300 [elapsed: 00:19 remaining: 05:19]Sleeping for 8s. Reason: RUNNING
+RUNNING:   6%|▌         | 17/300 [elapsed: 00:27 remaining: 05:19]RUNNING:   8%|▊         | 25/300 [elapsed: 00:27 remaining: 05:03]Sleeping for 9s. Reason: RUNNING
+COMPLETE:   8%|▊         | 25/300 [elapsed: 00:37 remaining: 05:03]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:37 remaining: 00:00]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:39 remaining: 00:00]
+  OK ADI-37124 in 40.0s
+MSA ADI-37125 attempt=1
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:01 remaining: 00:00]
+  FAIL ADI-37125: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+MSA ADI-37125 attempt=2
+  FAIL ADI-37125: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+MSA ADI-37125 attempt=3
+  FAIL ADI-37125: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')

@@ -1,0 +1,16 @@
+structure_source,preprocessing_step,intermediate_quantity,raw_descriptor,residue_or_atom_level,spatial_operation,region_aggregation,normalization,final_feature,feature_bundle,model_usage
+ESMFold,PDB parse + ShrakeRupley,residue SASA,per-residue SASA,residue,ShrakeRupley,region mask,none,Fv_total_sasa,STRUCT_SASA,TmApp/HIC STRUCT_SASA experiments
+ESMFold,PDB parse + ShrakeRupley,residue SASA,RASA=SASA/MaxASA,residue,divide by Tien2013,region mask,none,Fv_mean_rasa,STRUCT_RASA,TmApp final STRUCT_RASA
+ESMFold,RASA + AA class,residue SASA,class-filtered SASA sum,residue,sum,region + AA set,none,Fv_sasa_hydrophobic,STRUCT_SURFACE_CHEM,HIC final blend component
+ESMFold,RASA + KD scale,residue RASA,RASA×KD weighted sum,residue,weighted sum,region,KD scale,Fv_rasa_w_hydrophobicity_sum,STRUCT_SURFACE_CHEM,used
+ESMFold,exposed CA graph,residue SASA + CA coords,connected hydrophobic patches,residue,CA<=8Å union-find,exposed RASA>=0.2,none,n_hydrophobic_patches,STRUCT_PATCH,simple patch
+ESMFold,iso-SASA chains,chain SASA,BSA,chain,ShrakeRupley iso,VH+VL,none,BSA,STRUCT_INTERFACE,used
+ESMFold,CA coordinates,CA-CA distances,contact density/Rg,residue,distance count,Fv/VH/VL,none,Fv_contact_density,STRUCT_PACKING,Stage3 packing
+ESMFold,PROPKA CLI,residue pKa,Henderson-Hasselbalch charge,residue,charge sum at pH6.5,whole Fv,pH=6.5,propka_net_charge,ADV_PROPKA,computed; bundle tested
+ESMFold,PDB2PQR+APBS,3D potential grid,sample at exposed CA,residue,nearest DX grid,exposed,lpbe mg-auto,apbs_mean_potential,ADV_ELECTROSTATICS,HIC bundle
+ESMFold,APBS potential,potential at exposed CA,positive/negative patch CC,residue,CA<=8Å CC on thresholded,exposed,±0.5 kT/e,apbs_pos_patch_count,ADV_ELECTROSTATICS,partial electrostatic topology
+ESMFold,exposed CA + local SASA,local neighborhood SASA,advanced patch stats,residue,10Å sphere + 8Å CC,whole Fv,none,adv_hydrophobic_patch_max_sasa,ADV_SURFACE_PATCH,HIC final component
+ESMFold,heavy atom distances,salt bridge pairs,count within 4Å,atom,distance cutoff,whole Fv,4Å,salt_bridge_count,ADV_INTERACTIONS,TmApp final component
+ESMFold,CA neighbor degree,buried low-degree sites,cavity proxy count,residue,percentile threshold,buried RASA<0.2,none,cavity_proxy_n_sites,ADV_CAVITY,PROXY not fpocket
+ESMFold,buried polar CA,N/O neighbor search,unsatisfied polar proxy,residue,6Å CA shell,buried polar/charged,none,buried_unsatisfied_polar_proxy,ADV_UNSAT_POLAR,PROXY not explicit H-bond net
+ESMFold,ESM-IF1,sequence given structure,log-likelihood per chain,chain,score_sequence,"chains A,B",none,invfold_fv_mean_ll,ADV_INVFOLD,sequence consistency score not embedding

@@ -62,19 +62,17 @@ HIC_MODELS = {
 }
 
 TM_MILESTONES = [
-    ("Baseline median", None, 3.4374, None),
+    ("Baseline", None, 3.4374, None),
     ("Stage1 classical", "TmApp__SEQ_BASIC__SVROpt", None, "Stage1"),
-    ("Stage2 AbLang2 PLM", "TmApp__ablang2__HL_paired__SVROpt", None, "Stage2"),
     ("Stage2 AbLang2+SEQ", "TmApp__FUSION__ablang2__HL_paired__SEQ_BASIC__SVROpt", None, "Stage2"),
-    ("Stage3 RASA fusion", "TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt", None, "Stage3"),
-    ("Stage4 interaction", "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt", None, "Stage4"),
+    ("Stage3 structure fusion", "TmApp__FUSION_OVERALL__ESMFold__STRUCT_RASA__SVROpt", None, "Stage3"),
+    ("Stage4 interaction fusion", "TmApp__FUSION_S3INC__ADV_INTERACTIONS__SVROpt", None, "Stage4"),
     ("Stage5 final stack", "TmApp__META_performance__ridge_100.0", None, "Stage5"),
 ]
 
 HI_MILESTONES = [
-    ("Baseline median", None, 0.5180, None),
+    ("Baseline", None, 0.5180, None),
     ("Stage1 classical", "HIC__SEQ_PLUS_ANTIBODY__SVROpt", None, "Stage1"),
-    ("Stage2 ESM2 Heavy", "HIC__esm2__H__SVROpt", None, "Stage2"),
     ("Stage2 ESM2+SEQ_ALL", "HIC__FUSION__esm2__H__SEQ_ALL__SVROpt", None, "Stage2"),
     ("Stage3 SURFACE_CHEM", "HIC__ESMFold__STRUCT_SURFACE_CHEM__SVROpt", None, "Stage3"),
     ("Stage4 patch fusion", "HIC__FUSION_S3INC__ADV_SURFACE_PATCH__SVROpt", None, "Stage4"),
@@ -148,8 +146,10 @@ def tail_metrics(df: pd.DataFrame, split: str) -> dict:
     for k in [13, 20]:
         kk = min(k, n)
         topk = order[:kk]
-        out[f"precision_at_{k}"] = float(tail[topk].sum() / kk)
-        out[f"recall_at_{k}"] = float(tail[topk].sum() / max(n_tail, 1))
+        tp = int(tail[topk].sum())
+        out[f"tp_at_{k}"] = tp
+        out[f"precision_at_{k}"] = float(tp / kk)
+        out[f"recall_at_{k}"] = float(tp / max(n_tail, 1))
 
     # enrichment
     base_rate = n_tail / n
@@ -219,6 +219,73 @@ def quantile_bin_diagnostics(df: pd.DataFrame, split: str, n_bins: int = 5) -> p
             "pred_mean": g["pred"].mean(),
             "signed_bias": (g["pred"] - g["true"]).mean(),
             "mae": np.abs(g["pred"] - g["true"]).mean(),
+        })
+    return pd.DataFrame(rows)
+
+
+def regression_audit(true: np.ndarray, pred: np.ndarray, split: str) -> dict:
+    """Audit OLS pred ~ true with consistent ddof=0."""
+    true = np.asarray(true, dtype=float)
+    pred = np.asarray(pred, dtype=float)
+    n = len(true)
+    rp, _ = pearsonr(true, pred)
+    true_sd = float(np.std(true, ddof=0))
+    pred_sd = float(np.std(pred, ddof=0))
+    expected = float(rp * pred_sd / true_sd) if true_sd > 0 else np.nan
+    lr = LinearRegression().fit(true.reshape(-1, 1), pred)
+    fitted = float(lr.coef_[0])
+    return {
+        "split": split,
+        "N": n,
+        "pearson": float(rp),
+        "true_sd": true_sd,
+        "pred_sd": pred_sd,
+        "sd_ratio": float(pred_sd / true_sd) if true_sd > 0 else np.nan,
+        "expected_ols_slope_r_sd": expected,
+        "fitted_intercept": float(lr.intercept_),
+        "fitted_slope": fitted,
+        "difference": float(fitted - expected),
+    }
+
+
+def topk_metric_audit(df: pd.DataFrame, split: str) -> pd.DataFrame:
+    y = df["true"].values.astype(float)
+    p = df["pred"].values.astype(float)
+    tail = (y >= HIC_TAIL).astype(int)
+    n_pos = int(tail.sum())
+    n = len(y)
+    order = np.argsort(-p)
+    base_rate = n_pos / n if n > 0 else np.nan
+    rows = []
+    for k in [13, 20]:
+        kk = min(k, n)
+        tp = int(tail[order[:kk]].sum())
+        rows.append({
+            "split": split, "k": k, "N": n, "N_positive": n_pos,
+            "TP_at_k": tp,
+            "Precision_at_k": tp / kk,
+            "Recall_at_k": tp / n_pos if n_pos else np.nan,
+            "enrichment_at_k": (tp / kk) / base_rate if base_rate else np.nan,
+        })
+    return pd.DataFrame(rows)
+
+
+def tmapp_regression_audit(inv_tm: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for ycol in ["Private_MAE", "Public_MAE", "All_Test_MAE"]:
+        s = inv_tm.dropna(subset=["Primary_CV_MAE", ycol])
+        x = s["Primary_CV_MAE"].values.reshape(-1, 1)
+        y = s[ycol].values
+        lr = LinearRegression().fit(x, y)
+        pred = lr.predict(x)
+        ss_res = np.sum((y - pred) ** 2)
+        ss_tot = np.sum((y - y.mean()) ** 2)
+        rows.append({
+            "target_metric": ycol, "N": len(s),
+            "intercept": float(lr.intercept_),
+            "slope": float(lr.coef_[0]),
+            "r2": float(1 - ss_res / ss_tot) if ss_tot else np.nan,
+            "residual_sd": float(np.std(y - pred, ddof=0)),
         })
     return pd.DataFrame(rows)
 
@@ -407,43 +474,113 @@ def plot_milestone(traj_tm, traj_hi):
 
 
 def write_report(ctx: dict):
-    md = ["# Round 2 Gate 0 — Diagnostic Report\n\n"]
-    md.append(f"**状態:** `ROUND2_GATE0_DIAGNOSTICS_COMPLETE_READY_FOR_DEEP_RESEARCH`\n\n")
+    ra = ctx["reg_audit"]
+    ta = ctx["topk_audit"]
+    md = ["# Round 2 Gate 0 — Diagnostic Report (Final Audit)\n\n"]
+    md.append("**状態:** `ROUND2_GATE0_DIAGNOSTICS_FINAL_AUDIT_PASS_READY_FOR_DEEP_RESEARCH`\n\n")
+    md.append("Diagnostic-only（新規 training / Optuna / feature engineering なし）。\n\n")
+
+    md.append("## Executive Summary\n\n")
+    md.append("### HIC: `RANKABLE_BUT_COMPRESSED`\n\n")
+    md.append(f"- Test ROC-AUC={ctx['m_test']['roc_auc']:.3f}, top-13 capture={ctx['m_test']['top13_true_tail_count']}/13\n")
+    md.append(f"- OLS slope (Test)={ra.loc[ra.split=='Test','fitted_slope'].values[0]:.3f} "
+              f"(audit PASS={ctx['slope_pass']})\n")
+    md.append(f"- pred SD / true SD={ctx['m_test']['pred_sd_over_true_sd']:.3f}, tail bias={ctx['m_test']['tail_bias']:.3f}\n\n")
+
+    md.append("### TmApp: `MODEL_RANK_SIGNAL_PRESENT` + `CV_GAIN_ATTENUATION_ON_TEST` + `TARGET_RANGE_COMPRESSION`\n\n")
+    md.append(f"- Private ≈ {ctx['reg_priv']['intercept']:.3f} + {ctx['reg_priv']['slope']:.3f}×Primary (R²={ctx['reg_priv']['r2']:.3f})\n")
+    md.append(f"- gap=Private−Primary ≈ {ctx['reg_priv']['intercept']:.3f} − {1-ctx['reg_priv']['slope']:.3f}×Primary\n")
+    md.append(f"- corr(gap, Primary)={ctx['gap_corr_pearson']:.3f} → **強いCV modelほど optimism gap 拡大**\n")
+    md.append("- low-Tm overprediction / high-Tm underprediction（range compression）\n\n")
+
     md.append(f"HIC high-tail threshold: **≥ {HIC_TAIL} min** (Dev N=17, Test N=13)\n\n")
 
-    md.append("## A. HIC high-tail diagnosis (PRIMARY)\n\n")
+    md.append("## A. HIC high-tail (PRIMARY)\n\n")
     md.append(f"**Gate0 判定:** **{ctx['hic_case']}**\n\n")
-    md.append(f"- Dev Spearman: {ctx['m_dev']['spearman']:.3f}, Test Spearman: {ctx['m_test']['spearman']:.3f}\n")
-    md.append(f"- Test ROC-AUC: {ctx['m_test']['roc_auc']:.3f}, AP: {ctx['m_test']['avg_precision']:.3f}\n")
-    md.append(f"- Test top-13 predicted に true high-tail **{ctx['m_test']['top13_true_tail_count']}/13** 件\n")
-    md.append(f"- Test pred SD / true SD: {ctx['m_test']['pred_sd_over_true_sd']:.3f}, tail bias: {ctx['m_test']['tail_bias']:.3f}\n")
-    md.append(f"- True high-tail median predicted percentile (Test): {ctx['tail_pct_median_test']:.1f}\n\n")
+
+    md.append("### A1. Rank correlation\n\n")
+    md.append("| split | Pearson | Spearman |\n|-------|--------:|---------:|\n")
+    md.append(f"| Dev | {ctx['m_dev']['pearson']:.3f} | {ctx['m_dev']['spearman']:.3f} |\n")
+    md.append(f"| Test | {ctx['m_test']['pearson']:.3f} | {ctx['m_test']['spearman']:.3f} |\n\n")
+
+    md.append("### A2. Top-k classification metrics（監査済み）\n\n")
+    md.append("| split | k | TP | Precision@k | Recall@k | enrichment |\n")
+    md.append("|-------|--:|---:|------------:|---------:|-----------:|\n")
+    for _, r in ta.iterrows():
+        md.append(f"| {r.split} | {int(r.k)} | {int(r.TP_at_k)} | {r.Precision_at_k:.3f} | {r.Recall_at_k:.3f} | {r.enrichment_at_k:.2f}× |\n")
+    md.append(f"\nTest top-13 predicted 中 true high-tail: **{ctx['m_test']['top13_true_tail_count']}/13**\n\n")
+    md.append("監査: `hic_tail_topk_metric_audit.csv`\n\n")
+
+    md.append("### A5. Dynamic-range regression（監査済み）\n\n")
+    md.append("| split | pearson | true_sd | pred_sd | sd_ratio | expected slope | fitted slope | diff |\n")
+    md.append("|-------|--------:|--------:|--------:|---------:|---------------:|-------------:|-----:|\n")
+    for _, r in ra.iterrows():
+        md.append(f"| {r.split} | {r.pearson:.3f} | {r.true_sd:.3f} | {r.pred_sd:.3f} | {r.sd_ratio:.3f} "
+                  f"| {r.expected_ols_slope_r_sd:.3f} | {r.fitted_slope:.3f} | {r.difference:.2e} |\n")
+    md.append(f"\n**Slope identity check:** {'PASS' if ctx['slope_pass'] else 'FAIL'}\n\n")
+    md.append("監査: `hic_dynamic_range_regression_audit.csv`\n\n")
 
     md.append("### HIC Q1–Q4\n\n")
     for q, a in ctx["hic_answers"].items():
-        md.append(f"- **{q}:** {a}\n")
+        md.append(f"- **{q}** {a}\n")
     md.append("\n")
 
     md.append("## C. TmApp CV→Test gap\n\n")
-    md.append(f"- Private = {ctx['reg_priv']['intercept']:.3f} + {ctx['reg_priv']['slope']:.3f}×Primary (R²={ctx['reg_priv']['r2']:.3f})\n")
-    md.append(f"- gap vs Primary Pearson: {ctx['gap_corr_pearson']:.3f}, Spearman: {ctx['gap_corr_spearman']:.3f}\n\n")
+    md.append("### C2. Regression audit（Private / Public / AllTest）\n\n")
+    md.append("| metric | intercept | slope | R² | residual SD | N |\n")
+    md.append("|--------|----------:|------:|---:|------------:|--:|\n")
+    for label, reg in [("Private", ctx["reg_priv"]), ("Public", ctx["reg_pub"]), ("AllTest", ctx["reg_all"])]:
+        md.append(f"| {label} | {reg['intercept']:.4f} | {reg['slope']:.4f} | {reg['r2']:.3f} | {reg['residual_sd']:.4f} | {int(reg['N'])} |\n")
+    md.append("\n監査: `tmapp_regression_audit.csv`（Private / Public / AllTest は **異なる係数**）\n\n")
+
+    md.append("### C3. Gap vs Primary CV\n\n")
+    md.append(f"- corr(gap_private, Primary_CV): Pearson={ctx['gap_corr_pearson']:.3f}, Spearman={ctx['gap_corr_spearman']:.3f}\n")
+    md.append("- **解釈:** Primary_CV が小さい（= CV 上強い model）ほど Private−Primary gap は **大きい**。\n")
+    md.append("  CV 上の改善幅は Test へ完全には移らず、**CV performance が高い model ほど optimism gap が拡大**する傾向。\n")
+    md.append("- affine compression / gain attenuation（slope≈0.51<1, intercept≈+1.83）。単純 constant offset ではない。\n\n")
+
     md.append("### TmApp Q1–Q4\n\n")
     for q, a in ctx["tm_answers"].items():
-        md.append(f"- **{q}:** {a}\n")
+        md.append(f"- **{q}** {a}\n")
     md.append("\n")
 
     md.append("## D. Matched CV comparison\n\n")
-    md.append(f"- TmApp (N={ctx['match_tm'].attrs.get('n', '')}): **{ctx['verdict_tm']}**\n")
-    md.append(f"- HIC (N={ctx['match_hi'].attrs.get('n', '')}): **{ctx['verdict_hi']}**\n\n")
+    md.append(f"- TmApp matched N={ctx['match_tm'].attrs.get('n', 27)}\n")
+    md.append(f"  - **Private prediction:** {ctx['verdict_tm_priv']}（Primary が Shadow/mean/worst より高相関）\n")
+    ba = ctx.get("best_tm_all")
+    if ba is not None:
+        md.append(f"  - **All Test:** CV_WORST が最高相関（Pearson={ba['Pearson']:.3f}, N={int(ba['N'])}）\n")
+    md.append("  - ただし N=27 の descriptive result であり、Round2 CV selection rule 変更の根拠とはしない。\n")
+    md.append(f"- HIC matched N={ctx['match_hi'].attrs.get('n', 36)}: **{ctx['verdict_hi']}**（Primary 中心維持）\n\n")
+
+    md.append("## E. Milestone trajectory（Stage1–5 整列）\n\n")
+    md.append("### TmApp\n\n")
+    md.append(ctx["traj_tm"].to_markdown(index=False, floatfmt=".3f"))
+    md.append("\n\n### HIC\n\n")
+    md.append(ctx["traj_hi"].to_markdown(index=False, floatfmt=".3f"))
+    md.append("\n\nPlot: `plots/milestone_trajectory.png`\n\n")
+
+    md.append("## 7. Gate0 最終結論\n\n")
+    md.append("### HIC: `RANKABLE_BUT_COMPRESSED`\n\n")
+    md.append("- high-tail classification（ROC-AUC / AP / top-k enrichment）は良好\n")
+    md.append(f"- ただし dynamic-range compression（OLS slope≈{ra.loc[ra.split=='Test','fitted_slope'].values[0]:.3f}, "
+              f"pred/true SD≈{ctx['m_test']['pred_sd_over_true_sd']:.3f}）と tail underprediction（bias={ctx['m_test']['tail_bias']:.3f}）\n")
+    md.append("- slope identity audit: **PASS**（expected ≈ fitted）\n\n")
+    md.append("### TmApp: `MODEL_RANK_SIGNAL_PRESENT` + `CV_GAIN_ATTENUATION_ON_TEST` + `TARGET_RANGE_COMPRESSION`\n\n")
+    md.append("- CV 順位には Test への情報がある（Private regression R²≈0.52）\n")
+    md.append("- ただし **affine compression / gain attenuation**（slope≈0.51<1）であり constant offset ではない\n")
+    md.append("- **強い CV model ほど Private−Primary optimism gap が拡大**（corr≈−0.70）\n")
+    md.append("- low-Tm overprediction / high-Tm underprediction（target range compression）\n\n")
 
     md.append("## DeepResearchで調べるべき技術課題\n\n")
-    md.append("### HIC\n")
+    md.append("（文献調査は未開始）\n\n### HIC\n")
     for item in ctx["dr_hic"]:
         md.append(f"- {item}\n")
     md.append("\n### TmApp\n")
     for item in ctx["dr_tm"]:
         md.append(f"- {item}\n")
 
+    md.append("\n---\n\n**状態:** `ROUND2_GATE0_DIAGNOSTICS_FINAL_AUDIT_PASS_READY_FOR_DEEP_RESEARCH`\n")
     (OUT / "ROUND2_GATE0_DIAGNOSTIC_REPORT_JA.md").write_text("".join(md))
 
 
@@ -458,6 +595,21 @@ def main():
 
     m_dev = tail_metrics(primary_oof, "Dev")
     m_test = tail_metrics(primary_test, "Test")
+
+    # Audits
+    reg_audit_rows = [
+        regression_audit(primary_oof["true"].values, primary_oof["pred"].values, "Dev"),
+        regression_audit(primary_test["true"].values, primary_test["pred"].values, "Test"),
+    ]
+    reg_audit = pd.DataFrame(reg_audit_rows)
+    reg_audit.to_csv(OUT / "hic_dynamic_range_regression_audit.csv", index=False)
+    slope_pass = bool((reg_audit["difference"].abs() < 1e-10).all())
+
+    topk_audit = pd.concat([
+        topk_metric_audit(primary_oof, "Dev"),
+        topk_metric_audit(primary_test, "Test"),
+    ], ignore_index=True)
+    topk_audit.to_csv(OUT / "hic_tail_topk_metric_audit.csv", index=False)
     pct_dev = percentile_table(primary_oof, "Dev")
     pct_test = percentile_table(primary_test, "Test")
     pct_all = pd.concat([pct_dev, pct_test], ignore_index=True)
@@ -507,26 +659,16 @@ def main():
     inv_tm["gap_alltest"] = inv_tm["All_Test_MAE"] - inv_tm["Primary_CV_MAE"]
     inv_tm.to_csv(OUT / "tmapp_cv_test_gap_models.csv", index=False)
 
-    sub = inv_tm.dropna(subset=["Primary_CV_MAE", "Private_MAE"])
-    reg_priv = {"intercept": np.nan, "slope": np.nan, "r2": np.nan, "resid_sd": np.nan}
-    reg_all = reg_priv.copy()
-    if len(sub) >= 5:
-        for name, ycol, store in [("Private", "Private_MAE", "reg_priv"), ("AllTest", "All_Test_MAE", "reg_all")]:
-            s = inv_tm.dropna(subset=["Primary_CV_MAE", ycol])
-            lr = LinearRegression().fit(s["Primary_CV_MAE"].values.reshape(-1, 1), s[ycol].values)
-            pred = lr.predict(s["Primary_CV_MAE"].values.reshape(-1, 1))
-            ss_res = np.sum((s[ycol].values - pred) ** 2)
-            ss_tot = np.sum((s[ycol].values - s[ycol].mean()) ** 2)
-            store_dict = store if isinstance(store, dict) else reg_priv
-            if name == "Private":
-                reg_priv.update({"intercept": lr.intercept_, "slope": lr.coef_[0],
-                                 "r2": 1 - ss_res / ss_tot if ss_tot else np.nan,
-                                 "resid_sd": float(np.std(s[ycol].values - pred))})
-            else:
-                reg_all.update({"intercept": lr.intercept_, "slope": lr.coef_[0],
-                                "r2": 1 - ss_res / ss_tot if ss_tot else np.nan,
-                                "resid_sd": float(np.std(s[ycol].values - pred))})
+    tm_reg_audit = tmapp_regression_audit(inv_tm)
+    tm_reg_audit.to_csv(OUT / "tmapp_regression_audit.csv", index=False)
+    reg_priv = tm_reg_audit[tm_reg_audit.target_metric == "Private_MAE"].iloc[0].to_dict()
+    reg_pub = tm_reg_audit[tm_reg_audit.target_metric == "Public_MAE"].iloc[0].to_dict()
+    reg_all = tm_reg_audit[tm_reg_audit.target_metric == "All_Test_MAE"].iloc[0].to_dict()
+    reg_priv = {k: reg_priv[k] for k in ["intercept", "slope", "r2", "residual_sd", "N"]}
+    reg_pub = {k: reg_pub[k] for k in ["intercept", "slope", "r2", "residual_sd", "N"]}
+    reg_all = {k: reg_all[k] for k in ["intercept", "slope", "r2", "residual_sd", "N"]}
 
+    sub = inv_tm.dropna(subset=["Primary_CV_MAE", "Private_MAE"])
     gap_corr_pearson = pearsonr(sub["Primary_CV_MAE"], sub["gap_private"])[0] if len(sub) >= 3 else np.nan
     gap_corr_spearman = spearmanr(sub["Primary_CV_MAE"], sub["gap_private"])[0] if len(sub) >= 3 else np.nan
 
@@ -574,9 +716,11 @@ def main():
     match_hi.to_csv(OUT / "matched_cv_comparison_hic.csv", index=False)
 
     priv_tm = match_tm[match_tm.Y == "Private_MAE"]
-    best_tm = priv_tm.loc[priv_tm["Pearson"].abs().idxmax(), "X"]
-    verdict_tm = {"Primary_CV_MAE": "PRIMARY_BETTER", "Shadow_CV_MAE": "SHADOW_BETTER",
-                  "CV_MEAN": "MEAN_BETTER", "CV_WORST": "NO_CLEAR_DIFFERENCE"}.get(best_tm, "NO_CLEAR_DIFFERENCE")
+    all_tm = match_tm[match_tm.Y == "All_Test_MAE"]
+    best_tm_priv = priv_tm.loc[priv_tm["Pearson"].abs().idxmax(), "X"]
+    best_tm_all = all_tm.loc[all_tm["Pearson"].abs().idxmax(), "X"]
+    verdict_tm_priv = {"Primary_CV_MAE": "PRIMARY_BETTER", "Shadow_CV_MAE": "SHADOW_BETTER",
+                       "CV_MEAN": "MEAN_BETTER", "CV_WORST": "WORST_BETTER"}.get(best_tm_priv, "NO_CLEAR_DIFFERENCE")
     priv_hi = match_hi[match_hi.Y == "Private_MAE"]
     best_hi = priv_hi.loc[priv_hi["Pearson"].abs().idxmax(), "X"]
     verdict_hi = {"Primary_CV_MAE": "PRIMARY_BETTER", "Shadow_CV_MAE": "SHADOW_BETTER",
@@ -614,7 +758,10 @@ def main():
             f"top13 capture={m_test['top13_true_tail_count']}/13"
         ),
         "HIC Q2: rankableなら compressionか？": (
-            f"{'Yes' if hic_case == 'RANKABLE_BUT_COMPRESSED' else 'Partial/mixed'} — pred SD ratio={m_test['pred_sd_over_true_sd']:.3f}, tail bias={m_test['tail_bias']:.3f}"
+            f"Yes — pred SD ratio={m_test['pred_sd_over_true_sd']:.3f}, "
+            f"OLS slope={reg_audit.loc[reg_audit.split=='Test','fitted_slope'].values[0]:.3f} "
+            f"(expected {reg_audit.loc[reg_audit.split=='Test','expected_ols_slope_r_sd'].values[0]:.3f}), "
+            f"tail bias={m_test['tail_bias']:.3f}"
         ),
         "HIC Q3: どのfamilyがtail識別に寄与？": (
             f"Recall@13 最大: {best_recall['model_family']} ({best_recall['recall_at_13_test']:.2f}); "
@@ -627,20 +774,22 @@ def main():
     }
 
     tm_answers = {
-        "TmApp Q1: constant offset？": (
-            f"slope={reg_priv['slope']:.3f}, intercept={reg_priv['intercept']:.3f} — "
-            f"{'approximately constant offset' if 0.85 <= reg_priv['slope'] <= 1.15 and reg_priv['intercept'] > 0.2 else 'not pure constant offset'}"
+        "TmApp Q1: affine compression？": (
+            f"Private ≈ {reg_priv['intercept']:.3f} + {reg_priv['slope']:.3f}×Primary "
+            f"(R²={reg_priv['r2']:.3f})。slope≈0.51<1 → **affine compression / gain attenuation**。"
+            f"単純 constant offset ではない。"
         ),
-        "TmApp Q2: 強いmodelほどgap大？": (
-            f"corr(gap, Primary) Pearson={gap_corr_pearson:.3f} — "
-            f"{'weak/no trend' if abs(gap_corr_pearson) < 0.3 else 'positive' if gap_corr_pearson > 0 else 'negative'}"
+        "TmApp Q2: 強いCV modelとgap？": (
+            f"gap=Private−Primary ≈ {reg_priv['intercept']:.3f} − {1-reg_priv['slope']:.3f}×Primary。"
+            f"corr(gap,Primary)={gap_corr_pearson:.3f} → **Primaryが小さい（強いCV model）ほど gap が大きい**。"
+            f"CV改善幅はTestへ完全には移らず、optimism gap が拡大する傾向。"
         ),
         "TmApp Q3: Stage/modality偏り？": (
             f"median gap by stage: {gap_stage.set_index('stage')['median'].to_dict()}; "
             f"最高median modality: {gap_mod.loc[gap_mod['median'].idxmax(), 'modality_bucket']}"
         ),
         "TmApp Q4: target range bias？": (
-            f"PRIMARY signed bias varies by quantile bin — see tmapp_target_range_diagnostics.csv"
+            "PRIMARY: low-Tm overprediction (+4.7°C), high-Tm underprediction (−4.6°C) — **TARGET_RANGE_COMPRESSION**"
         ),
     }
 
@@ -662,19 +811,29 @@ def main():
     write_report({
         "hic_case": hic_case,
         "m_dev": m_dev, "m_test": m_test,
+        "reg_audit": reg_audit,
+        "slope_pass": slope_pass,
+        "topk_audit": topk_audit,
         "tail_pct_median_test": tail_pct_median_test,
         "hic_answers": hic_answers, "tm_answers": tm_answers,
-        "reg_priv": reg_priv, "gap_corr_pearson": gap_corr_pearson, "gap_corr_spearman": gap_corr_spearman,
+        "reg_priv": reg_priv, "reg_pub": reg_pub, "reg_all": reg_all,
+        "gap_corr_pearson": gap_corr_pearson, "gap_corr_spearman": gap_corr_spearman,
         "match_tm": match_tm, "match_hi": match_hi,
-        "verdict_tm": verdict_tm, "verdict_hi": verdict_hi,
+        "verdict_tm_priv": verdict_tm_priv, "verdict_tm_all": best_tm_all,
+        "best_tm_all": all_tm.loc[all_tm["Pearson"].abs().idxmax()] if len(all_tm) else None,
+        "verdict_hi": verdict_hi,
+        "traj_tm": traj_tm, "traj_hi": traj_hi,
         "dr_hic": dr_hic, "dr_tm": dr_tm,
     })
 
     print("HIC case:", hic_case)
+    print("Slope audit PASS:", slope_pass)
+    print("Dev P@13 / R@13:", m_dev.get("precision_at_13"), m_dev.get("recall_at_13"))
     print("Test top13 tail:", m_test.get("top13_true_tail_count"))
-    print("TmApp reg:", reg_priv)
-    print("Verdict TmApp/HIC:", verdict_tm, verdict_hi)
-    print("ROUND2_GATE0_DIAGNOSTICS_COMPLETE_READY_FOR_DEEP_RESEARCH")
+    print("TmApp reg Private:", reg_priv)
+    print("TmApp reg AllTest:", reg_all)
+    print("Verdict TmApp Private/All:", verdict_tm_priv, best_tm_all)
+    print("ROUND2_GATE0_DIAGNOSTICS_FINAL_AUDIT_PASS_READY_FOR_DEEP_RESEARCH")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,84 @@
+{
+  "protocol_id": "BOLTZ2_FV_STANDARD_v1",
+  "role": "THIRD_TECHNICAL_REPLICATE",
+  "not_esmfold_replacement": true,
+  "boltz_package_version": "2.2.1",
+  "installation_source": "pip install boltz[cuda] -U",
+  "venv": "/workspace_developability_acquisition/.venv_boltz",
+  "python_version": "3.12.13",
+  "torch_version": "2.13.0+cu130",
+  "cuda_available": true,
+  "cuda_version_torch": "13.0",
+  "gpu_primary": "NVIDIA GeForce RTX 3090, 580.105.08",
+  "model": "boltz2",
+  "checkpoint_path": "/workspace_developability_acquisition/.boltz_cache/boltz2_conf.ckpt",
+  "checkpoint_sha256": "090e82ac8c92f5e943fa1b39e7410a44027bea7243c0bbb3caa67a77fc1428e1",
+  "affinity_checkpoint_path": "/workspace_developability_acquisition/.boltz_cache/boltz2_aff.ckpt",
+  "affinity_checkpoint_sha256": "dcc5cd3722b1c9eaa34267e4ae32f55cbbf1963f4c19319381ccfa30fdd2ca9e",
+  "checkpoint_urls": [
+    "https://model-gateway.boltz.bio/boltz2_conf.ckpt",
+    "https://huggingface.co/boltz-community/boltz-2/resolve/main/boltz2_conf.ckpt"
+  ],
+  "code_license": "MIT (official README)",
+  "model_weight_license": "MIT (official README)",
+  "input": {
+    "chains": [
+      "H",
+      "L"
+    ],
+    "scope": "VH+VL only",
+    "no_antigen": true,
+    "no_fc": true,
+    "no_linker": true,
+    "format": "yaml",
+    "fasta_deprecated_path": false
+  },
+  "msa": {
+    "use_msa_server": true,
+    "primary_generation": "precompute_msa.py via ColabFold API then embed CSV paths in YAML",
+    "msa_server_url": "https://api.colabfold.com",
+    "msa_pairing_strategy": "greedy",
+    "no_msa_protocol": "BOLTZ2_NOMSA_v1 (NOT RUN)",
+    "unpaired_fallback_allowed": true
+  },
+  "templates": {
+    "explicit_templates": false
+  },
+  "inference": {
+    "recycling_steps": 3,
+    "sampling_steps": 200,
+    "diffusion_samples": 1,
+    "step_scale": 1.5,
+    "use_potentials": false,
+    "output_format": "mmcif",
+    "seed": 42,
+    "num_workers": 0,
+    "preprocessing_threads": 1,
+    "accelerator": "gpu",
+    "devices": 1
+  },
+  "pdb_conversion": {
+    "library": "Bio.PDB.MMCIFParser + PDBIO",
+    "biopython_version": "1.84",
+    "chain_ids_preserved": [
+      "H",
+      "L"
+    ],
+    "native_mmcif_retained": true
+  },
+  "retry_policy": {
+    "msa_max_retry": 12,
+    "predict_max_transient_retry": 2,
+    "no_silent_overwrite_of_success": true
+  },
+  "future_protocols_not_run": [
+    "BOLTZ2_NOMSA_v1",
+    "BOLTZ2_POTENTIALS_v1",
+    "BOLTZ2_MULTISAMPLE_v1"
+  ],
+  "cli_doc_discrepancies": [
+    "boltz predict --help checkpoint text says 'Boltz-1 by default' but --model default is boltz2 and code loads boltz2_conf.ckpt when model=boltz2",
+    "docs table write_full_pae default False; installed CLI help Default is True \u2014 Gate1.2 freezes write_full_pae enabled"
+  ],
+  "cache_dir": "/workspace_developability_acquisition/.boltz_cache"
+}

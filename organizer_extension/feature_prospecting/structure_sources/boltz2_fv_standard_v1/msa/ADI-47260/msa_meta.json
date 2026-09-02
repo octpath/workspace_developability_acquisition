@@ -1,0 +1,12 @@
+{
+  "id": "ADI-47260",
+  "status": "SUCCESS",
+  "pairing_mode": "paired+unpaired",
+  "H_sha256": "902005888256cea820f3512b8fd2bf91b6b87d0e25b5fc3a203ac89c2eaac7d1",
+  "L_sha256": "759fe0cdc45a5e9e82b2b8f936d77cfb6f09f57ed940dd611cd987105d416757",
+  "H_nlines": 12742,
+  "L_nlines": 15748,
+  "msa_server_url": "https://api.colabfold.com",
+  "msa_pairing_strategy": "greedy",
+  "ts": "2026-09-02T14:35:09.399461+00:00"
+}

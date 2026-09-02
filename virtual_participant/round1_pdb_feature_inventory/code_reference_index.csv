@@ -1,0 +1,11 @@
+symbol,file,purpose
+residue_rows,gate_b2/scripts/03_structure_features.py,ShrakeRupley SASA/RASA per residue
+aggregate,gate_b2/scripts/03_structure_features.py,region SASA/RASA/chem aggregation
+surface_patches,gate_b2/scripts/03_structure_features.py,simple exposed CA patch CC
+interface_features,gate_b2/scripts/03_structure_features.py,BSA + interface residue composition
+packing_from_cas,virtual_participant/stage3_structure/scripts/run_stage3.py,CA contact density Rg compactness
+advanced_patch_features,virtual_participant/stage4_advanced_structure/scripts/extract_stage4_features.py,local 10Å SASA + advanced patch CC
+run_apbs_features,virtual_participant/stage4_advanced_structure/scripts/extract_stage4_features.py,APBS potential sample + patch CC
+parse_propka_features,virtual_participant/stage4_advanced_structure/scripts/extract_stage4_features.py,PROPKA charge aggregates
+cavity_and_unsat_features,virtual_participant/stage4_advanced_structure/scripts/extract_stage4_features.py,cavity/unsat PROXY
+score_invfold_batch,virtual_participant/stage4_advanced_structure/cache/score_invfold_batch.py,ESM-IF1 log-likelihood

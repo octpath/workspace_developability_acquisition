@@ -1,0 +1,40 @@
+SKIP ADI-37123 (msa exists)
+MSA ADI-37124 attempt=1
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?]SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE:   0%|          | 0/300 [elapsed: 00:00 remaining: ?]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:00 remaining: 00:00]COMPLETE: 100%|██████████| 300/300 [elapsed: 00:01 remaining: 00:00]
+  FAIL ADI-37124: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+MSA ADI-37124 attempt=2
+  FAIL ADI-37124: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+MSA ADI-37124 attempt=3
+  FAIL ADI-37124: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+MSA ADI-37124 attempt=4
+  OK ADI-37124 in 0.0s
+MSA ADI-37125 attempt=1
+  FAIL ADI-37125: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+MSA ADI-37125 attempt=2
+  FAIL ADI-37125: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+MSA ADI-37125 attempt=3
+  FAIL ADI-37125: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')

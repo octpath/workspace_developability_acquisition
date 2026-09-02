@@ -1,0 +1,11 @@
+[09:45:23] structs=1/324 msa_pending=323 pred_queue=0
+[09:45:53] structs=1/324 msa_pending=323 pred_queue=0
+[09:46:23] structs=1/324 msa_pending=322 pred_queue=1
+predict ADI-37124
+queue=1 already_status=1 artifacts_ok=0
+[2026-09-02T09:46:23.249704] predicting ADI-37124 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[09:46:52] structs=2/324 msa_pending=322 pred_queue=0
+[09:47:22] structs=2/324 msa_pending=322 pred_queue=0
+[09:47:52] structs=2/324 msa_pending=322 pred_queue=0

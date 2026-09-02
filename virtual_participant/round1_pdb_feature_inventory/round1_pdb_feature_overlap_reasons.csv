@@ -1,0 +1,15 @@
+pair,score,overlap_reason
+total_SASA|RASA,same ShrakeRupley SASA; RASA is normalized SASA,same ShrakeRupley SASA; RASA is normalized SASA
+total_SASA|SURFACE_CHEM,surface chem uses same SASA filtered by AA class,surface chem uses same SASA filtered by AA class
+total_SASA|simple_PATCH,patches use exposed residue SASA sums,patches use exposed residue SASA sums
+RASA|SURFACE_CHEM,SURFACE_CHEM includes RASA-weighted chem,SURFACE_CHEM includes RASA-weighted chem
+SURFACE_CHEM|simple_PATCH,both use exposed hydrophobic/charge SASA,both use exposed hydrophobic/charge SASA
+simple_PATCH|ADV_SURFACE_PATCH,both CA-graph patches; ADV adds local 10Å SASA + compactness,both CA-graph patches; ADV adds local 10Å SASA + compactness
+PACKING|ADV_INTERACTIONS,shared contact/clash/packing_degree logic,shared contact/clash/packing_degree logic
+PACKING|cavity_proxy,cavity proxy uses CA neighbor degree like packing,cavity proxy uses CA neighbor degree like packing
+INTERFACE|ADV_INTERACTIONS,interface contacts and BSA-related proxies overlap,interface contacts and BSA-related proxies overlap
+PROPKA|APBS,PDB2PQR uses PROPKA protonation for APBS input,PDB2PQR uses PROPKA protonation for APBS input
+APBS|ADV_SURFACE_PATCH,both surface-related but different physics,both surface-related but different physics
+UNSAT_POLAR|ADV_INTERACTIONS,hbond_proxy shares polar atom distances but different aggregation,hbond_proxy shares polar atom distances but different aggregation
+ESM-IF|PACKING,sequence likelihood vs geometric contacts,sequence likelihood vs geometric contacts
+cavity_proxy|UNSAT_POLAR,both buried-site proxies; different criteria,both buried-site proxies; different criteria

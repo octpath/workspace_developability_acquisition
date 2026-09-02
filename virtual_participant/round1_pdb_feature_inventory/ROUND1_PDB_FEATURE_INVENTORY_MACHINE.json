@@ -1,0 +1,261 @@
+{
+  "state": "ROUND1_PDB_FEATURE_INVENTORY_AUDIT_COMPLETE",
+  "n_semantic_features_esmfold_primary": 300,
+  "n_feature_families": 12,
+  "stage3_features_esmfold": 218,
+  "stage4_features": 82,
+  "parameters": {
+    "probe_radius_A": 1.4,
+    "sasa_n_points": 100,
+    "rasa_exposed_threshold": 0.2,
+    "patch_ca_adjacency_A": 8.0,
+    "interface_ca_cutoff_A": 5.0,
+    "packing_contact_A": 8.0,
+    "clash_ca_A_stage3": 2.5,
+    "clash_heavy_A_stage4": 2.2,
+    "hb_dist_A": 3.5,
+    "sb_dist_A": 4.0,
+    "heavy_contact_A": 4.5,
+    "local_neighborhood_A": 10.0,
+    "cavity_unsat_neighbor_A": 6.0,
+    "ph": 6.5,
+    "ionic_strength_M": 0.15,
+    "maxasa_reference": "Tien2013/Wilke per-residue",
+    "hydrophobic_residues": "AILMFVW",
+    "aromatic_residues": "FWY",
+    "positive_residues": "KRH",
+    "negative_residues": "DE",
+    "polar_residues": "STNQ",
+    "hydrophobicity_scale": "Kyte-Doolittle KD",
+    "charge_weight": "D/E=-1,K/R=1,H=0.1"
+  },
+  "not_computed": [
+    {
+      "candidate": "detailed electrostatic surface topology",
+      "status": "PARTIAL",
+      "evidence": "apbs_pos/neg_patch_count only; no full surface mesh topology"
+    },
+    {
+      "candidate": "dipole / multipole",
+      "status": "NOT_FOUND",
+      "evidence": "no repository implementation"
+    },
+    {
+      "candidate": "explicit pKa-shift descriptors",
+      "status": "PARTIAL",
+      "evidence": "propka_mean_pka aggregate only; no per-residue pKa distribution features"
+    },
+    {
+      "candidate": "pH titration curves",
+      "status": "NOT_FOUND",
+      "evidence": "fixed pH=6.5 only"
+    },
+    {
+      "candidate": "OpenMM minimization",
+      "status": "NOT_FOUND",
+      "evidence": "no OpenMM import or usage in repo"
+    },
+    {
+      "candidate": "force-field energy decomposition",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "per-atom / per-residue forces",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "relaxation ΔE",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "minimization RMSD",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "elastic network",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "ANM",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "GNM",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "normal modes",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "rigidity analysis",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "MaSIF",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "dMaSIF",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "pretrained geometric GNN",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "structure-aware pretrained embedding",
+      "status": "PARTIAL",
+      "evidence": "ESM-IF1 scalar log-likelihood only; no 3D GNN embedding stored"
+    },
+    {
+      "candidate": "ML force field",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "molecular dynamics",
+      "status": "NOT_FOUND",
+      "evidence": ""
+    },
+    {
+      "candidate": "conformer ensemble",
+      "status": "NOT_FOUND",
+      "evidence": "single static ESMFold structure per antibody"
+    },
+    {
+      "candidate": "canonical SAP",
+      "status": "NOT_FOUND",
+      "evidence": "adv_spatial_hydrophobicity explicitly not SAP formula"
+    },
+    {
+      "candidate": "continuous molecular hydrophobic potential",
+      "status": "NOT_FOUND",
+      "evidence": "discrete KD-weighted SASA only"
+    },
+    {
+      "candidate": "VH/VL orientation angle",
+      "status": "NOT_FOUND",
+      "evidence": "vh_vl_center_dist only; no angle"
+    },
+    {
+      "candidate": "explicit cavity detection",
+      "status": "NOT_FOUND",
+      "evidence": "cavity_proxy is packing-derived; no fpocket/pyKVFinder"
+    }
+  ],
+  "overlap_reasons": {
+    "total_SASA|RASA": "same ShrakeRupley SASA; RASA is normalized SASA",
+    "total_SASA|SURFACE_CHEM": "surface chem uses same SASA filtered by AA class",
+    "total_SASA|simple_PATCH": "patches use exposed residue SASA sums",
+    "RASA|SURFACE_CHEM": "SURFACE_CHEM includes RASA-weighted chem",
+    "SURFACE_CHEM|simple_PATCH": "both use exposed hydrophobic/charge SASA",
+    "simple_PATCH|ADV_SURFACE_PATCH": "both CA-graph patches; ADV adds local 10Å SASA + compactness",
+    "PACKING|ADV_INTERACTIONS": "shared contact/clash/packing_degree logic",
+    "PACKING|cavity_proxy": "cavity proxy uses CA neighbor degree like packing",
+    "INTERFACE|ADV_INTERACTIONS": "interface contacts and BSA-related proxies overlap",
+    "PROPKA|APBS": "PDB2PQR uses PROPKA protonation for APBS input",
+    "APBS|ADV_SURFACE_PATCH": "both surface-related but different physics",
+    "UNSAT_POLAR|ADV_INTERACTIONS": "hbond_proxy shares polar atom distances but different aggregation",
+    "ESM-IF|PACKING": "sequence likelihood vs geometric contacts",
+    "cavity_proxy|UNSAT_POLAR": "both buried-site proxies; different criteria"
+  },
+  "handoff": [
+    {
+      "Candidate concept": "OpenMM minimization",
+      "Round1 status": "NOT_FOUND",
+      "Closest Round1 feature": "ADV_INTERACTIONS",
+      "What Round1 actually computed": "static geometric contacts/clashes only",
+      "Remaining difference to investigate": "force-field relaxation/strain not computed"
+    },
+    {
+      "Candidate concept": "pKa-shift descriptors",
+      "Round1 status": "PARTIAL",
+      "Closest Round1 feature": "ADV_PROPKA",
+      "What Round1 actually computed": "propka_mean_pka, net charge at fixed pH; not residue-level pKa vector",
+      "Remaining difference to investigate": "abnormal pKa distribution / burial shift not featurized"
+    },
+    {
+      "Candidate concept": "electrostatic patch topology",
+      "Round1 status": "PARTIAL",
+      "Closest Round1 feature": "ADV_ELECTROSTATICS",
+      "What Round1 actually computed": "APBS potential sampled at CA; CC patch count/size on ±0.5 kT/e",
+      "Remaining difference to investigate": "full surface mesh topology / multipole not computed"
+    },
+    {
+      "Candidate concept": "normal modes / elastic network",
+      "Round1 status": "NOT_FOUND",
+      "Closest Round1 feature": "STRUCT_PACKING / ADV_INTERACTIONS",
+      "What Round1 actually computed": "static contact density and Rg only",
+      "Remaining difference to investigate": "mechanical flexibility absent"
+    },
+    {
+      "Candidate concept": "pretrained geometric DL",
+      "Round1 status": "PARTIAL",
+      "Closest Round1 feature": "ADV_INVFOLD",
+      "What Round1 actually computed": "ESM-IF1 per-chain log-likelihood scalars",
+      "Remaining difference to investigate": "no MaSIF/dMaSIF/GNN embedding"
+    },
+    {
+      "Candidate concept": "canonical SAP",
+      "Round1 status": "NOT_FOUND",
+      "Closest Round1 feature": "ADV_SURFACE_PATCH",
+      "What Round1 actually computed": "local hydrophobic SASA + CA patches; code comment: not SAP formula",
+      "Remaining difference to investigate": "continuous hydrophobic potential / SAP weighting absent"
+    },
+    {
+      "Candidate concept": "explicit cavity detection",
+      "Round1 status": "NOT_FOUND",
+      "Closest Round1 feature": "ADV_CAVITY",
+      "What Round1 actually computed": "buried low CA degree count × sphere volume proxy",
+      "Remaining difference to investigate": "fpocket/pyKVFinder-style void detection absent"
+    },
+    {
+      "Candidate concept": "VH/VL orientation angle",
+      "Round1 status": "NOT_FOUND",
+      "Closest Round1 feature": "STRUCT_INTERFACE",
+      "What Round1 actually computed": "VH_VL_center_dist and interface contacts only",
+      "Remaining difference to investigate": "no dihedral/angle between domain axes"
+    }
+  ],
+  "summary": {
+    "n_families": 12,
+    "n_features": 300,
+    "largest_family": "SASA_RASA",
+    "largest_n": 84,
+    "qa": {
+      "Q1 SASA/RASA features?": "218 Stage3 cols: SASA(20)+RASA(64)+ratios; see inventory",
+      "Q2 SURFACE_CHEM exactly?": "Per-region sum SASA by AA class + RASA×KD + RASA×charge + exposed_pos/neg",
+      "Q3 simple vs ADV patch?": "Simple: global exposed CA CC 8Å on hydrophobic/charge. ADV: local 10Å SASA + CC + compactness/extent + mixed patches",
+      "Q4 patch uses surface geometry?": "Yes: CA Euclidean graph on exposed residues; not pure sequence aggregation",
+      "Q5 PACKING?": "CA contact count/density, Rg, compactness, clash proxy; Stage4 adds heavy-atom contacts",
+      "Q6 cavity explicit?": "NO — packing-derived proxy (buried + low CA degree)",
+      "Q7 UNSAT_POLAR explicit?": "NO — proxy (buried polar + zero N/O within 6Å)",
+      "Q8 PROPKA residue pKa as feature?": "PARTIAL — aggregates only (mean_pka, net_charge); not per-residue pKa vector",
+      "Q9 APBS statistics?": "14 cols: mean/median/std/quantiles/abs mean, pos/neg/strong frac, pos/neg patch count/max",
+      "Q10 electrostatic patch topology?": "PARTIAL — APBS CC patch count/size on thresholded exposed CA only",
+      "Q11 dipole/multipole?": "NOT_FOUND",
+      "Q12 OpenMM/MM energy?": "NOT_FOUND",
+      "Q13 energy minimization?": "NOT_FOUND",
+      "Q14 normal modes/ENM?": "NOT_FOUND",
+      "Q15 ESM-IF features?": "Per-chain ll/nll/len + fv mean/var/worst — sequence consistency scalars",
+      "Q16 geometric DL embedding?": "NOT_FOUND (ESM-IF scalars only)",
+      "Q17 canonical SAP?": "NOT_FOUND — code explicitly disclaims SAP formula",
+      "Q18 ESMFold vs ABB?": "Stage3 both; Stage4 ESMFold only",
+      "Q19 definition differs by source?": "Region mapping differs (IMGT vs author segments); same formulas",
+      "Q20 DeepResearch overlap?": "See overlap matrix + handoff table"
+    }
+  }
+}

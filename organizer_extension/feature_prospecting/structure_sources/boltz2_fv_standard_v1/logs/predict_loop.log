@@ -1,0 +1,2173 @@
+[2026-09-02T09:49:21+00:00] cif=2/324
+predict ADI-37125
+queue=1 already_status=2 artifacts_ok=0
+[2026-09-02T09:49:21.094842] predicting ADI-37125 attempt=1
+  -> SUCCESS runtime=29.5s
+DONE success_artifacts=1/1
+[2026-09-02T09:49:50+00:00] cif=3/324
+predict ADI-38498
+queue=1 already_status=3 artifacts_ok=0
+[2026-09-02T09:49:50.723195] predicting ADI-38498 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T09:50:19+00:00] cif=4/324
+predict ADI-38499
+queue=1 already_status=4 artifacts_ok=0
+[2026-09-02T09:50:19.795229] predicting ADI-38499 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T09:50:48+00:00] cif=5/324
+[2026-09-02T09:51:33+00:00] cif=5/324
+predict ADI-38500
+queue=1 already_status=5 artifacts_ok=0
+[2026-09-02T09:51:33.944101] predicting ADI-38500 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T09:52:02+00:00] cif=6/324
+[2026-09-02T09:52:47+00:00] cif=6/324
+predict ADI-38501
+queue=1 already_status=6 artifacts_ok=0
+[2026-09-02T09:52:47.768979] predicting ADI-38501 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T09:53:16+00:00] cif=7/324
+[2026-09-02T09:54:01+00:00] cif=7/324
+predict ADI-38502
+queue=1 already_status=7 artifacts_ok=0
+[2026-09-02T09:54:02.027253] predicting ADI-38502 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T09:54:30+00:00] cif=8/324
+predict ADI-38503
+queue=1 already_status=8 artifacts_ok=0
+[2026-09-02T09:54:30.959131] predicting ADI-38503 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T09:54:59+00:00] cif=9/324
+[2026-09-02T09:55:45+00:00] cif=9/324
+predict ADI-45368
+queue=1 already_status=9 artifacts_ok=0
+[2026-09-02T09:55:45.048951] predicting ADI-45368 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T09:56:13+00:00] cif=10/324
+[2026-09-02T09:56:58+00:00] cif=10/324
+predict ADI-45370
+queue=1 already_status=10 artifacts_ok=0
+[2026-09-02T09:56:58.973431] predicting ADI-45370 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T09:57:28+00:00] cif=11/324
+[2026-09-02T09:58:13+00:00] cif=11/324
+predict ADI-45373
+queue=1 already_status=11 artifacts_ok=0
+[2026-09-02T09:58:13.255450] predicting ADI-45373 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T09:58:42+00:00] cif=12/324
+[2026-09-02T09:59:27+00:00] cif=12/324
+predict ADI-45375
+queue=1 already_status=12 artifacts_ok=0
+[2026-09-02T09:59:27.391265] predicting ADI-45375 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T09:59:56+00:00] cif=13/324
+predict ADI-45378
+queue=1 already_status=13 artifacts_ok=0
+[2026-09-02T09:59:56.563341] predicting ADI-45378 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T10:00:25+00:00] cif=14/324
+[2026-09-02T10:01:10+00:00] cif=14/324
+predict ADI-45379
+queue=1 already_status=14 artifacts_ok=0
+[2026-09-02T10:01:10.999037] predicting ADI-45379 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T10:01:39+00:00] cif=15/324
+predict ADI-45382
+queue=1 already_status=15 artifacts_ok=0
+[2026-09-02T10:01:39.680758] predicting ADI-45382 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:02:08+00:00] cif=16/324
+[2026-09-02T10:02:53+00:00] cif=16/324
+predict ADI-45383
+queue=1 already_status=16 artifacts_ok=0
+[2026-09-02T10:02:53.858271] predicting ADI-45383 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:03:22+00:00] cif=17/324
+[2026-09-02T10:04:08+00:00] cif=17/324
+predict ADI-45388
+queue=1 already_status=17 artifacts_ok=0
+[2026-09-02T10:04:08.061396] predicting ADI-45388 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T10:04:37+00:00] cif=18/324
+predict ADI-45389
+queue=1 already_status=18 artifacts_ok=0
+[2026-09-02T10:04:37.365156] predicting ADI-45389 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:05:06+00:00] cif=19/324
+[2026-09-02T10:05:51+00:00] cif=19/324
+predict ADI-45390
+queue=1 already_status=19 artifacts_ok=0
+[2026-09-02T10:05:51.393784] predicting ADI-45390 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:06:20+00:00] cif=20/324
+[2026-09-02T10:07:05+00:00] cif=20/324
+predict ADI-45391
+queue=1 already_status=20 artifacts_ok=0
+[2026-09-02T10:07:05.475543] predicting ADI-45391 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:07:34+00:00] cif=21/324
+[2026-09-02T10:08:19+00:00] cif=21/324
+predict ADI-45393
+queue=1 already_status=21 artifacts_ok=0
+[2026-09-02T10:08:19.654991] predicting ADI-45393 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:08:48+00:00] cif=22/324
+predict ADI-45395
+queue=1 already_status=22 artifacts_ok=0
+[2026-09-02T10:08:48.667135] predicting ADI-45395 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T10:09:17+00:00] cif=23/324
+[2026-09-02T10:10:02+00:00] cif=23/324
+predict ADI-45397
+queue=1 already_status=23 artifacts_ok=0
+[2026-09-02T10:10:02.603726] predicting ADI-45397 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T10:10:31+00:00] cif=24/324
+[2026-09-02T10:11:16+00:00] cif=24/324
+predict ADI-45402
+queue=1 already_status=24 artifacts_ok=0
+[2026-09-02T10:11:16.299424] predicting ADI-45402 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T10:11:45+00:00] cif=25/324
+predict ADI-45404
+queue=1 already_status=25 artifacts_ok=0
+[2026-09-02T10:11:45.425445] predicting ADI-45404 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:12:14+00:00] cif=26/324
+[2026-09-02T10:12:59+00:00] cif=26/324
+predict ADI-45405
+queue=1 already_status=26 artifacts_ok=0
+[2026-09-02T10:12:59.632411] predicting ADI-45405 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:13:28+00:00] cif=27/324
+predict ADI-45406
+queue=1 already_status=27 artifacts_ok=0
+[2026-09-02T10:13:28.463746] predicting ADI-45406 attempt=1
+  -> SUCCESS runtime=27.9s
+DONE success_artifacts=1/1
+[2026-09-02T10:13:56+00:00] cif=28/324
+[2026-09-02T10:14:41+00:00] cif=28/324
+predict ADI-45407
+queue=1 already_status=28 artifacts_ok=0
+[2026-09-02T10:14:41.722467] predicting ADI-45407 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T10:15:10+00:00] cif=29/324
+[2026-09-02T10:15:55+00:00] cif=29/324
+predict ADI-45408
+queue=1 already_status=29 artifacts_ok=0
+[2026-09-02T10:15:55.977318] predicting ADI-45408 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T10:16:24+00:00] cif=30/324
+predict ADI-45409
+queue=1 already_status=30 artifacts_ok=0
+[2026-09-02T10:16:24.590777] predicting ADI-45409 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T10:16:53+00:00] cif=31/324
+[2026-09-02T10:17:38+00:00] cif=31/324
+predict ADI-45410
+queue=1 already_status=31 artifacts_ok=0
+[2026-09-02T10:17:38.984876] predicting ADI-45410 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T10:18:08+00:00] cif=32/324
+[2026-09-02T10:18:53+00:00] cif=32/324
+predict ADI-45411
+queue=1 already_status=32 artifacts_ok=0
+[2026-09-02T10:18:53.247142] predicting ADI-45411 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:19:22+00:00] cif=33/324
+[2026-09-02T10:20:07+00:00] cif=33/324
+predict ADI-45422
+queue=1 already_status=33 artifacts_ok=0
+[2026-09-02T10:20:07.303120] predicting ADI-45422 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T10:20:35+00:00] cif=34/324
+predict ADI-45425
+queue=1 already_status=34 artifacts_ok=0
+[2026-09-02T10:20:35.833237] predicting ADI-45425 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T10:21:05+00:00] cif=35/324
+[2026-09-02T10:21:50+00:00] cif=35/324
+predict ADI-45428
+queue=1 already_status=35 artifacts_ok=0
+[2026-09-02T10:21:50.333362] predicting ADI-45428 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T10:22:18+00:00] cif=36/324
+predict ADI-45429
+queue=1 already_status=36 artifacts_ok=0
+[2026-09-02T10:22:18.976525] predicting ADI-45429 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:22:47+00:00] cif=37/324
+[2026-09-02T10:23:32+00:00] cif=37/324
+predict ADI-45430
+queue=1 already_status=37 artifacts_ok=0
+[2026-09-02T10:23:33.016995] predicting ADI-45430 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T10:24:01+00:00] cif=38/324
+[2026-09-02T10:24:46+00:00] cif=38/324
+predict ADI-45433
+queue=1 already_status=38 artifacts_ok=0
+[2026-09-02T10:24:46.929667] predicting ADI-45433 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T10:25:16+00:00] cif=39/324
+predict ADI-45435
+queue=1 already_status=39 artifacts_ok=0
+[2026-09-02T10:25:16.199109] predicting ADI-45435 attempt=1
+  -> SUCCESS runtime=29.2s
+DONE success_artifacts=1/1
+[2026-09-02T10:25:45+00:00] cif=40/324
+[2026-09-02T10:26:30+00:00] cif=40/324
+predict ADI-45438
+queue=1 already_status=40 artifacts_ok=0
+[2026-09-02T10:26:30.747342] predicting ADI-45438 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:26:59+00:00] cif=41/324
+[2026-09-02T10:27:44+00:00] cif=41/324
+predict ADI-45439
+queue=1 already_status=41 artifacts_ok=0
+[2026-09-02T10:27:44.958293] predicting ADI-45439 attempt=1
+  -> SUCCESS runtime=28.1s
+DONE success_artifacts=1/1
+[2026-09-02T10:28:13+00:00] cif=42/324
+predict ADI-45440
+queue=1 already_status=42 artifacts_ok=0
+[2026-09-02T10:28:13.203322] predicting ADI-45440 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:28:42+00:00] cif=43/324
+[2026-09-02T10:29:27+00:00] cif=43/324
+predict ADI-45442
+queue=1 already_status=43 artifacts_ok=0
+[2026-09-02T10:29:27.398612] predicting ADI-45442 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:29:56+00:00] cif=44/324
+[2026-09-02T10:30:41+00:00] cif=44/324
+predict ADI-45447
+queue=1 already_status=44 artifacts_ok=0
+[2026-09-02T10:30:41.486127] predicting ADI-45447 attempt=1
+  -> SUCCESS runtime=28.0s
+DONE success_artifacts=1/1
+[2026-09-02T10:31:09+00:00] cif=45/324
+[2026-09-02T10:31:54+00:00] cif=45/324
+predict ADI-45448
+queue=1 already_status=45 artifacts_ok=0
+[2026-09-02T10:31:54.817210] predicting ADI-45448 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T10:32:23+00:00] cif=46/324
+predict ADI-45450
+queue=1 already_status=46 artifacts_ok=0
+[2026-09-02T10:32:23.505128] predicting ADI-45450 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:32:52+00:00] cif=47/324
+[2026-09-02T10:33:37+00:00] cif=47/324
+predict ADI-45451
+queue=1 already_status=47 artifacts_ok=0
+[2026-09-02T10:33:37.528436] predicting ADI-45451 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T10:34:06+00:00] cif=48/324
+[2026-09-02T10:34:51+00:00] cif=48/324
+predict ADI-45452
+queue=1 already_status=48 artifacts_ok=0
+[2026-09-02T10:34:51.964735] predicting ADI-45452 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T10:35:20+00:00] cif=49/324
+[2026-09-02T10:36:05+00:00] cif=49/324
+predict ADI-45453
+queue=1 already_status=49 artifacts_ok=0
+[2026-09-02T10:36:05.870514] predicting ADI-45453 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:36:34+00:00] cif=50/324
+predict ADI-45454
+queue=1 already_status=50 artifacts_ok=0
+[2026-09-02T10:36:34.868278] predicting ADI-45454 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:37:03+00:00] cif=51/324
+[2026-09-02T10:37:49+00:00] cif=51/324
+predict ADI-45455
+queue=1 already_status=51 artifacts_ok=0
+[2026-09-02T10:37:49.064266] predicting ADI-45455 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T10:38:17+00:00] cif=52/324
+[2026-09-02T10:39:02+00:00] cif=52/324
+predict ADI-45456
+queue=1 already_status=52 artifacts_ok=0
+[2026-09-02T10:39:02.859104] predicting ADI-45456 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:39:31+00:00] cif=53/324
+predict ADI-45459
+queue=1 already_status=53 artifacts_ok=0
+[2026-09-02T10:39:31.862319] predicting ADI-45459 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:40:00+00:00] cif=54/324
+[2026-09-02T10:40:45+00:00] cif=54/324
+predict ADI-45460
+queue=1 already_status=54 artifacts_ok=0
+[2026-09-02T10:40:45.962645] predicting ADI-45460 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T10:41:15+00:00] cif=55/324
+predict ADI-45461
+queue=1 already_status=55 artifacts_ok=0
+[2026-09-02T10:41:15.133781] predicting ADI-45461 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T10:41:44+00:00] cif=56/324
+[2026-09-02T10:42:29+00:00] cif=56/324
+predict ADI-45463
+queue=1 already_status=56 artifacts_ok=0
+[2026-09-02T10:42:29.454976] predicting ADI-45463 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T10:42:58+00:00] cif=57/324
+[2026-09-02T10:43:43+00:00] cif=57/324
+predict ADI-45464
+queue=1 already_status=57 artifacts_ok=0
+[2026-09-02T10:43:43.857061] predicting ADI-45464 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:44:12+00:00] cif=58/324
+predict ADI-45465
+queue=1 already_status=58 artifacts_ok=0
+[2026-09-02T10:44:12.713779] predicting ADI-45465 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:44:41+00:00] cif=59/324
+[2026-09-02T10:45:26+00:00] cif=59/324
+predict ADI-45469
+queue=1 already_status=59 artifacts_ok=0
+[2026-09-02T10:45:26.809698] predicting ADI-45469 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T10:45:55+00:00] cif=60/324
+[2026-09-02T10:46:40+00:00] cif=60/324
+predict ADI-45470
+queue=1 already_status=60 artifacts_ok=0
+[2026-09-02T10:46:40.663318] predicting ADI-45470 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T10:47:09+00:00] cif=61/324
+predict ADI-45472
+queue=1 already_status=61 artifacts_ok=0
+[2026-09-02T10:47:09.440727] predicting ADI-45472 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:47:38+00:00] cif=62/324
+[2026-09-02T10:48:23+00:00] cif=62/324
+predict ADI-45476
+queue=1 already_status=62 artifacts_ok=0
+[2026-09-02T10:48:23.645659] predicting ADI-45476 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T10:48:52+00:00] cif=63/324
+[2026-09-02T10:49:37+00:00] cif=63/324
+predict ADI-45477
+queue=1 already_status=63 artifacts_ok=0
+[2026-09-02T10:49:37.363491] predicting ADI-45477 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T10:50:05+00:00] cif=64/324
+[2026-09-02T10:50:51+00:00] cif=64/324
+predict ADI-45479
+queue=1 already_status=64 artifacts_ok=0
+[2026-09-02T10:50:51.065636] predicting ADI-45479 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:51:19+00:00] cif=65/324
+[2026-09-02T10:52:05+00:00] cif=65/324
+predict ADI-45480
+queue=1 already_status=65 artifacts_ok=0
+[2026-09-02T10:52:05.205846] predicting ADI-45480 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:52:34+00:00] cif=66/324
+predict ADI-45481
+queue=1 already_status=66 artifacts_ok=0
+[2026-09-02T10:52:34.171096] predicting ADI-45481 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T10:53:03+00:00] cif=67/324
+[2026-09-02T10:53:48+00:00] cif=67/324
+predict ADI-45485
+queue=1 already_status=67 artifacts_ok=0
+[2026-09-02T10:53:48.287164] predicting ADI-45485 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:54:17+00:00] cif=68/324
+[2026-09-02T10:55:02+00:00] cif=68/324
+predict ADI-45486
+queue=1 already_status=68 artifacts_ok=0
+[2026-09-02T10:55:02.540618] predicting ADI-45486 attempt=1
+  -> SUCCESS runtime=29.2s
+DONE success_artifacts=1/1
+[2026-09-02T10:55:31+00:00] cif=69/324
+[2026-09-02T10:56:17+00:00] cif=69/324
+predict ADI-45488
+queue=1 already_status=69 artifacts_ok=0
+[2026-09-02T10:56:17.112728] predicting ADI-45488 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T10:56:46+00:00] cif=70/324
+predict ADI-45489
+queue=1 already_status=70 artifacts_ok=0
+[2026-09-02T10:56:46.094178] predicting ADI-45489 attempt=1
+  -> SUCCESS runtime=29.3s
+DONE success_artifacts=1/1
+[2026-09-02T10:57:15+00:00] cif=71/324
+[2026-09-02T10:58:00+00:00] cif=71/324
+predict ADI-45490
+queue=1 already_status=71 artifacts_ok=0
+[2026-09-02T10:58:00.781616] predicting ADI-45490 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T10:58:29+00:00] cif=72/324
+predict ADI-45491
+queue=1 already_status=72 artifacts_ok=0
+[2026-09-02T10:58:29.447528] predicting ADI-45491 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T10:58:58+00:00] cif=73/324
+[2026-09-02T10:59:43+00:00] cif=73/324
+predict ADI-45493
+queue=1 already_status=73 artifacts_ok=0
+[2026-09-02T10:59:43.876192] predicting ADI-45493 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T11:00:13+00:00] cif=74/324
+[2026-09-02T11:00:58+00:00] cif=74/324
+predict ADI-45495
+queue=1 already_status=74 artifacts_ok=0
+[2026-09-02T11:00:58.329494] predicting ADI-45495 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T11:01:26+00:00] cif=75/324
+[2026-09-02T11:02:11+00:00] cif=75/324
+predict ADI-45497
+queue=1 already_status=75 artifacts_ok=0
+[2026-09-02T11:02:11.889528] predicting ADI-45497 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:02:40+00:00] cif=76/324
+predict ADI-45498
+queue=1 already_status=76 artifacts_ok=0
+[2026-09-02T11:02:40.894054] predicting ADI-45498 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T11:03:10+00:00] cif=77/324
+[2026-09-02T11:03:55+00:00] cif=77/324
+predict ADI-45499
+queue=1 already_status=77 artifacts_ok=0
+[2026-09-02T11:03:55.313621] predicting ADI-45499 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T11:04:24+00:00] cif=78/324
+[2026-09-02T11:05:09+00:00] cif=78/324
+predict ADI-46677
+queue=1 already_status=78 artifacts_ok=0
+[2026-09-02T11:05:09.751980] predicting ADI-46677 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:05:38+00:00] cif=79/324
+[2026-09-02T11:06:23+00:00] cif=79/324
+predict ADI-46678
+queue=1 already_status=79 artifacts_ok=0
+[2026-09-02T11:06:23.884199] predicting ADI-46678 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:06:52+00:00] cif=80/324
+predict ADI-46682
+queue=1 already_status=80 artifacts_ok=0
+[2026-09-02T11:06:52.781555] predicting ADI-46682 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T11:07:21+00:00] cif=81/324
+[2026-09-02T11:08:06+00:00] cif=81/324
+predict ADI-46684
+queue=1 already_status=81 artifacts_ok=0
+[2026-09-02T11:08:06.803653] predicting ADI-46684 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:08:35+00:00] cif=82/324
+[2026-09-02T11:09:20+00:00] cif=82/324
+predict ADI-46685
+queue=1 already_status=82 artifacts_ok=0
+[2026-09-02T11:09:20.983833] predicting ADI-46685 attempt=1
+  -> SUCCESS runtime=29.3s
+DONE success_artifacts=1/1
+[2026-09-02T11:09:50+00:00] cif=83/324
+predict ADI-46689
+queue=1 already_status=83 artifacts_ok=0
+[2026-09-02T11:09:50.458326] predicting ADI-46689 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T11:10:19+00:00] cif=84/324
+[2026-09-02T11:11:04+00:00] cif=84/324
+predict ADI-46690
+queue=1 already_status=84 artifacts_ok=0
+[2026-09-02T11:11:04.423105] predicting ADI-46690 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T11:11:33+00:00] cif=85/324
+[2026-09-02T11:12:18+00:00] cif=85/324
+predict ADI-46691
+queue=1 already_status=85 artifacts_ok=0
+[2026-09-02T11:12:18.354609] predicting ADI-46691 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T11:12:47+00:00] cif=86/324
+[2026-09-02T11:13:32+00:00] cif=86/324
+predict ADI-46692
+queue=1 already_status=86 artifacts_ok=0
+[2026-09-02T11:13:32.312012] predicting ADI-46692 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T11:14:01+00:00] cif=87/324
+[2026-09-02T11:14:46+00:00] cif=87/324
+predict ADI-46693
+queue=1 already_status=87 artifacts_ok=0
+[2026-09-02T11:14:46.331724] predicting ADI-46693 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T11:15:15+00:00] cif=88/324
+[2026-09-02T11:16:00+00:00] cif=88/324
+predict ADI-46695
+queue=1 already_status=88 artifacts_ok=0
+[2026-09-02T11:16:00.613293] predicting ADI-46695 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:16:29+00:00] cif=89/324
+[2026-09-02T11:17:14+00:00] cif=89/324
+predict ADI-46696
+queue=1 already_status=89 artifacts_ok=0
+[2026-09-02T11:17:14.784871] predicting ADI-46696 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:17:43+00:00] cif=90/324
+predict ADI-46697
+queue=1 already_status=90 artifacts_ok=0
+[2026-09-02T11:17:43.640463] predicting ADI-46697 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T11:18:12+00:00] cif=91/324
+[2026-09-02T11:18:57+00:00] cif=91/324
+predict ADI-46701
+queue=1 already_status=91 artifacts_ok=0
+[2026-09-02T11:18:57.363612] predicting ADI-46701 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:19:26+00:00] cif=92/324
+[2026-09-02T11:20:11+00:00] cif=92/324
+predict ADI-46704
+queue=1 already_status=92 artifacts_ok=0
+[2026-09-02T11:20:11.525849] predicting ADI-46704 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T11:20:40+00:00] cif=93/324
+predict ADI-46705
+queue=1 already_status=93 artifacts_ok=0
+[2026-09-02T11:20:40.769549] predicting ADI-46705 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:21:09+00:00] cif=94/324
+[2026-09-02T11:21:54+00:00] cif=94/324
+predict ADI-46706
+queue=1 already_status=94 artifacts_ok=0
+[2026-09-02T11:21:54.932268] predicting ADI-46706 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:22:23+00:00] cif=95/324
+[2026-09-02T11:23:09+00:00] cif=95/324
+predict ADI-46707
+queue=1 already_status=95 artifacts_ok=0
+[2026-09-02T11:23:09.105066] predicting ADI-46707 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T11:23:38+00:00] cif=96/324
+[2026-09-02T11:24:23+00:00] cif=96/324
+predict ADI-46708
+queue=1 already_status=96 artifacts_ok=0
+[2026-09-02T11:24:23.469948] predicting ADI-46708 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T11:24:51+00:00] cif=97/324
+[2026-09-02T11:25:37+00:00] cif=97/324
+predict ADI-46710
+queue=1 already_status=97 artifacts_ok=0
+[2026-09-02T11:25:37.200882] predicting ADI-46710 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:26:06+00:00] cif=98/324
+[2026-09-02T11:26:51+00:00] cif=98/324
+predict ADI-46713
+queue=1 already_status=98 artifacts_ok=0
+[2026-09-02T11:26:51.434245] predicting ADI-46713 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T11:27:20+00:00] cif=99/324
+[2026-09-02T11:28:05+00:00] cif=99/324
+predict ADI-47054
+queue=1 already_status=99 artifacts_ok=0
+[2026-09-02T11:28:05.367644] predicting ADI-47054 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T11:28:33+00:00] cif=100/324
+[2026-09-02T11:29:19+00:00] cif=100/324
+predict ADI-47055
+queue=1 already_status=100 artifacts_ok=0
+[2026-09-02T11:29:19.220951] predicting ADI-47055 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T11:29:47+00:00] cif=101/324
+[2026-09-02T11:30:32+00:00] cif=101/324
+predict ADI-47056
+queue=1 already_status=101 artifacts_ok=0
+[2026-09-02T11:30:33.075160] predicting ADI-47056 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T11:31:02+00:00] cif=102/324
+[2026-09-02T11:31:47+00:00] cif=102/324
+predict ADI-47057
+queue=1 already_status=102 artifacts_ok=0
+[2026-09-02T11:31:47.365214] predicting ADI-47057 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T11:32:16+00:00] cif=103/324
+[2026-09-02T11:33:01+00:00] cif=103/324
+predict ADI-47058
+queue=1 already_status=103 artifacts_ok=0
+[2026-09-02T11:33:01.789774] predicting ADI-47058 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T11:33:30+00:00] cif=104/324
+[2026-09-02T11:34:15+00:00] cif=104/324
+predict ADI-47059
+queue=1 already_status=104 artifacts_ok=0
+[2026-09-02T11:34:15.436021] predicting ADI-47059 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T11:34:44+00:00] cif=105/324
+predict ADI-47060
+queue=1 already_status=105 artifacts_ok=0
+[2026-09-02T11:34:44.290725] predicting ADI-47060 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:35:13+00:00] cif=106/324
+[2026-09-02T11:35:58+00:00] cif=106/324
+predict ADI-47061
+queue=1 already_status=106 artifacts_ok=0
+[2026-09-02T11:35:58.476737] predicting ADI-47061 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T11:36:27+00:00] cif=107/324
+[2026-09-02T11:37:12+00:00] cif=107/324
+predict ADI-47062
+queue=1 already_status=107 artifacts_ok=0
+[2026-09-02T11:37:12.845178] predicting ADI-47062 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:37:41+00:00] cif=108/324
+[2026-09-02T11:38:26+00:00] cif=108/324
+predict ADI-47063
+queue=1 already_status=108 artifacts_ok=0
+[2026-09-02T11:38:26.934977] predicting ADI-47063 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T11:38:55+00:00] cif=109/324
+predict ADI-47064
+queue=1 already_status=109 artifacts_ok=0
+[2026-09-02T11:38:56.017086] predicting ADI-47064 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:39:24+00:00] cif=110/324
+[2026-09-02T11:40:10+00:00] cif=110/324
+predict ADI-47065
+queue=1 already_status=110 artifacts_ok=0
+[2026-09-02T11:40:10.096120] predicting ADI-47065 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T11:40:38+00:00] cif=111/324
+[2026-09-02T11:41:23+00:00] cif=111/324
+predict ADI-47066
+queue=1 already_status=111 artifacts_ok=0
+[2026-09-02T11:41:24.028963] predicting ADI-47066 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:41:52+00:00] cif=112/324
+[2026-09-02T11:42:38+00:00] cif=112/324
+predict ADI-47067
+queue=1 already_status=112 artifacts_ok=0
+[2026-09-02T11:42:38.135638] predicting ADI-47067 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T11:43:07+00:00] cif=113/324
+[2026-09-02T11:43:52+00:00] cif=113/324
+predict ADI-47068
+queue=1 already_status=113 artifacts_ok=0
+[2026-09-02T11:43:52.554772] predicting ADI-47068 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T11:44:21+00:00] cif=114/324
+predict ADI-47069
+queue=1 already_status=114 artifacts_ok=0
+[2026-09-02T11:44:21.907496] predicting ADI-47069 attempt=1
+  -> SUCCESS runtime=28.1s
+DONE success_artifacts=1/1
+[2026-09-02T11:44:50+00:00] cif=115/324
+[2026-09-02T11:45:35+00:00] cif=115/324
+predict ADI-47070
+queue=1 already_status=115 artifacts_ok=0
+[2026-09-02T11:45:35.395735] predicting ADI-47070 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:46:04+00:00] cif=116/324
+[2026-09-02T11:46:49+00:00] cif=116/324
+predict ADI-47071
+queue=1 already_status=116 artifacts_ok=0
+[2026-09-02T11:46:49.505912] predicting ADI-47071 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T11:47:18+00:00] cif=117/324
+[2026-09-02T11:48:03+00:00] cif=117/324
+predict ADI-47072
+queue=1 already_status=117 artifacts_ok=0
+[2026-09-02T11:48:03.545698] predicting ADI-47072 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T11:48:32+00:00] cif=118/324
+[2026-09-02T11:49:17+00:00] cif=118/324
+predict ADI-47073
+queue=1 already_status=118 artifacts_ok=0
+[2026-09-02T11:49:17.916176] predicting ADI-47073 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:49:46+00:00] cif=119/324
+predict ADI-47074
+queue=1 already_status=119 artifacts_ok=0
+[2026-09-02T11:49:46.892629] predicting ADI-47074 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T11:50:15+00:00] cif=120/324
+[2026-09-02T11:51:01+00:00] cif=120/324
+predict ADI-47075
+queue=1 already_status=120 artifacts_ok=0
+[2026-09-02T11:51:01.241184] predicting ADI-47075 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T11:51:29+00:00] cif=121/324
+[2026-09-02T11:52:15+00:00] cif=121/324
+predict ADI-47076
+queue=1 already_status=121 artifacts_ok=0
+[2026-09-02T11:52:15.151479] predicting ADI-47076 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:52:43+00:00] cif=122/324
+[2026-09-02T11:53:29+00:00] cif=122/324
+predict ADI-47077
+queue=1 already_status=122 artifacts_ok=0
+[2026-09-02T11:53:29.257999] predicting ADI-47077 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T11:53:58+00:00] cif=123/324
+[2026-09-02T11:54:43+00:00] cif=123/324
+predict ADI-47078
+queue=1 already_status=123 artifacts_ok=0
+[2026-09-02T11:54:43.720156] predicting ADI-47078 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T11:55:12+00:00] cif=124/324
+predict ADI-47079
+queue=1 already_status=124 artifacts_ok=0
+[2026-09-02T11:55:12.300968] predicting ADI-47079 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T11:55:41+00:00] cif=125/324
+[2026-09-02T11:56:26+00:00] cif=125/324
+predict ADI-47081
+queue=1 already_status=125 artifacts_ok=0
+[2026-09-02T11:56:26.610278] predicting ADI-47081 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T11:56:55+00:00] cif=126/324
+predict ADI-47082
+queue=1 already_status=126 artifacts_ok=0
+[2026-09-02T11:56:55.576292] predicting ADI-47082 attempt=1
+  -> SUCCESS runtime=28.1s
+DONE success_artifacts=1/1
+[2026-09-02T11:57:23+00:00] cif=127/324
+[2026-09-02T11:58:09+00:00] cif=127/324
+predict ADI-47083
+queue=1 already_status=127 artifacts_ok=0
+[2026-09-02T11:58:09.121904] predicting ADI-47083 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T11:58:38+00:00] cif=128/324
+[2026-09-02T11:59:23+00:00] cif=128/324
+predict ADI-47084
+queue=1 already_status=128 artifacts_ok=0
+[2026-09-02T11:59:23.328762] predicting ADI-47084 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T11:59:51+00:00] cif=129/324
+[2026-09-02T12:00:37+00:00] cif=129/324
+predict ADI-47085
+queue=1 already_status=129 artifacts_ok=0
+[2026-09-02T12:00:37.105415] predicting ADI-47085 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:01:05+00:00] cif=130/324
+[2026-09-02T12:01:51+00:00] cif=130/324
+predict ADI-47087
+queue=1 already_status=130 artifacts_ok=0
+[2026-09-02T12:01:51.295388] predicting ADI-47087 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T12:02:19+00:00] cif=131/324
+[2026-09-02T12:03:05+00:00] cif=131/324
+predict ADI-47089
+queue=1 already_status=131 artifacts_ok=0
+[2026-09-02T12:03:05.171167] predicting ADI-47089 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:03:34+00:00] cif=132/324
+predict ADI-47090
+queue=1 already_status=132 artifacts_ok=0
+[2026-09-02T12:03:34.218681] predicting ADI-47090 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:04:03+00:00] cif=133/324
+[2026-09-02T12:04:48+00:00] cif=133/324
+predict ADI-47091
+queue=1 already_status=133 artifacts_ok=0
+[2026-09-02T12:04:48.608537] predicting ADI-47091 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:05:17+00:00] cif=134/324
+[2026-09-02T12:06:02+00:00] cif=134/324
+predict ADI-47092
+queue=1 already_status=134 artifacts_ok=0
+[2026-09-02T12:06:02.813188] predicting ADI-47092 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:06:31+00:00] cif=135/324
+predict ADI-47093
+queue=1 already_status=135 artifacts_ok=0
+[2026-09-02T12:06:31.935968] predicting ADI-47093 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:07:00+00:00] cif=136/324
+[2026-09-02T12:07:46+00:00] cif=136/324
+predict ADI-47094
+queue=1 already_status=136 artifacts_ok=0
+[2026-09-02T12:07:46.183759] predicting ADI-47094 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:08:15+00:00] cif=137/324
+[2026-09-02T12:09:00+00:00] cif=137/324
+predict ADI-47095
+queue=1 already_status=137 artifacts_ok=0
+[2026-09-02T12:09:00.456263] predicting ADI-47095 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:09:29+00:00] cif=138/324
+predict ADI-47096
+queue=1 already_status=138 artifacts_ok=0
+[2026-09-02T12:09:29.654636] predicting ADI-47096 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T12:09:58+00:00] cif=139/324
+[2026-09-02T12:10:44+00:00] cif=139/324
+predict ADI-47097
+queue=1 already_status=139 artifacts_ok=0
+[2026-09-02T12:10:44.205537] predicting ADI-47097 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:11:13+00:00] cif=140/324
+[2026-09-02T12:11:58+00:00] cif=140/324
+predict ADI-47098
+queue=1 already_status=140 artifacts_ok=0
+[2026-09-02T12:11:58.604342] predicting ADI-47098 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T12:12:27+00:00] cif=141/324
+predict ADI-47099
+queue=1 already_status=141 artifacts_ok=0
+[2026-09-02T12:12:27.383835] predicting ADI-47099 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:12:56+00:00] cif=142/324
+[2026-09-02T12:13:41+00:00] cif=142/324
+predict ADI-47100
+queue=1 already_status=142 artifacts_ok=0
+[2026-09-02T12:13:41.688768] predicting ADI-47100 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:14:10+00:00] cif=143/324
+predict ADI-47102
+queue=1 already_status=143 artifacts_ok=0
+[2026-09-02T12:14:10.583818] predicting ADI-47102 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T12:14:39+00:00] cif=144/324
+[2026-09-02T12:15:24+00:00] cif=144/324
+predict ADI-47103
+queue=1 already_status=144 artifacts_ok=0
+[2026-09-02T12:15:24.314588] predicting ADI-47103 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T12:15:52+00:00] cif=145/324
+[2026-09-02T12:16:38+00:00] cif=145/324
+predict ADI-47104
+queue=1 already_status=145 artifacts_ok=0
+[2026-09-02T12:16:38.278816] predicting ADI-47104 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:17:07+00:00] cif=146/324
+predict ADI-47105
+queue=1 already_status=146 artifacts_ok=0
+[2026-09-02T12:17:07.304928] predicting ADI-47105 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:17:36+00:00] cif=147/324
+[2026-09-02T12:18:21+00:00] cif=147/324
+predict ADI-47106
+queue=1 already_status=147 artifacts_ok=0
+[2026-09-02T12:18:21.469607] predicting ADI-47106 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T12:18:50+00:00] cif=148/324
+[2026-09-02T12:19:35+00:00] cif=148/324
+predict ADI-47107
+queue=1 already_status=148 artifacts_ok=0
+[2026-09-02T12:19:35.454418] predicting ADI-47107 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:20:04+00:00] cif=149/324
+[2026-09-02T12:20:49+00:00] cif=149/324
+predict ADI-47109
+queue=1 already_status=149 artifacts_ok=0
+[2026-09-02T12:20:49.547215] predicting ADI-47109 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T12:21:18+00:00] cif=150/324
+[2026-09-02T12:22:03+00:00] cif=150/324
+predict ADI-47111
+queue=1 already_status=150 artifacts_ok=0
+[2026-09-02T12:22:03.608021] predicting ADI-47111 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T12:22:32+00:00] cif=151/324
+predict ADI-47112
+queue=1 already_status=151 artifacts_ok=0
+[2026-09-02T12:22:32.398980] predicting ADI-47112 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:23:01+00:00] cif=152/324
+[2026-09-02T12:23:46+00:00] cif=152/324
+predict ADI-47113
+queue=1 already_status=152 artifacts_ok=0
+[2026-09-02T12:23:46.609823] predicting ADI-47113 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:24:15+00:00] cif=153/324
+[2026-09-02T12:25:00+00:00] cif=153/324
+predict ADI-47114
+queue=1 already_status=153 artifacts_ok=0
+[2026-09-02T12:25:00.856559] predicting ADI-47114 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:25:29+00:00] cif=154/324
+[2026-09-02T12:26:15+00:00] cif=154/324
+predict ADI-47116
+queue=1 already_status=154 artifacts_ok=0
+[2026-09-02T12:26:15.308983] predicting ADI-47116 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T12:26:43+00:00] cif=155/324
+predict ADI-47117
+queue=1 already_status=155 artifacts_ok=0
+[2026-09-02T12:26:43.851713] predicting ADI-47117 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:27:13+00:00] cif=156/324
+[2026-09-02T12:27:58+00:00] cif=156/324
+predict ADI-47118
+queue=1 already_status=156 artifacts_ok=0
+[2026-09-02T12:27:58.325343] predicting ADI-47118 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:28:27+00:00] cif=157/324
+[2026-09-02T12:29:12+00:00] cif=157/324
+predict ADI-47119
+queue=1 already_status=157 artifacts_ok=0
+[2026-09-02T12:29:12.433724] predicting ADI-47119 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:29:41+00:00] cif=158/324
+predict ADI-47120
+queue=1 already_status=158 artifacts_ok=0
+[2026-09-02T12:29:41.631817] predicting ADI-47120 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:30:10+00:00] cif=159/324
+[2026-09-02T12:30:55+00:00] cif=159/324
+predict ADI-47121
+queue=1 already_status=159 artifacts_ok=0
+[2026-09-02T12:30:55.960325] predicting ADI-47121 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T12:31:24+00:00] cif=160/324
+predict ADI-47122
+queue=1 already_status=160 artifacts_ok=0
+[2026-09-02T12:31:24.597823] predicting ADI-47122 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:31:53+00:00] cif=161/324
+[2026-09-02T12:32:38+00:00] cif=161/324
+predict ADI-47123
+queue=1 already_status=161 artifacts_ok=0
+[2026-09-02T12:32:38.986766] predicting ADI-47123 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T12:33:07+00:00] cif=162/324
+[2026-09-02T12:33:52+00:00] cif=162/324
+predict ADI-47124
+queue=1 already_status=162 artifacts_ok=0
+[2026-09-02T12:33:53.073547] predicting ADI-47124 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:34:21+00:00] cif=163/324
+[2026-09-02T12:35:07+00:00] cif=163/324
+predict ADI-47125
+queue=1 already_status=163 artifacts_ok=0
+[2026-09-02T12:35:07.314605] predicting ADI-47125 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:35:36+00:00] cif=164/324
+predict ADI-47126
+queue=1 already_status=164 artifacts_ok=0
+[2026-09-02T12:35:36.260542] predicting ADI-47126 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:36:05+00:00] cif=165/324
+[2026-09-02T12:36:50+00:00] cif=165/324
+[2026-09-02T12:37:35+00:00] cif=165/324
+predict ADI-47127
+queue=1 already_status=165 artifacts_ok=0
+[2026-09-02T12:37:35.927917] predicting ADI-47127 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T12:38:05+00:00] cif=166/324
+[2026-09-02T12:38:50+00:00] cif=166/324
+predict ADI-47129
+queue=1 already_status=166 artifacts_ok=0
+[2026-09-02T12:38:50.489743] predicting ADI-47129 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T12:39:19+00:00] cif=167/324
+predict ADI-47130
+queue=1 already_status=167 artifacts_ok=0
+[2026-09-02T12:39:19.284498] predicting ADI-47130 attempt=1
+  -> SUCCESS runtime=27.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:39:47+00:00] cif=168/324
+[2026-09-02T12:40:32+00:00] cif=168/324
+predict ADI-47131
+queue=1 already_status=168 artifacts_ok=0
+[2026-09-02T12:40:32.645420] predicting ADI-47131 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:41:01+00:00] cif=169/324
+[2026-09-02T12:41:46+00:00] cif=169/324
+predict ADI-47132
+queue=1 already_status=169 artifacts_ok=0
+[2026-09-02T12:41:47.073006] predicting ADI-47132 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T12:42:15+00:00] cif=170/324
+[2026-09-02T12:43:00+00:00] cif=170/324
+predict ADI-47133
+queue=1 already_status=170 artifacts_ok=0
+[2026-09-02T12:43:00.892412] predicting ADI-47133 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:43:29+00:00] cif=171/324
+predict ADI-47134
+queue=1 already_status=171 artifacts_ok=0
+[2026-09-02T12:43:29.814381] predicting ADI-47134 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:43:58+00:00] cif=172/324
+[2026-09-02T12:44:44+00:00] cif=172/324
+predict ADI-47135
+queue=1 already_status=172 artifacts_ok=0
+[2026-09-02T12:44:44.215170] predicting ADI-47135 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:45:13+00:00] cif=173/324
+[2026-09-02T12:45:58+00:00] cif=173/324
+predict ADI-47137
+queue=1 already_status=173 artifacts_ok=0
+[2026-09-02T12:45:58.626654] predicting ADI-47137 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T12:46:27+00:00] cif=174/324
+predict ADI-47139
+queue=1 already_status=174 artifacts_ok=0
+[2026-09-02T12:46:27.354500] predicting ADI-47139 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T12:46:56+00:00] cif=175/324
+[2026-09-02T12:47:41+00:00] cif=175/324
+predict ADI-47140
+queue=1 already_status=175 artifacts_ok=0
+[2026-09-02T12:47:41.397060] predicting ADI-47140 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:48:10+00:00] cif=176/324
+[2026-09-02T12:48:55+00:00] cif=176/324
+predict ADI-47141
+queue=1 already_status=176 artifacts_ok=0
+[2026-09-02T12:48:55.790093] predicting ADI-47141 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T12:49:24+00:00] cif=177/324
+[2026-09-02T12:50:09+00:00] cif=177/324
+predict ADI-47143
+queue=1 already_status=177 artifacts_ok=0
+[2026-09-02T12:50:09.897973] predicting ADI-47143 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T12:50:38+00:00] cif=178/324
+predict ADI-47145
+queue=1 already_status=178 artifacts_ok=0
+[2026-09-02T12:50:39.036976] predicting ADI-47145 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:51:08+00:00] cif=179/324
+[2026-09-02T12:51:53+00:00] cif=179/324
+predict ADI-47146
+queue=1 already_status=179 artifacts_ok=0
+[2026-09-02T12:51:53.541095] predicting ADI-47146 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T12:52:22+00:00] cif=180/324
+[2026-09-02T12:53:07+00:00] cif=180/324
+predict ADI-47147
+queue=1 already_status=180 artifacts_ok=0
+[2026-09-02T12:53:07.416414] predicting ADI-47147 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:53:36+00:00] cif=181/324
+[2026-09-02T12:54:21+00:00] cif=181/324
+predict ADI-47148
+queue=1 already_status=181 artifacts_ok=0
+[2026-09-02T12:54:21.880071] predicting ADI-47148 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:54:50+00:00] cif=182/324
+predict ADI-47149
+queue=1 already_status=182 artifacts_ok=0
+[2026-09-02T12:54:50.880527] predicting ADI-47149 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T12:55:20+00:00] cif=183/324
+[2026-09-02T12:56:05+00:00] cif=183/324
+predict ADI-47151
+queue=1 already_status=183 artifacts_ok=0
+[2026-09-02T12:56:05.432771] predicting ADI-47151 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T12:56:34+00:00] cif=184/324
+predict ADI-47152
+queue=1 already_status=184 artifacts_ok=0
+[2026-09-02T12:56:34.443149] predicting ADI-47152 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T12:57:03+00:00] cif=185/324
+[2026-09-02T12:57:48+00:00] cif=185/324
+predict ADI-47153
+queue=1 already_status=185 artifacts_ok=0
+[2026-09-02T12:57:48.725155] predicting ADI-47153 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T12:58:17+00:00] cif=186/324
+[2026-09-02T12:59:02+00:00] cif=186/324
+predict ADI-47154
+queue=1 already_status=186 artifacts_ok=0
+[2026-09-02T12:59:02.807472] predicting ADI-47154 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T12:59:31+00:00] cif=187/324
+[2026-09-02T13:00:17+00:00] cif=187/324
+predict ADI-47155
+queue=1 already_status=187 artifacts_ok=0
+[2026-09-02T13:00:17.275676] predicting ADI-47155 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:00:46+00:00] cif=188/324
+[2026-09-02T13:01:31+00:00] cif=188/324
+predict ADI-47156
+queue=1 already_status=188 artifacts_ok=0
+[2026-09-02T13:01:31.407759] predicting ADI-47156 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T13:01:59+00:00] cif=189/324
+predict ADI-47158
+queue=1 already_status=189 artifacts_ok=0
+[2026-09-02T13:01:59.864837] predicting ADI-47158 attempt=1
+  -> SUCCESS runtime=28.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:02:27+00:00] cif=190/324
+[2026-09-02T13:03:13+00:00] cif=190/324
+predict ADI-47159
+queue=1 already_status=190 artifacts_ok=0
+[2026-09-02T13:03:13.336287] predicting ADI-47159 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:03:42+00:00] cif=191/324
+[2026-09-02T13:04:27+00:00] cif=191/324
+predict ADI-47160
+queue=1 already_status=191 artifacts_ok=0
+[2026-09-02T13:04:27.866441] predicting ADI-47160 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T13:04:56+00:00] cif=192/324
+predict ADI-47161
+queue=1 already_status=192 artifacts_ok=0
+[2026-09-02T13:04:57.043218] predicting ADI-47161 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:05:26+00:00] cif=193/324
+[2026-09-02T13:06:11+00:00] cif=193/324
+predict ADI-47162
+queue=1 already_status=193 artifacts_ok=0
+[2026-09-02T13:06:11.596480] predicting ADI-47162 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:06:40+00:00] cif=194/324
+predict ADI-47163
+queue=1 already_status=194 artifacts_ok=0
+[2026-09-02T13:06:40.919686] predicting ADI-47163 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T13:07:09+00:00] cif=195/324
+[2026-09-02T13:07:54+00:00] cif=195/324
+predict ADI-47165
+queue=1 already_status=195 artifacts_ok=0
+[2026-09-02T13:07:54.868519] predicting ADI-47165 attempt=1
+  -> SUCCESS runtime=27.9s
+DONE success_artifacts=1/1
+[2026-09-02T13:08:22+00:00] cif=196/324
+[2026-09-02T13:09:08+00:00] cif=196/324
+predict ADI-47166
+queue=1 already_status=196 artifacts_ok=0
+[2026-09-02T13:09:08.189853] predicting ADI-47166 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:09:37+00:00] cif=197/324
+[2026-09-02T13:10:22+00:00] cif=197/324
+predict ADI-47173
+queue=1 already_status=197 artifacts_ok=0
+[2026-09-02T13:10:22.702150] predicting ADI-47173 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T13:10:51+00:00] cif=198/324
+[2026-09-02T13:11:36+00:00] cif=198/324
+predict ADI-47174
+queue=1 already_status=198 artifacts_ok=0
+[2026-09-02T13:11:36.537700] predicting ADI-47174 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T13:12:05+00:00] cif=199/324
+predict ADI-47175
+queue=1 already_status=199 artifacts_ok=0
+[2026-09-02T13:12:05.330485] predicting ADI-47175 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:12:34+00:00] cif=200/324
+[2026-09-02T13:13:19+00:00] cif=200/324
+predict ADI-47176
+queue=1 already_status=200 artifacts_ok=0
+[2026-09-02T13:13:19.756940] predicting ADI-47176 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T13:13:48+00:00] cif=201/324
+[2026-09-02T13:14:33+00:00] cif=201/324
+predict ADI-47177
+queue=1 already_status=201 artifacts_ok=0
+[2026-09-02T13:14:33.758010] predicting ADI-47177 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T13:15:02+00:00] cif=202/324
+[2026-09-02T13:15:47+00:00] cif=202/324
+predict ADI-47178
+queue=1 already_status=202 artifacts_ok=0
+[2026-09-02T13:15:48.106301] predicting ADI-47178 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:16:16+00:00] cif=203/324
+[2026-09-02T13:17:02+00:00] cif=203/324
+predict ADI-47179
+queue=1 already_status=203 artifacts_ok=0
+[2026-09-02T13:17:02.239081] predicting ADI-47179 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:17:31+00:00] cif=204/324
+[2026-09-02T13:18:16+00:00] cif=204/324
+predict ADI-47180
+queue=1 already_status=204 artifacts_ok=0
+[2026-09-02T13:18:16.518790] predicting ADI-47180 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T13:18:45+00:00] cif=205/324
+[2026-09-02T13:19:30+00:00] cif=205/324
+predict ADI-47181
+queue=1 already_status=205 artifacts_ok=0
+[2026-09-02T13:19:30.637483] predicting ADI-47181 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T13:19:58+00:00] cif=206/324
+[2026-09-02T13:20:44+00:00] cif=206/324
+predict ADI-47182
+queue=1 already_status=206 artifacts_ok=0
+[2026-09-02T13:20:44.274422] predicting ADI-47182 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T13:21:12+00:00] cif=207/324
+predict ADI-47183
+queue=1 already_status=207 artifacts_ok=0
+[2026-09-02T13:21:13.111391] predicting ADI-47183 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:21:41+00:00] cif=208/324
+[2026-09-02T13:22:27+00:00] cif=208/324
+predict ADI-47184
+queue=1 already_status=208 artifacts_ok=0
+[2026-09-02T13:22:27.309040] predicting ADI-47184 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T13:22:56+00:00] cif=209/324
+[2026-09-02T13:23:41+00:00] cif=209/324
+predict ADI-47186
+queue=1 already_status=209 artifacts_ok=0
+[2026-09-02T13:23:41.380393] predicting ADI-47186 attempt=1
+  -> SUCCESS runtime=28.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:24:09+00:00] cif=210/324
+predict ADI-47187
+queue=1 already_status=210 artifacts_ok=0
+[2026-09-02T13:24:09.759540] predicting ADI-47187 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:24:38+00:00] cif=211/324
+[2026-09-02T13:25:24+00:00] cif=211/324
+predict ADI-47188
+queue=1 already_status=211 artifacts_ok=0
+[2026-09-02T13:25:24.306933] predicting ADI-47188 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T13:25:53+00:00] cif=212/324
+predict ADI-47189
+queue=1 already_status=212 artifacts_ok=0
+[2026-09-02T13:25:53.461716] predicting ADI-47189 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:26:22+00:00] cif=213/324
+[2026-09-02T13:27:07+00:00] cif=213/324
+predict ADI-47190
+queue=1 already_status=213 artifacts_ok=0
+[2026-09-02T13:27:08.015909] predicting ADI-47190 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T13:27:36+00:00] cif=214/324
+predict ADI-47191
+queue=1 already_status=214 artifacts_ok=0
+[2026-09-02T13:27:36.762529] predicting ADI-47191 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:28:05+00:00] cif=215/324
+[2026-09-02T13:28:51+00:00] cif=215/324
+predict ADI-47192
+queue=1 already_status=215 artifacts_ok=0
+[2026-09-02T13:28:51.241997] predicting ADI-47192 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:29:20+00:00] cif=216/324
+[2026-09-02T13:30:05+00:00] cif=216/324
+predict ADI-47193
+queue=1 already_status=216 artifacts_ok=0
+[2026-09-02T13:30:05.385833] predicting ADI-47193 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:30:34+00:00] cif=217/324
+predict ADI-47194
+queue=1 already_status=217 artifacts_ok=0
+[2026-09-02T13:30:34.484996] predicting ADI-47194 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T13:31:03+00:00] cif=218/324
+[2026-09-02T13:31:48+00:00] cif=218/324
+predict ADI-47195
+queue=1 already_status=218 artifacts_ok=0
+[2026-09-02T13:31:48.540902] predicting ADI-47195 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:32:17+00:00] cif=219/324
+[2026-09-02T13:33:02+00:00] cif=219/324
+predict ADI-47196
+queue=1 already_status=219 artifacts_ok=0
+[2026-09-02T13:33:02.730100] predicting ADI-47196 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:33:31+00:00] cif=220/324
+predict ADI-47197
+queue=1 already_status=220 artifacts_ok=0
+[2026-09-02T13:33:32.047317] predicting ADI-47197 attempt=1
+  -> SUCCESS runtime=28.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:34:00+00:00] cif=221/324
+[2026-09-02T13:34:45+00:00] cif=221/324
+predict ADI-47198
+queue=1 already_status=221 artifacts_ok=0
+[2026-09-02T13:34:45.673058] predicting ADI-47198 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T13:35:14+00:00] cif=222/324
+[2026-09-02T13:35:59+00:00] cif=222/324
+predict ADI-47199
+queue=1 already_status=222 artifacts_ok=0
+[2026-09-02T13:35:59.607161] predicting ADI-47199 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T13:36:28+00:00] cif=223/324
+[2026-09-02T13:37:14+00:00] cif=223/324
+predict ADI-47200
+queue=1 already_status=223 artifacts_ok=0
+[2026-09-02T13:37:14.176323] predicting ADI-47200 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:37:43+00:00] cif=224/324
+predict ADI-47201
+queue=1 already_status=224 artifacts_ok=0
+[2026-09-02T13:37:43.183625] predicting ADI-47201 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T13:38:11+00:00] cif=225/324
+[2026-09-02T13:38:57+00:00] cif=225/324
+predict ADI-47202
+queue=1 already_status=225 artifacts_ok=0
+[2026-09-02T13:38:57.253422] predicting ADI-47202 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:39:26+00:00] cif=226/324
+[2026-09-02T13:40:11+00:00] cif=226/324
+predict ADI-47203
+queue=1 already_status=226 artifacts_ok=0
+[2026-09-02T13:40:11.515432] predicting ADI-47203 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:40:40+00:00] cif=227/324
+predict ADI-47204
+queue=1 already_status=227 artifacts_ok=0
+[2026-09-02T13:40:40.520757] predicting ADI-47204 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:41:09+00:00] cif=228/324
+[2026-09-02T13:41:54+00:00] cif=228/324
+predict ADI-47205
+queue=1 already_status=228 artifacts_ok=0
+[2026-09-02T13:41:54.971991] predicting ADI-47205 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:42:23+00:00] cif=229/324
+[2026-09-02T13:43:09+00:00] cif=229/324
+predict ADI-47206
+queue=1 already_status=229 artifacts_ok=0
+[2026-09-02T13:43:09.198146] predicting ADI-47206 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:43:38+00:00] cif=230/324
+[2026-09-02T13:44:23+00:00] cif=230/324
+predict ADI-47207
+queue=1 already_status=230 artifacts_ok=0
+[2026-09-02T13:44:23.469586] predicting ADI-47207 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:44:52+00:00] cif=231/324
+[2026-09-02T13:45:37+00:00] cif=231/324
+predict ADI-47208
+queue=1 already_status=231 artifacts_ok=0
+[2026-09-02T13:45:37.751222] predicting ADI-47208 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T13:46:06+00:00] cif=232/324
+predict ADI-47209
+queue=1 already_status=232 artifacts_ok=0
+[2026-09-02T13:46:06.381064] predicting ADI-47209 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:46:35+00:00] cif=233/324
+[2026-09-02T13:47:20+00:00] cif=233/324
+predict ADI-47212
+queue=1 already_status=233 artifacts_ok=0
+[2026-09-02T13:47:20.845664] predicting ADI-47212 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:47:49+00:00] cif=234/324
+[2026-09-02T13:48:34+00:00] cif=234/324
+predict ADI-47213
+queue=1 already_status=234 artifacts_ok=0
+[2026-09-02T13:48:35.019970] predicting ADI-47213 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T13:49:03+00:00] cif=235/324
+[2026-09-02T13:49:48+00:00] cif=235/324
+predict ADI-47214
+queue=1 already_status=235 artifacts_ok=0
+[2026-09-02T13:49:49.149970] predicting ADI-47214 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:50:17+00:00] cif=236/324
+[2026-09-02T13:51:03+00:00] cif=236/324
+predict ADI-47215
+queue=1 already_status=236 artifacts_ok=0
+[2026-09-02T13:51:03.348248] predicting ADI-47215 attempt=1
+  -> SUCCESS runtime=28.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:51:31+00:00] cif=237/324
+predict ADI-47216
+queue=1 already_status=237 artifacts_ok=0
+[2026-09-02T13:51:31.618562] predicting ADI-47216 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T13:52:00+00:00] cif=238/324
+[2026-09-02T13:52:45+00:00] cif=238/324
+predict ADI-47217
+queue=1 already_status=238 artifacts_ok=0
+[2026-09-02T13:52:45.755414] predicting ADI-47217 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T13:53:14+00:00] cif=239/324
+[2026-09-02T13:53:59+00:00] cif=239/324
+predict ADI-47218
+queue=1 already_status=239 artifacts_ok=0
+[2026-09-02T13:54:00.111873] predicting ADI-47218 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:54:29+00:00] cif=240/324
+predict ADI-47219
+queue=1 already_status=240 artifacts_ok=0
+[2026-09-02T13:54:29.233068] predicting ADI-47219 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:54:58+00:00] cif=241/324
+[2026-09-02T13:55:43+00:00] cif=241/324
+predict ADI-47220
+queue=1 already_status=241 artifacts_ok=0
+[2026-09-02T13:55:43.535614] predicting ADI-47220 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T13:56:12+00:00] cif=242/324
+[2026-09-02T13:56:57+00:00] cif=242/324
+predict ADI-47221
+queue=1 already_status=242 artifacts_ok=0
+[2026-09-02T13:56:57.453994] predicting ADI-47221 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T13:57:26+00:00] cif=243/324
+[2026-09-02T13:58:11+00:00] cif=243/324
+predict ADI-47222
+queue=1 already_status=243 artifacts_ok=0
+[2026-09-02T13:58:11.928546] predicting ADI-47222 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T13:58:40+00:00] cif=244/324
+[2026-09-02T13:59:25+00:00] cif=244/324
+predict ADI-47223
+queue=1 already_status=244 artifacts_ok=0
+[2026-09-02T13:59:26.141360] predicting ADI-47223 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T13:59:55+00:00] cif=245/324
+predict ADI-47224
+queue=1 already_status=245 artifacts_ok=0
+[2026-09-02T13:59:55.217013] predicting ADI-47224 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:00:24+00:00] cif=246/324
+[2026-09-02T14:01:09+00:00] cif=246/324
+predict ADI-47225
+queue=1 already_status=246 artifacts_ok=0
+[2026-09-02T14:01:09.458348] predicting ADI-47225 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T14:01:38+00:00] cif=247/324
+[2026-09-02T14:02:23+00:00] cif=247/324
+predict ADI-47226
+queue=1 already_status=247 artifacts_ok=0
+[2026-09-02T14:02:23.848804] predicting ADI-47226 attempt=1
+  -> SUCCESS runtime=27.9s
+DONE success_artifacts=1/1
+[2026-09-02T14:02:51+00:00] cif=248/324
+predict ADI-47227
+queue=1 already_status=248 artifacts_ok=0
+[2026-09-02T14:02:52.041967] predicting ADI-47227 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T14:03:21+00:00] cif=249/324
+[2026-09-02T14:04:06+00:00] cif=249/324
+predict ADI-47228
+queue=1 already_status=249 artifacts_ok=0
+[2026-09-02T14:04:06.604608] predicting ADI-47228 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T14:04:35+00:00] cif=250/324
+[2026-09-02T14:05:20+00:00] cif=250/324
+predict ADI-47229
+queue=1 already_status=250 artifacts_ok=0
+[2026-09-02T14:05:20.593738] predicting ADI-47229 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:05:49+00:00] cif=251/324
+[2026-09-02T14:06:34+00:00] cif=251/324
+predict ADI-47230
+queue=1 already_status=251 artifacts_ok=0
+[2026-09-02T14:06:34.806304] predicting ADI-47230 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:07:03+00:00] cif=252/324
+predict ADI-47231
+queue=1 already_status=252 artifacts_ok=0
+[2026-09-02T14:07:03.788468] predicting ADI-47231 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:07:32+00:00] cif=253/324
+[2026-09-02T14:08:17+00:00] cif=253/324
+predict ADI-47232
+queue=1 already_status=253 artifacts_ok=0
+[2026-09-02T14:08:17.890191] predicting ADI-47232 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T14:08:47+00:00] cif=254/324
+[2026-09-02T14:09:32+00:00] cif=254/324
+predict ADI-47233
+queue=1 already_status=254 artifacts_ok=0
+[2026-09-02T14:09:32.445010] predicting ADI-47233 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T14:10:01+00:00] cif=255/324
+[2026-09-02T14:10:46+00:00] cif=255/324
+predict ADI-47234
+queue=1 already_status=255 artifacts_ok=0
+[2026-09-02T14:10:46.706621] predicting ADI-47234 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T14:11:15+00:00] cif=256/324
+predict ADI-47235
+queue=1 already_status=256 artifacts_ok=0
+[2026-09-02T14:11:15.771086] predicting ADI-47235 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T14:11:44+00:00] cif=257/324
+[2026-09-02T14:12:29+00:00] cif=257/324
+predict ADI-47236
+queue=1 already_status=257 artifacts_ok=0
+[2026-09-02T14:12:29.484569] predicting ADI-47236 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:12:58+00:00] cif=258/324
+predict ADI-47237
+queue=1 already_status=258 artifacts_ok=0
+[2026-09-02T14:12:58.513788] predicting ADI-47237 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T14:13:26+00:00] cif=259/324
+[2026-09-02T14:14:12+00:00] cif=259/324
+predict ADI-47238
+queue=1 already_status=259 artifacts_ok=0
+[2026-09-02T14:14:12.199169] predicting ADI-47238 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T14:14:41+00:00] cif=260/324
+[2026-09-02T14:15:26+00:00] cif=260/324
+predict ADI-47239
+queue=1 already_status=260 artifacts_ok=0
+[2026-09-02T14:15:26.594870] predicting ADI-47239 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T14:15:55+00:00] cif=261/324
+[2026-09-02T14:16:40+00:00] cif=261/324
+predict ADI-47240
+queue=1 already_status=261 artifacts_ok=0
+[2026-09-02T14:16:40.401457] predicting ADI-47240 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T14:17:09+00:00] cif=262/324
+[2026-09-02T14:17:54+00:00] cif=262/324
+predict ADI-47241
+queue=1 already_status=262 artifacts_ok=0
+[2026-09-02T14:17:55.007159] predicting ADI-47241 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T14:18:24+00:00] cif=263/324
+[2026-09-02T14:19:09+00:00] cif=263/324
+predict ADI-47243
+queue=1 already_status=263 artifacts_ok=0
+[2026-09-02T14:19:09.538535] predicting ADI-47243 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:19:38+00:00] cif=264/324
+[2026-09-02T14:20:23+00:00] cif=264/324
+predict ADI-47244
+queue=1 already_status=264 artifacts_ok=0
+[2026-09-02T14:20:23.763476] predicting ADI-47244 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T14:20:52+00:00] cif=265/324
+[2026-09-02T14:21:38+00:00] cif=265/324
+predict ADI-47246
+queue=1 already_status=265 artifacts_ok=0
+[2026-09-02T14:21:38.206229] predicting ADI-47246 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T14:22:06+00:00] cif=266/324
+predict ADI-47247
+queue=1 already_status=266 artifacts_ok=0
+[2026-09-02T14:22:06.937527] predicting ADI-47247 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T14:22:35+00:00] cif=267/324
+[2026-09-02T14:23:20+00:00] cif=267/324
+predict ADI-47248
+queue=1 already_status=267 artifacts_ok=0
+[2026-09-02T14:23:20.958070] predicting ADI-47248 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T14:23:49+00:00] cif=268/324
+[2026-09-02T14:24:34+00:00] cif=268/324
+predict ADI-47249
+queue=1 already_status=268 artifacts_ok=0
+[2026-09-02T14:24:34.788449] predicting ADI-47249 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:25:03+00:00] cif=269/324
+predict ADI-47250
+queue=1 already_status=269 artifacts_ok=0
+[2026-09-02T14:25:03.707839] predicting ADI-47250 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T14:25:32+00:00] cif=270/324
+[2026-09-02T14:26:17+00:00] cif=270/324
+predict ADI-47251
+queue=1 already_status=270 artifacts_ok=0
+[2026-09-02T14:26:17.978444] predicting ADI-47251 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T14:26:46+00:00] cif=271/324
+[2026-09-02T14:27:31+00:00] cif=271/324
+predict ADI-47252
+queue=1 already_status=271 artifacts_ok=0
+[2026-09-02T14:27:32.027793] predicting ADI-47252 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:28:00+00:00] cif=272/324
+[2026-09-02T14:28:45+00:00] cif=272/324
+predict ADI-47253
+queue=1 already_status=272 artifacts_ok=0
+[2026-09-02T14:28:46.141485] predicting ADI-47253 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:29:14+00:00] cif=273/324
+predict ADI-47254
+queue=1 already_status=273 artifacts_ok=0
+[2026-09-02T14:29:15.156464] predicting ADI-47254 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T14:29:44+00:00] cif=274/324
+[2026-09-02T14:30:29+00:00] cif=274/324
+predict ADI-47255
+queue=1 already_status=274 artifacts_ok=0
+[2026-09-02T14:30:29.656597] predicting ADI-47255 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:30:58+00:00] cif=275/324
+[2026-09-02T14:31:43+00:00] cif=275/324
+predict ADI-47256
+queue=1 already_status=275 artifacts_ok=0
+[2026-09-02T14:31:43.750114] predicting ADI-47256 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T14:32:13+00:00] cif=276/324
+predict ADI-47257
+queue=1 already_status=276 artifacts_ok=0
+[2026-09-02T14:32:13.202712] predicting ADI-47257 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:32:41+00:00] cif=277/324
+[2026-09-02T14:33:27+00:00] cif=277/324
+predict ADI-47258
+queue=1 already_status=277 artifacts_ok=0
+[2026-09-02T14:33:27.324047] predicting ADI-47258 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T14:33:56+00:00] cif=278/324
+predict ADI-47259
+queue=1 already_status=278 artifacts_ok=0
+[2026-09-02T14:33:56.462957] predicting ADI-47259 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:34:25+00:00] cif=279/324
+[2026-09-02T14:35:10+00:00] cif=279/324
+predict ADI-47260
+queue=1 already_status=279 artifacts_ok=0
+[2026-09-02T14:35:10.719426] predicting ADI-47260 attempt=1
+  -> SUCCESS runtime=29.2s
+DONE success_artifacts=1/1
+[2026-09-02T14:35:40+00:00] cif=280/324
+[2026-09-02T14:36:25+00:00] cif=280/324
+predict ADI-47261
+queue=1 already_status=280 artifacts_ok=0
+[2026-09-02T14:36:25.434973] predicting ADI-47261 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T14:36:53+00:00] cif=281/324
+[2026-09-02T14:37:38+00:00] cif=281/324
+predict ADI-47262
+queue=1 already_status=281 artifacts_ok=0
+[2026-09-02T14:37:39.150553] predicting ADI-47262 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T14:38:08+00:00] cif=282/324
+[2026-09-02T14:38:53+00:00] cif=282/324
+predict ADI-47263
+queue=1 already_status=282 artifacts_ok=0
+[2026-09-02T14:38:53.747403] predicting ADI-47263 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T14:39:22+00:00] cif=283/324
+[2026-09-02T14:40:07+00:00] cif=283/324
+predict ADI-47264
+queue=1 already_status=283 artifacts_ok=0
+[2026-09-02T14:40:07.570828] predicting ADI-47264 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T14:40:36+00:00] cif=284/324
+predict ADI-47265
+queue=1 already_status=284 artifacts_ok=0
+[2026-09-02T14:40:36.793472] predicting ADI-47265 attempt=1
+  -> SUCCESS runtime=29.0s
+DONE success_artifacts=1/1
+[2026-09-02T14:41:05+00:00] cif=285/324
+[2026-09-02T14:41:51+00:00] cif=285/324
+predict ADI-47267
+queue=1 already_status=285 artifacts_ok=0
+[2026-09-02T14:41:51.329400] predicting ADI-47267 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T14:42:19+00:00] cif=286/324
+[2026-09-02T14:43:05+00:00] cif=286/324
+predict ADI-47278
+queue=1 already_status=286 artifacts_ok=0
+[2026-09-02T14:43:05.208136] predicting ADI-47278 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:43:33+00:00] cif=287/324
+[2026-09-02T14:44:19+00:00] cif=287/324
+predict ADI-47279
+queue=1 already_status=287 artifacts_ok=0
+[2026-09-02T14:44:19.358951] predicting ADI-47279 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:44:48+00:00] cif=288/324
+predict ADI-47280
+queue=1 already_status=288 artifacts_ok=0
+[2026-09-02T14:44:48.347742] predicting ADI-47280 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T14:45:17+00:00] cif=289/324
+[2026-09-02T14:46:02+00:00] cif=289/324
+predict ADI-47281
+queue=1 already_status=289 artifacts_ok=0
+[2026-09-02T14:46:02.644495] predicting ADI-47281 attempt=1
+  -> SUCCESS runtime=28.0s
+DONE success_artifacts=1/1
+[2026-09-02T14:46:30+00:00] cif=290/324
+[2026-09-02T14:47:16+00:00] cif=290/324
+predict ADI-47282
+queue=1 already_status=290 artifacts_ok=0
+[2026-09-02T14:47:16.210946] predicting ADI-47282 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:47:45+00:00] cif=291/324
+[2026-09-02T14:48:30+00:00] cif=291/324
+predict ADI-47283
+queue=1 already_status=291 artifacts_ok=0
+[2026-09-02T14:48:30.430175] predicting ADI-47283 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:48:59+00:00] cif=292/324
+[2026-09-02T14:49:44+00:00] cif=292/324
+predict ADI-47284
+queue=1 already_status=292 artifacts_ok=0
+[2026-09-02T14:49:44.602472] predicting ADI-47284 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:50:13+00:00] cif=293/324
+[2026-09-02T14:50:58+00:00] cif=293/324
+predict ADI-47285
+queue=1 already_status=293 artifacts_ok=0
+[2026-09-02T14:50:58.750991] predicting ADI-47285 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T14:51:27+00:00] cif=294/324
+[2026-09-02T14:52:12+00:00] cif=294/324
+[2026-09-02T14:52:58+00:00] cif=294/324
+[2026-09-02T14:53:43+00:00] cif=294/324
+[2026-09-02T14:54:28+00:00] cif=294/324
+predict ADI-47286
+queue=1 already_status=294 artifacts_ok=0
+[2026-09-02T14:54:28.651164] predicting ADI-47286 attempt=1
+  -> SUCCESS runtime=28.5s
+DONE success_artifacts=1/1
+[2026-09-02T14:54:57+00:00] cif=295/324
+[2026-09-02T14:55:42+00:00] cif=295/324
+predict ADI-47287
+queue=1 already_status=295 artifacts_ok=0
+[2026-09-02T14:55:42.690142] predicting ADI-47287 attempt=1
+  -> SUCCESS runtime=28.8s
+DONE success_artifacts=1/1
+[2026-09-02T14:56:11+00:00] cif=296/324
+[2026-09-02T14:56:56+00:00] cif=296/324
+predict ADI-47288
+queue=1 already_status=296 artifacts_ok=0
+[2026-09-02T14:56:56.994464] predicting ADI-47288 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:57:25+00:00] cif=297/324
+[2026-09-02T14:58:11+00:00] cif=297/324
+predict ADI-47289
+queue=1 already_status=297 artifacts_ok=0
+[2026-09-02T14:58:11.216067] predicting ADI-47289 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T14:58:39+00:00] cif=298/324
+predict ADI-47290
+queue=1 already_status=298 artifacts_ok=0
+[2026-09-02T14:58:40.099064] predicting ADI-47290 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T14:59:08+00:00] cif=299/324
+[2026-09-02T14:59:54+00:00] cif=299/324
+predict ADI-47291
+queue=1 already_status=299 artifacts_ok=0
+[2026-09-02T14:59:54.317876] predicting ADI-47291 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T15:00:23+00:00] cif=300/324
+[2026-09-02T15:01:08+00:00] cif=300/324
+predict ADI-47292
+queue=1 already_status=300 artifacts_ok=0
+[2026-09-02T15:01:08.710999] predicting ADI-47292 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:01:37+00:00] cif=301/324
+[2026-09-02T15:02:22+00:00] cif=301/324
+predict ADI-47293
+queue=1 already_status=301 artifacts_ok=0
+[2026-09-02T15:02:22.982106] predicting ADI-47293 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T15:02:51+00:00] cif=302/324
+predict ADI-47294
+queue=1 already_status=302 artifacts_ok=0
+[2026-09-02T15:02:51.903653] predicting ADI-47294 attempt=1
+  -> SUCCESS runtime=28.0s
+DONE success_artifacts=1/1
+[2026-09-02T15:03:20+00:00] cif=303/324
+[2026-09-02T15:04:05+00:00] cif=303/324
+predict ADI-47295
+queue=1 already_status=303 artifacts_ok=0
+[2026-09-02T15:04:05.419723] predicting ADI-47295 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:04:34+00:00] cif=304/324
+[2026-09-02T15:05:19+00:00] cif=304/324
+predict ADI-47296
+queue=1 already_status=304 artifacts_ok=0
+[2026-09-02T15:05:19.615381] predicting ADI-47296 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T15:05:48+00:00] cif=305/324
+[2026-09-02T15:06:33+00:00] cif=305/324
+predict ADI-47297
+queue=1 already_status=305 artifacts_ok=0
+[2026-09-02T15:06:33.756704] predicting ADI-47297 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:07:02+00:00] cif=306/324
+predict ADI-47298
+queue=1 already_status=306 artifacts_ok=0
+[2026-09-02T15:07:02.782719] predicting ADI-47298 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:07:31+00:00] cif=307/324
+[2026-09-02T15:08:16+00:00] cif=307/324
+predict ADI-47299
+queue=1 already_status=307 artifacts_ok=0
+[2026-09-02T15:08:17.019806] predicting ADI-47299 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T15:08:45+00:00] cif=308/324
+predict ADI-47300
+queue=1 already_status=308 artifacts_ok=0
+[2026-09-02T15:08:45.631222] predicting ADI-47300 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:09:14+00:00] cif=309/324
+[2026-09-02T15:09:59+00:00] cif=309/324
+predict ADI-47301
+queue=1 already_status=309 artifacts_ok=0
+[2026-09-02T15:09:59.839301] predicting ADI-47301 attempt=1
+  -> SUCCESS runtime=28.4s
+DONE success_artifacts=1/1
+[2026-09-02T15:10:28+00:00] cif=310/324
+[2026-09-02T15:11:13+00:00] cif=310/324
+predict ADI-47302
+queue=1 already_status=310 artifacts_ok=0
+[2026-09-02T15:11:13.742111] predicting ADI-47302 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T15:11:42+00:00] cif=311/324
+predict ADI-47303
+queue=1 already_status=311 artifacts_ok=0
+[2026-09-02T15:11:42.357744] predicting ADI-47303 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T15:12:11+00:00] cif=312/324
+[2026-09-02T15:12:56+00:00] cif=312/324
+predict ADI-47304
+queue=1 already_status=312 artifacts_ok=0
+[2026-09-02T15:12:56.448227] predicting ADI-47304 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:13:25+00:00] cif=313/324
+[2026-09-02T15:14:10+00:00] cif=313/324
+predict ADI-47305
+queue=1 already_status=313 artifacts_ok=0
+[2026-09-02T15:14:10.685721] predicting ADI-47305 attempt=1
+  -> SUCCESS runtime=29.1s
+DONE success_artifacts=1/1
+[2026-09-02T15:14:39+00:00] cif=314/324
+[2026-09-02T15:15:25+00:00] cif=314/324
+predict ADI-47306
+queue=1 already_status=314 artifacts_ok=0
+[2026-09-02T15:15:25.358369] predicting ADI-47306 attempt=1
+  -> SUCCESS runtime=28.3s
+DONE success_artifacts=1/1
+[2026-09-02T15:15:53+00:00] cif=315/324
+[2026-09-02T15:16:39+00:00] cif=315/324
+predict ADI-47307
+queue=1 already_status=315 artifacts_ok=0
+[2026-09-02T15:16:39.227275] predicting ADI-47307 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:17:08+00:00] cif=316/324
+predict ADI-47308
+queue=1 already_status=316 artifacts_ok=0
+[2026-09-02T15:17:08.222353] predicting ADI-47308 attempt=1
+  -> SUCCESS runtime=28.9s
+DONE success_artifacts=1/1
+[2026-09-02T15:17:37+00:00] cif=317/324
+[2026-09-02T15:18:22+00:00] cif=317/324
+predict ADI-47309
+queue=1 already_status=317 artifacts_ok=0
+[2026-09-02T15:18:22.619072] predicting ADI-47309 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T15:18:50+00:00] cif=318/324
+[2026-09-02T15:19:36+00:00] cif=318/324
+predict ADI-47310
+queue=1 already_status=318 artifacts_ok=0
+[2026-09-02T15:19:36.362669] predicting ADI-47310 attempt=1
+  -> SUCCESS runtime=28.6s
+DONE success_artifacts=1/1
+[2026-09-02T15:20:05+00:00] cif=319/324
+[2026-09-02T15:20:50+00:00] cif=319/324
+predict ADI-47311
+queue=1 already_status=319 artifacts_ok=0
+[2026-09-02T15:20:50.491056] predicting ADI-47311 attempt=1
+  -> SUCCESS runtime=28.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:21:19+00:00] cif=320/324
+[2026-09-02T15:22:04+00:00] cif=320/324
+predict ADI-47312
+queue=1 already_status=320 artifacts_ok=0
+[2026-09-02T15:22:04.702333] predicting ADI-47312 attempt=1
+  -> SUCCESS runtime=28.2s
+DONE success_artifacts=1/1
+[2026-09-02T15:22:33+00:00] cif=321/324
+[2026-09-02T15:23:18+00:00] cif=321/324
+predict ADI-47313
+queue=1 already_status=321 artifacts_ok=0
+[2026-09-02T15:23:18.481222] predicting ADI-47313 attempt=1
+  -> SUCCESS runtime=41.7s
+DONE success_artifacts=1/1
+[2026-09-02T15:24:00+00:00] cif=322/324
+predict ADI-47316
+queue=1 already_status=322 artifacts_ok=0
+[2026-09-02T15:24:00.642440] predicting ADI-47316 attempt=1
+  -> SUCCESS runtime=40.8s
+DONE success_artifacts=1/1
+[2026-09-02T15:24:41+00:00] cif=323/324
+predict ADI-47317
+queue=1 already_status=323 artifacts_ok=0
+[2026-09-02T15:24:41.811260] predicting ADI-47317 attempt=1
+  -> SUCCESS runtime=29.4s
+DONE success_artifacts=1/1
+[2026-09-02T15:25:11+00:00] cif=324/324
+ALL_DONE

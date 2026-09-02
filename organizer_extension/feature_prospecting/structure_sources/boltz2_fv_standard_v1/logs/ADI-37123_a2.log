@@ -1,0 +1,55 @@
+Seed set to 42
+MSA server enabled: https://api.colabfold.com
+MSA server authentication: no credentials provided
+Checking input data.
+Processing 1 inputs with 1 threads.
+  0%|          | 0/1 [00:00<?, ?it/s]Generating MSA for /workspace_developability_acquisition/organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/inputs/ADI-37123.yaml with 2 protein entities.
+Calling MSA server for target ADI-37123 with 2 sequences
+MSA server URL: https://api.colabfold.com
+MSA pairing strategy: greedy
+No authentication provided for MSA server
+
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+RUNNING:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][ASleeping for 10s. Reason: RUNNING
+
+RUNNING:   0%|          | 0/300 [elapsed: 00:11 remaining: ?][A
+RUNNING:   3%|▎         | 10/300 [elapsed: 00:11 remaining: 05:25][ASleeping for 5s. Reason: RUNNING
+
+RUNNING:   3%|▎         | 10/300 [elapsed: 00:16 remaining: 05:25][A
+RUNNING:   5%|▌         | 15/300 [elapsed: 00:16 remaining: 05:17][ASleeping for 5s. Reason: RUNNING
+
+COMPLETE:   5%|▌         | 15/300 [elapsed: 00:22 remaining: 05:17][A
+COMPLETE: 100%|██████████| 300/300 [elapsed: 00:22 remaining: 00:00][ACOMPLETE: 100%|██████████| 300/300 [elapsed: 00:23 remaining: 00:00]
+
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+COMPLETE:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+COMPLETE: 100%|██████████| 300/300 [elapsed: 00:00 remaining: 00:00][ACOMPLETE: 100%|██████████| 300/300 [elapsed: 00:01 remaining: 00:00]
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/boltz/main.py", line 588, in process_input
+    compute_msa(
+  File "/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/boltz/main.py", line 484, in compute_msa
+    unpaired_msa = run_mmseqs2(
+                   ^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/boltz/data/msa/mmseqs2.py", line 266, in run_mmseqs2
+    with tarfile.open(tar_gz_file) as tar_gz:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/tarfile.py", line 1862, in open
+    raise ReadError(f"file could not be opened successfully:\n{error_msgs_summary}")
+tarfile.ReadError: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header')
+100%|██████████| 1/1 [00:24<00:00, 24.83s/it]100%|██████████| 1/1 [00:24<00:00, 24.83s/it]
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/pytorch_lightning/trainer/connectors/logger_connector/logger_connector.py:76: Starting from v1.9.0, `tensorboardX` has been removed as a dependency of the `pytorch_lightning` package, due to potential conflicts with other packages in the ML ecosystem. For this reason, `logger=True` will use `CSVLogger` as the default logger, unless the `tensorboard` or `tensorboardX` packages are found. Please `pip install lightning[extra]` or one of them to enable TensorBoard support by default
+Failed to process /workspace_developability_acquisition/organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/inputs/ADI-37123.yaml. Skipping. Error: file could not be opened successfully:
+- method gz: ReadError('not a gzip file')
+- method bz2: ReadError('not a bzip2 file')
+- method xz: ReadError('not an lzma file')
+- method tar: ReadError('truncated header').

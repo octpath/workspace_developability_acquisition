@@ -1,10 +1,11 @@
 # Signal Classification Specification
 
-**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_1_CONTRACT_FROZEN`
+**状態:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN`
 
 本書は Organizer Feature Prospecting における signal 判定の凍結仕様である。主契約 [ORGANIZER_FEATURE_PROSPECTING_CONTRACT.md](ORGANIZER_FEATURE_PROSPECTING_CONTRACT.md) の補足。
 
-Gate1.1 修正: TRAIN_MEDIAN_BASELINE、exact nested Ridge、CANONICAL_RESIDUAL_RIDGE、WEAK/MIXED bootstrap CI 規則、empirical verdict mapping。
+Gate1.1: TRAIN_MEDIAN_BASELINE、exact nested Ridge、CANONICAL_RESIDUAL_RIDGE、WEAK/MIXED bootstrap CI、empirical verdict。  
+Gate1.2: **outer residual CV leakage 修正**、mechanistic relevance **5-level numeric display**。
 
 ---
 
@@ -136,39 +137,69 @@ Family-specific concat / stacking / SVR fusion は `SECONDARY_FUSION` として�
 
 ### 5.1 Definition
 
-Frozen incumbent prediction: `p_ref_i`  
-Signed residual: `r_i = y_i - p_ref_i`  
-Candidate features `X` から Ridge で `r_hat_i` を予測。
-
 ```
-p_candidate_i = p_ref_i + r_hat_i
+p_candidate_i = p_ref_baseline_i + r_hat_i
 ```
 
-Alpha grid / nesting: §3 と同一。
+Candidate features `X` から Ridge で residual correction `r_hat_i` を予測。Alpha grid: `[0.1, 1.0, 10.0, 100.0]`（tie → larger alpha）。
 
-### 5.2 CV OOF residual modeling
+### 5.2 Outer-CV procedure（Gate1.2 — leakage-safe）
 
 Outer fold `f`:
 
-1. Frozen Round1 reference **OOF** predictions を使用（再学習しない）
-2. Outer-training のみで `residual = y - p_ref_OOF`
-3. Outer-training 内 remaining Primary folds を inner CV として residual Ridge alpha 選択
-4. Outer-training 全体で residual Ridge を fit
-5. Outer-heldout features → residual correction 予測
-6. `p_candidate = frozen reference OOF + predicted residual correction`
+- `outer_test` = Primary fold `f`
+- `outer_train` = remaining 4 Primary folds
+
+#### Reference prediction for `outer_test`
+
+Frozen Round1 reference **OOF** prediction for fold `f` は、fold `f` を除く 4 folds で学習されているため、**outer_test baseline** として利用してよい。
+
+#### Residual targets for `outer_train`（CRITICAL）
+
+**Global frozen Round1 OOF residual を outer_train residual target に使わない**（outer-heldout fold `f` の labels が global OOF の training に含まれる meta-level contamination を避ける）。
+
+代わりに:
+
+1. `outer_train` **のみ** を使い、frozen Round1 reference **recipe** を cross-fit し直す
+2. 各 sample `i ∈ outer_train` について、`i` 自身を reference training から除外した  
+   `reference_crossfit_prediction_i` を生成する
+3. **outer_test fold `f` の labels / samples を reference cross-fitting に一切使わない**
+4. Residual target:
+
+```
+residual_i = y_i - reference_crossfit_prediction_i
+```
+
+5. `outer_train` 内の frozen Primary fold IDs で residual Ridge alpha を選択（新 random split 禁止）
+6. `outer_train` 全体で residual Ridge を fit
+7. outer-heldout features → residual correction
+8. Final outer candidate:
+
+```
+p_candidate = frozen Round1 reference OOF prediction  +  predicted residual correction
+```
 
 **Meta-level in-sample evaluation 禁止。**
 
 ### 5.3 Test residual modeling
 
-Dev N=162 の frozen Round1 reference **OOF** から residual target を作る。  
-Full Dev Primary folds で alpha 選択 → full Dev residual model fit。
+Public / Private / AllTest:
+
+- Dev 全 162 の frozen Round1 reference **OOF** から residual targets を作ってよい
+- residual Ridge を full Dev で fit（Primary 5-fold alpha selection）
+- Test labels は training/tuning に使わない
 
 ```
-p_candidate_test = frozen Round1 Test reference prediction + new-feature residual prediction
+p_candidate_test = frozen Round1 Test prediction + residual prediction
 ```
 
-### 5.4 Delta
+### 5.4 Historical frozen OOF shortcut
+
+outer_train residual targets に global frozen OOF を使う方式は **PRIMARY canonical incremental として禁止**。
+
+必要なら `NON_NESTED_DIAGNOSTIC_ONLY` として secondary diagnostic にできるが、原則実行不要。
+
+### 5.5 Delta
 
 ```
 delta_MAE_s = MAE(candidate)_s - MAE(reference)_s
@@ -247,17 +278,24 @@ Allowed empirical labels:
 
 ---
 
-## 9. Mechanistic prior（pre-experiment）
+## 9. Mechanistic prior（pre-experiment）— 5-level numeric scale（Gate1.2）
 
-Target labels を見る前に endpoint ごとに freeze。
+Target labels を見る前に endpoint ごとに freeze。  
+数字が大きいほど endpoint との mechanistic relevance が高い。
 
-Allowed:
+| score | display | Meaning |
+|------:|---------|---------|
+| 5 | `5_LIKELY_RELEVANT` | 比較的直接的で自然な関係 |
+| 4 | `4_PLAUSIBLY_RELEVANT` | 十分関係し得るが directness が一段弱い |
+| 3 | `3_RELATED_BUT_INDIRECT` | 関連するが mechanistic distance あり |
+| 2 | `2_UNLIKELY_PRIMARY` | 主因とは考えにくい（secondary はあり得る） |
+| 1 | `1_NO_CLEAR_MECHANISTIC_LINK` | 明瞭な mechanistic link を認めない |
 
-`LIKELY_RELEVANT` | `PLAUSIBLY_RELEVANT` | `RELATED_BUT_INDIRECT` | `UNLIKELY_PRIMARY` | `NO_CLEAR_MECHANISTIC_LINK`
+CSV は target ごとに `score` / `label` / `display` を保存。human-readable report は **display** を primary。
 
-これは予測性能の予想ではない。physical quantity と endpoint の **mechanistic distance**。
+**empirical verdict には numeric score を付けない**（PROMISING 等は categorical）。
 
-実装 priority（first/second wave）と混同しない。
+これは予測性能の予想ではない。実装 priority と混同しない。
 
 ---
 
@@ -319,4 +357,4 @@ Evidence limitations:
 
 ---
 
-**Final state:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_1_CONTRACT_FROZEN`
+**Final state:** `ORGANIZER_FEATURE_PROSPECTING_GATE1_2_STRUCTURE_SOURCES_FROZEN`

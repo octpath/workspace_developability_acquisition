@@ -1,0 +1,10 @@
+version: 1
+sequences:
+  - protein:
+      id: H
+      sequence: EVQLVESGGGLVQPGGSLRLSCAASGFTFSRYWMTWVRQPPGKGLEWVANMNQDESEKYYVDSVKGRFTISRDNAKNSLYLQMDSLRAEDTAVYYCARDVWRSVDYWGQGTLVTVSS
+      msa: /workspace_developability_acquisition/organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/msa/ADI-47203/H.csv
+  - protein:
+      id: L
+      sequence: EIVLTQSPLSLPVTLGQPASISCRSSQSLVHSDGNTYLNWFQQRPGQSPRRLIYKVSNRDSGVPDRFSGSGSGTDFTLKISRVEAEDVGVYYCMQGTHWPRTFGQGTKVEIK
+      msa: /workspace_developability_acquisition/organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/msa/ADI-47203/L.csv

@@ -1,0 +1,58 @@
+Seed set to 42
+MSA server enabled: https://api.colabfold.com
+MSA server authentication: no credentials provided
+Checking input data.
+Processing 1 inputs with 1 threads.
+  0%|          | 0/1 [00:00<?, ?it/s]Generating MSA for /workspace_developability_acquisition/organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/inputs/ADI-37123.yaml with 2 protein entities.
+Calling MSA server for target ADI-37123 with 2 sequences
+MSA server URL: https://api.colabfold.com
+MSA pairing strategy: greedy
+No authentication provided for MSA server
+
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+COMPLETE:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+COMPLETE: 100%|██████████| 300/300 [elapsed: 00:00 remaining: 00:00][ACOMPLETE: 100%|██████████| 300/300 [elapsed: 00:01 remaining: 00:00]
+
+  0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+SUBMIT:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][A
+RUNNING:   0%|          | 0/300 [elapsed: 00:00 remaining: ?][ASleeping for 10s. Reason: RUNNING
+
+RUNNING:   0%|          | 0/300 [elapsed: 00:11 remaining: ?][A
+RUNNING:   3%|▎         | 10/300 [elapsed: 00:11 remaining: 05:20][ASleeping for 5s. Reason: RUNNING
+
+RUNNING:   3%|▎         | 10/300 [elapsed: 00:16 remaining: 05:20][A
+RUNNING:   5%|▌         | 15/300 [elapsed: 00:16 remaining: 05:15][ASleeping for 5s. Reason: RUNNING
+
+RUNNING:   5%|▌         | 15/300 [elapsed: 00:22 remaining: 05:15][A
+RUNNING:   7%|▋         | 20/300 [elapsed: 00:22 remaining: 05:10][ASleeping for 10s. Reason: RUNNING
+
+COMPLETE:   7%|▋         | 20/300 [elapsed: 00:32 remaining: 05:10][A
+COMPLETE: 100%|██████████| 300/300 [elapsed: 00:32 remaining: 00:00][ACOMPLETE: 100%|██████████| 300/300 [elapsed: 00:34 remaining: 00:00]
+100%|██████████| 1/1 [00:36<00:00, 36.36s/it]100%|██████████| 1/1 [00:36<00:00, 36.36s/it]
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/pytorch_lightning/trainer/connectors/logger_connector/logger_connector.py:76: Starting from v1.9.0, `tensorboardX` has been removed as a dependency of the `pytorch_lightning` package, due to potential conflicts with other packages in the ML ecosystem. For this reason, `logger=True` will use `CSVLogger` as the default logger, unless the `tensorboard` or `tensorboardX` packages are found. Please `pip install lightning[extra]` or one of them to enable TensorBoard support by default
+Running structure prediction for 1 input.
+/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/pytorch_lightning/utilities/migration/utils.py:56: The loaded checkpoint was produced with Lightning v2.5.0.post0, which is newer than your current Lightning version: v2.5.0
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+Predicting: |          | 0/? [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/root/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/multiprocessing/queues.py", line 264, in _feed
+    obj = _ForkingPickler.dumps(obj)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/multiprocessing/reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)
+  File "/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/torch/multiprocessing/reductions.py", line 613, in reduce_storage
+    fd, size = storage._share_fd_cpu_()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/torch/storage.py", line 449, in wrapper
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_boltz/lib/python3.12/site-packages/torch/storage.py", line 527, in _share_fd_cpu_
+    return super()._share_fd_cpu_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: unable to allocate shared memory(shm) for file </torch_3118636_1055360591_41>: No space left on device (28)
