@@ -1,0 +1,4 @@
+role,id,n_heavy,clash,pdb,abb2,selection_rule
+small_typical,ADI-47078,1670,2.0,/workspace_developability_acquisition/esmfold_native/ADI-47078.pdb,/workspace_developability_acquisition/gate_b1/cache/structures/abodybuilder2/9ea71d409533542f553a19b572e23ec3.pdb,target_blind_n_heavy_and_clash_proxy_no_TmApp
+median_size,ADI-46705,1773,3.0,/workspace_developability_acquisition/esmfold_native/ADI-46705.pdb,/workspace_developability_acquisition/gate_b1/cache/structures/abodybuilder2/f82611e60b609ed4b5af7b1925b3868e.pdb,target_blind_n_heavy_and_clash_proxy_no_TmApp
+awkward_high_clash,ADI-46684,1828,11.0,/workspace_developability_acquisition/esmfold_native/ADI-46684.pdb,/workspace_developability_acquisition/gate_b1/cache/structures/abodybuilder2/7127089b3a9640bb15c9592435a3d601.pdb,target_blind_n_heavy_and_clash_proxy_no_TmApp

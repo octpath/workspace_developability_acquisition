@@ -1,0 +1,85 @@
+{
+  "state": "FOUNDATION_FEATURE_SPEC_FROZEN_BEFORE_SCORING",
+  "FOUNDATION_FEATURE_SPEC_FROZEN_BEFORE_SCORING": true,
+  "target": "TmApp",
+  "hic_optimization": false,
+  "scope_note": "Fab experimental TmApp vs Fv predicted structures; no fabricated CH1/CL",
+  "structure_primary": "ESMFold Fv",
+  "structure_secondary": "ABodyBuilder2 Fv",
+  "preparation": {
+    "hydrogenation": "pdb2pqr --ff=AMBER --keep-chain",
+    "seed": null
+  },
+  "fennix": {
+    "model": "fennix-bio1S.fnx",
+    "unit": "eV",
+    "absolute_energy_primary": false,
+    "perturbations": {
+      "P1_cartesian": {
+        "K": 16,
+        "sigma_A": 0.02,
+        "seed": 42,
+        "note": "physically small non-destructive Cartesian noise; frozen before TmApp"
+      },
+      "P2_backbone_torsion": {
+        "K": 8,
+        "delta_deg": 2.0,
+        "n_torsion_sites": 8,
+        "seed": 43,
+        "note": "small phi/psi-like CA-centered torsion proxy via rotating C/N neighbors"
+      },
+      "P3_sidechain_local": {
+        "K": 8,
+        "sigma_A": 0.05,
+        "seed": 44,
+        "apply_to": "sidechain_heavy_atoms_only"
+      }
+    },
+    "aggregates": [
+      "ref_F_rms", "ref_F_q90", "ref_F_max", "ref_E_per_atom",
+      "P1_dE_mean", "P1_dE_median", "P1_dE_sd", "P1_dE_q10", "P1_dE_q90", "P1_dE_max",
+      "P1_dE_per_atom_mean", "P1_Frms_mean", "P1_Frms_q90",
+      "P2_dE_mean", "P2_dE_sd", "P2_dE_q90", "P2_Frms_mean",
+      "P3_dE_mean", "P3_dE_sd", "P3_dE_q90", "P3_Frms_mean",
+      "CDR_ref_F_rms", "CDR_P1_dE_mean", "interface_ref_F_rms", "HCDR3_ref_F_rms"
+    ],
+    "max_primary_features": 30,
+    "relaxation": "SKIPPED_IN_V1_after_pilot_cost; document if enabled later without TmApp tuning"
+  },
+  "bioemu": {
+    "model_name": "bioemu-v1.1",
+    "protocol": "CHAINWISE_VH_VL_ONLY",
+    "num_samples": 32,
+    "linker_scfv": "NOT_USED_AS_PRIMARY",
+    "aggregates_per_chain": [
+      "bb_rmsd_mean", "bb_rmsd_sd", "bb_rmsd_q90",
+      "ca_rmsf_mean", "ca_rmsf_q90", "ca_rmsf_cdr_mean",
+      "rg_mean", "rg_sd"
+    ],
+    "combined": ["VH_plus_VL_means", "VH_minus_VL_rmsf_mean"]
+  },
+  "liten": {
+    "status": "PILOT_ONLY_COMPUTE_LIMITED",
+    "model": "LiTEN_SPICE checkpoint via LiTEN-FF",
+    "technical_success": "energy_and_forces_OK_on_H2O_and_Fv_CPU",
+    "gpu": "CUDA_OOM_on_RTX3090_for_Fv_scale_graph",
+    "full_dev_scoring": false,
+    "schema": "mirror_fennix_if_extract_completes; no TmApp Dev scores in this phase"
+  },
+  "cg_schnet": {
+    "status": "BLOCKED",
+    "reason": "two-chain antibody Fv CG mapping not officially supported without inventing topology"
+  },
+  "bioemu_runtime": {
+    "status": "PILOT_ONLY_COMPUTE_LIMITED",
+    "protocol": "CHAINWISE_VH_VL_ONLY",
+    "pilot": "ADI-47078 VH n_samples=4 SUCCESS; full Dev 32x VH+VL not completed"
+  },
+  "evaluation": {
+    "primary_cv": "opt_joint_group_k5_s42 via cv_primary.csv",
+    "shadow_cv": "cv_shadow.csv",
+    "ridge_alphas": [0.1, 1.0, 10.0, 100.0],
+    "plm_tmapp": "ablang2__HL_paired from round1_embeddings.npz; PCA32 scale-before as Fusion Closure P0",
+    "bootstrap_B": 10000
+  }
+}

@@ -1,0 +1,26 @@
+family,feature,dim_index,aggregation,status,notes
+FENNIX_BIO1S,ref_F_rms,1,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,ref_F_q90,2,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,ref_F_max,3,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,ref_E_per_atom,4,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_dE_mean,5,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_dE_median,6,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_dE_sd,7,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_dE_q10,8,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_dE_q90,9,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_dE_max,10,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_dE_per_atom_mean,11,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_Frms_mean,12,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P1_Frms_q90,13,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P2_dE_mean,14,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P2_dE_sd,15,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P2_dE_q90,16,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P2_Frms_mean,17,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P3_dE_mean,18,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P3_dE_sd,19,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P3_dE_q90,20,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,P3_Frms_mean,21,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+FENNIX_BIO1S,interface_ref_F_rms,22,global_or_interface,USED_IN_EVAL,CDR_* dropped all-NaN
+LITEN_FF,(mirror_schema),,pilot_only,PILOT_ONLY_NO_DEV_SCORING,GPU OOM at Fv scale; CPU cohort extract not completed
+BIOEMU,(chainwise_ensemble),,VH_VL,PILOT_ONLY_NO_DEV_SCORING,chainwise VH pilot n=4; interface dynamics absent; full 32x Dev blocked by compute
+CGSCHNET,NA,,NA,BLOCKED,no clean two-chain Fv CG mapping without invention

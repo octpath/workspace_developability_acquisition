@@ -1,0 +1,10 @@
+{
+  "fennix_pilot": "SUCCESS_3abs_x_2gens",
+  "fennix_full_extract": "SUCCESS_324_x_2gens",
+  "liten_pilot": "SUCCESS_3abs_x_2gens_CPU_FULL_SCHEMA",
+  "liten_gpu": "CUDA_OOM_at_Fv_on_RTX3090",
+  "liten_full_dev": "NOT_RUN_COMPUTE_LIMITED",
+  "bioemu_pilot": "SUCCESS_CHAINWISE_VH_ADI-47078_n4; VL_and_full_Dev_NOT_RUN_COMPUTE",
+  "cg_pilot": "BLOCKED_NO_CLEAN_FV_MAPPING",
+  "gate_f1": "COMPLETE_WITH_LIMITATIONS"
+}

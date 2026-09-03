@@ -1,0 +1,92 @@
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:53: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pr = float(pearsonr(x[m], y[m]).statistic)
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/scripts/artifact_audit_fennix.py:54: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  sp = float(spearmanr(x[m], y[m]).statistic)
+    generator  max_abs_spearman_vs_clash  max_abs_spearman_vs_openmm_strain  median_abs_spearman_vs_openmm
+abodybuilder2                   0.970654                           0.856702                       0.154497
+      esmfold                   0.949234                           0.429590                       0.109976
+wrote /workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/results/FOUNDATION_VS_CLASSICAL_PHYSICS.csv

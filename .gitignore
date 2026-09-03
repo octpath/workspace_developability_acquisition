@@ -39,3 +39,9 @@ organizer_extension/feature_prospecting/_batch2_cache/
 .tmp_torch/
 tools/foldseek/
 organizer_extension/feature_prospecting/_batch3_cache/
+
+# Foundation-model stability branch: local envs + bulky regenerable caches
+organizer_extension/feature_prospecting/foundation_stability/envs/
+organizer_extension/feature_prospecting/foundation_stability/cache/fennix/
+organizer_extension/feature_prospecting/foundation_stability/cache/prepared/
+organizer_extension/feature_prospecting/foundation_stability/pilots/bioemu_*/

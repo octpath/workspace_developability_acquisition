@@ -1,0 +1,3 @@
+generator,max_abs_spearman_vs_clash,max_abs_spearman_vs_openmm_strain,median_abs_spearman_vs_openmm
+abodybuilder2,0.9706535629178588,0.8567023894578075,0.15449745530240888
+esmfold,0.9492339077652309,0.4295901140483185,0.10997574378379334

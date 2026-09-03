@@ -1,0 +1,31 @@
+robustness FRAGILE
+generator       mode            split  
+ABB2            PLM_ONLY        CV         3.028513
+                                Private    3.271089
+                                Public     3.450123
+                PLM_PLUS        CV         2.859184
+                                Private    3.769335
+                                Public     3.548110
+                RESIDUAL_RECON  CV         2.878805
+                STANDALONE      CV         3.187913
+                                Private    4.157352
+                                Public     3.826395
+ABB2_SHADOW     PLM_ONLY        Shadow     3.030945
+                PLM_PLUS        Shadow     2.840452
+                RESIDUAL_RECON  Shadow     2.907635
+                STANDALONE      Shadow     3.259955
+ESMFold         PLM_ONLY        CV         3.028513
+                                Private    3.271089
+                                Public     3.450123
+                PLM_PLUS        CV         3.184584
+                                Private    3.695985
+                                Public     3.497772
+                RESIDUAL_RECON  CV         3.010989
+                STANDALONE      CV         3.574168
+                                Private    4.134373
+                                Public     3.781648
+ESMFold_SHADOW  PLM_ONLY        Shadow     3.030945
+                PLM_PLUS        Shadow     2.837723
+                RESIDUAL_RECON  Shadow     2.972060
+                STANDALONE      Shadow     3.290732
+Name: MAE, dtype: float64

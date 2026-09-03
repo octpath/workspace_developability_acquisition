@@ -1,0 +1,9 @@
+device cpu
+PILOT mode ['ADI-47078', 'ADI-46705', 'ADI-46684']
+LiTEN esmfold ADI-46684
+LiTEN esmfold ADI-46705
+LiTEN esmfold ADI-47078
+LiTEN abodybuilder2 ADI-46684
+LiTEN abodybuilder2 ADI-46705
+LiTEN abodybuilder2 ADI-47078
+DONE {'SUCCESS': 6}
