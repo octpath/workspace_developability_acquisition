@@ -340,3 +340,13 @@ Fab → FeNNix-v2 特徴
 | **仮説** | それでも Fab 物理は TmApp により近い情報を持ちうる |
 
 予測構造の観察を、実験生物学の事実へすり替えてはいない。
+
+---
+
+## 参考パス
+
+- 数値表: `comparisons/FV_VS_FAB_STRUCTURE_COMPARISON.csv`  
+- 分布要約: `comparisons/FV_VS_FAB_METRIC_DISTRIBUTIONS.csv`  
+- 技術要約: `comparisons/FV_VS_FAB_STRUCTURE_SUMMARY.md`  
+- H–L Cys 監査: `qc/HL_DISULFIDE_DISTANCE_AUDIT.md`  
+- 全体再構成報告: `FAB_RECONSTRUCTION_REPORT_JA.md`  
