@@ -1,0 +1,52 @@
+{
+  "SPEC_FROZEN_BEFORE_TARGET_SCORING": true,
+  "state": "BIOEMU_CONTEXT_SPEC_FROZEN",
+  "evidence_boundary": "ORGANIZER-EXPLORATORY",
+  "target": "TmApp",
+  "hic_optimization": false,
+  "parent_readonly": "organizer_extension/feature_prospecting/foundation_stability_v2",
+  "fab_reconstruction_readonly": "organizer_extension/feature_prospecting/fab_reconstruction",
+  "model_name": "bioemu-v1.2",
+  "filter_samples": true,
+  "protocol": {
+    "light_primary": "VL_PLUS_CL_MONOMER",
+    "heavy_secondary": "UNPAIRED_HEAVY_CONTEXT_VH_PLUS_CH1",
+    "linker_scfv_primary": false,
+    "heavy_is_not_assembled_fab": true
+  },
+  "sequences": {
+    "source": "fab_reconstruction/sequences/SHEHATA_RECONSTRUCTED_FAB.csv",
+    "light": "light_fab_seq",
+    "heavy": "heavy_fab_seq",
+    "boundaries": "0-based_half_open_from_VH_len_used_VL_len_used"
+  },
+  "convergence": {
+    "n_antibodies": 12,
+    "selection": "target_blind_kappa_lambda_length_germline",
+    "N_candidates": [16, 32, 64],
+    "rule": "smallest N with median_spearman_vs_N64>=0.95 AND median_NAD<=0.10 else 64",
+    "separate_for": ["LIGHT_CHAIN", "UNPAIRED_HEAVY"]
+  },
+  "alignment_frames": ["LOCAL_VARIABLE_ALIGNMENT", "WHOLE_CHAIN_ALIGNMENT"],
+  "feature_families": {
+    "light_primary": ["L1_FULL_LIGHT", "L2_VL_IN_CONTEXT", "L3_CONTEXT_DELTA", "L4_VL_CL_COUPLING", "L5_ESMFOLD_NATIVE_LIKENESS"],
+    "heavy_secondary": ["H1_UNPAIRED_VH_CONTEXT_DELTA", "H2_UNPAIRED_CH1_NATIVE_LIKENESS", "H3_UNPAIRED_VH_CH1_COUPLING"],
+    "max_dims_per_family": 15,
+    "max_dims_combined_light": 30
+  },
+  "plm_reference": {
+    "embedding": "ablang2__HL_paired",
+    "source": "virtual_participant/round1_finalization/cache/round1_embeddings.npz",
+    "pipeline": "fold_local_StandardScaler_then_PCA32_then_Ridge",
+    "ridge_alphas": [0.1, 1.0, 10.0, 100.0],
+    "primary_folds": "virtual_participant/stage0_cv/cv_primary.csv",
+    "shadow_folds": "virtual_participant/stage0_cv/cv_shadow.csv"
+  },
+  "isolated_bioemu_features": "foundation_stability_v2/BIOEMU_V12_FEATURES.csv",
+  "evaluation": {
+    "bootstrap_B": 10000,
+    "modes": ["STANDALONE", "INCREMENTAL_ABLANG2", "INCREMENTAL_OLD_BIOEMU", "CONTEXT_DELTA_ONLY", "RESIDUAL"]
+  },
+  "max_regen_factor": 2.0,
+  "forbidden": ["AbLingua", "other_PLMs", "Optuna", "fine_tune", "disable_filter", "pseudo_scfv_primary", "call_VHCH1_Fab", "call_Q_true_folded_fraction", "PublicPrivate_protocol_tuning"]
+}

@@ -1,0 +1,13 @@
+id,light_locus,len_total,heavy_length,light_length,heavy_v_family,light_v_family,VH_len,VL_len,CH1_len,CL_len,selection_rule
+ADI-47230,kappa,434,221,213,IGHV3-21,IGKV1-9,118,106,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-47123,kappa,439,225,214,IGHV4-34,IGKV1-9,122,107,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-47125,kappa,444,229,215,IGHV3-21,IGKV3-20,126,108,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-47260,kappa,454,240,214,IGHV3-30,IGKV1-39,137,107,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-47207,kappa,446,227,219,IGHV3-15,IGKV4-1,124,112,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-46685,kappa,441,226,215,IGHV3-11,IGKV3-11,123,108,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-45486,kappa,451,232,219,IGHV3-49,IGKV2D-29,129,112,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-47071,kappa,439,224,215,IGHV3-64,IGKV1-5,121,108,103,107,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-45411,lambda,436,220,216,IGHV3-74,IGLV6-57,117,110,103,106,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-38500,lambda,441,225,216,IGHV3-48,IGLV1-40,122,110,103,106,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-47186,lambda,442,226,216,IGHV3-23,IGLV4-69,123,110,103,106,target_blind_kappa_lambda_length_germline_seed20260905
+ADI-47192,lambda,449,232,217,IGHV1-46,IGLV1-47,129,111,103,106,target_blind_kappa_lambda_length_germline_seed20260905
