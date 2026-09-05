@@ -1,0 +1,7 @@
+pair_id,chain,cys_a_domain,cys_b_domain,topology_note,kappa_lambda,required_for_prediction
+VH_intradomain,heavy,VH,VH,conserved Ig fold Cys in VH (IMGT ~23–104); sequence-dependent positions,both,False
+VL_intradomain,light,VL,VL,conserved Ig fold Cys in VL,both,False
+CH1_intradomain,heavy,CH1,CH1,CH1 Cys pair in ASTKGPS...ALGCLVK...ICNVNHK (two Cys in CH1 block),both,False
+CL_intradomain,light,CL,CL,Cκ/Cλ intradomain Cys pair + terminal Cys for H–L,both,False
+HL_interchain_kappa,H-L,hinge_stub_EPKSC,Ckappa_Cterm,Expected IgG1-κ: heavy Cys220 ↔ κ Cys214 (C-term). Papain terminus uncertain.,kappa,False
+HL_interchain_lambda,H-L,CH1_Cys131_candidate,Clambda_Cterm,IgG1-λ often uses CH1 Cys131↔λ C-term; Cys220 may be unpaired. Record distances for both heavy Cys candidates in QC.,lambda,False

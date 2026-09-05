@@ -1,0 +1,38 @@
+PILOT ids ['ADI-47109', 'ADI-47068', 'ADI-45497', 'ADI-47189', 'ADI-47280', 'ADI-45447', 'ADI-45405', 'ADI-47092', 'ADI-47153', 'ADI-45428', 'ADI-45389', 'ADI-47196']
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-47109 ok pLDDT 87.1 CH1CL 46
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-47068 ok pLDDT 87.8 CH1CL 46
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-45497 ok pLDDT 86.0 CH1CL 43
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-47189 ok pLDDT 86.2 CH1CL 46
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-47280 ok pLDDT 87.1 CH1CL 41
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-45447 ok pLDDT 87.2 CH1CL 39
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-45405 ok pLDDT 84.2 CH1CL 32
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-47092 ok pLDDT 84.7 CH1CL 32
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-47153 ok pLDDT 82.8 CH1CL 32
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-45428 ok pLDDT 85.5 CH1CL 32
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-45389 ok pLDDT 86.2 CH1CL 33
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/openfold/utils/tensor_utils.py:92: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+  return data[ranges]
+PILOT ADI-47196 ok pLDDT 86.0 CH1CL 33
+VERDICT PASS_FULL_COHORT

@@ -1,0 +1,4 @@
+R1: n=324 kappa=238 lambda=86 unresolved=0
+R2 junction_status: {'OK': 324}
+QC pass 324 / 324 stop_structure False
+SEQUENCE_RECONSTRUCTION_OK

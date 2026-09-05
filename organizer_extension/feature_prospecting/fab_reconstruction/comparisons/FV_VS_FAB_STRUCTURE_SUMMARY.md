@@ -1,0 +1,14 @@
+# Fv vs Fab structure comparison (pilot)
+
+N compared: 12
+
+| Metric | Mean | Median | Max |
+|--------|------|--------|-----|
+| VH backbone RMSD (Å) | 0.66 | 0.59 | 1.76 |
+| VL backbone RMSD (Å) | 0.30 | 0.24 | 0.49 |
+| Combined Fv RMSD (Å) | 0.59 | 0.60 | 1.38 |
+| VH/VL orient. diff (Å) | 23.01 | 25.55 | 40.50 |
+
+**Question:** Does adding CH1/CL materially alter predicted VH/VL conformation?
+
+On this pilot set, combined Fv RMSD mean ≈ 0.59 Å (target-blind).

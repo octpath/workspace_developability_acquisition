@@ -1,0 +1,24 @@
+{
+  "n": 324,
+  "n_kappa": 238,
+  "n_lambda": 86,
+  "n_unresolved": 0,
+  "n_qc_pass": 324,
+  "n_qc_fail": 0,
+  "reconstruction_class": "RECONSTRUCTED_EXPERIMENTAL_LIKE_FAB",
+  "CH1_sequence_id": "IGHG1_CH1_EPKSC_UNIPROT_P01857",
+  "CK_sequence_id": "IGKC_UNIPROT_P01834",
+  "CL_sequence_id": "IGLC2_UNIPROT_P0DOY2",
+  "CH1_sha256": "8879604fb9e9aace635cd3a237422cfa1478d632acde37e11ff0bfcebfc3e963",
+  "CK_sha256": "d591c34db571eedb43a8703ef3c4eec2b68b12c0a614bbc8f8a8e7d42febb272",
+  "CL_sha256": "c8527780068ed3a3d76646e2b203350b3d44f755e1cc7838b676533db72bcc88",
+  "CONSTANT_DOMAIN_POLICY_FROZEN_BEFORE_STRUCTURE_PREDICTION": true,
+  "critical_stop_structure": false,
+  "length_stats": {
+    "heavy_min": 216,
+    "heavy_max": 243,
+    "light_min": 210,
+    "light_max": 226
+  },
+  "date": "2026-09-05"
+}

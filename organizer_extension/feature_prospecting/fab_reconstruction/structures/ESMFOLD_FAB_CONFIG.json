@@ -1,0 +1,16 @@
+{
+  "package": "facebookresearch/esm (fair-esm)",
+  "esm_version": "2.0.1",
+  "model": "esmfold_v1",
+  "input_format": "HEAVY_FAB:LIGHT_FAB",
+  "api": "model.infer_pdb(sequence)",
+  "chunk_size": 48,
+  "num_recycles": "default_training_max_4",
+  "residue_index_offset": 512,
+  "chain_linker": "G*25_internal",
+  "cuda_visible_devices": "0",
+  "gpu_name": "NVIDIA GeForce RTX 3090",
+  "vram_total_mb": 24124.2,
+  "vram_free_after_load_mb": 7239.4,
+  "note": "Reuses gate_b2 ESMFold native multimer config; GPU1 default to coexist with BioEmu"
+}
