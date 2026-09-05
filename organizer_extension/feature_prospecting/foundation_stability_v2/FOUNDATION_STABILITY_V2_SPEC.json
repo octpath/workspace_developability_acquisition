@@ -1,0 +1,73 @@
+{
+  "SPEC_FROZEN_BEFORE_TARGET_SCORING": true,
+  "state": "FOUNDATION_STABILITY_V2_SPEC_FROZEN",
+  "evidence_boundary": "ORGANIZER-EXPLORATORY",
+  "target": "TmApp",
+  "hic_optimization": false,
+  "scope_note": "Fab TmApp vs Fv FeNNix / isolated VH-VL BioEmu; no whole-Fab thermodynamics claim",
+  "plm_reference": {
+    "embedding": "ablang2__HL_paired",
+    "source": "virtual_participant/round1_finalization/cache/round1_embeddings.npz",
+    "pipeline": "fold_local_StandardScaler_then_PCA32_then_Ridge",
+    "ridge_alphas": [0.1, 1.0, 10.0, 100.0],
+    "primary_folds": "virtual_participant/stage0_cv/cv_primary.csv",
+    "shadow_folds": "virtual_participant/stage0_cv/cv_shadow.csv"
+  },
+  "fennix_v2": {
+    "checkpoint": "fennix-bio1S.fnx",
+    "same_as_v1": true,
+    "unit_energy": "eV",
+    "structures": ["esmfold", "abodybuilder2"],
+    "preparation": "reuse_v1_pdb2pqr_AMBER_keep_chain_after_audit",
+    "reference_states": {
+      "R0_PREPARED": "diagnostic_only",
+      "R1_SIDECHAIN_RELAXED": {
+        "primary": true,
+        "fix_backbone_heavy": ["N", "CA", "C", "O"],
+        "free": ["sidechain", "hydrogens"],
+        "optimizer": "FIRE",
+        "optimizer_fallback": "BFGS",
+        "fmax_eV_A": 0.10,
+        "max_steps": 200
+      },
+      "R2_UNCONSTRAINED": "NOT_PRIMARY"
+    },
+    "perturbations": {
+      "backbone_phi_psi_deg": 2.0,
+      "sidechain_chi1_deg": 5.0,
+      "symmetric": true,
+      "primary_not_cartesian": true
+    },
+    "site_selection": {
+      "framework_backbone": 8,
+      "cdr_backbone": 8,
+      "hcdr3_backbone_extra": 4,
+      "chi1": 12,
+      "seed": 20260904,
+      "method": "stable_hash(id+region+seed)"
+    },
+    "curvature": {
+      "formula": "K_E = (E_plus + E_minus - 2*E0) / delta_rad^2",
+      "max_primary_features": 25
+    }
+  },
+  "bioemu_v2": {
+    "model_name": "bioemu-v1.2",
+    "protocol": "CHAINWISE_VH_VL_ONLY",
+    "linker_scfv_primary": false,
+    "convergence": {
+      "n_antibodies": 12,
+      "selection": "target_blind_length_germline_span",
+      "N_candidates": [16, 32, 64],
+      "rule": "smallest N with median_spearman_vs_N64>=0.95 AND median_NAD<=0.10 else 64"
+    },
+    "max_regen_factor": 2.0,
+    "max_primary_features": 30,
+    "dg_proxy": "SECONDARY_EXPLORATORY_or_NOT_SCIENTIFICALLY_JUSTIFIED"
+  },
+  "evaluation": {
+    "bootstrap_B": 10000,
+    "modes": ["STANDALONE", "INCREMENTAL_CONCAT", "RESIDUAL"]
+  },
+  "forbidden": ["AbLingua", "other_PLMs", "Optuna", "fine_tune", "HIC", "neural_modulation", "PublicPrivate_protocol_tuning"]
+}

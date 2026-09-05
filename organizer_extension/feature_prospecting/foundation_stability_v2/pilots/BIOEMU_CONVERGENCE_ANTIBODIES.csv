@@ -1,0 +1,13 @@
+id,len_total,len_H,len_L,heavy_v_family,light_v_family,light_chain_type,selection_rule
+ADI-47246,221,113,108,VH1,VK3,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-47085,228,120,108,VH7,VK1,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-47309,226,119,107,VH6,VK1,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-47251,231,123,108,VH1,VK3,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-45448,231,119,112,VH5,VL2,lambda,target_blind_length_quartile_x_germline_seed20260904
+ADI-47148,231,126,105,VH4,VK1,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-45469,235,125,110,VH7,VL2,lambda,target_blind_length_quartile_x_germline_seed20260904
+ADI-47219,234,121,113,VH6,VK4,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-47233,235,127,108,VH4,VK3,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-47135,241,131,110,VH3,VL6,lambda,target_blind_length_quartile_x_germline_seed20260904
+ADI-47143,238,131,107,VH4,VK1,kappa,target_blind_length_quartile_x_germline_seed20260904
+ADI-47256,241,121,120,VH5,VL2,lambda,target_blind_length_quartile_x_germline_seed20260904

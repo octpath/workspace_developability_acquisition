@@ -45,3 +45,7 @@ organizer_extension/feature_prospecting/foundation_stability/envs/
 organizer_extension/feature_prospecting/foundation_stability/cache/fennix/
 organizer_extension/feature_prospecting/foundation_stability/cache/prepared/
 organizer_extension/feature_prospecting/foundation_stability/pilots/bioemu_*/
+
+# Foundation stability v2: local envs + bulky caches
+organizer_extension/feature_prospecting/foundation_stability_v2/envs/
+organizer_extension/feature_prospecting/foundation_stability_v2/cache/

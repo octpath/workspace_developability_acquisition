@@ -1,0 +1,7 @@
+# Local regenerable / bulky
+cache/
+envs/
+results/*.log
+results/progress_watch*.log
+__pycache__/
+*.pyc
