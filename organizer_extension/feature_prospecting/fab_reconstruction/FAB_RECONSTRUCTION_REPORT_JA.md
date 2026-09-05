@@ -1,6 +1,7 @@
 # Shehata Fab 再構成レポート
 
 **Git HEAD（開始時）:** `f1a40e32b06f40dc64a6375f30b7aef78056e262`（`main`）  
+**本コミット:** `d614bd80470b4137c13354461216c64cfbe9d2b7`
 **作業日:** 2026-09-05  
 **出力:** `organizer_extension/feature_prospecting/fab_reconstruction/`
 
