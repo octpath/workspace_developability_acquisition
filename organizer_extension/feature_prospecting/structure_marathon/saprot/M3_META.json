@@ -1,0 +1,7 @@
+{
+  "n": 324,
+  "success": 324,
+  "runtime_s": 41.67866516113281,
+  "model": "westlake-repl/SaProt_35M_AF2",
+  "pilot": false
+}

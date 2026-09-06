@@ -1,0 +1,7 @@
+{
+  "family": "T1_SPURS",
+  "status": "DEFERRED_TECHNICAL",
+  "reason": "Official SPURS pins torch==1.12 / PL APIs incompatible with available Python 3.11+torch 2.6 stack; 45min setup budget exhausted after isolated venv + PL pin attempts.",
+  "attempted": ["uv venv 3.11", "torch 2.6 cu124", "pytorch-lightning 1.9.5 and 2.6", "hub download path"],
+  "next": "Try official py311-inference-beta branch or ThermoMPNN if time remains"
+}

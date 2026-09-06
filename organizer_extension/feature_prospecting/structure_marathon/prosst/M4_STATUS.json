@@ -1,0 +1,1 @@
+{"family":"M4_ProSST","status":"DEFERRED_TECHNICAL","reason":"SSTPredictor blocked by biotite/numpy ABI mismatch in isolated env within setup budget","attempted":["uv venv","torch-scatter","biotite 0.39 vs 1.7"]}

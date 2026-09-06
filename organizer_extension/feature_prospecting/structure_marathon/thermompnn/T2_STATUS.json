@@ -1,0 +1,1 @@
+{"family":"T2_ThermoMPNN","status":"DEFERRED_TECHNICAL","reason":"Requires pytorch-lightning + ThermoMPNN .ckpt loader; weights present as .pt; deferred after SPURS budget spent","note":"May retry if FeNNix finishes early"}
