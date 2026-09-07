@@ -1,0 +1,38 @@
+{
+  "campaign": "STRUCTURE_GAP_CLOSURE",
+  "frozen_utc": "2026-09-07T09:10:00Z",
+  "cpu_budget_cores": 8,
+  "affinity_hint": "16-23",
+  "fennix_untouched": true,
+  "task_a_classification": "RESIDUE_GRAPH_ONLY_OR_INCOMPLETE",
+  "task_b_runs": true,
+  "primary_surface_def": "FreeSASA_LeeRichards_probe1.4_plus_exterior_fibonacci_sampling_link2.0A",
+  "hydrophobicity_scales": [
+    {"id": "KD", "name": "Kyte-Doolittle", "threshold": 0.0},
+    {"id": "FP", "name": "Fauchere-Pliska_pi", "threshold": 0.5},
+    {"id": "BM", "name": "Black-Mould_GlyCentered_SAP", "threshold": 0.0}
+  ],
+  "cavity": {
+    "voxel_A": 1.0,
+    "min_volume_A3": 15.0,
+    "definition": "internal_empty_voxels_after_exterior_flood_fill"
+  },
+  "packing": {
+    "buried_rasa_lt": 0.2,
+    "neighbor_heavy_cutoff_A": 4.5
+  },
+  "hbond": {
+    "distance_A": 3.5,
+    "salt_bridge_A": 4.0,
+    "primary_structures": "prepared_fab_323"
+  },
+  "shape_complementarity": "SHAPE_COMPLEMENTARITY_TECHNICAL_BLOCK",
+  "evaluation": {
+    "alphas": [0.1, 1.0, 10.0, 100.0],
+    "primary_metric": "MAE",
+    "bootstrap_B": 10000,
+    "tmapp_incumbent": "TmApp__META_performance__ridge_100.0",
+    "hic_incumbent": "HIC__SIMPLE_blend_seq_surf_adv"
+  },
+  "adi_47265": "TECHNICAL_SKIP_prepared_only"
+}
