@@ -76,3 +76,10 @@
 ## 状態ラベル
 
 `STRUCTURE_GAP_CLOSURE_COMPLETE_NO_INCUMBENT_INCREMENT`
+
+
+## 追補（評価補強・FeNNix 非干渉）
+
+- `FEATURE_FREEZE.json` を記録（特徴定義の事後変更なし）。
+- `GAP_CLOSURE_ARTIFACT_AUDIT.csv`: TmApp family 要約スコア vs 鎖長 / clash / HL 補正。
+- `GAP_CLOSURE_BOOTSTRAP_PROMISING.csv`: **BURIED_UNSAT standalone vs median** のみ B=10000（Primary+Shadow で standalone ΔMAE<0 のため）。**incumbent 増分は依然 NO_SIGNAL**。

@@ -1,0 +1,13 @@
+{
+  "frozen_utc": "2026-09-07T09:45:37.639245+00:00",
+  "spec": "STRUCTURE_GAP_CLOSURE_SPEC.md",
+  "feature_tables": [
+    "TMAPP_PACKING_CAVITY_FEATURES.csv",
+    "TMAPP_BURIED_UNSAT_FEATURES.csv",
+    "TMAPP_INTERFACE_FEATURES.csv",
+    "HIC_CONTINUOUS_SURFACE_FEATURES.csv"
+  ],
+  "target_blind": true,
+  "evaluation_commit": "b977570c",
+  "note": "Features frozen prior to / concurrent with reported Primary/Shadow scoring; no post-hoc selection."
+}
