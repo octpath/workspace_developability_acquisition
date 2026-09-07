@@ -8,12 +8,13 @@
 
 - ESMFold **Fv** PDBs (N=324)
 - Reconstructed ESMFold **Fab** PDBs (N=324) + constant-domain policy/sequences
-- BioEmu **isolated VH/VL** aggregated features + QC (`features.parquet`, `qc.csv`)
+- BioEmu **isolated VH/VL** aggregated features + QC + `FEATURE_DICTIONARY.csv`
 - Precomputed blocks: ProteinMPNN, ESM-IF1, SaProt, generator disagreement,
   AROMATIC-TOPO, STATIC-SAP, HYDRO-FIELD, TITRATION_SHAPE,
   continuous surface, packing/cavity, buried unsatisfied, Fab interface
+- `BLOCK_COVERAGE.csv` / updated `MANIFEST.csv` coverage fields
 - Organizer Stage0 `folds.csv` (DEV N=162; `fold_primary`, `fold_shadow`)
-- Lightweight extractors + examples + `validate_release.py` / `package_release.py`
+- Lightweight extractors + examples + validation / packaging tools
 
 All released feature assets: **`target_used = NO`**.
 
@@ -62,34 +63,48 @@ These are **predicted/reconstructed** Fabs, not experimental structures, and not
 
 ## Third-party provenance and licensing notes
 
-Do **not** treat this section as legal advice. Organizers should confirm redistribution
-before a fully public dump if policies differ from in-repo LICENSE files.
+Do **not** treat this section as legal advice.  
+**Do not assume** “repository LICENSE is MIT ⇒ model weights and all generated outputs
+are automatically MIT.” Below separates code / weights / derived-output status where known.
 
-| Tool / model | In-repo / env evidence | Derived artifacts in v1 | Notes |
-|---|---|---|---|
-| **ProteinMPNN** | `tools/ProteinMPNN/LICENSE` — **MIT** | `proteinmpnn.parquet` | Scores from organizer frozen run |
-| **SaProt** | marathon `tools/SaProt/LICENSE` — **MIT** | `saprot.parquet` | Pooled/global features included |
-| **ESM / ESMFold / ESM-IF1** | fair-esm package LICENSE — **MIT** (env docs) | Fv/Fab PDBs; `esm_if1.parquet` | Model version strings often `NOT_RECORDED` in historical runs |
-| **BioEmu** | Microsoft BioEmu — **MIT** (environment packaging) | `bioemu_isolated/` features | Isolated VH/VL only; model noted as bioemu-v1.2 in reassessment spec |
-| **ImmuneBuilder / ABodyBuilder2** | BSD-3 in env dist-info | **Structures omitted from v1** | Available in organizer trees; not required for core v1 |
-| **FreeSASA** (Gap Closure continuous surface) | dependency of Gap Closure pipeline | `continuous_surface.parquet` | Precomputed outputs only; extractor not re-shipped |
-| **BioPython** | Biopython license | Used by participant extractors | Install via `requirements.txt` |
+Decision labels used:
+
+- `CLEAR_FOR_RELEASE` — permissive code+weights evidence; no explicit output ban found
+- `NO_EXPLICIT_OUTPUT_RESTRICTION_FOUND` — permissive upstream; outputs not specially restricted in reviewed sources
+- `PARTICIPANT_ONLY_REVIEW_RECOMMENDED` — useful to ship to participants, but organizers should confirm public hosting policy
+- `OMIT_PENDING_LICENSE_REVIEW` — concrete uncertainty blocked inclusion (none for current core set)
+
+| artifact | upstream project | code license | weights license | derived-output redistribution status | release decision | source/reference | notes |
+|---|---|---|---|---|---|---|---|
+| ESMFold Fv/Fab PDBs | Meta fair-esm / ESMFold | MIT (repo LICENSE) | MIT (same project packaging; HF/docs treat ESMFold as MIT) | No explicit ban on redistributing predicted PDBs found in reviewed LICENSE/README | `NO_EXPLICIT_OUTPUT_RESTRICTION_FOUND` + `PARTICIPANT_ONLY_REVIEW_RECOMMENDED` | https://github.com/facebookresearch/esm ; env `fair-esm` LICENSE | Competition-policy review still recommended for wide public hosting |
+| `esm_if1.parquet` | ESM-IF1 (fair-esm) | MIT | MIT (project packaging) | Same as above for score/feature tables | `NO_EXPLICIT_OUTPUT_RESTRICTION_FOUND` | fair-esm LICENSE | |
+| `proteinmpnn.parquet` | ProteinMPNN | MIT (`tools/ProteinMPNN/LICENSE`) | Weights distributed with project under same MIT tree | No explicit output restriction found | `CLEAR_FOR_RELEASE` | in-repo LICENSE | Native scores only |
+| `saprot.parquet` | SaProt | MIT (marathon `tools/SaProt/LICENSE`) | MIT (project LICENSE) | No explicit output restriction found | `CLEAR_FOR_RELEASE` | in-repo LICENSE | High-dim pooled features |
+| `bioemu_isolated/*` | Microsoft BioEmu | MIT (GitHub LICENSE) | MIT (`MODEL_CARD.md` license: mit) | MIT covers software/weights; no separate ban on derived scalar features found | `NO_EXPLICIT_OUTPUT_RESTRICTION_FOUND` + `PARTICIPANT_ONLY_REVIEW_RECOMMENDED` | https://github.com/microsoft/bioemu | Aggregated descriptors only; raw trajectories omitted |
+| `continuous_surface.parquet` | FreeSASA + organizer Gap Closure code | FreeSASA is typically MIT (verify install); organizer scripts project-owned | N/A (classical geometry library) | Derived numeric table from SAS sampling | `NO_EXPLICIT_OUTPUT_RESTRICTION_FOUND` | Gap Closure SPEC; FreeSASA project | Not MSMS SES triangulation |
+| AROMATIC-TOPO / STATIC-SAP / HYDRO-FIELD / TITRATION_SHAPE | Bio.PDB / project extractors | Biopython license + project-owned scripts | N/A | Project-owned descriptors | `CLEAR_FOR_RELEASE` | AROMATIC-TOPO FEATURE_SPEC | |
+| packing / buried-unsat / fab_interface | Gap Closure (Bio.PDB/FreeSASA geometry) | project-owned + deps | N/A | Project-owned descriptors | `CLEAR_FOR_RELEASE` | Gap Closure SPEC | |
+| ABodyBuilder2 structures | ImmuneBuilder | BSD-3 (env dist-info) | check upstream weights terms | **Omitted from v1** | `OMIT` (simplify v1; not solely license failure) | env ImmuneBuilder LICENSE | |
+
+### Unresolved / organizer judgment
+
+1. Wide **public** redistribution of predicted PDBs and BioEmu-derived tables should get a final competition/legal OK even though no explicit output ban was found.
+2. FreeSASA’s exact packaged LICENSE file was not re-copied into this release; continuous_surface ships **numeric features only**, not FreeSASA source.
+3. This audit is **not** legal certainty.
 
 ### OMITTED_PENDING_LICENSE_REVIEW
 
-None identified as blocking for the **included** v1 artifacts above given MIT/BSD evidence
-in-tree. If an external counsel/policy review disagrees for ESMFold PDB redistribution or
-BioEmu-derived tables, pull those archives before public posting.
-
-ABodyBuilder2 / Boltz2 coordinate trees were omitted from v1 partly to reduce license/surface
-area and package size (`OMITTED_SIMPLIFY_V1`), not solely for license failure.
+No core included artifact was removed solely for this label during the final audit.
+ABB2/Boltz2 structures remain omitted for simplify/size (`OMITTED_SIMPLIFY_V1`).
 
 ## QC notes
 
-- `buried_unsatisfied.parquet`: N=323 (one antibody missing vs 324)
-- SaProt table is high-dimensional (global pooled dims ~1.4k); still a frozen table, not raw per-residue dumps
+- `buried_unsatisfied.parquet`: N=323 — missing **ADI-47265** (known Fab prep issue)
+- `continuous_surface.parquet`: 324 IDs; Fab-prep column subset has NaNs for ADI-47265
+- SaProt ~1.4k pooled dims
+- BioEmu family dictionary: `data/bioemu_isolated/FEATURE_DICTIONARY.csv`
+- Coverage: `BLOCK_COVERAGE.csv`
 - Validator: `python tools/validate_release.py`
-- Smoke tests: `python -m pytest tests/test_smoke.py` (from package parent on `PYTHONPATH`)
 
 ## Packaging
 

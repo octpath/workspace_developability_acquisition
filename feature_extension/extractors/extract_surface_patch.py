@@ -27,8 +27,13 @@ def extract(
 ) -> dict[str, float]:
     """Residue-graph hydrophobic exposure summary (NOT continuous MS patches).
 
-    For organizer Gap Closure continuous molecular-surface features, load
-    ``continuous_surface.parquet`` instead (requires FreeSASA LR pipeline).
+    Method: Bio.PDB Shrake–Rupley residue SASA → exposed hydrophobic residues
+    (RASA ≥ 0.20) → connected components on CA–CA distance ≤ 8 Å.
+
+    This does **not** implement Gap Closure continuous SAS-sampled surface patches
+    (FreeSASA Lee–Richards + exterior sample points). Those live only in
+    ``data/precomputed_features/continuous_surface.parquet`` and are
+    **not numerically equivalent** to this extractor.
     """
     _ = (heavy_sequence, light_sequence)
     structure = load_structure(pdb_path)

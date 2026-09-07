@@ -1,0 +1,16 @@
+block,path,expected_ids,available_ids,missing_ids,duplicate_ids,feature_dim,columns_with_missing,total_missing_values,status,notes
+esmfold_fv_pdbs,data/esmfold_fv,324,324,0,0,,,,COMPLETE,
+esmfold_fab_pdbs,data/esmfold_fab,324,324,0,0,,,,COMPLETE,
+bioemu_isolated_features,data/bioemu_isolated/features.parquet,324,324,0,0,65,0,0,COMPLETE,
+aromatic_topology,data/precomputed_features/aromatic_topology.parquet,324,324,0,0,19,0,0,COMPLETE,
+buried_unsatisfied,data/precomputed_features/buried_unsatisfied.parquet,324,323,1,0,20,0,0,INCOMPLETE_IDS,missing_ids=ADI-47265
+continuous_surface,data/precomputed_features/continuous_surface.parquet,324,324,0,0,360,90,90,COMPLETE_IDS_PARTIAL_VALUES,cell_missing=90 across 90 cols
+esm_if1,data/precomputed_features/esm_if1.parquet,324,324,0,0,4,0,0,COMPLETE,
+fab_interface,data/precomputed_features/fab_interface.parquet,324,324,0,0,29,0,0,COMPLETE,
+generator_disagreement,data/precomputed_features/generator_disagreement.parquet,324,324,0,0,14,0,0,COMPLETE,
+hydro_field,data/precomputed_features/hydro_field.parquet,324,324,0,0,16,0,0,COMPLETE,
+packing_cavity,data/precomputed_features/packing_cavity.parquet,324,324,0,0,33,0,0,COMPLETE,
+proteinmpnn,data/precomputed_features/proteinmpnn.parquet,324,324,0,0,2,0,0,COMPLETE,
+saprot,data/precomputed_features/saprot.parquet,324,324,0,0,1442,0,0,COMPLETE,
+static_sap,data/precomputed_features/static_sap.parquet,324,324,0,0,18,0,0,COMPLETE,
+titration_shape,data/precomputed_features/titration_shape.parquet,324,324,0,0,18,0,0,COMPLETE,

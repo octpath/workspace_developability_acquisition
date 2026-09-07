@@ -21,24 +21,37 @@ OOF predictions are included under `data/`.
 ## 2. Quick start
 
 ```bash
-pip install -r requirements.txt
+# From a directory that contains the unpacked `feature_extension/` folder:
+pip install -r feature_extension/requirements.txt
+export PYTHONPATH="$PWD:$PYTHONPATH"   # so `import feature_extension` works
 
 # inspect folds (162 training/dev IDs)
-head folds.csv
+head feature_extension/folds.csv
 
 # extract features from one bundled Fv PDB
-python examples/example_extract_features.py
+python feature_extension/examples/example_extract_features.py
 
-# join your local train.csv with precomputed blocks
-python examples/example_join_precomputed.py --train-csv /path/to/train.csv
+# LEFT JOIN your local train.csv with precomputed blocks
+python feature_extension/examples/example_join_precomputed.py \
+  --train-csv /path/to/train.csv
 
 # Simple TVT Ridge demo (requires your local labels)
-python examples/example_simple_tvt_cv.py \
+python feature_extension/examples/example_simple_tvt_cv.py \
   --train-csv /path/to/train.csv --target TmApp
 ```
 
-Place this directory on `PYTHONPATH`, or run examples from a checkout where
-`feature_extension/` is importable as a top-level package.
+Download only the ZIPs you need (`code` + structures and/or precomputed).
+Each archive unpacks under a top-level `feature_extension/` directory.
+
+### Joining feature blocks (avoid silent row loss)
+
+Always **LEFT JOIN** from your competition dataframe onto feature tables by `id`.
+
+Some blocks have fewer than 324 IDs or partial NaNs (`BLOCK_COVERAGE.csv`).
+Inner-joining every block will drop antibodies unintentionally.
+
+Missing values: do not invent them in the released tables. Under CV, impute with
+**train-fold-local** statistics only.
 
 ## 3. Directory layout
 
@@ -46,13 +59,15 @@ Place this directory on `PYTHONPATH`, or run examples from a checkout where
 feature_extension/
 ├── README.md
 ├── RELEASE_NOTES.md
+├── RELEASE_AUDIT.md
 ├── MANIFEST.csv
+├── BLOCK_COVERAGE.csv
 ├── folds.csv
 ├── requirements.txt
 ├── data/
 │   ├── esmfold_fv/
 │   ├── esmfold_fab/
-│   ├── bioemu_isolated/
+│   ├── bioemu_isolated/   # + FEATURE_DICTIONARY.csv
 │   ├── precomputed_features/
 │   └── optional/
 ├── extractors/
@@ -68,62 +83,61 @@ feature_extension/
 | `data/esmfold_fv/` | **Fv** | 324 | Predicted Fv; pLDDT often in B-factor |
 | `data/esmfold_fab/` | **Fab** | 324 | Reconstructed Fab (variable + surrogate constants) |
 
-See each subdirectory README. Fab constants: POLICY B (UniProt CH1 / Cκ / Cλ);
-files `CONSTANT_DOMAIN_POLICY.md` and `CONSTANT_DOMAIN_SEQUENCES.fasta` are included.
+See each subdirectory README. Fab constants: POLICY B (UniProt CH1 / Cκ / Cλ).
 
 ## 5. Available precomputed feature blocks
 
-See `data/precomputed_features/README.md` and `MANIFEST.csv`.
+See `data/precomputed_features/README.md`, `data/bioemu_isolated/README.md`,
+`MANIFEST.csv`, and `BLOCK_COVERAGE.csv`.
 
-Core blocks in v1:
+### Surface features: do not confuse these two
 
-- BioEmu isolated ensemble features (`data/bioemu_isolated/features.parquet`)
-- ProteinMPNN, ESM-IF1, SaProt, generator disagreement
-- AROMATIC-TOPO, STATIC-SAP, HYDRO-FIELD, TITRATION_SHAPE
-- Gap Closure: continuous surface, packing/cavity, buried unsatisfied, Fab interface
+- **`continuous_surface`** (precomputed): organizer Gap Closure block using FreeSASA
+  Lee–Richards + exterior SAS sample points + hydrophobic surface-point patches.
+- **`extract_surface_patch.py`**: lightweight **residue-graph** hydrophobic summary
+  (CA adjacency among exposed hydrophobic residues).
 
-All generated **without** target labels (`target_used=NO`).
+They are **NOT numerically equivalent**. The extractor does **not** reproduce
+`continuous_surface`.
+
+### BioEmu families
+
+Use `data/bioemu_isolated/FEATURE_DICTIONARY.csv`:
+
+```python
+dic = pd.read_csv("feature_extension/data/bioemu_isolated/FEATURE_DICTIONARY.csv")
+bio_pairwise_cols = dic.loc[dic.family == "NEW_PAIRWISE", "feature"].tolist()
+bio_contact_cols  = dic.loc[dic.family == "NEW_CONTACT", "feature"].tolist()
+bio_flex_cols     = dic.loc[dic.family == "NEW_FLEX", "feature"].tolist()
+```
 
 ## 6. Lightweight extractors
-
-Python API:
 
 ```python
 from feature_extension.extractors import extract_sasa, extract_aromatic
 
-feats = extract_sasa(pdb_path="data/esmfold_fv/ADI-37123.pdb")
-aro = extract_aromatic(pdb_path="data/esmfold_fv/ADI-37123.pdb")
+feats = extract_sasa(pdb_path="feature_extension/data/esmfold_fv/ADI-37123.pdb")
+aro = extract_aromatic(pdb_path="feature_extension/data/esmfold_fv/ADI-37123.pdb")
 ```
 
-| Module | Role |
-|---|---|
-| `extract_sasa` | Total / hydrophobic / polar SASA, RASA summaries |
-| `extract_aromatic` | AROMATIC-TOPO-style aromatic exposure (HIC-relevant) |
-| `extract_surface_patch` | Residue-graph hydrophobic summary (**not** continuous MS) |
-| `extract_interface` | Simple heavy–light contact / BSA **proxy** (not classical Sc) |
-
-Continuous molecular-surface patches are distributed as **precomputed**
-`continuous_surface.parquet` (FreeSASA LR Gap Closure pipeline).
+See `extractors/README.md`.
 
 ## 7. Recommended CV folds
 
-File: `folds.csv` — columns `id,fold_primary,fold_shadow`.
+File: `folds.csv` — columns `id,fold_primary,fold_shadow` (DEV N=162 only).
 
-- Includes **only training/dev IDs** (N=162) for which participants have labels.
-- **Primary** = main recommended 5-fold CV (seed 42).
-- **Shadow** = robustness check (seed 2026).
-- Frozen in organizer Stage0 **before** this feature-extension release.
+| Column | Role |
+|---|---|
+| `fold_primary` | **Primary** — main organizer-recommended 5-fold CV (seed 42) |
+| `fold_shadow` | **Shadow** — robustness check (seed 2026) |
 
-From Stage0 `CV_DESIGN_REPORT.md`:
+Frozen in Stage0 before this release. Sequence groups with
+**min(VH, VL) identity ≥ 0.9** stay in the same fold. Assignment balanced size /
+TmApp / HIC distributions — **not** chosen to maximize a model’s MAE.
 
-- Sequence grouping: antibodies with **min(VH, VL) identity ≥ 0.9** are kept in the same fold (atomic groups).
-- Fold assignment optimized for size / TmApp / HIC distribution balance and HIC high-tail balance — **not** chosen to maximize a particular model’s MAE.
+Participants may use other sensible CV schemes; Primary/Shadow are recommendations.
 
-Does **not** include Public/Private flags or target values.
-
-## 8. Simple TVT example
-
-Optional participant guidance (not mandatory competition policy).
+### Optional Simple TVT rotation
 
 For test fold `k` (0–4):
 
@@ -133,40 +147,68 @@ For test fold `k` (0–4):
 
 See `examples/example_simple_tvt_cv.py`.
 
-## 9. Organizer observations / feature ideas
+## 8. Organizer observations / suggested experiments
 
-The following are **organizer-side DEV-CV observations**.
-They were **not** selected using Public/Private labels.
-They are **hints**, not guaranteed winning recipes.
+These are **organizer-side DEV-CV observations**.
+They were **not** selected using hidden Test / Public / Private labels.
+They are **suggestions for exploration**, not guaranteed winning recipes and
+**not** proof of biological mechanism.
 
-### TmApp
+### Direct fusion vs late fusion (important)
 
-- AbLang2 H+L / sequence features remain a strong baseline.
-- Direct feature fusion can behave differently from late fusion.
-- BioEmu **NEW_PAIRWISE** (CA-RMSD ensemble family) was one of the more stable
-  additional blocks under organizer Simple TVT.
-- ProteinMPNN provided weak/moderate complementary signal in direct fusion.
-- A reasonable experiment:
+Organizer experiments found that a structural feature block can be unhelpful as a
+**standalone** predictor or **late-fusion / residual** model, yet still improve
+performance when **concatenated directly** with sequence/PLM features.
 
-  `sequence / PLM baseline + BioEmu dynamic descriptors + ProteinMPNN structure-compatibility features`
+Therefore try:
 
-- Packing / cavity / interface static Fab blocks did **not** show convincing
-  improvement in organizer CV, but are included for participant experimentation.
+```text
+BASE
+vs
+BASE + structural block
+```
 
-### HIC
+under the **same** CV and model. For high-dimensional blocks (e.g. SaProt), use
+conservative regularization / dimensionality handling and **fold-local** preprocessing.
 
-- Exposed aromatic information is an important organizer-observed structural signal.
-- Prefer aromatic exposure / **AROMATIC-TOPO**.
-- Continuous hydrophobic-surface descriptors produced weak additional direct-fusion signal.
-- Suggested experiment:
+### TmApp hints
 
-  `sequence / PLM baseline + aromatic exposure/topology + continuous surface descriptors`
+- Sequence / PLM representations remain strong baselines.
+- Direct feature fusion sometimes behaved differently from late-fusion / residual stacking.
+- BioEmu isolated VH/VL descriptors — especially frozen **NEW_PAIRWISE** — showed useful
+  complementary behavior in organizer Simple TVT CV.
+- ProteinMPNN also showed complementary signal under direct fusion.
+- A sensible experiment:
 
-- TITRATION_SHAPE / HYDRO_FIELD may be weak complementary / experimental blocks.
+  `PLM / sequence baseline + BioEmu NEW_PAIRWISE + ProteinMPNN`
 
-Avoid treating these as causal biology claims.
+- **NEW_CONTACT** / **NEW_FLEX** are also reasonable blocks to explore.
+- BioEmu here is **independently sampled isolated VH/VL monomer ensembles**, not full Fab dynamics.
+- Do **not** say BioEmu directly predicts TmApp; do not treat the mechanism as proven.
 
-## 10. Molecular-scope caveats
+### HIC hints
+
+**HIC** = Hydrophobic Interaction Chromatography. Experimental assay molecule was **IgG**;
+many distributed structures are Fv / Fab approximations.
+
+- Exposed aromatic structural information was one of the clearest organizer-observed HIC signals.
+- **AROMATIC-TOPO** / aromatic exposure are natural features to try.
+- Precomputed **continuous molecular-surface** descriptors showed **weak** complementary
+  direct-fusion signal in organizer Dev CV.
+- A sensible experiment:
+
+  `PLM / sequence baseline + aromatic exposure/topology + continuous-surface descriptors`
+
+- HYDRO_FIELD / TITRATION_SHAPE may be treated as exploratory weak complementary blocks.
+
+### Static Fab descriptors
+
+`packing_cavity`, `buried_unsatisfied`, and `fab_interface` are included because they are
+scientifically meaningful, target-blind structural descriptors. Organizer Dev CV did **not**
+show strong consistent improvement from these blocks — but participants may find better
+models/combinations. Experimentation is encouraged.
+
+## 9. Molecular-scope caveats
 
 | Assay | Experimental molecule |
 |---|---|
@@ -174,27 +216,21 @@ Avoid treating these as causal biology claims.
 | HIC | IgG (hydrophobic interaction chromatography) |
 
 Distributed structures / ensembles may be **Fv**, **reconstructed Fab**, or
-**isolated VH/VL**. Therefore:
+**isolated VH/VL**. Therefore **molecular scope ≠ experimental molecule** for some families.
 
-> **molecular scope ≠ experimental molecule** for some feature families.
+## 10. Licensing / attribution
 
-Treat structural features as approximations.
+See `RELEASE_NOTES.md` and `RELEASE_AUDIT.md`. Code license ≠ automatic clearance for
+weights or derived outputs; decisions are documented per artifact.
 
-## 11. Licensing / attribution
+## 11. Known limitations
 
-See `RELEASE_NOTES.md` → *Third-party provenance and licensing notes*.
-Derived artifacts are redistributed only where project license review supports v1;
-unclear cases are omitted (`OMITTED_PENDING_LICENSE_REVIEW`).
+- Full-Fab **FeNNix** not in v1.
+- BioEmu = isolated VH/VL only.
+- Fab constants are surrogate UniProt sequences (POLICY B).
+- `buried_unsatisfied` missing **ADI-47265**; some `continuous_surface` Fab-prep cells NaN for that ID.
+- Extractors use Bio.PDB Shrake–Rupley; continuous SAS surface is precomputed only.
 
-## 12. Known limitations
+## 12. Future additions
 
-- Full-Fab **FeNNix** features are **not** in v1 (still computing / deferred).
-- BioEmu here is **isolated VH/VL only**, not full Fab.
-- Fab structures use **surrogate** constant domains.
-- Some tables have incomplete IDs (e.g. buried-unsatisfied N=323).
-- Extractors use Bio.PDB Shrake–Rupley; continuous MS requires precomputed tables.
-
-## 13. Future additions
-
-Future v1.x may add full-cohort FeNNix Fab features and other newly frozen
-target-blind blocks. No unfinished science is promised here.
+Future v1.x may add FeNNix Fab features when frozen. No unfinished science is promised here.

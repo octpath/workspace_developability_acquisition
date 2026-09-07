@@ -25,7 +25,8 @@ FORBIDDEN_TOKENS = (
     "leaderboard",
 )
 
-ABS_PATH_RE = re.compile(r"/(?:workspace|home|Users|data|mnt)/[^\s\"']+")
+# Absolute organizer-style roots only (do not match relative ".../data/...")
+ABS_PATH_RE = re.compile(r"(?:^|[\s\"'`=(])(/(?:workspace[_a-zA-Z0-9-]*|home|Users|mnt)/[^\s\"'`)]+)")
 
 
 def check_forbidden_columns(columns: list[str], where: str, errors: list[str]) -> None:

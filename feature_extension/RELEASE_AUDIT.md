@@ -1,96 +1,112 @@
-# RELEASE_AUDIT — feature_extension v1
+# RELEASE_AUDIT — feature_extension v1 (final pre-release)
 
 ## ready for participant release: YES
 
-Conditional on organizer confirmation of third-party derived-artifact redistribution
-(see licensing below). Core technical QC for label leakage / folds / readability: **PASS**.
+Conditional on organizer confirmation items listed under licensing / unresolved issues.
+Scientific feature values were **not** regenerated in this audit (metadata/docs/packaging only).
 
-## Core data blocks included
+---
 
-| Block | Scope | N IDs | Dim / files |
-|---|---|---:|---|
-| ESMFold Fv PDBs | Fv | 324 | `.pdb` |
-| ESMFold Fab PDBs | Fab (reconstructed) | 324 | `.pdb` + constant policy/fasta |
-| BioEmu isolated features | VH+VL monomers | 324 | 65 features + `qc.csv` |
-| ProteinMPNN | Fv | 324 | 2 |
-| ESM-IF1 | Fv | 324 | 4 |
-| SaProt | Fv | 324 | 1442 |
-| Generator disagreement | Fv multi-gen | 324 | 14 |
-| Continuous surface | Fv/Fab | 324 | 360 |
-| Packing/cavity | Fab | 324 | 33 |
-| Buried unsatisfied | Fab | 323 | 20 |
-| Fab interface | Fab | 324 | 29 |
-| AROMATIC-TOPO | Fv | 324 | 19 |
-| STATIC-SAP | Fv | 324 | 18 |
-| HYDRO-FIELD | Fv | 324 | 16 |
-| TITRATION_SHAPE | Fv | 324 | 18 |
-| folds.csv | DEV only | 162 | fold_primary, fold_shadow |
+## Surface representation distinction
 
-## Omitted blocks and reasons
+| Product | Method (authoritative) | Representation |
+|---|---|---|
+| `continuous_surface.parquet` | Gap Closure Task B / `extract_surface_hic.py` / `STRUCTURE_GAP_CLOSURE_SPEC.md`: FreeSASA **Lee–Richards** atom SASA (probe 1.4 Å) → exterior Fibonacci **SAS sample points** → hydrophobic masks (KD/FP/BM) → connected components on sample points (link 2.0 Å) with area/perimeter/compactness | Continuous **SAS-sampled molecular surface** (not MSMS SES triangulation; not residue-CA graph) |
+| `extractors/extract_surface_patch.py` | Bio.PDB Shrake–Rupley residue SASA → exposed hydrophobic residues → CA–CA ≤ 8 Å components | **Residue-adjacency graph** only |
 
-| Item | Reason |
+**Verdict:** They are **not** the same and **not** numerically equivalent.
+The extractor does **not** reproduce the precomputed block.
+Documented in top-level README, `data/precomputed_features/README.md`, `extractors/README.md`.
+Block filenames were **not** renamed (avoid breaking published paths); documentation clarifies.
+
+---
+
+## BioEmu dictionary status
+
+- `data/bioemu_isolated/FEATURE_DICTIONARY.csv` — **DONE** (65 rows)
+- Families recovered from `eval_reassess.py` + `analyze_convergence.py`:
+  - **NEW_PAIRWISE** (10): `*ca_rmsd*`
+  - **NEW_CONTACT** (20): `*contact*`
+  - **NEW_FLEX** (25): `*ca_rmsf*` / `*rmsf_*`
+  - **NEW_SHAPE** (10): `*rg_*`
+  - **NEW_COMBINED**: all 65 columns
+- Participant snippet in `data/bioemu_isolated/README.md`
+- Target used: **NO**; VH/VL sampled independently; frozen Nphys=8
+
+---
+
+## Block coverage audit
+
+See `BLOCK_COVERAGE.csv` (expected universe = 324 crosswalk IDs).
+
+| Issue | Detail |
 |---|---|
-| Full-Fab FeNNix | Still running / deferred (`NOT_YET_INCLUDED`) |
-| Raw BioEmu trajectories | Size/complexity |
-| ABodyBuilder2 / Boltz2 structures | Simplify v1 surface area |
-| Structure-guided pooling S1 | High-dim; optional later |
-| BioEmu V12 primary | Superseded |
-| VL+CL BioEmu | Not validated for release |
-| New heavy inference | Resource / FeNNix priority |
+| Incomplete IDs | `buried_unsatisfied` missing **ADI-47265** only |
+| Partial values | `continuous_surface` Fab-prep columns NaN for ADI-47265 (90 cells) |
+| All other core tables / PDB dirs | 324/324, no duplicates, no ±inf |
 
-## Archive sizes (`dist/`)
+Incomplete coverage is **allowed** and documented; join guidance = LEFT JOIN.
 
-| Archive | Size |
+---
+
+## Licensing audit
+
+See expanded table in `RELEASE_NOTES.md`.
+
+| Artifact class | Decision |
 |---|---|
-| `feature_extension_v1_code.zip` | ~26 KB |
-| `feature_extension_v1_esmfold_fv.zip` | ~12 MB |
-| `feature_extension_v1_esmfold_fab.zip` | ~21 MB |
-| `feature_extension_v1_bioemu_isolated.zip` | ~127 KB |
-| `feature_extension_v1_precomputed_features.zip` | ~3.3 MB |
-| `SHA256SUMS.txt` | present |
+| ProteinMPNN / SaProt tables | `CLEAR_FOR_RELEASE` |
+| Geometry descriptor tables | `CLEAR_FOR_RELEASE` |
+| ESMFold PDBs / ESM-IF1 / BioEmu features | `NO_EXPLICIT_OUTPUT_RESTRICTION_FOUND` + `PARTICIPANT_ONLY_REVIEW_RECOMMENDED` |
+| FreeSASA continuous_surface features | `NO_EXPLICIT_OUTPUT_RESTRICTION_FOUND` (numeric only) |
 
-## Validation result
+Not legal certainty. No concrete output ban identified; no automatic asset removal.
 
-`python tools/validate_release.py` → **PASS**
+---
 
-Checks: forbidden label/split columns in tabular data, unique IDs, readable parquet/csv,
-no ±inf, folds schema (162 × primary/shadow ∈ {0..4}), PDB naming, no escaping symlinks.
+## Clean-unpack Quick Start result
 
-Warnings (non-fatal): sparse NaNs in some continuous-surface Fab-prep columns (1 ID);
-documented incomplete buried-unsatisfied coverage (323/324).
+**CLEAN_UNPACK_QUICKSTART = PASS**
 
-## Test result
+Procedure: temp dir outside repo → extract code + esmfold_fv + bioemu + precomputed ZIPs →
+`PYTHONPATH` parent → import extractors → load BioEmu/MPNN → LEFT JOIN mock frame →
+load `folds.csv` → run `example_simple_tvt_cv.py` with synthetic local targets (not shipped).
 
-Smoke tests (`tests/test_smoke.py`) → **PASS** (imports, one-PDB SASA/aromatic extract,
-parquet ID uniqueness, folds, examples present).
+---
 
-`pytest` not installed in organizer `.venv_b1`; tests executed via direct function calls.
+## validate_release / smoke-test result
 
-## License-review status
+- `tools/validate_release.py` → **PASS**
+- `tests/test_smoke.py` → **PASS**
 
-| Artifact class | Status |
+---
+
+## Archive rebuild
+
+ZIPs regenerated after documentation/metadata changes; `SHA256SUMS.txt` refreshed.
+
+| Archive | Approx size |
 |---|---|
-| ProteinMPNN / SaProt derived tables | MIT evidence in-tree → **included** |
-| ESMFold / ESM-IF1 derived | fair-esm MIT evidence in env → **included** |
-| BioEmu derived features | BioEmu MIT evidence in env → **included** |
-| ABB2 structures | **omitted** (simplify / optional later) |
-| Counsel-level public redistribution | **Organizer approval recommended** before wide public hosting |
+| code | ~34 KB |
+| esmfold_fv | ~12 MB |
+| esmfold_fab | ~21 MB |
+| bioemu_isolated | ~129 KB |
+| precomputed_features | ~3.3 MB |
 
-No `OMITTED_PENDING_LICENSE_REVIEW` blockers for the included set based on in-repo LICENSE files.
-Organizers should still confirm competition redistribution policy for predicted PDBs.
+---
 
-## Known limitations
+## Unresolved issues for organizer judgment before public release
 
-- Molecular scope ≠ assay molecule (Fv / reconstructed Fab / isolated VH-VL vs Fab TmApp / IgG HIC).
-- Fab constants are surrogate UniProt sequences (POLICY B), not exact experimental alleles.
-- Continuous MS extractor not redistributed; use precomputed table. Residue-graph helper is labeled distinctly.
-- FeNNix not packaged.
-- Some NaN columns in Fab-prep continuous-surface subset.
+1. Confirm competition/public hosting policy for ESMFold PDBs and BioEmu-derived feature tables
+   (`PARTICIPANT_ONLY_REVIEW_RECOMMENDED`).
+2. Acknowledge ADI-47265 incompleteness in buried-unsatisfied / Fab-prep continuous-surface cells.
+3. FeNNix remains deferred (out of scope).
 
-## Label / leakage checklist
+---
 
-- [x] No TmApp/HIC values in `data/`
-- [x] No Public/Private flags in release tables / folds
-- [x] No organizer OOF / residual / incumbent columns
-- [x] No absolute organizer paths in participant-facing shipped text (build helper uses package-relative ROOT)
-- [x] `target_used=NO` on feature assets in MANIFEST
+## Known limitations (unchanged scientifically)
+
+- FeNNix not packaged
+- Molecular scope ≠ assay molecule
+- Fab surrogate constants
+- ADI-47265 incomplete in some Fab-physics blocks

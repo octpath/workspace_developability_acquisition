@@ -76,6 +76,7 @@ def main() -> None:
             "RELEASE_NOTES.md",
             "RELEASE_AUDIT.md",
             "MANIFEST.csv",
+            "BLOCK_COVERAGE.csv",
             "folds.csv",
             "requirements.txt",
             "__init__.py",
