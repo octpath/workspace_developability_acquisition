@@ -49,3 +49,4 @@ organizer_extension/feature_prospecting/foundation_stability/pilots/bioemu_*/
 # Foundation stability v2: local envs + bulky caches
 organizer_extension/feature_prospecting/foundation_stability_v2/envs/
 organizer_extension/feature_prospecting/foundation_stability_v2/cache/
+organizer_extension/feature_prospecting/structure_marathon/tools/SaProt
