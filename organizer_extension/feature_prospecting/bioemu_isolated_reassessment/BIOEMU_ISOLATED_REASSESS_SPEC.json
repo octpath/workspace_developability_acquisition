@@ -1,0 +1,34 @@
+{
+  "SPEC_FROZEN_BEFORE_TARGET_SCORING": true,
+  "state": "BIOEMU_ISOLATED_REASSESS_SPEC_FROZEN",
+  "evidence_boundary": "ORGANIZER-EXPLORATORY",
+  "target": "TmApp",
+  "model_name": "bioemu-v1.2",
+  "filter_samples": true,
+  "steering": false,
+  "physical_definition": "xtc_frames_after_official_filter_unphysical_traj",
+  "pilot": {
+    "source": "foundation_stability_v2/pilots/BIOEMU_CONVERGENCE_ANTIBODIES.csv",
+    "n_antibodies": 12,
+    "target_physical_per_chain": 64
+  },
+  "convergence": {
+    "Nphys_candidates": [4, 8, 16, 32, 64],
+    "mc_subsets": 20,
+    "seed": 20260905,
+    "rule": "smallest Nphys with median_spearman_vs_N64>=0.95 AND median_NAD<=0.10 for major families; report MC noise",
+    "separate_for": ["VH", "VL"]
+  },
+  "descriptor_families": ["PAIRWISE_GEOMETRY", "FLEXIBILITY", "GLOBAL_SHAPE", "CONTACT"],
+  "plm_reference": {
+    "embedding": "ablang2__HL_paired",
+    "source": "virtual_participant/round1_finalization/cache/round1_embeddings.npz",
+    "pipeline": "fold_local_StandardScaler_then_PCA32_then_Ridge",
+    "ridge_alphas": [0.1, 1.0, 10.0, 100.0],
+    "primary_folds": "virtual_participant/stage0_cv/cv_primary.csv",
+    "shadow_folds": "virtual_participant/stage0_cv/cv_shadow.csv"
+  },
+  "old_features": "foundation_stability_v2/BIOEMU_V12_FEATURES.csv",
+  "bootstrap_B": 10000,
+  "forbidden": ["TmApp_tuned_N", "disable_filter", "context_VLCL_VHCH1", "AbLingua", "rewrite_v2_in_place"]
+}

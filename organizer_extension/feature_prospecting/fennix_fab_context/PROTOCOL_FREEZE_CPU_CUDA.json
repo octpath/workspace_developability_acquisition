@@ -1,0 +1,11 @@
+{
+  "frozen_utc": "2026-09-06T07:08:08Z",
+  "decision": "CPU_CUDA_EQUIVALENT_REUSE_113_CUDA_REMAINING_ON_CPU",
+  "curvature_equivalent": true,
+  "spearman": 0.9839272604638098,
+  "median_nad": 0.018933770552149752,
+  "reuse_existing_cuda_preparations": true,
+  "remaining_prep_platform": "CPU",
+  "batch_size": 15,
+  "process_exit_between_batches": true
+}

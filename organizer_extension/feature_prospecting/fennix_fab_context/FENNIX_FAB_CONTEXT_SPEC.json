@@ -1,0 +1,117 @@
+{
+  "SPEC_FROZEN_BEFORE_TARGET_SCORING": true,
+  "state": "FENNIX_FAB_CONTEXT_SPEC_FROZEN",
+  "evidence_boundary": "ORGANIZER-EXPLORATORY",
+  "target": "TmApp",
+  "construct_class": "RECONSTRUCTED_EXPERIMENTAL_LIKE_FAB",
+  "not_exact_experimental_fab": true,
+  "parent_protocol": {
+    "fennix_v2_spec": "organizer_extension/feature_prospecting/foundation_stability_v2/FOUNDATION_STABILITY_V2_SPEC.json",
+    "fab_reconstruction": "organizer_extension/feature_prospecting/fab_reconstruction/",
+    "reuse_condition_A": "foundation_stability_v2/FENNIX_V2_CURVATURE_FEATURES.csv generator=esmfold when site protocol identical"
+  },
+  "conditions": {
+    "A_ISO_FV": "isolated Fv ESMFold + FeNNix-v2 R1 (reuse if exact)",
+    "B_FABGEOM_FV_RELAXED": "Fab-context VH+VL extract then independent R1",
+    "C_FULL_FAB": "full Fab after Gate F0 disulfide-compatible prep + R1",
+    "M_MATCHED_FV_FROM_FULL_FAB": "delete CH1/CL from relaxed C; identical Fv coords; no re-relax"
+  },
+  "primary_contrasts": {
+    "DELTA_GEOM": "feature(B)-feature(A)",
+    "DELTA_ENV": "feature(C_variable_sites)-feature(M_variable_sites)",
+    "PREP_RELAX_SENSITIVITY": "M vs B (control only)"
+  },
+  "forbidden_energy_compare": "Do not use E_total(Fab)-E_total(Fv) as stability feature",
+  "fennix_physics": {
+    "checkpoint": "foundation_stability_v2/cache/fennix-bio1S.fnx",
+    "R1": {
+      "fix_backbone_heavy": ["N", "CA", "C", "O"],
+      "fmax_eV_A": 0.10,
+      "max_steps": 200,
+      "optimizer": "FIRE",
+      "fallback": "BFGS"
+    },
+    "perturbations": {
+      "backbone_phi_psi_deg": 2.0,
+      "sidechain_chi1_deg": 5.0,
+      "formula": "K_E=(E_plus+E_minus-2*E0)/delta_rad^2"
+    },
+    "site_selection_variable": {
+      "framework_backbone": 8,
+      "cdr_backbone": 8,
+      "hcdr3_backbone_extra": 4,
+      "chi1": 12,
+      "seed": 20260904,
+      "method": "stable_hash(id+region+seed); SAME sites for A/B/C/M via VH/VL sequence index"
+    }
+  },
+  "gate_f0": {
+    "tool": "OpenMM+PDBFixer (.venv_b1)",
+    "backbone": "strong harmonic restraint on backbone heavy",
+    "free": ["hydrogens", "sidechains", "local Cys geometry"],
+    "disulfides": ["VH_intra", "VL_intra", "CH1_intra", "CL_intra", "HL_inter"],
+    "kappa_lambda_separate_audit": true,
+    "mass_prep_platform_default": "CPU",
+    "no_persistent_cuda_mass_prep": true,
+    "batch_size_antibodies": [10, 20],
+    "cpu_cuda_equivalence": {
+      "n_audit": "6-12 target-blind from existing CUDA-prepared",
+      "spearman_min": 0.95,
+      "median_nad_max": 0.10,
+      "before_mass_remaining_prep": true,
+      "if_fail": "PROTOCOL_INCONSISTENCY or full-324 single-CPU reprep; do not mix platforms"
+    },
+    "matched_CM_tolerance": {
+      "max_abs_coord_diff_A": 1e-4,
+      "or_rmsd_A": 1e-6,
+      "required_for_DELTA_ENV": true
+    }
+  },
+  "execution_order": [
+    "FeNNix_pilot_12_BCM",
+    "ADI_47317_CPU_diagnostic",
+    "CPU_CUDA_equivalence_audit",
+    "preparation_protocol_freeze",
+    "full_cohort_Fab_preparation",
+    "full_FeNNix_BCM",
+    "targetblind_feature_freeze",
+    "TmApp_scoring"
+  ],
+  "pilot_classification": ["PILOT_PASS", "PILOT_PASS_WITH_LIMITATIONS", "PILOT_FAIL"],
+  "pilot_forbids_TmApp": true,
+  "pilot": {
+    "n": 12,
+    "ids_source": "fab_reconstruction/structures/pilot_ids.json",
+    "target_blind": true
+  },
+  "feature_families": {
+    "F1_VARIABLE_IN_FULL_FAB": "VH_FW,HCDR,HCDR3,VL_FW,LCDR,LCDR3 aggregates",
+    "F2_CONSTANT_DOMAINS": "CH1,CL,mean",
+    "F3_VC_INTERFACES": "VH-CH1,VL-CL contact residues",
+    "F4_CH1_CL_INTERFACE": "CH1-CL contacts",
+    "F5_FULL_FAB_NORMALIZED": "median/mean/q90 K_E site-normalized",
+    "F6_DISULFIDE_NEIGHBORHOOD": "SECONDARY sensitivity only"
+  },
+  "dimension_caps": {
+    "per_family_preferred_max": 15,
+    "combined_primary_max": 30
+  },
+  "interface_rule": {
+    "definition": "residue contact if any heavy-atom pair < 4.5 A between domains",
+    "frozen_before_TmApp": true
+  },
+  "evaluation": {
+    "cv": ["Primary", "Shadow"],
+    "modes": ["STANDALONE", "INCREMENTAL_ABLANG2", "INCREMENTAL_INCUMBENT", "RESIDUAL"],
+    "incumbent": {
+      "id": "TmApp__META_performance__ridge_100.0",
+      "oof": "virtual_participant/stage5_integration/oof/TmApp__META_performance__ridge_100.0.csv",
+      "freeze": "virtual_participant/round1_finalization/ROUND1_SUBMISSION_FREEZE.json"
+    },
+    "plm_reference": "ablang2__HL_paired PCA32 Ridge as foundation_stability_v2",
+    "bootstrap_B": 10000,
+    "alphas": [0.1, 1.0, 10.0, 100.0]
+  },
+  "construct_sensitivity": "only if authoritative alternate papain terminal exists; else CONSTRUCT_SENSITIVITY_NOT_TESTABLE",
+  "forbidden": ["BioEmu_rerun", "AbLingua", "PublicPrivate_protocol_tuning", "neural_fusion", "TmApp_guided_feature_redesign", "raw_total_energy_Fab_minus_Fv"]
+}

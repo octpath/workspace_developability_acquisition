@@ -20,3 +20,8 @@
 - T2 ThermoMPNN: DEFERRED_TECHNICAL
 - G1 GearNet: SKIP_DEFERRED
 - Score signals so far: no clear INC_vs_INCUMBENT breakthrough; S1_PATCH_NEIGHBORS weakest positive TmApp delta with CI crossing 0
+
+## 2026-09-06T07:08:54Z resume after power loss
+- Curvature audit completed: Spearman=0.984, median NAD=0.019 → EQUIVALENT
+- Protocol freeze: reuse CUDA preps; remaining on CPU batches
+- CPU remaining prep started (210 Abs, batch 15)

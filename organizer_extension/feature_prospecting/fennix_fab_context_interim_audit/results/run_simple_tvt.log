@@ -1,0 +1,44 @@
+Loading BASE matrices…
+BASE meta {'TmApp_BASE': {'name': 'ABLANG2_HL_PAIRED+SEQ_BASIC', 'dim': 558, 'paths': ['/workspace_developability_acquisition/virtual_participant/stage2_plm/cache/stage2_embeddings.npz::ablang2__HL_paired', 'stage1 make_xy SEQ_BASIC']}, 'HIC_BASE': {'name': 'ESM2_H+SEQ_ALL', 'dim': 1395, 'paths': ['/workspace_developability_acquisition/virtual_participant/stage2_plm/cache/stage2_embeddings.npz::esm2__H', 'stage1 make_xy SEQ_ALL']}, 'HIC_BASE_ARO': {'name': 'ESM2_H+SEQ_ALL+AROMATIC_TOPO', 'dim': 1414, 'paths': ['/workspace_developability_acquisition/virtual_participant/stage2_plm/cache/stage2_embeddings.npz::esm2__H', 'stage1 make_xy SEQ_ALL', '/workspace_developability_acquisition/organizer_extension/feature_prospecting/structure_gap_closure/cache/aromatic_features_esmfold.csv']}}
+eval GapClosure TmApp PACKING_CAVITY base=TmApp_BASE N_cand=162 struct_dim=33
+eval GapClosure TmApp BURIED_UNSAT base=TmApp_BASE N_cand=162 struct_dim=20
+eval GapClosure TmApp FAB_INTERFACE base=TmApp_BASE N_cand=162 struct_dim=29
+eval GapClosure TmApp CORE_DEFECT base=TmApp_BASE N_cand=162 struct_dim=53
+eval GapClosure TmApp GAP_ALL base=TmApp_BASE N_cand=162 struct_dim=82
+eval GapClosure HIC CONTINUOUS_SURFACE base=HIC_BASE_ARO N_cand=162 struct_dim=45
+eval GapClosure HIC HIC_SURFACE_ALL base=HIC_BASE N_cand=162 struct_dim=64
+eval InterimFeNNix TmApp DELTA_GEOM base=TmApp_BASE N_cand=100 struct_dim=17
+eval InterimFeNNix TmApp DELTA_ENV base=TmApp_BASE N_cand=100 struct_dim=17
+eval InterimFeNNix TmApp CONSTANT base=TmApp_BASE N_cand=100 struct_dim=20
+eval InterimFeNNix TmApp INTERFACE base=TmApp_BASE N_cand=100 struct_dim=18
+eval InterimFeNNix TmApp FULL_FAB_NORMALIZED base=TmApp_BASE N_cand=100 struct_dim=3
+eval InterimFeNNix TmApp COMBINED_PREDECLARED base=TmApp_BASE N_cand=100 struct_dim=93
+wrote /workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/SIMPLE_TVT_CV_RESULTS.csv n_families 13
+        scope               family  primary_delta  shadow_delta                          verdict
+   GapClosure       PACKING_CAVITY      -0.077853     -0.134729         SIMPLE_CV_NO_IMPROVEMENT
+   GapClosure         BURIED_UNSAT      -0.007217      0.049886                  SIMPLE_CV_MIXED
+   GapClosure        FAB_INTERFACE      -0.025440     -0.026345         SIMPLE_CV_NO_IMPROVEMENT
+   GapClosure          CORE_DEFECT      -0.083221     -0.069783         SIMPLE_CV_NO_IMPROVEMENT
+   GapClosure              GAP_ALL      -0.156701     -0.119246         SIMPLE_CV_NO_IMPROVEMENT
+   GapClosure   CONTINUOUS_SURFACE       0.016628      0.001766 SIMPLE_CV_CONSISTENT_IMPROVEMENT
+   GapClosure      HIC_SURFACE_ALL       0.022775      0.001771 SIMPLE_CV_CONSISTENT_IMPROVEMENT
+InterimFeNNix           DELTA_GEOM       0.025381     -0.036607                  SIMPLE_CV_MIXED
+InterimFeNNix            DELTA_ENV       0.028810     -0.239663                  SIMPLE_CV_MIXED
+InterimFeNNix             CONSTANT       0.115986      0.051170 SIMPLE_CV_CONSISTENT_IMPROVEMENT
+InterimFeNNix            INTERFACE       0.061986     -0.030932                  SIMPLE_CV_MIXED
+InterimFeNNix  FULL_FAB_NORMALIZED      -0.008269     -0.006959         SIMPLE_CV_NO_IMPROVEMENT
+InterimFeNNix COMBINED_PREDECLARED       0.089569     -0.159037                  SIMPLE_CV_MIXED
+              family                  interpretation
+      PACKING_CAVITY            SIMPLE_ONLY_NEGATIVE
+        BURIED_UNSAT                           MIXED
+       FAB_INTERFACE                   BOTH_NEGATIVE
+         CORE_DEFECT                   BOTH_NEGATIVE
+             GAP_ALL                   BOTH_NEGATIVE
+  CONTINUOUS_SURFACE            SIMPLE_ONLY_POSITIVE
+     HIC_SURFACE_ALL STRICT_NEGATIVE_SIMPLE_POSITIVE
+          DELTA_GEOM                           MIXED
+           DELTA_ENV                           MIXED
+            CONSTANT STRICT_NEGATIVE_SIMPLE_POSITIVE
+           INTERFACE                           MIXED
+ FULL_FAB_NORMALIZED                   BOTH_NEGATIVE
+COMBINED_PREDECLARED                           MIXED

@@ -1,0 +1,130 @@
+# Strict Nested Increment — 結果報告
+
+**汚染判定:** `CROSS_FOLD_CONTAMINATION = YES`（詳細: `STRICT_NESTED_CONTAMINATION_AUDIT.md`）。
+
+本表は同一 family / framework / CV で `OLD_GLOBAL_OOF_INCREMENT` と `STRICT_NESTED_INCREMENT` を併記する。
+ΔMAE = incumbent_MAE − combined_MAE（**正 = 改善**）。
+
+## Primary / Shadow 方向ラベル
+
+- `CONSISTENT_IMPROVEMENT`: Primary・Shadow とも ΔMAE > 0
+- `CONSISTENT_WORSENING`: Primary・Shadow とも ΔMAE < 0
+- `MIXED_DIRECTION`: 符号が分かれる
+
+**注意:** 悪化の一致を「良いシグナル」や「同方向改善」と読んではならない。
+
+## 要約表（framework 平均は取らない — 両 framework を並記）
+
+### GapClosure
+
+**CORE_DEFECT / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.1963 (NO_INCREMENT), Shadow Δ=-0.1851 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.1577 (NO_INCREMENT), Shadow Δ=-0.1722 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0386
+
+**CORE_DEFECT / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.2946 (NO_INCREMENT), Shadow Δ=-0.2648 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.2834 (NO_INCREMENT), Shadow Δ=-0.2425 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0111
+
+**FAB_INTERFACE / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.1144 (NO_INCREMENT), Shadow Δ=-0.0928 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.0693 (NO_INCREMENT), Shadow Δ=-0.0727 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0452
+
+**FAB_INTERFACE / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.2307 (NO_INCREMENT), Shadow Δ=-0.3045 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.2065 (NO_INCREMENT), Shadow Δ=-0.2752 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0243
+
+**GAP_ALL / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.2749 (NO_INCREMENT), Shadow Δ=-0.2528 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.1960 (NO_INCREMENT), Shadow Δ=-0.2552 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0790
+
+**GAP_ALL / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.4013 (NO_INCREMENT), Shadow Δ=-0.3586 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.3743 (NO_INCREMENT), Shadow Δ=-0.3422 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0271
+
+**HIC_SURFACE_ALL / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.0691 (NO_INCREMENT), Shadow Δ=-0.0920 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.0658 (NO_INCREMENT), Shadow Δ=-0.0895 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0033
+
+**HIC_SURFACE_ALL / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.0736 (NO_INCREMENT), Shadow Δ=-0.1019 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.0725 (NO_INCREMENT), Shadow Δ=-0.0994 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0011
+
+### InterimFeNNix
+
+**COMBINED_PREDECLARED / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.1070 (NO_INCREMENT), Shadow Δ=-0.2429 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.2378 (NO_INCREMENT), Shadow Δ=-0.2203 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = -0.1308
+
+**COMBINED_PREDECLARED / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.4135 (NO_INCREMENT), Shadow Δ=-0.5730 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.2801 (NO_INCREMENT), Shadow Δ=-0.5026 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.1335
+
+**CONSTANT / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.0309 (NO_INCREMENT), Shadow Δ=+0.0052 (WEAK_INCREMENT) → **MIXED_DIRECTION**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.1182 (NO_INCREMENT), Shadow Δ=-0.0917 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = -0.0873
+
+**CONSTANT / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.3092 (NO_INCREMENT), Shadow Δ=-0.4608 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.3049 (NO_INCREMENT), Shadow Δ=-0.3582 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0043
+
+**DELTA_ENV / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.0556 (NO_INCREMENT), Shadow Δ=-0.1729 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.0453 (NO_INCREMENT), Shadow Δ=-0.2479 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0102
+
+**DELTA_ENV / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.3297 (NO_INCREMENT), Shadow Δ=-0.4902 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.3202 (NO_INCREMENT), Shadow Δ=-0.4849 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0095
+
+**DELTA_GEOM / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.1053 (NO_INCREMENT), Shadow Δ=-0.2228 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.1335 (NO_INCREMENT), Shadow Δ=-0.1685 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = -0.0281
+
+**DELTA_GEOM / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.4452 (NO_INCREMENT), Shadow Δ=-0.5703 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.2858 (NO_INCREMENT), Shadow Δ=-0.4684 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.1594
+
+**FULL_FAB_NORMALIZED / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.0281 (NO_INCREMENT), Shadow Δ=-0.0286 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.0128 (NO_INCREMENT), Shadow Δ=-0.0088 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = +0.0153
+
+**FULL_FAB_NORMALIZED / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.0641 (NO_INCREMENT), Shadow Δ=-0.0459 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.2203 (NO_INCREMENT), Shadow Δ=-0.1014 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = -0.1562
+
+**INTERFACE / residual_plus_oof**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=+0.0141 (WEAK_INCREMENT), Shadow Δ=+0.0329 (WEAK_INCREMENT) → **CONSISTENT_IMPROVEMENT**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=+0.0084 (WEAK_INCREMENT), Shadow Δ=-0.0432 (NO_INCREMENT) → **MIXED_DIRECTION**
+- Primary STRICT−OLD ΔΔMAE = -0.0057
+
+**INTERFACE / ridge_concat_oof_scalar**
+- `OLD_GLOBAL_OOF_INCREMENT`: Primary Δ=-0.0387 (NO_INCREMENT), Shadow Δ=-0.2077 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- `STRICT_NESTED_INCREMENT`: Primary Δ=-0.2940 (NO_INCREMENT), Shadow Δ=-0.3606 (NO_INCREMENT) → **CONSISTENT_WORSENING**
+- Primary STRICT−OLD ΔΔMAE = -0.2553
+
+## 解釈（OLD と STRICT の差）
+
+1. **汚染は実在する。** Outer-train の global OOF は、そのサンプル自身の fold 以外（＝現 outer-val fold を含む）で学習された base/meta 由来。STRICT は outer-train 内 inner-CV と outer-train→val 再適合で incumbent を再構成する。
+2. **Gap Closure（全 Dev に近い N）:** STRICT でも全 family × 両 framework が `CONSISTENT_WORSENING` / `NO_INCREMENT`。数値は OLD よりやや温和（Primary STRICT−OLD ΔΔMAE はおおむね正＝悪化幅が縮小）だが、結論は変わらない。`FAB_INTERFACE` N=162 では STRICT incumbent MAE が Stage5 nested META と一致（2.7135）し、再構成の健全性を確認。
+3. **Interim FeNNix（usable Dev N=100）:** サブセット上で META を組み直すため STRICT incumbent MAE（≈2.81）は global OOF（≈2.63）より悪い。これが Δ の見かけを動かす。特に **INTERFACE / residual**: OLD は `CONSISTENT_IMPROVEMENT` に見えたが、STRICT では Primary のみ微改善・Shadow 悪化の **`MIXED_DIRECTION`** — 汚染プロトコル由来の偽陽性方向一致を排除した例。
+4. **最終主張:** Gap Closure 合算および指定 FeNNix family の incumbent 増分は、STRICT 基準で **`NO_INCREMENT`**（INTERFACE residual も Primary∧Shadow 改善にはならない）。
+
+FeNNix 本番ワーカー／特徴定義は未変更（評価のみ）。
+

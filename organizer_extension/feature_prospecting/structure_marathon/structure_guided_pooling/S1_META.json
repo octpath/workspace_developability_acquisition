@@ -1,0 +1,8 @@
+{
+  "n_abs": 324,
+  "embedding": "esm2_t33_650M_UR50D",
+  "structure": "esmfold_fv",
+  "exposed_thr": 0.25,
+  "strong_thr": 0.4,
+  "runtime_s": 608.7467133998871
+}

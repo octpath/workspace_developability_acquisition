@@ -5,12 +5,12 @@
   "plan_lock": "STRUCTURE_MARATHON_PLAN_LOCK.md",
   "workstream_a": {
     "dir": "organizer_extension/feature_prospecting/fennix_fab_context",
-    "phase": "PILOT_12_RUNNING",
-    "prep_cuda_ok": 113,
-    "fv_h": 324,
-    "fennix_complete_ids": [
-      "ADI-47109"
-    ]
+    "phase": "CPU_PREP_16CORE_CONTROLLED",
+    "prep_ok_estimate": 114,
+    "remaining_prep": 210,
+    "audit": "CPU_CUDA_EQUIVALENT",
+    "pilot": "PILOT_PASS_WITH_LIMITATIONS",
+    "cpu_budget": 16
   },
   "families": {
     "S1_structure_guided_pooling": "COMPLETE",
@@ -28,7 +28,7 @@
   },
   "final_states": {
     "structure_marathon": "ORGANIZER_STRUCTURE_MARATHON_PARTIAL_COMPLETE",
-    "fennix_fab": "ORGANIZER_TMAPP_FENNIX_FAB_CONTEXT_PILOT_PASS_WITH_LIMITATIONS_AUDIT_RUNNING"
+    "fennix_fab": "ORGANIZER_TMAPP_FENNIX_FAB_CONTEXT_PREP_16CORE_RUNNING"
   },
-  "updated_utc": "2026-09-06T02:16:21Z"
+  "updated_utc": "2026-09-06T07:45:29Z"
 }

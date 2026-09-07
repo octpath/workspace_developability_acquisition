@@ -83,3 +83,9 @@ Same as PACKING_CAVITY → incremental **`NO_INCREMENT`** valid.
 ## Combination closure (Part 2)
 
 See `GAP_CLOSURE_COMBINATION_CLOSURE.csv`: predeclared aggregates `CORE_DEFECT`, `FAB_INTERFACE`, `GAP_ALL`, `HIC_SURFACE_ALL` evaluated with **both** Ridge-concat and residual frameworks; neither is post-hoc selected as “the” result.
+
+---
+
+## Strict nested follow-up (2026-09-07)
+
+Prior claim of leakage-safe incremental **overstated**: global incumbent OOF as a feature inside a second outer CV causes **cross-fold contamination** on outer-train samples. See `STRICT_NESTED_CONTAMINATION_AUDIT.md` and `STRICT_NESTED_INCREMENT_RESULTS.csv`. Final NO_INCREMENT must be read from `STRICT_NESTED_INCREMENT`.
