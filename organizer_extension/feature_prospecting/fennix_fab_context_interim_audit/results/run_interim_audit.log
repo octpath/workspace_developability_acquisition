@@ -1,0 +1,37 @@
+PART2 combination closure…
+PART3 complete set + CM match…
+complete=199 usable=199
+PART4 assemble + freeze (before target eval)…
+PART5 target-blind QC…
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit/scripts/run_interim_audit.py:475: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = float(spearmanr(score[m], s[m]).statistic) if m.sum() > 20 else np.nan
+PART6 completion bias…
+PART7–9 provisional eval…
+DONE interim audit
+combo rows 16 results 74 bias COMPLETION_BIAS_UNCERTAIN

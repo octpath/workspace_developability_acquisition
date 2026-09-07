@@ -1,0 +1,37 @@
+{
+  "frozen_before_target_labels": true,
+  "frozen_utc": "2026-09-07T10:33:52.920169+00:00",
+  "source_spec": "fennix_fab_context/FENNIX_FAB_CONTEXT_SPEC.md",
+  "N_complete_bcm": 199,
+  "families": [
+    "DELTA_GEOM",
+    "DELTA_ENV",
+    "CONSTANT",
+    "INTERFACE",
+    "FULL_FAB_NORMALIZED",
+    "PREP_RELAX_SENSITIVITY",
+    "COMBINED_PREDECLARED"
+  ],
+  "var_cols": [
+    "K_all_bb_mean",
+    "K_all_bb_median",
+    "K_all_bb_q90",
+    "K_all_bb_iqr",
+    "K_all_bb_frac_neg",
+    "K_FW_mean",
+    "K_FW_median",
+    "K_FW_q90",
+    "K_CDR_mean",
+    "K_CDR_median",
+    "K_CDR_q90",
+    "K_HCDR3_mean",
+    "K_HCDR3_median",
+    "K_HCDR3_q90",
+    "K_chi1_mean",
+    "K_chi1_median",
+    "K_chi1_q90"
+  ],
+  "note": "Assembled deterministically from features_partial_all SUCCESS B/C/M + FeNNix-v2 A; no target-based selection.",
+  "writes_only_to": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_interim_audit",
+  "fennix_worker_untouched": true
+}
