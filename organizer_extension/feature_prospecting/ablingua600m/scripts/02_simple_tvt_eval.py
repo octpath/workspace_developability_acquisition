@@ -75,12 +75,23 @@ def load_ablang2() -> dict[str, pd.DataFrame]:
 
 
 def load_seq_basic(ids: list[str]) -> pd.DataFrame:
+    """SEQ_BASIC aligned to competition ids.
+
+    make_xy returns a RangeIndex; must assign ids explicitly (same as load_bases()).
+    Never reindex from RangeIndex stringified positions — that yields all-NaN rows.
+    """
     dev = pd.read_csv(DEV)
     tables = build_all_feature_tables(dev, pd.read_csv(ANN), pd.read_csv(REGIONS))
     seq_b, _ = make_xy(tables, "SEQ_BASIC")
-    seq_b.index = [str(x) for x in seq_b.index]
-    seq_b = seq_b.reindex(ids)
+    if len(seq_b) != len(ids):
+        raise RuntimeError(f"SEQ_BASIC rows {len(seq_b)} != n_ids {len(ids)}")
+    seq_b = seq_b.copy()
+    seq_b.index = list(ids)
     seq_b.columns = [f"seqB_{c}" for c in seq_b.columns]
+    if seq_b.isna().all().all():
+        raise RuntimeError("SEQ_BASIC is entirely NaN — id alignment bug")
+    if float(seq_b.isna().mean().mean()) > 0.5:
+        raise RuntimeError("SEQ_BASIC majority-NaN — check id alignment")
     return seq_b.astype(float)
 
 

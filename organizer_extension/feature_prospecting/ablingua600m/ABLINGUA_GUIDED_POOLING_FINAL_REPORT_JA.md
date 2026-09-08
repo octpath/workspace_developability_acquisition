@@ -1,5 +1,9 @@
 # AbLingua Structure-Guided Pooling — 最終報告
 
+> **PARENT 監査注記:** Guided sprint の PARENT **2.7466 / 2.8227** が権威値。  
+> 旧 AbLingua sprint の 2.811/2.991 は SEQ_BASIC 全 NaN bug。再実行不要。  
+> 詳細: `ABLINGUA_PARENT_RECONCILIATION_REPORT_JA.md`
+
 ## 冒頭回答（必須18問）
 
 1. **TripleAA → residue mapping は確立できたか？**  

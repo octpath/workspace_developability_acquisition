@@ -1,5 +1,11 @@
 # AbLingua-600M TmApp Endgame — 最終報告
 
+> **ERRATUM（PARENT 監査後）**  
+> Sprint A の `load_seq_basic` が SEQ_BASIC を全 NaN にしていた。  
+> 権威ある `CURRENT_RECIPE + AbLingua GLOBAL` = **Primary 2.7466 / Shadow 2.8227**（guided sprint B と一致）。  
+> ADD の「両側改善」は **撤回**（修正後 Δ −0.044 / +0.023 → MIXED）。  
+> 詳細: `ABLINGUA_PARENT_RECONCILIATION_REPORT_JA.md`
+
 ## 冒頭回答（必須16問）
 
 1. **AbLingua-600M extraction succeeded for 324/324?**  
@@ -29,30 +35,31 @@
    → **AbLang2 が明確に優位**（Δ ≈ −0.085 / −0.132）。raw・固定 SVR でも同様。
 
 10. **AbLingua + SEQ_BASIC は Primary∩Shadow 改善?**  
-    SEQ_BASIC 単体への増分（PCA32 struct）: **ΔP=+0.262 / ΔS=+0.286（FREE）**、fixed-α でも両方正 → **YES vs SEQ alone**。  
-    ただし **AbLang2+SEQ には届かない**（AbLang2 incr Δ の方が大きい）。
+    SEQ 修正後も SEQ 単体への増分は正（再計算 ΔP=+0.154 / ΔS=+0.081）。  
+    ただし **AbLang2+SEQ には届かない**。
 
 11. **現行コンペ recipe で AbLang2 を AbLingua に置換?**  
-    **NO**（強く悪化）。REPLACE Δ ≈ **−0.889 / −0.737**。
+    **NO**（強く悪化）。修正後 REPLACE Δ ≈ **−0.973 / −0.920**。
 
 12. **現行 recipe に AbLingua を ADD?**  
-    **YES（modest）**。FREE Δ **+0.035 / +0.064**、BASE_FIXED_ALPHA でも **+0.035 / +0.055**。MAE **2.811 / 2.991**。
+    **NO（両側正ではない）**。SEQ 修正後 FREE Δ **−0.044 / +0.023**（MIXED）。  
+    PARENT MAE **2.747 / 2.823**（recipe_only **2.703 / 2.846**）。  
+    ~~旧誤報: +0.035/+0.064・MAE 2.811/2.991（SEQ 全 NaN）~~
 
 13. **AbLang2 + AbLingua 直接融合?**  
-    **YES（modest）**。SEQ+AbLang2 への増分 FREE **+0.013 / +0.278**、fixed **+0.013 / +0.075**。
+    **NO（MIXED）**。修正後 FREE Δ **−0.033 / +0.035**。  
+    ~~旧誤報: 両側正~~
 
 14. **BASE_FIXED_ALPHA 生存?**  
-    - ADD_to_current_recipe: **生存**（P/S 両方正）  
-    - SEQ_BASIC+AbLang2+AbLingua: **生存**  
-    - SEQ_BASIC+AbLingua_incr: **生存**（ただし AbLang2 置換候補としては非推奨）  
+    - ADD: **非生存**（Primary 負）  
     - REPLACE / standalone vs AbLang2: **非生存**
 
-15. **Best endgame TmApp recipe（本スプリント）**  
-    **現行凍結 recipe（AbLang2+SEQ_BASIC+BIOEMU_NEW_PAIRWISE+M1_PROTEINMPNN）+ AbLingua HL_mean_concat**  
-    Primary MAE **2.811** / Shadow **2.991**（FREE_ALPHA）。
+15. **Best endgame TmApp recipe（本スプリント単独）**  
+    AbLingua GLOBAL の ADD は採用しない。recipe_only の方が Primary 良い。  
+    Guided 後の候補は別レポート（PARENT+CDR3）を参照。
 
-16. **Final verdict:** **ABL_TRY**  
-    単独置換は不可。ADD / AbLang2 併用は Primary∩Shadow とも正だが効果はmodest（bootstrap CI は Primary で 0 をまたぐ）。**ABL_PRIORITY ではない**。
+16. **Final verdict:** **ABL_DROP（competition ADD）** / standalone は従来通り AbLang2 劣後。  
+    ~~旧 ABL_TRY（ADD）は SEQ bug による誤判定~~
 
 ---
 
