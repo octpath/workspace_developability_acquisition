@@ -1,0 +1,15 @@
+{
+  "SEQ_BASIC_raw_dim": 78,
+  "SEQ_BASIC_matched_ids": 162,
+  "SEQ_BASIC_finite_frac_before_impute": 1.0,
+  "SEQ_BASIC_variance_sum": 61.08814584218637,
+  "ablang2_mae": 2.8519581454041143,
+  "base_mae": 2.7629769100217336,
+  "seq_mae": 3.1413551732336997,
+  "ablang2_vs_base_pred_maxdiff": 2.905251821144006,
+  "SEQ_changes_predictions_vs_AbLang2_alone": true,
+  "suspicious_historical_SEQ_noop": [
+    "AbLingua Sprint A: SEQ_BASIC+AbLingua PCA32 MAE == AbLingua standalone PCA32 (3.1856/3.1624) \u2192 SEQ was all-NaN",
+    "AbLingua Sprint A: current_recipe and ADD used NaN SEQ inside AbLang2+SEQ block"
+  ]
+}

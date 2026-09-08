@@ -78,17 +78,19 @@
 
 | candidate | Primary MAE | Shadow MAE | ΔP / ΔS vs parent | fixed-α | verdict |
 |-----------|-------------|------------|-------------------|---------|---------|
-| HL_mean standalone PCA32 | 3.186 | 3.162 | −0.085 / −0.132 vs AbLang2 | — | ABL_DROP |
-| HL + SEQ_BASIC (incr) | 3.186 | 3.162 | +0.262 / +0.286 vs SEQ | +0.279 / +0.321 | ABL_TRY vs SEQ; lose vs AbLang2 |
-| REPLACE AbLang2 in recipe | 3.734 | 3.792 | −0.889 / −0.737 | same | ABL_DROP |
-| ADD to current recipe | 2.811 | 2.991 | +0.035 / +0.064 | +0.035 / +0.055 | **ABL_TRY** |
-| SEQ+AbLang2+AbLingua | 2.839 | 2.832 | +0.013 / +0.278 | +0.013 / +0.075 | **ABL_TRY** |
+| HL_mean standalone PCA32 | 3.186 | 3.162 | −0.085 / −0.132 vs AbLang2 | — | ABL_DROP（bug 非依存・有効） |
+| HL + SEQ_BASIC (incr) **CORRECTED** | 2.987 | 3.116 | +0.154 / +0.081 vs SEQ | — | vs SEQ 正; AbLang2+SEQ には届かない |
+| ~~HL + SEQ_BASIC (incr) sprintA~~ | ~~3.186~~ | ~~3.162~~ | ~~+0.262/+0.286~~ | — | **SUPERSEDED / INVALID（SEQ 全 NaN）** |
+| REPLACE AbLang2 in recipe **CORRECTED** | 3.675 | 3.766 | −0.973 / −0.920 | same | ABL_DROP |
+| ADD to current recipe **CORRECTED** | **2.747** | **2.823** | **−0.044 / +0.023** | same | **ABL_DROP（MIXED）** |
+| ~~ADD to current recipe sprintA~~ | ~~2.811~~ | ~~2.991~~ | ~~+0.035/+0.064~~ | — | **SUPERSEDED / INVALID DUE TO INDEX ALIGNMENT BUG** |
+| SEQ+AbLang2+AbLingua **CORRECTED** | 2.796 | 2.862 | −0.033 / +0.035 | — | MIXED / ABL_DROP |
+| ~~SEQ+AbLang2+AbLingua sprintA~~ | ~~2.839~~ | ~~2.832~~ | ~~+0.013/+0.278~~ | — | **SUPERSEDED / INVALID** |
 
 ## Bootstrap（B=10000、記録用）
 
-- ADD_recipe: Primary CI95 [−0.055, 0.120] p≤0≈0.22；Shadow [−0.071, 0.199] p≈0.18  
-- A2+ABL: Primary CI crosses 0；Shadow 強い正  
-→ 有意性は主張しない。分類は点推定の Primary∩Shadow 正に基づく **ABL_TRY**。
+- 旧 ADD（invalid）の bootstrap は参考にしない。  
+- 権威スコアは `score_integrity/ORGANIZER_SCORE_REGISTRY.csv`（`validity=AUTHORITATIVE`）および PARENT 監査報告を参照。
 
 ## ファイル
 
