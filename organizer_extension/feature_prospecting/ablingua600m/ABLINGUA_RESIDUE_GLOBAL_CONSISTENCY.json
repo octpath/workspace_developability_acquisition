@@ -1,0 +1,24 @@
+{
+  "RESIDUE_GLOBAL_vs_saved_MASKED_MEAN": {
+    "cosine_median": 0.9999964107799733,
+    "cosine_min": 0.9999950421053674,
+    "corr_median": 0.999996410779209,
+    "norm_diff_median": 0.0027164178923900087,
+    "n": 324
+  },
+  "token_GLOBAL_this_run_vs_saved": {
+    "cosine_median": 0.9999999999999823,
+    "cosine_min": 0.9999999999999712,
+    "corr_median": 0.9999999999999827,
+    "norm_diff_median": 1.8684189273851244e-07,
+    "n": 324
+  },
+  "RESIDUE_GLOBAL_vs_token_GLOBAL": {
+    "cosine_median": 0.9999964107892079,
+    "cosine_min": 0.9999950421042665,
+    "corr_median": 0.9999964107884445,
+    "norm_diff_median": 0.0027164145727590185,
+    "n": 324
+  },
+  "note": "RESIDUE_GLOBAL reweights overlapping TripleAA; not required to match MASKED_MEAN exactly"
+}

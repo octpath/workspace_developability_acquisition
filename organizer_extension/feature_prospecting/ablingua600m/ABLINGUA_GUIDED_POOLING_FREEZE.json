@@ -1,0 +1,90 @@
+{
+  "frozen_at": "2026-09-08T20:36:05Z",
+  "sanity": "SANITY_PASS_IDENTICAL_BY_CHANCE_OR_NO_INCREMENT",
+  "model": "IDEA-AI4S/AbLingua",
+  "representation": "outputs.hidden_states[-1]",
+  "token_residue_rule": "mean of non-special TripleAA tokens whose span contains residue r",
+  "cdr_convention": "IMGT via cdr_sequence_index_imgt.csv (ANARCI)",
+  "rasa": {
+    "method": "Bio.PDB.SASA.ShrakeRupley",
+    "probe_radius": 1.4,
+    "n_points": 100,
+    "maxasa": "Tien2013",
+    "exposed_threshold": 0.2,
+    "source": "feature_extension participant default RASA_EXPOSED=0.20",
+    "structure": "ESMFold Fv"
+  },
+  "families": [
+    "CDR_ALL",
+    "CDR3",
+    "EXPOSED",
+    "BURIED",
+    "RASA_WEIGHTED",
+    "BURIED_WEIGHTED",
+    "EXPOSED_CDR",
+    "CDR_FR_SPLIT"
+  ],
+  "combos_predeclared": [
+    "COMBO_1_LOCAL_SURFACE=PARENT+CDR_ALL+RASA_WEIGHTED",
+    "COMBO_2_SURFACE_CORE=PARENT+RASA_WEIGHTED+BURIED_WEIGHTED",
+    "COMBO_3_CDR_SURFACE_CORE=PARENT+EXPOSED_CDR+BURIED_WEIGHTED"
+  ],
+  "chain_asymmetry_priority": [
+    "CDR_ALL",
+    "EXPOSED_CDR",
+    "CDR3"
+  ],
+  "parent": "CURRENT_RECIPE + AbLingua GLOBAL (MASKED_MEAN HL_mean_concat)",
+  "hashes": {
+    "CDR_ALL": "dc2663322ea9e783",
+    "CDR3": "5157bfa2028117dd",
+    "EXPOSED": "149d76c1625f98d0",
+    "BURIED": "890cdb0f8f008c74",
+    "RASA_WEIGHTED": "364f5e16f66e697e",
+    "BURIED_WEIGHTED": "b6ca85026e9be839",
+    "EXPOSED_CDR": "4ff39139326671ca",
+    "CDR_FR_SPLIT": "d927b077dd225fe7",
+    "RESIDUE_GLOBAL": "2e640f31deb0e451",
+    "H_CDR_ONLY": "9d15a7cd8c95be8a",
+    "L_CDR_ONLY": "b537f91dc6b13cda"
+  },
+  "dims": {
+    "CDR_ALL": 2560,
+    "CDR3": 2560,
+    "EXPOSED": 2560,
+    "BURIED": 2560,
+    "RASA_WEIGHTED": 2560,
+    "BURIED_WEIGHTED": 2560,
+    "EXPOSED_CDR": 2560,
+    "CDR_FR_SPLIT": 5120,
+    "RESIDUE_GLOBAL": 2560,
+    "H_CDR_ONLY": 2560,
+    "L_CDR_ONLY": 2560
+  },
+  "extraction_wall_sec": 65.36915683746338,
+  "n_ids": 324,
+  "consistency": {
+    "RESIDUE_GLOBAL_vs_saved_MASKED_MEAN": {
+      "cosine_median": 0.9999964107799733,
+      "cosine_min": 0.9999950421053674,
+      "corr_median": 0.999996410779209,
+      "norm_diff_median": 0.0027164178923900087,
+      "n": 324
+    },
+    "token_GLOBAL_this_run_vs_saved": {
+      "cosine_median": 0.9999999999999823,
+      "cosine_min": 0.9999999999999712,
+      "corr_median": 0.9999999999999827,
+      "norm_diff_median": 1.8684189273851244e-07,
+      "n": 324
+    },
+    "RESIDUE_GLOBAL_vs_token_GLOBAL": {
+      "cosine_median": 0.9999964107892079,
+      "cosine_min": 0.9999950421042665,
+      "corr_median": 0.9999964107884445,
+      "norm_diff_median": 0.0027164145727590185,
+      "n": 324
+    },
+    "note": "RESIDUE_GLOBAL reweights overlapping TripleAA; not required to match MASKED_MEAN exactly"
+  }
+}

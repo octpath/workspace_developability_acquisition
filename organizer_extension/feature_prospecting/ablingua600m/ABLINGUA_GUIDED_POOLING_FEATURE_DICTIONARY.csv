@@ -1,0 +1,12 @@
+block,chain_scope,residue_selection,weighting,source_structure,raw_dim,missing_policy,notes
+CDR_ALL,HL,CDR1+2+3,uniform,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=dc2663322ea9e783; AbLingua final layer residue-mean then pool
+CDR3,HL,CDR3,uniform,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=5157bfa2028117dd; AbLingua final layer residue-mean then pool
+EXPOSED,HL,RASA>=0.20 resolved,uniform,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=149d76c1625f98d0; AbLingua final layer residue-mean then pool
+BURIED,HL,RASA<0.20 resolved,uniform,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=890cdb0f8f008c74; AbLingua final layer residue-mean then pool
+RASA_WEIGHTED,HL,all resolved,clipped_RASA,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=364f5e16f66e697e; AbLingua final layer residue-mean then pool
+BURIED_WEIGHTED,HL,all resolved,1-clipped_RASA,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=b6ca85026e9be839; AbLingua final layer residue-mean then pool
+EXPOSED_CDR,HL,CDR residues,clipped_RASA,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=4ff39139326671ca; AbLingua final layer residue-mean then pool
+CDR_FR_SPLIT,HL_partition,CDR|FW per chain,uniform,ESMFold Fv (esmfold_canonical_path),5120,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=d927b077dd225fe7; AbLingua final layer residue-mean then pool
+RESIDUE_GLOBAL,HL,all residues,uniform,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=2e640f31deb0e451; AbLingua final layer residue-mean then pool
+H_CDR_ONLY,H_CDR+L_zero,H CDR_ALL,uniform,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=9d15a7cd8c95be8a; AbLingua final layer residue-mean then pool
+L_CDR_ONLY,H_zero+L_CDR,L CDR_ALL,uniform,ESMFold Fv (esmfold_canonical_path),2560,NaN if empty mask; unresolved rasa weight=0 / excluded from hard masks,sha256_16=b537f91dc6b13cda; AbLingua final layer residue-mean then pool
