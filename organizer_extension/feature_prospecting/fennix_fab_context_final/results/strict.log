@@ -1,0 +1,53 @@
+Loading Stage5 feature store (precomputed matrices / embeddings)…
+Feature store ready.
+strict DELTA_GEOM dim=17
+  STRICT FullFeNNix TmApp DELTA_GEOM Primary N=161…
+  STRICT FullFeNNix TmApp DELTA_GEOM Shadow N=161…
+strict DELTA_ENV dim=17
+  STRICT FullFeNNix TmApp DELTA_ENV Primary N=161…
+  STRICT FullFeNNix TmApp DELTA_ENV Shadow N=161…
+strict CONSTANT dim=20
+  STRICT FullFeNNix TmApp CONSTANT Primary N=161…
+  STRICT FullFeNNix TmApp CONSTANT Shadow N=161…
+strict INTERFACE dim=16
+  STRICT FullFeNNix TmApp INTERFACE Primary N=161…
+  STRICT FullFeNNix TmApp INTERFACE Shadow N=161…
+strict FULL_FAB_NORMALIZED dim=3
+  STRICT FullFeNNix TmApp FULL_FAB_NORMALIZED Primary N=161…
+  STRICT FullFeNNix TmApp FULL_FAB_NORMALIZED Shadow N=161…
+strict PREP_RELAX_SENSITIVITY dim=17
+  STRICT FullFeNNix TmApp PREP_RELAX_SENSITIVITY Primary N=161…
+  STRICT FullFeNNix TmApp PREP_RELAX_SENSITIVITY Shadow N=161…
+strict COMBINED_PREDECLARED dim=84
+  STRICT FullFeNNix TmApp COMBINED_PREDECLARED Primary N=161…
+  STRICT FullFeNNix TmApp COMBINED_PREDECLARED Shadow N=161…
+family                  framework                cv     
+COMBINED_PREDECLARED    residual_plus_oof        Primary   -0.167809
+                                                 Shadow    -0.294342
+                        ridge_concat_oof_scalar  Primary   -0.443682
+                                                 Shadow    -0.556512
+CONSTANT                residual_plus_oof        Primary    0.004172
+                                                 Shadow    -0.150443
+                        ridge_concat_oof_scalar  Primary   -0.102274
+                                                 Shadow    -0.237685
+DELTA_ENV               residual_plus_oof        Primary   -0.018629
+                                                 Shadow    -0.169765
+                        ridge_concat_oof_scalar  Primary   -0.201962
+                                                 Shadow    -0.393007
+DELTA_GEOM              residual_plus_oof        Primary   -0.119208
+                                                 Shadow    -0.111672
+                        ridge_concat_oof_scalar  Primary   -0.262182
+                                                 Shadow    -0.367622
+FULL_FAB_NORMALIZED     residual_plus_oof        Primary   -0.037574
+                                                 Shadow    -0.020422
+                        ridge_concat_oof_scalar  Primary   -0.103799
+                                                 Shadow    -0.055129
+INTERFACE               residual_plus_oof        Primary   -0.008948
+                                                 Shadow    -0.050636
+                        ridge_concat_oof_scalar  Primary   -0.118873
+                                                 Shadow    -0.193600
+PREP_RELAX_SENSITIVITY  residual_plus_oof        Primary   -0.044691
+                                                 Shadow    -0.046839
+                        ridge_concat_oof_scalar  Primary   -0.258926
+                                                 Shadow    -0.234209
+wrote STRICT

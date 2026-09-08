@@ -1,0 +1,7 @@
+{
+  "full_dev": 162,
+  "usable_fennix_dev": 161,
+  "missing_dev": [
+    "ADI-47265"
+  ]
+}

@@ -1,0 +1,10 @@
+backing up production r1/matched for ['ADI-47313', 'ADI-47060', 'ADI-45469']
+RUNNING taskset -c 16-23 /workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/bin/python /workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context/scripts/02_fennix_fab_curvature.py --ids ADI-47313 ADI-47060 ADI-45469 --audit-tag fresh_repro_final --fresh
+resume done_pairs=0 remaining_ids≈3 conditions=['B', 'C', 'M']
+COND B ADI-47313
+COND C ADI-47313
+COND M ADI-47313
+COND B ADI-47060
+COND C ADI-47060
+COND M ADI-47060
+COND B ADI-45469

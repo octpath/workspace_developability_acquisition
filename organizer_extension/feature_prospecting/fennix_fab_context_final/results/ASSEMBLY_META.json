@@ -1,0 +1,23 @@
+{
+  "assembled_utc": "2026-09-08T10:31:13.020701+00:00",
+  "N": 323,
+  "excluded": [
+    "ADI-47265"
+  ],
+  "feature_dim": 92,
+  "families": {
+    "DELTA_GEOM": 17,
+    "DELTA_ENV": 17,
+    "CONSTANT": 23,
+    "INTERFACE": 21,
+    "FULL_FAB_NORMALIZED": 4,
+    "PREP_RELAX_SENSITIVITY": 17,
+    "COMBINED_PREDECLARED": 92
+  },
+  "qc_verdict": "QC_PASS_WITH_LIMITATIONS",
+  "feature_table": "organizer_extension/feature_prospecting/fennix_fab_context_final/results/FENNIX_FAB_FEATURES_FULL.parquet",
+  "feature_sha256": "c0e5ecd7692f6091950c6f2de5346df019f79ff94777a79c80fb6aea621027a3",
+  "dictionary_sha256": "bf73cb366372eccbe4894af7877e49543455adc58f63255663dc884d97af698e",
+  "spec": "fennix_fab_context/FENNIX_FAB_CONTEXT_SPEC.md",
+  "assembly": "exact 03_assemble_features.py + INTERIM_FENNIX_FEATURE_FREEZE families"
+}
