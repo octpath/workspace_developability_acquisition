@@ -59,3 +59,7 @@ organizer_extension/feature_prospecting/structure_marathon/tools/SaProt
 .cache/
 organizer_extension/feature_prospecting/ablingua600m/embeddings/
 organizer_extension/feature_prospecting/ablingua600m/embeddings_guided/
+
+# Participant bundle: keep Test labels internal until competition end
+top_models_feature_bundle/solution.csv
+top_models_feature_bundle/outputs/

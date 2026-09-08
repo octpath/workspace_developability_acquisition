@@ -119,6 +119,42 @@ train = train.merge(feat, on="id", how="left")
 - Some model-derived blocks may have redistribution conditions — see `license_status` in `feature_manifest.csv`
 - Organizer Ridge may use PCA32 on AbLingua blocks; this bundle distributes **raw** embeddings
 
+## Reproducing organizer CV
+
+Train / CV from this bundle alone (no PLM / BioEmu / ProteinMPNN recompute):
+
+```bash
+python reproduce_top_recipes.py \
+    --dev dev.csv \
+    --test test.csv
+```
+
+Optional submission pair:
+
+```bash
+python reproduce_top_recipes.py \
+    --dev dev.csv \
+    --test test.csv \
+    --tm-recipe TM_PARENT_ABLINGUA_CDR3__RIDGE \
+    --hic-recipe HIC_HYDRO_TITRATION__LASSO \
+    --submission outputs/submission.csv
+```
+
+`dev.csv` schema: `id,heavy,light,TmApp,HIC`  
+`test.csv` schema: `id,heavy,light`
+
+**`solution.csv` is NOT required for training or CV.** It is used only for
+post-hoc Public/Private evaluation (organizer-internal until competition end):
+
+```bash
+python reproduce_top_recipes.py \
+    --dev dev.csv \
+    --test test.csv \
+    --solution solution.csv
+```
+
+See `RELEASE_FILE_POLICY.md` and `BUNDLE_REPRODUCTION_AUDIT.md`.
+
 ## Scope clarification
 
 Earlier chat references to an “Organizer Top-3” meant only the **restricted**

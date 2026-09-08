@@ -120,6 +120,42 @@ train = train.merge(feat, on="id", how="left")
 - 一部のモデル由来ブロックには再配布条件があり得る — `feature_manifest.csv` の `license_status` を確認
 - Organizer の Ridge は AbLingua ブロックに PCA32 を使う場合があるが、本バンドルは **生の埋め込み**を配布する
 
+## Organizer CV の再現
+
+このバンドル単独で学習 / CV できます（PLM / BioEmu / ProteinMPNN の再計算なし）:
+
+```bash
+python reproduce_top_recipes.py \
+    --dev dev.csv \
+    --test test.csv
+```
+
+任意の提出ペア:
+
+```bash
+python reproduce_top_recipes.py \
+    --dev dev.csv \
+    --test test.csv \
+    --tm-recipe TM_PARENT_ABLINGUA_CDR3__RIDGE \
+    --hic-recipe HIC_HYDRO_TITRATION__LASSO \
+    --submission outputs/submission.csv
+```
+
+`dev.csv` スキーマ: `id,heavy,light,TmApp,HIC`  
+`test.csv` スキーマ: `id,heavy,light`
+
+**`solution.csv` は学習・CV に不要です。** 事後の Public / Private 評価専用です
+（競技終了までは organizer 内部用）:
+
+```bash
+python reproduce_top_recipes.py \
+    --dev dev.csv \
+    --test test.csv \
+    --solution solution.csv
+```
+
+詳細は `RELEASE_FILE_POLICY.md` と `BUNDLE_REPRODUCTION_AUDIT.md` を参照。
+
 ## スコープの明確化
 
 以前の会話での「Organizer Top-3」は、endgame Ridge/Lasso の **狭い**

@@ -1,0 +1,38 @@
+{
+  "TM_PARENT_ABLINGUA_CDR3__RIDGE": {
+    "expected_primary_mae": 2.732072376654289,
+    "expected_shadow_mae": 2.784957206877823,
+    "expected_public_mae": 3.1185249613955217,
+    "expected_private_mae": 3.289917689937472
+  },
+  "TM_PARENT_ABLINGUA_GLOBAL__RIDGE": {
+    "expected_primary_mae": 2.7466001170280285,
+    "expected_shadow_mae": 2.822725206703513,
+    "expected_public_mae": 3.106900023997267,
+    "expected_private_mae": 3.326374924950283
+  },
+  "TM_BASE_BIOEMU_MPNN__RIDGE": {
+    "expected_primary_mae": 2.702681240871287,
+    "expected_shadow_mae": 2.845936772811553,
+    "expected_public_mae": 3.1199439738928896,
+    "expected_private_mae": 3.432660341190389
+  },
+  "HIC_HYDRO_TITRATION__LASSO": {
+    "expected_primary_mae": 0.4872225781431885,
+    "expected_shadow_mae": 0.4833719610538652,
+    "expected_public_mae": 0.4702379457310565,
+    "expected_private_mae": 0.4641712708181718
+  },
+  "HIC_ARO_CONTINUOUS_SURFACE__LASSO": {
+    "expected_primary_mae": 0.4822073134231601,
+    "expected_shadow_mae": 0.4898232886862832,
+    "expected_public_mae": 0.4799310265774686,
+    "expected_private_mae": 0.4757443667060864
+  },
+  "HIC_ESM2_SEQ_AROMATIC__LASSO": {
+    "expected_primary_mae": 0.4927303900206625,
+    "expected_shadow_mae": 0.4808724742416768,
+    "expected_public_mae": 0.4799350305277475,
+    "expected_private_mae": 0.4757445162156721
+  }
+}

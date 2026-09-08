@@ -1,0 +1,12 @@
+{
+  "rule": "median of Primary 5-fold VAL-selected alphas from Simple TVT",
+  "note": "Subset of organizer FULL_DEV_ALPHA_POLICY.json for frozen Top-3 only",
+  "final_alpha_by_recipe_regressor": {
+    "TM_PARENT_ABLINGUA_CDR3::RIDGE": 100.0,
+    "TM_PARENT_ABLINGUA_GLOBAL::RIDGE": 100.0,
+    "TM_BASE_BIOEMU_MPNN::RIDGE": 100.0,
+    "HIC_HYDRO_TITRATION::LASSO": 0.1,
+    "HIC_ARO_CONTINUOUS_SURFACE::LASSO": 0.1,
+    "HIC_ESM2_SEQ_AROMATIC::LASSO": 0.1
+  }
+}
