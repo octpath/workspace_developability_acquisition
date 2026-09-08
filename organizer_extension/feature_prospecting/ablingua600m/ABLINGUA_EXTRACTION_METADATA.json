@@ -1,0 +1,34 @@
+{
+  "model_repo": "IDEA-AI4S/AbLingua",
+  "hf_revision": "4d1272df61a32805695f8789664e2716bb78bb60",
+  "tokenizer": "baysicx/AbLingua BioTokenizer 3-gram (vendor/AbLingua/tokens.txt)",
+  "tokenizer_note": "HF IDEA-AI4S/AbLingua has no tokenizer files; official GitHub tokenizer used",
+  "transformers_version": "5.16.1",
+  "torch_version": "2.10.0+cu128",
+  "cuda_version": "12.8",
+  "dtype": "float32",
+  "hidden_size": 1280,
+  "num_hidden_layers": 30,
+  "max_position_embeddings": 256,
+  "vocab_size_config": 18950,
+  "vocab_size_tokenizer": 18933,
+  "token_length_min": 103,
+  "token_length_median": 114.0,
+  "token_length_max": 140,
+  "batch_size": 8,
+  "extraction_wall_time_sec": 14.322437763214111,
+  "n_ids": 324,
+  "device": "cuda:0",
+  "representation_source": "outputs.hidden_states[-1]",
+  "pooling": [
+    "MASKED_MEAN"
+  ],
+  "CLS_SUPPORTED": false,
+  "CLS_REASON": "Official Simple_Collator/BioTokenizer.tokenize does not insert [CLS]; marking CLS_UNSUPPORTED",
+  "files": {
+    "H_mean": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/ablingua600m/embeddings/ablingua600m_H_mean.parquet",
+    "L_mean": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/ablingua600m/embeddings/ablingua600m_L_mean.parquet",
+    "HL_mean_concat": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/ablingua600m/embeddings/ablingua600m_HL_mean_concat.parquet"
+  },
+  "gpu": "RTX 3090 (cuda:0)"
+}

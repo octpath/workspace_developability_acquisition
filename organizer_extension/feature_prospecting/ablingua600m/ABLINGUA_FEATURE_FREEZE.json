@@ -1,0 +1,26 @@
+{
+  "frozen_at": "2026-09-09T00:00:00Z",
+  "target": "TmApp",
+  "model": "IDEA-AI4S/AbLingua",
+  "pooling": {
+    "MASKED_MEAN": "USED",
+    "CLS": "CLS_UNSUPPORTED"
+  },
+  "diagnostic": ["H_mean", "L_mean"],
+  "primary": ["HL_mean_concat"],
+  "embedding_files": {
+    "H_mean": "embeddings/ablingua600m_H_mean.parquet",
+    "L_mean": "embeddings/ablingua600m_L_mean.parquet",
+    "HL_mean_concat": "embeddings/ablingua600m_HL_mean_concat.parquet"
+  },
+  "no_new_pooling_after_cv": true,
+  "protocol": "Simple_TVT_exact_existing_folds",
+  "downstream_primary": "StandardScaler->Ridge alphas[0.1,1,10,100]",
+  "dimensionality": ["raw", "PCA32_fold_local_when_dim_gt_200_or_explicit"],
+  "predeclared_fusions": [
+    "HL_mean_concat+SEQ_BASIC",
+    "REPLACE_AbLang2_in_BASE+BIOEMU_NEW_PAIRWISE+M1",
+    "ADD_HL_mean_to_current_recipe",
+    "SEQ_BASIC+AbLang2_HL_paired+HL_mean_concat"
+  ]
+}

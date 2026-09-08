@@ -1,0 +1,6 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+config ['BertForMaskedLM'] 30 1280 256
+tok <class 'transformers.models.bert.tokenization_bert.BertTokenizer'> cls [CLS] 2 sep [SEP] 3 pad 0
+special ['[UNK]', '[SEP]', '[PAD]', '[CLS]', '[MASK]']
+ids [2, 1, 3] len 3
+special_mask [1, 0, 1]

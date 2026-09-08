@@ -55,3 +55,6 @@ organizer_extension/feature_prospecting/foundation_stability/pilots/bioemu_*/
 organizer_extension/feature_prospecting/foundation_stability_v2/envs/
 organizer_extension/feature_prospecting/foundation_stability_v2/cache/
 organizer_extension/feature_prospecting/structure_marathon/tools/SaProt
+
+.cache/
+organizer_extension/feature_prospecting/ablingua600m/embeddings/
