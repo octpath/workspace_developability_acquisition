@@ -1,0 +1,13 @@
+block_name,file,n_ids,n_features,molecular_scope,source_model,model/version,feature_definition,target_used_in_generation,missing_ids,license_status,notes
+AROMATIC_TOPO,data/aromatic_topo.parquet,324,19,AROMATIC_TOPO,AROMATIC_TOPO,cached_organizer,aromatic_topology.parquet,NO,,SEE_FEATURE_EXTENSION,RAW features (no CV-fitted PCA)
+AbLang2_HL_paired,data/ablang2.parquet,324,480,AbLang2_HL_paired,AbLang2_HL_paired,cached_organizer,AbLang2 embeddings; code/weights != output — review redistribution,NO,,REVIEW_MODEL_OUTPUT,RAW features (no CV-fitted PCA)
+AbLingua_CDR3,data/ablingua_cdr3.parquet,324,2560,AbLingua_CDR3,AbLingua_CDR3,cached_organizer,AbLingua guided pooling; review,NO,,REVIEW_MODEL_OUTPUT,RAW features (no CV-fitted PCA)
+AbLingua_HL_mean,data/ablingua_global.parquet,324,2560,AbLingua_HL_mean,AbLingua_HL_mean,cached_organizer,AbLingua embeddings; HF weights + BioTokenizer — review,NO,,REVIEW_MODEL_OUTPUT,RAW features (no CV-fitted PCA)
+BIOEMU_NEW_PAIRWISE,data/bioemu_new_pairwise.parquet,324,10,BIOEMU_NEW_PAIRWISE,BIOEMU_NEW_PAIRWISE,cached_organizer,Already in feature_extension bioemu bundle,NO,,SEE_FEATURE_EXTENSION,RAW features (no CV-fitted PCA)
+CONTINUOUS_SURFACE,data/continuous_surface.parquet,324,45,CONTINUOUS_SURFACE,CONTINUOUS_SURFACE,cached_organizer,continuous_surface.parquet,NO,,SEE_FEATURE_EXTENSION,RAW features (no CV-fitted PCA)
+ESM2_H,data/esm2_heavy.parquet,324,1280,ESM2_H,ESM2_H,cached_organizer,ESM2 embeddings; review redistribution,NO,,REVIEW_MODEL_OUTPUT,RAW features (no CV-fitted PCA)
+HYDRO_FIELD,data/hydro_field.parquet,324,16,HYDRO_FIELD,HYDRO_FIELD,cached_organizer,hydro_field.parquet,NO,,SEE_FEATURE_EXTENSION,RAW features (no CV-fitted PCA)
+M1_PROTEINMPNN,data/proteinmpnn.parquet,324,1,M1_PROTEINMPNN,M1_PROTEINMPNN,cached_organizer,Already in feature_extension proteinmpnn.parquet,NO,,SEE_FEATURE_EXTENSION,RAW features (no CV-fitted PCA)
+SEQ_ALL,data/seq_all.parquet,324,115,SEQ_ALL,SEQ_ALL,cached_organizer,Built from official competition sequences,NO,,OK_COMPETITION_DERIVED,RAW features (no CV-fitted PCA)
+SEQ_BASIC,data/seq_basic.parquet,324,78,SEQ_BASIC,SEQ_BASIC,cached_organizer,Built from official competition sequences,NO,,OK_COMPETITION_DERIVED,RAW features (no CV-fitted PCA)
+TITRATION_SHAPE,data/titration_shape.parquet,324,18,TITRATION_SHAPE,TITRATION_SHAPE,cached_organizer,titration_shape.parquet,NO,,SEE_FEATURE_EXTENSION,RAW features (no CV-fitted PCA)
