@@ -33,6 +33,24 @@ Coverage detail: see top-level `BLOCK_COVERAGE.csv`.
 | `static_sap.parquet` | STATIC-SAP | Fv ESMFold | 18 | 324 | HIC | COMPLETE |
 | `hydro_field.parquet` | HYDRO-FIELD | Fv ESMFold | 16 | 324 | HIC | COMPLETE |
 | `titration_shape.parquet` | TITRATION_SHAPE | Fv ESMFold | 18 | 324 | HIC/TmApp | COMPLETE |
+| `fennix_fab_context.parquet` | FeNNix Fab-context (v1.1) | **Fab** reconstructed | 92 | **323** | TmApp (heuristic) | Missing **ADI-47265** (TECHNICAL_SKIP) |
+
+## FeNNix Fab-context (v1.1)
+
+See `FENNIX_FAB_CONTEXT_FEATURE_DICTIONARY.csv`.
+
+**What:** FeNNix local-curvature / perturbational aggregates on reconstructed prepared Fab
+(A/B/C/M protocol). Families: DELTA_GEOM, DELTA_ENV, CONSTANT, INTERFACE,
+FULL_FAB_NORMALIZED, PREP_RELAX_SENSITIVITY (+ COMBINED in the wide table).
+
+**Scope:** Fab-like (VH+CH1 / VL+CL), not IgG. Surrogate constant domains.
+
+**Coverage:** 323/324 — `ADI-47265` absent (Fab prep / HL disulfide geometry QC failure).
+Do not impute that row in the distributed table. **LEFT JOIN** on `id`.
+
+**Organizer Dev-CV note:** full-cohort Simple TVT did **not** show stable Primary∩Shadow
+improvement for these blocks (interim N=100 CONSTANT signal did **not** replicate).
+Provided as target-blind experimental descriptors.
 
 ## continuous_surface (important)
 

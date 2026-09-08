@@ -208,6 +208,15 @@ scientifically meaningful, target-blind structural descriptors. Organizer Dev CV
 show strong consistent improvement from these blocks — but participants may find better
 models/combinations. Experimentation is encouraged.
 
+### FeNNix Fab-context (v1.1)
+
+Full-Fab FeNNix features are provided as **target-blind experimental descriptors**
+(reconstructed Fab; see `fennix_fab_context.parquet`).
+
+Organizer **full-cohort** Dev Simple TVT did **not** show stable Primary∩Shadow improvement
+for FeNNix families (including CONSTANT). An interim N=100 CONSTANT signal **did not replicate**.
+Treat as optional exploration, not a proven booster.
+
 ## 9. Molecular-scope caveats
 
 | Assay | Experimental molecule |
@@ -225,12 +234,12 @@ weights or derived outputs; decisions are documented per artifact.
 
 ## 11. Known limitations
 
-- Full-Fab **FeNNix** not in v1.
 - BioEmu = isolated VH/VL only.
 - Fab constants are surrogate UniProt sequences (POLICY B).
-- `buried_unsatisfied` missing **ADI-47265**; some `continuous_surface` Fab-prep cells NaN for that ID.
+- `buried_unsatisfied` and `fennix_fab_context` missing **ADI-47265**; some `continuous_surface` Fab-prep cells NaN for that ID.
+- FeNNix full-cohort Dev-CV did not show stable Primary∩Shadow improvement.
 - Extractors use Bio.PDB Shrake–Rupley; continuous SAS surface is precomputed only.
 
 ## 12. Future additions
 
-Future v1.x may add FeNNix Fab features when frozen. No unfinished science is promised here.
+v1.1 adds FeNNix Fab-context features. Further frozen target-blind blocks may appear later.

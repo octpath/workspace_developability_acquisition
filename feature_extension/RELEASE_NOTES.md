@@ -1,43 +1,57 @@
-# RELEASE_NOTES — feature_extension v1
+# RELEASE_NOTES — feature_extension
 
-**Version:** v1  
-**Status:** participant release package (structures + precomputed features + extractors)  
-**FeNNix full-Fab:** **not included** (production job still running; deferred to a later update)
+## Versioning
 
-## Included
+| Version | Status |
+|---|---|
+| **v1** | Structures + BioEmu + precomputed (non-FeNNix) — still valid |
+| **v1.1** | Adds **FeNNix Fab-context** precomputed features |
 
-- ESMFold **Fv** PDBs (N=324)
-- Reconstructed ESMFold **Fab** PDBs (N=324) + constant-domain policy/sequences
-- BioEmu **isolated VH/VL** aggregated features + QC + `FEATURE_DICTIONARY.csv`
-- Precomputed blocks: ProteinMPNN, ESM-IF1, SaProt, generator disagreement,
-  AROMATIC-TOPO, STATIC-SAP, HYDRO-FIELD, TITRATION_SHAPE,
-  continuous surface, packing/cavity, buried unsatisfied, Fab interface
-- `BLOCK_COVERAGE.csv` / updated `MANIFEST.csv` coverage fields
-- Organizer Stage0 `folds.csv` (DEV N=162; `fold_primary`, `fold_shadow`)
-- Lightweight extractors + examples + validation / packaging tools
+v1 archives remain valid. v1.1 is additive.
 
-All released feature assets: **`target_used = NO`**.
+## v1.1 Included (new)
 
-## Not yet included / deferred
+- `data/precomputed_features/fennix_fab_context.parquet` (323 IDs × 92 features)
+- `FENNIX_FAB_CONTEXT_FEATURE_DICTIONARY.csv`
+- Updated README / MANIFEST / BLOCK_COVERAGE / RELEASE_AUDIT
+
+**Excluded ID:** ADI-47265 (`TECHNICAL_SKIP` Fab prep / disulfide QC).
+
+**Target labels used:** NO
+
+### FeNNix licensing / redistribution
+
+| Field | Value |
+|---|---|
+| upstream | FeNNol / FeNNix (`fennix-bio1S` checkpoint) |
+| code license | **LGPL-3.0** (FeNNol package LICENSE) |
+| weights license | Distributed with FeNNol project packaging; no separate output-ban text located in-repo |
+| derived-output language | No explicit ban found on redistributing numerical descriptors |
+| release decision | `PARTICIPANT_ONLY_REVIEW_RECOMMENDED` |
+| source | FeNNol dist-info LICENSE; SPEC checkpoint `fennix-bio1S.fnx` |
+
+This is **not** legal certainty. Organizers should confirm public hosting.
+
+## v1 baseline (unchanged)
+
+- ESMFold Fv/Fab PDBs (N=324)
+- BioEmu isolated VH/VL features
+- Other precomputed blocks (MPNN, IF1, SaProt, Gap Closure, ARO/SAP/…)
+- folds.csv, extractors, examples
+
+## Still omitted
 
 | Item | Reason |
 |---|---|
-| Full-Fab FeNNix features | Production still running; separate future release |
-| Raw BioEmu trajectories | Size / complexity (`OMITTED_SIZE_AND_COMPLEXITY`) |
-| ABodyBuilder2 / Boltz2 structure trees | Simplified v1; ESMFold Fv/Fab prioritized |
-| Structure-guided pooling (S1) high-dim | Prefer lighter core; optional later |
-| Obsolete BioEmu V12 primary tables | Superseded by isolated reassessment |
-| VL+CL extended-chain BioEmu | Not part of validated release |
-| OpenMM / new ESMFold / ProteinMPNN inference code reruns | Reuse frozen outputs only |
+| Raw BioEmu trajectories | Size/complexity |
+| ABodyBuilder2 / Boltz2 structures | Simplify |
+| FeNNix raw trajectories / npz dumps | Size; features only in v1.1 |
 
-## Planned update
+## Organizer Dev-CV note (FeNNix, post full cohort)
 
-Future **v1.x** may add:
-
-- full-cohort FeNNix Fab features (when frozen and QC’d)
-- other newly frozen target-blind feature blocks
-
-No unfinished result is promised.
+Interim N=100 suggested CONSTANT gains under Simple TVT; **full usable Dev (N=161)
+did not replicate** stable Primary∩Shadow improvement. Participant README hints
+reflect the full-cohort result (experimental descriptors; no guaranteed CV lift).
 
 ## Folds (authoritative Stage0)
 
