@@ -1,0 +1,29 @@
+{
+  "freeze_utc": "2026-09-08T11:15:29.371639+00:00",
+  "feature_table": "results/FENNIX_FAB_FEATURES_FULL.parquet",
+  "feature_table_sha256": "c0e5ecd7692f6091950c6f2de5346df019f79ff94777a79c80fb6aea621027a3",
+  "feature_dictionary_sha256": "bf73cb366372eccbe4894af7877e49543455adc58f63255663dc884d97af698e",
+  "accepted_N": 323,
+  "excluded_ids": [
+    "ADI-47265"
+  ],
+  "excluded_reason": "TECHNICAL_SKIP Fab prep / HL disulfide QC failure",
+  "feature_families": {
+    "DELTA_GEOM": 17,
+    "DELTA_ENV": 17,
+    "CONSTANT": 23,
+    "INTERFACE": 21,
+    "FULL_FAB_NORMALIZED": 4,
+    "PREP_RELAX_SENSITIVITY": 17,
+    "COMBINED_PREDECLARED": 92
+  },
+  "feature_dim": 92,
+  "scientific_spec": "fennix_fab_context/FENNIX_FAB_CONTEXT_SPEC.md",
+  "interim_feature_freeze": "fennix_fab_context_interim_audit/INTERIM_FENNIX_FEATURE_FREEZE.json",
+  "assembly_script": "fennix_fab_context_final/scripts/01_assemble_and_qc.py",
+  "assembly_code_commit": "b84d91fb2d36182ffa7a1d347ad851eaa1a99ecc",
+  "qc_verdict": "QC_PASS_WITH_LIMITATIONS",
+  "reproducibility_verdict": "NUMERICALLY_CLOSE",
+  "frozen_before_full_cohort_target_eval": true,
+  "note": "Freeze metadata recorded after assembly/QC; target eval used this table without changing features."
+}
