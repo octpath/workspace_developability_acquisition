@@ -8,3 +8,23 @@ COND B ADI-47060
 COND C ADI-47060
 COND M ADI-47060
 COND B ADI-45469
+COND C ADI-45469
+COND M ADI-45469
+DONE {('B', 'SUCCESS'): 3, ('C', 'SUCCESS'): 3, ('M', 'SUCCESS'): 3}
+restore production artifacts
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_final/scripts/02_fresh_worker_repro.py", line 182, in <module>
+    main()
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_final/scripts/02_fresh_worker_repro.py", line 158, in main
+    df, summ, verdict = compare(prod, fresh)
+                        ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context_final/scripts/02_fresh_worker_repro.py", line 101, in compare
+    "corr": float(np.corrcoef(g.prod, g.fresh)[0, 1]) if len(g) > 2 else np.nan,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py", line 3028, in corrcoef
+    c = cov(x, y, rowvar, dtype=dtype)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py", line 2836, in cov
+    X = np.concatenate((X, y), axis=0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 1 and the array at index 1 has size 70
