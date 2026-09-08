@@ -38,7 +38,12 @@ organizer_extension/feature_prospecting/ANM-SPECTRUM/boltz2_rows/
 organizer_extension/feature_prospecting/_batch2_cache/
 .tmp_torch/
 tools/foldseek/
+tools/foldseek.tar.gz
 organizer_extension/feature_prospecting/_batch3_cache/
+
+# Structure marathon feature dumps (>100MB; keep local only)
+organizer_extension/feature_prospecting/structure_marathon/structure_guided_pooling/S1_FEATURES.csv
+organizer_extension/feature_prospecting/structure_marathon/structure_guided_pooling/S1_FEATURES_partial.csv
 
 # Foundation-model stability branch: local envs + bulky regenerable caches
 organizer_extension/feature_prospecting/foundation_stability/envs/
