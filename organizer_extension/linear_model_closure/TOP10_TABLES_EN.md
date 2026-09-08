@@ -1,20 +1,3 @@
-# 線形モデル Top-10 表（日本語案内）
-
-数値表の英語見出し版: `TOP10_TABLES_EN.md`
-
-権威ある数値は CSV を正とする:
-
-- `TmApp_CV_TOP10.csv` / `TmApp_PUBLIC_TOP10.csv` / `TmApp_PRIVATE_TOP10.csv`
-- `HIC_CV_TOP10.csv` / `HIC_PUBLIC_TOP10.csv` / `HIC_PRIVATE_TOP10.csv`
-- feature-level のみ: `FEATURE_LEVEL_*`
-- 履歴込み全体: `ORGANIZER_LINEAR_OVERALL_*`
-
-CV Top-10 は FEATURE_LINEAR かつ canonical Simple TVT のみ。Public/Private の総合表は履歴予測ブレンドを含む（選定には未使用）。
-
----
-
-## 英語表の複製（数値確認用）
-
 # Linear Model Top-10 Tables
 
 CV tables = **FEATURE_LINEAR canonical Simple TVT only**.

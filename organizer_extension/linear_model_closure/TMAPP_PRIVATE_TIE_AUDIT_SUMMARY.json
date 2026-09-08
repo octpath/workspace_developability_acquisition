@@ -1,0 +1,9 @@
+{
+  "representative": "TmApp__META_diversity__convex_mae__HIST",
+  "n_labels": 8,
+  "n_unique_prediction_hashes": 1,
+  "classification": "IDENTICAL_PREDICTION_FAMILY",
+  "shared_sha256": "8b7f14e326c369ab54702b94b1242483b793b61a765c226c6639125c6c1f5f2d",
+  "private_mae": 3.15007534338225,
+  "public_mae": 3.345595945037222
+}

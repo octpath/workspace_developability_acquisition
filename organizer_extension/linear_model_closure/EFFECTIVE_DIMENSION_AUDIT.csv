@@ -1,0 +1,14 @@
+model_id,block,raw_dim,transform,effective_dim,notes
+TM_PARENT_ABLINGUA_CDR3__RIDGE,AbLang2_HL_paired,480,raw (no PCA),480,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_CDR3__RIDGE,SEQ_BASIC,78,raw (no PCA),78,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_CDR3__RIDGE,BIOEMU_NEW_PAIRWISE,10,raw (no PCA),10,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_CDR3__RIDGE,M1_PROTEINMPNN,1,raw (no PCA),1,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_CDR3__RIDGE,AbLingua_HL_mean,2560,fold-local PCA,32,PCA via canonical_simple_tvt.run_recipe_plus_abl_blocks / _pca_named
+TM_PARENT_ABLINGUA_CDR3__RIDGE,AbLingua_CDR3,2560,fold-local PCA,32,PCA via canonical_simple_tvt.run_recipe_plus_abl_blocks / _pca_named
+TM_PARENT_ABLINGUA_CDR3__RIDGE,__TOTAL__,5689,concat after per-block transforms,633,effective_dim = final Ridge input width after AbLingua PCA32
+TM_PARENT_ABLINGUA_GLOBAL__RIDGE,AbLang2_HL_paired,480,raw (no PCA),480,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_GLOBAL__RIDGE,SEQ_BASIC,78,raw (no PCA),78,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_GLOBAL__RIDGE,BIOEMU_NEW_PAIRWISE,10,raw (no PCA),10,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_GLOBAL__RIDGE,M1_PROTEINMPNN,1,raw (no PCA),1,passed through after median impute; StandardScaler on concatenated TV matrix
+TM_PARENT_ABLINGUA_GLOBAL__RIDGE,AbLingua_HL_mean,2560,fold-local PCA,32,PCA via canonical_simple_tvt.run_recipe_plus_abl_blocks / _pca_named
+TM_PARENT_ABLINGUA_GLOBAL__RIDGE,__TOTAL__,3129,concat after per-block transforms,601,effective_dim = final Ridge input width after AbLingua PCA32
