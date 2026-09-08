@@ -462,6 +462,8 @@ def main(argv=None) -> int:
     # Audit markdown
     lines = ["# Bundle Reproduction Audit\n\n"]
     all_ok = (scores.cv_reproduction_status != "MISMATCH").all() and len(scores) >= 1
+    if args.recipe is None and args.target is None:
+        all_ok = all_ok and len(scores) == 6
     gate = "PASS" if all_ok and not guarded.accessed_during_train else "FAIL"
     lines.append(f"**BUNDLE_SELF_REPRODUCTION = {gate}**\n\n")
     lines.append("| target | recipe | expected P/S | reproduced P/S | status |\n")
