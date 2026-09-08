@@ -13,11 +13,28 @@ from typing import Iterable
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import Lasso, Ridge
 from sklearn.preprocessing import StandardScaler
-
+from sklearn.exceptions import ConvergenceWarning
+import warnings
 CANONICAL_VERSION = "canonical_simple_tvt_v1"
 ALPHAS = [0.1, 1.0, 10.0, 100.0]
+# Predeclared Lasso grid (log-scale; no prior authoritative endgame grid)
+LASSO_ALPHAS = [
+    1e-5,
+    3e-5,
+    1e-4,
+    3e-4,
+    1e-3,
+    3e-3,
+    1e-2,
+    3e-2,
+    1e-1,
+    3e-1,
+    1.0,
+]
+LASSO_MAX_ITER = 200_000
+LASSO_TOL = 1e-3
 PCA_CAP = 32
 DIM_PCA_TRIGGER = 200
 MIN_TR, MIN_VA, MIN_TE = 20, 5, 5
@@ -448,3 +465,221 @@ def run_recipe_plus_abl_blocks(
         "id_hash": sha_ids(common)[:16],
         "canonical_evaluator_version": CANONICAL_VERSION,
     }
+
+
+class LassoConvergenceError(RuntimeError):
+    pass
+
+
+def _fit_lasso(X, y, alpha: float) -> Lasso:
+    m = Lasso(
+        alpha=alpha,
+        max_iter=LASSO_MAX_ITER,
+        tol=LASSO_TOL,
+        random_state=0,
+        selection="cyclic",
+    )
+    with warnings.catch_warnings(record=True) as w:
+        warnings.simplefilter("always", ConvergenceWarning)
+        m.fit(np.asarray(X, float), np.asarray(y, float))
+        conv_warn = any(issubclass(x.category, ConvergenceWarning) for x in w)
+    # sklearn sets n_iter_; if hit max_iter, treat as failure
+    n_iter = int(getattr(m, "n_iter_", 0) or 0)
+    if conv_warn or n_iter >= LASSO_MAX_ITER:
+        raise LassoConvergenceError(
+            f"Lasso did not converge alpha={alpha} n_iter={n_iter} max_iter={LASSO_MAX_ITER}"
+        )
+    return m
+
+
+def select_lasso_alpha(Xtr, ytr, Xva, yva) -> tuple[float, dict]:
+    """Choose alpha on VAL; skip alphas that fail to converge (do not silent-accept)."""
+    best_a, best = None, np.inf
+    meta = {}
+    Xtr_v = np.asarray(Xtr, float)
+    Xva_v = np.asarray(Xva, float)
+    ytr_v = np.asarray(ytr, float)
+    yva_v = np.asarray(yva, float)
+    tried, ok = 0, 0
+    for a in LASSO_ALPHAS:
+        tried += 1
+        sc = StandardScaler()
+        Ztr = sc.fit_transform(Xtr_v)
+        Zva = sc.transform(Xva_v)
+        try:
+            m = _fit_lasso(Ztr, ytr_v, a)
+        except LassoConvergenceError:
+            continue
+        ok += 1
+        score = mae(yva_v, m.predict(Zva))
+        if score < best - 1e-15 or (abs(score - best) <= 1e-15 and (best_a is None or a > best_a)):
+            best, best_a = score, a
+            nz = int(np.sum(np.abs(m.coef_) > 1e-12))
+            meta = {
+                "alpha": float(best_a),
+                "n_nonzero": nz,
+                "n_coef": int(len(m.coef_)),
+                "sparsity": 1.0 - nz / max(len(m.coef_), 1),
+                "converged": True,
+                "alphas_converged": ok,
+                "alphas_tried": tried,
+            }
+    if best_a is None:
+        raise LassoConvergenceError(
+            f"No Lasso alpha converged among {LASSO_ALPHAS} (tried={tried})"
+        )
+    return float(best_a), meta
+
+
+def run_standalone_lasso(
+    X: pd.DataFrame,
+    y: pd.Series,
+    folds: pd.DataFrame,
+    ids: list[str],
+) -> dict:
+    """StandardScaler -> Lasso Simple TVT. No PCA. Hard-fail on non-convergence."""
+    common = [i for i in ids if i in X.index and i in y.index]
+    for _, tr, va, te in rotation_splits(folds, common):
+        if not (len(tr) >= MIN_TR and len(va) >= MIN_VA and len(te) >= MIN_TE):
+            raise FeatureAlignmentError("coverage failure")
+    Xx = X.loc[common]
+    yy = y.loc[common]
+    if Xx.shape[1] == 0:
+        raise FeatureAlignmentError("Lasso: zero feature dim")
+    oof = pd.Series(index=common, dtype=float)
+    alphas, n_nonzero, sparsities, conv = [], [], [], []
+    for _, tr, va, te in rotation_splits(folds, common):
+        med = impute_fit(Xx.loc[tr])
+        Xtr = impute_apply(Xx.loc[tr], med)
+        Xva = impute_apply(Xx.loc[va], med)
+        a, meta = select_lasso_alpha(Xtr, yy.loc[tr], Xva, yy.loc[va])
+        alphas.append(a)
+        n_nonzero.append(meta["n_nonzero"])
+        sparsities.append(meta["sparsity"])
+        conv.append(True)
+        ids_tv = tr + va
+        med2 = impute_fit(Xx.loc[ids_tv])
+        Xtv = impute_apply(Xx.loc[ids_tv], med2)
+        Xte = impute_apply(Xx.loc[te], med2)
+        sc = StandardScaler()
+        Ztv = sc.fit_transform(np.asarray(Xtv, float))
+        Zte = sc.transform(np.asarray(Xte, float))
+        # Refit may need a larger alpha than VAL-selected if TV set differs
+        m = None
+        for a_try in [a] + [x for x in LASSO_ALPHAS if x > a]:
+            try:
+                m = _fit_lasso(Ztv, yy.loc[ids_tv], a_try)
+                a = a_try
+                break
+            except LassoConvergenceError:
+                continue
+        if m is None:
+            raise LassoConvergenceError(f"TV refit failed for all alphas >= {alphas[-1] if alphas else a}")
+        alphas[-1] = a
+        oof.loc[te] = m.predict(Zte)
+        # record refit sparsity
+        nz = int(np.sum(np.abs(m.coef_) > 1e-12))
+        n_nonzero[-1] = nz
+        sparsities[-1] = 1.0 - nz / max(len(m.coef_), 1)
+    return {
+        "N": len(common),
+        "mae": mae(yy, oof),
+        "oof": oof,
+        "y": yy,
+        "alphas": alphas,
+        "n_nonzero": n_nonzero,
+        "sparsities": sparsities,
+        "converged": conv,
+        "raw_dim": int(Xx.shape[1]),
+        "alpha_median": float(np.median(alphas)),
+        "n_nonzero_median": float(np.median(n_nonzero)),
+        "n_nonzero_min": int(np.min(n_nonzero)),
+        "n_nonzero_max": int(np.max(n_nonzero)),
+        "sparsity_median": float(np.median(sparsities)),
+        "prediction_hash": sha_arr(oof.to_numpy(dtype=float))[:16],
+        "id_hash": sha_ids(common)[:16],
+        "canonical_evaluator_version": CANONICAL_VERSION,
+        "regressor": "LASSO",
+        "preprocessing": "impute+StandardScaler+Lasso(no_PCA)",
+    }
+
+
+def fit_full_dev_ridge(
+    X: pd.DataFrame,
+    y: pd.Series,
+    ids: list[str],
+    *,
+    alpha: float,
+    dim_mode: str = "raw",
+) -> dict:
+    """Fit Ridge on full DEV ids; return model artifacts for Test prediction."""
+    common = [i for i in ids if i in X.index and i in y.index]
+    Xx = X.loc[common]
+    yy = y.loc[common]
+    med = impute_fit(Xx)
+    Xi = impute_apply(Xx, med)
+    pca = None
+    if dim_mode == "PCA32":
+        Xi, _, ok = pca_block(Xi, [])
+        if not ok:
+            dim_mode = "raw"
+    sc = StandardScaler()
+    Z = sc.fit_transform(np.asarray(Xi, float))
+    m = Ridge(alpha=alpha, random_state=0)
+    m.fit(Z, np.asarray(yy, float))
+    return {
+        "ids": common,
+        "med": med,
+        "scaler": sc,
+        "model": m,
+        "pca": pca,
+        "dim_mode": dim_mode,
+        "alpha": float(alpha),
+        "raw_dim": int(X.loc[common].shape[1]),
+    }
+
+
+def predict_with_ridge_artifact(art: dict, X: pd.DataFrame, ids: list[str]) -> pd.Series:
+    use = [i for i in ids if i in X.index]
+    Xi = impute_apply(X.loc[use], art["med"])
+    if art["dim_mode"] == "PCA32" and art.get("pca") is not None:
+        # pca stored not currently; for PCA full-dev we refit path differently
+        raise FeatureAlignmentError("PCA artifact path requires pca object")
+    Z = art["scaler"].transform(np.asarray(Xi, float))
+    return pd.Series(art["model"].predict(Z), index=use)
+
+
+def fit_full_dev_lasso(
+    X: pd.DataFrame,
+    y: pd.Series,
+    ids: list[str],
+    *,
+    alpha: float,
+) -> dict:
+    common = [i for i in ids if i in X.index and i in y.index]
+    Xx = X.loc[common]
+    yy = y.loc[common]
+    med = impute_fit(Xx)
+    Xi = impute_apply(Xx, med)
+    sc = StandardScaler()
+    Z = sc.fit_transform(np.asarray(Xi, float))
+    m = _fit_lasso(Z, yy, alpha)
+    nz = int(np.sum(np.abs(m.coef_) > 1e-12))
+    return {
+        "ids": common,
+        "med": med,
+        "scaler": sc,
+        "model": m,
+        "alpha": float(alpha),
+        "n_nonzero": nz,
+        "n_coef": int(len(m.coef_)),
+        "sparsity": 1.0 - nz / max(len(m.coef_), 1),
+        "raw_dim": int(Xx.shape[1]),
+    }
+
+
+def predict_with_lasso_artifact(art: dict, X: pd.DataFrame, ids: list[str]) -> pd.Series:
+    use = [i for i in ids if i in X.index]
+    Xi = impute_apply(X.loc[use], art["med"])
+    Z = art["scaler"].transform(np.asarray(Xi, float))
+    return pd.Series(art["model"].predict(Z), index=use)

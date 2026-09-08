@@ -1,0 +1,22 @@
+recipe_id,target,feature_blocks,description,molecular_scope,historical_role,expected_dim,notes
+TM_CONSTANT,TmApp,none,Fold-local median baseline,n/a,postmortem_baseline,0,No features
+TM_SEQ_BASIC,TmApp,SEQ_BASIC,Sequence descriptors only,sequence,baseline,78,stage1 SEQ_BASIC
+TM_ABLANG2,TmApp,AbLang2_HL_paired,AbLang2 paired HL embedding,PLM,baseline,480,round1/stage2 cache
+TM_ABLANG2_SEQ,TmApp,AbLang2_HL_paired|SEQ_BASIC,AbLang2 + SEQ_BASIC (=TmApp_BASE),PLM+sequence,mature_base,558,Authoritative BASE
+TM_BASE_BIOEMU,TmApp,AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE,BASE + BioEmu NEW_PAIRWISE,PLM+seq+ensemble,strong_candidate,568,Registry EXACT_MATCH
+TM_BASE_MPNN,TmApp,AbLang2_HL_paired|SEQ_BASIC|M1_PROTEINMPNN,BASE + ProteinMPNN M1,PLM+seq+invfold,strong_candidate,559,Registry EXACT_MATCH
+TM_BASE_BIOEMU_MPNN,TmApp,AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN,BASE + BioEmu PAIR + M1,PLM+seq+ensemble+invfold,competition_core,~569,Canonical Ridge ~2.703/2.846
+TM_PARENT_ABLINGUA_GLOBAL,TmApp,AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN|AbLingua_HL_mean,Competition core + AbLingua GLOBAL,PLM+seq+ens+invfold+AbLingua,authoritative_parent,~3129,Ridge uses PCA32 on AbLingua block; ~2.747/2.823
+TM_PARENT_ABLINGUA_CDR3,TmApp,AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN|AbLingua_HL_mean|AbLingua_CDR3,PARENT + CDR3 guided pooling,same+CDR3,guided_try,~5689,Ridge PCA32 per AbLingua block; ~2.732/2.785
+TM_OPENMM_DOMAIN_FLEX,TmApp,AbLang2_HL_paired|SEQ_BASIC|OPENMM_DOMAIN_FLEXIBILITY,BASE + OpenMM DOMAIN_FLEXIBILITY,PLM+seq+MD,weak_md_comparison,~566,DEV usable cohort only (~158); no Test MD features
+TM_FENNIX_CONTEXT,TmApp,AbLang2_HL_paired|SEQ_BASIC|FENNIX_COMBINED_PREDECLARED,BASE + FeNNix combined predeclared,PLM+seq+energy,fennix_postmortem,~650,Full Fab context; intersection cohort
+HIC_CONSTANT,HIC,none,Fold-local median baseline,n/a,postmortem_baseline,0,No features
+HIC_SEQ,HIC,SEQ_ALL,Sequence descriptors (SEQ_ALL),sequence,baseline,~75,stage1 SEQ_ALL
+HIC_ESM2_H,HIC,ESM2_H,ESM2 Heavy embedding,PLM,baseline,1280,round1 cache
+HIC_ESM2_SEQ,HIC,ESM2_H|SEQ_ALL,ESM2 Heavy + SEQ_ALL (=HIC_BASE),PLM+sequence,mature_base,~1355,Authoritative HIC_BASE
+HIC_AROMATIC,HIC,AROMATIC_TOPO,AROMATIC-TOPO alone,structure_surface,block_alone,19,Exposed aromatic topology
+HIC_ESM2_SEQ_AROMATIC,HIC,ESM2_H|SEQ_ALL|AROMATIC_TOPO,Mature HIC baseline,PLM+seq+aro,mature_base,~1414,HIC_BASE_ARO
+HIC_ARO_CONTINUOUS_SURFACE,HIC,ESM2_H|SEQ_ALL|AROMATIC_TOPO|CONTINUOUS_SURFACE,Mature HIC + continuous surface,PLM+seq+aro+surface,strong_candidate,~1459,Registry EXACT_MATCH
+HIC_ARO_TITRATION,HIC,ESM2_H|SEQ_ALL|AROMATIC_TOPO|TITRATION_SHAPE,Mature HIC + titration shape,PLM+seq+aro+electro,strong_candidate,~1432,Registry EXACT_MATCH
+HIC_ARO_CONT_TITR,HIC,ESM2_H|SEQ_ALL|AROMATIC_TOPO|CONTINUOUS_SURFACE|TITRATION_SHAPE,Mature HIC + CONT + TITR,combined,authoritative_combo,~1477,Canonical Ridge ~0.507/0.552
+HIC_HYDRO_TITRATION,HIC,ESM2_H|SEQ_ALL|AROMATIC_TOPO|HYDRO_FIELD|TITRATION_SHAPE,Mature HIC + HYDRO + TITR,combined,frozen_combo,~1448,Limited-combinations recipe

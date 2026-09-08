@@ -127,6 +127,24 @@ def test_f_block_order_invariant():
     print("TEST F OK")
 
 
+def test_g_lasso_alignment_and_no_pca():
+    from canonical_simple_tvt import run_standalone_lasso
+
+    ids = [f"ID{i:03d}" for i in range(40)]
+    folds = pd.DataFrame({"id": ids, "fold": [i % 5 for i in range(40)]})
+    y = pd.Series(np.linspace(50, 80, 40), index=ids)
+    X = _toy_block(ids, 7)
+    Xs = X.sample(frac=1.0, random_state=1)
+    a = align_feature_block(X, ids, "L1")
+    b = align_feature_block(Xs, ids, "L2")
+    r1 = run_standalone_lasso(a, y, folds, ids)
+    r2 = run_standalone_lasso(b, y, folds, ids)
+    assert abs(r1["mae"] - r2["mae"]) < 1e-10
+    assert "no_PCA" in r1["preprocessing"]
+    assert r1["raw_dim"] == 4
+    print("TEST G LASSO OK", r1["mae"], r1["alpha_median"])
+
+
 if __name__ == "__main__":
     test_a_shuffled_order_same_preds()
     test_b_rangeindex_hard_fail_or_align()
@@ -134,4 +152,5 @@ if __name__ == "__main__":
     test_d_missing_ids_hard_fail()
     test_f_block_order_invariant()
     test_e_frozen_recipe_repro()
+    test_g_lasso_alignment_and_no_pca()
     print("ALL GOLDEN TESTS PASSED")

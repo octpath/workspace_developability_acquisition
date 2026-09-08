@@ -1,0 +1,78 @@
+{
+  "policy": "cv_worst_mae then cv_mean_mae; prefer distinct recipe_id",
+  "targets": {
+    "TmApp": [
+      {
+        "cv_rank": 1,
+        "recipe_id": "TM_PARENT_ABLINGUA_CDR3",
+        "regressor": "RIDGE",
+        "preprocessing": "recipe_raw + PCA32_per_abl_block + Ridge FREE_ALPHA",
+        "cv_primary_mae": 2.732072376654289,
+        "cv_shadow_mae": 2.784957206877823,
+        "cv_mean_mae": 2.758514791766056,
+        "cv_worst_mae": 2.784957206877823,
+        "feature_blocks": "AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN|AbLingua_HL_mean|AbLingua_CDR3"
+      },
+      {
+        "cv_rank": 2,
+        "recipe_id": "TM_PARENT_ABLINGUA_GLOBAL",
+        "regressor": "RIDGE",
+        "preprocessing": "recipe_raw + PCA32(AbLingua) + Ridge FREE_ALPHA",
+        "cv_primary_mae": 2.7466001170280285,
+        "cv_shadow_mae": 2.822725206703513,
+        "cv_mean_mae": 2.784662661865771,
+        "cv_worst_mae": 2.822725206703513,
+        "feature_blocks": "AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN|AbLingua_HL_mean"
+      },
+      {
+        "cv_rank": 3,
+        "recipe_id": "TM_BASE_BIOEMU_MPNN",
+        "regressor": "RIDGE",
+        "preprocessing": "impute+StandardScaler+Ridge(raw)",
+        "cv_primary_mae": 2.702681240871287,
+        "cv_shadow_mae": 2.8459367728115534,
+        "cv_mean_mae": 2.7743090068414205,
+        "cv_worst_mae": 2.8459367728115534,
+        "feature_blocks": "AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN"
+      }
+    ],
+    "HIC": [
+      {
+        "cv_rank": 1,
+        "recipe_id": "HIC_HYDRO_TITRATION",
+        "regressor": "LASSO",
+        "preprocessing": "impute+StandardScaler+Lasso(no_PCA)",
+        "cv_primary_mae": 0.4872225781431885,
+        "cv_shadow_mae": 0.48337196105386526,
+        "cv_mean_mae": 0.48529726959852687,
+        "cv_worst_mae": 0.4872225781431885,
+        "feature_blocks": "ESM2_H|SEQ_ALL|AROMATIC_TOPO|HYDRO_FIELD|TITRATION_SHAPE"
+      },
+      {
+        "cv_rank": 2,
+        "recipe_id": "HIC_ARO_TITRATION",
+        "regressor": "LASSO",
+        "preprocessing": "impute+StandardScaler+Lasso(no_PCA)",
+        "cv_primary_mae": 0.48938793401852243,
+        "cv_shadow_mae": 0.48244320443556027,
+        "cv_mean_mae": 0.4859155692270414,
+        "cv_worst_mae": 0.48938793401852243,
+        "feature_blocks": "ESM2_H|SEQ_ALL|AROMATIC_TOPO|TITRATION_SHAPE"
+      },
+      {
+        "cv_rank": 3,
+        "recipe_id": "HIC_ARO_CONTINUOUS_SURFACE",
+        "regressor": "LASSO",
+        "preprocessing": "impute+StandardScaler+Lasso(no_PCA)",
+        "cv_primary_mae": 0.48220731342316014,
+        "cv_shadow_mae": 0.4898232886862832,
+        "cv_mean_mae": 0.4860153010547217,
+        "cv_worst_mae": 0.4898232886862832,
+        "feature_blocks": "ESM2_H|SEQ_ALL|AROMATIC_TOPO|CONTINUOUS_SURFACE"
+      }
+    ]
+  },
+  "canonical_evaluator_version": "canonical_simple_tvt_v1",
+  "feature_recipe_freeze_sha256": "f54d0f1c9cc9503d9091c17d9fdf9c142d5fee30a9c3737170172c9f031ead44",
+  "selection_time_note": "Frozen BEFORE Public/Private evaluation"
+}
