@@ -1,0 +1,86 @@
+{
+  "policy": "canonical CV only (cv_worst_mae then cv_mean_mae); FEATURE_LINEAR only; when CV ranks 1\u20135 differ by tiny MAE, prefer scientifically diverse block families rather than three near-duplicate concatenations",
+  "note": "Public/Private NOT used",
+  "diversity_rule": {
+    "TmApp": "CDR3-guided AbLingua stack \u2192 GLOBAL AbLingua stack \u2192 BioEmu+ProteinMPNN without AbLingua",
+    "HIC": "among near-tied ESM-2 Heavy + SEQ_ALL + AROMATIC-TOPO recipes, pick distinct surface families: (1) HYDRO_FIELD+TITRATION_SHAPE, (2) CONTINUOUS_SURFACE only, (3) aromatic topology without continuous-surface / hydro / titration fields (skip titration-only and mixed-surface near-duplicates)"
+  },
+  "targets": {
+    "TmApp": [
+      {
+        "cv_rank": 1,
+        "model_id": "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+        "recipe_tokens": "AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN|AbLingua_HL_mean|AbLingua_CDR3",
+        "feature_blocks_full": "AbLang2 paired heavy+light chain protein-language-model embedding + stage-1 SEQ_BASIC sequence descriptors (length, composition, CDR length summaries) + BioEmu isolated VH/VL NEW_PAIRWISE ensemble pairwise C-alpha RMSD descriptors + ProteinMPNN sequence\u2013structure compatibility native-score descriptors + AbLingua-600M masked-mean global heavy+light concatenated embedding + AbLingua-600M CDR3-guided residue pooling embedding",
+        "regressor": "RIDGE",
+        "preprocessing_full": "recipe_raw + PCA32_per_abl_block + Ridge",
+        "cv_primary_mae": 2.732072376654289,
+        "cv_shadow_mae": 2.784957206877823,
+        "cv_worst_mae": 2.784957206877823,
+        "contains_any_PLM": true
+      },
+      {
+        "cv_rank": 2,
+        "model_id": "TM_PARENT_ABLINGUA_GLOBAL__RIDGE",
+        "recipe_tokens": "AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN|AbLingua_HL_mean",
+        "feature_blocks_full": "AbLang2 paired heavy+light chain protein-language-model embedding + stage-1 SEQ_BASIC sequence descriptors (length, composition, CDR length summaries) + BioEmu isolated VH/VL NEW_PAIRWISE ensemble pairwise C-alpha RMSD descriptors + ProteinMPNN sequence\u2013structure compatibility native-score descriptors + AbLingua-600M masked-mean global heavy+light concatenated embedding",
+        "regressor": "RIDGE",
+        "preprocessing_full": "recipe_raw + PCA32(AbLingua) + Ridge",
+        "cv_primary_mae": 2.7466001170280285,
+        "cv_shadow_mae": 2.822725206703513,
+        "cv_worst_mae": 2.822725206703513,
+        "contains_any_PLM": true
+      },
+      {
+        "cv_rank": 3,
+        "model_id": "TM_BASE_BIOEMU_MPNN__RIDGE",
+        "recipe_tokens": "AbLang2_HL_paired|SEQ_BASIC|BIOEMU_NEW_PAIRWISE|M1_PROTEINMPNN",
+        "feature_blocks_full": "AbLang2 paired heavy+light chain protein-language-model embedding + stage-1 SEQ_BASIC sequence descriptors (length, composition, CDR length summaries) + BioEmu isolated VH/VL NEW_PAIRWISE ensemble pairwise C-alpha RMSD descriptors + ProteinMPNN sequence\u2013structure compatibility native-score descriptors",
+        "regressor": "RIDGE",
+        "preprocessing_full": "impute+StandardScaler+Ridge(raw)",
+        "cv_primary_mae": 2.702681240871287,
+        "cv_shadow_mae": 2.845936772811553,
+        "cv_worst_mae": 2.845936772811553,
+        "contains_any_PLM": true
+      }
+    ],
+    "HIC": [
+      {
+        "cv_rank": 1,
+        "model_id": "HIC_HYDRO_TITRATION__LASSO",
+        "recipe_tokens": "ESM2_H|SEQ_ALL|AROMATIC_TOPO|HYDRO_FIELD|TITRATION_SHAPE",
+        "feature_blocks_full": "ESM-2 Heavy-chain protein-language-model embedding + stage-1 SEQ_ALL sequence descriptors (expanded antibody sequence descriptor set) + AROMATIC-TOPO exposed-aromatic structural topology descriptors (ESMFold Fv) + HYDRO_FIELD continuous hydrophobic-field surface descriptors (ESMFold Fv) + TITRATION_SHAPE electrostatic titration-shape descriptors (ESMFold Fv)",
+        "regressor": "LASSO",
+        "preprocessing_full": "impute+StandardScaler+Lasso(no_PCA)",
+        "cv_primary_mae": 0.4872225781431885,
+        "cv_shadow_mae": 0.4833719610538652,
+        "cv_worst_mae": 0.4872225781431885,
+        "contains_any_PLM": true
+      },
+      {
+        "cv_rank": 2,
+        "model_id": "HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+        "recipe_tokens": "ESM2_H|SEQ_ALL|AROMATIC_TOPO|CONTINUOUS_SURFACE",
+        "feature_blocks_full": "ESM-2 Heavy-chain protein-language-model embedding + stage-1 SEQ_ALL sequence descriptors (expanded antibody sequence descriptor set) + AROMATIC-TOPO exposed-aromatic structural topology descriptors (ESMFold Fv) + continuous molecular-surface hydrophobic/chemical descriptors (ESMFold Fv)",
+        "regressor": "LASSO",
+        "preprocessing_full": "impute+StandardScaler+Lasso(no_PCA)",
+        "cv_primary_mae": 0.4822073134231601,
+        "cv_shadow_mae": 0.4898232886862832,
+        "cv_worst_mae": 0.4898232886862832,
+        "contains_any_PLM": true
+      },
+      {
+        "cv_rank": 3,
+        "model_id": "HIC_ESM2_SEQ_AROMATIC__LASSO",
+        "recipe_tokens": "ESM2_H|SEQ_ALL|AROMATIC_TOPO",
+        "feature_blocks_full": "ESM-2 Heavy-chain protein-language-model embedding + stage-1 SEQ_ALL sequence descriptors (expanded antibody sequence descriptor set) + AROMATIC-TOPO exposed-aromatic structural topology descriptors (ESMFold Fv)",
+        "regressor": "LASSO",
+        "preprocessing_full": "impute+StandardScaler+Lasso(no_PCA)",
+        "cv_primary_mae": 0.4927303900206625,
+        "cv_shadow_mae": 0.4808724742416768,
+        "cv_worst_mae": 0.4927303900206625,
+        "contains_any_PLM": true
+      }
+    ]
+  }
+}
