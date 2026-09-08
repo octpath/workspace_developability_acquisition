@@ -1,0 +1,5 @@
+family,status,N,primary_base_mae,primary_cand_mae,primary_delta,shadow_base_mae,shadow_cand_mae,shadow_delta,fixed_primary_delta,fixed_shadow_delta,comp_verdict,notes
+MICRODYNAMICS,NOT_RUN,,,,,,,,,,,MICRODYNAMICS_TOO_SLOW; no feature table
+BIOEMU_NEW_PAIRWISE+M1_PROTEINMPNN+MICRODYNAMICS,NOT_RUN,,,,,,,,,,,MICRODYNAMICS_TOO_SLOW; no feature table
+MICRODYNAMICS_HIC,NOT_RUN,,,,,,,,,,,MICRODYNAMICS_TOO_SLOW; no feature table
+CONTINUOUS_SURFACE+TITRATION_SHAPE+MICRODYNAMICS_HIC,NOT_RUN,,,,,,,,,,,MICRODYNAMICS_TOO_SLOW; no feature table

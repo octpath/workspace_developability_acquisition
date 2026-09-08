@@ -1,0 +1,53 @@
+GPU before: {'gpu_util_pct': 0.0, 'gpu_mem_used_mib': 38.0, 'gpu_mem_total_mib': 24576.0}
+{
+  "openmm_version": "8.2",
+  "platforms": [
+    "Reference",
+    "CPU",
+    "CUDA",
+    "CPU",
+    "CUDA"
+  ],
+  "platform": "CUDA",
+  "device": "0",
+  "forcefield": "amber14-all.xml + implicit/obc2.xml",
+  "solvent": "OBC2 implicit GB",
+  "constraints": "HBonds",
+  "dt_fs": 2,
+  "temperature_K": 300,
+  "friction_per_ps": 1.0,
+  "natoms": 6434,
+  "pdb": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_fab_context/cache/r1/ADI-45391_C_r1.pdb",
+  "minimize_s": 1.377913475036621,
+  "Epot_after_min_kJmol": -54353.05643118412,
+  "equilibration_ps": 5.0,
+  "equilibration_s": 0.9143505096435547,
+  "n_prod_steps": 25000,
+  "prod_sim_ns": 0.05,
+  "prod_wall_s": 8.212632894515991,
+  "ns_per_day": 526.0188852328578,
+  "Epot_end_kJmol": -35183.20105315913,
+  "finite": true,
+  "nan_or_inf": false,
+  "gpu_during": {
+    "gpu_util_pct": 98.0,
+    "gpu_mem_used_mib": 312.0,
+    "gpu_mem_total_mib": 24576.0
+  },
+  "proj_dev161_0.25ns_hours": 1.8364359666903813,
+  "proj_dev161_0.5ns_hours": 3.6728719333807627,
+  "proj_dev161_1.0ns_hours": 7.345743866761525,
+  "proj_dev161_2.0ns_hours": 14.69148773352305
+}
+{
+  "status": "SKIP_EXPLICIT_BENCHMARK",
+  "reason": "ValueError('Unknown water model: tip3pfb')",
+  "elapsed_s": 0.9781591892242432
+}
+DECISION {
+  "ns_per_day": 526.0188852328578,
+  "recommended_traj_ns": 0.5,
+  "recommendation": "OPENMM_GO",
+  "endgame_choice": "OPENMM_GO",
+  "note": "Primary candidate is implicit GB; FeNNix thermal microprobe preserved (37/161) not resumed."
+}

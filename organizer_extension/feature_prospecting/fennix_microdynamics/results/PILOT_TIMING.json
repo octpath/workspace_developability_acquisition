@@ -1,0 +1,40 @@
+{
+  "antibody_bench": "ADI-45391",
+  "structure": "fennix_fab_context/cache/r1/ADI-45391_C_r1.pdb",
+  "natoms": 6434,
+  "device": "cuda:0 RTX 3090",
+  "engine": "fennol.md config_and_run_dynamic LGV NVT",
+  "model": "foundation_stability_v2/cache/fennix-bio1S.fnx",
+  "dt_ps": 0.001,
+  "temperature_K": 300.0,
+  "nsteps_bench": 500,
+  "wall_s_bench": 172.035,
+  "sec_per_step": 0.34407,
+  "gpu_mem_mib_peak_force_eval": 18426,
+  "stability_500steps": {
+    "nan_inf": false,
+    "temp_start_approx_K": 180.9,
+    "temp_end_K": 229.54,
+    "epot_finite": true,
+    "catastrophic_explosion": false,
+    "note": "T rising toward 300K during short run; energies finite; no NaN"
+  },
+  "protocol_5ps": {
+    "eq_ps": 1.0,
+    "prod_ps": 5.0,
+    "nsteps": 6000,
+    "hours_per_ab": 0.5735,
+    "hours_323": 185.22
+  },
+  "protocol_2ps_fallback": {
+    "eq_ps": 1.0,
+    "prod_ps": 2.0,
+    "nsteps": 3000,
+    "hours_per_ab": 0.2867,
+    "hours_323": 92.61
+  },
+  "gate_hours": 12.0,
+  "verdict": "MICRODYNAMICS_TOO_SLOW",
+  "full_cohort_run": false,
+  "tvt_run": false
+}

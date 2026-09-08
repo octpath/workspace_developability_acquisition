@@ -1,0 +1,36 @@
+{
+  "tmapp_primary_delta": null,
+  "tmapp_shadow_delta": null,
+  "tmapp_fixed_primary_delta": null,
+  "tmapp_fixed_shadow_delta": null,
+  "tmapp_verdict": "COMP_DROP",
+  "recipe_primary_delta": null,
+  "recipe_shadow_delta": null,
+  "hic_primary_delta": null,
+  "hic_shadow_delta": null,
+  "hic_cont_titr_primary_delta": null,
+  "hic_cont_titr_shadow_delta": null,
+  "hic_verdict": "COMP_DROP",
+  "GO_TO_TEST_TMAPP": false,
+  "GO_TO_TEST_HIC": false,
+  "final_tmapp": "STOP",
+  "final_hic": "STOP",
+  "bootstrap": {}
+}
+target                            comparison    fold             mode   N  struct_dim  base_mae  cand_mae     delta status
+ TmApp                        BASE+OPENMM_MD Primary       FREE_ALPHA 158          36  2.786507  2.874346 -0.087839     OK
+ TmApp                        BASE+OPENMM_MD Primary BASE_FIXED_ALPHA 158          36  2.786507  2.874346 -0.087839     OK
+ TmApp                        BASE+OPENMM_MD  Shadow       FREE_ALPHA 158          36  2.916743  2.955769 -0.039026     OK
+ TmApp                        BASE+OPENMM_MD  Shadow BASE_FIXED_ALPHA 158          36  2.916743  2.955769 -0.039026     OK
+ TmApp BASE+BIOEMU_NEW_PAIRWISE+M1+OPENMM_MD Primary       FREE_ALPHA 158          36  2.739172  2.843272 -0.104100     OK
+ TmApp BASE+BIOEMU_NEW_PAIRWISE+M1+OPENMM_MD Primary BASE_FIXED_ALPHA 158          36  2.739172  2.843272 -0.104100     OK
+ TmApp BASE+BIOEMU_NEW_PAIRWISE+M1+OPENMM_MD  Shadow       FREE_ALPHA 158          36  2.866889  2.935554 -0.068664     OK
+ TmApp BASE+BIOEMU_NEW_PAIRWISE+M1+OPENMM_MD  Shadow BASE_FIXED_ALPHA 158          36  2.866889  2.935554 -0.068664     OK
+   HIC                 HIC_ARO+OPENMM_MD_HIC Primary       FREE_ALPHA 158          11  0.481176  0.492909 -0.011733     OK
+   HIC                 HIC_ARO+OPENMM_MD_HIC Primary BASE_FIXED_ALPHA 158          11  0.481176  0.492909 -0.011733     OK
+   HIC                 HIC_ARO+OPENMM_MD_HIC  Shadow       FREE_ALPHA 158          11  0.493563  0.500089 -0.006526     OK
+   HIC                 HIC_ARO+OPENMM_MD_HIC  Shadow BASE_FIXED_ALPHA 158          11  0.493563  0.500089 -0.006526     OK
+   HIC       HIC_ARO+CONT+TITR+OPENMM_MD_HIC Primary       FREE_ALPHA 158          11  0.465077  0.474739 -0.009662     OK
+   HIC       HIC_ARO+CONT+TITR+OPENMM_MD_HIC Primary BASE_FIXED_ALPHA 158          11  0.465077  0.474739 -0.009662     OK
+   HIC       HIC_ARO+CONT+TITR+OPENMM_MD_HIC  Shadow       FREE_ALPHA 158          11  0.512495  0.516423 -0.003928     OK
+   HIC       HIC_ARO+CONT+TITR+OPENMM_MD_HIC  Shadow BASE_FIXED_ALPHA 158          11  0.512495  0.516423 -0.003928     OK

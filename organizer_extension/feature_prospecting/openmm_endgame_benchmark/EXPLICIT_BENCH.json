@@ -1,0 +1,16 @@
+{
+  "status": "OK",
+  "solvent": "explicit tip3p + tip3pfb FF params + PME + 0.15M, pad 1nm",
+  "forcefield": "amber14-all.xml + amber14/tip3pfb.xml",
+  "natoms": 106208,
+  "n_prod_steps": 10000,
+  "prod_sim_ns": 0.02,
+  "prod_wall_s": 9.063720703125,
+  "ns_per_day": 190.65018181818184,
+  "finite": true,
+  "setup_wall_s": 27.733221769332886,
+  "proj_dev161_0.25ns_hours": 5.066871643066405,
+  "proj_dev161_0.5ns_hours": 10.13374328613281,
+  "proj_dev161_1.0ns_hours": 20.26748657226562,
+  "proj_dev161_2.0ns_hours": 40.53497314453124
+}

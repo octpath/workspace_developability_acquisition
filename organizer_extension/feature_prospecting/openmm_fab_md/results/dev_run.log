@@ -1,0 +1,383 @@
+SANITY ADI-47288
+  wall_s=111.2
+SANITY ADI-47300
+  wall_s=112.0
+SANITY ADI-46684
+  wall_s=112.8
+SANITY ADI-45391
+  wall_s=106.9
+SANITY ADI-45465
+  wall_s=109.8
+{
+  "pilot_ids": [
+    "ADI-47288",
+    "ADI-47300",
+    "ADI-46684",
+    "ADI-45391",
+    "ADI-45465"
+  ],
+  "walls_s": [
+    111.22586250305176,
+    112.02404046058655,
+    112.8440568447113,
+    106.94993805885315,
+    109.76693749427795
+  ],
+  "mean_wall_s": 110.56216707229615,
+  "proj_dev161_h": 4.944585805177689,
+  "n_prod_steps": 250000
+}
+[1/161] ADI-37123 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-37123/qc.json
+[1/161] ADI-37123 runtime_s=91.1 elapsed_h=0.03
+[2/161] ADI-38499 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-38499/qc.json
+[2/161] ADI-38499 runtime_s=88.3 elapsed_h=0.06
+[3/161] ADI-38501 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-38501/qc.json
+[3/161] ADI-38501 runtime_s=92.3 elapsed_h=0.09
+[4/161] ADI-38502 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-38502/qc.json
+[4/161] ADI-38502 runtime_s=92.5 elapsed_h=0.12
+[5/161] ADI-45379 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45379/qc.json
+[5/161] ADI-45379 runtime_s=91.6 elapsed_h=0.15
+[6/161] ADI-45388 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45388/qc.json
+[6/161] ADI-45388 runtime_s=92.2 elapsed_h=0.18
+[7/161] ADI-45389 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45389/qc.json
+[7/161] ADI-45389 runtime_s=89.3 elapsed_h=0.22
+[8/161] ADI-45390 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45390/qc.json
+[8/161] ADI-45390 runtime_s=88.5 elapsed_h=0.24
+[9/161] ADI-45391 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45391/qc.json
+[9/161] ADI-45391 runtime_s=87.7 elapsed_h=0.24
+[10/161] ADI-45402 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45402/qc.json
+[10/161] ADI-45402 runtime_s=93.6 elapsed_h=0.28
+[11/161] ADI-45406 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45406/qc.json
+[11/161] ADI-45406 runtime_s=91.6 elapsed_h=0.31
+[12/161] ADI-45408 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45408/qc.json
+[12/161] ADI-45408 runtime_s=91.9 elapsed_h=0.34
+[1/161] ADI-37123 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-37123/qc.json
+[1/161] ADI-37123 runtime_s=91.1 elapsed_h=0.00
+[2/161] ADI-38499 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-38499/qc.json
+[2/161] ADI-38499 runtime_s=88.3 elapsed_h=0.00
+[3/161] ADI-38501 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-38501/qc.json
+[3/161] ADI-38501 runtime_s=92.3 elapsed_h=0.00
+[4/161] ADI-38502 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-38502/qc.json
+[4/161] ADI-38502 runtime_s=92.5 elapsed_h=0.00
+[5/161] ADI-45379 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45379/qc.json
+[5/161] ADI-45379 runtime_s=91.6 elapsed_h=0.00
+[6/161] ADI-45388 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45388/qc.json
+[6/161] ADI-45388 runtime_s=92.2 elapsed_h=0.00
+[7/161] ADI-45389 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45389/qc.json
+[7/161] ADI-45389 runtime_s=89.3 elapsed_h=0.00
+[8/161] ADI-45390 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45390/qc.json
+[8/161] ADI-45390 runtime_s=88.5 elapsed_h=0.00
+[9/161] ADI-45391 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45391/qc.json
+[9/161] ADI-45391 runtime_s=87.7 elapsed_h=0.00
+[10/161] ADI-45402 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45402/qc.json
+[10/161] ADI-45402 runtime_s=93.6 elapsed_h=0.00
+[11/161] ADI-45406 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45406/qc.json
+[11/161] ADI-45406 runtime_s=91.6 elapsed_h=0.00
+[12/161] ADI-45408 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45408/qc.json
+[12/161] ADI-45408 runtime_s=91.9 elapsed_h=0.00
+[13/161] ADI-45422 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45422/qc.json
+[13/161] ADI-45422 runtime_s=90.5 elapsed_h=0.03
+[14/161] ADI-45425 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45425/qc.json
+[14/161] ADI-45425 runtime_s=91.8 elapsed_h=0.06
+[15/161] ADI-45430 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45430/qc.json
+[15/161] ADI-45430 runtime_s=92.3 elapsed_h=0.09
+[16/161] ADI-45435 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45435/qc.json
+[16/161] ADI-45435 runtime_s=93.7 elapsed_h=0.12
+[17/161] ADI-45439 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45439/qc.json
+[17/161] ADI-45439 runtime_s=91.4 elapsed_h=0.16
+[18/161] ADI-45440 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45440/qc.json
+[18/161] ADI-45440 runtime_s=90.4 elapsed_h=0.19
+[19/161] ADI-45450 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45450/qc.json
+[19/161] ADI-45450 runtime_s=92.6 elapsed_h=0.22
+[20/161] ADI-45451 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45451/qc.json
+[20/161] ADI-45451 runtime_s=93.1 elapsed_h=0.25
+[21/161] ADI-45453 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45453/qc.json
+[21/161] ADI-45453 runtime_s=92.1 elapsed_h=0.28
+[22/161] ADI-45454 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45454/qc.json
+[22/161] ADI-45454 runtime_s=91.7 elapsed_h=0.31
+[23/161] ADI-45455 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45455/qc.json
+[23/161] ADI-45455 runtime_s=92.8 elapsed_h=0.34
+[24/161] ADI-45461 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45461/qc.json
+[24/161] ADI-45461 runtime_s=93.2 elapsed_h=0.37
+[25/161] ADI-45463 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45463/qc.json
+[25/161] ADI-45463 runtime_s=89.3 elapsed_h=0.40
+[26/161] ADI-45464 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45464/qc.json
+[26/161] ADI-45464 runtime_s=92.0 elapsed_h=0.43
+[27/161] ADI-45465 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45465/qc.json
+[27/161] ADI-45465 runtime_s=90.4 elapsed_h=0.43
+[28/161] ADI-45479 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45479/qc.json
+[28/161] ADI-45479 runtime_s=92.4 elapsed_h=0.47
+[29/161] ADI-45480 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45480/qc.json
+[29/161] ADI-45480 runtime_s=92.3 elapsed_h=0.50
+[30/161] ADI-45488 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45488/qc.json
+[30/161] ADI-45488 runtime_s=92.6 elapsed_h=0.53
+[31/161] ADI-45490 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45490/qc.json
+[31/161] ADI-45490 runtime_s=91.2 elapsed_h=0.56
+[32/161] ADI-45491 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45491/qc.json
+[32/161] ADI-45491 runtime_s=92.1 elapsed_h=0.59
+[33/161] ADI-45493 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45493/qc.json
+[33/161] ADI-45493 runtime_s=94.1 elapsed_h=0.62
+[34/161] ADI-45495 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45495/qc.json
+[34/161] ADI-45495 runtime_s=89.1 elapsed_h=0.65
+[35/161] ADI-45497 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45497/qc.json
+[35/161] ADI-45497 runtime_s=93.2 elapsed_h=0.68
+[36/161] ADI-45499 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-45499/qc.json
+[36/161] ADI-45499 runtime_s=92.8 elapsed_h=0.71
+[37/161] ADI-46677 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46677/qc.json
+[37/161] ADI-46677 runtime_s=89.6 elapsed_h=0.74
+[38/161] ADI-46682 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46682/qc.json
+[38/161] ADI-46682 runtime_s=91.1 elapsed_h=0.78
+[39/161] ADI-46684 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46684/qc.json
+[39/161] ADI-46684 runtime_s=92.9 elapsed_h=0.78
+[40/161] ADI-46685 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46685/qc.json
+[40/161] ADI-46685 runtime_s=91.6 elapsed_h=0.81
+[41/161] ADI-46690 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46690/qc.json
+[41/161] ADI-46690 runtime_s=90.4 elapsed_h=0.84
+[42/161] ADI-46695 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46695/qc.json
+[42/161] ADI-46695 runtime_s=91.5 elapsed_h=0.87
+[43/161] ADI-46697 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46697/qc.json
+[43/161] ADI-46697 runtime_s=93.0 elapsed_h=0.90
+[44/161] ADI-46704 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46704/qc.json
+[44/161] ADI-46704 runtime_s=93.3 elapsed_h=0.93
+[45/161] ADI-46705 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46705/qc.json
+[45/161] ADI-46705 runtime_s=92.8 elapsed_h=0.96
+[46/161] ADI-46708 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46708/qc.json
+[46/161] ADI-46708 runtime_s=92.1 elapsed_h=0.99
+[47/161] ADI-46710 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-46710/qc.json
+[47/161] ADI-46710 runtime_s=92.3 elapsed_h=1.02
+[48/161] ADI-47054 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47054/qc.json
+[48/161] ADI-47054 runtime_s=90.2 elapsed_h=1.05
+[49/161] ADI-47060 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47060/qc.json
+[49/161] ADI-47060 runtime_s=90.4 elapsed_h=1.09
+[50/161] ADI-47061 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47061/qc.json
+[50/161] ADI-47061 runtime_s=90.9 elapsed_h=1.12
+[51/161] ADI-47063 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47063/qc.json
+[51/161] ADI-47063 runtime_s=92.9 elapsed_h=1.15
+[52/161] ADI-47064 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47064/qc.json
+[52/161] ADI-47064 runtime_s=89.0 elapsed_h=1.18
+[53/161] ADI-47065 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47065/qc.json
+[53/161] ADI-47065 runtime_s=91.9 elapsed_h=1.21
+[54/161] ADI-47066 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47066/qc.json
+[54/161] ADI-47066 runtime_s=93.6 elapsed_h=1.24
+[55/161] ADI-47068 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47068/qc.json
+[55/161] ADI-47068 runtime_s=92.1 elapsed_h=1.27
+[56/161] ADI-47069 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47069/qc.json
+[56/161] ADI-47069 runtime_s=91.4 elapsed_h=1.30
+[57/161] ADI-47072 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47072/qc.json
+[57/161] ADI-47072 runtime_s=92.8 elapsed_h=1.33
+[58/161] ADI-47073 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47073/qc.json
+[58/161] ADI-47073 runtime_s=89.4 elapsed_h=1.36
+[59/161] ADI-47074 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47074/qc.json
+[59/161] ADI-47074 runtime_s=91.6 elapsed_h=1.39
+[60/161] ADI-47075 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47075/qc.json
+[60/161] ADI-47075 runtime_s=90.0 elapsed_h=1.43
+[61/161] ADI-47076 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47076/qc.json
+[61/161] ADI-47076 runtime_s=90.4 elapsed_h=1.46
+[62/161] ADI-47078 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47078/qc.json
+[62/161] ADI-47078 runtime_s=90.5 elapsed_h=1.49
+[63/161] ADI-47079 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47079/qc.json
+[63/161] ADI-47079 runtime_s=92.1 elapsed_h=1.52
+[64/161] ADI-47081 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47081/qc.json
+[64/161] ADI-47081 runtime_s=92.8 elapsed_h=1.55
+[65/161] ADI-47087 OK wall~/workspace_developability_acquisition/organizer_extension/feature_prospecting/openmm_fab_md/cache/dev/ADI-47087/qc.json
+[65/161] ADI-47087 runtime_s=92.3 elapsed_h=1.58
+preserved=67 pending=94 n_prod=250000
+[1/94] ADI-47089
+  rc=0 ok=True wall=107.8
+[2/94] ADI-47091
+  rc=0 ok=True wall=112.9
+[3/94] ADI-47094
+  rc=0 ok=True wall=111.7
+[4/94] ADI-47095
+  rc=0 ok=True wall=114.0
+[5/94] ADI-47096
+  rc=0 ok=True wall=114.1
+[6/94] ADI-47097
+  rc=0 ok=True wall=112.4
+[7/94] ADI-47098
+  rc=0 ok=True wall=108.2
+[8/94] ADI-47099
+  rc=0 ok=True wall=112.1
+[9/94] ADI-47100
+  rc=0 ok=True wall=111.5
+[10/94] ADI-47102
+  rc=0 ok=True wall=110.4
+[11/94] ADI-47103
+  rc=-11 ok=False wall=1.5
+[12/94] ADI-47105
+  rc=0 ok=True wall=112.1
+[13/94] ADI-47111
+  rc=0 ok=True wall=111.7
+[14/94] ADI-47114
+  rc=0 ok=True wall=112.5
+[15/94] ADI-47117
+  rc=0 ok=True wall=112.7
+[16/94] ADI-47118
+  rc=0 ok=True wall=114.1
+[17/94] ADI-47122
+  rc=0 ok=True wall=112.9
+[18/94] ADI-47123
+  rc=0 ok=True wall=110.6
+[19/94] ADI-47130
+  rc=0 ok=True wall=109.5
+[20/94] ADI-47131
+  rc=0 ok=True wall=113.1
+[21/94] ADI-47132
+  rc=0 ok=True wall=111.9
+[22/94] ADI-47134
+  rc=0 ok=True wall=113.7
+[23/94] ADI-47139
+  rc=0 ok=True wall=110.6
+[24/94] ADI-47141
+  rc=0 ok=True wall=114.1
+[25/94] ADI-47145
+  rc=0 ok=True wall=112.6
+[26/94] ADI-47146
+  rc=0 ok=True wall=109.2
+[27/94] ADI-47147
+  rc=0 ok=True wall=112.6
+[28/94] ADI-47149
+  rc=0 ok=True wall=113.1
+[29/94] ADI-47151
+  rc=0 ok=True wall=110.7
+[30/94] ADI-47153
+  rc=0 ok=True wall=111.3
+[31/94] ADI-47154
+  rc=0 ok=True wall=112.3
+[32/94] ADI-47155
+  rc=0 ok=True wall=111.9
+[33/94] ADI-47156
+  rc=0 ok=True wall=112.3
+[34/94] ADI-47158
+  rc=0 ok=True wall=113.2
+[35/94] ADI-47159
+  rc=0 ok=True wall=112.4
+[36/94] ADI-47162
+  rc=0 ok=True wall=114.0
+[37/94] ADI-47163
+  rc=-11 ok=False wall=3.2
+[38/94] ADI-47165
+  rc=0 ok=True wall=111.7
+[39/94] ADI-47176
+  rc=0 ok=True wall=111.4
+[40/94] ADI-47177
+  rc=0 ok=True wall=112.2
+[41/94] ADI-47180
+  rc=0 ok=True wall=109.4
+[42/94] ADI-47181
+  rc=0 ok=True wall=111.2
+[43/94] ADI-47183
+  rc=0 ok=True wall=110.3
+[44/94] ADI-47187
+  rc=0 ok=True wall=112.9
+[45/94] ADI-47188
+  rc=0 ok=True wall=113.8
+[46/94] ADI-47189
+  rc=0 ok=True wall=113.6
+[47/94] ADI-47195
+  rc=0 ok=True wall=110.4
+[48/94] ADI-47199
+  rc=0 ok=True wall=112.2
+[49/94] ADI-47204
+  rc=0 ok=True wall=110.0
+[50/94] ADI-47207
+  rc=0 ok=True wall=111.6
+[51/94] ADI-47209
+  rc=0 ok=True wall=114.5
+[52/94] ADI-47212
+  rc=0 ok=True wall=112.9
+[53/94] ADI-47213
+  rc=0 ok=True wall=110.3
+[54/94] ADI-47215
+  rc=0 ok=True wall=111.4
+[55/94] ADI-47216
+  rc=0 ok=True wall=111.7
+[56/94] ADI-47218
+  rc=0 ok=True wall=111.5
+[57/94] ADI-47219
+  rc=0 ok=True wall=113.8
+[58/94] ADI-47223
+  rc=0 ok=True wall=112.7
+[59/94] ADI-47224
+  rc=0 ok=True wall=114.5
+[60/94] ADI-47225
+  rc=0 ok=True wall=110.2
+[61/94] ADI-47227
+  rc=0 ok=True wall=114.3
+[62/94] ADI-47228
+  rc=0 ok=True wall=112.5
+[63/94] ADI-47230
+  rc=0 ok=True wall=109.9
+[64/94] ADI-47233
+  rc=0 ok=True wall=111.8
+[65/94] ADI-47234
+  rc=0 ok=True wall=112.2
+[66/94] ADI-47236
+  rc=0 ok=True wall=111.4
+[67/94] ADI-47238
+  rc=0 ok=True wall=112.3
+[68/94] ADI-47240
+  rc=0 ok=True wall=113.5
+[69/94] ADI-47241
+  rc=0 ok=True wall=113.4
+[70/94] ADI-47244
+  rc=0 ok=True wall=113.1
+[71/94] ADI-47247
+  rc=0 ok=True wall=112.3
+[72/94] ADI-47249
+  rc=0 ok=True wall=111.4
+[73/94] ADI-47250
+  rc=0 ok=True wall=113.5
+[74/94] ADI-47252
+  rc=0 ok=True wall=110.1
+[75/94] ADI-47254
+  rc=0 ok=True wall=113.1
+[76/94] ADI-47258
+  rc=0 ok=True wall=114.7
+[77/94] ADI-47259
+  rc=0 ok=True wall=113.6
+[78/94] ADI-47260
+  rc=0 ok=True wall=115.6
+[79/94] ADI-47262
+  rc=0 ok=True wall=112.9
+[80/94] ADI-47267
+  rc=0 ok=True wall=111.4
+[81/94] ADI-47280
+  rc=0 ok=True wall=112.6
+[82/94] ADI-47283
+  rc=0 ok=True wall=112.4
+[83/94] ADI-47284
+  rc=0 ok=True wall=107.9
+[84/94] ADI-47285
+  rc=0 ok=True wall=112.5
+[85/94] ADI-47289
+  rc=0 ok=True wall=113.1
+[86/94] ADI-47292
+  rc=0 ok=True wall=113.1
+[87/94] ADI-47297
+  rc=0 ok=True wall=113.1
+[88/94] ADI-47301
+  rc=0 ok=True wall=109.7
+[89/94] ADI-47302
+  rc=0 ok=True wall=112.3
+[90/94] ADI-47308
+  rc=0 ok=True wall=113.2
+[91/94] ADI-47309
+  rc=0 ok=True wall=111.3
+[92/94] ADI-47312
+  rc=0 ok=True wall=109.1
+[93/94] ADI-47316
+  rc=-11 ok=False wall=3.3
+[94/94] ADI-47317
+  rc=0 ok=True wall=112.4
+{
+  "n_success": 158,
+  "n_fail": 3,
+  "fail_ids": [
+    "ADI-47103",
+    "ADI-47163",
+    "ADI-47316"
+  ],
+  "mean_runtime_s": 91.78832104990754,
+  "production_ns": 0.5
+}

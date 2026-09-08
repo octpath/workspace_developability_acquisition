@@ -1,0 +1,11 @@
+{
+  "n_success": 158,
+  "n_fail": 3,
+  "fail_ids": [
+    "ADI-47103",
+    "ADI-47163",
+    "ADI-47316"
+  ],
+  "mean_runtime_s": 91.78832104990754,
+  "production_ns": 0.5
+}

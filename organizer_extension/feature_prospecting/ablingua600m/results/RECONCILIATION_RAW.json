@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "n_dev": 162,
+    "dev_id_hash": "afb2286fb09fe5f4",
+    "fold_primary": "/workspace_developability_acquisition/virtual_participant/stage0_cv/cv_primary.csv",
+    "fold_shadow": "/workspace_developability_acquisition/virtual_participant/stage0_cv/cv_shadow.csv",
+    "fold_primary_sha256": "e6c0177cbfc8f9c3f894816ba12c522a86284f0981b2c3706fac40dfd8ad6dfa",
+    "fold_shadow_sha256": "d0c9ba8e892f2a8bac6db269c2b56af4d374ff66447c92a309df93bbf8b8991b",
+    "ablingua_global_path": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/ablingua600m/embeddings/ablingua600m_HL_mean_concat.parquet",
+    "ablingua_global_sha256": "e2bae24422b335ef048b73a872856b3f6278ab1cfae4ad0f4a2f996f533622f0",
+    "rotation": "TEST=k, VAL=(k+1)%5, TRAIN=rest"
+  },
+  "components": [
+    {
+      "component": "recipe",
+      "A_dim": 569,
+      "B_dim": 569,
+      "A_sha": "ad8f39b0c66d50ec",
+      "B_sha": "4e4fec4b8e3372a9",
+      "same": "NO"
+    },
+    {
+      "component": "AbLingua_GLOBAL",
+      "A_dim": 2560,
+      "B_dim": 2560,
+      "A_sha": "25f06a5405a30094",
+      "B_sha": "25f06a5405a30094",
+      "same": "YES"
+    },
+    {
+      "component": "RESIDUE_GLOBAL_vs_HL_mean",
+      "A_dim": 2560,
+      "B_dim": 2560,
+      "A_sha": "25f06a5405a30094",
+      "B_sha": "d73911a87e11ee64",
+      "same": "NO"
+    }
+  ],
+  "reproduced": {
+    "A_script_plus": {
+      "Primary": 2.810733334088188,
+      "Shadow": 2.990836362735377
+    },
+    "A_script_base_recipe": {
+      "Primary": 2.8455038038767073,
+      "Shadow": 3.0551150176651682
+    },
+    "B_script_plus": {
+      "Primary": 2.7466001170280285,
+      "Shadow": 2.822725206703513
+    },
+    "B_script_base": {
+      "Primary": 2.7466001170280285,
+      "Shadow": 2.822725206703513
+    },
+    "hist_A_ADD": {
+      "Primary": 2.810733334088188,
+      "Shadow": 2.990836362735377
+    },
+    "hist_B_PARENT": {
+      "Primary": 2.7466001170280285,
+      "Shadow": 2.822725206703513
+    },
+    "A_matches_hist": {
+      "Primary": true,
+      "Shadow": true
+    },
+    "B_matches_hist": {
+      "Primary": true,
+      "Shadow": true
+    },
+    "A_plus_equals_B_plus": {
+      "Primary": false,
+      "Shadow": false
+    },
+    "B_base_equals_B_plus": {
+      "Primary": true,
+      "Shadow": true
+    }
+  },
+  "alpha_cmp": {
+    "Primary": {
+      "A_plus": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "B_style": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "Xtv_same": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "Shadow": {
+      "A_plus": [
+        100.0,
+        100.0,
+        10.0,
+        100.0,
+        100.0
+      ],
+      "B_style": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "Xtv_same": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "hypothesis": "IMPLEMENTATION_DIVERGENCE_SEE_PRED_DIFF",
+  "pred_summary": {
+    "Primary": {
+      "max_abs": 2.6405947418606672,
+      "mean_abs": 0.7234042001631015,
+      "corr": 0.9589296809360751
+    },
+    "Shadow": {
+      "max_abs": 4.81652834540229,
+      "mean_abs": 0.9633003746296327,
+      "corr": 0.9314186730045021
+    }
+  },
+  "authoritative": {
+    "label": "A_ADD_plus_semantics",
+    "definition": "CURRENT_RECIPE (no PCA) + fold-local PCA32(AbLingua HL_mean_concat), FREE_ALPHA Ridge",
+    "Primary": 2.810733334088188,
+    "Shadow": 2.990836362735377,
+    "recipe_only_Primary": 2.8455038038767073,
+    "recipe_only_Shadow": 3.0551150176651682
+  }
+}

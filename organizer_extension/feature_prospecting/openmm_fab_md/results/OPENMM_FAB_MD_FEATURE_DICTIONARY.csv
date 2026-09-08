@@ -1,0 +1,37 @@
+feature,family,definition,units
+backbone_rmsd_mean,DYN_GLOBAL,Mean backbone RMSD vs post-eq start over production frames,Angstrom
+backbone_rmsd_sd,DYN_GLOBAL,SD backbone RMSD,Angstrom
+backbone_rmsd_q90,DYN_GLOBAL,q90 backbone RMSD,Angstrom
+rg_mean,DYN_GLOBAL,Mean radius of gyration,Angstrom
+rg_sd,DYN_GLOBAL,SD radius of gyration,Angstrom
+VH_rmsf_mean,DYN_RMSF,Mean backbone RMSF of VH,Angstrom
+VH_rmsf_q90,DYN_RMSF,q90 backbone RMSF of VH,Angstrom
+VL_rmsf_mean,DYN_RMSF,Mean backbone RMSF of VL,Angstrom
+VL_rmsf_q90,DYN_RMSF,q90 backbone RMSF of VL,Angstrom
+CH1_rmsf_mean,DYN_RMSF,Mean backbone RMSF of CH1,Angstrom
+CH1_rmsf_q90,DYN_RMSF,q90 backbone RMSF of CH1,Angstrom
+CL_rmsf_mean,DYN_RMSF,Mean backbone RMSF of CL,Angstrom
+CL_rmsf_q90,DYN_RMSF,q90 backbone RMSF of CL,Angstrom
+VH_VL_native_contact_occupancy,DYN_INTERFACE,Mean native-contact occupancy VH_VL (4.5A),fraction
+VH_VL_native_contact_occupancy_sd,DYN_INTERFACE,SD occupancy VH_VL,fraction
+VH_VL_native_contact_occupancy_min,DYN_INTERFACE,Min occupancy VH_VL,fraction
+VH_CH1_native_contact_occupancy,DYN_INTERFACE,Mean native-contact occupancy VH_CH1 (4.5A),fraction
+VH_CH1_native_contact_occupancy_sd,DYN_INTERFACE,SD occupancy VH_CH1,fraction
+VH_CH1_native_contact_occupancy_min,DYN_INTERFACE,Min occupancy VH_CH1,fraction
+VL_CL_native_contact_occupancy,DYN_INTERFACE,Mean native-contact occupancy VL_CL (4.5A),fraction
+VL_CL_native_contact_occupancy_sd,DYN_INTERFACE,SD occupancy VL_CL,fraction
+VL_CL_native_contact_occupancy_min,DYN_INTERFACE,Min occupancy VL_CL,fraction
+CH1_CL_native_contact_occupancy,DYN_INTERFACE,Mean native-contact occupancy CH1_CL (4.5A),fraction
+CH1_CL_native_contact_occupancy_sd,DYN_INTERFACE,SD occupancy CH1_CL,fraction
+CH1_CL_native_contact_occupancy_min,DYN_INTERFACE,Min occupancy CH1_CL,fraction
+aromatic_sasa_mean,DYN_EXPOSURE,Mean aromatic SASA over frames,Angstrom^2
+aromatic_sasa_sd,DYN_EXPOSURE,SD aromatic SASA,Angstrom^2
+aromatic_sasa_q90,DYN_EXPOSURE,q90 aromatic SASA,Angstrom^2
+Tyr_sasa_mean,DYN_EXPOSURE,Mean Tyr SASA,Angstrom^2
+Phe_sasa_mean,DYN_EXPOSURE,Mean Phe SASA,Angstrom^2
+Trp_sasa_mean,DYN_EXPOSURE,Mean Trp SASA,Angstrom^2
+hydrophobic_sasa_mean,DYN_EXPOSURE,Mean hydrophobic SASA,Angstrom^2
+hydrophobic_sasa_sd,DYN_EXPOSURE,SD hydrophobic SASA,Angstrom^2
+hydrophobic_sasa_q90,DYN_EXPOSURE,q90 hydrophobic SASA,Angstrom^2
+delta_aromatic_sasa_mean,DYN_EXPOSURE,Mean aromatic SASA minus start,Angstrom^2
+delta_hydrophobic_sasa_mean,DYN_EXPOSURE,Mean hydrophobic SASA minus start,Angstrom^2

@@ -1,0 +1,8 @@
+{
+  "ns_per_day": 526.0188852328578,
+  "recommended_traj_ns": 0.5,
+  "recommendation": "OPENMM_GO",
+  "endgame_choice": "OPENMM_GO",
+  "explicit_ns_per_day": 190.65018181818184,
+  "note": "Implicit GB is primary sprint candidate; explicit slower (~191 ns/day). FeNNix 37/161 preserved; isolated resume prepared, not launched."
+}

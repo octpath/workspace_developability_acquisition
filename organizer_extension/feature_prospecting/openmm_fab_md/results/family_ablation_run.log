@@ -1,0 +1,20 @@
+{
+  "families": [
+    "GLOBAL_DYNAMICS",
+    "DOMAIN_FLEXIBILITY",
+    "INTERFACE_DYNAMICS",
+    "AROMATIC_EXPOSURE",
+    "HYDROPHOBIC_EXPOSURE"
+  ],
+  "N": 158,
+  "survivors": [],
+  "bootstrap": {},
+  "final_openmm_verdict": "OPENMM_CLOSED",
+  "GO_TO_TEST": false
+}
+              family  n_features tm_base_P tm_base_S tm_base_fixed_P tm_base_fixed_S tm_base_verdict tm_recipe_P tm_recipe_S tm_recipe_verdict hic_P hic_S hic_fixed_P hic_fixed_S hic_verdict
+     GLOBAL_DYNAMICS           5      None      None            None            None     FAMILY_DROP        None        None       FAMILY_DROP  None  None        None        None FAMILY_DROP
+  DOMAIN_FLEXIBILITY           8      None      None            None            None     FAMILY_DROP        None        None       FAMILY_DROP  None  None        None        None FAMILY_DROP
+  INTERFACE_DYNAMICS          12      None      None            None            None     FAMILY_DROP        None        None       FAMILY_DROP  None  None        None        None FAMILY_DROP
+   AROMATIC_EXPOSURE           7      None      None            None            None     FAMILY_DROP        None        None       FAMILY_DROP  None  None        None        None FAMILY_DROP
+HYDROPHOBIC_EXPOSURE           4      None      None            None            None     FAMILY_DROP        None        None       FAMILY_DROP  None  None        None        None FAMILY_DROP

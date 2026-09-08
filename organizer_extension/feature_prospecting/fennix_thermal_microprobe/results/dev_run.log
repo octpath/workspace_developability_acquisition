@@ -1,0 +1,78 @@
+usable_dev=161 projected_h_ref=3.85 soft_gate=5.0
+model_loaded_s=1.2
+[1/161] ADI-37123 status=SUCCESS wall_s=130.9 elapsed_h=0.00
+[2/161] ADI-38499 status=SUCCESS wall_s=127.1 elapsed_h=0.00
+[3/161] ADI-38501 status=SUCCESS wall_s=124.3 elapsed_h=0.00
+[4/161] ADI-38502 status=SUCCESS wall_s=133.4 elapsed_h=0.00
+[5/161] ADI-45379 status=SUCCESS wall_s=131.2 elapsed_h=0.04
+[6/161] ADI-45388 status=SUCCESS wall_s=116.2 elapsed_h=0.07
+[7/161] ADI-45389 status=SUCCESS wall_s=107.7 elapsed_h=0.10
+[8/161] ADI-45390 status=SUCCESS wall_s=109.4 elapsed_h=0.13
+[9/161] ADI-45391 status=SUCCESS wall_s=101.6 elapsed_h=0.16
+[10/161] ADI-45402 status=SUCCESS wall_s=125.2 elapsed_h=0.19
+[11/161] ADI-45406 status=SUCCESS wall_s=112.5 elapsed_h=0.22
+[12/161] ADI-45408 status=SUCCESS wall_s=113.7 elapsed_h=0.25
+[13/161] ADI-45422 status=SUCCESS wall_s=110.1 elapsed_h=0.29
+[14/161] ADI-45425 status=SUCCESS wall_s=109.5 elapsed_h=0.32
+[15/161] ADI-45430 status=SUCCESS wall_s=116.7 elapsed_h=0.35
+[16/161] ADI-45435 status=SUCCESS wall_s=120.4 elapsed_h=0.38
+[17/161] ADI-45439 status=SUCCESS wall_s=108.4 elapsed_h=0.41
+[18/161] ADI-45440 status=SUCCESS wall_s=111.7 elapsed_h=0.44
+[19/161] ADI-45450 status=SUCCESS wall_s=107.8 elapsed_h=0.47
+[20/161] ADI-45451 status=SUCCESS wall_s=117.8 elapsed_h=0.51
+[21/161] ADI-45453 status=SUCCESS wall_s=103.8 elapsed_h=0.53
+[22/161] ADI-45454 status=SUCCESS wall_s=115.8 elapsed_h=0.57
+[23/161] ADI-45455 status=SUCCESS wall_s=103.2 elapsed_h=0.60
+[24/161] ADI-45461 status=SUCCESS wall_s=119.1 elapsed_h=0.63
+[25/161] ADI-45463 status=SUCCESS wall_s=106.4 elapsed_h=0.66
+[26/161] ADI-45464 status=SUCCESS wall_s=104.1 elapsed_h=0.69
+[27/161] ADI-45465 status=SUCCESS wall_s=112.7 elapsed_h=0.72
+[28/161] ADI-45479 status=SUCCESS wall_s=103.8 elapsed_h=0.75
+[29/161] ADI-45480 status=SUCCESS wall_s=109.9 elapsed_h=0.78
+[30/161] ADI-45488 status=SUCCESS wall_s=106.0 elapsed_h=0.81
+[31/161] ADI-45490 status=SUCCESS wall_s=116.3 elapsed_h=0.84
+[32/161] ADI-45491 status=SUCCESS wall_s=101.7 elapsed_h=0.87
+[33/161] ADI-45493 status=SUCCESS wall_s=116.5 elapsed_h=0.90
+[34/161] ADI-45495 status=SUCCESS wall_s=109.6 elapsed_h=0.93
+[35/161] ADI-45497 status=SUCCESS wall_s=106.7 elapsed_h=0.96
+[36/161] ADI-45499 status=SUCCESS wall_s=120.8 elapsed_h=0.99
+[37/161] ADI-46677 status=SUCCESS wall_s=97.4 elapsed_h=1.02
+[38/161] ADI-46682 FAIL RESOURCE_EXHAUSTED: [0] Failed to load in-memory CUBIN (compiled for a different GPU?).: CUDA_ERROR_OUT_OF_MEMORY: out of memory [executable_name='jit_process']
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_thermal_microprobe/scripts/01_run_dev_microprobe.py", line 451, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_thermal_microprobe/scripts/01_run_dev_microprobe.py", line 413, in main
+    feat = process_one(aid, seq.loc[aid], model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_thermal_microprobe/scripts/01_run_dev_microprobe.py", line 298, in process_one
+    frames = run_fennol_md(work, species, coords0, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/fennix_thermal_microprobe/scripts/01_run_dev_microprobe.py", line 263, in run_fennol_md
+    config_and_run_dynamic(fnl)
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/fennol/md/dynamic.py", line 147, in config_and_run_dynamic
+    return dynamic(simulation_parameters, device, fprec)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/fennol/md/dynamic.py", line 412, in dynamic
+    dyn_state, system, conformation, model_output = step(
+                                                    ^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/fennol/md/integrate.py", line 623, in step
+    conformation, dyn_state = update_graphs(
+                              ^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/fennol/md/integrate.py", line 567, in update_graphs
+    model.preprocessing.check_reallocate(preproc_state, conformation)
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/fennol/models/preprocessing.py", line 1935, in check_reallocate
+    s, s_up, inputs, parent_overflow = layer.check_reallocate(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/fennol/models/preprocessing.py", line 392, in check_reallocate
+    if not overflow:
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/jax/_src/array.py", line 296, in __bool__
+    return bool(self._value)
+                ^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/jax/_src/profiler.py", line 420, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/organizer_extension/feature_prospecting/foundation_stability/envs/fennol/lib/python3.11/site-packages/jax/_src/array.py", line 623, in _value
+    npy_value, did_copy = self._single_device_array_to_np_array_did_copy()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jax.errors.JaxRuntimeError: RESOURCE_EXHAUSTED: [0] Failed to load in-memory CUBIN (compiled for a different GPU?).: CUDA_ERROR_OUT_OF_MEMORY: out of memory [executable_name='jit_process']

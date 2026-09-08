@@ -1,0 +1,37 @@
+feature,ablation_family,source_dictionary_family,definition
+backbone_rmsd_mean,GLOBAL_DYNAMICS,DYN_GLOBAL,Mean backbone RMSD vs post-eq start over production frames
+backbone_rmsd_sd,GLOBAL_DYNAMICS,DYN_GLOBAL,SD backbone RMSD
+backbone_rmsd_q90,GLOBAL_DYNAMICS,DYN_GLOBAL,q90 backbone RMSD
+rg_mean,GLOBAL_DYNAMICS,DYN_GLOBAL,Mean radius of gyration
+rg_sd,GLOBAL_DYNAMICS,DYN_GLOBAL,SD radius of gyration
+VH_rmsf_mean,DOMAIN_FLEXIBILITY,DYN_RMSF,Mean backbone RMSF of VH
+VH_rmsf_q90,DOMAIN_FLEXIBILITY,DYN_RMSF,q90 backbone RMSF of VH
+VL_rmsf_mean,DOMAIN_FLEXIBILITY,DYN_RMSF,Mean backbone RMSF of VL
+VL_rmsf_q90,DOMAIN_FLEXIBILITY,DYN_RMSF,q90 backbone RMSF of VL
+CH1_rmsf_mean,DOMAIN_FLEXIBILITY,DYN_RMSF,Mean backbone RMSF of CH1
+CH1_rmsf_q90,DOMAIN_FLEXIBILITY,DYN_RMSF,q90 backbone RMSF of CH1
+CL_rmsf_mean,DOMAIN_FLEXIBILITY,DYN_RMSF,Mean backbone RMSF of CL
+CL_rmsf_q90,DOMAIN_FLEXIBILITY,DYN_RMSF,q90 backbone RMSF of CL
+VH_VL_native_contact_occupancy,INTERFACE_DYNAMICS,DYN_INTERFACE,Mean native-contact occupancy VH_VL (4.5A)
+VH_VL_native_contact_occupancy_sd,INTERFACE_DYNAMICS,DYN_INTERFACE,SD occupancy VH_VL
+VH_VL_native_contact_occupancy_min,INTERFACE_DYNAMICS,DYN_INTERFACE,Min occupancy VH_VL
+VH_CH1_native_contact_occupancy,INTERFACE_DYNAMICS,DYN_INTERFACE,Mean native-contact occupancy VH_CH1 (4.5A)
+VH_CH1_native_contact_occupancy_sd,INTERFACE_DYNAMICS,DYN_INTERFACE,SD occupancy VH_CH1
+VH_CH1_native_contact_occupancy_min,INTERFACE_DYNAMICS,DYN_INTERFACE,Min occupancy VH_CH1
+VL_CL_native_contact_occupancy,INTERFACE_DYNAMICS,DYN_INTERFACE,Mean native-contact occupancy VL_CL (4.5A)
+VL_CL_native_contact_occupancy_sd,INTERFACE_DYNAMICS,DYN_INTERFACE,SD occupancy VL_CL
+VL_CL_native_contact_occupancy_min,INTERFACE_DYNAMICS,DYN_INTERFACE,Min occupancy VL_CL
+CH1_CL_native_contact_occupancy,INTERFACE_DYNAMICS,DYN_INTERFACE,Mean native-contact occupancy CH1_CL (4.5A)
+CH1_CL_native_contact_occupancy_sd,INTERFACE_DYNAMICS,DYN_INTERFACE,SD occupancy CH1_CL
+CH1_CL_native_contact_occupancy_min,INTERFACE_DYNAMICS,DYN_INTERFACE,Min occupancy CH1_CL
+aromatic_sasa_mean,AROMATIC_EXPOSURE,DYN_EXPOSURE,Mean aromatic SASA over frames
+aromatic_sasa_sd,AROMATIC_EXPOSURE,DYN_EXPOSURE,SD aromatic SASA
+aromatic_sasa_q90,AROMATIC_EXPOSURE,DYN_EXPOSURE,q90 aromatic SASA
+Tyr_sasa_mean,AROMATIC_EXPOSURE,DYN_EXPOSURE,Mean Tyr SASA
+Phe_sasa_mean,AROMATIC_EXPOSURE,DYN_EXPOSURE,Mean Phe SASA
+Trp_sasa_mean,AROMATIC_EXPOSURE,DYN_EXPOSURE,Mean Trp SASA
+delta_aromatic_sasa_mean,AROMATIC_EXPOSURE,DYN_EXPOSURE,Mean aromatic SASA minus start
+hydrophobic_sasa_mean,HYDROPHOBIC_EXPOSURE,DYN_EXPOSURE,Mean hydrophobic SASA
+hydrophobic_sasa_sd,HYDROPHOBIC_EXPOSURE,DYN_EXPOSURE,SD hydrophobic SASA
+hydrophobic_sasa_q90,HYDROPHOBIC_EXPOSURE,DYN_EXPOSURE,q90 hydrophobic SASA
+delta_hydrophobic_sasa_mean,HYDROPHOBIC_EXPOSURE,DYN_EXPOSURE,Mean hydrophobic SASA minus start

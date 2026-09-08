@@ -1,0 +1,37 @@
+feature,family,molecular_scope,definition,units,notes
+bb_rmsd_mean,DYN_GLOBAL,full_fab,Mean backbone (N,CA,C,O) RMSD vs production start,Angstrom,production frames only
+bb_rmsd_max,DYN_GLOBAL,full_fab,Max backbone RMSD vs production start,Angstrom,
+rg_mean,DYN_GLOBAL,full_fab,Mean radius of gyration (all atoms),Angstrom,
+rg_sd,DYN_GLOBAL,full_fab,SD of radius of gyration,Angstrom,
+epot_mean,DYN_GLOBAL,full_fab,Mean FeNNix potential energy over production,eV,not comparable across different atom counts without care
+epot_sd,DYN_GLOBAL,full_fab,SD of potential energy,eV,
+epot_drift,DYN_GLOBAL,full_fab,(Epot_last-Epot_first)/production_time,eV/ps,
+rmsf_bb_mean_VH,DYN_DOMAIN_RMSF,VH,Mean backbone RMSF of VH domain,Angstrom,domains from Fab chain mapping
+rmsf_bb_mean_VL,DYN_DOMAIN_RMSF,VL,Mean backbone RMSF of VL domain,Angstrom,
+rmsf_bb_mean_CH1,DYN_DOMAIN_RMSF,CH1,Mean backbone RMSF of CH1 domain,Angstrom,
+rmsf_bb_mean_CL,DYN_DOMAIN_RMSF,CL,Mean backbone RMSF of CL domain,Angstrom,
+rmsf_bb_q90_VH,DYN_DOMAIN_RMSF,VH,Optional q90 backbone RMSF VH,Angstrom,optional
+rmsf_bb_q90_VL,DYN_DOMAIN_RMSF,VL,Optional q90 backbone RMSF VL,Angstrom,optional
+rmsf_bb_q90_CH1,DYN_DOMAIN_RMSF,CH1,Optional q90 backbone RMSF CH1,Angstrom,optional
+rmsf_bb_q90_CL,DYN_DOMAIN_RMSF,CL,Optional q90 backbone RMSF CL,Angstrom,optional
+nc_ret_mean_VH_VL,DYN_INTERFACE,VH-VL,Mean native-contact retention (4.5A heavy),fraction,native from t0 C_r1
+nc_ret_sd_VH_VL,DYN_INTERFACE,VH-VL,SD native-contact retention,fraction,
+nc_ret_min_VH_VL,DYN_INTERFACE,VH-VL,Min native-contact retention,fraction,
+nc_ret_mean_VH_CH1,DYN_INTERFACE,VH-CH1,Mean native-contact retention,fraction,
+nc_ret_sd_VH_CH1,DYN_INTERFACE,VH-CH1,SD native-contact retention,fraction,
+nc_ret_min_VH_CH1,DYN_INTERFACE,VH-CH1,Min native-contact retention,fraction,
+nc_ret_mean_VL_CL,DYN_INTERFACE,VL-CL,Mean native-contact retention,fraction,
+nc_ret_sd_VL_CL,DYN_INTERFACE,VL-CL,SD native-contact retention,fraction,
+nc_ret_min_VL_CL,DYN_INTERFACE,VL-CL,Min native-contact retention,fraction,
+nc_ret_mean_CH1_CL,DYN_INTERFACE,CH1-CL,Mean native-contact retention,fraction,
+nc_ret_sd_CH1_CL,DYN_INTERFACE,CH1-CL,SD native-contact retention,fraction,
+nc_ret_min_CH1_CL,DYN_INTERFACE,CH1-CL,Min native-contact retention,fraction,
+aro_sasa_mean,DYN_EXPOSURE,full_fab,Mean aromatic SASA over sparse frames,Angstrom^2,skip if expensive
+aro_sasa_sd,DYN_EXPOSURE,full_fab,SD aromatic SASA,Angstrom^2,
+aro_sasa_q90,DYN_EXPOSURE,full_fab,q90 aromatic SASA,Angstrom^2,
+tyr_sasa_mean,DYN_EXPOSURE,full_fab,Mean Tyr SASA,Angstrom^2,
+phe_sasa_mean,DYN_EXPOSURE,full_fab,Mean Phe SASA,Angstrom^2,
+trp_sasa_mean,DYN_EXPOSURE,full_fab,Mean Trp SASA,Angstrom^2,
+hydro_sasa_mean,DYN_EXPOSURE,full_fab,Mean hydrophobic SASA,Angstrom^2,
+hydro_sasa_sd,DYN_EXPOSURE,full_fab,SD hydrophobic SASA,Angstrom^2,
+hydro_sasa_q90,DYN_EXPOSURE,full_fab,q90 hydrophobic SASA,Angstrom^2,

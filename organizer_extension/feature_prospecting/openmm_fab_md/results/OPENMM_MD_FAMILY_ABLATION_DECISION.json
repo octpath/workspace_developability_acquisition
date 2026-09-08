@@ -1,0 +1,59 @@
+{
+  "families": [
+    "GLOBAL_DYNAMICS",
+    "DOMAIN_FLEXIBILITY",
+    "INTERFACE_DYNAMICS",
+    "AROMATIC_EXPOSURE",
+    "HYDROPHOBIC_EXPOSURE"
+  ],
+  "N": 158,
+  "survivors": [
+    {
+      "family": "GLOBAL_DYNAMICS",
+      "setting": "TmApp_BASE",
+      "primary_delta": 0.002735881899964,
+      "shadow_delta": 0.0063020058051979,
+      "verdict": "FAMILY_WEAK"
+    },
+    {
+      "family": "DOMAIN_FLEXIBILITY",
+      "setting": "TmApp_BASE",
+      "primary_delta": 0.0095537959172449,
+      "shadow_delta": 0.018980159438529,
+      "verdict": "FAMILY_WEAK"
+    }
+  ],
+  "bootstrap": {
+    "GLOBAL_DYNAMICS|TmApp_BASE|Primary": {
+      "ci95": [
+        -0.04302775939064853,
+        0.04683387548763023
+      ],
+      "p_improve": 0.4534
+    },
+    "GLOBAL_DYNAMICS|TmApp_BASE|Shadow": {
+      "ci95": [
+        -0.039635053049323694,
+        0.05213073371203777
+      ],
+      "p_improve": 0.3915
+    },
+    "DOMAIN_FLEXIBILITY|TmApp_BASE|Primary": {
+      "ci95": [
+        -0.06679383568779132,
+        0.08651941572579343
+      ],
+      "p_improve": 0.403
+    },
+    "DOMAIN_FLEXIBILITY|TmApp_BASE|Shadow": {
+      "ci95": [
+        -0.056246200876510465,
+        0.0959042043251932
+      ],
+      "p_improve": 0.3184
+    }
+  },
+  "final_openmm_verdict": "OPENMM_ONE_FAMILY_SURVIVES",
+  "GO_TO_TEST": false,
+  "note": "Even if survivors, Test generation awaits organizer review per brief."
+}

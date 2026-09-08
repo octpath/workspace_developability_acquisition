@@ -1,0 +1,35 @@
+{
+  "freeze_utc": "2026-09-08T11:45:00+00:00",
+  "status": "NOT_APPLIED",
+  "reason": "MICRODYNAMICS_TOO_SLOW",
+  "spec": "MICRODYNAMICS_FEATURE_SPEC.md",
+  "cohort": "fennix_fab_context_final/results/FINAL_FENNIX_COHORT.csv",
+  "accepted_N": 323,
+  "excluded_ids": ["ADI-47265"],
+  "structure_source": "fennix_fab_context/cache/r1/{id}_C_r1.pdb",
+  "protocol": {
+    "T_K": 300,
+    "dt_fs": 1,
+    "thermostat": "LGV",
+    "gamma_per_ps": 1.0,
+    "equilibration_ps": 1.0,
+    "production_ps_primary": 5.0,
+    "production_ps_fallback": 2.0,
+    "seed": 42,
+    "contact_cutoff_A": 4.5,
+    "model": "fennix-bio1S.fnx"
+  },
+  "feature_families": [
+    "DYN_GLOBAL",
+    "DYN_DOMAIN_RMSF",
+    "DYN_INTERFACE",
+    "DYN_EXPOSURE"
+  ],
+  "feature_table": null,
+  "feature_table_sha256": null,
+  "timing_gate_hours": 12,
+  "projected_hours_5ps_323": 185.22,
+  "projected_hours_2ps_323": 92.61,
+  "frozen_before_target_eval": true,
+  "note": "Feature definitions frozen without labels. Full-cohort trajectories were not generated because projected wall time exceeds the sprint gate even at 2 ps production."
+}

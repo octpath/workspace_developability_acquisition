@@ -1,0 +1,18 @@
+{
+  "tmapp_primary_delta": -0.0878388186136813,
+  "tmapp_shadow_delta": -0.0390256498168302,
+  "tmapp_fixed_primary_delta": -0.0878388186136813,
+  "tmapp_fixed_shadow_delta": -0.0390256498168302,
+  "tmapp_verdict": "COMP_DROP",
+  "recipe_primary_delta": -0.1040997711213664,
+  "recipe_shadow_delta": -0.0686643614855939,
+  "hic_primary_delta": -0.0117328776572636,
+  "hic_shadow_delta": -0.0065262247571949,
+  "hic_cont_titr_primary_delta": -0.0096622381229192,
+  "hic_cont_titr_shadow_delta": -0.0039282714746259,
+  "hic_verdict": "COMP_DROP",
+  "GO_TO_TEST_TMAPP": false,
+  "GO_TO_TEST_HIC": false,
+  "final_tmapp": "STOP",
+  "final_hic": "STOP"
+}
