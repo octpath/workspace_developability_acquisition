@@ -1,0 +1,94 @@
+{
+  "plan_id": "ABLANG2_POSITION_AWARE_FOLLOWUP",
+  "frozen_at": "2026-09-09T02:25:38Z",
+  "baseline_head": "3bff7a5ce27155feec109a464ed9df6f4a43bd9e",
+  "target": "TmApp",
+  "hic_exploration": false,
+  "hypothesis": "AbLang2 residue + IMGT/FR-CDR annotation Transformer may recover position-dependent TmApp signal lost in pooled AbLang2.",
+  "ablang2": {
+    "package": "ablang2",
+    "package_version": "0.2.1",
+    "model_to_use": "ablang2-paired",
+    "random_init": false,
+    "residue_api": "mode=rescoding via AbRep.last_hidden_states; AA tokens only after exact special-token strip",
+    "special_tokens": ["<", ">", "|"],
+    "chain_calls": {"H": ["heavy", ""], "L": ["", "light"]},
+    "fine_tune": false,
+    "hidden_dim_expected": 480
+  },
+  "variants": [
+    {
+      "variant_id": "AL2F1_MIN_CONCAT",
+      "content": "frozen_ablang2_residue",
+      "annotation_mode": "minimal",
+      "merge_mode": "concat",
+      "pooling_mode": "reg",
+      "chain_mode": "HL"
+    },
+    {
+      "variant_id": "AL2F2_FULL_CONCAT",
+      "content": "frozen_ablang2_residue",
+      "annotation_mode": "full",
+      "merge_mode": "concat",
+      "pooling_mode": "reg",
+      "chain_mode": "HL"
+    },
+    {
+      "variant_id": "AL2F3_FULL_MEAN",
+      "content": "frozen_ablang2_residue",
+      "annotation_mode": "full",
+      "merge_mode": "mean",
+      "pooling_mode": "reg",
+      "chain_mode": "HL"
+    },
+    {
+      "variant_id": "AL2F4_FULL_REGION_GATE",
+      "content": "frozen_ablang2_residue",
+      "annotation_mode": "full",
+      "merge_mode": "concat",
+      "pooling_mode": "region_gate",
+      "chain_mode": "HL",
+      "region_groups": ["FR_ALL", "CDR1", "CDR2", "CDR3"]
+    }
+  ],
+  "architecture": {
+    "n_layers": 2,
+    "d_model": 128,
+    "n_heads": 4,
+    "dim_feedforward": 256,
+    "dropout": 0.2,
+    "norm_first": true,
+    "batch_first": true
+  },
+  "training": {
+    "seeds": [101, 202, 303],
+    "schemes": ["primary", "shadow"],
+    "rotations": 5,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "batch_size": 16,
+    "batch_size_oom_fallback": [8, 4],
+    "max_epochs": 300,
+    "patience": 30,
+    "gradient_clip": 1.0,
+    "loss": "SmoothL1",
+    "target_standardization": "TRAIN_only"
+  },
+  "selection": {
+    "primary_key": "cv_worst",
+    "tie_break": ["cv_mean", "simpler"],
+    "public_private": "POSTMORTEM_ONLY"
+  },
+  "fusion_recipes": [
+    "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+    "TM_PARENT_ABLINGUA_GLOBAL__RIDGE",
+    "TM_BASE_BIOEMU_MPNN__RIDGE"
+  ],
+  "ensemble": {
+    "method": "equal_mean_family_winners",
+    "stacking": "SKIP_DEFAULT"
+  },
+  "stopping_rule": "Run pre-registered matrix once with resume; no result-driven additions.",
+  "license_status": "REVIEW_MODEL_OUTPUT"
+}
