@@ -1,0 +1,52 @@
+experiment_code: EXP-T065
+experiment_id: TRF_TM_ABLINGUA_RASA_CONT_FULL_CONCAT_FUS_BIOEMU_MPNN
+target: TmApp
+family: TRANSFORMER
+source_model_id: RASA_CONT::EXP-T037
+transformer_type: FUSION
+input_space: RESIDUE_PLUS_FIXED_FEATURES_PLUS_RASA
+input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+plm_source: ABLINGUA
+annotation_mode: FULL
+chain_mode: HL
+merge_mode: concat
+pooling_mode: CONCAT
+content_mode: frozen
+d_model: 128
+n_layers: 2
+n_heads: 4
+ff_dim: 256
+dropout: 0.2
+seeds:
+- 101
+- 202
+- 303
+optimizer: AdamW
+learning_rate: 0.0003
+weight_decay: 0.01
+batch_size: 16
+max_epochs: 300
+patience: 30
+gradient_clip: 1.0
+loss: SmoothL1Loss(beta=0.5)
+cv_protocol: canonical_simple_tvt_primary_shadow
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+representation_status: NOT_EXPORTED
+representation_aggregation_future: UNDECIDED
+fusion_feature_set_id: FS_TM_BIOEMU_MPNN
+fusion_projection_dim: 64
+fusion_recipe: TM_BASE_BIOEMU_MPNN__RIDGE
+control_experiment_code: EXP-T037
+residue_rasa_annotation:
+  enabled: true
+  rasa_mode: CONTINUOUS_ADDITIVE
+  rasa_projection: LINEAR_NO_BIAS
+  rasa_projection_init: ZERO
+  rasa_source: experiments/classical_cache
+  rasa_hashes:
+    rasa_heavy.npy: b59e4037913d113e417bc5a2939fe372f225fcdcf4223ac933e0ca7aa5c1d523
+    rasa_light.npy: f5689ff8b85c2189fb35195d3a31e6fbe3efb457125274f2234cc98c872fc85a
+    rasa_ids.npy: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    rasa_meta.json: 1e759063dc00a656c516c6a8137eb19219d7f41258330bd780d7e452ab6e9b0d
+  control_experiment_code: EXP-T037

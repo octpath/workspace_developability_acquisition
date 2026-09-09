@@ -1,0 +1,53 @@
+{
+  "git_rev": "0dfa933d6b49f54a42ded09bd3fcf13806bbc47c",
+  "quick": false,
+  "elapsed_sec": 196.83158135414124,
+  "replay": {
+    "cv_primary_mae": 2.753815709808727,
+    "cv_shadow_mae": 2.772998134785718,
+    "cv_mean_mae": 2.7634069222972224,
+    "cv_worst_mae": 2.772998134785718,
+    "config_hash": "f5f7592007b6b24d",
+    "best_epochs_primary": {
+      "101": [
+        85,
+        13,
+        26,
+        11,
+        17
+      ],
+      "202": [
+        46,
+        15,
+        8,
+        10,
+        47
+      ],
+      "303": [
+        53,
+        22,
+        27,
+        14,
+        32
+      ]
+    },
+    "seed_maes_primary": 0.08419078596142356
+  },
+  "historical": {
+    "cv_primary_mae": 2.753815709808727,
+    "cv_shadow_mae": 2.772998134785718,
+    "cv_mean_mae": 2.7634069222972224,
+    "cv_worst_mae": 2.772998134785718,
+    "public_mae": 3.267984555091387,
+    "private_mae": 3.2807702900450906,
+    "test_overall_mae": 3.274377422568239
+  },
+  "delta": {
+    "primary_pred_max_abs": 0.0,
+    "shadow_pred_max_abs": 0.0,
+    "delta_primary": 0.0,
+    "delta_shadow": 0.0,
+    "delta_worst": 0.0
+  },
+  "note": "Historical EXP-T037 predictions untouched; reproduction stored under results/reproduction/EXP-T037/"
+}

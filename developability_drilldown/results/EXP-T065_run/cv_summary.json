@@ -1,0 +1,50 @@
+{
+  "git_rev": "0dfa933d6b49f54a42ded09bd3fcf13806bbc47c",
+  "quick": false,
+  "elapsed_sec": 167.60765027999878,
+  "cv_primary_mae": 2.8147044240692516,
+  "cv_shadow_mae": 2.8746067800639596,
+  "cv_mean_mae": 2.844655602066606,
+  "cv_worst_mae": 2.8746067800639596,
+  "config_hash": "0a0680ea3cf9619e",
+  "best_epochs_primary": {
+    "101": [
+      32,
+      14,
+      24,
+      8,
+      44
+    ],
+    "202": [
+      44,
+      12,
+      34,
+      7,
+      13
+    ],
+    "303": [
+      28,
+      13,
+      10,
+      15,
+      45
+    ]
+  },
+  "rasa_qc": {
+    "n_expected_residues": 75057,
+    "n_mapped_residues": 75057,
+    "n_missing_rasa_residues": 0,
+    "n_aa_mismatch_flags": 0,
+    "rasa_hashes": {
+      "rasa_heavy.npy": "b59e4037913d113e417bc5a2939fe372f225fcdcf4223ac933e0ca7aa5c1d523",
+      "rasa_light.npy": "f5689ff8b85c2189fb35195d3a31e6fbe3efb457125274f2234cc98c872fc85a",
+      "rasa_ids.npy": "ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d",
+      "rasa_meta.json": "1e759063dc00a656c516c6a8137eb19219d7f41258330bd780d7e452ab6e9b0d"
+    },
+    "rasa_range": {
+      "min": 0.0,
+      "max": 1.0968040227890015,
+      "mean": 0.2593059539794922
+    }
+  }
+}

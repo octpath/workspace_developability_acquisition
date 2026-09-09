@@ -1,0 +1,200 @@
+{
+  "control_replay": {
+    "git_rev": "0dfa933d6b49f54a42ded09bd3fcf13806bbc47c",
+    "quick": false,
+    "elapsed_sec": 196.83158135414124,
+    "replay": {
+      "cv_primary_mae": 2.753815709808727,
+      "cv_shadow_mae": 2.772998134785718,
+      "cv_mean_mae": 2.7634069222972224,
+      "cv_worst_mae": 2.772998134785718,
+      "config_hash": "f5f7592007b6b24d",
+      "best_epochs_primary": {
+        "101": [
+          85,
+          13,
+          26,
+          11,
+          17
+        ],
+        "202": [
+          46,
+          15,
+          8,
+          10,
+          47
+        ],
+        "303": [
+          53,
+          22,
+          27,
+          14,
+          32
+        ]
+      },
+      "seed_maes_primary": 0.08419078596142356
+    },
+    "historical": {
+      "cv_primary_mae": 2.753815709808727,
+      "cv_shadow_mae": 2.772998134785718,
+      "cv_mean_mae": 2.7634069222972224,
+      "cv_worst_mae": 2.772998134785718,
+      "public_mae": 3.267984555091387,
+      "private_mae": 3.2807702900450906,
+      "test_overall_mae": 3.274377422568239
+    },
+    "delta": {
+      "primary_pred_max_abs": 0.0,
+      "shadow_pred_max_abs": 0.0,
+      "delta_primary": 0.0,
+      "delta_shadow": 0.0,
+      "delta_worst": 0.0
+    },
+    "note": "Historical EXP-T037 predictions untouched; reproduction stored under results/reproduction/EXP-T037/"
+  },
+  "experiment_code": "EXP-T065",
+  "t065_cv": {
+    "git_rev": "0dfa933d6b49f54a42ded09bd3fcf13806bbc47c",
+    "quick": false,
+    "elapsed_sec": 167.60765027999878,
+    "cv_primary_mae": 2.8147044240692516,
+    "cv_shadow_mae": 2.8746067800639596,
+    "cv_mean_mae": 2.844655602066606,
+    "cv_worst_mae": 2.8746067800639596,
+    "config_hash": "0a0680ea3cf9619e",
+    "best_epochs_primary": {
+      "101": [
+        32,
+        14,
+        24,
+        8,
+        44
+      ],
+      "202": [
+        44,
+        12,
+        34,
+        7,
+        13
+      ],
+      "303": [
+        28,
+        13,
+        10,
+        15,
+        45
+      ]
+    },
+    "rasa_qc": {
+      "n_expected_residues": 75057,
+      "n_mapped_residues": 75057,
+      "n_missing_rasa_residues": 0,
+      "n_aa_mismatch_flags": 0,
+      "rasa_hashes": {
+        "rasa_heavy.npy": "b59e4037913d113e417bc5a2939fe372f225fcdcf4223ac933e0ca7aa5c1d523",
+        "rasa_light.npy": "f5689ff8b85c2189fb35195d3a31e6fbe3efb457125274f2234cc98c872fc85a",
+        "rasa_ids.npy": "ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d",
+        "rasa_meta.json": "1e759063dc00a656c516c6a8137eb19219d7f41258330bd780d7e452ab6e9b0d"
+      },
+      "rasa_range": {
+        "min": 0.0,
+        "max": 1.0968040227890015,
+        "mean": 0.2593059539794922
+      }
+    }
+  },
+  "t065_test": {
+    "public_mae": 3.222721994659047,
+    "private_mae": 3.2498935652367864,
+    "test_overall_mae": 3.2363077799479165
+  },
+  "artifacts": {
+    "feature_path": "/workspace_developability_acquisition/developability_drilldown/experiments/features/EXP-T065.parquet",
+    "rasa_path": "/workspace_developability_acquisition/developability_drilldown/experiments/inputs/EXP-T065_rasa.parquet",
+    "feature_sha256": "fdc027c8b18ecd21637fb1195946edc698efe7248affdca82d664f97aa3af971",
+    "rasa_sha256": "abf0e44ca3bdaedf767ea3ef3f4741d5743ff6d6d6e0ad339cfa3d68f57ef5ac",
+    "diagnostics": {
+      "bootstrap": {
+        "primary": {
+          "mae_delta": 0.060888714260525084,
+          "ci95_low": -0.05666946187431448,
+          "ci95_high": 0.18139611212804954,
+          "n_boot": 10000
+        },
+        "shadow": {
+          "mae_delta": 0.10160864527824154,
+          "ci95_low": 0.007227816797580069,
+          "ci95_high": 0.19753673733997903,
+          "n_boot": 10000
+        }
+      },
+      "fold_mae_deltas": {
+        "primary": [
+          {
+            "fold": 0,
+            "mae_t065": 2.503522872924807,
+            "mae_control": 2.484362403551738,
+            "delta": 0.0191604693730687
+          },
+          {
+            "fold": 1,
+            "mae_t065": 2.796918079106495,
+            "mae_control": 2.8923969461460306,
+            "delta": -0.09547886703953568
+          },
+          {
+            "fold": 2,
+            "mae_t065": 2.9711116443980816,
+            "mae_control": 2.760145322240965,
+            "delta": 0.21096632215711653
+          },
+          {
+            "fold": 3,
+            "mae_t065": 3.1704185406366983,
+            "mae_control": 2.9845437208811445,
+            "delta": 0.18587481975555376
+          },
+          {
+            "fold": 4,
+            "mae_t065": 2.627219080924987,
+            "mae_control": 2.643101692199706,
+            "delta": -0.01588261127471924
+          }
+        ],
+        "shadow": [
+          {
+            "fold": 0,
+            "mae_t065": 2.7078109184900923,
+            "mae_control": 2.648537715276082,
+            "delta": 0.059273203214010195
+          },
+          {
+            "fold": 1,
+            "mae_t065": 2.561053728816486,
+            "mae_control": 2.2343538457697076,
+            "delta": 0.32669988304677844
+          },
+          {
+            "fold": 2,
+            "mae_t065": 3.3347084919611616,
+            "mae_control": 3.2851689259211208,
+            "delta": 0.04953956604004084
+          },
+          {
+            "fold": 3,
+            "mae_t065": 2.549662431081137,
+            "mae_control": 2.5108673572540265,
+            "delta": 0.03879507382711056
+          },
+          {
+            "fold": 4,
+            "mae_t065": 3.218839587587299,
+            "mae_control": 3.189868271952927,
+            "delta": 0.02897131563437183
+          }
+        ]
+      }
+    }
+  },
+  "verdict": "NEGATIVE"
+}

@@ -1,0 +1,106 @@
+experiment_code: EXP-T065
+experiment_id: TRF_TM_ABLINGUA_RASA_CONT_FULL_CONCAT_FUS_BIOEMU_MPNN
+git_rev: 0dfa933d6b49f54a42ded09bd3fcf13806bbc47c
+config:
+  experiment_code: EXP-T065
+  experiment_id: TRF_TM_ABLINGUA_RASA_CONT_FULL_CONCAT_FUS_BIOEMU_MPNN
+  target: TmApp
+  family: TRANSFORMER
+  source_model_id: RASA_CONT::EXP-T037
+  transformer_type: FUSION
+  input_space: RESIDUE_PLUS_FIXED_FEATURES_PLUS_RASA
+  input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  plm_source: ABLINGUA
+  annotation_mode: FULL
+  chain_mode: HL
+  merge_mode: concat
+  pooling_mode: CONCAT
+  content_mode: frozen
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  ff_dim: 256
+  dropout: 0.2
+  seeds:
+  - 101
+  - 202
+  - 303
+  optimizer: AdamW
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  batch_size: 16
+  max_epochs: 300
+  patience: 30
+  gradient_clip: 1.0
+  loss: SmoothL1Loss(beta=0.5)
+  cv_protocol: canonical_simple_tvt_primary_shadow
+  selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+  current_evaluation_mode: POSTCOMP_EXPLORATORY
+  representation_status: NOT_EXPORTED
+  representation_aggregation_future: UNDECIDED
+  fusion_feature_set_id: FS_TM_BIOEMU_MPNN
+  fusion_projection_dim: 64
+  fusion_recipe: TM_BASE_BIOEMU_MPNN__RIDGE
+  control_experiment_code: EXP-T037
+  residue_rasa_annotation:
+    enabled: true
+    rasa_mode: CONTINUOUS_ADDITIVE
+    rasa_projection: LINEAR_NO_BIAS
+    rasa_projection_init: ZERO
+    rasa_source: experiments/classical_cache
+    rasa_hashes: &id001
+      rasa_heavy.npy: b59e4037913d113e417bc5a2939fe372f225fcdcf4223ac933e0ca7aa5c1d523
+      rasa_light.npy: f5689ff8b85c2189fb35195d3a31e6fbe3efb457125274f2234cc98c872fc85a
+      rasa_ids.npy: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+      rasa_meta.json: 1e759063dc00a656c516c6a8137eb19219d7f41258330bd780d7e452ab6e9b0d
+    control_experiment_code: EXP-T037
+rasa_source: experiments/classical_cache
+rasa_hashes: *id001
+control_replay:
+  cv_primary_mae: 2.753815709808727
+  cv_shadow_mae: 2.772998134785718
+  cv_mean_mae: 2.7634069222972224
+  cv_worst_mae: 2.772998134785718
+EXP-T065:
+  cv_primary_mae: 2.8147044240692516
+  cv_shadow_mae: 2.8746067800639596
+  cv_mean_mae: 2.844655602066606
+  cv_worst_mae: 2.8746067800639596
+  config_hash: 0a0680ea3cf9619e
+  best_epochs_primary:
+    '101':
+    - 32
+    - 14
+    - 24
+    - 8
+    - 44
+    '202':
+    - 44
+    - 12
+    - 34
+    - 7
+    - 13
+    '303':
+    - 28
+    - 13
+    - 10
+    - 15
+    - 45
+historical_EXP-T037:
+  cv_primary_mae: 2.753815709808727
+  cv_shadow_mae: 2.772998134785718
+  cv_mean_mae: 2.7634069222972224
+  cv_worst_mae: 2.772998134785718
+  public_mae: 3.267984555091387
+  private_mae: 3.2807702900450906
+  test_overall_mae: 3.274377422568239
+classical_EXP-T045:
+  cv_primary_mae: 2.70601456664252
+  cv_shadow_mae: 2.728948221583707
+  cv_worst_mae: 2.728948221583707
+selection_statement: CV completed for EXP-T065 under identical protocol to EXP-T037
+  replay; config frozen; Public/Private not inspected before this freeze; proceed
+  to single full-Dev Test evaluation.
+public_mae: 3.222721994659047
+private_mae: 3.2498935652367864
+test_overall_mae: 3.2363077799479165
