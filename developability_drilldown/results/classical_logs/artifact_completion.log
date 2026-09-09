@@ -1,0 +1,250 @@
+=== artifact completion start n=117 ===
+=== new 40 classical reproduction ===
+  EXP-T045 est=ridge pred_delta=7.105e-15 score_delta=4.440892098500626e-16
+  EXP-T046 est=lasso pred_delta=0.000e+00 score_delta=0.0
+  EXP-T047 est=enet pred_delta=0.000e+00 score_delta=4.440892098500626e-16
+  EXP-T048 est=svr pred_delta=0.000e+00 score_delta=0.0
+  EXP-T049 est=xgb pred_delta=3.799e-06 score_delta=3.1147520562768705e-08
+  EXP-T050 est=ridge pred_delta=7.105e-15 score_delta=4.440892098500626e-16
+  EXP-T051 est=lasso pred_delta=0.000e+00 score_delta=4.440892098500626e-16
+  EXP-T052 est=enet pred_delta=7.105e-15 score_delta=4.440892098500626e-16
+  EXP-T053 est=svr pred_delta=0.000e+00 score_delta=4.440892098500626e-16
+  EXP-T054 est=xgb pred_delta=3.809e-06 score_delta=2.9247443977808985e-07
+  EXP-T055 est=ridge pred_delta=7.105e-15 score_delta=0.0
+  EXP-T056 est=lasso pred_delta=0.000e+00 score_delta=4.440892098500626e-16
+  EXP-T057 est=enet pred_delta=0.000e+00 score_delta=4.440892098500626e-16
+  EXP-T058 est=svr pred_delta=7.105e-15 score_delta=4.440892098500626e-16
+  EXP-T059 est=xgb pred_delta=3.813e-06 score_delta=3.9643615012963096e-07
+  EXP-T060 est=ridge pred_delta=0.000e+00 score_delta=0.0
+  EXP-T061 est=lasso pred_delta=7.105e-15 score_delta=4.440892098500626e-16
+  EXP-T062 est=enet pred_delta=0.000e+00 score_delta=0.0
+  EXP-T063 est=svr pred_delta=7.105e-15 score_delta=0.0
+  EXP-T064 est=xgb pred_delta=3.782e-06 score_delta=1.3047357327877762e-07
+  EXP-H034 est=ridge pred_delta=1.776e-15 score_delta=2.220446049250313e-16
+  EXP-H035 est=lasso pred_delta=1.776e-15 score_delta=2.220446049250313e-16
+  EXP-H036 est=enet pred_delta=1.776e-15 score_delta=2.220446049250313e-16
+  EXP-H037 est=svr pred_delta=1.776e-15 score_delta=5.551115123125783e-17
+  EXP-H038 est=xgb pred_delta=4.713e-07 score_delta=7.308771576841622e-08
+  EXP-H039 est=ridge pred_delta=1.776e-15 score_delta=1.1102230246251565e-16
+  EXP-H040 est=lasso pred_delta=1.776e-15 score_delta=2.220446049250313e-16
+  EXP-H041 est=enet pred_delta=1.776e-15 score_delta=1.1102230246251565e-16
+  EXP-H042 est=svr pred_delta=1.776e-15 score_delta=1.6653345369377348e-16
+  EXP-H043 est=xgb pred_delta=4.746e-07 score_delta=3.58268833489106e-08
+  EXP-H044 est=ridge pred_delta=1.776e-15 score_delta=1.1102230246251565e-16
+  EXP-H045 est=lasso pred_delta=1.776e-15 score_delta=2.7755575615628914e-16
+  EXP-H046 est=enet pred_delta=1.776e-15 score_delta=2.220446049250313e-16
+  EXP-H047 est=svr pred_delta=1.776e-15 score_delta=2.220446049250313e-16
+  EXP-H048 est=xgb pred_delta=4.743e-07 score_delta=3.5716869295487896e-08
+  EXP-H049 est=ridge pred_delta=1.776e-15 score_delta=1.1102230246251565e-16
+  EXP-H050 est=lasso pred_delta=1.776e-15 score_delta=1.6653345369377348e-16
+  EXP-H051 est=enet pred_delta=1.776e-15 score_delta=2.220446049250313e-16
+  EXP-H052 est=svr pred_delta=1.776e-15 score_delta=1.6653345369377348e-16
+  EXP-H053 est=xgb pred_delta=4.712e-07 score_delta=2.3397563442273395e-08
+=== previous FULL / TRANSFORMER audit ===
+  FULL EXP-T001 pred_delta=5.684e-14
+  FULL EXP-T002 pred_delta=5.684e-14
+  FULL EXP-T003 pred_delta=5.684e-14
+  FULL EXP-H001 pred_delta=5.329e-15
+  FULL EXP-H002 pred_delta=3.553e-15
+  FULL EXP-H003 pred_delta=3.553e-15
+=== reconstructable LINEAR materialization ===
+  EXP-T004 TM_CONSTANT__RIDGE n_feat=0 status=REPRODUCED d=4.440892098500626e-16
+  EXP-T005 TM_CONSTANT__LASSO n_feat=0 status=REPRODUCED d=4.440892098500626e-16
+  EXP-T006 TM_SEQ_BASIC__RIDGE n_feat=78 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T007 TM_SEQ_BASIC__LASSO n_feat=78 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T008 TM_ABLANG2__RIDGE n_feat=480 status=REPRODUCED d=3.9968028886505635e-15
+  EXP-T009 TM_ABLANG2__LASSO n_feat=480 status=REPRODUCED d=0.018464740506833444
+  EXP-T010 TM_ABLANG2_SEQ__RIDGE n_feat=558 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T011 TM_ABLANG2_SEQ__LASSO n_feat=558 status=REPRODUCED d=1.7763568394002505e-15
+  EXP-T012 TM_BASE_BIOEMU__RIDGE n_feat=568 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T013 TM_BASE_BIOEMU__LASSO n_feat=568 status=REPRODUCED d=1.7763568394002505e-15
+  EXP-T014 TM_BASE_MPNN__RIDGE n_feat=559 status=REPRODUCED d=2.220446049250313e-15
+  EXP-T015 TM_BASE_MPNN__LASSO n_feat=559 status=REPRODUCED d=8.881784197001252e-16
+  EXP-T016 TM_BASE_BIOEMU_MPNN__LASSO n_feat=569 status=REPRODUCED d=8.881784197001252e-16
+  EXP-T017 TM_PARENT_ABLINGUA_GLOBAL__LASSO n_feat=3129 status=REPRODUCED d=2.220446049250313e-15
+  EXP-T018 TM_PARENT_ABLINGUA_CDR3__LASSO n_feat=5689 status=REPRODUCED d=0.6701352322210061
+  EXP-T021 CV mismatch d=0.017998474490365624
+  EXP-T021 TM_FENNIX_CONTEXT__RIDGE n_feat=650 status=UNVERIFIED_HISTORICAL d=0.017998474490365624
+  EXP-T022 CV mismatch d=0.02009382334546883
+  EXP-T022 TM_FENNIX_CONTEXT__LASSO n_feat=650 status=UNVERIFIED_HISTORICAL d=0.02009382334546883
+  EXP-H004 HIC_CONSTANT__RIDGE n_feat=0 status=REPRODUCED d=1.1102230246251565e-16
+  EXP-H005 HIC_CONSTANT__LASSO n_feat=0 status=REPRODUCED d=1.1102230246251565e-16
+  EXP-H006 HIC_SEQ__RIDGE n_feat=115 status=REPRODUCED d=1.1102230246251565e-16
+  EXP-H007 HIC_SEQ__LASSO n_feat=115 status=REPRODUCED d=0.01103357605182087
+  EXP-H008 HIC_ESM2_H__RIDGE n_feat=1280 status=REPRODUCED d=6.661338147750939e-16
+  EXP-H009 HIC_ESM2_H__LASSO n_feat=1280 status=REPRODUCED d=2.220446049250313e-16
+  EXP-H010 HIC_ESM2_SEQ__RIDGE n_feat=1395 status=REPRODUCED d=2.220446049250313e-16
+  EXP-H011 HIC_ESM2_SEQ__LASSO n_feat=1395 status=REPRODUCED d=3.3306690738754696e-16
+  EXP-H012 HIC_AROMATIC__RIDGE n_feat=19 status=REPRODUCED d=0.011142045938050238
+  EXP-H013 HIC_AROMATIC__LASSO n_feat=19 status=REPRODUCED d=0.02078720854502214
+  EXP-H014 HIC_ESM2_SEQ_AROMATIC__RIDGE n_feat=1414 status=REPRODUCED d=1.5543122344752192e-15
+  EXP-H015 HIC_ARO_CONTINUOUS_SURFACE__RIDGE n_feat=1459 status=REPRODUCED d=4.440892098500626e-16
+  EXP-H016 HIC_ARO_TITRATION__RIDGE n_feat=1432 status=REPRODUCED d=7.771561172376096e-16
+  EXP-H017 HIC_ARO_TITRATION__LASSO n_feat=1432 status=REPRODUCED d=2.220446049250313e-16
+  EXP-H018 HIC_ARO_CONT_TITR__RIDGE n_feat=1477 status=REPRODUCED d=3.3306690738754696e-16
+  EXP-H019 HIC_ARO_CONT_TITR__LASSO n_feat=1477 status=REPRODUCED d=1.6653345369377348e-16
+  EXP-H020 HIC_HYDRO_TITRATION__RIDGE n_feat=1448 status=REPRODUCED d=8.326672684688674e-16
+=== finalize registry + reports ===
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/frame.py", line 4913, in _set_value
+    self._mgr.column_setitem(icol, iindex, value, inplace_only=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/managers.py", line 1539, in column_setitem
+    col_mgr.setitem_inplace(idx, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/managers.py", line 2241, in setitem_inplace
+    value = np_can_hold_element(arr.dtype, value)
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/dtypes/cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/blocks.py", line 1115, in setitem
+    casted = np_can_hold_element(values.dtype, value)
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/dtypes/cast.py", line 1792, in np_can_hold_element
+    raise LossySetitemError
+pandas.errors.LossySetitemError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/complete_experiment_artifacts.py", line 1011, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/complete_experiment_artifacts.py", line 833, in main
+    exp.at[i, "shareability_status"] = ss
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 2592, in __setitem__
+    return super().__setitem__(key, value)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 2542, in __setitem__
+    self.obj._set_value(*key, value=value, takeable=self._takeable)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/frame.py", line 4924, in _set_value
+    self.loc[index, col] = value
+    ~~~~~~~~^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 938, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 1953, in _setitem_with_indexer
+    self._setitem_with_indexer_split_path(indexer, value, name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 2044, in _setitem_with_indexer_split_path
+    self._setitem_single_column(loc, value, pi)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 2181, in _setitem_single_column
+    self.obj._mgr.column_setitem(loc, plane_indexer, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/managers.py", line 1541, in column_setitem
+    new_mgr = col_mgr.setitem((idx,), value)
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/managers.py", line 620, in setitem
+    return self.apply("setitem", indexer=indexer, value=value)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/blocks.py", line 1118, in setitem
+    nb = self.coerce_to_target_dtype(value, raise_on_upcast=True)
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/internals/blocks.py", line 468, in coerce_to_target_dtype
+    raise TypeError(f"Invalid value '{other}' for dtype '{self.values.dtype}'")
+TypeError: Invalid value 'SHAREABLE_COMPLETE' for dtype 'float64'
+=== artifact completion start n=117 resume=True ===
+=== new 40 classical reproduction ===
+  EXP-T045 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T046 RESUME score_delta=0.0 -> REPRODUCED
+  EXP-T047 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T048 RESUME score_delta=0.0 -> REPRODUCED
+  EXP-T049 RESUME score_delta=3.1147520562768705e-08 -> REPRODUCED
+  EXP-T050 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T051 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T052 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T053 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T054 RESUME score_delta=2.9247443977808985e-07 -> REPRODUCED
+  EXP-T055 RESUME score_delta=0.0 -> REPRODUCED
+  EXP-T056 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T057 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T058 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T059 RESUME score_delta=3.9643615012963096e-07 -> REPRODUCED
+  EXP-T060 RESUME score_delta=0.0 -> REPRODUCED
+  EXP-T061 RESUME score_delta=4.440892098500626e-16 -> REPRODUCED
+  EXP-T062 RESUME score_delta=0.0 -> REPRODUCED
+  EXP-T063 RESUME score_delta=0.0 -> REPRODUCED
+  EXP-T064 RESUME score_delta=1.3047357327877762e-07 -> REPRODUCED
+  EXP-H034 RESUME score_delta=2.220446049250313e-16 -> REPRODUCED
+  EXP-H035 RESUME score_delta=2.220446049250313e-16 -> REPRODUCED
+  EXP-H036 RESUME score_delta=2.220446049250313e-16 -> REPRODUCED
+  EXP-H037 RESUME score_delta=5.551115123125783e-17 -> REPRODUCED
+  EXP-H038 RESUME score_delta=7.308771576841622e-08 -> REPRODUCED
+  EXP-H039 RESUME score_delta=1.1102230246251565e-16 -> REPRODUCED
+  EXP-H040 RESUME score_delta=2.220446049250313e-16 -> REPRODUCED
+  EXP-H041 RESUME score_delta=1.1102230246251565e-16 -> REPRODUCED
+  EXP-H042 RESUME score_delta=1.6653345369377348e-16 -> REPRODUCED
+  EXP-H043 RESUME score_delta=3.58268833489106e-08 -> REPRODUCED
+  EXP-H044 RESUME score_delta=1.1102230246251565e-16 -> REPRODUCED
+  EXP-H045 RESUME score_delta=2.7755575615628914e-16 -> REPRODUCED
+  EXP-H046 RESUME score_delta=2.220446049250313e-16 -> REPRODUCED
+  EXP-H047 RESUME score_delta=2.220446049250313e-16 -> REPRODUCED
+  EXP-H048 RESUME score_delta=3.5716869295487896e-08 -> REPRODUCED
+  EXP-H049 RESUME score_delta=1.1102230246251565e-16 -> REPRODUCED
+  EXP-H050 RESUME score_delta=1.6653345369377348e-16 -> REPRODUCED
+  EXP-H051 RESUME score_delta=2.220446049250313e-16 -> REPRODUCED
+  EXP-H052 RESUME score_delta=1.6653345369377348e-16 -> REPRODUCED
+  EXP-H053 RESUME score_delta=2.3397563442273395e-08 -> REPRODUCED
+=== previous FULL / TRANSFORMER audit ===
+  FULL EXP-T001 RESUME score_delta=0.0
+  FULL EXP-T002 RESUME score_delta=4.440892098500626e-16
+  FULL EXP-T003 RESUME score_delta=4.440892098500626e-16
+  FULL EXP-H001 RESUME score_delta=2.220446049250313e-16
+  FULL EXP-H002 RESUME score_delta=2.220446049250313e-16
+  FULL EXP-H003 RESUME score_delta=2.220446049250313e-16
+=== reconstructable LINEAR materialization ===
+  EXP-T004 RESUME n_feat=0 status=REPRODUCED d=4.440892098500626e-16
+  EXP-T005 RESUME n_feat=0 status=REPRODUCED d=4.440892098500626e-16
+  EXP-T006 RESUME n_feat=78 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T007 RESUME n_feat=78 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T008 RESUME n_feat=480 status=REPRODUCED d=3.9968028886505635e-15
+  EXP-T009 RESUME n_feat=480 status=REPRODUCED d=0.018464740506833444
+  EXP-T010 RESUME n_feat=558 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T011 RESUME n_feat=558 status=REPRODUCED d=1.7763568394002505e-15
+  EXP-T012 RESUME n_feat=568 status=REPRODUCED d=1.3322676295501878e-15
+  EXP-T013 RESUME n_feat=568 status=REPRODUCED d=1.7763568394002505e-15
+  EXP-T014 RESUME n_feat=559 status=REPRODUCED d=2.220446049250313e-15
+  EXP-T015 RESUME n_feat=559 status=REPRODUCED d=8.881784197001252e-16
+  EXP-T016 RESUME n_feat=569 status=REPRODUCED d=8.881784197001252e-16
+  EXP-T017 RESUME n_feat=3129 status=REPRODUCED d=2.220446049250313e-15
+  EXP-T018 RESUME n_feat=5689 status=REPRODUCED d=0.6701352322210061
+  EXP-T021 RESUME n_feat=650 status=UNVERIFIED_HISTORICAL d=0.017998474490365624
+  EXP-T022 RESUME n_feat=650 status=UNVERIFIED_HISTORICAL d=0.02009382334546883
+  EXP-H004 RESUME n_feat=0 status=REPRODUCED d=1.1102230246251565e-16
+  EXP-H005 RESUME n_feat=0 status=REPRODUCED d=1.1102230246251565e-16
+  EXP-H006 RESUME n_feat=115 status=REPRODUCED d=1.1102230246251565e-16
+  EXP-H007 RESUME n_feat=115 status=REPRODUCED d=0.01103357605182087
+  EXP-H008 RESUME n_feat=1280 status=REPRODUCED d=6.661338147750939e-16
+  EXP-H009 RESUME n_feat=1280 status=REPRODUCED d=2.220446049250313e-16
+  EXP-H010 RESUME n_feat=1395 status=REPRODUCED d=2.220446049250313e-16
+  EXP-H011 RESUME n_feat=1395 status=REPRODUCED d=3.3306690738754696e-16
+  EXP-H012 RESUME n_feat=19 status=REPRODUCED d=0.011142045938050238
+  EXP-H013 RESUME n_feat=19 status=REPRODUCED d=0.02078720854502214
+  EXP-H014 RESUME n_feat=1414 status=REPRODUCED d=1.5543122344752192e-15
+  EXP-H015 RESUME n_feat=1459 status=REPRODUCED d=4.440892098500626e-16
+  EXP-H016 RESUME n_feat=1432 status=REPRODUCED d=7.771561172376096e-16
+  EXP-H017 RESUME n_feat=1432 status=REPRODUCED d=2.220446049250313e-16
+  EXP-H018 RESUME n_feat=1477 status=REPRODUCED d=3.3306690738754696e-16
+  EXP-H019 RESUME n_feat=1477 status=REPRODUCED d=1.6653345369377348e-16
+  EXP-H020 RESUME n_feat=1448 status=REPRODUCED d=8.326672684688674e-16
+=== finalize registry + reports ===
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/complete_experiment_artifacts.py", line 1131, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/complete_experiment_artifacts.py", line 1023, in main
+    if pd.notna(exp.at[i].get("feature_content_sha256", np.nan))
+                ~~~~~~^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 2575, in __getitem__
+    return super().__getitem__(key)
+           ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/core/indexing.py", line 2527, in __getitem__
+    return self.obj._get_value(*key, takeable=self._takeable)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataFrame._get_value() missing 1 required positional argument: 'col'
