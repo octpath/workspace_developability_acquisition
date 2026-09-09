@@ -1,0 +1,107 @@
+experiment_code: EXP-T066
+experiment_id: TRF_TM_ABLINGUA_RASA_POOL_FULL_CONCAT_FUS_BIOEMU_MPNN
+git_rev: f2cacce6fe158fcd6b76d6dcd3fc878b8183bd05
+config:
+  experiment_code: EXP-T066
+  experiment_id: TRF_TM_ABLINGUA_RASA_POOL_FULL_CONCAT_FUS_BIOEMU_MPNN
+  target: TmApp
+  family: TRANSFORMER
+  source_model_id: RASA_POOL::EXP-T037
+  transformer_type: FUSION
+  input_space: RESIDUE_PLUS_FIXED_FEATURES_PLUS_RASA_POOL
+  input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  plm_source: ABLINGUA
+  annotation_mode: FULL
+  chain_mode: HL
+  merge_mode: concat
+  pooling_mode: CONCAT
+  content_mode: frozen
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  ff_dim: 256
+  dropout: 0.2
+  seeds:
+  - 101
+  - 202
+  - 303
+  optimizer: AdamW
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  batch_size: 16
+  max_epochs: 300
+  patience: 30
+  gradient_clip: 1.0
+  loss: SmoothL1Loss(beta=0.5)
+  cv_protocol: canonical_simple_tvt_primary_shadow
+  selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+  current_evaluation_mode: POSTCOMP_EXPLORATORY
+  representation_status: NOT_EXPORTED
+  representation_note: fold caches store OOF preds only; no weight checkpoints in
+    this runner
+  fusion_feature_set_id: FS_TM_BIOEMU_MPNN
+  fusion_projection_dim: 64
+  fusion_recipe: TM_BASE_BIOEMU_MPNN__RIDGE
+  control_experiment_code: EXP-T037
+  residue_rasa_aggregation:
+    enabled: true
+    rasa_mode: CONTINUOUS_WEIGHTED_POOL
+    rasa_pool_scope: PER_CHAIN
+    rasa_pool_projection: SHARED_LINEAR_NO_BIAS
+    rasa_pool_projection_init: ZERO
+    rasa_residual_target: CHAIN_REG
+    rasa_threshold: NONE
+    rasa_power: 1.0
+    rasa_source: experiments/classical_cache
+    rasa_hashes: &id001
+      rasa_heavy.npy: b59e4037913d113e417bc5a2939fe372f225fcdcf4223ac933e0ca7aa5c1d523
+      rasa_light.npy: f5689ff8b85c2189fb35195d3a31e6fbe3efb457125274f2234cc98c872fc85a
+      rasa_ids.npy: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+      rasa_meta.json: 1e759063dc00a656c516c6a8137eb19219d7f41258330bd780d7e452ab6e9b0d
+    control_experiment_code: EXP-T037
+    encoder_input_unchanged: true
+control_experiment_code: EXP-T037
+rasa_source: experiments/classical_cache
+rasa_hashes: *id001
+EXP-T066:
+  cv_primary_mae: 2.7739112445847
+  cv_shadow_mae: 2.903063581804189
+  cv_mean_mae: 2.8384874131944446
+  cv_worst_mae: 2.903063581804189
+  config_hash: 9d0fbe3b4790cf00
+  best_epochs_primary:
+    '101':
+    - 43
+    - 16
+    - 19
+    - 16
+    - 24
+    '202':
+    - 31
+    - 17
+    - 37
+    - 33
+    - 36
+    '303':
+    - 33
+    - 14
+    - 21
+    - 8
+    - 40
+deltas_vs_EXP-T037:
+  primary: 0.020095534775973256
+  shadow: 0.13006544701847123
+  worst: 0.13006544701847123
+deltas_vs_EXP-T045:
+  worst: 0.17411536022048235
+  t045_worst: 2.728948221583707
+deltas_vs_EXP-T065:
+  primary: -0.04079317948455197
+  shadow: 0.028456801740229132
+  worst: 0.028456801740229132
+cv_scientific_verdict: NEGATIVE
+selection_statement: CV completed for EXP-T066; config frozen; Public/Private not
+  used before freeze; single full-Dev Test follows.
+public_mae: 3.2417305840386286
+private_mae: 3.1885043485665028
+test_overall_mae: 3.2151174663025657

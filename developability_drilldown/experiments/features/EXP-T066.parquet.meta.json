@@ -1,0 +1,7 @@
+{
+  "feature_role": "FUSION_FIXED_BRANCH",
+  "recipe_id": "TM_BASE_BIOEMU_MPNN__RIDGE",
+  "feature_set_id": "FS_TM_BIOEMU_MPNN",
+  "n_rows": 324,
+  "n_feature_cols": 569
+}

@@ -1,0 +1,154 @@
+{
+  "t066_cv": {
+    "git_rev": "f2cacce6fe158fcd6b76d6dcd3fc878b8183bd05",
+    "quick": false,
+    "elapsed_sec": 195.41929078102112,
+    "cv_primary_mae": 2.7739112445847,
+    "cv_shadow_mae": 2.903063581804189,
+    "cv_mean_mae": 2.8384874131944446,
+    "cv_worst_mae": 2.903063581804189,
+    "config_hash": "9d0fbe3b4790cf00",
+    "best_epochs_primary": {
+      "101": [
+        43,
+        16,
+        19,
+        16,
+        24
+      ],
+      "202": [
+        31,
+        17,
+        37,
+        33,
+        36
+      ],
+      "303": [
+        33,
+        14,
+        21,
+        8,
+        40
+      ]
+    },
+    "rasa_qc": {
+      "n_expected_residues": 75057,
+      "n_mapped_residues": 75057,
+      "n_missing_rasa_residues": 0,
+      "n_aa_mismatch_flags": 0,
+      "n_zero_denom_chains": 0,
+      "rasa_hashes": {
+        "rasa_heavy.npy": "b59e4037913d113e417bc5a2939fe372f225fcdcf4223ac933e0ca7aa5c1d523",
+        "rasa_light.npy": "f5689ff8b85c2189fb35195d3a31e6fbe3efb457125274f2234cc98c872fc85a",
+        "rasa_ids.npy": "ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d",
+        "rasa_meta.json": "1e759063dc00a656c516c6a8137eb19219d7f41258330bd780d7e452ab6e9b0d"
+      },
+      "rasa_range": {
+        "min": 0.0,
+        "max": 1.0968040227890015,
+        "mean": 0.2593059539794922
+      }
+    }
+  },
+  "experiment_code": "EXP-T066",
+  "t066_test": {
+    "public_mae": 3.2417305840386286,
+    "private_mae": 3.1885043485665028,
+    "test_overall_mae": 3.2151174663025657
+  },
+  "artifacts": {
+    "feature_path": "/workspace_developability_acquisition/developability_drilldown/experiments/features/EXP-T066.parquet",
+    "rasa_path": "/workspace_developability_acquisition/developability_drilldown/experiments/inputs/EXP-T066_rasa.parquet",
+    "feature_sha256": "fdc027c8b18ecd21637fb1195946edc698efe7248affdca82d664f97aa3af971",
+    "feature_content_sha256": "cfafb801e9e0660114bcb0b0d9a04426e2736854cba469d667846fce38a4fbe2",
+    "rasa_sha256": "abf0e44ca3bdaedf767ea3ef3f4741d5743ff6d6d6e0ad339cfa3d68f57ef5ac",
+    "diagnostics": {
+      "bootstrap": {
+        "primary": {
+          "mae_delta": 0.020095534775973287,
+          "ci95_low": -0.09391958056163355,
+          "ci95_high": 0.13035999953501498,
+          "n_boot": 10000
+        },
+        "shadow": {
+          "mae_delta": 0.13006544701847125,
+          "ci95_low": 0.01240165851734462,
+          "ci95_high": 0.24877043516057085,
+          "n_boot": 10000
+        }
+      },
+      "fold_mae_deltas": {
+        "primary": [
+          {
+            "fold": 0,
+            "mae_t066": 2.5824908415476493,
+            "mae_control": 2.484362403551738,
+            "delta": 0.09812843799591109
+          },
+          {
+            "fold": 1,
+            "mae_t066": 2.79784146703855,
+            "mae_control": 2.8923969461460306,
+            "delta": -0.09455547910748052
+          },
+          {
+            "fold": 2,
+            "mae_t066": 2.791430694888337,
+            "mae_control": 2.760145322240965,
+            "delta": 0.03128537264737208
+          },
+          {
+            "fold": 3,
+            "mae_t066": 2.920597831408182,
+            "mae_control": 2.9845437208811445,
+            "delta": -0.06394588947296231
+          },
+          {
+            "fold": 4,
+            "mae_t066": 2.775900085767109,
+            "mae_control": 2.643101692199706,
+            "delta": 0.13279839356740286
+          }
+        ],
+        "shadow": [
+          {
+            "fold": 0,
+            "mae_t066": 2.6263626416524253,
+            "mae_control": 2.648537715276082,
+            "delta": -0.022175073623656782
+          },
+          {
+            "fold": 1,
+            "mae_t066": 2.5824526391848175,
+            "mae_control": 2.2343538457697076,
+            "delta": 0.34809879341510985
+          },
+          {
+            "fold": 2,
+            "mae_t066": 3.3072609901428223,
+            "mae_control": 3.2851689259211208,
+            "delta": 0.022092064221701513
+          },
+          {
+            "fold": 3,
+            "mae_t066": 2.6984828313191724,
+            "mae_control": 2.5108673572540265,
+            "delta": 0.1876154740651459
+          },
+          {
+            "fold": 4,
+            "mae_t066": 3.2984229193793397,
+            "mae_control": 3.189868271952927,
+            "delta": 0.10855464742641274
+          }
+        ]
+      }
+    },
+    "posthoc": {
+      "corr_delta_ae_vs_mean_rasa": -0.07942741832591971,
+      "corr_delta_ae_vs_cdr3_rasa": -0.058759140063049775,
+      "note": "antibody-level; diagnostic only"
+    }
+  },
+  "verdict": "NEGATIVE"
+}

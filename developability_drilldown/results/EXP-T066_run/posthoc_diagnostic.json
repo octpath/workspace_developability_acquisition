@@ -1,0 +1,5 @@
+{
+  "corr_delta_ae_vs_mean_rasa": -0.07942741832591971,
+  "corr_delta_ae_vs_cdr3_rasa": -0.058759140063049775,
+  "note": "antibody-level; diagnostic only"
+}

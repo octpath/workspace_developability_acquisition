@@ -32,8 +32,8 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 65 and len(h) == 53
-    assert next_code("TmApp") == "EXP-T066"
+    assert len(t) == 66 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T067"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
@@ -42,7 +42,7 @@ def test_transformer_code_append_only():
 def test_30_configs_registered():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     tr = exp[exp["family"] == "TRANSFORMER"]
-    assert len(tr) == 30
+    assert len(tr) == 31
     for _, r in tr.iterrows():
         cfg = ROOT / str(r["config_path"])
         assert cfg.exists(), r["experiment_code"]
@@ -163,13 +163,16 @@ def test_input_metadata_by_plm():
     t065 = tr[tr["experiment_code"] == "EXP-T065"]
     assert len(t065) == 1
     assert t065.iloc[0]["input_space"] == "RESIDUE_PLUS_FIXED_FEATURES_PLUS_RASA"
+    t066 = tr[tr["experiment_code"] == "EXP-T066"]
+    assert len(t066) == 1
+    assert t066.iloc[0]["input_space"] == "RESIDUE_PLUS_FIXED_FEATURES_PLUS_RASA_POOL"
 
 
 def test_fusion_feature_set_fk():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     fs = set(pd.read_csv(ROOT / "results" / "FEATURE_SETS.csv")["feature_set_id"])
     fus = exp[(exp["family"] == "TRANSFORMER") & (exp["transformer_type"] == "FUSION")]
-    assert len(fus) == 16  # 15 historical + EXP-T065
+    assert len(fus) == 17  # 15 historical + EXP-T065 + EXP-T066
     assert set(fus["feature_set_id"]).issubset(fs)
 
 
@@ -186,10 +189,11 @@ def test_historical_representation_unavailable_contract():
         assert not (ROOT / "experiments" / "features" / f"{code}.parquet").exists()
     assert (hist["feature_path"].fillna("") == "").all()
     assert (hist["feature_space"].fillna("") == "").all()
-    t065 = exp[exp["experiment_code"] == "EXP-T065"].iloc[0]
-    assert t065["representation_status"] == "NOT_EXPORTED"
-    assert (ROOT / "experiments" / "features" / "EXP-T065.parquet").exists()
-    assert (ROOT / "experiments" / "inputs" / "EXP-T065_rasa.parquet").exists()
+    for code in ("EXP-T065", "EXP-T066"):
+        row = exp[exp["experiment_code"] == code].iloc[0]
+        assert row["representation_status"] == "NOT_EXPORTED"
+        assert (ROOT / "experiments" / "features" / f"{code}.parquet").exists()
+        assert (ROOT / "experiments" / "inputs" / f"{code}_rasa.parquet").exists()
 
 
 def test_transformer_full_and_linear_xgb_unchanged():

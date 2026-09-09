@@ -322,10 +322,10 @@ CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
 LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
 
 # Expected registry sizes after classical feature refinement (Phase 2B)
-N_EXPERIMENTS_TOTAL = 118
+N_EXPERIMENTS_TOTAL = 119
 N_LEGACY_MAP = 48  # Linear/XGB only; Transformer + classical-refinement rows have empty legacy
 N_FULL_LINEAR_XGB = 86  # 12 historical FULL + 34 reconstructed + 40 classical refinement
-N_TRANSFORMER = 30  # 29 Phase2A historical + EXP-T065
+N_TRANSFORMER = 31  # 29 Phase2A historical + EXP-T065 + EXP-T066
 N_HISTORICAL_TRANSFORMER = 29  # Phase2A backfill only (TRANSFORMER_BACKFILL_AUDIT)
 N_CLASSICAL_REFINEMENT = 40
 N_LINEAR = 74
