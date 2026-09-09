@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "repr_max_abs": 0.0,
+  "pred_max_abs": 0.0,
+  "note": "joint_hl_single_reg + CA distance with a_h=0 vs joint without CA"
+}

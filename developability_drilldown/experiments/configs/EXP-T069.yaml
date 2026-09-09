@@ -1,0 +1,64 @@
+experiment_code: EXP-T069
+experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_SINGLE_REG_CA_DISTANCE
+target: TmApp
+family: TRANSFORMER
+source_model_id: JOINT_HL_CA_DISTANCE::EXP-T068
+transformer_type: FROZEN_PLM
+input_space: JOINT_HL_SINGLE_REG_FROZEN_RESIDUE_PLUS_CA_DISTANCE
+input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+plm_source: ABLINGUA
+annotation_mode: FULL
+chain_mode: HL
+merge_mode: concat
+pooling_mode: REG
+content_mode: frozen
+joint_hl_single_reg: true
+cross_chain_attention: true
+single_reg: true
+use_ca_distance_bias: true
+d_model: 128
+n_layers: 2
+n_heads: 4
+ff_dim: 256
+dropout: 0.2
+seeds:
+- 101
+- 202
+- 303
+optimizer: AdamW
+learning_rate: 0.0003
+weight_decay: 0.01
+batch_size: 16
+max_epochs: 300
+patience: 30
+gradient_clip: 1.0
+loss: SmoothL1Loss(beta=0.5)
+cv_protocol: canonical_simple_tvt_primary_shadow
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+representation_status: NOT_EXPORTED
+representation_note: NOT_EXPORTED; full-Dev weight checkpoints under results/EXP-T069_run/checkpoints/
+  if size permits
+control_experiment_code: EXP-T068
+contemporary_control_run_id: EXP-T030-REPLAY-001
+recipe_id: null
+pairwise_geometry:
+  enabled: true
+  geometry_source: CA_COORDINATES
+  distance_metric: EUCLIDEAN_ANGSTROM
+  distance_kernel: EXPONENTIAL
+  distance_kernel_count_per_head: 1
+  distance_amplitude_init: ZERO
+  distance_scale: LEARNABLE_PER_HEAD
+  distance_scale_init: TRAIN_MEDIAN_PAIR_DISTANCE_JOINT_FV
+  distance_kernel_shared_across_layers: true
+  cross_chain_distance: true
+  self_pair_bias: false
+  ca_source: experiments/classical_cache
+  ca_hashes:
+    ca_heavy.npy: 0e58df5fe4d5dc1112db8630fa6067d5b13088ca18d769bd1c44c74717a04eae
+    ca_light.npy: e38e3e9c57c40a22a19cafb16878d3f1a6e139cf2733963c08d2fa7f6ac4a902
+    ca_ids.npy: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    ca_meta.json: cc44895989348c89563b574cdb3cab0495cbdb921b2789fbfb2b9e1e6a0a13a8
+  control_experiment_code: EXP-T068
+  joint_hl_layout: true

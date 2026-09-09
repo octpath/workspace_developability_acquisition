@@ -1,0 +1,39 @@
+{
+  "git_rev": "ecc67b3a67d14058f8797d7524a5d1fe34a8513b",
+  "quick": false,
+  "elapsed_sec": 123.63206481933594,
+  "cv_primary_mae": 3.539325926038954,
+  "cv_shadow_mae": 3.3056220537350502,
+  "cv_mean_mae": 3.422473989887002,
+  "cv_worst_mae": 3.539325926038954,
+  "config_hash": "064d2926237edfbd",
+  "best_epochs_primary": {
+    "101": [
+      26,
+      4,
+      13,
+      19,
+      29
+    ],
+    "202": [
+      21,
+      4,
+      11,
+      14,
+      40
+    ],
+    "303": [
+      15,
+      14,
+      15,
+      11,
+      37
+    ]
+  },
+  "n_trainable_parameters": 485121,
+  "param_counts": {
+    "EXP-T030_n_trainable": 492417,
+    "EXP-T068_n_trainable": 475905,
+    "delta_t068_minus_t030": -16512
+  }
+}

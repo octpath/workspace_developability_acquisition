@@ -1,0 +1,15 @@
+{
+  "experiment_code": "EXP-T068",
+  "experiment_id": "TRF_TM_ABLINGUA_FULL_JOINT_SINGLE_REG",
+  "checkpoint_dir": "results/EXP-T068_run/checkpoints",
+  "n_fulldev": 0,
+  "n_trainable_parameters": 485121,
+  "param_counts": {
+    "EXP-T030_n_trainable": 492417,
+    "EXP-T068_n_trainable": 475905,
+    "delta_t068_minus_t030": -16512
+  },
+  "files": [],
+  "total_bytes": 0,
+  "git_rev": "ecc67b3a67d14058f8797d7524a5d1fe34a8513b"
+}

@@ -1,0 +1,91 @@
+{
+  "note": "Diagnostic only; not used for selection. Joint Fv pairs including H\u2013L cross-chain. Bias kernel: a*exp(-d/ell); summary uses mean |a_h| and median ell.",
+  "summary_params": {
+    "mean_abs_a_h": 0.003388277568258925,
+    "median_ell_h_angstrom": 22.41041374206543,
+    "n_param_rows_used": 120
+  },
+  "pair_stats": {
+    "n_pairs": 8659446,
+    "distance_quantiles_angstrom": {
+      "q10": 10.82701301574707,
+      "q25": 15.75750470161438,
+      "q50": 22.407841682434082,
+      "q75": 29.48194122314453,
+      "q90": 35.58374214172363
+    },
+    "pair_category_counts": {
+      "sequence_neighbor_|i-j|=1": 74409,
+      "local_1<|i-j|<=4": 219339,
+      "nonlocal_|i-j|>4": 4033746,
+      "H-L_cross_chain": 4331952
+    },
+    "pair_category_mean_distance_angstrom": {
+      "sequence_neighbor_|i-j|=1": 3.7797339056404873,
+      "local_1<|i-j|<=4": 8.787722851361254,
+      "nonlocal_|i-j|>4": 18.44939929887112,
+      "H-L_cross_chain": 27.97867546386032
+    }
+  },
+  "bias_curve_at_distance_quantiles": {
+    "q10": 0.0020900698971182624,
+    "q25": 0.0016773053628507954,
+    "q50": 0.0012466207257102351,
+    "q75": 0.0009091685363213146,
+    "q90": 0.000692463299335353
+  },
+  "per_head": {
+    "0": {
+      "mean_abs_a_h": 0.00430833889404306,
+      "median_ell_h_angstrom": 22.410442352294922,
+      "bias_at_quantiles": {
+        "q10": 0.002657614319236995,
+        "q25": 0.0021327669511069115,
+        "q50": 0.0015851332443741607,
+        "q75": 0.0011560483655592673,
+        "q90": 0.0008804982923256598
+      }
+    },
+    "1": {
+      "mean_abs_a_h": 0.0028062431709258285,
+      "median_ell_h_angstrom": 22.410484313964844,
+      "bias_at_quantiles": {
+        "q10": 0.001731042743899444,
+        "q25": 0.0013891828657342235,
+        "q50": 0.001032480911893693,
+        "q75": 0.000752995737345816,
+        "q90": 0.0005735156232423774
+      }
+    },
+    "2": {
+      "mean_abs_a_h": 0.0031675889621206924,
+      "median_ell_h_angstrom": 22.410423278808594,
+      "bias_at_quantiles": {
+        "q10": 0.00195393782354761,
+        "q25": 0.0015680579398196547,
+        "q50": 0.0011654251020967042,
+        "q75": 0.0008499521584585517,
+        "q90": 0.0006473615403579287
+      }
+    },
+    "3": {
+      "mean_abs_a_h": 0.0032709392459461194,
+      "median_ell_h_angstrom": 22.41038227081299,
+      "bias_at_quantiles": {
+        "q10": 0.0020176880073289214,
+        "q25": 0.0016192175555014468,
+        "q50": 0.0012034477249232899,
+        "q75": 0.0008776817993032048,
+        "q90": 0.000668481340750053
+      }
+    }
+  },
+  "category_mean_bias": {
+    "sequence_neighbor_|i-j|=1": 0.0028624044525114847,
+    "local_1<|i-j|<=4": 0.0022891829050252404,
+    "nonlocal_|i-j|>4": 0.0014874608397147636,
+    "H-L_cross_chain": 0.0009722465058033893
+  },
+  "apparent_geometry_use_dominant_category": "sequence_neighbor_|i-j|=1",
+  "cross_chain_hl": true
+}

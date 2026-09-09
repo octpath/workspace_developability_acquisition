@@ -32,8 +32,8 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 67 and len(h) == 53
-    assert next_code("TmApp") == "EXP-T068"
+    assert len(t) == 69 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T070"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
@@ -42,7 +42,7 @@ def test_transformer_code_append_only():
 def test_30_configs_registered():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     tr = exp[exp["family"] == "TRANSFORMER"]
-    assert len(tr) == 32
+    assert len(tr) == 34
     for _, r in tr.iterrows():
         cfg = ROOT / str(r["config_path"])
         assert cfg.exists(), r["experiment_code"]
@@ -169,6 +169,12 @@ def test_input_metadata_by_plm():
     t067 = tr[tr["experiment_code"] == "EXP-T067"]
     assert len(t067) == 1
     assert t067.iloc[0]["input_space"] == "RESIDUE_PLUS_FIXED_FEATURES_PLUS_CA_DISTANCE"
+    t068 = tr[tr["experiment_code"] == "EXP-T068"]
+    assert len(t068) == 1
+    assert t068.iloc[0]["input_space"] == "JOINT_HL_SINGLE_REG_FROZEN_RESIDUE"
+    t069 = tr[tr["experiment_code"] == "EXP-T069"]
+    assert len(t069) == 1
+    assert t069.iloc[0]["input_space"] == "JOINT_HL_SINGLE_REG_FROZEN_RESIDUE_PLUS_CA_DISTANCE"
 
 
 def test_fusion_feature_set_fk():
@@ -201,6 +207,12 @@ def test_historical_representation_unavailable_contract():
     assert t067["representation_status"] == "NOT_EXPORTED"
     assert (ROOT / "experiments" / "features" / "EXP-T067.parquet").exists()
     assert (ROOT / "experiments" / "inputs" / "EXP-T067_ca.parquet").exists()
+    for code in ("EXP-T068", "EXP-T069"):
+        row = exp[exp["experiment_code"] == code].iloc[0]
+        assert row["representation_status"] == "NOT_EXPORTED"
+        assert not (ROOT / "experiments" / "features" / f"{code}.parquet").exists()
+        assert str(row.get("feature_path") or "") in ("", "nan")
+    assert (ROOT / "experiments" / "inputs" / "EXP-T069_ca.parquet").exists()
 
 
 def test_transformer_full_and_linear_xgb_unchanged():

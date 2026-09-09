@@ -1,0 +1,151 @@
+experiment_code: EXP-T069
+experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_SINGLE_REG_CA_DISTANCE
+git_rev: ecc67b3a67d14058f8797d7524a5d1fe34a8513b
+config:
+  experiment_code: EXP-T069
+  experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_SINGLE_REG_CA_DISTANCE
+  target: TmApp
+  family: TRANSFORMER
+  source_model_id: JOINT_HL_CA_DISTANCE::EXP-T068
+  transformer_type: FROZEN_PLM
+  input_space: JOINT_HL_SINGLE_REG_FROZEN_RESIDUE_PLUS_CA_DISTANCE
+  input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  plm_source: ABLINGUA
+  annotation_mode: FULL
+  chain_mode: HL
+  merge_mode: concat
+  pooling_mode: REG
+  content_mode: frozen
+  joint_hl_single_reg: true
+  cross_chain_attention: true
+  single_reg: true
+  use_ca_distance_bias: true
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  ff_dim: 256
+  dropout: 0.2
+  seeds:
+  - 101
+  - 202
+  - 303
+  optimizer: AdamW
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  batch_size: 16
+  max_epochs: 300
+  patience: 30
+  gradient_clip: 1.0
+  loss: SmoothL1Loss(beta=0.5)
+  cv_protocol: canonical_simple_tvt_primary_shadow
+  selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+  current_evaluation_mode: POSTCOMP_EXPLORATORY
+  representation_status: NOT_EXPORTED
+  representation_note: NOT_EXPORTED; full-Dev weight checkpoints under results/EXP-T069_run/checkpoints/
+    if size permits
+  control_experiment_code: EXP-T068
+  contemporary_control_run_id: EXP-T030-REPLAY-001
+  recipe_id: null
+  pairwise_geometry:
+    enabled: true
+    geometry_source: CA_COORDINATES
+    distance_metric: EUCLIDEAN_ANGSTROM
+    distance_kernel: EXPONENTIAL
+    distance_kernel_count_per_head: 1
+    distance_amplitude_init: ZERO
+    distance_scale: LEARNABLE_PER_HEAD
+    distance_scale_init: TRAIN_MEDIAN_PAIR_DISTANCE_JOINT_FV
+    distance_kernel_shared_across_layers: true
+    cross_chain_distance: true
+    self_pair_bias: false
+    ca_source: experiments/classical_cache
+    ca_hashes: &id001
+      ca_heavy.npy: 0e58df5fe4d5dc1112db8630fa6067d5b13088ca18d769bd1c44c74717a04eae
+      ca_light.npy: e38e3e9c57c40a22a19cafb16878d3f1a6e139cf2733963c08d2fa7f6ac4a902
+      ca_ids.npy: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+      ca_meta.json: cc44895989348c89563b574cdb3cab0495cbdb921b2789fbfb2b9e1e6a0a13a8
+    control_experiment_code: EXP-T068
+    joint_hl_layout: true
+control_experiment_code: EXP-T068
+contemporary_control_run_id: EXP-T030-REPLAY-001
+ca_source: experiments/classical_cache
+ca_hashes: *id001
+structure_source: /workspace_developability_acquisition/feature_extension/data/esmfold_fv
+EXP-T069:
+  cv_primary_mae: 3.53594137906047
+  cv_shadow_mae: 3.3346788539807988
+  cv_mean_mae: 3.4353101165206343
+  cv_worst_mae: 3.53594137906047
+  config_hash: bf1c9f4ab640c682
+  best_epochs_primary:
+    '101':
+    - 26
+    - 4
+    - 13
+    - 19
+    - 29
+    '202':
+    - 21
+    - 4
+    - 11
+    - 14
+    - 100
+    '303':
+    - 15
+    - 14
+    - 15
+    - 11
+    - 37
+  n_trainable_parameters: 485129
+  distance_param_summary:
+    n_rows: 120
+    mean_abs_a_h: 0.0033882775682589758
+    median_abs_a_h: 0.0029519281815737486
+    mean_a_h: -6.536734263136168e-05
+    median_ell_h_angstrom: 22.41041374206543
+    mean_ell_h_angstrom: 22.407937256495156
+    median_initial_ell: 22.420839309692383
+    by_head:
+      '0':
+        mean_abs_a: 0.004308338894043117
+        median_ell: 22.410442352294922
+      '1':
+        mean_abs_a: 0.002806243170925882
+        median_ell: 22.410484313964844
+      '2':
+        mean_abs_a: 0.0031675889621207414
+        median_ell: 22.410423278808594
+      '3':
+        mean_abs_a: 0.003270939245946162
+        median_ell: 22.41038227081299
+deltas_vs_EXP-T068:
+  primary: -0.0033845469784838933
+  shadow: 0.029056800245748526
+  worst: -0.0033845469784838933
+deltas_vs_EXP-T030-REPLAY-001:
+  primary: 0.3032639585895298
+  shadow: 0.13272087662308296
+  worst: 0.3032639585895298
+deltas_vs_historical_EXP-T030:
+  primary: 0.21817208906259955
+  shadow: 0.12006861682781977
+  worst: 0.21817208906259955
+cv_scientific_verdict: POSITIVE
+distance_usage_diagnostic_path: results/EXP-T069_run/distance_usage_diagnostic.json
+distance_usage_summary:
+  mean_abs_a_h: 0.003388277568258925
+  median_ell_h_angstrom: 22.41041374206543
+  dominant_category: sequence_neighbor_|i-j|=1
+selection_statement: CV completed for EXP-T069; config frozen; Public/Private not
+  used before freeze; single full-Dev Test follows. Primary control = EXP-T068.
+public_mae: 3.5709762573242188
+private_mae: 3.1489813533830056
+test_overall_mae: 3.359978805353612
+checkpoints:
+  dir: results/EXP-T069_run/checkpoints
+  n_fulldev: 3
+  paths:
+  - results/EXP-T069_run/checkpoints/fulldev_seed101.pt
+  - results/EXP-T069_run/checkpoints/fulldev_seed202.pt
+  - results/EXP-T069_run/checkpoints/fulldev_seed303.pt
+  total_bytes: 5863716

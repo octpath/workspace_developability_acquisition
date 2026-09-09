@@ -1,0 +1,18 @@
+{
+  "coordinate_source": "experiments/classical_cache + ESMFold Fv CA",
+  "n_rows": 75057,
+  "n_missing_ca": 0,
+  "schema": [
+    "id",
+    "split",
+    "chain",
+    "seq_index",
+    "aa",
+    "imgt_position",
+    "region",
+    "ca_x",
+    "ca_y",
+    "ca_z"
+  ],
+  "joint_hl": true
+}

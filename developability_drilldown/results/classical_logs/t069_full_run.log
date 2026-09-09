@@ -1,0 +1,80 @@
+Issued EXP-T069
+=== EXP-T069 CV ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:158: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+zero-bias equivalence OK: {'ok': True, 'repr_max_abs': 0.0, 'pred_max_abs': 0.0, 'note': 'joint_hl_single_reg + CA distance with a_h=0 vs joint without CA'}
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+{
+  "cv_primary_mae": 3.53594137906047,
+  "cv_shadow_mae": 3.3346788539807988,
+  "cv_mean_mae": 3.4353101165206343,
+  "cv_worst_mae": 3.53594137906047
+}
+Wrote /workspace_developability_acquisition/developability_drilldown/results/EXP-T069_CV_FREEZE.yaml verdict=POSITIVE
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+  src_key_padding_mask = F._canonical_mask(
+{'public_mae': 3.5709762573242188, 'private_mae': 3.1489813533830056, 'test_overall_mae': 3.359978805353612}
+=== artifacts + registry ===
+Wrote /workspace_developability_acquisition/developability_drilldown/results/EXP-T069_JOINT_CA_DISTANCE_REPORT.md
+DONE EXP-T069

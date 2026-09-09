@@ -1,0 +1,98 @@
+{
+  "git_rev": "ecc67b3a67d14058f8797d7524a5d1fe34a8513b",
+  "quick": false,
+  "elapsed_sec": 163.50078058242798,
+  "cv_primary_mae": 3.53594137906047,
+  "cv_shadow_mae": 3.3346788539807988,
+  "cv_mean_mae": 3.4353101165206343,
+  "cv_worst_mae": 3.53594137906047,
+  "config_hash": "bf1c9f4ab640c682",
+  "best_epochs_primary": {
+    "101": [
+      26,
+      4,
+      13,
+      19,
+      29
+    ],
+    "202": [
+      21,
+      4,
+      11,
+      14,
+      100
+    ],
+    "303": [
+      15,
+      14,
+      15,
+      11,
+      37
+    ]
+  },
+  "n_trainable_parameters": 485129,
+  "n_distance_param_rows": 120,
+  "distance_param_summary": {
+    "n_rows": 120,
+    "mean_abs_a_h": 0.0033882775682589758,
+    "median_abs_a_h": 0.0029519281815737486,
+    "mean_a_h": -6.536734263136168e-05,
+    "median_ell_h_angstrom": 22.41041374206543,
+    "mean_ell_h_angstrom": 22.407937256495156,
+    "median_initial_ell": 22.420839309692383,
+    "by_head": {
+      "0": {
+        "mean_abs_a": 0.004308338894043117,
+        "median_ell": 22.410442352294922
+      },
+      "1": {
+        "mean_abs_a": 0.002806243170925882,
+        "median_ell": 22.410484313964844
+      },
+      "2": {
+        "mean_abs_a": 0.0031675889621207414,
+        "median_ell": 22.410423278808594
+      },
+      "3": {
+        "mean_abs_a": 0.003270939245946162,
+        "median_ell": 22.41038227081299
+      }
+    }
+  },
+  "ca_qc": {
+    "n_expected_residues": 75057,
+    "n_mapped_ca_residues": 75057,
+    "n_missing_ca_residues": 0,
+    "n_aa_mismatch_flags": 0,
+    "ca_hashes": {
+      "ca_heavy.npy": "0e58df5fe4d5dc1112db8630fa6067d5b13088ca18d769bd1c44c74717a04eae",
+      "ca_light.npy": "e38e3e9c57c40a22a19cafb16878d3f1a6e139cf2733963c08d2fa7f6ac4a902",
+      "ca_ids.npy": "ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d",
+      "ca_meta.json": "cc44895989348c89563b574cdb3cab0495cbdb921b2789fbfb2b9e1e6a0a13a8"
+    },
+    "structure_source": "/workspace_developability_acquisition/feature_extension/data/esmfold_fv",
+    "ca_coord_range": {
+      "min": [
+        -28.834999084472656,
+        -27.986000061035156,
+        -27.104999542236328
+      ],
+      "max": [
+        29.632999420166016,
+        26.743999481201172,
+        28.874000549316406
+      ],
+      "mean": [
+        -0.1036619022488594,
+        -0.14308251440525055,
+        -0.34858065843582153
+      ]
+    }
+  },
+  "zero_bias_equivalence": {
+    "ok": true,
+    "repr_max_abs": 0.0,
+    "pred_max_abs": 0.0,
+    "note": "joint_hl_single_reg + CA distance with a_h=0 vs joint without CA"
+  }
+}

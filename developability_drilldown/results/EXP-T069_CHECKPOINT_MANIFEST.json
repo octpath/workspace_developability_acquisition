@@ -1,0 +1,26 @@
+{
+  "experiment_code": "EXP-T069",
+  "experiment_id": "TRF_TM_ABLINGUA_FULL_JOINT_SINGLE_REG_CA_DISTANCE",
+  "checkpoint_dir": "results/EXP-T069_run/checkpoints",
+  "n_fulldev": 3,
+  "n_trainable_parameters": 485129,
+  "files": [
+    {
+      "path": "results/EXP-T069_run/checkpoints/fulldev_seed101.pt",
+      "sha256": "a1be65677f4faca371417f226418aa93cf96d3a723a58f4fb261d23215070b4c",
+      "bytes": 1954572
+    },
+    {
+      "path": "results/EXP-T069_run/checkpoints/fulldev_seed202.pt",
+      "sha256": "d63b3f11bcbba30b3a498865d81f6ef2488aa3913bf5e8c08706b4a5a2dcb4c3",
+      "bytes": 1954572
+    },
+    {
+      "path": "results/EXP-T069_run/checkpoints/fulldev_seed303.pt",
+      "sha256": "aeb51fd46475fd5230cb13b5d788e2b7cf2ed1433e5e5195d6aba458b6908264",
+      "bytes": 1954572
+    }
+  ],
+  "total_bytes": 5863716,
+  "git_rev": "ecc67b3a67d14058f8797d7524a5d1fe34a8513b"
+}
