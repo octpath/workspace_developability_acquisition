@@ -64,3 +64,9 @@ organizer_extension/feature_prospecting/ablingua600m/embeddings_guided/
 top_models_feature_bundle/solution.csv
 top_models_feature_bundle/outputs/
 top_models_feature_bundle/advanced_outputs/
+
+# Residue embeddings >100MB: store as .part0/.part1, reassemble locally
+#   bash top_models_feature_bundle/residue_level/assemble_embeddings.sh
+top_models_feature_bundle/residue_level/ablingua600m/heavy_embeddings.npy
+top_models_feature_bundle/residue_level/ablingua600m/light_embeddings.npy
+top_models_feature_bundle/residue_level/esm2/heavy_embeddings.npy

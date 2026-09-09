@@ -36,12 +36,17 @@ def main() -> int:
     print(f"DEV N={len(dev)} TEST N={len(test)}")
 
     residue = ROOT / "residue_level"
-    for p in (
-        residue / "annotations.parquet",
+    emb_paths = (
         residue / "ablingua600m/heavy_embeddings.npy",
         residue / "ablingua600m/light_embeddings.npy",
         residue / "esm2/heavy_embeddings.npy",
-    ):
+    )
+    if any(not p.exists() for p in emb_paths):
+        print(
+            "residue embeddings missing; reassemble with:\n"
+            "  bash top_models_feature_bundle/residue_level/assemble_embeddings.sh"
+        )
+    for p in (residue / "annotations.parquet", *emb_paths):
         print(f"residue asset: {p.relative_to(ROOT)} {'FOUND' if p.exists() else 'MISSING'}")
     if (residue / "ablingua600m/ids.npy").exists():
         ids = np.load(residue / "ablingua600m/ids.npy", allow_pickle=True)

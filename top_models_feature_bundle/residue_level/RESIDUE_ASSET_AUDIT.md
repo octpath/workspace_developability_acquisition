@@ -1,5 +1,18 @@
 # Residue asset audit
 
+## Large embedding files (GitHub size limit)
+
+The three residue embedding tensors exceed GitHub's comfortable / hard size
+limits, so the repo stores binary halves (`.npy.part0` / `.npy.part1`).
+
+Before advanced-model runs, reassemble locally:
+
+```bash
+bash top_models_feature_bundle/residue_level/assemble_embeddings.sh
+```
+
+Assembled outputs (`*.npy`) are gitignored; parts are tracked.
+
 ## Annotations
 - Rows: 75057
 - Antibodies: 324
