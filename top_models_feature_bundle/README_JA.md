@@ -173,6 +173,17 @@ python advanced_models/run_benchmark.py --stage all --device cuda --dev dev.csv 
 - [`results/MODEL_BENCHMARK_REPORT_JA.md`](results/MODEL_BENCHMARK_REPORT_JA.md)
 - [`results/MODEL_BENCHMARK_REPORT.md`](results/MODEL_BENCHMARK_REPORT.md)
 
+### AbLang2 position-aware follow-up
+
+TmApp 限定の追加実験（凍結 AbLang2 residue ＋ IMGT/FR-CDR Transformer）:
+
+- [`results/ABLANG2_POSITION_AWARE_FOLLOWUP_JA.md`](results/ABLANG2_POSITION_AWARE_FOLLOWUP_JA.md)
+- [`results/ABLANG2_POSITION_AWARE_FOLLOWUP.md`](results/ABLANG2_POSITION_AWARE_FOLLOWUP.md)
+- [`results/ablang2_followup/`](results/ablang2_followup/)
+- 計画: [`advanced_models/ablang2_followup/ABLANG2_FOLLOWUP_PLAN.md`](advanced_models/ablang2_followup/ABLANG2_FOLLOWUP_PLAN.md)
+
+再現可能（tracked の part ファイル + `residue_level/assemble_embeddings.sh`）。Public/Private は **POSTMORTEM ONLY**。`solution.csv` は非配布。AbLang2 由来 residue は **REVIEW_MODEL_OUTPUT**。
+
 結果は**すでに用意済み**です。コードは再現可能なので、必要なら再実行できます。
 
 **`solution.csv` は配布しません。** 表中の Public/Private は**競技終了後の事後解析**用です（終了後に organizer がローカルへ置いて再採点可能）。モデル選択には使っていません。

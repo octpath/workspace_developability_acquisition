@@ -2,9 +2,18 @@
 
 ## Executive summary
 
-**TmApp**: 正準 CV 勝者は `CROSS_FAMILY_EQUAL_MEAN__TmApp__2m`（family=CROSS_FAMILY_ENSEMBLE, worst=2.7379）。Public/Private は事後のみ。
+**TmApp**: 正準 CV 勝者は follow-up 後 `CROSS_FAMILY_EQUAL_MEAN__TmApp__4m__FOLLOWUP`（worst≈2.7348; members=T1+XGB+TMF2-fusion+AL2F3）。Phase-1 勝者 `CROSS_FAMILY_EQUAL_MEAN__TmApp__2m`（worst≈2.7379）から **極小改善**（winner changed YES）。Public/Private は事後のみ。
 
-**HIC**: 正準 CV 勝者は `CROSS_FAMILY_EQUAL_MEAN__HIC__2m`（family=CROSS_FAMILY_ENSEMBLE, worst=0.4346）。Public/Private は事後のみ。
+**HIC**: 変更なし。正準 CV 勝者は `CROSS_FAMILY_EQUAL_MEAN__HIC__2m`（worst=0.4346）。
+
+### AbLang2 position-aware follow-up（要約）
+
+- 詳細: [`ABLANG2_POSITION_AWARE_FOLLOWUP_JA.md`](ABLANG2_POSITION_AWARE_FOLLOWUP_JA.md)
+- Best AbLang2 sequence: `AL2F3_FULL_MEAN`（P/S/worst ≈ 2.994 / 3.043 / 3.043）
+- Annotation AL2F1→AL2F2: Shadow 改善・Primary は非改善（mixed）
+- Region-gate: 性能非改善、weight≈一様（CDR3 突出なし）
+- Best AbLang2 fusion: `AL2F3⊕TM_BASE_BIOEMU_MPNN`（worst≈2.835; 旧 TMF2 fusion には未達）
+- 科学的判定: **PARTIALLY_SUPPORTED / INCONCLUSIVE**（位置 annotation 再集約だけでは AbLang2 の TmApp 強さを説明しきれない）
 
 ## Unified benchmark table
 

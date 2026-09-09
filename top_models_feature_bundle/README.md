@@ -172,6 +172,17 @@ Organizer-side consolidated scores (linear / ensemble / XGBoost / Transformers /
 - [`results/MODEL_BENCHMARK_REPORT_JA.md`](results/MODEL_BENCHMARK_REPORT_JA.md)
 - [`results/MODEL_BENCHMARK_REPORT.md`](results/MODEL_BENCHMARK_REPORT.md)
 
+### AbLang2 position-aware follow-up
+
+TmApp-only follow-up (frozen AbLang2 residue + IMGT/FR-CDR Transformer):
+
+- [`results/ABLANG2_POSITION_AWARE_FOLLOWUP_JA.md`](results/ABLANG2_POSITION_AWARE_FOLLOWUP_JA.md)
+- [`results/ABLANG2_POSITION_AWARE_FOLLOWUP.md`](results/ABLANG2_POSITION_AWARE_FOLLOWUP.md)
+- [`results/ablang2_followup/`](results/ablang2_followup/)
+- Plan: [`advanced_models/ablang2_followup/ABLANG2_FOLLOWUP_PLAN.md`](advanced_models/ablang2_followup/ABLANG2_FOLLOWUP_PLAN.md)
+
+Follow-up is reproducible from tracked code + residue **part** files (`residue_level/ablang2/*.part0|1`); run `residue_level/assemble_embeddings.sh` if `.npy` is absent. Public/Private are **POSTMORTEM ONLY**. `solution.csv` is not distributed. License for AbLang2-derived residue outputs: **REVIEW_MODEL_OUTPUT**.
+
 These tables are **already available**. All training code remains reproducible if you want to re-run experiments.
 
 **`solution.csv` is not distributed.** Public/Private columns in the summary are **post-competition postmortem** metrics (organizers may place `solution.csv` locally after closure to rescore). They were **not** used for model selection.

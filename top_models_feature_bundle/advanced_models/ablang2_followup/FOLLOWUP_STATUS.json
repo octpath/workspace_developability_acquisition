@@ -1,13 +1,13 @@
 {
-  "stage": "QC",
-  "variant": null,
+  "stage": "COMPLETE",
+  "variant": "AL2F3_FULL_MEAN__FUSION__TM_BASE_BIOEMU_MPNN__RIDGE",
   "scheme": null,
   "rotation": null,
   "seed": null,
-  "completed_units": 0,
+  "completed_units": 120,
   "total_units": 120,
-  "fusion_completed_units": 0,
+  "fusion_completed_units": 90,
   "fusion_total_units": 90,
-  "timestamp": "2026-09-09T02:33:00Z",
+  "timestamp": "2026-09-09T03:28:32Z",
   "notes": "Plan frozen before any AbLang2 follow-up results."
 }

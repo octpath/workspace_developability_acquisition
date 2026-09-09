@@ -1,0 +1,23 @@
+ABLANG2_CLEAN_DIR_VALIDATION
+timestamp=2026-09-09T03:28:11Z
+
+== parts ==
+/workspace_developability_acquisition/top_models_feature_bundle/residue_level/ablang2/heavy_embeddings.npy.part0
+/workspace_developability_acquisition/top_models_feature_bundle/residue_level/ablang2/heavy_embeddings.npy.part1
+/workspace_developability_acquisition/top_models_feature_bundle/residue_level/ablang2/light_embeddings.npy.part0
+/workspace_developability_acquisition/top_models_feature_bundle/residue_level/ablang2/light_embeddings.npy.part1
+PASS: tracked parts exist
+== assemble ==
+== SHA256 ==
+PASS heavy_embeddings.npy 689a5786ec3bbde6
+PASS light_embeddings.npy c847f39bc5889e59
+== QC ==
+PASS residue QC
+== imports + unit tests ==
+PASS imports
+== smoke train ==
+PASS smoke 4 3.337599754333496
+== submission schema ==
+PASS schema
+
+OVERALL: PASS

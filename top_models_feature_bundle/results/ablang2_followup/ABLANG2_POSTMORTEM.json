@@ -1,0 +1,50 @@
+{
+  "solution_available": true,
+  "phase1_cross_family": {
+    "public_mae": 3.1702912171669455,
+    "private_mae": 3.2605070313875357,
+    "overall_test_mae": 3.215399124277241,
+    "bias": -0.28541883421480574,
+    "rmse": 4.039678350227263,
+    "pearson": 0.5629767781739095,
+    "spearman": 0.5710673742228622,
+    "model_id": "CROSS_FAMILY_EQUAL_MEAN__TmApp__2m",
+    "cv_primary": 2.673505808625724,
+    "cv_shadow": 2.7378897740997274,
+    "cv_worst": 2.7378897740997274
+  },
+  "best_ablang2_sequence": {
+    "public_mae": 3.5215790987654327,
+    "private_mae": 3.251830419753087,
+    "overall_test_mae": 3.38670475925926,
+    "bias": -1.1629807592592598,
+    "rmse": 4.282507333168528,
+    "pearson": 0.5596363458625678,
+    "spearman": 0.5723244820782926
+  },
+  "best_ablang2_fusion": {
+    "public_mae": 3.1416359012345687,
+    "private_mae": 3.236445580246914,
+    "overall_test_mae": 3.1890407407407415,
+    "bias": -0.35199324691358064,
+    "rmse": 4.069214244396153,
+    "pearson": 0.5546367973508898,
+    "spearman": 0.5636207757803581
+  },
+  "followup_cross_family": {
+    "public_mae": 3.1586887697329566,
+    "private_mae": 3.145526548916667,
+    "overall_test_mae": 3.152107659324812,
+    "bias": -0.5025582705024644,
+    "rmse": 3.9711253714381147,
+    "pearson": 0.5902591250339613,
+    "spearman": 0.6090122567265489
+  },
+  "hic_phase1_cross_family_ref": {
+    "model_id": "CROSS_FAMILY_EQUAL_MEAN__HIC__2m",
+    "public_mae": 0.406664422839506,
+    "private_mae": 0.4560640679012345,
+    "overall_test_mae": 0.4313642453703703,
+    "cv_worst": 0.4345731308470048
+  }
+}

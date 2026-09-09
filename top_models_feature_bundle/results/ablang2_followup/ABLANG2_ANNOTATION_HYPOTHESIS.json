@@ -1,0 +1,17 @@
+{
+  "AL2F1_vs_AL2F2": {
+    "delta_primary": -0.03802541253988645,
+    "delta_shadow": 0.21069994482974552,
+    "delta_worst": 0.12379736566739785
+  },
+  "AL2F2_vs_AL2F3": {
+    "delta_primary": 0.2007327452608587,
+    "delta_shadow": 0.06509032072844212,
+    "delta_worst": 0.1519928998907898
+  },
+  "AL2F2_vs_AL2F4": {
+    "delta_primary": 0.09520827399359888,
+    "delta_shadow": -0.1861522658862218,
+    "delta_worst": -0.09924968672387413
+  }
+}

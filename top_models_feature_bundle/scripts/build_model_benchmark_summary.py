@@ -344,16 +344,25 @@ def mark_winners(df: pd.DataFrame) -> pd.DataFrame:
 
 def load_oof_series(model_id: str, target: str, scheme: str, dev_ids: list[str]) -> pd.Series:
     """Load primary/shadow OOF aligned to dev_ids."""
+    import re
+
     if model_id.startswith("LINEAR_ENSEMBLE__"):
         parts = ["HIC_HYDRO_TITRATION__LASSO", "HIC_ARO_CONTINUOUS_SURFACE__LASSO"]
         mats = [load_oof_series(p, target, scheme, dev_ids) for p in parts]
         return sum(mats) / len(mats)
 
-    # Transformer / fusion OOF caches (may contain __RIDGE/__LASSO in recipe suffix)
-    logs = ADV / "logs"
-    cands = list(logs.glob(f"oof_{model_id}_*.npz"))
-    if not cands:
-        cands = [p for p in logs.glob("oof_*.npz") if p.name.startswith(f"oof_{model_id}_")]
+    def _exact_oof_cands(folder: Path) -> list[Path]:
+        if not folder.exists():
+            return []
+        out = []
+        for p in folder.glob("oof_*.npz"):
+            m = re.match(r"oof_(.+)_([0-9a-f]{16})\.npz$", p.name)
+            if m and m.group(1) == model_id:
+                out.append(p)
+        return out
+
+    # Transformer / fusion OOF caches (exact model_id match; avoid AL2F3 matching AL2F3__FUSION__)
+    cands = _exact_oof_cands(ADV / "logs") + _exact_oof_cands(ADV / "ablang2_followup")
     if cands:
         z = np.load(sorted(cands)[0], allow_pickle=True)
         ids = [str(x) for x in z["ids"].tolist()]

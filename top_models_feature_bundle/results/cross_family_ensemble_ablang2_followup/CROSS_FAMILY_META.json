@@ -1,0 +1,31 @@
+{
+  "TmApp": {
+    "id": "CROSS_FAMILY_EQUAL_MEAN__TmApp__4m__FOLLOWUP",
+    "members": [
+      "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+      "XGB__TM_BASE_BIOEMU_MPNN__RIDGE",
+      "TMF2__FUSION__TM_BASE_BIOEMU_MPNN__RIDGE",
+      "AL2F3_FULL_MEAN"
+    ],
+    "primary": 2.653689958872814,
+    "shadow": 2.73479975442303,
+    "worst": 2.73479975442303,
+    "mean": 2.694244856647922,
+    "weights": "equal_mean"
+  },
+  "BEST_CV": {
+    "source": "FOLLOWUP_CROSS_FAMILY",
+    "id": "CROSS_FAMILY_EQUAL_MEAN__TmApp__4m__FOLLOWUP",
+    "primary": 2.653689958872814,
+    "shadow": 2.73479975442303,
+    "worst": 2.73479975442303,
+    "mean": 2.694244856647922,
+    "members": [
+      "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+      "XGB__TM_BASE_BIOEMU_MPNN__RIDGE",
+      "TMF2__FUSION__TM_BASE_BIOEMU_MPNN__RIDGE",
+      "AL2F3_FULL_MEAN"
+    ]
+  },
+  "winner_changed_vs_phase1": true
+}

@@ -1,0 +1,10 @@
+{
+  "BEST_ABLANG2_TRANSFORMER": "AL2F3_FULL_MEAN",
+  "primary_mae": 2.9940878550211596,
+  "shadow_mae": 3.0428277003912285,
+  "cv_mean_mae": 3.0184577777061943,
+  "cv_worst_mae": 3.0428277003912285,
+  "selection_policy": "min(cv_worst) then min(cv_mean) then simpler",
+  "timestamp": "2026-09-09T02:50:21Z",
+  "config_hash": "cef96a799a754c83"
+}
