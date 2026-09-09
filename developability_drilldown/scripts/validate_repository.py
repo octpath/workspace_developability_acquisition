@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate developability_drilldown after target-namespaced EXP codes."""
+"""Validate developability_drilldown (Phase 1 Linear/XGB + Phase 2A Transformer)."""
 from __future__ import annotations
 
 import math
@@ -18,7 +18,12 @@ from _lib import (  # noqa: E402
     FEATURE_SPACE,
     LEGACY_CODE_RE,
     LICENSE_STATUSES,
+    N_EXPERIMENTS_TOTAL,
+    N_FULL_LINEAR_XGB,
+    N_LEGACY_MAP,
+    N_TRANSFORMER,
     ROOT,
+    SELECTION_POLICIES,
     SOURCE_REPRO,
     feature_column_names,
     feature_content_sha256,
@@ -55,13 +60,27 @@ def main() -> int:
 
     codes = load_codes()
     legacy = load_legacy_map()
-    if len(df) != 48 or len(codes) != 48 or len(legacy) != 48:
-        fail(f"expected 48 rows; experiments={len(df)} codes={len(codes)} legacy={len(legacy)}")
+    if len(df) != N_EXPERIMENTS_TOTAL or len(codes) != N_EXPERIMENTS_TOTAL:
+        fail(
+            f"expected {N_EXPERIMENTS_TOTAL} experiments/codes; "
+            f"experiments={len(df)} codes={len(codes)}"
+        )
     else:
-        ok("48 experiments / codes / legacy map")
+        ok(f"{N_EXPERIMENTS_TOTAL} experiments / codes")
+    if len(legacy) != N_LEGACY_MAP:
+        fail(f"legacy map expected {N_LEGACY_MAP}, got {len(legacy)}")
+    else:
+        ok(f"legacy map {N_LEGACY_MAP} (Linear/XGB only)")
 
     if df["experiment_code"].duplicated().any() or df["experiment_id"].duplicated().any():
         fail("duplicate experiment_code or experiment_id")
+
+    fam = df["family"].value_counts().to_dict()
+    if fam.get("LINEAR") != 42 or fam.get("XGBOOST") != 6 or fam.get("TRANSFORMER") != N_TRANSFORMER:
+        fail(f"family counts unexpected: {fam}")
+    else:
+        ok(f"families LINEAR=42 XGBOOST=6 TRANSFORMER={N_TRANSFORMER}")
+
     for _, r in df.iterrows():
         c = str(r["experiment_code"])
         if not CODE_RE.match(c):
@@ -72,7 +91,7 @@ def main() -> int:
             fail(f"TmApp row has non-T code {c}")
         if r["target"] == "HIC" and not c.startswith("EXP-H"):
             fail(f"HIC row has non-H code {c}")
-        if not str(r.get("legacy_experiment_code") or ""):
+        if r["family"] in ("LINEAR", "XGBOOST") and not str(r.get("legacy_experiment_code") or ""):
             fail(f"missing legacy_experiment_code for {c}")
 
     m_count = int(df["experiment_code"].astype(str).str.startswith("EXP-M").sum())
@@ -84,6 +103,14 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
+    if next_code("TmApp") != "EXP-T045":
+        fail(f"next TmApp unexpected: {next_code('TmApp')}")
+    else:
+        ok("next TmApp EXP-T045")
+    if next_code("HIC") != "EXP-H034":
+        fail(f"next HIC unexpected: {next_code('HIC')}")
+    else:
+        ok("next HIC EXP-H034")
 
     t_codes = sorted(
         [c for c in df["experiment_code"] if str(c).startswith("EXP-T")],
@@ -109,21 +136,21 @@ def main() -> int:
         how="inner",
         suffixes=("", "_c"),
     )
-    if len(merged) != 48:
+    if len(merged) != N_EXPERIMENTS_TOTAL:
         fail("EXPERIMENT_CODES.csv mismatch")
     else:
         ok("codes table matches experiments.csv")
 
-    leg_m = df.merge(
+    leg_m = df[df["family"].isin(["LINEAR", "XGBOOST"])].merge(
         legacy,
         left_on=["legacy_experiment_code", "experiment_code", "experiment_id"],
         right_on=["legacy_experiment_code", "experiment_code", "experiment_id"],
         how="inner",
     )
-    if len(leg_m) != 48:
-        fail("LEGACY_EXPERIMENT_CODE_MAP.csv mismatch")
+    if len(leg_m) != N_LEGACY_MAP:
+        fail("LEGACY_EXPERIMENT_CODE_MAP.csv mismatch vs Linear/XGB")
     else:
-        ok("legacy map 48/48")
+        ok("legacy map matches Linear/XGB")
 
     if not set(df["artifact_status"]).issubset(ARTIFACT_STATUSES):
         fail("bad artifact_status")
@@ -133,8 +160,10 @@ def main() -> int:
         fail("bad drilldown_reproducible")
     if not set(df["license_status"]).issubset(LICENSE_STATUSES):
         fail("bad license_status")
+    if not set(df["selection_policy_at_creation"]).issubset(SELECTION_POLICIES):
+        fail("bad selection_policy_at_creation")
     else:
-        ok("repro/license enums valid")
+        ok("repro/license/selection enums valid")
 
     pred_root = ROOT / "experiments" / "predictions"
     bad = [
@@ -158,18 +187,62 @@ def main() -> int:
     else:
         ok("no flat EXP0xx artifact paths")
 
+    # Historical Transformer feature parquet must not exist
+    tr = df[df["family"] == "TRANSFORMER"]
+    for _, r in tr.iterrows():
+        code = r["experiment_code"]
+        feat = ROOT / "experiments" / "features" / f"{code}.parquet"
+        if feat.exists():
+            fail(f"Transformer must not have feature parquet: {feat}")
+        if str(r.get("feature_path") or "") not in ("", "nan"):
+            fail(f"{code} feature_path must be empty")
+        if str(r.get("feature_space") or "") not in ("", "nan"):
+            fail(f"{code} feature_space must be empty")
+        if r.get("representation_status") != "HISTORICAL_UNAVAILABLE":
+            fail(f"{code} representation_status")
+        if not str(r.get("input_space") or ""):
+            fail(f"{code} missing input_space")
+        if not str(r.get("input_asset_ref") or ""):
+            fail(f"{code} missing input_asset_ref")
+    else:
+        ok("Transformer historical feature/representation contracts")
+
+    fs_ids = set(pd.read_csv(ROOT / "results" / "FEATURE_SETS.csv")["feature_set_id"])
+    for _, r in tr[tr["transformer_type"] == "FUSION"].iterrows():
+        fs = str(r.get("feature_set_id") or "")
+        if fs not in fs_ids:
+            fail(f"{r['experiment_code']} fusion feature_set_id invalid: {fs}")
+    else:
+        ok("fusion feature_set FK")
+
+    audit = ROOT / "results" / "TRANSFORMER_BACKFILL_AUDIT.csv"
+    if not audit.exists():
+        fail("TRANSFORMER_BACKFILL_AUDIT.csv missing")
+    else:
+        ad = pd.read_csv(audit)
+        if len(ad) != N_TRANSFORMER:
+            fail(f"audit rows {len(ad)}")
+        else:
+            ok("TRANSFORMER_BACKFILL_AUDIT.csv")
+
     dev, test, _ = load_dev_test_folds()
     dev_ids, test_ids = set(dev["id"]), set(test["id"])
     all_ids = dev_ids | test_ids
 
     full = df[df["artifact_status"] == "FULL"]
-    if len(full) != 12:
-        fail(f"FULL count {len(full)}")
+    lin_xgb_full = full[full["family"].isin(["LINEAR", "XGBOOST"])]
+    tr_full = full[full["family"] == "TRANSFORMER"]
+    if len(lin_xgb_full) != N_FULL_LINEAR_XGB:
+        fail(f"Linear/XGB FULL count {len(lin_xgb_full)}")
     else:
-        ok("FULL=12")
+        ok(f"Linear/XGB FULL={N_FULL_LINEAR_XGB}")
+    if len(tr_full) != N_TRANSFORMER:
+        fail(f"TRANSFORMER FULL count {len(tr_full)}")
+    else:
+        ok(f"TRANSFORMER FULL={N_TRANSFORMER}")
 
     recipe_hashes: dict[str, set[str]] = {}
-    for _, r in full.iterrows():
+    for _, r in lin_xgb_full.iterrows():
         code = r["experiment_code"]
         for path_col, expect in (
             ("config_path", f"experiments/configs/{code}.yaml"),
@@ -199,6 +272,30 @@ def main() -> int:
             fail(f"{code} content hash")
         recipe_hashes.setdefault(str(r["feature_set_id"]), set()).add(ch)
 
+        for key, idset in (
+            ("oof_primary_path", dev_ids),
+            ("oof_shadow_path", dev_ids),
+            ("test_prediction_path", test_ids),
+        ):
+            pred = pd.read_csv(ROOT / str(r[key]))
+            tgt = r["target"]
+            if list(pred.columns) != ["id", tgt] or set(pred["id"].astype(str)) != idset:
+                fail(f"{code} {key} schema")
+            if not np_finite(pred[tgt]):
+                fail(f"{code} {key} non-finite")
+
+    for _, r in tr_full.iterrows():
+        code = r["experiment_code"]
+        for path_col, expect in (
+            ("config_path", f"experiments/configs/{code}.yaml"),
+            ("oof_primary_path", f"experiments/predictions/{code}/oof_primary.csv"),
+            ("oof_shadow_path", f"experiments/predictions/{code}/oof_shadow.csv"),
+            ("test_prediction_path", f"experiments/predictions/{code}/test.csv"),
+        ):
+            if str(r[path_col]) != expect:
+                fail(f"{code} {path_col}={r[path_col]}")
+            if not (ROOT / str(r[path_col])).exists():
+                fail(f"missing {r[path_col]}")
         for key, idset in (
             ("oof_primary_path", dev_ids),
             ("oof_shadow_path", dev_ids),

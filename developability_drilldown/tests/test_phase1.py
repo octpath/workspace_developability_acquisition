@@ -24,13 +24,13 @@ from _lib import feature_content_sha256  # noqa: E402
 
 def test_code_format_and_counts():
     codes = load_codes()
-    assert len(codes) == 48
+    assert len(codes) == 77
     assert all(CODE_RE.match(c) for c in codes["experiment_code"])
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 25 and len(h) == 23
-    assert sorted(t, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-T{i:03d}" for i in range(1, 26)]
-    assert sorted(h, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-H{i:03d}" for i in range(1, 24)]
+    assert len(t) == 44 and len(h) == 33
+    assert sorted(t, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-T{i:03d}" for i in range(1, 45)]
+    assert sorted(h, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-H{i:03d}" for i in range(1, 34)]
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
 
 
@@ -58,11 +58,11 @@ def test_legacy_order_preserved_within_target():
 
 
 def test_next_code_namespaces():
-    assert next_code("TmApp") == "EXP-T026"
-    assert next_code("HIC") == "EXP-H024"
+    assert next_code("TmApp") == "EXP-T045"
+    assert next_code("HIC") == "EXP-H034"
     assert next_code("MULTI") == "EXP-M001"
-    assert next_code("T") == "EXP-T026"
-    assert next_code("H") == "EXP-H024"
+    assert next_code("T") == "EXP-T045"
+    assert next_code("H") == "EXP-H034"
     assert next_code("M") == "EXP-M001"
 
 
@@ -80,12 +80,13 @@ def test_no_renumber_authority():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     for _, r in exp.iterrows():
         assert codes[r["experiment_id"]] == r["experiment_code"]
-        assert r["legacy_experiment_code"]
+        if r["family"] in ("LINEAR", "XGBOOST"):
+            assert r["legacy_experiment_code"]
 
 
 def test_feature_set_equivalence():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
-    full = exp[exp["artifact_status"] == "FULL"]
+    full = exp[(exp["artifact_status"] == "FULL") & (exp["family"].isin(["LINEAR", "XGBOOST"]))]
     for fsid, g in full.groupby("feature_set_id"):
         assert len(set(g["feature_content_sha256"])) == 1
 
@@ -96,7 +97,12 @@ def test_feature_hash_deterministic():
     assert feature_content_sha256(df) == feature_content_sha256(df.copy())
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     fs = exp.loc[exp["experiment_code"] == "EXP-T003", "feature_set_id"].iloc[0]
-    twins = exp[(exp["feature_set_id"] == fs) & (exp["artifact_status"] == "FULL") & (exp["experiment_code"] != "EXP-T003")]
+    twins = exp[
+        (exp["feature_set_id"] == fs)
+        & (exp["artifact_status"] == "FULL")
+        & (exp["family"].isin(["LINEAR", "XGBOOST"]))
+        & (exp["experiment_code"] != "EXP-T003")
+    ]
     other = ROOT / "experiments" / "features" / f"{twins.iloc[0]['experiment_code']}.parquet"
     assert feature_content_sha256(pd.read_parquet(other)) == feature_content_sha256(df)
 
@@ -156,6 +162,7 @@ def test_no_submission_named_predictions():
 
 def test_score_schema():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
-    assert len(exp) == 48
+    assert len(exp) == 77
     assert "feature_set_id" in exp.columns and "legacy_experiment_code" in exp.columns
     assert "feature_recipe" not in exp.columns
+    assert "input_space" in exp.columns and "representation_status" in exp.columns

@@ -298,13 +298,34 @@ EXPERIMENTS_COLUMNS = [
     "ensemble_type",
     "member_experiment_codes",
     "notes",
+    # Phase 2A Transformer columns (empty for Linear/XGB)
+    "transformer_type",
+    "plm_source",
+    "annotation_mode",
+    "chain_mode",
+    "pooling_mode",
+    "representation_status",
+    "input_space",
+    "input_asset_ref",
 ]
 
 LICENSE_STATUSES = {"OK", "REVIEW", "RESTRICTED", "UNKNOWN"}
+SELECTION_POLICIES = {
+    "CV_ONLY",
+    "CV_SELECTED_POSTCOMP_EVALUATED",
+    "POSTCOMP_EXPLORATORY",
+    "UNKNOWN",
+}
 SOURCE_REPRO = {"YES", "NO", "UNKNOWN"}
 DRILLDOWN_REPRO = {"YES", "PARTIAL", "NO"}
 CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
 LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
+
+# Expected registry sizes after Phase 2A
+N_EXPERIMENTS_TOTAL = 77
+N_LEGACY_MAP = 48  # Linear/XGB only; Transformer rows have empty legacy codes
+N_FULL_LINEAR_XGB = 12
+N_TRANSFORMER = 29
 
 # Ensure experiment_code is first identity columns when rewriting tables
 IDENTITY_PREFIX = [

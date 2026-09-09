@@ -11,7 +11,7 @@ They do not rewrite `selection_policy_at_creation`.
 
 ## TmApp
 
-| Code | Experiment | family | model_type | feature_set_id | CV Primary | CV Shadow | CV worst | Public | Private | Test overall | artifact_status | feature_path | test_prediction_path |
+| Code | Experiment | family | model_type | feature_set_id / input | CV Primary | CV Shadow | CV worst | Public | Private | Test overall | artifact_status | feature_path | test_prediction_path |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|---|
 | EXP-T001 | LIN_TM_ABLINGUA_CDR3_RIDGE | LINEAR | RIDGE | FS_TM_ABLINGUA_CDR3 | 2.732072 | 2.784957 | 2.784957 | 3.118525 | 3.289918 | 3.204221 | FULL | experiments/features/EXP-T001.parquet | experiments/predictions/EXP-T001/test.csv |
 | EXP-T002 | LIN_TM_ABLINGUA_GLOBAL_RIDGE | LINEAR | RIDGE | FS_TM_ABLINGUA_GLOBAL | 2.746600 | 2.822725 | 2.822725 | 3.106900 | 3.326375 | 3.216637 | FULL | experiments/features/EXP-T002.parquet | experiments/predictions/EXP-T002/test.csv |
@@ -35,6 +35,25 @@ They do not rewrite `selection_policy_at_creation`.
 | EXP-T009 | LIN_TM_ABLANG2_LASSO | LINEAR | LASSO | FS_TM_ABLANG2 | 3.177920 | 3.436515 | 3.436515 | 3.507543 | 3.500945 | 3.504244 | RECONSTRUCTABLE | nan | nan |
 | EXP-T004 | LIN_TM_CONSTANT_RIDGE | LINEAR | RIDGE | FS_TM_CONSTANT | 3.438272 | 3.438272 | 3.438272 | 3.783951 | 3.771605 | 3.777778 | RECONSTRUCTABLE | nan | nan |
 | EXP-T005 | LIN_TM_CONSTANT_LASSO | LINEAR | LASSO | FS_TM_CONSTANT | 3.438272 | 3.438272 | 3.438272 | 3.783951 | 3.771605 | 3.777778 | RECONSTRUCTABLE | nan | nan |
+| EXP-T037 | TRF_TM_ABLINGUA_FULL_CONCAT_FUS_BIOEMU_MPNN | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_BIOEMU_MPNN | 2.753816 | 2.772998 | 2.772998 | 3.267985 | 3.280770 | 3.274377 | FULL | nan | experiments/predictions/EXP-T037/test.csv |
+| EXP-T036 | TRF_TM_ABLINGUA_FULL_CONCAT_FUS_ABLINGUA_GLOBAL | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_ABLINGUA_GLOBAL | 2.758065 | 2.799007 | 2.799007 | 3.286646 | 3.209072 | 3.247859 | FULL | nan | experiments/predictions/EXP-T036/test.csv |
+| EXP-T035 | TRF_TM_ABLINGUA_FULL_CONCAT_FUS_ABLINGUA_CDR3 | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_ABLINGUA_CDR3 | 2.746870 | 2.823049 | 2.823049 | 3.284899 | 3.188082 | 3.236491 | FULL | nan | experiments/predictions/EXP-T035/test.csv |
+| EXP-T044 | TRF_TM_ABLANG2_FULL_MEAN_FUS_BIOEMU_MPNN | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_BIOEMU_MPNN | 2.721084 | 2.834616 | 2.834616 | 3.141636 | 3.236446 | 3.189041 | FULL | nan | experiments/predictions/EXP-T044/test.csv |
+| EXP-T033 | TRF_TM_SCRATCH_FULL_MEAN_FUS_ABLINGUA_GLOBAL | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_ABLINGUA_GLOBAL | 2.726402 | 2.877958 | 2.877958 | 3.191843 | 3.153571 | 3.172707 | FULL | nan | experiments/predictions/EXP-T033/test.csv |
+| EXP-T042 | TRF_TM_ABLANG2_FULL_MEAN_FUS_ABLINGUA_CDR3 | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_ABLINGUA_CDR3 | 2.807186 | 2.884017 | 2.884017 | 3.231555 | 3.109766 | 3.170661 | FULL | nan | experiments/predictions/EXP-T042/test.csv |
+| EXP-T032 | TRF_TM_SCRATCH_FULL_MEAN_FUS_ABLINGUA_CDR3 | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_ABLINGUA_CDR3 | 2.769435 | 2.900662 | 2.900662 | 3.076469 | 3.182338 | 3.129404 | FULL | nan | experiments/predictions/EXP-T032/test.csv |
+| EXP-T043 | TRF_TM_ABLANG2_FULL_MEAN_FUS_ABLINGUA_GLOBAL | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_ABLINGUA_GLOBAL | 2.723234 | 2.955301 | 2.955301 | 3.235263 | 3.216251 | 3.225757 | FULL | nan | experiments/predictions/EXP-T043/test.csv |
+| EXP-T034 | TRF_TM_SCRATCH_FULL_MEAN_FUS_BIOEMU_MPNN | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_TM_BIOEMU_MPNN | 2.752221 | 2.966773 | 2.966773 | 3.116622 | 3.267218 | 3.191920 | FULL | nan | experiments/predictions/EXP-T034/test.csv |
+| EXP-T040 | TRF_TM_ABLANG2_FULL_MEAN | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 2.994088 | 3.042828 | 3.042828 | 3.521579 | 3.251830 | 3.386705 | FULL | nan | experiments/predictions/EXP-T040/test.csv |
+| EXP-T039 | TRF_TM_ABLANG2_FULL_CONCAT | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 3.194821 | 3.107918 | 3.194821 | 3.267595 | 3.092979 | 3.180287 | FULL | nan | experiments/predictions/EXP-T039/test.csv |
+| EXP-T028 | TRF_TM_SCRATCH_FULL_MEAN | TRANSFORMER | AnnotatedTransformer | SCRATCH_RESIDUE_SEQUENCE | 3.248280 | 3.268499 | 3.268499 | 3.625833 | 3.343123 | 3.484478 | FULL | nan | experiments/predictions/EXP-T028/test.csv |
+| EXP-T041 | TRF_TM_ABLANG2_FULL_REGION_GATE | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 3.099612 | 3.294070 | 3.294070 | 3.756091 | 3.676044 | 3.716067 | FULL | nan | experiments/predictions/EXP-T041/test.csv |
+| EXP-T030 | TRF_TM_ABLINGUA_FULL_CONCAT | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 3.317769 | 3.214610 | 3.317769 | 3.595529 | 3.255967 | 3.425748 | FULL | nan | experiments/predictions/EXP-T030/test.csv |
+| EXP-T038 | TRF_TM_ABLANG2_MIN_CONCAT | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 3.156795 | 3.318618 | 3.318618 | 3.037159 | 3.300404 | 3.168781 | FULL | nan | experiments/predictions/EXP-T038/test.csv |
+| EXP-T031 | TRF_TM_ABLINGUA_FULL_MEAN | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 3.259409 | 3.319854 | 3.319854 | 3.882903 | 3.357094 | 3.619998 | FULL | nan | experiments/predictions/EXP-T031/test.csv |
+| EXP-T027 | TRF_TM_SCRATCH_FULL_CONCAT | TRANSFORMER | AnnotatedTransformer | SCRATCH_RESIDUE_SEQUENCE | 3.322197 | 3.249101 | 3.322197 | 3.652687 | 3.399137 | 3.525912 | FULL | nan | experiments/predictions/EXP-T027/test.csv |
+| EXP-T026 | TRF_TM_SCRATCH_MIN_CONCAT | TRANSFORMER | AnnotatedTransformer | SCRATCH_RESIDUE_SEQUENCE | 3.355010 | 3.291361 | 3.355010 | 3.689453 | 3.478788 | 3.584121 | FULL | nan | experiments/predictions/EXP-T026/test.csv |
+| EXP-T029 | TRF_TM_ABLINGUA_MIN_CONCAT | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 3.436614 | 3.415659 | 3.436614 | 3.534222 | 3.297411 | 3.415817 | FULL | nan | experiments/predictions/EXP-T029/test.csv |
 | EXP-T023 | XGB_TM_BIOEMU_MPNN | XGBOOST | XGBRegressor | FS_TM_BIOEMU_MPNN | 2.926207 | 3.043586 | 3.043586 | 3.497555 | 3.195029 | 3.346292 | FULL | experiments/features/EXP-T023.parquet | experiments/predictions/EXP-T023/test.csv |
 | EXP-T024 | XGB_TM_ABLINGUA_GLOBAL | XGBOOST | XGBRegressor | FS_TM_ABLINGUA_GLOBAL | 2.894707 | 3.110550 | 3.110550 | 3.435619 | 3.090113 | 3.262866 | FULL | experiments/features/EXP-T024.parquet | experiments/predictions/EXP-T024/test.csv |
 | EXP-T025 | XGB_TM_ABLINGUA_CDR3 | XGBOOST | XGBRegressor | FS_TM_ABLINGUA_CDR3 | 2.929891 | 3.122976 | 3.122976 | 3.467446 | 3.138629 | 3.303037 | FULL | experiments/features/EXP-T025.parquet | experiments/predictions/EXP-T025/test.csv |
@@ -42,15 +61,15 @@ They do not rewrite `selection_policy_at_creation`.
 ### BEST (auto)
 
 - **CV Primary:** `EXP-T003` — `LIN_TM_BIOEMU_MPNN_RIDGE` = 2.702681 (LINEAR, FULL)
-- **CV Shadow:** `EXP-T001` — `LIN_TM_ABLINGUA_CDR3_RIDGE` = 2.784957 (LINEAR, FULL)
-- **CV worst:** `EXP-T001` — `LIN_TM_ABLINGUA_CDR3_RIDGE` = 2.784957 (LINEAR, FULL)
-- **Public (POSTCOMP_EXPLORATORY):** `EXP-T002` — `LIN_TM_ABLINGUA_GLOBAL_RIDGE` = 3.106900 (LINEAR, FULL)
+- **CV Shadow:** `EXP-T037` — `TRF_TM_ABLINGUA_FULL_CONCAT_FUS_BIOEMU_MPNN` = 2.772998 (TRANSFORMER, FULL)
+- **CV worst:** `EXP-T037` — `TRF_TM_ABLINGUA_FULL_CONCAT_FUS_BIOEMU_MPNN` = 2.772998 (TRANSFORMER, FULL)
+- **Public (POSTCOMP_EXPLORATORY):** `EXP-T038` — `TRF_TM_ABLANG2_MIN_CONCAT` = 3.037159 (TRANSFORMER, FULL)
 - **Private (POSTCOMP_EXPLORATORY):** `EXP-T024` — `XGB_TM_ABLINGUA_GLOBAL` = 3.090113 (XGBOOST, FULL)
-- **Test overall:** `EXP-T001` — `LIN_TM_ABLINGUA_CDR3_RIDGE` = 3.204221 (LINEAR, FULL)
+- **Test overall:** `EXP-T032` — `TRF_TM_SCRATCH_FULL_MEAN_FUS_ABLINGUA_CDR3` = 3.129404 (TRANSFORMER, FULL)
 
 ## HIC
 
-| Code | Experiment | family | model_type | feature_set_id | CV Primary | CV Shadow | CV worst | Public | Private | Test overall | artifact_status | feature_path | test_prediction_path |
+| Code | Experiment | family | model_type | feature_set_id / input | CV Primary | CV Shadow | CV worst | Public | Private | Test overall | artifact_status | feature_path | test_prediction_path |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|---|
 | EXP-H001 | LIN_HIC_HYDRO_TITRATION_LASSO | LINEAR | LASSO | FS_HIC_HYDRO_TITRATION | 0.487223 | 0.483372 | 0.487223 | 0.470238 | 0.464171 | 0.467205 | FULL | experiments/features/EXP-H001.parquet | experiments/predictions/EXP-H001/test.csv |
 | EXP-H017 | LIN_HIC_ARO_TITRATION_LASSO | LINEAR | LASSO | FS_HIC_ARO_TITRATION | 0.489388 | 0.482443 | 0.489388 | 0.479935 | 0.475745 | 0.477840 | RECONSTRUCTABLE | nan | nan |
@@ -72,16 +91,26 @@ They do not rewrite `selection_policy_at_creation`.
 | EXP-H015 | LIN_HIC_ARO_CONTINUOUS_SURFACE_RIDGE | LINEAR | RIDGE | FS_HIC_CONTINUOUS_SURFACE | 0.511759 | 0.557291 | 0.557291 | 0.546346 | 0.597409 | 0.571878 | RECONSTRUCTABLE | nan | nan |
 | EXP-H014 | LIN_HIC_ESM2_SEQ_AROMATIC_RIDGE | LINEAR | RIDGE | FS_HIC_ESM2_SEQ_AROMATIC | 0.528387 | 0.559056 | 0.559056 | 0.527881 | 0.591482 | 0.559681 | RECONSTRUCTABLE | nan | nan |
 | EXP-H010 | LIN_HIC_ESM2_SEQ_RIDGE | LINEAR | RIDGE | FS_HIC_ESM2_SEQ | 0.534534 | 0.559061 | 0.559061 | 0.546196 | 0.610156 | 0.578176 | RECONSTRUCTABLE | nan | nan |
+| EXP-H030 | TRF_HIC_SCRATCH_FULL_HONLY_FUS_ESM2_SEQ_ARO | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_HIC_ESM2_SEQ_AROMATIC | 0.442203 | 0.441328 | 0.442203 | 0.397606 | 0.480034 | 0.438820 | FULL | nan | experiments/predictions/EXP-H030/test.csv |
+| EXP-H033 | TRF_HIC_ESM2_FULL_HONLY_FUS_ESM2_SEQ_ARO | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_HIC_ESM2_SEQ_AROMATIC | 0.434526 | 0.442401 | 0.442401 | 0.412947 | 0.498045 | 0.455496 | FULL | nan | experiments/predictions/EXP-H033/test.csv |
+| EXP-H028 | TRF_HIC_SCRATCH_FULL_HONLY_FUS_HYDRO_TITRATION | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_HIC_HYDRO_TITRATION | 0.443477 | 0.450252 | 0.450252 | 0.413165 | 0.471550 | 0.442358 | FULL | nan | experiments/predictions/EXP-H028/test.csv |
+| EXP-H031 | TRF_HIC_ESM2_FULL_HONLY_FUS_HYDRO_TITRATION | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_HIC_HYDRO_TITRATION | 0.449375 | 0.451044 | 0.451044 | 0.410711 | 0.471676 | 0.441194 | FULL | nan | experiments/predictions/EXP-H031/test.csv |
+| EXP-H029 | TRF_HIC_SCRATCH_FULL_HONLY_FUS_CONTINUOUS_SURFACE | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_HIC_CONTINUOUS_SURFACE | 0.436769 | 0.460205 | 0.460205 | 0.429135 | 0.477224 | 0.453180 | FULL | nan | experiments/predictions/EXP-H029/test.csv |
+| EXP-H032 | TRF_HIC_ESM2_FULL_HONLY_FUS_CONTINUOUS_SURFACE | TRANSFORMER | AnnotatedTransformer+Fusion | RESIDUE_PLUS_FIXED_FEATURES + FS_HIC_CONTINUOUS_SURFACE | 0.447572 | 0.472379 | 0.472379 | 0.429567 | 0.478406 | 0.453987 | FULL | nan | experiments/predictions/EXP-H032/test.csv |
+| EXP-H025 | TRF_HIC_SCRATCH_FULL_HONLY | TRANSFORMER | AnnotatedTransformer | SCRATCH_RESIDUE_SEQUENCE | 0.499442 | 0.510955 | 0.510955 | 0.510622 | 0.518422 | 0.514522 | FULL | nan | experiments/predictions/EXP-H025/test.csv |
+| EXP-H027 | TRF_HIC_ESM2_FULL_HONLY | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 0.509699 | 0.515568 | 0.515568 | 0.467079 | 0.472960 | 0.470019 | FULL | nan | experiments/predictions/EXP-H027/test.csv |
+| EXP-H024 | TRF_HIC_SCRATCH_MIN_HONLY | TRANSFORMER | AnnotatedTransformer | SCRATCH_RESIDUE_SEQUENCE | 0.500896 | 0.516852 | 0.516852 | 0.506715 | 0.494542 | 0.500629 | FULL | nan | experiments/predictions/EXP-H024/test.csv |
+| EXP-H026 | TRF_HIC_ESM2_MIN_HONLY | TRANSFORMER | AnnotatedTransformer | FROZEN_RESIDUE_EMBEDDING | 0.528764 | 0.514456 | 0.528764 | 0.454823 | 0.524323 | 0.489573 | FULL | nan | experiments/predictions/EXP-H026/test.csv |
 | EXP-H021 | XGB_HIC_CONTINUOUS_SURFACE | XGBOOST | XGBRegressor | FS_HIC_CONTINUOUS_SURFACE | 0.445753 | 0.444893 | 0.445753 | 0.447909 | 0.464281 | 0.456095 | FULL | experiments/features/EXP-H021.parquet | experiments/predictions/EXP-H021/test.csv |
 | EXP-H022 | XGB_HIC_HYDRO_TITRATION | XGBOOST | XGBRegressor | FS_HIC_HYDRO_TITRATION | 0.453777 | 0.454693 | 0.454693 | 0.426390 | 0.452537 | 0.439463 | FULL | experiments/features/EXP-H022.parquet | experiments/predictions/EXP-H022/test.csv |
 | EXP-H023 | XGB_HIC_ESM2_SEQ_AROMATIC | XGBOOST | XGBRegressor | FS_HIC_ESM2_SEQ_AROMATIC | 0.459521 | 0.460001 | 0.460001 | 0.446864 | 0.456237 | 0.451551 | FULL | experiments/features/EXP-H023.parquet | experiments/predictions/EXP-H023/test.csv |
 
 ### BEST (auto)
 
-- **CV Primary:** `EXP-H021` — `XGB_HIC_CONTINUOUS_SURFACE` = 0.445753 (XGBOOST, FULL)
-- **CV Shadow:** `EXP-H021` — `XGB_HIC_CONTINUOUS_SURFACE` = 0.444893 (XGBOOST, FULL)
-- **CV worst:** `EXP-H021` — `XGB_HIC_CONTINUOUS_SURFACE` = 0.445753 (XGBOOST, FULL)
-- **Public (POSTCOMP_EXPLORATORY):** `EXP-H022` — `XGB_HIC_HYDRO_TITRATION` = 0.426390 (XGBOOST, FULL)
+- **CV Primary:** `EXP-H033` — `TRF_HIC_ESM2_FULL_HONLY_FUS_ESM2_SEQ_ARO` = 0.434526 (TRANSFORMER, FULL)
+- **CV Shadow:** `EXP-H030` — `TRF_HIC_SCRATCH_FULL_HONLY_FUS_ESM2_SEQ_ARO` = 0.441328 (TRANSFORMER, FULL)
+- **CV worst:** `EXP-H030` — `TRF_HIC_SCRATCH_FULL_HONLY_FUS_ESM2_SEQ_ARO` = 0.442203 (TRANSFORMER, FULL)
+- **Public (POSTCOMP_EXPLORATORY):** `EXP-H030` — `TRF_HIC_SCRATCH_FULL_HONLY_FUS_ESM2_SEQ_ARO` = 0.397606 (TRANSFORMER, FULL)
 - **Private (POSTCOMP_EXPLORATORY):** `EXP-H022` — `XGB_HIC_HYDRO_TITRATION` = 0.452537 (XGBOOST, FULL)
-- **Test overall:** `EXP-H022` — `XGB_HIC_HYDRO_TITRATION` = 0.439463 (XGBOOST, FULL)
+- **Test overall:** `EXP-H030` — `TRF_HIC_SCRATCH_FULL_HONLY_FUS_ESM2_SEQ_ARO` = 0.438820 (TRANSFORMER, FULL)
 

@@ -65,20 +65,26 @@ def catalog_md(df: pd.DataFrame, lang: str) -> str:
         lines.append(f"## {target}")
         lines.append("")
         lines.append(
-            "| Code | Experiment | family | model_type | feature_set_id | CV Primary | CV Shadow | CV worst | Public | Private | Test overall | artifact_status | feature_path | test_prediction_path |"
+            "| Code | Experiment | family | model_type | feature_set_id / input | CV Primary | CV Shadow | CV worst | Public | Private | Test overall | artifact_status | feature_path | test_prediction_path |"
         )
         lines.append("|---|---|---|---|---|---:|---:|---:|---:|---:|---:|---|---|---|")
         order = sub.copy()
         order["_sort"] = pd.to_numeric(order["cv_worst_mae"], errors="coerce")
         order = order.sort_values(["family", "_sort", "experiment_code"])
         for _, r in order.iterrows():
+            if str(r.get("family")) == "TRANSFORMER":
+                fs = str(r.get("input_space") or "")
+                if str(r.get("feature_set_id") or "") not in ("", "nan"):
+                    fs = f"{fs} + {r['feature_set_id']}"
+            else:
+                fs = r["feature_set_id"]
             lines.append(
                 "| {code} | {eid} | {family} | {model_type} | {fs} | {p} | {s} | {w} | {pub} | {priv} | {ov} | {st} | {fp} | {tp} |".format(
                     code=r["experiment_code"],
                     eid=r["experiment_id"],
                     family=r["family"],
                     model_type=r["model_type"],
-                    fs=r["feature_set_id"],
+                    fs=fs,
                     p=_fmt(r["cv_primary_mae"]),
                     s=_fmt(r["cv_shadow_mae"]),
                     w=_fmt(r["cv_worst_mae"]),
