@@ -1,0 +1,7 @@
+{
+  "feature_role": "FUSION_FIXED_BRANCH",
+  "recipe_id": "TM_BASE_BIOEMU_MPNN__RIDGE",
+  "n_rows": 324,
+  "n_feature_cols": 569,
+  "note": "Raw fixed-length BioEmu/MPNN(+AbLang2/SEQ) fusion branch before fold-specific impute/scale"
+}

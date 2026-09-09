@@ -12,6 +12,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _lib import (  # noqa: E402
     ARTIFACT_STATUSES,
+    CANONICAL_ELIGIBLE,
     CODE_RE,
     DRILLDOWN_REPRO,
     EXPERIMENTS_COLUMNS,
@@ -21,6 +22,7 @@ from _lib import (  # noqa: E402
     N_CLASSICAL_REFINEMENT,
     N_EXPERIMENTS_TOTAL,
     N_FULL_LINEAR_XGB,
+    N_HISTORICAL_TRANSFORMER,
     N_LEGACY_MAP,
     N_LINEAR,
     N_TRANSFORMER,
@@ -30,11 +32,12 @@ from _lib import (  # noqa: E402
     ROOT,
     SELECTION_POLICIES,
     SHAREABILITY_STATUSES,
-    CANONICAL_ELIGIBLE,
     SOURCE_REPRO,
     feature_column_names,
     feature_content_sha256,
     file_sha256,
+    is_classical_refinement_code,
+    is_historical_transformer_code,
     load_dev_test_folds,
 )
 from experiment_codes import load_codes, load_legacy_map, next_code  # noqa: E402
@@ -119,10 +122,10 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T065":
+    if next_code("TmApp") != "EXP-T066":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T065")
+        ok("next TmApp EXP-T066")
     if next_code("HIC") != "EXP-H054":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
@@ -203,25 +206,39 @@ def main() -> int:
     else:
         ok("no flat EXP0xx artifact paths")
 
-    # Historical Transformer feature parquet must not exist
+    # Historical Transformer feature parquet must not exist; new architecture EXPs may materialize fixed branch
     tr = df[df["family"] == "TRANSFORMER"]
     for _, r in tr.iterrows():
         code = r["experiment_code"]
         feat = ROOT / "experiments" / "features" / f"{code}.parquet"
-        if feat.exists():
-            fail(f"Transformer must not have feature parquet: {feat}")
-        if str(r.get("feature_path") or "") not in ("", "nan"):
-            fail(f"{code} feature_path must be empty")
-        if str(r.get("feature_space") or "") not in ("", "nan"):
-            fail(f"{code} feature_space must be empty")
-        if r.get("representation_status") != "HISTORICAL_UNAVAILABLE":
-            fail(f"{code} representation_status")
+        if is_historical_transformer_code(code):
+            if feat.exists():
+                fail(f"Transformer must not have feature parquet: {feat}")
+            if str(r.get("feature_path") or "") not in ("", "nan"):
+                fail(f"{code} feature_path must be empty")
+            if str(r.get("feature_space") or "") not in ("", "nan"):
+                fail(f"{code} feature_space must be empty")
+            if r.get("representation_status") != "HISTORICAL_UNAVAILABLE":
+                fail(f"{code} representation_status")
+        else:
+            # New architecture Transformer (e.g. EXP-T065): fusion fixed-branch parquet + RASA input
+            if not feat.exists():
+                fail(f"{code} missing fusion fixed-branch feature parquet")
+            if str(r.get("feature_path") or "") != f"experiments/features/{code}.parquet":
+                fail(f"{code} feature_path")
+            if str(r.get("feature_space") or "") != "FUSION_FIXED_BRANCH_RAW":
+                fail(f"{code} feature_space")
+            if str(r.get("representation_status") or "") not in ("NOT_EXPORTED", "EXPORTED"):
+                fail(f"{code} representation_status")
+            rasa = ROOT / "experiments" / "inputs" / f"{code}_rasa.parquet"
+            if not rasa.exists():
+                fail(f"{code} missing RASA input parquet")
         if not str(r.get("input_space") or ""):
             fail(f"{code} missing input_space")
         if not str(r.get("input_asset_ref") or ""):
             fail(f"{code} missing input_asset_ref")
     else:
-        ok("Transformer historical feature/representation contracts")
+        ok("Transformer feature/representation contracts")
 
     fs_ids = set(pd.read_csv(ROOT / "results" / "FEATURE_SETS.csv")["feature_set_id"])
     for _, r in tr[tr["transformer_type"] == "FUSION"].iterrows():
@@ -236,7 +253,7 @@ def main() -> int:
         fail("TRANSFORMER_BACKFILL_AUDIT.csv missing")
     else:
         ad = pd.read_csv(audit)
-        if len(ad) != N_TRANSFORMER:
+        if len(ad) != N_HISTORICAL_TRANSFORMER:
             fail(f"audit rows {len(ad)}")
         else:
             ok("TRANSFORMER_BACKFILL_AUDIT.csv")
@@ -371,9 +388,7 @@ def main() -> int:
         else:
             ok(f"classical candidates n={N_CLASSICAL_REFINEMENT}")
 
-    new_codes = df[~df["experiment_code"].isin(
-        pd.read_csv(PRESERVATION_SNAPSHOT_77)["experiment_code"]
-    )]
+    new_codes = df[df["experiment_code"].map(is_classical_refinement_code)]
     if len(new_codes) != N_CLASSICAL_REFINEMENT:
         fail(f"classical new rows expected {N_CLASSICAL_REFINEMENT}, got {len(new_codes)}")
     else:
@@ -434,15 +449,7 @@ def main() -> int:
             ok("EXPERIMENT_ARTIFACT_COMPLETENESS.csv")
 
     # New classical 40: T045–T064 and H034–H053 only (not later architecture EXPs)
-    def _is_classical_refinement(code: str) -> bool:
-        s = str(code)
-        if s.startswith("EXP-T"):
-            return 45 <= int(s.split("-T")[1]) <= 64
-        if s.startswith("EXP-H"):
-            return 34 <= int(s.split("-H")[1]) <= 53
-        return False
-
-    new40 = df[df["experiment_code"].map(_is_classical_refinement)]
+    new40 = df[df["experiment_code"].map(is_classical_refinement_code)]
     if len(new40) != N_CLASSICAL_REFINEMENT:
         fail(f"classical refinement count {len(new40)}")
     for _, r in new40.iterrows():

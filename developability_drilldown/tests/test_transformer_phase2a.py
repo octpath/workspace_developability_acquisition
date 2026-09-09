@@ -32,17 +32,17 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 64 and len(h) == 53
-    assert next_code("TmApp") == "EXP-T065"
+    assert len(t) == 65 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T066"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
 
 
-def test_29_configs_registered():
+def test_30_configs_registered():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     tr = exp[exp["family"] == "TRANSFORMER"]
-    assert len(tr) == 29
+    assert len(tr) == 30
     for _, r in tr.iterrows():
         cfg = ROOT / str(r["config_path"])
         assert cfg.exists(), r["experiment_code"]
@@ -143,38 +143,53 @@ def test_fusion_one_step_equivalence():
 
 
 def test_input_metadata_by_plm():
+    from _lib import is_historical_transformer_code
+
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     tr = exp[exp["family"] == "TRANSFORMER"]
-    scratch = tr[tr["plm_source"] == "NONE"]
+    hist = tr[tr["experiment_code"].map(is_historical_transformer_code)]
+    scratch = hist[hist["plm_source"] == "NONE"]
     assert (scratch["input_space"].isin(["SCRATCH_RESIDUE_SEQUENCE", "RESIDUE_PLUS_FIXED_FEATURES"])).all()
-    assert (tr[tr["plm_source"] == "ABLINGUA"]["input_space"].isin(
+    assert (hist[hist["plm_source"] == "ABLINGUA"]["input_space"].isin(
         ["FROZEN_RESIDUE_EMBEDDING", "RESIDUE_PLUS_FIXED_FEATURES"]
     )).all()
-    assert (tr[tr["plm_source"] == "ABLANG2"]["input_space"].isin(
+    assert (hist[hist["plm_source"] == "ABLANG2"]["input_space"].isin(
         ["FROZEN_RESIDUE_EMBEDDING", "RESIDUE_PLUS_FIXED_FEATURES"]
     )).all()
-    assert (tr[tr["plm_source"] == "ESM2"]["input_space"].isin(
+    assert (hist[hist["plm_source"] == "ESM2"]["input_space"].isin(
         ["FROZEN_RESIDUE_EMBEDDING", "RESIDUE_PLUS_FIXED_FEATURES"]
     )).all()
     assert (tr["input_asset_ref"].astype(str).str.len() > 0).all()
+    t065 = tr[tr["experiment_code"] == "EXP-T065"]
+    assert len(t065) == 1
+    assert t065.iloc[0]["input_space"] == "RESIDUE_PLUS_FIXED_FEATURES_PLUS_RASA"
 
 
 def test_fusion_feature_set_fk():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     fs = set(pd.read_csv(ROOT / "results" / "FEATURE_SETS.csv")["feature_set_id"])
     fus = exp[(exp["family"] == "TRANSFORMER") & (exp["transformer_type"] == "FUSION")]
-    assert len(fus) == 15
+    assert len(fus) == 16  # 15 historical + EXP-T065
     assert set(fus["feature_set_id"]).issubset(fs)
 
 
 def test_historical_representation_unavailable_contract():
+    from _lib import is_historical_transformer_code
+
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
-    tr = exp[exp["family"] == "TRANSFORMER"]
-    assert (tr["representation_status"] == "HISTORICAL_UNAVAILABLE").all()
-    for code in tr["experiment_code"]:
+    hist = exp[
+        (exp["family"] == "TRANSFORMER")
+        & exp["experiment_code"].map(is_historical_transformer_code)
+    ]
+    assert (hist["representation_status"] == "HISTORICAL_UNAVAILABLE").all()
+    for code in hist["experiment_code"]:
         assert not (ROOT / "experiments" / "features" / f"{code}.parquet").exists()
-    assert (tr["feature_path"].fillna("") == "").all()
-    assert (tr["feature_space"].fillna("") == "").all()
+    assert (hist["feature_path"].fillna("") == "").all()
+    assert (hist["feature_space"].fillna("") == "").all()
+    t065 = exp[exp["experiment_code"] == "EXP-T065"].iloc[0]
+    assert t065["representation_status"] == "NOT_EXPORTED"
+    assert (ROOT / "experiments" / "features" / "EXP-T065.parquet").exists()
+    assert (ROOT / "experiments" / "inputs" / "EXP-T065_rasa.parquet").exists()
 
 
 def test_transformer_full_and_linear_xgb_unchanged():
@@ -197,9 +212,14 @@ def test_prediction_source_destination_equality():
 
 
 def test_score_authority_equality():
+    from _lib import is_historical_transformer_code
+
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     mbs = pd.read_csv(REPO / "top_models_feature_bundle/results/MODEL_BENCHMARK_SUMMARY.csv")
-    tr = exp[exp["family"] == "TRANSFORMER"]
+    tr = exp[
+        (exp["family"] == "TRANSFORMER")
+        & exp["experiment_code"].map(is_historical_transformer_code)
+    ]
     for _, r in tr.iterrows():
         row = mbs[mbs["model_id"] == r["source_model_id"]].iloc[0]
         for a, b in [

@@ -322,14 +322,34 @@ CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
 LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
 
 # Expected registry sizes after classical feature refinement (Phase 2B)
-N_EXPERIMENTS_TOTAL = 117
+N_EXPERIMENTS_TOTAL = 118
 N_LEGACY_MAP = 48  # Linear/XGB only; Transformer + classical-refinement rows have empty legacy
 N_FULL_LINEAR_XGB = 86  # 12 historical FULL + 34 reconstructed + 40 classical refinement
-N_TRANSFORMER = 29
+N_TRANSFORMER = 30  # 29 Phase2A historical + EXP-T065
+N_HISTORICAL_TRANSFORMER = 29  # Phase2A backfill only (TRANSFORMER_BACKFILL_AUDIT)
 N_CLASSICAL_REFINEMENT = 40
 N_LINEAR = 74
 N_XGBOOST = 14
 PRESERVATION_SNAPSHOT_77 = ROOT / "results" / "_preservation_snapshot_77_classical.csv"
+
+
+def is_classical_refinement_code(code: str) -> bool:
+    s = str(code)
+    if s.startswith("EXP-T"):
+        return 45 <= int(s.split("-T")[1]) <= 64
+    if s.startswith("EXP-H"):
+        return 34 <= int(s.split("-H")[1]) <= 53
+    return False
+
+
+def is_historical_transformer_code(code: str) -> bool:
+    """Phase2A backfill Transformers (no shareable fixed-branch parquet contract)."""
+    s = str(code)
+    if s.startswith("EXP-T"):
+        return 26 <= int(s.split("-T")[1]) <= 44
+    if s.startswith("EXP-H"):
+        return 24 <= int(s.split("-H")[1]) <= 33
+    return False
 
 REPRODUCIBILITY_STATUSES = {"REPRODUCED", "RESULT_VERIFIED", "UNVERIFIED_HISTORICAL"}
 SHAREABILITY_STATUSES = {"SHAREABLE_COMPLETE", "SHAREABLE_PARTIAL", "HISTORICAL_ONLY"}

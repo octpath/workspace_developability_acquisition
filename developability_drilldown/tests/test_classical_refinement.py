@@ -122,9 +122,10 @@ def test_freeze_firewall():
 
 
 def test_no_ensemble_new_experiments():
+    from _lib import is_classical_refinement_code
+
     exp = pd.read_csv(ROOT / "results/experiments.csv")
-    snap = set(pd.read_csv(PRESERVATION_SNAPSHOT_77)["experiment_code"])
-    new = exp[~exp["experiment_code"].isin(snap)]
+    new = exp[exp["experiment_code"].map(is_classical_refinement_code)]
     assert len(new) == N_CLASSICAL_REFINEMENT
     for col in ("ensemble_type", "member_experiment_codes"):
         assert new[col].fillna("").astype(str).str.len().eq(0).all()

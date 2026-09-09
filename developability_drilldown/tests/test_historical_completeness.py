@@ -57,12 +57,14 @@ def test_no_missing_comparable_backfill_needed():
 
 
 def test_classical_refinement_codes_issued():
+    from _lib import is_classical_refinement_code
+
     codes = pd.read_csv(ROOT / "results" / "EXPERIMENT_CODES.csv")
     assert len(codes) == N_EXPERIMENTS_TOTAL
-    assert next_code("TmApp") == "EXP-T065"
+    assert next_code("TmApp") == "EXP-T066"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
-    new = codes[~codes["experiment_code"].isin(pd.read_csv(PRESERVATION_SNAPSHOT_77)["experiment_code"])]
+    new = codes[codes["experiment_code"].map(is_classical_refinement_code)]
     assert len(new) == N_CLASSICAL_REFINEMENT
 
 

@@ -18,11 +18,9 @@ from _lib import (  # noqa: E402
 
 
 def _is_new40(code: str) -> bool:
-    if code.startswith("EXP-T"):
-        return int(code.split("-T")[1]) >= 45
-    if code.startswith("EXP-H"):
-        return int(code.split("-H")[1]) >= 34
-    return False
+    from _lib import is_classical_refinement_code
+
+    return is_classical_refinement_code(code)
 
 
 @pytest.fixture(scope="module")
