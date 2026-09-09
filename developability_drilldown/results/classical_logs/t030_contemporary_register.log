@@ -1,0 +1,11 @@
+{
+  "run_id": "EXP-T030-REPLAY-001",
+  "cv_primary_mae": 3.2326774204709396,
+  "cv_shadow_mae": 3.201957977357716,
+  "public_mae": 3.595528851851852,
+  "private_mae": 3.2559664691358012,
+  "overall_mae": 3.4257476604938275,
+  "primary_max_abs": 2.74197642008464,
+  "shadow_max_abs": 3.2054672241210938
+}
+DONE register contemporary T030 control
