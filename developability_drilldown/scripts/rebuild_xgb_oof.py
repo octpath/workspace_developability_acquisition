@@ -28,6 +28,7 @@ from _lib import (  # noqa: E402
     mae,
     normalize_prediction_csv,
 )
+from experiment_codes import id_to_code  # noqa: E402
 
 from advanced_models.data import load_dev_test, load_folds, tvt_split  # noqa: E402
 from advanced_models.features import build_recipe_parts, preprocess_parts  # noqa: E402
@@ -52,7 +53,8 @@ def target_of(experiment_id: str) -> str:
 
 
 def write_oof_csvs(experiment_id: str, target: str, ids: list[str], primary, shadow) -> None:
-    dest = ROOT / "experiments" / "predictions" / experiment_id
+    code = id_to_code(experiment_id)
+    dest = ROOT / "experiments" / "predictions" / code
     dest.mkdir(parents=True, exist_ok=True)
     pd.DataFrame({"id": ids, target: np.asarray(primary, float)}).to_csv(
         dest / "oof_primary.csv", index=False
@@ -143,7 +145,7 @@ def copy_test_prediction(experiment_id: str, dev: pd.DataFrame, test: pd.DataFra
         raise FileNotFoundError(
             f"Missing XGB test prediction {src}; regenerate with frozen full_dev_xgb_predict before continuing."
         )
-    dest = ROOT / "experiments" / "predictions" / experiment_id / "test.csv"
+    dest = ROOT / "experiments" / "predictions" / id_to_code(experiment_id) / "test.csv"
     normalize_prediction_csv(src, target, test["id"].astype(str).tolist(), dest)
     return dest
 

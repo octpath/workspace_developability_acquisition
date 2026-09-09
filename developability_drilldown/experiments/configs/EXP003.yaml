@@ -1,18 +1,15 @@
-experiment_id: LIN_TM_ABLINGUA_CDR3_RIDGE
+experiment_id: LIN_TM_BIOEMU_MPNN_RIDGE
 target: TmApp
 family: LINEAR
 model_type: RIDGE
-source_model_id: TM_PARENT_ABLINGUA_CDR3__RIDGE
-feature_recipe: TM_PARENT_ABLINGUA_CDR3__RIDGE
+source_model_id: TM_BASE_BIOEMU_MPNN__RIDGE
 feature_blocks:
 - AbLang2_HL_paired
 - SEQ_BASIC
 - BIOEMU_NEW_PAIRWISE
 - M1_PROTEINMPNN
-- AbLingua_HL_mean
-- AbLingua_CDR3
 preprocessing:
-  description: recipe_raw + PCA32_per_abl_block + Ridge
+  description: impute+StandardScaler+Ridge(raw)
   fold_local: true
   applied_in_feature_parquet: false
   feature_parquet_space: RAW_PREPROCESS
@@ -26,8 +23,11 @@ reproducibility: EXACT_REPRODUCTION_from_bundle
 license_status: SEE_feature_manifest
 source_paths:
   scores: top_models_feature_bundle/results/MODEL_BENCHMARK_SUMMARY.csv
-  oof_primary: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_PARENT_ABLINGUA_CDR3__RIDGE__oof_primary.csv
-  oof_shadow: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_PARENT_ABLINGUA_CDR3__RIDGE__oof_shadow.csv
-  test: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_PARENT_ABLINGUA_CDR3__RIDGE__test.csv
+  oof_primary: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_BASE_BIOEMU_MPNN__RIDGE__oof_primary.csv
+  oof_shadow: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_BASE_BIOEMU_MPNN__RIDGE__oof_shadow.csv
+  test: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_BASE_BIOEMU_MPNN__RIDGE__test.csv
   recipes: top_models_feature_bundle/recipes.csv
   alpha_policy: top_models_feature_bundle/FULL_DEV_ALPHA_POLICY_BUNDLE.json
+experiment_code: EXP003
+source_recipe_id: TM_BASE_BIOEMU_MPNN__RIDGE
+feature_set_id: FS_TM_BIOEMU_MPNN

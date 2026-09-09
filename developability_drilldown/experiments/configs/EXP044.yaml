@@ -1,16 +1,14 @@
-experiment_id: XGB_TM_ABLINGUA_CDR3
+experiment_id: XGB_TM_ABLINGUA_GLOBAL
 target: TmApp
 family: XGBOOST
 model_type: XGBRegressor
-source_model_id: XGB__TM_PARENT_ABLINGUA_CDR3__RIDGE
-feature_recipe: TM_PARENT_ABLINGUA_CDR3__RIDGE
+source_model_id: XGB__TM_PARENT_ABLINGUA_GLOBAL__RIDGE
 feature_blocks:
 - AbLang2_HL_paired
 - SEQ_BASIC
 - BIOEMU_NEW_PAIRWISE
 - M1_PROTEINMPNN
 - AbLingua_HL_mean
-- AbLingua_CDR3
 preprocessing:
   description: fold-local median impute (+PCA32 on AbLingua blocks when applicable)
     + StandardScaler; same as Linear recipe path
@@ -24,10 +22,10 @@ hyperparameters:
   n_estimators_cap: 10000
   random_state: 0
   tree_method: hist
-  xgb_preset: XGB_D
-  final_n_estimators: 1096
-xgb_preset: XGB_D
-final_n_estimators: 1096
+  xgb_preset: XGB_A
+  final_n_estimators: 1227
+xgb_preset: XGB_A
+final_n_estimators: 1227
 cv_protocol: canonical_simple_tvt_primary_shadow
 selection_policy_at_creation: CV_ONLY
 current_evaluation_mode: POSTCOMP_EXPLORATORY
@@ -38,5 +36,8 @@ source_paths:
   scores: top_models_feature_bundle/advanced_models/frozen_results/ADVANCED_MODEL_RESULTS.csv
   benchmark_summary: top_models_feature_bundle/results/MODEL_BENCHMARK_SUMMARY.csv
   presets: top_models_feature_bundle/advanced_models/presets.json
-  test_predictions: top_models_feature_bundle/advanced_outputs/predictions/TmApp__xgboost__TM_PARENT_ABLINGUA_CDR3__RIDGE__test.csv
+  test_predictions: top_models_feature_bundle/advanced_outputs/predictions/TmApp__xgboost__TM_PARENT_ABLINGUA_GLOBAL__RIDGE__test.csv
   oof_rebuild: developability_drilldown/scripts/rebuild_xgb_oof.py
+experiment_code: EXP044
+source_recipe_id: TM_PARENT_ABLINGUA_GLOBAL__RIDGE
+feature_set_id: FS_TM_ABLINGUA_GLOBAL

@@ -1,0 +1,90 @@
+{
+  "issued_at": "2026-09-09T09:21:42.515111+00:00",
+  "n_codes": 48,
+  "score_max_delta": 0.0,
+  "prediction_max_delta": 0.0,
+  "first5": [
+    {
+      "experiment_code": "EXP001",
+      "experiment_id": "LIN_TM_ABLINGUA_CDR3_RIDGE",
+      "source_model_id": "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP002",
+      "experiment_id": "LIN_TM_ABLINGUA_GLOBAL_RIDGE",
+      "source_model_id": "TM_PARENT_ABLINGUA_GLOBAL__RIDGE",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP003",
+      "experiment_id": "LIN_TM_BIOEMU_MPNN_RIDGE",
+      "source_model_id": "TM_BASE_BIOEMU_MPNN__RIDGE",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP004",
+      "experiment_id": "LIN_HIC_HYDRO_TITRATION_LASSO",
+      "source_model_id": "HIC_HYDRO_TITRATION__LASSO",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP005",
+      "experiment_id": "LIN_HIC_CONTINUOUS_SURFACE_LASSO",
+      "source_model_id": "HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    }
+  ],
+  "last5": [
+    {
+      "experiment_code": "EXP044",
+      "experiment_id": "XGB_TM_ABLINGUA_GLOBAL",
+      "source_model_id": "XGB__TM_PARENT_ABLINGUA_GLOBAL__RIDGE",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP045",
+      "experiment_id": "XGB_TM_ABLINGUA_CDR3",
+      "source_model_id": "XGB__TM_PARENT_ABLINGUA_CDR3__RIDGE",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP046",
+      "experiment_id": "XGB_HIC_CONTINUOUS_SURFACE",
+      "source_model_id": "XGB__HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP047",
+      "experiment_id": "XGB_HIC_HYDRO_TITRATION",
+      "source_model_id": "XGB__HIC_HYDRO_TITRATION__LASSO",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    },
+    {
+      "experiment_code": "EXP048",
+      "experiment_id": "XGB_HIC_ESM2_SEQ_AROMATIC",
+      "source_model_id": "XGB__HIC_ESM2_SEQ_AROMATIC__LASSO",
+      "issued_at_phase": "PHASE1_BACKFILL",
+      "status": "ACTIVE",
+      "notes": "Frozen from experiments.csv row order at registry migration"
+    }
+  ]
+}

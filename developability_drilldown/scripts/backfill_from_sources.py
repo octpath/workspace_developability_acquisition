@@ -416,6 +416,13 @@ def backfill_xgb(summary: pd.DataFrame, adv: pd.DataFrame, sol) -> list[dict]:
 
 
 def main() -> None:
+    codes_path = ROOT / "results" / "EXPERIMENT_CODES.csv"
+    if codes_path.exists():
+        raise SystemExit(
+            "EXPERIMENT_CODES.csv exists — Phase 1 backfill is frozen. "
+            "Do not re-run backfill_from_sources.py (would risk renumbering). "
+            "Use migrate_registry_exp_codes.py / catalog rebuild / export_features instead."
+        )
     summary = pd.read_csv(BUNDLE / "results" / "MODEL_BENCHMARK_SUMMARY.csv")
     recipes = pd.read_csv(BUNDLE / "recipes.csv")
     alpha_pol = json.loads((BUNDLE / "FULL_DEV_ALPHA_POLICY_BUNDLE.json").read_text())

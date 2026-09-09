@@ -252,12 +252,14 @@ def derived_scores(primary: float, shadow: float, public: Optional[float], priva
 
 
 EXPERIMENTS_COLUMNS = [
+    "experiment_code",
     "experiment_id",
     "target",
     "family",
     "model_type",
     "source_model_id",
-    "feature_recipe",
+    "feature_set_id",
+    "source_recipe_id",
     "cv_primary_mae",
     "cv_shadow_mae",
     "cv_mean_mae",
@@ -271,6 +273,9 @@ EXPERIMENTS_COLUMNS = [
     "selection_policy_at_creation",
     "current_evaluation_mode",
     "artifact_status",
+    "source_reproducible",
+    "drilldown_reproducible",
+    "reproduction_status",
     "config_path",
     "feature_path",
     "oof_primary_path",
@@ -287,8 +292,14 @@ EXPERIMENTS_COLUMNS = [
     "score_source",
     "prediction_source",
     "feature_source",
-    "reproducible",
-    "reproduction_status",
     "license_status",
+    "license_reference",
+    "ensemble_type",
+    "member_experiment_codes",
     "notes",
 ]
+
+LICENSE_STATUSES = {"OK", "REVIEW", "RESTRICTED", "UNKNOWN"}
+SOURCE_REPRO = {"YES", "NO", "UNKNOWN"}
+DRILLDOWN_REPRO = {"YES", "PARTIAL", "NO"}
+CODE_RE = re.compile(r"^EXP[0-9]{3,}$")

@@ -3,7 +3,6 @@ target: HIC
 family: XGBOOST
 model_type: XGBRegressor
 source_model_id: XGB__HIC_ARO_CONTINUOUS_SURFACE__LASSO
-feature_recipe: HIC_ARO_CONTINUOUS_SURFACE__LASSO
 feature_blocks:
 - ESM2_H
 - SEQ_ALL
@@ -38,3 +37,6 @@ source_paths:
   presets: top_models_feature_bundle/advanced_models/presets.json
   test_predictions: top_models_feature_bundle/advanced_outputs/predictions/HIC__xgboost__HIC_ARO_CONTINUOUS_SURFACE__LASSO__test.csv
   oof_rebuild: developability_drilldown/scripts/rebuild_xgb_oof.py
+experiment_code: EXP046
+source_recipe_id: HIC_ARO_CONTINUOUS_SURFACE__LASSO
+feature_set_id: FS_HIC_CONTINUOUS_SURFACE

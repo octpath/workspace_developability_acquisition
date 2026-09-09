@@ -1,7 +1,8 @@
 # developability_drilldown — Phase 1 Implementation Plan (FROZEN)
 
-**Status:** FROZEN for Phase 1 implementation  
+**Status:** FROZEN for Phase 1 implementation; **registry identity migrated** (see `results/REGISTRY_MIGRATION_REPORT.md` — permanent `experiment_code` EXP001–EXP048)  
 **Start HEAD:** `047cc0856540b5afec267e408f306e29c22ef0c1`  
+**Phase 1 catalog commit:** `48dfdd21`  
 **Scope:** Linear + XGBoost catalog, features, predictions, submission composer  
 **Out of scope:** Transformer refactor / new Transformer experiments
 

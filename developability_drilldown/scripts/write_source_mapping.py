@@ -18,19 +18,22 @@ def main() -> None:
     lines = [
         "# Source mapping (FULL experiments)",
         "",
-        "Old bundle / organizer paths are read-only sources. New artifacts live under `developability_drilldown/`.",
+        "Codes are permanent (`experiment_code`). Descriptive `experiment_id` is human-readable only.",
+        "",
+        "Old bundle / organizer paths are read-only sources.",
         "",
     ]
-    for _, r in full.sort_values(["family", "target", "experiment_id"]).iterrows():
+    for _, r in full.sort_values(["family", "target", "experiment_code"]).iterrows():
+        code = r["experiment_code"]
         eid = r["experiment_id"]
         cfg_path = ROOT / str(r["config_path"])
-        src = {}
-        if cfg_path.exists():
-            src = yaml.safe_load(cfg_path.read_text()) or {}
+        src = yaml.safe_load(cfg_path.read_text()) if cfg_path.exists() else {}
         lines += [
-            f"## `{eid}`",
+            f"## `{code}` — `{eid}`",
             "",
             f"- **source_model_id:** `{r['source_model_id']}`",
+            f"- **feature_set_id:** `{r['feature_set_id']}`",
+            f"- **source_recipe_id:** `{r['source_recipe_id']}`",
             f"- **target / family:** {r['target']} / {r['family']}",
             f"- **artifact_status:** {r['artifact_status']}",
             f"- **score_source:** `{r['score_source']}`",
@@ -42,19 +45,13 @@ def main() -> None:
             f"- **oof_shadow:** `{r['oof_shadow_path']}`",
             f"- **test prediction:** `{r['test_prediction_path']}`",
         ]
-        sp = src.get("source_paths") or {}
+        sp = (src or {}).get("source_paths") or {}
         if sp:
             lines.append("- **config.source_paths:**")
             for k, v in sp.items():
                 lines.append(f"  - {k}: `{v}`")
-        if r["family"] == "XGBOOST":
-            lines.append(
-                "- **OOF note:** family-winner OOFs reused from tracked `cross_family_ensemble/*.npz` where available; "
-                "otherwise reconstructed via `scripts/rebuild_xgb_oof.py` under frozen advanced-suite protocol (not a new search)."
-            )
         lines.append("")
     out = ROOT / "assets" / "SOURCE_MAPPING.md"
-    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("wrote", out)
 
