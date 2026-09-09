@@ -45,6 +45,7 @@ class AnnotatedTransformer(nn.Module):
         dim_feedforward: int = 256,
         dropout: float = 0.20,
         norm_first: bool = True,
+        use_continuous_rasa: bool = False,
     ):
         super().__init__()
         if n_layers != 2:
@@ -57,6 +58,7 @@ class AnnotatedTransformer(nn.Module):
         self.chain_mode = chain_mode
         self.pooling_mode = pooling_mode
         self.d_model = d_model
+        self.use_continuous_rasa = bool(use_continuous_rasa)
 
         if content_mode == "scratch":
             self.aa_emb = nn.Embedding(n_aa, d_model, padding_idx=0)
@@ -77,6 +79,14 @@ class AnnotatedTransformer(nn.Module):
             self.imgt_emb = nn.Embedding(n_imgt, d_model, padding_idx=0)
         if self.use_region:
             self.region_emb = nn.Embedding(n_region, d_model, padding_idx=0)
+
+        # Continuous additive RASA annotation: x += Linear(1, d_model, bias=False)(r)
+        # Zero-init => contribution is identically 0 at initialization (matches control).
+        if self.use_continuous_rasa:
+            self.rasa_proj = nn.Linear(1, d_model, bias=False)
+            nn.init.zeros_(self.rasa_proj.weight)
+        else:
+            self.rasa_proj = None
 
         # REG tokens: index 0 = REG_H, 1 = REG_L (learned)
         self.reg_token = nn.Parameter(torch.zeros(2, d_model))
@@ -184,6 +194,7 @@ class AnnotatedTransformer(nn.Module):
         pos: torch.Tensor,
         imgt: Optional[torch.Tensor],
         region: Optional[torch.Tensor],
+        rasa: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
         """Return chain representation. mask: [B,L] True=valid residue."""
         B, L = mask.shape
@@ -193,6 +204,12 @@ class AnnotatedTransformer(nn.Module):
             x = x + self.imgt_emb(imgt)
         if self.use_region and region is not None:
             x = x + self.region_emb(region)
+        if self.use_continuous_rasa and self.rasa_proj is not None:
+            if rasa is None:
+                raise ValueError("continuous RASA enabled but rasa tensor missing")
+            # Missing/unresolved -> 0 contribution (explicit); pad already 0.
+            r = torch.nan_to_num(rasa, nan=0.0).unsqueeze(-1)  # [B,L,1]
+            x = x + self.rasa_proj(r)
 
         reg = self.reg_token[chain_idx].view(1, 1, -1).expand(B, 1, -1)
         reg = reg + self.chain_emb.weight[chain_idx]
@@ -216,6 +233,7 @@ class AnnotatedTransformer(nn.Module):
             pos=batch["heavy_pos"],
             imgt=batch.get("heavy_imgt"),
             region=batch.get("heavy_region"),
+            rasa=batch.get("heavy_rasa"),
         )
         if self.chain_mode == "H_ONLY" or self.merge_mode == "h_only":
             return h_h
@@ -227,6 +245,7 @@ class AnnotatedTransformer(nn.Module):
             pos=batch["light_pos"],
             imgt=batch.get("light_imgt"),
             region=batch.get("light_region"),
+            rasa=batch.get("light_rasa"),
         )
         if self.merge_mode == "concat":
             return torch.cat([h_h, h_l], dim=-1)

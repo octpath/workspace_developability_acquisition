@@ -136,6 +136,8 @@ class ResidueBundle:
     ablingua_hidden: int = 0
     ablang2_hidden: int = 0
     esm2_hidden: int = 0
+    heavy_rasa: Optional[np.ndarray] = None  # [N, Lh] continuous RASA; pad/missing = NaN
+    light_rasa: Optional[np.ndarray] = None
 
 
 def _encode_chain(
@@ -312,6 +314,86 @@ def load_residue_bundle(
         rb.esm2_hidden = int(meta["hidden_dim"])
 
     return rb
+
+
+def attach_continuous_rasa(
+    rb: ResidueBundle,
+    *,
+    rasa_heavy: np.ndarray,
+    rasa_light: np.ndarray,
+    rasa_ids: list[str],
+    seqs: Optional[pd.DataFrame] = None,
+) -> dict:
+    """Align classical RASA cache to ResidueBundle; pad NaN outside real residues.
+
+    Returns QC dict. Missing RASA on a real residue -> NaN (model treats as 0 contrib).
+    If ``seqs`` provided (id,heavy,light), verify residue-token AA equals competition seq
+    and that RASA array lengths cover those sequences (classical cache contract).
+    """
+    id_to_rasa = {str(a): i for i, a in enumerate(rasa_ids)}
+    idx_to_aa = {v: k for k, v in AA_TO_IDX.items()}
+    N, Lh = rb.heavy_mask.shape
+    Ll = rb.light_mask.shape[1]
+    heavy = np.full((N, Lh), np.nan, dtype=np.float32)
+    light = np.full((N, Ll), np.nan, dtype=np.float32)
+    qc = {
+        "n_antibodies": N,
+        "n_expected_residues": 0,
+        "n_mapped_residues": 0,
+        "n_missing_rasa_residues": 0,
+        "n_aa_mismatch_flags": 0,
+        "missing_by_id": {},
+        "aa_mismatch_ids": [],
+    }
+    seq_map = None
+    if seqs is not None:
+        s = seqs.copy()
+        s["id"] = s["id"].astype(str)
+        seq_map = s.set_index("id")[["heavy", "light"]].to_dict("index")
+
+    for i, ab in enumerate(rb.ids):
+        if ab not in id_to_rasa:
+            raise DataIntegrityError(f"RASA cache missing id {ab}")
+        j = id_to_rasa[ab]
+        rh = np.asarray(rasa_heavy[j], dtype=np.float32)
+        rl = np.asarray(rasa_light[j], dtype=np.float32)
+        nh = int(rb.heavy_mask[i].sum())
+        nl = int(rb.light_mask[i].sum())
+        if rh.shape[0] < nh or rl.shape[0] < nl:
+            raise DataIntegrityError(f"RASA length short for {ab}: H {rh.shape[0]}<{nh}")
+
+        if seq_map is not None:
+            if ab not in seq_map:
+                raise DataIntegrityError(f"sequence table missing id {ab}")
+            heavy_seq = str(seq_map[ab]["heavy"])
+            light_seq = str(seq_map[ab]["light"])
+            if len(heavy_seq) != nh or len(light_seq) != nl:
+                raise DataIntegrityError(
+                    f"seq/mask length mismatch {ab}: H {len(heavy_seq)}!={nh} L {len(light_seq)}!={nl}"
+                )
+            dec_h = "".join(idx_to_aa.get(int(x), "?") for x in rb.heavy_aa[i, :nh])
+            dec_l = "".join(idx_to_aa.get(int(x), "?") for x in rb.light_aa[i, :nl])
+            if dec_h != heavy_seq or dec_l != light_seq:
+                qc["n_aa_mismatch_flags"] += 1
+                qc["aa_mismatch_ids"].append(ab)
+                raise DataIntegrityError(
+                    f"AA alignment ambiguity for {ab}: residue tokens != competition sequences"
+                )
+
+        h_slice = rh[:nh]
+        l_slice = rl[:nl]
+        miss_h = int(np.sum(~np.isfinite(h_slice)))
+        miss_l = int(np.sum(~np.isfinite(l_slice)))
+        qc["n_expected_residues"] += nh + nl
+        qc["n_mapped_residues"] += (nh - miss_h) + (nl - miss_l)
+        qc["n_missing_rasa_residues"] += miss_h + miss_l
+        if miss_h or miss_l:
+            qc["missing_by_id"][ab] = {"H": miss_h, "L": miss_l}
+        heavy[i, :nh] = h_slice
+        light[i, :nl] = l_slice
+    rb.heavy_rasa = heavy
+    rb.light_rasa = light
+    return qc
 
 
 def tvt_split(

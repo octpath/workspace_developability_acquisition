@@ -433,13 +433,16 @@ def main() -> int:
         else:
             ok("EXPERIMENT_ARTIFACT_COMPLETENESS.csv")
 
-    # New classical 40: canonical feature parquet + pred triplet; never classical_cache path
-    new40 = df[
-        df["experiment_code"].map(
-            lambda c: (str(c).startswith("EXP-T") and int(str(c).split("-T")[1]) >= 45)
-            or (str(c).startswith("EXP-H") and int(str(c).split("-H")[1]) >= 34)
-        )
-    ]
+    # New classical 40: T045–T064 and H034–H053 only (not later architecture EXPs)
+    def _is_classical_refinement(code: str) -> bool:
+        s = str(code)
+        if s.startswith("EXP-T"):
+            return 45 <= int(s.split("-T")[1]) <= 64
+        if s.startswith("EXP-H"):
+            return 34 <= int(s.split("-H")[1]) <= 53
+        return False
+
+    new40 = df[df["experiment_code"].map(_is_classical_refinement)]
     if len(new40) != N_CLASSICAL_REFINEMENT:
         fail(f"classical refinement count {len(new40)}")
     for _, r in new40.iterrows():
