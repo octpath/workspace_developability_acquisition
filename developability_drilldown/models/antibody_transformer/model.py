@@ -50,6 +50,7 @@ class AnnotatedTransformer(nn.Module):
         use_rasa_weighted_pool: bool = False,
         use_ca_distance_bias: bool = False,
         joint_hl_single_reg: bool = False,
+        joint_hl_dual_reg: bool = False,
         initial_ell_angstrom: Optional[float] = None,
     ):
         super().__init__()
@@ -61,12 +62,16 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("use continuous RASA annotation XOR rasa-weighted pool, not both")
         if use_ca_distance_bias and (use_continuous_rasa or use_rasa_weighted_pool):
             raise ValueError("CA distance bias is mutually exclusive with RASA modes in this experiment series")
-        if joint_hl_single_reg and (use_continuous_rasa or use_rasa_weighted_pool):
-            raise ValueError("joint H/L single-REG is mutually exclusive with RASA modes in this series")
-        if joint_hl_single_reg and pooling_mode != "reg":
-            raise ValueError("joint_hl_single_reg requires pooling_mode='reg'")
-        if joint_hl_single_reg and chain_mode != "HL":
-            raise ValueError("joint_hl_single_reg requires chain_mode='HL'")
+        if joint_hl_single_reg and joint_hl_dual_reg:
+            raise ValueError("joint_hl_single_reg XOR joint_hl_dual_reg")
+        if (joint_hl_single_reg or joint_hl_dual_reg) and (use_continuous_rasa or use_rasa_weighted_pool):
+            raise ValueError("joint H/L modes are mutually exclusive with RASA modes in this series")
+        if (joint_hl_single_reg or joint_hl_dual_reg) and pooling_mode != "reg":
+            raise ValueError("joint H/L modes require pooling_mode='reg'")
+        if (joint_hl_single_reg or joint_hl_dual_reg) and chain_mode != "HL":
+            raise ValueError("joint H/L modes require chain_mode='HL'")
+        if joint_hl_dual_reg and use_ca_distance_bias:
+            raise ValueError("joint_hl_dual_reg does not support CA distance bias in EXP-T070")
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
@@ -78,6 +83,7 @@ class AnnotatedTransformer(nn.Module):
         self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
         self.use_ca_distance_bias = bool(use_ca_distance_bias)
         self.joint_hl_single_reg = bool(joint_hl_single_reg)
+        self.joint_hl_dual_reg = bool(joint_hl_dual_reg)
         self.rasa_pool_eps = 1e-12
         self.rasa_pool_zero_denom_count = 0
         self.distance_kernel_shared_across_layers = True
@@ -121,7 +127,7 @@ class AnnotatedTransformer(nn.Module):
             self.rasa_pool_proj = None
 
         # REG tokens:
-        # - separate H/L encoding: index 0 = REG_H, 1 = REG_L
+        # - separate H/L encoding / joint dual-REG: index 0 = REG_H, 1 = REG_L
         # - joint H/L single-REG: one antibody-level REG (neither H nor L)
         if self.joint_hl_single_reg:
             self.register_parameter("reg_token", None)
@@ -398,7 +404,58 @@ class AnnotatedTransformer(nn.Module):
             h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
         return h[:, 0]
 
+    def encode_joint_hl_dual_reg(
+        self,
+        batch: dict,
+    ) -> torch.Tensor:
+        """Joint H+L with dual REG slots: [REG_H, H..., REG_L, L...]; return REG_H||REG_L.
+
+        Residue chain identity: H residues get chain_emb[0], L get chain_emb[1].
+        REG chain semantics match T030 separate encoding: REG_H += chain_emb[0],
+        REG_L += chain_emb[1] (historical T030 assigned chain emb to REG tokens).
+        REG tokens do not receive IMGT/region/position embeddings.
+        """
+        if not self.joint_hl_dual_reg:
+            raise RuntimeError("encode_joint_hl_dual_reg requires joint_hl_dual_reg=True")
+        mh = batch["heavy_mask"]
+        ml = batch["light_mask"]
+        B = mh.shape[0]
+        Lh = mh.shape[1]
+        Ll = ml.shape[1]
+        x_h = self._residue_stream(
+            chain_idx=0,
+            aa=batch.get("heavy_aa"),
+            plm=batch.get("heavy_plm"),
+            pos=batch["heavy_pos"],
+            imgt=batch.get("heavy_imgt"),
+            region=batch.get("heavy_region"),
+        )
+        x_l = self._residue_stream(
+            chain_idx=1,
+            aa=batch.get("light_aa"),
+            plm=batch.get("light_plm"),
+            pos=batch["light_pos"],
+            imgt=batch.get("light_imgt"),
+            region=batch.get("light_region"),
+        )
+        reg_h = self.reg_token[0].view(1, 1, -1).expand(B, 1, -1) + self.chain_emb.weight[0]
+        reg_l = self.reg_token[1].view(1, 1, -1).expand(B, 1, -1) + self.chain_emb.weight[1]
+        # Layout: [REG_H], H_1..H_n, [REG_L], L_1..L_m
+        x = torch.cat([reg_h, x_h, reg_l, x_l], dim=1)
+
+        pad = torch.zeros(B, 2 + Lh + Ll, dtype=torch.bool, device=mh.device)
+        pad[:, 1 : 1 + Lh] = ~mh
+        # REG_L at index 1+Lh is never padding
+        pad[:, 2 + Lh :] = ~ml
+
+        h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
+        z_h = h[:, 0]
+        z_l = h[:, 1 + Lh]
+        return torch.cat([z_h, z_l], dim=-1)
+
     def forward_repr(self, batch: dict) -> torch.Tensor:
+        if self.joint_hl_dual_reg:
+            return self.encode_joint_hl_dual_reg(batch)
         if self.joint_hl_single_reg:
             return self.encode_joint_hl(batch)
         h_h = self.encode_chain(

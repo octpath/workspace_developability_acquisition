@@ -1,0 +1,42 @@
+{
+  "git_rev": "461832c538b8d72903c67e18cf67af3b49991a64",
+  "quick": false,
+  "elapsed_sec": 127.06807494163513,
+  "cv_primary_mae": 3.329090573660141,
+  "cv_shadow_mae": 3.186957787093802,
+  "cv_mean_mae": 3.258024180376972,
+  "cv_worst_mae": 3.329090573660141,
+  "config_hash": "042052a4a14d9888",
+  "best_epochs_primary": {
+    "101": [
+      22,
+      24,
+      10,
+      10,
+      20
+    ],
+    "202": [
+      41,
+      4,
+      11,
+      13,
+      29
+    ],
+    "303": [
+      11,
+      4,
+      17,
+      20,
+      15
+    ]
+  },
+  "n_trainable_parameters": 501633,
+  "param_counts": {
+    "EXP-T030_n_trainable": 492417,
+    "EXP-T068_n_trainable": 475905,
+    "EXP-T070_n_trainable": 492417,
+    "repr_dim_t030": 256,
+    "repr_dim_t068": 128,
+    "repr_dim_t070": 256
+  }
+}

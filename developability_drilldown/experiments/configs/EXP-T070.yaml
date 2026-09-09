@@ -1,0 +1,45 @@
+experiment_code: EXP-T070
+experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_DUAL_REG
+target: TmApp
+family: TRANSFORMER
+source_model_id: JOINT_HL_DUAL_REG::EXP-T030-REPLAY-001
+transformer_type: FROZEN_PLM
+input_space: JOINT_HL_DUAL_REG_FROZEN_RESIDUE
+input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+plm_source: ABLINGUA
+annotation_mode: FULL
+chain_mode: HL
+merge_mode: concat
+pooling_mode: REG
+content_mode: frozen
+joint_hl_dual_reg: true
+joint_hl_single_reg: false
+cross_chain_attention: true
+dual_reg: true
+use_ca_distance_bias: false
+d_model: 128
+n_layers: 2
+n_heads: 4
+ff_dim: 256
+dropout: 0.2
+seeds:
+- 101
+- 202
+- 303
+optimizer: AdamW
+learning_rate: 0.0003
+weight_decay: 0.01
+batch_size: 16
+max_epochs: 300
+patience: 30
+gradient_clip: 1.0
+loss: SmoothL1Loss(beta=0.5)
+cv_protocol: canonical_simple_tvt_primary_shadow
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+representation_status: NOT_EXPORTED
+representation_note: NOT_EXPORTED; full-Dev weight checkpoints under results/EXP-T070_run/checkpoints/
+  if size permits
+control_experiment_code: EXP-T030
+contemporary_control_run_id: EXP-T030-REPLAY-001
+recipe_id: null

@@ -32,8 +32,8 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 69 and len(h) == 53
-    assert next_code("TmApp") == "EXP-T070"
+    assert len(t) == 70 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T071"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
@@ -42,7 +42,7 @@ def test_transformer_code_append_only():
 def test_30_configs_registered():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     tr = exp[exp["family"] == "TRANSFORMER"]
-    assert len(tr) == 34
+    assert len(tr) == 35
     for _, r in tr.iterrows():
         cfg = ROOT / str(r["config_path"])
         assert cfg.exists(), r["experiment_code"]
@@ -175,6 +175,9 @@ def test_input_metadata_by_plm():
     t069 = tr[tr["experiment_code"] == "EXP-T069"]
     assert len(t069) == 1
     assert t069.iloc[0]["input_space"] == "JOINT_HL_SINGLE_REG_FROZEN_RESIDUE_PLUS_CA_DISTANCE"
+    t070 = tr[tr["experiment_code"] == "EXP-T070"]
+    assert len(t070) == 1
+    assert t070.iloc[0]["input_space"] == "JOINT_HL_DUAL_REG_FROZEN_RESIDUE"
 
 
 def test_fusion_feature_set_fk():
@@ -207,7 +210,7 @@ def test_historical_representation_unavailable_contract():
     assert t067["representation_status"] == "NOT_EXPORTED"
     assert (ROOT / "experiments" / "features" / "EXP-T067.parquet").exists()
     assert (ROOT / "experiments" / "inputs" / "EXP-T067_ca.parquet").exists()
-    for code in ("EXP-T068", "EXP-T069"):
+    for code in ("EXP-T068", "EXP-T069", "EXP-T070"):
         row = exp[exp["experiment_code"] == code].iloc[0]
         assert row["representation_status"] == "NOT_EXPORTED"
         assert not (ROOT / "experiments" / "features" / f"{code}.parquet").exists()

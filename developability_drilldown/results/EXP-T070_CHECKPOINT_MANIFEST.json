@@ -1,0 +1,18 @@
+{
+  "experiment_code": "EXP-T070",
+  "experiment_id": "TRF_TM_ABLINGUA_FULL_JOINT_DUAL_REG",
+  "checkpoint_dir": "results/EXP-T070_run/checkpoints",
+  "n_fulldev": 0,
+  "n_trainable_parameters": 501633,
+  "param_counts": {
+    "EXP-T030_n_trainable": 492417,
+    "EXP-T068_n_trainable": 475905,
+    "EXP-T070_n_trainable": 492417,
+    "repr_dim_t030": 256,
+    "repr_dim_t068": 128,
+    "repr_dim_t070": 256
+  },
+  "files": [],
+  "total_bytes": 0,
+  "git_rev": "461832c538b8d72903c67e18cf67af3b49991a64"
+}
