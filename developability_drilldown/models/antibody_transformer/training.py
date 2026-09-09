@@ -61,6 +61,7 @@ class AbDataset(Dataset):
         plm_source: str = "ablingua",  # ablingua | esm2 | ablang2
         fixed_X: Optional[np.ndarray] = None,
         use_continuous_rasa: bool = False,
+        use_rasa_weighted_pool: bool = False,
     ):
         self.ids = ids
         self.y = y
@@ -69,6 +70,8 @@ class AbDataset(Dataset):
         self.plm_source = plm_source
         self.fixed_X = fixed_X
         self.use_continuous_rasa = bool(use_continuous_rasa)
+        self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
+        self.need_rasa = self.use_continuous_rasa or self.use_rasa_weighted_pool
         self.idxs = [rb.id_to_idx[a] for a in ids]
 
     def __len__(self):
@@ -88,9 +91,9 @@ class AbDataset(Dataset):
             "heavy_region": self.rb.heavy_region[j],
             "light_region": self.rb.light_region[j],
         }
-        if self.use_continuous_rasa:
+        if self.need_rasa:
             if self.rb.heavy_rasa is None or self.rb.light_rasa is None:
-                raise RuntimeError("continuous RASA requested but ResidueBundle lacks rasa arrays")
+                raise RuntimeError("RASA requested but ResidueBundle lacks rasa arrays")
             item["heavy_rasa"] = self.rb.heavy_rasa[j]
             item["light_rasa"] = self.rb.light_rasa[j]
         if self.content_mode == "frozen":
@@ -161,6 +164,7 @@ def build_transformer(
     plm_source: str = "ablingua",
     pooling_mode: str = "reg",
     use_continuous_rasa: bool = False,
+    use_rasa_weighted_pool: bool = False,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
     if content_mode == "frozen":
@@ -187,6 +191,7 @@ def build_transformer(
         dropout=ncfg["dropout"],
         norm_first=ncfg["norm_first"],
         use_continuous_rasa=use_continuous_rasa,
+        use_rasa_weighted_pool=use_rasa_weighted_pool,
     )
 
 
@@ -209,6 +214,7 @@ def train_transformer_seed(
     pooling_mode: str = "reg",
     batch_size: Optional[int] = None,
     use_continuous_rasa: bool = False,
+    use_rasa_weighted_pool: bool = False,
 ) -> dict:
     presets = load_presets()
     ncfg = presets["neural"]
@@ -236,6 +242,7 @@ def train_transformer_seed(
             plm_source=plm_source,
             fixed_X=X_fixed,
             use_continuous_rasa=use_continuous_rasa,
+            use_rasa_weighted_pool=use_rasa_weighted_pool,
         )
         return DataLoader(ds, batch_size=batch_sz, shuffle=shuffle, collate_fn=collate_batch)
 
@@ -250,6 +257,7 @@ def train_transformer_seed(
             plm_source=plm_source,
             pooling_mode=pooling_mode,
             use_continuous_rasa=use_continuous_rasa,
+            use_rasa_weighted_pool=use_rasa_weighted_pool,
         )
         if fixed_parts is not None:
             return FeatureFusionModel(
@@ -345,6 +353,7 @@ def train_transformer_seed(
                     plm_source=plm_source,
                     pooling_mode=pooling_mode,
                     use_continuous_rasa=use_continuous_rasa,
+                    use_rasa_weighted_pool=use_rasa_weighted_pool,
                 )
                 model2 = FeatureFusionModel(
                     core2,
@@ -417,6 +426,7 @@ def run_transformer_cv(
     plm_source: Optional[str] = None,
     pooling_mode: str = "reg",
     use_continuous_rasa: bool = False,
+    use_rasa_weighted_pool: bool = False,
 ) -> dict:
     """Primary+Shadow multi-seed ensemble OOF."""
     device_t = torch.device(device if device != "cuda" else "cuda:0")
@@ -444,6 +454,7 @@ def run_transformer_cv(
         "seeds": seeds,
         "quick": quick,
         "use_continuous_rasa": bool(use_continuous_rasa),
+        "use_rasa_weighted_pool": bool(use_rasa_weighted_pool),
     }
     ch = config_hash(cfg)
     cache_path = out_dir / f"cache_{variant_id}_{ch}.json"
@@ -501,6 +512,7 @@ def run_transformer_cv(
                         plm_source=plm_source,
                         pooling_mode=pooling_mode,
                         use_continuous_rasa=use_continuous_rasa,
+                        use_rasa_weighted_pool=use_rasa_weighted_pool,
                     )
                     pred = out["test_pred"]
                     tids = out["test_ids"]
@@ -611,6 +623,7 @@ def full_dev_transformer_predict(
     plm_source: Optional[str] = None,
     pooling_mode: str = "reg",
     use_continuous_rasa: bool = False,
+    use_rasa_weighted_pool: bool = False,
 ) -> pd.DataFrame:
     """Median Primary best_epoch per seed → train full DEV → average Test preds."""
     presets = load_presets()
@@ -649,6 +662,7 @@ def full_dev_transformer_predict(
             plm_source=plm_source,
             pooling_mode=pooling_mode,
             use_continuous_rasa=use_continuous_rasa,
+            use_rasa_weighted_pool=use_rasa_weighted_pool,
         )
         if fixed_parts is not None:
             model: nn.Module = FeatureFusionModel(
@@ -676,6 +690,7 @@ def full_dev_transformer_predict(
                 plm_source=plm_source,
                 fixed_X=X_fixed,
                 use_continuous_rasa=use_continuous_rasa,
+                use_rasa_weighted_pool=use_rasa_weighted_pool,
             )
             return DataLoader(ds, batch_size=bs, shuffle=shuffle, collate_fn=collate_batch)
 

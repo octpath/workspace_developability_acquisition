@@ -46,12 +46,15 @@ class AnnotatedTransformer(nn.Module):
         dropout: float = 0.20,
         norm_first: bool = True,
         use_continuous_rasa: bool = False,
+        use_rasa_weighted_pool: bool = False,
     ):
         super().__init__()
         if n_layers != 2:
             raise ValueError("n_layers is frozen at 2")
         if pooling_mode not in ("reg", "region_gate"):
             raise ValueError(pooling_mode)
+        if use_continuous_rasa and use_rasa_weighted_pool:
+            raise ValueError("use continuous RASA annotation XOR rasa-weighted pool, not both")
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
@@ -59,6 +62,9 @@ class AnnotatedTransformer(nn.Module):
         self.pooling_mode = pooling_mode
         self.d_model = d_model
         self.use_continuous_rasa = bool(use_continuous_rasa)
+        self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
+        self.rasa_pool_eps = 1e-12
+        self.rasa_pool_zero_denom_count = 0
 
         if content_mode == "scratch":
             self.aa_emb = nn.Embedding(n_aa, d_model, padding_idx=0)
@@ -87,6 +93,16 @@ class AnnotatedTransformer(nn.Module):
             nn.init.zeros_(self.rasa_proj.weight)
         else:
             self.rasa_proj = None
+
+        # Shared RASA-weighted residue pool -> REG residual (EXP-T066).
+        # Zero-init => REG' == REG at initialization (matches control).
+        if self.use_rasa_weighted_pool:
+            if pooling_mode != "reg":
+                raise ValueError("rasa_weighted_pool requires pooling_mode='reg'")
+            self.rasa_pool_proj = nn.Linear(d_model, d_model, bias=False)
+            nn.init.zeros_(self.rasa_pool_proj.weight)
+        else:
+            self.rasa_pool_proj = None
 
         # REG tokens: index 0 = REG_H, 1 = REG_L (learned)
         self.reg_token = nn.Parameter(torch.zeros(2, d_model))
@@ -184,6 +200,28 @@ class AnnotatedTransformer(nn.Module):
         w = F.softmax(masked_logits, dim=-1)
         return (stacked * w.unsqueeze(-1)).sum(dim=1)
 
+    def rasa_weighted_residue_pool(
+        self,
+        h_res: torch.Tensor,
+        mask: torch.Tensor,
+        rasa: torch.Tensor,
+    ) -> torch.Tensor:
+        """Continuous RASA-weighted mean of residue hidden states (real AA only).
+
+        rasa_pool = sum_i r_i h_i / sum_i r_i  over mask==True residues.
+        If sum_i r_i <= eps for a chain, return zeros and count the event.
+        """
+        r = torch.nan_to_num(rasa, nan=0.0) * mask.float()
+        denom = r.sum(dim=1)  # [B]
+        weighted = (h_res * r.unsqueeze(-1)).sum(dim=1)  # [B, D]
+        ok = denom > self.rasa_pool_eps
+        n_bad = int((~ok).sum().item())
+        if n_bad:
+            self.rasa_pool_zero_denom_count += n_bad
+        denom_safe = torch.where(ok, denom, torch.ones_like(denom))
+        pool = weighted / denom_safe.unsqueeze(-1)
+        return torch.where(ok.unsqueeze(-1), pool, torch.zeros_like(pool))
+
     def encode_chain(
         self,
         *,
@@ -219,7 +257,14 @@ class AnnotatedTransformer(nn.Module):
         pad[:, 1:] = ~mask
         h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
         if self.pooling_mode == "reg":
-            return h[:, 0]
+            reg_out = h[:, 0]
+            if self.use_rasa_weighted_pool and self.rasa_pool_proj is not None:
+                if rasa is None:
+                    raise ValueError("rasa-weighted pool enabled but rasa tensor missing")
+                # Pool over residue states only (exclude REG / pad); shared W_pool for H/L.
+                rasa_pool = self.rasa_weighted_residue_pool(h[:, 1:], mask, rasa)
+                reg_out = reg_out + self.rasa_pool_proj(rasa_pool)
+            return reg_out
         if region is None:
             raise ValueError("region required for region_gate pooling")
         return self._pool_region_gate(h[:, 1:], mask, region, chain_idx)
