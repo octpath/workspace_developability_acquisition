@@ -1,0 +1,8 @@
+{
+  "n_ids": 324,
+  "n_mapped_both": 324,
+  "n_missing_ca_residues": 0,
+  "source": "/workspace_developability_acquisition/feature_extension/data/esmfold_fv",
+  "method": "Bio.PDB CA coordinates; chain map H/A L/B then sequence match",
+  "units": "angstrom"
+}

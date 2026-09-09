@@ -9,6 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from .config import REGION_TO_IDX
+from .distance_bias import SharedDistanceBiasTransformerEncoder
 
 # Region-gate groups (global learned weights; descriptive only)
 FR_REGION_IDX = [
@@ -47,6 +48,8 @@ class AnnotatedTransformer(nn.Module):
         norm_first: bool = True,
         use_continuous_rasa: bool = False,
         use_rasa_weighted_pool: bool = False,
+        use_ca_distance_bias: bool = False,
+        initial_ell_angstrom: Optional[float] = None,
     ):
         super().__init__()
         if n_layers != 2:
@@ -55,16 +58,21 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError(pooling_mode)
         if use_continuous_rasa and use_rasa_weighted_pool:
             raise ValueError("use continuous RASA annotation XOR rasa-weighted pool, not both")
+        if use_ca_distance_bias and (use_continuous_rasa or use_rasa_weighted_pool):
+            raise ValueError("CA distance bias is mutually exclusive with RASA modes in this experiment series")
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
         self.chain_mode = chain_mode
         self.pooling_mode = pooling_mode
         self.d_model = d_model
+        self.n_heads = n_heads
         self.use_continuous_rasa = bool(use_continuous_rasa)
         self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
+        self.use_ca_distance_bias = bool(use_ca_distance_bias)
         self.rasa_pool_eps = 1e-12
         self.rasa_pool_zero_denom_count = 0
+        self.distance_kernel_shared_across_layers = True
 
         if content_mode == "scratch":
             self.aa_emb = nn.Embedding(n_aa, d_model, padding_idx=0)
@@ -124,7 +132,14 @@ class AnnotatedTransformer(nn.Module):
             norm_first=norm_first,
             activation="gelu",
         )
-        self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+        if self.use_ca_distance_bias:
+            self.encoder = SharedDistanceBiasTransformerEncoder(
+                enc_layer, num_layers=n_layers, n_heads=n_heads
+            )
+            if initial_ell_angstrom is not None:
+                self.encoder.set_initial_ell(float(initial_ell_angstrom))
+        else:
+            self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
         self.dropout = nn.Dropout(dropout)
 
         out_dim = d_model if merge_mode in ("mean", "h_only") else 2 * d_model
@@ -233,6 +248,7 @@ class AnnotatedTransformer(nn.Module):
         imgt: Optional[torch.Tensor],
         region: Optional[torch.Tensor],
         rasa: Optional[torch.Tensor] = None,
+        ca_coords: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
         """Return chain representation. mask: [B,L] True=valid residue."""
         B, L = mask.shape
@@ -255,7 +271,20 @@ class AnnotatedTransformer(nn.Module):
 
         pad = torch.zeros(B, 1 + L, dtype=torch.bool, device=mask.device)
         pad[:, 1:] = ~mask
-        h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
+        if self.use_ca_distance_bias:
+            if ca_coords is None:
+                raise ValueError("CA distance bias enabled but ca_coords missing")
+            # Missing CA -> nan; treat as non-contributing residue in pair mask
+            coords = torch.nan_to_num(ca_coords, nan=0.0)
+            ca_ok = torch.isfinite(ca_coords).all(dim=-1) & mask
+            h = self.encoder(
+                self.dropout(x),
+                src_key_padding_mask=pad,
+                residue_coords=coords,
+                residue_mask=ca_ok,
+            )
+        else:
+            h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
         if self.pooling_mode == "reg":
             reg_out = h[:, 0]
             if self.use_rasa_weighted_pool and self.rasa_pool_proj is not None:
@@ -279,6 +308,7 @@ class AnnotatedTransformer(nn.Module):
             imgt=batch.get("heavy_imgt"),
             region=batch.get("heavy_region"),
             rasa=batch.get("heavy_rasa"),
+            ca_coords=batch.get("heavy_ca"),
         )
         if self.chain_mode == "H_ONLY" or self.merge_mode == "h_only":
             return h_h
@@ -291,6 +321,7 @@ class AnnotatedTransformer(nn.Module):
             imgt=batch.get("light_imgt"),
             region=batch.get("light_region"),
             rasa=batch.get("light_rasa"),
+            ca_coords=batch.get("light_ca"),
         )
         if self.merge_mode == "concat":
             return torch.cat([h_h, h_l], dim=-1)

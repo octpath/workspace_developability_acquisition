@@ -138,6 +138,8 @@ class ResidueBundle:
     esm2_hidden: int = 0
     heavy_rasa: Optional[np.ndarray] = None  # [N, Lh] continuous RASA; pad/missing = NaN
     light_rasa: Optional[np.ndarray] = None
+    heavy_ca: Optional[np.ndarray] = None  # [N, Lh, 3] Cα Å; pad/missing = NaN
+    light_ca: Optional[np.ndarray] = None
 
 
 def _encode_chain(
@@ -393,6 +395,75 @@ def attach_continuous_rasa(
         light[i, :nl] = l_slice
     rb.heavy_rasa = heavy
     rb.light_rasa = light
+    return qc
+
+
+def attach_ca_coords(
+    rb: ResidueBundle,
+    *,
+    ca_heavy: np.ndarray,
+    ca_light: np.ndarray,
+    ca_ids: list[str],
+    seqs: Optional[pd.DataFrame] = None,
+) -> dict:
+    """Align Cα coordinate cache to ResidueBundle; pad NaN outside real residues."""
+    id_to_ca = {str(a): i for i, a in enumerate(ca_ids)}
+    idx_to_aa = {v: k for k, v in AA_TO_IDX.items()}
+    N, Lh = rb.heavy_mask.shape
+    Ll = rb.light_mask.shape[1]
+    heavy = np.full((N, Lh, 3), np.nan, dtype=np.float32)
+    light = np.full((N, Ll, 3), np.nan, dtype=np.float32)
+    qc = {
+        "n_antibodies": N,
+        "n_expected_residues": 0,
+        "n_mapped_ca_residues": 0,
+        "n_missing_ca_residues": 0,
+        "n_aa_mismatch_flags": 0,
+        "missing_by_id": {},
+        "aa_mismatch_ids": [],
+    }
+    seq_map = None
+    if seqs is not None:
+        s = seqs.copy()
+        s["id"] = s["id"].astype(str)
+        seq_map = s.set_index("id")[["heavy", "light"]].to_dict("index")
+
+    for i, ab in enumerate(rb.ids):
+        if ab not in id_to_ca:
+            raise DataIntegrityError(f"CA cache missing id {ab}")
+        j = id_to_ca[ab]
+        ch = np.asarray(ca_heavy[j], dtype=np.float32)
+        cl = np.asarray(ca_light[j], dtype=np.float32)
+        nh = int(rb.heavy_mask[i].sum())
+        nl = int(rb.light_mask[i].sum())
+        if ch.shape[0] < nh or cl.shape[0] < nl:
+            raise DataIntegrityError(f"CA length short for {ab}")
+
+        if seq_map is not None:
+            heavy_seq = str(seq_map[ab]["heavy"])
+            light_seq = str(seq_map[ab]["light"])
+            if len(heavy_seq) != nh or len(light_seq) != nl:
+                raise DataIntegrityError(f"seq/mask length mismatch {ab}")
+            dec_h = "".join(idx_to_aa.get(int(x), "?") for x in rb.heavy_aa[i, :nh])
+            dec_l = "".join(idx_to_aa.get(int(x), "?") for x in rb.light_aa[i, :nl])
+            if dec_h != heavy_seq or dec_l != light_seq:
+                qc["n_aa_mismatch_flags"] += 1
+                qc["aa_mismatch_ids"].append(ab)
+                raise DataIntegrityError(f"AA alignment ambiguity for {ab}")
+
+        h_slice = ch[:nh]
+        l_slice = cl[:nl]
+        miss_h = int(np.sum(~np.isfinite(h_slice).all(axis=-1)))
+        miss_l = int(np.sum(~np.isfinite(l_slice).all(axis=-1)))
+        qc["n_expected_residues"] += nh + nl
+        qc["n_mapped_ca_residues"] += (nh - miss_h) + (nl - miss_l)
+        qc["n_missing_ca_residues"] += miss_h + miss_l
+        if miss_h or miss_l:
+            qc["missing_by_id"][ab] = {"H": miss_h, "L": miss_l}
+        heavy[i, :nh] = h_slice
+        light[i, :nl] = l_slice
+    rb.heavy_ca = heavy
+    rb.light_ca = light
     return qc
 
 

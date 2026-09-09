@@ -25,6 +25,9 @@ import sys
 _BUNDLE_ADV = str(BUNDLE_ROOT)
 if _BUNDLE_ADV not in sys.path:
     sys.path.insert(0, _BUNDLE_ADV)
+_DRILLDOWN = str(Path(__file__).resolve().parents[2])
+if _DRILLDOWN not in sys.path:
+    sys.path.insert(0, _DRILLDOWN)
 from advanced_models.features import build_recipe_parts, preprocess_parts  # noqa: E402
 
 
@@ -62,6 +65,7 @@ class AbDataset(Dataset):
         fixed_X: Optional[np.ndarray] = None,
         use_continuous_rasa: bool = False,
         use_rasa_weighted_pool: bool = False,
+        use_ca_distance_bias: bool = False,
     ):
         self.ids = ids
         self.y = y
@@ -71,6 +75,7 @@ class AbDataset(Dataset):
         self.fixed_X = fixed_X
         self.use_continuous_rasa = bool(use_continuous_rasa)
         self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
+        self.use_ca_distance_bias = bool(use_ca_distance_bias)
         self.need_rasa = self.use_continuous_rasa or self.use_rasa_weighted_pool
         self.idxs = [rb.id_to_idx[a] for a in ids]
 
@@ -96,6 +101,11 @@ class AbDataset(Dataset):
                 raise RuntimeError("RASA requested but ResidueBundle lacks rasa arrays")
             item["heavy_rasa"] = self.rb.heavy_rasa[j]
             item["light_rasa"] = self.rb.light_rasa[j]
+        if self.use_ca_distance_bias:
+            if self.rb.heavy_ca is None or self.rb.light_ca is None:
+                raise RuntimeError("CA distance bias requested but ResidueBundle lacks CA arrays")
+            item["heavy_ca"] = self.rb.heavy_ca[j]
+            item["light_ca"] = self.rb.light_ca[j]
         if self.content_mode == "frozen":
             if self.plm_source == "ablingua":
                 item["heavy_plm"] = self.rb.ablingua_h[j]
@@ -165,6 +175,8 @@ def build_transformer(
     pooling_mode: str = "reg",
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
+    use_ca_distance_bias: bool = False,
+    initial_ell_angstrom: Optional[float] = None,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
     if content_mode == "frozen":
@@ -192,6 +204,8 @@ def build_transformer(
         norm_first=ncfg["norm_first"],
         use_continuous_rasa=use_continuous_rasa,
         use_rasa_weighted_pool=use_rasa_weighted_pool,
+        use_ca_distance_bias=use_ca_distance_bias,
+        initial_ell_angstrom=initial_ell_angstrom,
     )
 
 
@@ -215,6 +229,7 @@ def train_transformer_seed(
     batch_size: Optional[int] = None,
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
+    use_ca_distance_bias: bool = False,
 ) -> dict:
     presets = load_presets()
     ncfg = presets["neural"]
@@ -226,6 +241,17 @@ def train_transformer_seed(
     y_tr = np.asarray([y_map[a] for a in train_ids], float)
     y_va = np.asarray([y_map[a] for a in val_ids], float)
     mu, sd = _y_stats(y_tr)
+
+    initial_ell = None
+    if use_ca_distance_bias:
+        from classical_features.ca_cache import train_median_pair_distance
+
+        if rb.heavy_ca is None or rb.light_ca is None:
+            raise RuntimeError("CA distance bias requires attached CA coords")
+        train_idxs = [rb.id_to_idx[a] for a in train_ids]
+        initial_ell = train_median_pair_distance(
+            rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
+        )
 
     Xtr = Xva = Xte = None
     fixed_dim = 0
@@ -243,6 +269,7 @@ def train_transformer_seed(
             fixed_X=X_fixed,
             use_continuous_rasa=use_continuous_rasa,
             use_rasa_weighted_pool=use_rasa_weighted_pool,
+            use_ca_distance_bias=use_ca_distance_bias,
         )
         return DataLoader(ds, batch_size=batch_sz, shuffle=shuffle, collate_fn=collate_batch)
 
@@ -258,6 +285,8 @@ def train_transformer_seed(
             pooling_mode=pooling_mode,
             use_continuous_rasa=use_continuous_rasa,
             use_rasa_weighted_pool=use_rasa_weighted_pool,
+            use_ca_distance_bias=use_ca_distance_bias,
+            initial_ell_angstrom=initial_ell,
         )
         if fixed_parts is not None:
             return FeatureFusionModel(
@@ -354,6 +383,8 @@ def train_transformer_seed(
                     pooling_mode=pooling_mode,
                     use_continuous_rasa=use_continuous_rasa,
                     use_rasa_weighted_pool=use_rasa_weighted_pool,
+                    use_ca_distance_bias=use_ca_distance_bias,
+                    initial_ell_angstrom=initial_ell,
                 )
                 model2 = FeatureFusionModel(
                     core2,
@@ -385,6 +416,17 @@ def train_transformer_seed(
                     "L": {n: float(w["L"][i].detach().cpu()) for i, n in enumerate(["FR_ALL", "CDR1", "CDR2", "CDR3"])},
                 }
 
+            distance_params = None
+            if use_ca_distance_bias and getattr(core_ref, "use_ca_distance_bias", False):
+                enc = core_ref.encoder
+                a = enc.a.detach().cpu().numpy()
+                ell = enc.length_scales().detach().cpu().numpy()
+                distance_params = {
+                    "initial_ell_angstrom": float(initial_ell) if initial_ell is not None else None,
+                    "a": a.tolist(),
+                    "ell_angstrom": ell.tolist(),
+                }
+
             return {
                 "best_epoch": best_epoch,
                 "val_mae_phase_a": best_val,
@@ -396,6 +438,7 @@ def train_transformer_seed(
                 "sd_tv": sd2,
                 "batch_size_used": try_bs,
                 "region_gate_weights": region_weights,
+                "distance_params": distance_params,
             }
         except RuntimeError as e:
             last_err = e
@@ -427,6 +470,7 @@ def run_transformer_cv(
     pooling_mode: str = "reg",
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
+    use_ca_distance_bias: bool = False,
 ) -> dict:
     """Primary+Shadow multi-seed ensemble OOF."""
     device_t = torch.device(device if device != "cuda" else "cuda:0")
@@ -455,6 +499,7 @@ def run_transformer_cv(
         "quick": quick,
         "use_continuous_rasa": bool(use_continuous_rasa),
         "use_rasa_weighted_pool": bool(use_rasa_weighted_pool),
+        "use_ca_distance_bias": bool(use_ca_distance_bias),
     }
     ch = config_hash(cfg)
     cache_path = out_dir / f"cache_{variant_id}_{ch}.json"
@@ -464,6 +509,7 @@ def run_transformer_cv(
     best_epochs_primary = {s: [] for s in seeds}
     region_gate_rows: list[dict] = []
     batch_sizes_used: list[int] = []
+    distance_param_rows: list[dict] = []
 
     for scheme_name, fmap in (("primary", folds.primary), ("shadow", folds.shadow)):
         oof = pd.Series(0.0, index=dev_ids, dtype=float)
@@ -477,6 +523,21 @@ def run_transformer_cv(
                     pred = z["pred"]
                     tids = [str(x) for x in z["ids"].tolist()]
                     be = int(z["best_epoch"])
+                    if "distance_params" in z.files and z["distance_params"].item() is not None:
+                        dp = z["distance_params"].item()
+                        for hi, (ah, eh) in enumerate(zip(dp["a"], dp["ell_angstrom"])):
+                            distance_param_rows.append(
+                                {
+                                    "cv_scheme": scheme_name,
+                                    "fold": k,
+                                    "seed": seed,
+                                    "head": hi,
+                                    "a_h": float(ah),
+                                    "ell_h_angstrom": float(eh),
+                                    "initial_ell_angstrom": dp.get("initial_ell_angstrom"),
+                                    "best_epoch": be,
+                                }
+                            )
                     if "region_gate_weights" in z.files:
                         rg = z["region_gate_weights"].item()
                         if rg is not None:
@@ -513,12 +574,14 @@ def run_transformer_cv(
                         pooling_mode=pooling_mode,
                         use_continuous_rasa=use_continuous_rasa,
                         use_rasa_weighted_pool=use_rasa_weighted_pool,
+                        use_ca_distance_bias=use_ca_distance_bias,
                     )
                     pred = out["test_pred"]
                     tids = out["test_ids"]
                     be = out["best_epoch"]
                     batch_sizes_used.append(int(out.get("batch_size_used", 16)))
                     rg = out.get("region_gate_weights")
+                    dp = out.get("distance_params")
                     np.savez_compressed(
                         cache_fold,
                         pred=pred,
@@ -527,7 +590,22 @@ def run_transformer_cv(
                         n_params=out["n_trainable_parameters"],
                         region_gate_weights=rg,
                         batch_size_used=out.get("batch_size_used", 16),
+                        distance_params=dp,
                     )
+                    if dp is not None:
+                        for hi, (ah, eh) in enumerate(zip(dp["a"], dp["ell_angstrom"])):
+                            distance_param_rows.append(
+                                {
+                                    "cv_scheme": scheme_name,
+                                    "fold": k,
+                                    "seed": seed,
+                                    "head": hi,
+                                    "a_h": float(ah),
+                                    "ell_h_angstrom": float(eh),
+                                    "initial_ell_angstrom": dp.get("initial_ell_angstrom"),
+                                    "best_epoch": be,
+                                }
+                            )
                     if rg is not None:
                         region_gate_rows.append(
                             {
@@ -594,8 +672,15 @@ def run_transformer_cv(
         "quick": quick,
         "batch_sizes_used": batch_sizes_used,
         "region_gate_rows": region_gate_rows,
+        "distance_param_rows": distance_param_rows,
     }
-    cache_path.write_text(json.dumps({k: v for k, v in summary.items() if k != "region_gate_rows"}, indent=2) + "\n")
+    cache_path.write_text(
+        json.dumps(
+            {k: v for k, v in summary.items() if k not in ("region_gate_rows", "distance_param_rows")},
+            indent=2,
+        )
+        + "\n"
+    )
     # keep region rows separately to avoid huge JSON duplication in cache; still return them
     np.savez_compressed(
         oof_path,
@@ -624,6 +709,8 @@ def full_dev_transformer_predict(
     pooling_mode: str = "reg",
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
+    use_ca_distance_bias: bool = False,
+    checkpoint_dir: Optional[Path] = None,
 ) -> pd.DataFrame:
     """Median Primary best_epoch per seed → train full DEV → average Test preds."""
     presets = load_presets()
@@ -643,7 +730,23 @@ def full_dev_transformer_predict(
     if fixed_parts is not None:
         Xdev, Xte = preprocess_parts(fixed_parts, dev_ids, [test_ids])
 
+    initial_ell = None
+    if use_ca_distance_bias:
+        from classical_features.ca_cache import train_median_pair_distance
+
+        if rb.heavy_ca is None or rb.light_ca is None:
+            raise RuntimeError("CA distance bias requires attached CA coords")
+        train_idxs = [rb.id_to_idx[a] for a in dev_ids]
+        initial_ell = train_median_pair_distance(
+            rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
+        )
+
     preds = []
+    fulldev_distance_rows: list[dict] = []
+    if checkpoint_dir is not None:
+        checkpoint_dir = Path(checkpoint_dir)
+        checkpoint_dir.mkdir(parents=True, exist_ok=True)
+
     for seed in seeds:
         epochs_list = best_epochs_primary.get(str(seed)) or best_epochs_primary.get(seed) or [30]
         n_epochs = int(np.median(epochs_list))
@@ -663,6 +766,8 @@ def full_dev_transformer_predict(
             pooling_mode=pooling_mode,
             use_continuous_rasa=use_continuous_rasa,
             use_rasa_weighted_pool=use_rasa_weighted_pool,
+            use_ca_distance_bias=use_ca_distance_bias,
+            initial_ell_angstrom=initial_ell,
         )
         if fixed_parts is not None:
             model: nn.Module = FeatureFusionModel(
@@ -691,6 +796,7 @@ def full_dev_transformer_predict(
                 fixed_X=X_fixed,
                 use_continuous_rasa=use_continuous_rasa,
                 use_rasa_weighted_pool=use_rasa_weighted_pool,
+                use_ca_distance_bias=use_ca_distance_bias,
             )
             return DataLoader(ds, batch_size=bs, shuffle=shuffle, collate_fn=collate_batch)
 
@@ -721,5 +827,46 @@ def full_dev_transformer_predict(
                 out = model(batch) if fixed is None else model(batch, fixed)
                 outs.append((out * sd + mu).cpu().numpy())
         preds.append(np.concatenate(outs))
+
+        if use_ca_distance_bias:
+            core_ref = model.transformer if isinstance(model, FeatureFusionModel) else model
+            enc = core_ref.encoder
+            a = enc.a.detach().cpu().numpy()
+            ell = enc.length_scales().detach().cpu().numpy()
+            for hi, (ah, eh) in enumerate(zip(a, ell)):
+                fulldev_distance_rows.append(
+                    {
+                        "cv_scheme": "full_dev",
+                        "fold": -1,
+                        "seed": seed,
+                        "head": hi,
+                        "a_h": float(ah),
+                        "ell_h_angstrom": float(eh),
+                        "initial_ell_angstrom": float(initial_ell) if initial_ell is not None else None,
+                        "best_epoch": n_epochs,
+                    }
+                )
+            if checkpoint_dir is not None:
+                ckpt = checkpoint_dir / f"fulldev_seed{seed}.pt"
+                torch.save(
+                    {
+                        "state_dict": model.state_dict(),
+                        "seed": seed,
+                        "n_epochs": n_epochs,
+                        "initial_ell_angstrom": initial_ell,
+                        "mu": mu,
+                        "sd": sd,
+                    },
+                    ckpt,
+                )
+
+    if checkpoint_dir is not None and fulldev_distance_rows:
+        pd.DataFrame(fulldev_distance_rows).to_csv(
+            checkpoint_dir / "distance_params_fulldev.csv", index=False
+        )
+
     ens = np.mean(np.stack(preds, axis=0), axis=0)
-    return pd.DataFrame({"id": test_ids, "prediction": ens})
+    out_df = pd.DataFrame({"id": test_ids, "prediction": ens})
+    out_df.attrs["distance_param_rows"] = fulldev_distance_rows
+    out_df.attrs["initial_ell_angstrom"] = initial_ell
+    return out_df
