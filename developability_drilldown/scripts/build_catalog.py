@@ -23,6 +23,10 @@ def _fmt(x) -> str:
 
 def best_rows(df: pd.DataFrame, col: str) -> pd.Series:
     sub = df[pd.to_numeric(df[col], errors="coerce").notna()].copy()
+    if "canonical_benchmark_eligible" in sub.columns:
+        sub = sub[sub["canonical_benchmark_eligible"].astype(str) == "YES"]
+    if "reproduction_status" in sub.columns:
+        sub = sub[~sub["reproduction_status"].astype(str).isin(["UNVERIFIED_HISTORICAL"])]
     if sub.empty:
         return pd.Series(dtype=object)
     return sub.loc[pd.to_numeric(sub[col], errors="coerce").idxmin()]
@@ -186,11 +190,7 @@ def main() -> None:
     (ROOT / "results" / "CATALOG_JA.md").write_text(catalog_md(df, "ja"), encoding="utf-8")
     audit = build_xgb_audit(df)
     audit.to_csv(ROOT / "results" / "XGB_REPRODUCTION_AUDIT.csv", index=False)
-    for _, a in audit.iterrows():
-        df.loc[df["experiment_code"] == a["experiment_code"], "reproduction_status"] = a[
-            "reproduction_status"
-        ]
-    df.to_csv(ROOT / "results" / "experiments.csv", index=False)
+    # Do not overwrite experiments.reproduction_status (REPRODUCED/RESULT_VERIFIED taxonomy)
     print("wrote catalogs + XGB_REPRODUCTION_AUDIT.csv")
 
 

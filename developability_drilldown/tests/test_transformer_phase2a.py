@@ -181,7 +181,8 @@ def test_transformer_full_and_linear_xgb_unchanged():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     assert len(exp[exp["artifact_status"] == "FULL"]) == N_FULL_LINEAR_XGB + N_TRANSFORMER
     lin = exp[(exp["family"] == "LINEAR") & (exp["artifact_status"] == "FULL")]
-    assert len(lin) == 38  # 6 historical FULL + 32 classical refinement
+    # 40 historical LINEAR minus 2 SCORE_ONLY OPENMM + 32 classical-refinement LINEAR
+    assert len(lin) == 72
     assert (lin["feature_space"] == "RAW_PREPROCESS").all()
     xgb = exp[(exp["family"] == "XGBOOST") & (exp["artifact_status"] == "FULL")]
     assert len(xgb) == N_XGBOOST

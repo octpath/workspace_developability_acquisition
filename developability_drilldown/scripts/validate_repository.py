@@ -26,8 +26,11 @@ from _lib import (  # noqa: E402
     N_TRANSFORMER,
     N_XGBOOST,
     PRESERVATION_SNAPSHOT_77,
+    REPRODUCIBILITY_STATUSES,
     ROOT,
     SELECTION_POLICIES,
+    SHAREABILITY_STATUSES,
+    CANONICAL_ELIGIBLE,
     SOURCE_REPRO,
     feature_column_names,
     feature_content_sha256,
@@ -404,6 +407,64 @@ def main() -> int:
             if float(d) != 0.0 and not pd.isna(d):
                 fail(f"preservation delta {c} max={d}")
         ok("existing 77 preservation PASS (score delta 0)")
+
+    # --- Artifact completeness / shareability ---
+    for col, allowed in (
+        ("reproduction_status", REPRODUCIBILITY_STATUSES),
+        ("shareability_status", SHAREABILITY_STATUSES),
+        ("canonical_benchmark_eligible", CANONICAL_ELIGIBLE),
+    ):
+        if col not in df.columns:
+            fail(f"missing column {col}")
+        else:
+            bad = set(df[col].astype(str)) - allowed - {"nan", "<NA>"}
+            if bad:
+                fail(f"bad {col} values: {bad}")
+            else:
+                ok(f"{col} enum OK")
+
+    completeness = ROOT / "results" / "EXPERIMENT_ARTIFACT_COMPLETENESS.csv"
+    if not completeness.exists():
+        fail("EXPERIMENT_ARTIFACT_COMPLETENESS.csv missing")
+    else:
+        comp = pd.read_csv(completeness)
+        if len(comp) != N_EXPERIMENTS_TOTAL:
+            fail(f"completeness rows {len(comp)}")
+        else:
+            ok("EXPERIMENT_ARTIFACT_COMPLETENESS.csv")
+
+    # New classical 40: canonical feature parquet + pred triplet; never classical_cache path
+    new40 = df[
+        df["experiment_code"].map(
+            lambda c: (str(c).startswith("EXP-T") and int(str(c).split("-T")[1]) >= 45)
+            or (str(c).startswith("EXP-H") and int(str(c).split("-H")[1]) >= 34)
+        )
+    ]
+    if len(new40) != N_CLASSICAL_REFINEMENT:
+        fail(f"classical refinement count {len(new40)}")
+    for _, r in new40.iterrows():
+        code = r["experiment_code"]
+        fp = str(r.get("feature_path") or "")
+        if "classical_cache" in fp:
+            fail(f"{code} feature_path points to classical_cache")
+        feat = ROOT / "experiments" / "features" / f"{code}.parquet"
+        if not feat.exists():
+            fail(f"{code} missing canonical feature parquet")
+        for name in ("oof_primary.csv", "oof_shadow.csv", "test.csv"):
+            if not (ROOT / "experiments" / "predictions" / code / name).exists():
+                fail(f"{code} missing {name}")
+        if str(r.get("shareability_status")) != "SHAREABLE_COMPLETE":
+            fail(f"{code} not SHAREABLE_COMPLETE")
+        if str(r.get("reproduction_status")) != "REPRODUCED":
+            fail(f"{code} not REPRODUCED")
+    else:
+        ok("new 40 classical shareable+reproduced with canonical features")
+
+    unverified = df[df["reproduction_status"].astype(str) == "UNVERIFIED_HISTORICAL"]
+    if (unverified["canonical_benchmark_eligible"].astype(str) == "YES").any():
+        fail("UNVERIFIED_HISTORICAL marked canonical_benchmark_eligible=YES")
+    else:
+        ok("UNVERIFIED_HISTORICAL excluded from canonical eligibility")
 
     out = ROOT / "results" / "VALIDATION.txt"
     text = "PASS\n" if not FAILS else "FAIL\n" + "\n".join(FAILS) + "\n"
