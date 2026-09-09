@@ -126,9 +126,14 @@ class ResidueBundle:
     ablingua_l: Optional[np.ndarray] = None
     ablingua_h_mask: Optional[np.ndarray] = None
     ablingua_l_mask: Optional[np.ndarray] = None
+    ablang2_h: Optional[np.ndarray] = None
+    ablang2_l: Optional[np.ndarray] = None
+    ablang2_h_mask: Optional[np.ndarray] = None
+    ablang2_l_mask: Optional[np.ndarray] = None
     esm2_h: Optional[np.ndarray] = None
     esm2_h_mask: Optional[np.ndarray] = None
     ablingua_hidden: int = 0
+    ablang2_hidden: int = 0
     esm2_hidden: int = 0
 
 
@@ -184,6 +189,7 @@ def load_residue_bundle(
     test: pd.DataFrame,
     *,
     need_ablingua: bool = False,
+    need_ablang2: bool = False,
     need_esm2: bool = False,
 ) -> ResidueBundle:
     seqs = pd.concat(
@@ -269,6 +275,28 @@ def load_residue_bundle(
             if int(rb.ablingua_l_mask[i].sum()) != int(light_mask[i].sum()):
                 raise DataIntegrityError(f"AbLingua L mask mismatch {ids[i]}")
         rb.ablingua_hidden = int(meta["hidden_dim"])
+
+    if need_ablang2:
+        a_ids, meta = load_plm_pack("ablang2")
+        order = [a_ids.index(a) for a in ids]
+        eh = load_npy(RESIDUE_ROOT / "ablang2/heavy_embeddings.npy")[order].astype(
+            np.float32
+        )
+        el = load_npy(RESIDUE_ROOT / "ablang2/light_embeddings.npy")[order].astype(
+            np.float32
+        )
+        mh = load_npy(RESIDUE_ROOT / "ablang2/heavy_mask.npy")[order]
+        ml = load_npy(RESIDUE_ROOT / "ablang2/light_mask.npy")[order]
+        rb.ablang2_h = eh[:, :max_h]
+        rb.ablang2_l = el[:, :max_l]
+        rb.ablang2_h_mask = mh[:, :max_h]
+        rb.ablang2_l_mask = ml[:, :max_l]
+        for i in range(N):
+            if int(rb.ablang2_h_mask[i].sum()) != int(heavy_mask[i].sum()):
+                raise DataIntegrityError(f"AbLang2 H mask mismatch {ids[i]}")
+            if int(rb.ablang2_l_mask[i].sum()) != int(light_mask[i].sum()):
+                raise DataIntegrityError(f"AbLang2 L mask mismatch {ids[i]}")
+        rb.ablang2_hidden = int(meta["hidden_dim"])
 
     if need_esm2:
         e_ids, meta = load_plm_pack("esm2")

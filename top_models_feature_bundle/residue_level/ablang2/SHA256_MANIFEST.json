@@ -1,0 +1,51 @@
+{
+  "files": {
+    "ids.npy": {
+      "sha256": "ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d",
+      "bytes": 4166
+    },
+    "heavy_mask.npy": {
+      "sha256": "9a692c4270e23fac84fe511c3a4a1bf951255875e2aaa1b145e23a8894a8de76",
+      "bytes": 45488
+    },
+    "light_mask.npy": {
+      "sha256": "2426222dbfe16d09b439a8bf97216c860148c6df6354654b265dde105497deeb",
+      "bytes": 39008
+    },
+    "heavy_embeddings.npy": {
+      "sha256": "689a5786ec3bbde644171ea439701ad5ee9dcb16633a769c2f16169cd5b75f80",
+      "bytes": 43545728
+    },
+    "light_embeddings.npy": {
+      "sha256": "c847f39bc5889e592b9edb222903601232b3b62006f924cafde44e0cd7db95c1",
+      "bytes": 37324928
+    }
+  },
+  "parts": {
+    "heavy_embeddings.npy": [
+      {
+        "path": "heavy_embeddings.npy.part0",
+        "sha256": "a70a10ffbe33b3c84a810f77960fa081e3f7e08926d1b18e1764c54f09c4d0f7",
+        "bytes": 21772864
+      },
+      {
+        "path": "heavy_embeddings.npy.part1",
+        "sha256": "f62ce65da7cb45e86645092d31f97a279dce69cd2c4035642f6ebdf1bee837b1",
+        "bytes": 21772864
+      }
+    ],
+    "light_embeddings.npy": [
+      {
+        "path": "light_embeddings.npy.part0",
+        "sha256": "a40edb1d3450fbe1ff44c20147a596b21420754478df809e9c53e19963b2448d",
+        "bytes": 18662464
+      },
+      {
+        "path": "light_embeddings.npy.part1",
+        "sha256": "9c95a1b734cf6f822d8cccc38bd5cdf3e31481afd19b76dd352688d614896d9d",
+        "bytes": 18662464
+      }
+    ]
+  },
+  "policy": "deterministic byte split; numeric part suffixes"
+}

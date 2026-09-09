@@ -1,0 +1,28 @@
+{
+  "n_antibodies": 324,
+  "n_heavy": 324,
+  "n_light": 324,
+  "all_residue_eq_seq_len": true,
+  "finite_100pct": true,
+  "hidden_dim_constant": true,
+  "hidden_dim": 480,
+  "max_len_H": 140,
+  "max_len_L": 120,
+  "mapping_statuses": [
+    "EXACT_AA_1TO1_SPECIAL_STRIPPED"
+  ],
+  "unknown_mapping_count": 0,
+  "silent_truncation": false,
+  "semantic_vs_pooled": {
+    "aa_residue_mean_vs_seqcoding": "NOT_SEMANTICALLY_COMPARABLE",
+    "reason": "Official seqcoding averages all formatted tokens including <, >, |; this asset stores AA-only residue vectors after exact special-token strip.",
+    "fmt_token_mean_vs_seqcoding_max_abs_sample5": 2.0520967719539485e-07,
+    "aa_mean_vs_seqcoding_max_abs_sample5": 0.019993249059857887,
+    "pool_parquet_feature_cols": 480
+  },
+  "extraction_wall_time_sec": 4.1766581535339355,
+  "device": "cuda:0",
+  "duplicate_antibody_ids": 0,
+  "duplicate_id_chain_rows": 0,
+  "n_unique_ids": 324
+}

@@ -70,3 +70,5 @@ top_models_feature_bundle/advanced_outputs/
 top_models_feature_bundle/residue_level/ablingua600m/heavy_embeddings.npy
 top_models_feature_bundle/residue_level/ablingua600m/light_embeddings.npy
 top_models_feature_bundle/residue_level/esm2/heavy_embeddings.npy
+top_models_feature_bundle/residue_level/ablang2/heavy_embeddings.npy
+top_models_feature_bundle/residue_level/ablang2/light_embeddings.npy

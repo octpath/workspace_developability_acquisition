@@ -1,0 +1,25 @@
+{
+  "model_to_use": "ablang2-paired",
+  "package": "ablang2",
+  "package_version": "0.2.1",
+  "representation_source": "AbLang.AbRep(tokens).last_hidden_states",
+  "official_api_modes_used": [
+    "rescoding_path_equivalent",
+    "AbRep.last_hidden_states"
+  ],
+  "special_token_rule": "Format with ablang2 add_extra_tokens (<heavy>|<light>); select only amino-acid character positions; drop <, >, |.",
+  "mapping": "EXACT_AA_1TO1_SPECIAL_STRIPPED",
+  "n_ids": 324,
+  "max_len_H": 140,
+  "max_len_L": 120,
+  "hidden_dim": 480,
+  "dtype_on_disk": "float16",
+  "dtype_in_memory": "float32",
+  "license_status": "REVIEW_MODEL_OUTPUT",
+  "code_license_note": "ablang2 PyPI package 0.2.1",
+  "model_weight_license_note": "ablang2-paired weights \u2014 review redistribution",
+  "derived_output_redistribution": "REVIEW_MODEL_OUTPUT",
+  "extraction_wall_time_sec": 4.413266897201538,
+  "device": "cuda:0",
+  "local_regeneration": "python scripts/extract_ablang2_residue_embeddings.py --device cuda:0"
+}

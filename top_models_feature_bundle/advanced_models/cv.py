@@ -52,7 +52,7 @@ class AbDataset(Dataset):
         rb: ResidueBundle,
         *,
         content_mode: str,
-        plm_source: str = "ablingua",  # ablingua | esm2
+        plm_source: str = "ablingua",  # ablingua | esm2 | ablang2
         fixed_X: Optional[np.ndarray] = None,
     ):
         self.ids = ids
@@ -84,8 +84,13 @@ class AbDataset(Dataset):
             if self.plm_source == "ablingua":
                 item["heavy_plm"] = self.rb.ablingua_h[j]
                 item["light_plm"] = self.rb.ablingua_l[j]
-            else:
+            elif self.plm_source == "ablang2":
+                item["heavy_plm"] = self.rb.ablang2_h[j]
+                item["light_plm"] = self.rb.ablang2_l[j]
+            elif self.plm_source == "esm2":
                 item["heavy_plm"] = self.rb.esm2_h[j]
+            else:
+                raise ValueError(self.plm_source)
         if self.fixed_X is not None:
             item["fixed"] = self.fixed_X[i].astype(np.float32)
         if self.y is not None:
@@ -114,6 +119,24 @@ def _batch_to_device(batch: dict, device: torch.device) -> dict:
     }
 
 
+def resolve_plm_source(content_mode: str, chain_mode: str, plm_source: Optional[str]) -> str:
+    if content_mode != "frozen":
+        return plm_source or "ablingua"
+    if plm_source:
+        return plm_source
+    return "esm2" if chain_mode == "H_ONLY" else "ablingua"
+
+
+def plm_hidden_for(rb: ResidueBundle, plm_source: str) -> int:
+    if plm_source == "ablingua":
+        return rb.ablingua_hidden
+    if plm_source == "ablang2":
+        return rb.ablang2_hidden
+    if plm_source == "esm2":
+        return rb.esm2_hidden
+    raise ValueError(plm_source)
+
+
 def build_transformer(
     *,
     content_mode: str,
@@ -122,10 +145,12 @@ def build_transformer(
     chain_mode: str,
     rb: ResidueBundle,
     presets: dict,
+    plm_source: str = "ablingua",
+    pooling_mode: str = "reg",
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
     if content_mode == "frozen":
-        plm_h = rb.esm2_hidden if chain_mode == "H_ONLY" else rb.ablingua_hidden
+        plm_h = plm_hidden_for(rb, plm_source)
         if plm_h <= 0:
             raise ValueError("PLM hidden dim not loaded in ResidueBundle")
     else:
@@ -140,6 +165,7 @@ def build_transformer(
         annotation_mode=annotation_mode,
         merge_mode=merge_mode if chain_mode != "H_ONLY" else "h_only",
         chain_mode=chain_mode,
+        pooling_mode=pooling_mode,
         d_model=ncfg["d_model"],
         n_heads=ncfg["n_heads"],
         n_layers=ncfg["n_layers"],
@@ -164,17 +190,20 @@ def train_transformer_seed(
     device: torch.device,
     quick: bool = False,
     fixed_parts: Optional[dict] = None,
+    plm_source: Optional[str] = None,
+    pooling_mode: str = "reg",
+    batch_size: Optional[int] = None,
 ) -> dict:
     presets = load_presets()
     ncfg = presets["neural"]
     max_epochs = 5 if quick else int(ncfg["max_epochs"])
     patience = 2 if quick else int(ncfg["early_stopping_patience"])
-    bs = int(ncfg["batch_size"])
+    bs = int(batch_size or ncfg["batch_size"])
+    plm_source = resolve_plm_source(content_mode, chain_mode, plm_source)
 
     y_tr = np.asarray([y_map[a] for a in train_ids], float)
     y_va = np.asarray([y_map[a] for a in val_ids], float)
     mu, sd = _y_stats(y_tr)
-    plm_source = "esm2" if (content_mode == "frozen" and chain_mode == "H_ONLY") else "ablingua"
 
     Xtr = Xva = Xte = None
     fixed_dim = 0
@@ -182,7 +211,7 @@ def train_transformer_seed(
         Xtr, Xva, Xte = preprocess_parts(fixed_parts, train_ids, [val_ids, test_ids])
         fixed_dim = int(Xtr.shape[1])
 
-    def make_loader(ids, y_arr, X_fixed, shuffle):
+    def make_loader(ids, y_arr, X_fixed, shuffle, batch_sz):
         ds = AbDataset(
             ids,
             y_arr,
@@ -191,39 +220,30 @@ def train_transformer_seed(
             plm_source=plm_source,
             fixed_X=X_fixed,
         )
-        return DataLoader(ds, batch_size=bs, shuffle=shuffle, collate_fn=collate_batch)
+        return DataLoader(ds, batch_size=batch_sz, shuffle=shuffle, collate_fn=collate_batch)
 
-    torch.manual_seed(seed)
-    np.random.seed(seed)
-    core = build_transformer(
-        content_mode=content_mode,
-        annotation_mode=annotation_mode,
-        merge_mode=merge_mode,
-        chain_mode=chain_mode,
-        rb=rb,
-        presets=presets,
-    )
-    if fixed_parts is not None:
-        model: nn.Module = FeatureFusionModel(
-            core,
-            fixed_dim,
-            fixed_proj_dim=ncfg["fusion_fixed_dim"],
-            head_hidden=ncfg["fusion_head_hidden"],
-            dropout=ncfg["dropout"],
+    def build_model():
+        core = build_transformer(
+            content_mode=content_mode,
+            annotation_mode=annotation_mode,
+            merge_mode=merge_mode,
+            chain_mode=chain_mode,
+            rb=rb,
+            presets=presets,
+            plm_source=plm_source,
+            pooling_mode=pooling_mode,
         )
-    else:
-        model = core
-    model.to(device)
-    n_params = model.n_trainable_parameters()
-    if n_params > 2_000_000:
-        print(f"WARNING: trainable params {n_params} > 2M", flush=True)
+        if fixed_parts is not None:
+            return FeatureFusionModel(
+                core,
+                fixed_dim,
+                fixed_proj_dim=ncfg["fusion_fixed_dim"],
+                head_hidden=ncfg["fusion_head_hidden"],
+                dropout=ncfg["dropout"],
+            )
+        return core
 
-    opt = torch.optim.AdamW(
-        model.parameters(), lr=ncfg["lr"], weight_decay=ncfg["weight_decay"]
-    )
-    loss_fn = nn.SmoothL1Loss(beta=float(ncfg["smooth_l1_beta"]))
-
-    def run_epoch(loader, y_mu, y_sd, train: bool, model_ref):
+    def run_epoch(loader, y_mu, y_sd, train: bool, model_ref, opt_ref):
         model_ref.train(train)
         preds = []
         for batch in loader:
@@ -232,7 +252,7 @@ def train_transformer_seed(
             fixed = batch.pop("fixed", None)
             y_std = (y - y_mu) / y_sd
             if train:
-                opt.zero_grad(set_to_none=True)
+                opt_ref.zero_grad(set_to_none=True)
             if fixed is None:
                 out = model_ref(batch)
             else:
@@ -241,78 +261,123 @@ def train_transformer_seed(
             if train:
                 loss.backward()
                 nn.utils.clip_grad_norm_(model_ref.parameters(), ncfg["gradient_clip_norm"])
-                opt.step()
+                opt_ref.step()
             with torch.no_grad():
                 preds.append((out * y_sd + y_mu).detach().cpu().numpy())
         return np.concatenate(preds) if preds else np.array([])
 
-    best_epoch = 1
-    best_val = float("inf")
-    stale = 0
-    for epoch in range(1, max_epochs + 1):
-        tr_loader = make_loader(train_ids, y_tr, Xtr, True)
-        run_epoch(tr_loader, mu, sd, True, model)
-        va_loader = make_loader(val_ids, y_va, Xva, False)
-        va_pred = run_epoch(va_loader, mu, sd, False, model)
-        v_mae = mae(y_va, va_pred)
-        if v_mae + 1e-12 < best_val:
-            best_val = v_mae
-            best_epoch = epoch
+    oom_fallbacks = [bs]
+    for cand in (8, 4):
+        if cand < bs and cand not in oom_fallbacks:
+            oom_fallbacks.append(cand)
+
+    last_err: Optional[BaseException] = None
+    for try_bs in oom_fallbacks:
+        try:
+            torch.manual_seed(seed)
+            np.random.seed(seed)
+            model = build_model()
+            model.to(device)
+            n_params = model.n_trainable_parameters()
+            if n_params > 2_000_000:
+                print(f"WARNING: trainable params {n_params} > 2M", flush=True)
+            opt = torch.optim.AdamW(
+                model.parameters(), lr=ncfg["lr"], weight_decay=ncfg["weight_decay"]
+            )
+            loss_fn = nn.SmoothL1Loss(beta=float(ncfg["smooth_l1_beta"]))
+
+            best_epoch = 1
+            best_val = float("inf")
             stale = 0
-        else:
-            stale += 1
-            if stale >= patience:
-                break
+            for epoch in range(1, max_epochs + 1):
+                tr_loader = make_loader(train_ids, y_tr, Xtr, True, try_bs)
+                run_epoch(tr_loader, mu, sd, True, model, opt)
+                va_loader = make_loader(val_ids, y_va, Xva, False, try_bs)
+                va_pred = run_epoch(va_loader, mu, sd, False, model, opt)
+                v_mae = mae(y_va, va_pred)
+                if v_mae + 1e-12 < best_val:
+                    best_val = v_mae
+                    best_epoch = epoch
+                    stale = 0
+                else:
+                    stale += 1
+                    if stale >= patience:
+                        break
 
-    # STEP B: reinit, train TRAIN+VAL for exactly best_epoch
-    tv_ids = train_ids + val_ids
-    y_tv = np.asarray([y_map[a] for a in tv_ids], float)
-    mu2, sd2 = _y_stats(y_tv)
-    Xtv = Xte2 = None
-    if fixed_parts is not None:
-        Xtv, Xte2 = preprocess_parts(fixed_parts, tv_ids, [test_ids])
+            # STEP B: reinit, train TRAIN+VAL for exactly best_epoch
+            tv_ids = train_ids + val_ids
+            y_tv = np.asarray([y_map[a] for a in tv_ids], float)
+            mu2, sd2 = _y_stats(y_tv)
+            Xtv = Xte2 = None
+            if fixed_parts is not None:
+                Xtv, Xte2 = preprocess_parts(fixed_parts, tv_ids, [test_ids])
+                fixed_dim = int(Xtv.shape[1])
 
-    torch.manual_seed(seed)
-    np.random.seed(seed)
-    core2 = build_transformer(
-        content_mode=content_mode,
-        annotation_mode=annotation_mode,
-        merge_mode=merge_mode,
-        chain_mode=chain_mode,
-        rb=rb,
-        presets=presets,
-    )
-    if fixed_parts is not None:
-        model2: nn.Module = FeatureFusionModel(
-            core2,
-            int(Xtv.shape[1]),
-            fixed_proj_dim=ncfg["fusion_fixed_dim"],
-            head_hidden=ncfg["fusion_head_hidden"],
-            dropout=ncfg["dropout"],
-        )
-    else:
-        model2 = core2
-    model2.to(device)
-    opt = torch.optim.AdamW(
-        model2.parameters(), lr=ncfg["lr"], weight_decay=ncfg["weight_decay"]
-    )
-    for epoch in range(1, best_epoch + 1):
-        tv_loader = make_loader(tv_ids, y_tv, Xtv, True)
-        run_epoch(tv_loader, mu2, sd2, True, model2)
+            torch.manual_seed(seed)
+            np.random.seed(seed)
+            model2 = build_model() if fixed_parts is None else None
+            if fixed_parts is not None:
+                core2 = build_transformer(
+                    content_mode=content_mode,
+                    annotation_mode=annotation_mode,
+                    merge_mode=merge_mode,
+                    chain_mode=chain_mode,
+                    rb=rb,
+                    presets=presets,
+                    plm_source=plm_source,
+                    pooling_mode=pooling_mode,
+                )
+                model2 = FeatureFusionModel(
+                    core2,
+                    int(Xtv.shape[1]),
+                    fixed_proj_dim=ncfg["fusion_fixed_dim"],
+                    head_hidden=ncfg["fusion_head_hidden"],
+                    dropout=ncfg["dropout"],
+                )
+            else:
+                model2 = build_model()
+            model2.to(device)
+            opt2 = torch.optim.AdamW(
+                model2.parameters(), lr=ncfg["lr"], weight_decay=ncfg["weight_decay"]
+            )
+            for epoch in range(1, best_epoch + 1):
+                tv_loader = make_loader(tv_ids, y_tv, Xtv, True, try_bs)
+                run_epoch(tv_loader, mu2, sd2, True, model2, opt2)
 
-    y_te = np.asarray([y_map[a] for a in test_ids], float)
-    te_loader = make_loader(test_ids, y_te, Xte2, False)
-    te_pred = run_epoch(te_loader, mu2, sd2, False, model2)
-    return {
-        "best_epoch": best_epoch,
-        "val_mae_phase_a": best_val,
-        "test_pred": te_pred,
-        "test_ids": test_ids,
-        "test_mae": mae(y_te, te_pred),
-        "n_trainable_parameters": n_params,
-        "mu_tv": mu2,
-        "sd_tv": sd2,
-    }
+            y_te = np.asarray([y_map[a] for a in test_ids], float)
+            te_loader = make_loader(test_ids, y_te, Xte2, False, try_bs)
+            te_pred = run_epoch(te_loader, mu2, sd2, False, model2, opt2)
+
+            region_weights = None
+            core_ref = model2.transformer if isinstance(model2, FeatureFusionModel) else model2
+            if getattr(core_ref, "pooling_mode", "reg") == "region_gate":
+                w = core_ref.region_gate_weights()
+                region_weights = {
+                    "H": {n: float(w["H"][i].detach().cpu()) for i, n in enumerate(["FR_ALL", "CDR1", "CDR2", "CDR3"])},
+                    "L": {n: float(w["L"][i].detach().cpu()) for i, n in enumerate(["FR_ALL", "CDR1", "CDR2", "CDR3"])},
+                }
+
+            return {
+                "best_epoch": best_epoch,
+                "val_mae_phase_a": best_val,
+                "test_pred": te_pred,
+                "test_ids": test_ids,
+                "test_mae": mae(y_te, te_pred),
+                "n_trainable_parameters": n_params,
+                "mu_tv": mu2,
+                "sd_tv": sd2,
+                "batch_size_used": try_bs,
+                "region_gate_weights": region_weights,
+            }
+        except RuntimeError as e:
+            last_err = e
+            if "out of memory" in str(e).lower() or "cuda" in str(e).lower():
+                if device.type == "cuda":
+                    torch.cuda.empty_cache()
+                print(f"OOM/runtime at batch_size={try_bs}: {e}; trying smaller", flush=True)
+                continue
+            raise
+    raise RuntimeError(f"train_transformer_seed failed after OOM fallbacks: {last_err}")
 
 
 def run_transformer_cv(
@@ -330,6 +395,8 @@ def run_transformer_cv(
     out_dir: Path,
     quick: bool = False,
     recipe_id: Optional[str] = None,
+    plm_source: Optional[str] = None,
+    pooling_mode: str = "reg",
 ) -> dict:
     """Primary+Shadow multi-seed ensemble OOF."""
     device_t = torch.device(device if device != "cuda" else "cuda:0")
@@ -342,6 +409,7 @@ def run_transformer_cv(
     fixed_parts = None
     if recipe_id:
         fixed_parts = build_recipe_parts(recipe_id, rb.ids)
+    plm_source = resolve_plm_source(content_mode, chain_mode, plm_source)
 
     cfg = {
         "target": target,
@@ -350,6 +418,8 @@ def run_transformer_cv(
         "annotation_mode": annotation_mode,
         "merge_mode": merge_mode,
         "chain_mode": chain_mode,
+        "pooling_mode": pooling_mode,
+        "plm_source": plm_source,
         "recipe_id": recipe_id,
         "seeds": seeds,
         "quick": quick,
@@ -360,6 +430,8 @@ def run_transformer_cv(
 
     results_scheme = {}
     best_epochs_primary = {s: [] for s in seeds}
+    region_gate_rows: list[dict] = []
+    batch_sizes_used: list[int] = []
 
     for scheme_name, fmap in (("primary", folds.primary), ("shadow", folds.shadow)):
         oof = pd.Series(0.0, index=dev_ids, dtype=float)
@@ -373,6 +445,22 @@ def run_transformer_cv(
                     pred = z["pred"]
                     tids = [str(x) for x in z["ids"].tolist()]
                     be = int(z["best_epoch"])
+                    if "region_gate_weights" in z.files:
+                        rg = z["region_gate_weights"].item()
+                        if rg is not None:
+                            region_gate_rows.append(
+                                {
+                                    "variant_id": variant_id,
+                                    "scheme": scheme_name,
+                                    "fold": k,
+                                    "seed": seed,
+                                    **{
+                                        f"{chn}_{rn}": rg[chn][rn]
+                                        for chn in ("H", "L")
+                                        for rn in ("FR_ALL", "CDR1", "CDR2", "CDR3")
+                                    },
+                                }
+                            )
                 else:
                     tr, va, te = tvt_split(fmap, k, dev_ids)
                     out = train_transformer_seed(
@@ -389,18 +477,37 @@ def run_transformer_cv(
                         device=device_t,
                         quick=quick,
                         fixed_parts=fixed_parts,
+                        plm_source=plm_source,
+                        pooling_mode=pooling_mode,
                     )
                     pred = out["test_pred"]
                     tids = out["test_ids"]
                     be = out["best_epoch"]
-                    n_params = out["n_trainable_parameters"]
+                    batch_sizes_used.append(int(out.get("batch_size_used", 16)))
+                    rg = out.get("region_gate_weights")
                     np.savez_compressed(
                         cache_fold,
                         pred=pred,
                         ids=np.asarray(tids, dtype=object),
                         best_epoch=be,
                         n_params=out["n_trainable_parameters"],
+                        region_gate_weights=rg,
+                        batch_size_used=out.get("batch_size_used", 16),
                     )
+                    if rg is not None:
+                        region_gate_rows.append(
+                            {
+                                "variant_id": variant_id,
+                                "scheme": scheme_name,
+                                "fold": k,
+                                "seed": seed,
+                                **{
+                                    f"{chn}_{rn}": rg[chn][rn]
+                                    for chn in ("H", "L")
+                                    for rn in ("FR_ALL", "CDR1", "CDR2", "CDR3")
+                                },
+                            }
+                        )
                 seed_oof.loc[tids] = pred
                 if scheme_name == "primary":
                     best_epochs_primary[seed].append(be)
@@ -420,7 +527,6 @@ def run_transformer_cv(
             "seed_maes": seed_maes,
         }
 
-    # parameter count from one fold file
     n_params = 0
     for p in out_dir.glob(f"fold_{variant_id}_primary_k0_s{seeds[0]}_{ch}.npz"):
         n_params = int(np.load(p)["n_params"])
@@ -440,6 +546,8 @@ def run_transformer_cv(
         "annotation_mode": annotation_mode,
         "merge_mode": merge_mode,
         "chain_mode": chain_mode,
+        "pooling_mode": pooling_mode,
+        "plm_source": plm_source,
         "primary_mae": primary,
         "shadow_mae": shadow,
         "cv_mean_mae": cv_mean(primary, shadow),
@@ -450,8 +558,11 @@ def run_transformer_cv(
         "config_hash": ch,
         "best_epochs_primary": {str(k): v for k, v in best_epochs_primary.items()},
         "quick": quick,
+        "batch_sizes_used": batch_sizes_used,
+        "region_gate_rows": region_gate_rows,
     }
-    cache_path.write_text(json.dumps(summary, indent=2) + "\n")
+    cache_path.write_text(json.dumps({k: v for k, v in summary.items() if k != "region_gate_rows"}, indent=2) + "\n")
+    # keep region rows separately to avoid huge JSON duplication in cache; still return them
     np.savez_compressed(
         oof_path,
         primary_oof=results_scheme["primary"]["oof"].loc[dev_ids].to_numpy(float),
@@ -607,15 +718,16 @@ def full_dev_transformer_predict(
     device: str,
     recipe_id: Optional[str] = None,
     quick: bool = False,
+    plm_source: Optional[str] = None,
+    pooling_mode: str = "reg",
 ) -> pd.DataFrame:
     """Median Primary best_epoch per seed → train full DEV → average Test preds."""
     presets = load_presets()
     seeds = [presets["neural"]["seeds"][0]] if quick else list(presets["neural"]["seeds"])
     device_t = torch.device("cpu" if device == "cpu" else "cuda:0")
     ncfg = presets["neural"]
-    plm_source = "esm2" if (content_mode == "frozen" and chain_mode == "H_ONLY") else "ablingua"
+    plm_source = resolve_plm_source(content_mode, chain_mode, plm_source)
     y_map = {str(r.id): float(getattr(r, target)) for r in dev.itertuples(index=False)}
-    # dummy y for test
     for a in test["id"].astype(str):
         y_map.setdefault(a, 0.0)
     dev_ids = dev["id"].astype(str).tolist()
@@ -643,6 +755,8 @@ def full_dev_transformer_predict(
             chain_mode=chain_mode,
             rb=rb,
             presets=presets,
+            plm_source=plm_source,
+            pooling_mode=pooling_mode,
         )
         if fixed_parts is not None:
             model: nn.Module = FeatureFusionModel(
