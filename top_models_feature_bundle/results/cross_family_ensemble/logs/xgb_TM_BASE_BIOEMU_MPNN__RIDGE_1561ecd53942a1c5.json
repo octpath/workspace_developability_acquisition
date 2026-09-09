@@ -1,0 +1,50 @@
+{
+  "target": "TmApp",
+  "family": "xgboost",
+  "variant_id": "XGB__TM_BASE_BIOEMU_MPNN__RIDGE",
+  "recipe_id": "TM_BASE_BIOEMU_MPNN__RIDGE",
+  "annotation_mode": "",
+  "merge_mode": "",
+  "chain_mode": "",
+  "primary_mae": 2.926207130337939,
+  "shadow_mae": 3.043585553581332,
+  "cv_mean_mae": 2.9848963419596357,
+  "cv_worst_mae": 3.043585553581332,
+  "seed_dispersion_primary": 0.0,
+  "seed_dispersion_shadow": 0.0,
+  "n_trainable_parameters": 0,
+  "config_hash": "1561ecd53942a1c5",
+  "final_preset": "XGB_A",
+  "final_n_estimators": 820,
+  "corresponding_linear_primary": 2.702681240871287,
+  "corresponding_linear_shadow": 2.845936772811553,
+  "delta_primary_vs_linear": -0.22352588946665186,
+  "delta_shadow_vs_linear": -0.1976487807697791,
+  "primary_rotations": [
+    {
+      "preset": "XGB_A",
+      "best_iteration": 819,
+      "val_mae": 3.056002067797112
+    },
+    {
+      "preset": "XGB_A",
+      "best_iteration": 603,
+      "val_mae": 3.0845616658528647
+    },
+    {
+      "preset": "XGB_A",
+      "best_iteration": 612,
+      "val_mae": 3.154161214828491
+    },
+    {
+      "preset": "XGB_A",
+      "best_iteration": 1530,
+      "val_mae": 2.629267692565918
+    },
+    {
+      "preset": "XGB_A",
+      "best_iteration": 1873,
+      "val_mae": 2.666144371032715
+    }
+  ]
+}

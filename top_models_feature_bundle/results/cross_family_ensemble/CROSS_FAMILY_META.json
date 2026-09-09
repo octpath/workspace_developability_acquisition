@@ -1,0 +1,30 @@
+{
+  "TmApp": {
+    "members": [
+      "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+      "TMF2__FUSION__TM_BASE_BIOEMU_MPNN__RIDGE"
+    ],
+    "cv_worst_mae": 2.7378897740997274,
+    "cv_mean_mae": 2.705697791362726,
+    "primary_mae": 2.673505808625724,
+    "shadow_mae": 2.7378897740997274,
+    "public_mae": 3.1702912171669455,
+    "private_mae": 3.2605070313875357,
+    "changed_cv_winner": true,
+    "final_cv_winner": "CROSS_FAMILY_EQUAL_MEAN__TmApp__2m"
+  },
+  "HIC": {
+    "members": [
+      "XGB__HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+      "HICS2__FUSION__HIC_ESM2_SEQ_AROMATIC__LASSO"
+    ],
+    "cv_worst_mae": 0.4345731308470048,
+    "cv_mean_mae": 0.43092754532378397,
+    "primary_mae": 0.4272819598005632,
+    "shadow_mae": 0.4345731308470048,
+    "public_mae": 0.40666442283950605,
+    "private_mae": 0.45606406790123455,
+    "changed_cv_winner": true,
+    "final_cv_winner": "CROSS_FAMILY_EQUAL_MEAN__HIC__2m"
+  }
+}

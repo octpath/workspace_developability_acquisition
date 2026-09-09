@@ -165,6 +165,18 @@ python advanced_models/validate_environment.py
 python advanced_models/run_benchmark.py --stage all --device cuda --dev dev.csv --test test.csv --write-submissions
 ```
 
+## 事前計算済み organizer ベンチマーク結果
+
+線形 / アンサンブル / XGBoost / Transformer / fusion / cross-family quickcheck の統合表:
+
+- [`results/MODEL_BENCHMARK_SUMMARY.csv`](results/MODEL_BENCHMARK_SUMMARY.csv)
+- [`results/MODEL_BENCHMARK_REPORT_JA.md`](results/MODEL_BENCHMARK_REPORT_JA.md)
+- [`results/MODEL_BENCHMARK_REPORT.md`](results/MODEL_BENCHMARK_REPORT.md)
+
+結果は**すでに用意済み**です。コードは再現可能なので、必要なら再実行できます。
+
+**`solution.csv` は配布しません。** 表中の Public/Private は**競技終了後の事後解析**用です（終了後に organizer がローカルへ置いて再採点可能）。モデル選択には使っていません。
+
 ## スコープの明確化
 
 以前の会話での「Organizer Top-3」は、endgame Ridge/Lasso の **狭い**

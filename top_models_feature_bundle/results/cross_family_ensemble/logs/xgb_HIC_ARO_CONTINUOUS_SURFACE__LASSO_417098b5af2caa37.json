@@ -1,0 +1,50 @@
+{
+  "target": "HIC",
+  "family": "xgboost",
+  "variant_id": "XGB__HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+  "recipe_id": "HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+  "annotation_mode": "",
+  "merge_mode": "",
+  "chain_mode": "",
+  "primary_mae": 0.4457530837353364,
+  "shadow_mae": 0.4448926999127424,
+  "cv_mean_mae": 0.4453228918240394,
+  "cv_worst_mae": 0.4457530837353364,
+  "seed_dispersion_primary": 0.0,
+  "seed_dispersion_shadow": 0.0,
+  "n_trainable_parameters": 0,
+  "config_hash": "417098b5af2caa37",
+  "final_preset": "XGB_A",
+  "final_n_estimators": 2017,
+  "corresponding_linear_primary": 0.4822073134231601,
+  "corresponding_linear_shadow": 0.4898232886862832,
+  "delta_primary_vs_linear": 0.03645422968782369,
+  "delta_shadow_vs_linear": 0.044930588773540836,
+  "primary_rotations": [
+    {
+      "preset": "XGB_A",
+      "best_iteration": 2016,
+      "val_mae": 0.4441381655606356
+    },
+    {
+      "preset": "XGB_C",
+      "best_iteration": 999,
+      "val_mae": 0.48263996840968265
+    },
+    {
+      "preset": "XGB_A",
+      "best_iteration": 3645,
+      "val_mae": 0.42445485997200005
+    },
+    {
+      "preset": "XGB_A",
+      "best_iteration": 1706,
+      "val_mae": 0.45992601132392874
+    },
+    {
+      "preset": "XGB_C",
+      "best_iteration": 2486,
+      "val_mae": 0.4091692366600036
+    }
+  ]
+}

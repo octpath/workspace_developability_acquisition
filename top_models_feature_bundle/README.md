@@ -164,6 +164,18 @@ python advanced_models/validate_environment.py
 python advanced_models/run_benchmark.py --stage all --device cuda --dev dev.csv --test test.csv --write-submissions
 ```
 
+## Precomputed organizer benchmark results
+
+Organizer-side consolidated scores (linear / ensemble / XGBoost / Transformers / fusion / cross-family quickcheck):
+
+- [`results/MODEL_BENCHMARK_SUMMARY.csv`](results/MODEL_BENCHMARK_SUMMARY.csv)
+- [`results/MODEL_BENCHMARK_REPORT_JA.md`](results/MODEL_BENCHMARK_REPORT_JA.md)
+- [`results/MODEL_BENCHMARK_REPORT.md`](results/MODEL_BENCHMARK_REPORT.md)
+
+These tables are **already available**. All training code remains reproducible if you want to re-run experiments.
+
+**`solution.csv` is not distributed.** Public/Private columns in the summary are **post-competition postmortem** metrics (organizers may place `solution.csv` locally after closure to rescore). They were **not** used for model selection.
+
 ## Scope clarification
 
 Earlier chat references to an “Organizer Top-3” meant only the **restricted**
