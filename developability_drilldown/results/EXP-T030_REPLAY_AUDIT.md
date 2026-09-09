@@ -1,22 +1,27 @@
 # EXP-T030 replay audit
 
-- git: `b4c510dd9af24d3aef5762354466799bda5f0d60`
-- verdict: **FAIL_STOP**
+- git: `4a9dccb27fd60fabe36b828d6f7010feb93f75c2`
+- run_id: `EXP-T030-REPLAY-001`
+- HISTORICAL_REPRODUCTION: **FAIL**
+- CONTEMPORARY_MATCHED_CONTROL: **ACCEPTED**
 
-## Canonical (experiments.csv)
+## Historical canonical EXP-T030 (unchanged)
 - Primary: 3.317769289998
 - Shadow: 3.214610237153
-- prior status: RESULT_VERIFIED
+- reproducibility_status: RESULT_VERIFIED (not promoted to REPRODUCED)
 
-## Replay (current AnnotatedTransformer, no fusion)
+## Contemporary matched control (EXP-T030-REPLAY-001)
 - Primary: 3.232677420471
 - Shadow: 3.201957977358
-- config_hash: `0814cb40363d8eef`
+- Public: 3.595528851852
+- Private: 3.255966469136
+- Overall: 3.425747660494
+- primary max |Δ| vs historical OOF: 2.741976e+00
+- shadow max |Δ| vs historical OOF: 3.205467e+00
 
-## Prediction deltas vs historical OOF
-- primary max |Δ|: 2.741976e+00
-- shadow max |Δ|: 3.205467e+00
-- tolerances: pred≤1e-05, mae≤1e-06
+## Conclusion
 
-## Reproducibility verdict: FAIL_STOP
+Historical T030 is NOT reproduced under the current environment.
+The contemporary run is accepted as the matched scientific control for T068/T069.
+Historical predictions/scores/config remain untouched.
 

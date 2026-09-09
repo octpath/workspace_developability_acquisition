@@ -122,10 +122,10 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T067":
+    if next_code("TmApp") != "EXP-T068":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T067")
+        ok("next TmApp EXP-T068")
     if next_code("HIC") != "EXP-H054":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
@@ -221,26 +221,46 @@ def main() -> int:
             if r.get("representation_status") != "HISTORICAL_UNAVAILABLE":
                 fail(f"{code} representation_status")
         else:
-            # New architecture Transformer (e.g. EXP-T065): fusion fixed-branch parquet + RASA input
-            if not feat.exists():
-                fail(f"{code} missing fusion fixed-branch feature parquet")
-            if str(r.get("feature_path") or "") != f"experiments/features/{code}.parquet":
-                fail(f"{code} feature_path")
-            if str(r.get("feature_space") or "") != "FUSION_FIXED_BRANCH_RAW":
-                fail(f"{code} feature_space")
-            if str(r.get("representation_status") or "") not in ("NOT_EXPORTED", "EXPORTED"):
-                fail(f"{code} representation_status")
+            # New architecture Transformer (T065–T067 fusion+RASA/CA; T068+ joint HL)
             space = str(r.get("input_space") or "")
+            is_joint_hl = ("JOINT_HL" in space) or space.startswith(
+                "JOINT_HL_SINGLE_REG_FROZEN_RESIDUE"
+            )
             rasa = ROOT / "experiments" / "inputs" / f"{code}_rasa.parquet"
             ca = ROOT / "experiments" / "inputs" / f"{code}_ca.parquet"
-            if "CA_DISTANCE" in space:
-                if not ca.exists():
-                    fail(f"{code} missing CA coordinate input parquet")
-            elif "RASA" in space:
-                if not rasa.exists():
-                    fail(f"{code} missing RASA input parquet")
+            if is_joint_hl:
+                # Joint H/L single-REG: no fusion feature parquet / RASA
+                if str(r.get("feature_path") or "") not in ("", "nan"):
+                    fail(f"{code} joint HL feature_path must be empty")
+                if str(r.get("feature_space") or "") not in ("", "nan"):
+                    fail(f"{code} joint HL feature_space must be empty")
+                if str(r.get("representation_status") or "") not in ("NOT_EXPORTED", "EXPORTED"):
+                    fail(f"{code} representation_status")
+                if "CA_DISTANCE" in space:
+                    if not ca.exists():
+                        fail(f"{code} missing CA coordinate input parquet")
+                # else: no rasa / fusion required
             else:
-                fail(f"{code} unexpected new-architecture input_space without RASA/CA artifact: {space}")
+                # Fusion fixed-branch (EXP-T065–T067)
+                if not feat.exists():
+                    fail(f"{code} missing fusion fixed-branch feature parquet")
+                if str(r.get("feature_path") or "") != f"experiments/features/{code}.parquet":
+                    fail(f"{code} feature_path")
+                if str(r.get("feature_space") or "") != "FUSION_FIXED_BRANCH_RAW":
+                    fail(f"{code} feature_space")
+                if str(r.get("representation_status") or "") not in ("NOT_EXPORTED", "EXPORTED"):
+                    fail(f"{code} representation_status")
+                if "CA_DISTANCE" in space:
+                    if not ca.exists():
+                        fail(f"{code} missing CA coordinate input parquet")
+                elif "RASA" in space:
+                    if not rasa.exists():
+                        fail(f"{code} missing RASA input parquet")
+                else:
+                    fail(
+                        f"{code} unexpected new-architecture input_space "
+                        f"without RASA/CA artifact: {space}"
+                    )
         if not str(r.get("input_space") or ""):
             fail(f"{code} missing input_space")
         if not str(r.get("input_asset_ref") or ""):

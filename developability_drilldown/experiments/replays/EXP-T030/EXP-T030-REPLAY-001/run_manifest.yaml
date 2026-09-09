@@ -1,0 +1,62 @@
+experiment_code: EXP-T030
+run_id: EXP-T030-REPLAY-001
+control_role: CONTEMPORARY_MATCHED_CONTROL
+git_commit: 4a9dccb27fd60fabe36b828d6f7010feb93f75c2
+python_version: 3.12.13
+pytorch_version: 2.10.0+cu128
+cuda_version: '12.8'
+gpu: NVIDIA GeForce RTX 3090
+folds: canonical_simple_tvt_primary_shadow
+seeds:
+- 101
+- 202
+- 303
+training_hparams:
+  optimizer: AdamW
+  lr: 0.0003
+  weight_decay: 0.01
+  batch_size: 16
+  max_epochs: 300
+  patience: 30
+  loss: SmoothL1Loss(beta=0.5)
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  ff_dim: 256
+  dropout: 0.2
+best_epochs_primary:
+  '101':
+  - 18
+  - 6
+  - 11
+  - 8
+  - 20
+  '202':
+  - 14
+  - 10
+  - 36
+  - 9
+  - 20
+  '303':
+  - 11
+  - 8
+  - 8
+  - 8
+  - 13
+prediction_sha256:
+  oof_primary.csv: afc3d8d1d36fe82f70102a2deaa8761eff64337f4ab79a409b065e8564b83075
+  oof_shadow.csv: 0a5a288222e8949874b248b11026e8ade52ea7a3c5f32007ff2565d9ddfc6f9d
+  test.csv: 55bd34bde461359844113feb80c066e22261269f64400f16aec82d880a158d04
+cv_scores:
+  cv_primary_mae: 3.2326774204709396
+  cv_shadow_mae: 3.201957977357716
+test_scores:
+  public_mae: 3.595528851851852
+  private_mae: 3.2559664691358012
+  overall_mae: 3.4257476604938275
+vs_historical:
+  primary_max_abs: 2.74197642008464
+  shadow_max_abs: 3.2054672241210938
+HISTORICAL_REPRODUCTION: FAIL
+CONTEMPORARY_MATCHED_CONTROL: ACCEPTED
+note: Do not treat as REPRODUCED historical EXP-T030
