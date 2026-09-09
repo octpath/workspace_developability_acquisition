@@ -1,0 +1,93 @@
+{
+  "neural": {
+    "seeds": [101, 202, 303],
+    "n_layers": 2,
+    "d_model": 128,
+    "n_heads": 4,
+    "dim_feedforward": 256,
+    "dropout": 0.20,
+    "norm_first": true,
+    "batch_first": true,
+    "lr": 3e-4,
+    "weight_decay": 1e-2,
+    "batch_size": 16,
+    "max_epochs": 300,
+    "early_stopping_patience": 30,
+    "gradient_clip_norm": 1.0,
+    "smooth_l1_beta": 0.5,
+    "fusion_fixed_dim": 64,
+    "fusion_head_hidden": 64
+  },
+  "xgboost": {
+    "learning_rate": 0.02,
+    "n_estimators": 10000,
+    "early_stopping_rounds": 200,
+    "eval_metric": "mae",
+    "presets": {
+      "XGB_A": {
+        "max_depth": 1,
+        "min_child_weight": 5,
+        "subsample": 0.9,
+        "colsample_bytree": 0.7,
+        "reg_lambda": 10,
+        "reg_alpha": 0
+      },
+      "XGB_B": {
+        "max_depth": 2,
+        "min_child_weight": 5,
+        "subsample": 0.9,
+        "colsample_bytree": 0.7,
+        "reg_lambda": 10,
+        "reg_alpha": 0
+      },
+      "XGB_C": {
+        "max_depth": 2,
+        "min_child_weight": 10,
+        "subsample": 0.8,
+        "colsample_bytree": 0.6,
+        "reg_lambda": 30,
+        "reg_alpha": 0
+      },
+      "XGB_D": {
+        "max_depth": 3,
+        "min_child_weight": 10,
+        "subsample": 0.8,
+        "colsample_bytree": 0.6,
+        "reg_lambda": 30,
+        "reg_alpha": 0
+      }
+    }
+  },
+  "variants": {
+    "TmApp": {
+      "scratch": [
+        {"variant_id": "TMS1", "annotation_mode": "minimal", "merge": "concat", "chain_mode": "HL"},
+        {"variant_id": "TMS2", "annotation_mode": "full", "merge": "concat", "chain_mode": "HL"},
+        {"variant_id": "TMS3", "annotation_mode": "full", "merge": "mean", "chain_mode": "HL"}
+      ],
+      "frozen": [
+        {"variant_id": "TMF1", "annotation_mode": "minimal", "merge": "concat", "chain_mode": "HL"},
+        {"variant_id": "TMF2", "annotation_mode": "full", "merge": "concat", "chain_mode": "HL"},
+        {"variant_id": "TMF3", "annotation_mode": "full", "merge": "mean", "chain_mode": "HL"}
+      ]
+    },
+    "HIC": {
+      "scratch": [
+        {"variant_id": "HICS1", "annotation_mode": "minimal", "merge": "h_only", "chain_mode": "H_ONLY"},
+        {"variant_id": "HICS2", "annotation_mode": "full", "merge": "h_only", "chain_mode": "H_ONLY"}
+      ],
+      "frozen": [
+        {"variant_id": "HICF1", "annotation_mode": "minimal", "merge": "h_only", "chain_mode": "H_ONLY"},
+        {"variant_id": "HICF2", "annotation_mode": "full", "merge": "h_only", "chain_mode": "H_ONLY"}
+      ]
+    }
+  },
+  "linear_baselines": {
+    "TM_PARENT_ABLINGUA_CDR3__RIDGE": {"primary": 2.732072376654289, "shadow": 2.784957206877823},
+    "TM_PARENT_ABLINGUA_GLOBAL__RIDGE": {"primary": 2.7466001170280285, "shadow": 2.822725206703513},
+    "TM_BASE_BIOEMU_MPNN__RIDGE": {"primary": 2.702681240871287, "shadow": 2.845936772811553},
+    "HIC_HYDRO_TITRATION__LASSO": {"primary": 0.4872225781431885, "shadow": 0.4833719610538652},
+    "HIC_ARO_CONTINUOUS_SURFACE__LASSO": {"primary": 0.4822073134231601, "shadow": 0.4898232886862832},
+    "HIC_ESM2_SEQ_AROMATIC__LASSO": {"primary": 0.4927303900206625, "shadow": 0.4808724742416768}
+  }
+}

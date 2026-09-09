@@ -1,0 +1,59 @@
+# Residue / annotation asset references for antibody Transformer experiments.
+# Giant tensors remain in top_models_feature_bundle/residue_level/ (do not duplicate).
+# Assembled *.npy are gitignored; reassemble via assemble_embeddings.sh before training.
+
+version: 1
+bundle_root: top_models_feature_bundle/residue_level
+n_antibodies_expected: 324
+assemble_script: top_models_feature_bundle/residue_level/assemble_embeddings.sh
+
+annotations:
+  path: top_models_feature_bundle/residue_level/annotations.parquet
+  n_rows: 75057
+  antibodies: 324
+  qc: top_models_feature_bundle/residue_level/ANNOTATION_QC.md
+  license_status: OK_COMPETITION_DERIVED
+  feature_manifest_block: IMGT_residue_annotations
+
+ablingua600m:
+  path: top_models_feature_bundle/residue_level/ablingua600m/
+  hidden_dim: 1280
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  assembled: [heavy_embeddings.npy, light_embeddings.npy]
+  ids: ids.npy
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/ablingua600m/metadata.json
+
+ablang2:
+  path: top_models_feature_bundle/residue_level/ablang2/
+  hidden_dim: 480
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  mapping: EXACT_AA_1TO1_SPECIAL_STRIPPED
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/ablang2/metadata.json
+  sha256_manifest: top_models_feature_bundle/residue_level/ablang2/SHA256_MANIFEST.json
+
+esm2:
+  path: top_models_feature_bundle/residue_level/esm2/
+  hidden_dim: 1280
+  max_len_H: 140
+  chains: [H]
+  model: facebook/esm2_t33_650M_UR50D
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/esm2/metadata.json
+
+scratch_sequences:
+  source: competition antibody sequences in data/dev.csv and data/test.csv
+  license_note: competition-derived amino-acid sequences
+  license_status: OK_COMPETITION_DERIVED
+
+future_representation_aggregation: UNDECIDED
+# Candidates only (not adopted): PER_SEED, CONCAT_SEEDS, CANONICAL_SEED, ALIGNED_AGGREGATION
+# Do not treat prediction seed-mean as hidden representation seed-mean.
