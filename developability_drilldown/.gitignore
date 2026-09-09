@@ -1,0 +1,14 @@
+# Never distribute competition solution labels
+solution.csv
+**/solution.csv
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.DS_Store
+
+# Local scratch
+.tmp/
+.cache/

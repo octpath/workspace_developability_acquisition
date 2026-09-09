@@ -1,0 +1,21 @@
+=== XGB_TM_BIOEMU_MPNN ===
+  reused npz primary=2.9262071303 shadow=3.0435855536
+=== XGB_TM_ABLINGUA_GLOBAL ===
+/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/xgboost/core.py:569: UserWarning: [09:05:52] WARNING: /__w/xgboost/xgboost/src/common/error_msg.cc:62: Falling back to prediction using DMatrix due to mismatched devices. This might lead to higher memory usage and slower performance. XGBoost is running on: cuda:0, while the input data is on: cpu.
+Potential solutions:
+- Use a data structure that matches the device ordinal in the booster.
+- Set the device for booster before call to inplace_predict.
+
+This warning will only be shown once.
+
+  return func(**kwargs)
+  reran primary=2.8947071499 shadow=3.1105495500
+=== XGB_TM_ABLINGUA_CDR3 ===
+  reran primary=2.9298909034 shadow=3.1229759499
+=== XGB_HIC_CONTINUOUS_SURFACE ===
+  reused npz primary=0.4457530837 shadow=0.4448926999
+=== XGB_HIC_HYDRO_TITRATION ===
+  reran primary=0.4537766579 shadow=0.4546926663
+=== XGB_HIC_ESM2_SEQ_AROMATIC ===
+  reran primary=0.4595205303 shadow=0.4600007806
+wrote /workspace_developability_acquisition/developability_drilldown/results/xgb_oof_rebuild_summary.json

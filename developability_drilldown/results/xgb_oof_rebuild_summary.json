@@ -1,0 +1,262 @@
+[
+  {
+    "experiment_id": "XGB_TM_BIOEMU_MPNN",
+    "source": "tracked_npz",
+    "primary_reconstructed": 2.926207130337939,
+    "shadow_reconstructed": 3.043585553581332
+  },
+  {
+    "experiment_id": "XGB_TM_ABLINGUA_GLOBAL",
+    "source": "frozen_protocol_rerun",
+    "primary_reconstructed": 2.8947071499294705,
+    "shadow_reconstructed": 3.1105495499975886,
+    "rotations": {
+      "primary": [
+        {
+          "preset": "XGB_A",
+          "best_iteration": 815,
+          "val_mae": 3.0752267548532197
+        },
+        {
+          "preset": "XGB_A",
+          "best_iteration": 1637,
+          "val_mae": 2.9621723059451943
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 780,
+          "val_mae": 3.1153268814086914
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 1233,
+          "val_mae": 2.632892370223999
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 2852,
+          "val_mae": 2.6915626525878906
+        }
+      ],
+      "shadow": [
+        {
+          "preset": "XGB_A",
+          "best_iteration": 9989,
+          "val_mae": 2.356401385683002
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 150,
+          "val_mae": 3.4197330474853516
+        },
+        {
+          "preset": "XGB_A",
+          "best_iteration": 1281,
+          "val_mae": 2.9253103733062744
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 0,
+          "val_mae": 3.554812344637784
+        },
+        {
+          "preset": "XGB_A",
+          "best_iteration": 1016,
+          "val_mae": 2.701467514038086
+        }
+      ]
+    }
+  },
+  {
+    "experiment_id": "XGB_TM_ABLINGUA_CDR3",
+    "source": "frozen_protocol_rerun",
+    "primary_reconstructed": 2.929890903425805,
+    "shadow_reconstructed": 3.122975949887876,
+    "rotations": {
+      "primary": [
+        {
+          "preset": "XGB_B",
+          "best_iteration": 652,
+          "val_mae": 3.0431849161783853
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 1095,
+          "val_mae": 3.0331277558297822
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 1033,
+          "val_mae": 3.0797319412231445
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 1193,
+          "val_mae": 2.6829380989074707
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 9993,
+          "val_mae": 2.6807520389556885
+        }
+      ],
+      "shadow": [
+        {
+          "preset": "XGB_A",
+          "best_iteration": 3547,
+          "val_mae": 2.3369505911162407
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 128,
+          "val_mae": 3.4208669662475586
+        },
+        {
+          "preset": "XGB_A",
+          "best_iteration": 1226,
+          "val_mae": 2.963845729827881
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 0,
+          "val_mae": 3.554812344637784
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 1973,
+          "val_mae": 2.6965715885162354
+        }
+      ]
+    }
+  },
+  {
+    "experiment_id": "XGB_HIC_CONTINUOUS_SURFACE",
+    "source": "tracked_npz",
+    "primary_reconstructed": 0.4457530837353364,
+    "shadow_reconstructed": 0.4448926999127424
+  },
+  {
+    "experiment_id": "XGB_HIC_HYDRO_TITRATION",
+    "source": "frozen_protocol_rerun",
+    "primary_reconstructed": 0.4537766579051077,
+    "shadow_reconstructed": 0.45469266632456834,
+    "rotations": {
+      "primary": [
+        {
+          "preset": "XGB_A",
+          "best_iteration": 1679,
+          "val_mae": 0.44994608283765397
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 897,
+          "val_mae": 0.48855991617838523
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 407,
+          "val_mae": 0.43543604373931877
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 628,
+          "val_mae": 0.48908722949028016
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 2605,
+          "val_mae": 0.4106803038120269
+        }
+      ],
+      "shadow": [
+        {
+          "preset": "XGB_A",
+          "best_iteration": 522,
+          "val_mae": 0.4696928586092861
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 446,
+          "val_mae": 0.4601336946487427
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 1543,
+          "val_mae": 0.42339089298248295
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 3698,
+          "val_mae": 0.482592768351237
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 1916,
+          "val_mae": 0.3206109957695007
+        }
+      ]
+    }
+  },
+  {
+    "experiment_id": "XGB_HIC_ESM2_SEQ_AROMATIC",
+    "source": "frozen_protocol_rerun",
+    "primary_reconstructed": 0.4595205302768282,
+    "shadow_reconstructed": 0.46000078060008853,
+    "rotations": {
+      "primary": [
+        {
+          "preset": "XGB_A",
+          "best_iteration": 1378,
+          "val_mae": 0.4620609544696231
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 1041,
+          "val_mae": 0.487701175805294
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 2070,
+          "val_mae": 0.43114448785781856
+        },
+        {
+          "preset": "XGB_A",
+          "best_iteration": 1399,
+          "val_mae": 0.4768337523937225
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 2451,
+          "val_mae": 0.423273692369461
+        }
+      ],
+      "shadow": [
+        {
+          "preset": "XGB_A",
+          "best_iteration": 465,
+          "val_mae": 0.4872094247991387
+        },
+        {
+          "preset": "XGB_B",
+          "best_iteration": 310,
+          "val_mae": 0.46231555247306827
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 1691,
+          "val_mae": 0.42385965466499337
+        },
+        {
+          "preset": "XGB_D",
+          "best_iteration": 3326,
+          "val_mae": 0.4900345491351504
+        },
+        {
+          "preset": "XGB_C",
+          "best_iteration": 3579,
+          "val_mae": 0.31933946084976184
+        }
+      ]
+    }
+  }
+]

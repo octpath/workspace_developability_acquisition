@@ -1,0 +1,62 @@
+{
+  "experiment_id": "XGB_HIC_ESM2_SEQ_AROMATIC",
+  "source": "frozen_protocol_rerun",
+  "primary_reconstructed": 0.4595205302768282,
+  "shadow_reconstructed": 0.46000078060008853,
+  "rotations": {
+    "primary": [
+      {
+        "preset": "XGB_A",
+        "best_iteration": 1378,
+        "val_mae": 0.4620609544696231
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 1041,
+        "val_mae": 0.487701175805294
+      },
+      {
+        "preset": "XGB_B",
+        "best_iteration": 2070,
+        "val_mae": 0.43114448785781856
+      },
+      {
+        "preset": "XGB_A",
+        "best_iteration": 1399,
+        "val_mae": 0.4768337523937225
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 2451,
+        "val_mae": 0.423273692369461
+      }
+    ],
+    "shadow": [
+      {
+        "preset": "XGB_A",
+        "best_iteration": 465,
+        "val_mae": 0.4872094247991387
+      },
+      {
+        "preset": "XGB_B",
+        "best_iteration": 310,
+        "val_mae": 0.46231555247306827
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 1691,
+        "val_mae": 0.42385965466499337
+      },
+      {
+        "preset": "XGB_D",
+        "best_iteration": 3326,
+        "val_mae": 0.4900345491351504
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 3579,
+        "val_mae": 0.31933946084976184
+      }
+    ]
+  }
+}

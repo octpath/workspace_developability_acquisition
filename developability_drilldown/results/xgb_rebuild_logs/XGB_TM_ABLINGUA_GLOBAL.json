@@ -1,0 +1,62 @@
+{
+  "experiment_id": "XGB_TM_ABLINGUA_GLOBAL",
+  "source": "frozen_protocol_rerun",
+  "primary_reconstructed": 2.8947071499294705,
+  "shadow_reconstructed": 3.1105495499975886,
+  "rotations": {
+    "primary": [
+      {
+        "preset": "XGB_A",
+        "best_iteration": 815,
+        "val_mae": 3.0752267548532197
+      },
+      {
+        "preset": "XGB_A",
+        "best_iteration": 1637,
+        "val_mae": 2.9621723059451943
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 780,
+        "val_mae": 3.1153268814086914
+      },
+      {
+        "preset": "XGB_D",
+        "best_iteration": 1233,
+        "val_mae": 2.632892370223999
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 2852,
+        "val_mae": 2.6915626525878906
+      }
+    ],
+    "shadow": [
+      {
+        "preset": "XGB_A",
+        "best_iteration": 9989,
+        "val_mae": 2.356401385683002
+      },
+      {
+        "preset": "XGB_D",
+        "best_iteration": 150,
+        "val_mae": 3.4197330474853516
+      },
+      {
+        "preset": "XGB_A",
+        "best_iteration": 1281,
+        "val_mae": 2.9253103733062744
+      },
+      {
+        "preset": "XGB_B",
+        "best_iteration": 0,
+        "val_mae": 3.554812344637784
+      },
+      {
+        "preset": "XGB_A",
+        "best_iteration": 1016,
+        "val_mae": 2.701467514038086
+      }
+    ]
+  }
+}

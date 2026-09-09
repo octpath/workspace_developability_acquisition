@@ -1,0 +1,32 @@
+experiment_id: LIN_TM_ABLINGUA_GLOBAL_RIDGE
+target: TmApp
+family: LINEAR
+model_type: RIDGE
+source_model_id: TM_PARENT_ABLINGUA_GLOBAL__RIDGE
+feature_recipe: TM_PARENT_ABLINGUA_GLOBAL__RIDGE
+feature_blocks:
+- AbLang2_HL_paired
+- SEQ_BASIC
+- BIOEMU_NEW_PAIRWISE
+- M1_PROTEINMPNN
+- AbLingua_HL_mean
+preprocessing:
+  description: recipe_raw + PCA32(AbLingua) + Ridge
+  fold_local: true
+  applied_in_feature_parquet: false
+  feature_parquet_space: RAW_PREPROCESS
+hyperparameters:
+  alpha: 100.0
+cv_protocol: canonical_simple_tvt_primary_shadow
+selection_policy_at_creation: CV_ONLY
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+artifact_status: FULL
+reproducibility: EXACT_REPRODUCTION_from_bundle
+license_status: SEE_feature_manifest
+source_paths:
+  scores: top_models_feature_bundle/results/MODEL_BENCHMARK_SUMMARY.csv
+  oof_primary: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_PARENT_ABLINGUA_GLOBAL__RIDGE__oof_primary.csv
+  oof_shadow: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_PARENT_ABLINGUA_GLOBAL__RIDGE__oof_shadow.csv
+  test: organizer_extension/top3_ensemble_quickcheck/base_predictions/TM_PARENT_ABLINGUA_GLOBAL__RIDGE__test.csv
+  recipes: top_models_feature_bundle/recipes.csv
+  alpha_policy: top_models_feature_bundle/FULL_DEV_ALPHA_POLICY_BUNDLE.json

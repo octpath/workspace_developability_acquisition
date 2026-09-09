@@ -1,0 +1,62 @@
+{
+  "experiment_id": "XGB_HIC_HYDRO_TITRATION",
+  "source": "frozen_protocol_rerun",
+  "primary_reconstructed": 0.4537766579051077,
+  "shadow_reconstructed": 0.45469266632456834,
+  "rotations": {
+    "primary": [
+      {
+        "preset": "XGB_A",
+        "best_iteration": 1679,
+        "val_mae": 0.44994608283765397
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 897,
+        "val_mae": 0.48855991617838523
+      },
+      {
+        "preset": "XGB_B",
+        "best_iteration": 407,
+        "val_mae": 0.43543604373931877
+      },
+      {
+        "preset": "XGB_B",
+        "best_iteration": 628,
+        "val_mae": 0.48908722949028016
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 2605,
+        "val_mae": 0.4106803038120269
+      }
+    ],
+    "shadow": [
+      {
+        "preset": "XGB_A",
+        "best_iteration": 522,
+        "val_mae": 0.4696928586092861
+      },
+      {
+        "preset": "XGB_B",
+        "best_iteration": 446,
+        "val_mae": 0.4601336946487427
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 1543,
+        "val_mae": 0.42339089298248295
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 3698,
+        "val_mae": 0.482592768351237
+      },
+      {
+        "preset": "XGB_C",
+        "best_iteration": 1916,
+        "val_mae": 0.3206109957695007
+      }
+    ]
+  }
+}
