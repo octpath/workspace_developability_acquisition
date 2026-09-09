@@ -1,0 +1,31 @@
+{
+  "git_rev": "b4c510dd9af24d3aef5762354466799bda5f0d60",
+  "elapsed_sec": 106.12742877006531,
+  "quick": false,
+  "historical": {
+    "cv_primary_mae": 3.3177692899978704,
+    "cv_shadow_mae": 3.214610237152979,
+    "cv_mean_mae": 3.266189763575425,
+    "cv_worst_mae": 3.3177692899978704,
+    "reproduction_status": "RESULT_VERIFIED"
+  },
+  "replay": {
+    "cv_primary_mae": 3.2326774204709396,
+    "cv_shadow_mae": 3.201957977357716,
+    "cv_mean_mae": 3.2173176989143277,
+    "cv_worst_mae": 3.2326774204709396,
+    "config_hash": "0814cb40363d8eef",
+    "recompute_primary_mae": 3.2326774204709396,
+    "recompute_shadow_mae": 3.201957977357716
+  },
+  "max_pred_delta": {
+    "primary": 2.74197642008464,
+    "shadow": 3.2054672241210938
+  },
+  "tolerances": {
+    "pred": 1e-05,
+    "mae": 1e-06
+  },
+  "verdict": "FAIL_STOP",
+  "note": "Historical EXP-T030 predictions untouched; replay under results/reproduction/EXP-T030/"
+}

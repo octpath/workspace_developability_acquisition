@@ -66,6 +66,7 @@ class AbDataset(Dataset):
         use_continuous_rasa: bool = False,
         use_rasa_weighted_pool: bool = False,
         use_ca_distance_bias: bool = False,
+    joint_hl_single_reg: bool = False,
     ):
         self.ids = ids
         self.y = y
@@ -176,6 +177,7 @@ def build_transformer(
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
     use_ca_distance_bias: bool = False,
+    joint_hl_single_reg: bool = False,
     initial_ell_angstrom: Optional[float] = None,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
@@ -205,6 +207,7 @@ def build_transformer(
         use_continuous_rasa=use_continuous_rasa,
         use_rasa_weighted_pool=use_rasa_weighted_pool,
         use_ca_distance_bias=use_ca_distance_bias,
+        joint_hl_single_reg=joint_hl_single_reg,
         initial_ell_angstrom=initial_ell_angstrom,
     )
 
@@ -230,6 +233,7 @@ def train_transformer_seed(
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
     use_ca_distance_bias: bool = False,
+    joint_hl_single_reg: bool = False,
 ) -> dict:
     presets = load_presets()
     ncfg = presets["neural"]
@@ -244,14 +248,22 @@ def train_transformer_seed(
 
     initial_ell = None
     if use_ca_distance_bias:
-        from classical_features.ca_cache import train_median_pair_distance
+        from classical_features.ca_cache import (
+            train_median_pair_distance,
+            train_median_pair_distance_joint_fv,
+        )
 
         if rb.heavy_ca is None or rb.light_ca is None:
             raise RuntimeError("CA distance bias requires attached CA coords")
         train_idxs = [rb.id_to_idx[a] for a in train_ids]
-        initial_ell = train_median_pair_distance(
-            rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
-        )
+        if joint_hl_single_reg:
+            initial_ell = train_median_pair_distance_joint_fv(
+                rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
+            )
+        else:
+            initial_ell = train_median_pair_distance(
+                rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
+            )
 
     Xtr = Xva = Xte = None
     fixed_dim = 0
@@ -270,6 +282,7 @@ def train_transformer_seed(
             use_continuous_rasa=use_continuous_rasa,
             use_rasa_weighted_pool=use_rasa_weighted_pool,
             use_ca_distance_bias=use_ca_distance_bias,
+            joint_hl_single_reg=joint_hl_single_reg,
         )
         return DataLoader(ds, batch_size=batch_sz, shuffle=shuffle, collate_fn=collate_batch)
 
@@ -286,6 +299,7 @@ def train_transformer_seed(
             use_continuous_rasa=use_continuous_rasa,
             use_rasa_weighted_pool=use_rasa_weighted_pool,
             use_ca_distance_bias=use_ca_distance_bias,
+            joint_hl_single_reg=joint_hl_single_reg,
             initial_ell_angstrom=initial_ell,
         )
         if fixed_parts is not None:
@@ -384,6 +398,7 @@ def train_transformer_seed(
                     use_continuous_rasa=use_continuous_rasa,
                     use_rasa_weighted_pool=use_rasa_weighted_pool,
                     use_ca_distance_bias=use_ca_distance_bias,
+                    joint_hl_single_reg=joint_hl_single_reg,
                     initial_ell_angstrom=initial_ell,
                 )
                 model2 = FeatureFusionModel(
@@ -471,6 +486,7 @@ def run_transformer_cv(
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
     use_ca_distance_bias: bool = False,
+    joint_hl_single_reg: bool = False,
 ) -> dict:
     """Primary+Shadow multi-seed ensemble OOF."""
     device_t = torch.device(device if device != "cuda" else "cuda:0")
@@ -500,6 +516,7 @@ def run_transformer_cv(
         "use_continuous_rasa": bool(use_continuous_rasa),
         "use_rasa_weighted_pool": bool(use_rasa_weighted_pool),
         "use_ca_distance_bias": bool(use_ca_distance_bias),
+        "joint_hl_single_reg": bool(joint_hl_single_reg),
     }
     ch = config_hash(cfg)
     cache_path = out_dir / f"cache_{variant_id}_{ch}.json"
@@ -575,6 +592,7 @@ def run_transformer_cv(
                         use_continuous_rasa=use_continuous_rasa,
                         use_rasa_weighted_pool=use_rasa_weighted_pool,
                         use_ca_distance_bias=use_ca_distance_bias,
+            joint_hl_single_reg=joint_hl_single_reg,
                     )
                     pred = out["test_pred"]
                     tids = out["test_ids"]
@@ -710,6 +728,7 @@ def full_dev_transformer_predict(
     use_continuous_rasa: bool = False,
     use_rasa_weighted_pool: bool = False,
     use_ca_distance_bias: bool = False,
+    joint_hl_single_reg: bool = False,
     checkpoint_dir: Optional[Path] = None,
 ) -> pd.DataFrame:
     """Median Primary best_epoch per seed → train full DEV → average Test preds."""
@@ -732,14 +751,22 @@ def full_dev_transformer_predict(
 
     initial_ell = None
     if use_ca_distance_bias:
-        from classical_features.ca_cache import train_median_pair_distance
+        from classical_features.ca_cache import (
+            train_median_pair_distance,
+            train_median_pair_distance_joint_fv,
+        )
 
         if rb.heavy_ca is None or rb.light_ca is None:
             raise RuntimeError("CA distance bias requires attached CA coords")
         train_idxs = [rb.id_to_idx[a] for a in dev_ids]
-        initial_ell = train_median_pair_distance(
-            rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
-        )
+        if joint_hl_single_reg:
+            initial_ell = train_median_pair_distance_joint_fv(
+                rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
+            )
+        else:
+            initial_ell = train_median_pair_distance(
+                rb.heavy_ca, rb.light_ca, rb.heavy_mask, rb.light_mask, train_idxs
+            )
 
     preds = []
     fulldev_distance_rows: list[dict] = []
@@ -767,6 +794,7 @@ def full_dev_transformer_predict(
             use_continuous_rasa=use_continuous_rasa,
             use_rasa_weighted_pool=use_rasa_weighted_pool,
             use_ca_distance_bias=use_ca_distance_bias,
+            joint_hl_single_reg=joint_hl_single_reg,
             initial_ell_angstrom=initial_ell,
         )
         if fixed_parts is not None:
@@ -797,6 +825,7 @@ def full_dev_transformer_predict(
                 use_continuous_rasa=use_continuous_rasa,
                 use_rasa_weighted_pool=use_rasa_weighted_pool,
                 use_ca_distance_bias=use_ca_distance_bias,
+            joint_hl_single_reg=joint_hl_single_reg,
             )
             return DataLoader(ds, batch_size=bs, shuffle=shuffle, collate_fn=collate_batch)
 

@@ -144,3 +144,37 @@ def train_median_pair_distance(
         raise RuntimeError("no valid Cα pairs in TRAIN for median ell init")
     all_d = np.concatenate(dists)
     return float(np.median(all_d))
+
+
+def train_median_pair_distance_joint_fv(
+    ca_heavy: np.ndarray,
+    ca_light: np.ndarray,
+    heavy_mask: np.ndarray,
+    light_mask: np.ndarray,
+    train_idxs: list[int],
+) -> float:
+    """Median valid full-Fv Cα pairwise distance (H-H, L-L, H-L) over TRAIN only."""
+    dists: list[np.ndarray] = []
+    for i in train_idxs:
+        parts = []
+        for ca, mask in ((ca_heavy[i], heavy_mask[i]), (ca_light[i], light_mask[i])):
+            n = int(mask.sum())
+            if n < 1:
+                continue
+            xyz = ca[:n]
+            ok = np.isfinite(xyz).all(axis=1)
+            xyz = xyz[ok]
+            if len(xyz):
+                parts.append(xyz)
+        if not parts:
+            continue
+        xyz = np.concatenate(parts, axis=0)
+        n = len(xyz)
+        if n < 2:
+            continue
+        d = np.linalg.norm(xyz[:, None, :] - xyz[None, :, :], axis=-1)
+        iu = np.triu_indices(n, k=1)
+        dists.append(d[iu].astype(np.float64))
+    if not dists:
+        raise RuntimeError("no valid joint-Fv Cα pairs in TRAIN for median ell init")
+    return float(np.median(np.concatenate(dists)))

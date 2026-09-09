@@ -49,6 +49,7 @@ class AnnotatedTransformer(nn.Module):
         use_continuous_rasa: bool = False,
         use_rasa_weighted_pool: bool = False,
         use_ca_distance_bias: bool = False,
+        joint_hl_single_reg: bool = False,
         initial_ell_angstrom: Optional[float] = None,
     ):
         super().__init__()
@@ -60,6 +61,12 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("use continuous RASA annotation XOR rasa-weighted pool, not both")
         if use_ca_distance_bias and (use_continuous_rasa or use_rasa_weighted_pool):
             raise ValueError("CA distance bias is mutually exclusive with RASA modes in this experiment series")
+        if joint_hl_single_reg and (use_continuous_rasa or use_rasa_weighted_pool):
+            raise ValueError("joint H/L single-REG is mutually exclusive with RASA modes in this series")
+        if joint_hl_single_reg and pooling_mode != "reg":
+            raise ValueError("joint_hl_single_reg requires pooling_mode='reg'")
+        if joint_hl_single_reg and chain_mode != "HL":
+            raise ValueError("joint_hl_single_reg requires chain_mode='HL'")
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
@@ -70,6 +77,7 @@ class AnnotatedTransformer(nn.Module):
         self.use_continuous_rasa = bool(use_continuous_rasa)
         self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
         self.use_ca_distance_bias = bool(use_ca_distance_bias)
+        self.joint_hl_single_reg = bool(joint_hl_single_reg)
         self.rasa_pool_eps = 1e-12
         self.rasa_pool_zero_denom_count = 0
         self.distance_kernel_shared_across_layers = True
@@ -112,9 +120,17 @@ class AnnotatedTransformer(nn.Module):
         else:
             self.rasa_pool_proj = None
 
-        # REG tokens: index 0 = REG_H, 1 = REG_L (learned)
-        self.reg_token = nn.Parameter(torch.zeros(2, d_model))
-        nn.init.normal_(self.reg_token, std=0.02)
+        # REG tokens:
+        # - separate H/L encoding: index 0 = REG_H, 1 = REG_L
+        # - joint H/L single-REG: one antibody-level REG (neither H nor L)
+        if self.joint_hl_single_reg:
+            self.register_parameter("reg_token", None)
+            self.single_reg_token = nn.Parameter(torch.zeros(d_model))
+            nn.init.normal_(self.single_reg_token, std=0.02)
+        else:
+            self.reg_token = nn.Parameter(torch.zeros(2, d_model))
+            nn.init.normal_(self.reg_token, std=0.02)
+            self.register_parameter("single_reg_token", None)
 
         # Global (not sample-dependent) region-gate logits per chain
         if pooling_mode == "region_gate":
@@ -142,7 +158,10 @@ class AnnotatedTransformer(nn.Module):
             self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
         self.dropout = nn.Dropout(dropout)
 
-        out_dim = d_model if merge_mode in ("mean", "h_only") else 2 * d_model
+        if self.joint_hl_single_reg:
+            out_dim = d_model
+        else:
+            out_dim = d_model if merge_mode in ("mean", "h_only") else 2 * d_model
         self.head = nn.Sequential(
             nn.Linear(out_dim, d_model),
             nn.GELU(),
@@ -298,7 +317,90 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("region required for region_gate pooling")
         return self._pool_region_gate(h[:, 1:], mask, region, chain_idx)
 
+    def _residue_stream(
+        self,
+        *,
+        chain_idx: int,
+        aa: Optional[torch.Tensor],
+        plm: Optional[torch.Tensor],
+        pos: torch.Tensor,
+        imgt: Optional[torch.Tensor],
+        region: Optional[torch.Tensor],
+    ) -> torch.Tensor:
+        """Per-residue embeddings with T030 FULL annotations (no REG)."""
+        content = self._content(aa, plm)
+        x = content + self.pos_emb(pos) + self.chain_emb.weight[chain_idx]
+        if self.use_imgt and imgt is not None:
+            x = x + self.imgt_emb(imgt)
+        if self.use_region and region is not None:
+            x = x + self.region_emb(region)
+        return x
+
+    def encode_joint_hl(
+        self,
+        batch: dict,
+    ) -> torch.Tensor:
+        """Single-encoder joint H+L sequence: [REG, H..., L...]; return REG hidden."""
+        if not self.joint_hl_single_reg:
+            raise RuntimeError("encode_joint_hl requires joint_hl_single_reg=True")
+        mh = batch["heavy_mask"]
+        ml = batch["light_mask"]
+        B = mh.shape[0]
+        Lh = mh.shape[1]
+        Ll = ml.shape[1]
+        x_h = self._residue_stream(
+            chain_idx=0,
+            aa=batch.get("heavy_aa"),
+            plm=batch.get("heavy_plm"),
+            pos=batch["heavy_pos"],
+            imgt=batch.get("heavy_imgt"),
+            region=batch.get("heavy_region"),
+        )
+        x_l = self._residue_stream(
+            chain_idx=1,
+            aa=batch.get("light_aa"),
+            plm=batch.get("light_plm"),
+            pos=batch["light_pos"],
+            imgt=batch.get("light_imgt"),
+            region=batch.get("light_region"),
+        )
+        # Single REG: neither H nor L — no chain / IMGT / region / position embedding.
+        reg = self.single_reg_token.view(1, 1, -1).expand(B, 1, -1)
+        x = torch.cat([reg, x_h, x_l], dim=1)
+
+        pad = torch.zeros(B, 1 + Lh + Ll, dtype=torch.bool, device=mh.device)
+        pad[:, 1 : 1 + Lh] = ~mh
+        pad[:, 1 + Lh :] = ~ml
+
+        if self.use_ca_distance_bias:
+            ca_h = batch.get("heavy_ca")
+            ca_l = batch.get("light_ca")
+            if ca_h is None or ca_l is None:
+                raise ValueError("CA distance bias enabled but CA coords missing")
+            coords = torch.cat(
+                [torch.nan_to_num(ca_h, nan=0.0), torch.nan_to_num(ca_l, nan=0.0)],
+                dim=1,
+            )
+            ca_ok = torch.cat(
+                [
+                    torch.isfinite(ca_h).all(dim=-1) & mh,
+                    torch.isfinite(ca_l).all(dim=-1) & ml,
+                ],
+                dim=1,
+            )
+            h = self.encoder(
+                self.dropout(x),
+                src_key_padding_mask=pad,
+                residue_coords=coords,
+                residue_mask=ca_ok,
+            )
+        else:
+            h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
+        return h[:, 0]
+
     def forward_repr(self, batch: dict) -> torch.Tensor:
+        if self.joint_hl_single_reg:
+            return self.encode_joint_hl(batch)
         h_h = self.encode_chain(
             chain_idx=0,
             aa=batch.get("heavy_aa"),
