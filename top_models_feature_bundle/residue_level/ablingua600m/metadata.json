@@ -1,0 +1,19 @@
+{
+  "model_repo": "IDEA-AI4S/AbLingua",
+  "hf_revision": "4d1272df61a32805695f8789664e2716bb78bb60",
+  "representation_source": "outputs.hidden_states[-1]",
+  "mapping": "TripleAA token_to_residue_spans + residue_embeddings_from_tokens (validated guided-pooling)",
+  "n_ids": 324,
+  "max_len_H": 140,
+  "max_len_L": 120,
+  "hidden_dim": 1280,
+  "dtype_on_disk": "float16",
+  "dtype_in_memory": "float32",
+  "extraction_wall_time_sec": 14.535706996917725,
+  "device": "cuda:0",
+  "license_status": "REVIEW_MODEL_OUTPUT",
+  "code_license_note": "AbLingua vendor BioTokenizer + HF AutoModelForMaskedLM",
+  "model_weight_license_note": "IDEA-AI4S/AbLingua weights \u2014 review redistribution",
+  "derived_output_redistribution": "REVIEW_MODEL_OUTPUT \u2014 do not mark releasable without organizer approval",
+  "local_regeneration": "python scripts/build_residue_assets.py --skip-annotations --skip-esm2 --device cuda"
+}

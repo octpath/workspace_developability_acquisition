@@ -11,3 +11,6 @@ M1_PROTEINMPNN,data/proteinmpnn.parquet,324,1,M1_PROTEINMPNN,M1_PROTEINMPNN,cach
 SEQ_ALL,data/seq_all.parquet,324,115,SEQ_ALL,SEQ_ALL,cached_organizer,Built from official competition sequences,NO,,OK_COMPETITION_DERIVED,RAW features (no CV-fitted PCA)
 SEQ_BASIC,data/seq_basic.parquet,324,78,SEQ_BASIC,SEQ_BASIC,cached_organizer,Built from official competition sequences,NO,,OK_COMPETITION_DERIVED,RAW features (no CV-fitted PCA)
 TITRATION_SHAPE,data/titration_shape.parquet,324,18,TITRATION_SHAPE,TITRATION_SHAPE,cached_organizer,titration_shape.parquet,NO,,SEE_FEATURE_EXTENSION,RAW features (no CV-fitted PCA)
+AbLingua_residue_HL,residue_level/ablingua600m/,324,1280,residue_PLM,AbLingua-600M,IDEA-AI4S/AbLingua@4d1272df,residue TripleAA overlap mapping H+L,NO,,REVIEW_MODEL_OUTPUT,float16 on disk; regenerate via scripts/build_residue_assets.py
+ESM2_residue_H,residue_level/esm2/,324,1280,residue_PLM,ESM-2,facebook/esm2_t33_650M_UR50D,Heavy residue states; mean-pool matches ESM2_H,NO,,REVIEW_MODEL_OUTPUT,float16 on disk; regenerate via scripts/build_residue_assets.py
+IMGT_residue_annotations,residue_level/annotations.parquet,324,per_residue,annotation,ANARCI/IMGT,cdr_sequence_index_imgt,per-residue IMGT/region,NO,,OK_COMPETITION_DERIVED,target-blind numbering

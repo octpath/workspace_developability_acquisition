@@ -1,0 +1,36 @@
+{
+  "n_ids": 324,
+  "annotation_rows": 75057,
+  "columns": [
+    "id",
+    "chain",
+    "seq_index",
+    "aa",
+    "imgt_position",
+    "imgt_number",
+    "imgt_insertion",
+    "region",
+    "is_cdr",
+    "cdr_number",
+    "numbering_status"
+  ],
+  "qc": {
+    "n_antibodies": 324,
+    "n_annotation_rows": 75057,
+    "numbering_success_H": "324/324",
+    "numbering_success_L": "324/324",
+    "n_unknown_residues": 0,
+    "n_antibodies_with_any_fallback": 0,
+    "region_counts": {
+      "FR3": 23980,
+      "FR1": 16438,
+      "FR2": 11015,
+      "CDR3": 8094,
+      "FR4": 6804,
+      "CDR1": 5178,
+      "CDR2": 3548
+    },
+    "source_cdr_csv": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/cdr_sequence_index_imgt.csv",
+    "imgt_scheme": "IMGT via cdr_sequence_index_imgt.csv (validated AbLingua guided-pooling source)"
+  }
+}

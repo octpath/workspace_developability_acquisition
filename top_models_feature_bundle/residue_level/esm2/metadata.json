@@ -1,0 +1,16 @@
+{
+  "model": "facebook/esm2_t33_650M_UR50D",
+  "chain": "H",
+  "n_ids": 324,
+  "max_len": 140,
+  "hidden_dim": 1280,
+  "dtype_on_disk": "float16",
+  "dtype_in_memory": "float32",
+  "source_cache": "/workspace_developability_acquisition/organizer_extension/feature_prospecting/structure_marathon/cache/esm2_residue",
+  "pool_vs_esm2_h_max_abs_diff_float32": 5.584117794832366e-06,
+  "pool_vs_esm2_h_mean_max_abs_diff_float32": 1.8335745153080404e-06,
+  "license_status": "REVIEW_MODEL_OUTPUT",
+  "code_license_note": "fair-esm / ESM-2; see Meta ESM license",
+  "model_weight_license_note": "facebook/esm2_t33_650M_UR50D weights",
+  "derived_output_redistribution": "REVIEW_MODEL_OUTPUT \u2014 do not mark releasable without organizer approval"
+}

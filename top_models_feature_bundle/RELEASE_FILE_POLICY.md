@@ -34,3 +34,20 @@ scoring becomes openly reproducible with:
 ```bash
 python reproduce_top_recipes.py --dev dev.csv --test test.csv --solution solution.csv
 ```
+
+## Advanced-model assets
+
+RELEASE (participant-facing code / tables):
+- ADVANCED_MODELS_README.md / ADVANCED_MODELS_README_JA.md
+- advanced_models/** (code, presets, requirements, tests)
+- scripts/build_residue_assets.py (extraction instructions)
+
+INTERNAL / REVIEW_MODEL_OUTPUT until redistribution approved:
+- residue_level/ablingua600m/*
+- residue_level/esm2/*
+- solution.csv
+- advanced_outputs/ (training caches; Public/Private diagnostics)
+
+RELEASE after QC:
+- residue_level/annotations.parquet (target-blind IMGT annotations)
+- residue_level/ANNOTATION_QC.md
