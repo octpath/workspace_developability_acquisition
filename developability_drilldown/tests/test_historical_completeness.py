@@ -11,12 +11,13 @@ REPO = ROOT.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from experiment_codes import next_code  # noqa: E402
+from _lib import N_CLASSICAL_REFINEMENT, N_EXPERIMENTS_TOTAL, PRESERVATION_SNAPSHOT_77  # noqa: E402
 
 
 def test_existing_77_preservation():
-    snap = pd.read_csv(ROOT / "results" / "_preservation_snapshot_77.csv")
+    snap = pd.read_csv(PRESERVATION_SNAPSHOT_77)
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
-    assert len(exp) == 77
+    assert len(exp) == N_EXPERIMENTS_TOTAL
     m = snap.merge(exp, on="experiment_code", suffixes=("_old", "_new"))
     assert len(m) == 77
     assert (m["experiment_id_old"] == m["experiment_id_new"]).all()
@@ -55,12 +56,14 @@ def test_no_missing_comparable_backfill_needed():
     assert len(missing) == 0
 
 
-def test_no_new_exp_codes_issued():
+def test_classical_refinement_codes_issued():
     codes = pd.read_csv(ROOT / "results" / "EXPERIMENT_CODES.csv")
-    assert len(codes) == 77
-    assert next_code("TmApp") == "EXP-T045"
-    assert next_code("HIC") == "EXP-H034"
+    assert len(codes) == N_EXPERIMENTS_TOTAL
+    assert next_code("TmApp") == "EXP-T065"
+    assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
+    new = codes[~codes["experiment_code"].isin(pd.read_csv(PRESERVATION_SNAPSHOT_77)["experiment_code"])]
+    assert len(new) == N_CLASSICAL_REFINEMENT
 
 
 def test_ensemble_inventory_exists_and_excludes_from_registry():
@@ -98,8 +101,9 @@ def test_bests_and_readiness_reports():
     assert "0.431815" in bests or "0.4318" in bests
 
 
-def test_no_exp_m_and_catalog_still_has_77():
+def test_no_exp_m_and_catalog_updated():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
+    assert len(exp) == N_EXPERIMENTS_TOTAL
     assert not exp["experiment_code"].astype(str).str.startswith("EXP-M").any()
     cat = (ROOT / "results" / "CATALOG.md").read_text()
     assert "EXP-T001" in cat and "EXP-H001" in cat

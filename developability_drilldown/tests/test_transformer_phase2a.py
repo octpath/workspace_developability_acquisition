@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "models"))
 
 from experiment_codes import load_codes, next_code  # noqa: E402
+from _lib import N_EXPERIMENTS_TOTAL, N_FULL_LINEAR_XGB, N_TRANSFORMER, N_XGBOOST  # noqa: E402
 from antibody_transformer.equivalence import (  # noqa: E402
     compare_forward,
     compare_one_step,
@@ -28,12 +29,12 @@ TOL = 1e-6
 
 def test_transformer_code_append_only():
     codes = load_codes()
-    assert len(codes) == 77
+    assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 44 and len(h) == 33
-    assert next_code("TmApp") == "EXP-T045"
-    assert next_code("HIC") == "EXP-H034"
+    assert len(t) == 64 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T065"
+    assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
 
@@ -178,12 +179,12 @@ def test_historical_representation_unavailable_contract():
 
 def test_transformer_full_and_linear_xgb_unchanged():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
-    assert len(exp[exp["artifact_status"] == "FULL"]) == 41  # 12 + 29
+    assert len(exp[exp["artifact_status"] == "FULL"]) == N_FULL_LINEAR_XGB + N_TRANSFORMER
     lin = exp[(exp["family"] == "LINEAR") & (exp["artifact_status"] == "FULL")]
-    assert len(lin) == 6
+    assert len(lin) == 38  # 6 historical FULL + 32 classical refinement
     assert (lin["feature_space"] == "RAW_PREPROCESS").all()
     xgb = exp[(exp["family"] == "XGBOOST") & (exp["artifact_status"] == "FULL")]
-    assert len(xgb) == 6
+    assert len(xgb) == N_XGBOOST
     assert (xgb["feature_space"] == "RAW_PREPROCESS").all()
 
 

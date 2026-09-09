@@ -55,3 +55,17 @@ Ensembles inventoried separately; not mixed into single-model registry.
 Conditions met: audit complete; eligible comparable missing models addressed (none);
 no INCONSISTENT blockers; existing 77 preserved; ensembles excluded from registry;
 validation/tests expected PASS.
+
+
+## 10. Classical feature refinement (Phase 2B)
+
+- Derived blocks: region/CDR/RASA/aromatic pooling from existing residue + structure assets
+- CV-only selection through Stage E; freeze: `CLASSICAL_REFINEMENT_FREEZE.yaml`
+- New experiments: **40** (no prediction ensembles)
+- Existing **77** preserved (score delta 0)
+
+### Flags
+- **HISTORICAL_COMPLETENESS = PASS**
+- **CLASSICAL_FEATURE_REFINEMENT_CLOSED = YES**
+- **ENSEMBLE_REFINEMENT = NOT_STARTED**
+- **NEW_ARCHITECTURE_READY = YES**

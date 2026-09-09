@@ -321,11 +321,15 @@ DRILLDOWN_REPRO = {"YES", "PARTIAL", "NO"}
 CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
 LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
 
-# Expected registry sizes after Phase 2A
-N_EXPERIMENTS_TOTAL = 77
-N_LEGACY_MAP = 48  # Linear/XGB only; Transformer rows have empty legacy codes
-N_FULL_LINEAR_XGB = 12
+# Expected registry sizes after classical feature refinement (Phase 2B)
+N_EXPERIMENTS_TOTAL = 117
+N_LEGACY_MAP = 48  # Linear/XGB only; Transformer + classical-refinement rows have empty legacy
+N_FULL_LINEAR_XGB = 52  # 12 historical FULL + 40 classical refinement FULL
 N_TRANSFORMER = 29
+N_CLASSICAL_REFINEMENT = 40
+N_LINEAR = 74
+N_XGBOOST = 14
+PRESERVATION_SNAPSHOT_77 = ROOT / "results" / "_preservation_snapshot_77_classical.csv"
 
 # Ensure experiment_code is first identity columns when rewriting tables
 IDENTITY_PREFIX = [

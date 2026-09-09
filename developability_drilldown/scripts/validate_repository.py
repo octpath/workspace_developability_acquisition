@@ -18,10 +18,14 @@ from _lib import (  # noqa: E402
     FEATURE_SPACE,
     LEGACY_CODE_RE,
     LICENSE_STATUSES,
+    N_CLASSICAL_REFINEMENT,
     N_EXPERIMENTS_TOTAL,
     N_FULL_LINEAR_XGB,
     N_LEGACY_MAP,
+    N_LINEAR,
     N_TRANSFORMER,
+    N_XGBOOST,
+    PRESERVATION_SNAPSHOT_77,
     ROOT,
     SELECTION_POLICIES,
     SOURCE_REPRO,
@@ -76,10 +80,14 @@ def main() -> int:
         fail("duplicate experiment_code or experiment_id")
 
     fam = df["family"].value_counts().to_dict()
-    if fam.get("LINEAR") != 42 or fam.get("XGBOOST") != 6 or fam.get("TRANSFORMER") != N_TRANSFORMER:
+    if (
+        fam.get("LINEAR") != N_LINEAR
+        or fam.get("XGBOOST") != N_XGBOOST
+        or fam.get("TRANSFORMER") != N_TRANSFORMER
+    ):
         fail(f"family counts unexpected: {fam}")
     else:
-        ok(f"families LINEAR=42 XGBOOST=6 TRANSFORMER={N_TRANSFORMER}")
+        ok(f"families LINEAR={N_LINEAR} XGBOOST={N_XGBOOST} TRANSFORMER={N_TRANSFORMER}")
 
     for _, r in df.iterrows():
         c = str(r["experiment_code"])
@@ -91,8 +99,13 @@ def main() -> int:
             fail(f"TmApp row has non-T code {c}")
         if r["target"] == "HIC" and not c.startswith("EXP-H"):
             fail(f"HIC row has non-H code {c}")
-        if r["family"] in ("LINEAR", "XGBOOST") and not str(r.get("legacy_experiment_code") or ""):
-            fail(f"missing legacy_experiment_code for {c}")
+        leg_raw = r.get("legacy_experiment_code")
+        leg = "" if pd.isna(leg_raw) else str(leg_raw).strip()
+        legacy_codes = set(legacy["experiment_code"])
+        if c in legacy_codes and not leg:
+            fail(f"missing legacy_experiment_code for mapped row {c}")
+        if leg and c not in legacy_codes:
+            fail(f"legacy_experiment_code on unmapped row {c}")
 
     m_count = int(df["experiment_code"].astype(str).str.startswith("EXP-M").sum())
     if m_count != 0:
@@ -103,14 +116,14 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T045":
+    if next_code("TmApp") != "EXP-T065":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T045")
-    if next_code("HIC") != "EXP-H034":
+        ok("next TmApp EXP-T065")
+    if next_code("HIC") != "EXP-H054":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
-        ok("next HIC EXP-H034")
+        ok("next HIC EXP-H054")
 
     t_codes = sorted(
         [c for c in df["experiment_code"] if str(c).startswith("EXP-T")],
@@ -337,6 +350,60 @@ def main() -> int:
         fail("solution.csv present")
     else:
         ok("no solution.csv")
+
+    # --- Classical refinement closure checks ---
+    freeze = ROOT / "results" / "CLASSICAL_REFINEMENT_FREEZE.yaml"
+    if not freeze.exists():
+        fail("CLASSICAL_REFINEMENT_FREEZE.yaml missing")
+    else:
+        ok("classical refinement freeze present")
+
+    cand = ROOT / "results" / "CLASSICAL_REFINEMENT_CANDIDATES.csv"
+    if not cand.exists():
+        fail("CLASSICAL_REFINEMENT_CANDIDATES.csv missing")
+    else:
+        cdf = pd.read_csv(cand)
+        if len(cdf) != N_CLASSICAL_REFINEMENT:
+            fail(f"candidates expected {N_CLASSICAL_REFINEMENT}, got {len(cdf)}")
+        else:
+            ok(f"classical candidates n={N_CLASSICAL_REFINEMENT}")
+
+    new_codes = df[~df["experiment_code"].isin(
+        pd.read_csv(PRESERVATION_SNAPSHOT_77)["experiment_code"]
+    )]
+    if len(new_codes) != N_CLASSICAL_REFINEMENT:
+        fail(f"classical new rows expected {N_CLASSICAL_REFINEMENT}, got {len(new_codes)}")
+    else:
+        ok(f"classical refinement new experiments={N_CLASSICAL_REFINEMENT}")
+
+    ens = new_codes[
+        new_codes["ensemble_type"].astype(str).str.len().gt(0)
+        | new_codes["member_experiment_codes"].astype(str).str.len().gt(0)
+    ]
+    if len(ens):
+        fail(f"prediction ensemble fields on new rows: {ens['experiment_code'].tolist()[:5]}")
+    else:
+        ok("no prediction-level ensemble in classical refinement")
+
+    if not all(new_codes["selection_policy_at_creation"] == "CV_SELECTED_POSTCOMP_EVALUATED"):
+        fail("classical selection_policy_at_creation not CV_SELECTED_POSTCOMP_EVALUATED")
+    else:
+        ok("classical selection policy CV_SELECTED_POSTCOMP_EVALUATED")
+
+    snap = pd.read_csv(PRESERVATION_SNAPSHOT_77)
+    cur77 = df[df["experiment_code"].isin(snap["experiment_code"])]
+    m = snap.merge(cur77, on="experiment_code", suffixes=("_old", "_new"))
+    if len(m) != 77:
+        fail(f"preservation snapshot merge rows {len(m)}")
+    else:
+        for c in ("cv_primary_mae", "cv_shadow_mae", "cv_worst_mae", "public_mae", "private_mae"):
+            d = (
+                pd.to_numeric(m[f"{c}_old"], errors="coerce")
+                - pd.to_numeric(m[f"{c}_new"], errors="coerce")
+            ).abs().max()
+            if float(d) != 0.0 and not pd.isna(d):
+                fail(f"preservation delta {c} max={d}")
+        ok("existing 77 preservation PASS (score delta 0)")
 
     out = ROOT / "results" / "VALIDATION.txt"
     text = "PASS\n" if not FAILS else "FAIL\n" + "\n".join(FAILS) + "\n"

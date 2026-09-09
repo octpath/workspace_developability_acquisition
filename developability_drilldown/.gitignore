@@ -12,3 +12,7 @@ __pycache__/
 # Local scratch
 .tmp/
 .cache/
+
+# Classical refinement CV cache (regenerable from blocks + cv_eval)
+experiments/classical_cache/cv_cache/
+experiments/classical_cache/stage_e_progress.jsonl

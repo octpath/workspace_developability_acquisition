@@ -19,18 +19,18 @@ from experiment_codes import (  # noqa: E402
     next_code,
     resolve_experiment_ref,
 )
-from _lib import feature_content_sha256  # noqa: E402
+from _lib import N_EXPERIMENTS_TOTAL, N_XGBOOST, feature_content_sha256  # noqa: E402
 
 
 def test_code_format_and_counts():
     codes = load_codes()
-    assert len(codes) == 77
+    assert len(codes) == N_EXPERIMENTS_TOTAL
     assert all(CODE_RE.match(c) for c in codes["experiment_code"])
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 44 and len(h) == 33
-    assert sorted(t, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-T{i:03d}" for i in range(1, 45)]
-    assert sorted(h, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-H{i:03d}" for i in range(1, 34)]
+    assert len(t) == 64 and len(h) == 53
+    assert sorted(t, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-T{i:03d}" for i in range(1, 65)]
+    assert sorted(h, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-H{i:03d}" for i in range(1, 54)]
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
 
 
@@ -58,11 +58,11 @@ def test_legacy_order_preserved_within_target():
 
 
 def test_next_code_namespaces():
-    assert next_code("TmApp") == "EXP-T045"
-    assert next_code("HIC") == "EXP-H034"
+    assert next_code("TmApp") == "EXP-T065"
+    assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
-    assert next_code("T") == "EXP-T045"
-    assert next_code("H") == "EXP-H034"
+    assert next_code("T") == "EXP-T065"
+    assert next_code("H") == "EXP-H054"
     assert next_code("M") == "EXP-M001"
 
 
@@ -115,7 +115,7 @@ def test_prediction_schema():
 def test_xgb_full_paths():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     xgb = exp[exp["family"] == "XGBOOST"]
-    assert len(xgb) == 6
+    assert len(xgb) == N_XGBOOST
     for _, r in xgb.iterrows():
         assert r["artifact_status"] == "FULL"
         assert str(r["experiment_code"]).startswith(("EXP-T", "EXP-H"))
@@ -162,7 +162,7 @@ def test_no_submission_named_predictions():
 
 def test_score_schema():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
-    assert len(exp) == 77
+    assert len(exp) == N_EXPERIMENTS_TOTAL
     assert "feature_set_id" in exp.columns and "legacy_experiment_code" in exp.columns
     assert "feature_recipe" not in exp.columns
     assert "input_space" in exp.columns and "representation_status" in exp.columns
