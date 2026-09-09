@@ -1,0 +1,111 @@
+{
+  "BASE_REPRODUCTION": "PASS",
+  "selections": {
+    "TmApp": {
+      "verdict": "NO_ENSEMBLE_INCREMENT",
+      "best_method": {
+        "family": "SINGLE",
+        "method": "SINGLE:T1",
+        "subset": "T1",
+        "models": "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+        "n_models": 1,
+        "primary_mae": 2.732072376654289,
+        "shadow_mae": 2.784957206877823,
+        "cv_mean_mae": 2.758514791766056,
+        "cv_worst_mae": 2.784957206877823
+      },
+      "best_single": {
+        "method": "SINGLE:T1",
+        "models": "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+        "n_models": 1,
+        "primary_mae": 2.732072376654289,
+        "shadow_mae": 2.784957206877823,
+        "cv_mean_mae": 2.758514791766056,
+        "cv_worst_mae": 2.784957206877823
+      },
+      "delta_primary": 0.0,
+      "delta_shadow": 0.0,
+      "delta_worst": 0.0
+    },
+    "HIC": {
+      "verdict": "ENSEMBLE_USEFUL",
+      "best_method": {
+        "family": "EQUAL_MEAN",
+        "method": "EQUAL_MEAN:H1+H2",
+        "subset": "H1+H2",
+        "models": "HIC_HYDRO_TITRATION__LASSO|HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+        "n_models": 2,
+        "primary_mae": 0.48129804540956267,
+        "shadow_mae": 0.4781980733512991,
+        "cv_mean_mae": 0.47974805938043086,
+        "cv_worst_mae": 0.48129804540956267
+      },
+      "best_single": {
+        "method": "SINGLE:H1",
+        "models": "HIC_HYDRO_TITRATION__LASSO",
+        "n_models": 1,
+        "primary_mae": 0.4872225781431885,
+        "shadow_mae": 0.48337196105386526,
+        "cv_mean_mae": 0.48529726959852687,
+        "cv_worst_mae": 0.4872225781431885
+      },
+      "delta_primary": 0.005924532733625809,
+      "delta_shadow": 0.00517388770256616,
+      "delta_worst": 0.005924532733625809
+    }
+  },
+  "final_weights": {
+    "TmApp": {
+      "type": "single",
+      "model": "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+      "weight": 1.0
+    },
+    "HIC": {
+      "type": "equal_mean",
+      "models": [
+        "HIC_HYDRO_TITRATION__LASSO",
+        "HIC_ARO_CONTINUOUS_SURFACE__LASSO"
+      ],
+      "weights": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "prediction_hashes": {
+    "TmApp": "9f93cf7717232ea72330f996f5feadb8146415f4e627784261b5c033a8aaddc2",
+    "HIC": "7aff926f51e7733830b9c2dcb483ef1d04ce083a5c447a06afecbc4f8b56334a",
+    "submission": "2e9b2da20fd6b3b33c366fb6952e3b36e1446aab0f925cf1427078139d6085c0",
+    "n_test": 162,
+    "frozen_before_solution": true
+  },
+  "postmortem": {
+    "TmApp": {
+      "public_mae": 3.1185249613955217,
+      "private_mae": 3.289917689937472,
+      "overall_test_mae": 3.2042213256664964,
+      "label": "POSTMORTEM ONLY"
+    },
+    "HIC": {
+      "public_mae": 0.4737108787659602,
+      "private_mae": 0.4685091035883209,
+      "overall_test_mae": 0.4711099911771405,
+      "label": "POSTMORTEM ONLY"
+    }
+  },
+  "historical_context": {
+    "HIC": {
+      "name": "HIC__SIMPLE_blend_seq_surf_adv (organizer historical prediction blend)",
+      "cv_primary": 0.4252,
+      "cv_shadow": 0.4204,
+      "public": 0.4239,
+      "private": 0.4222,
+      "note": "NOT a Top-3 candidate; descriptive comparison only. Protocol/features differ."
+    },
+    "TmApp": {
+      "name": "historical organizer meta/blend (descriptive only)",
+      "note": "Historical TmApp blends used broader model pools / SVR meta; not comparable as candidates."
+    }
+  },
+  "participant_candidate_prepared": true
+}

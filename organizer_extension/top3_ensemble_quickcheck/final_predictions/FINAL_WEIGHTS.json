@@ -1,0 +1,18 @@
+{
+  "TmApp": {
+    "type": "single",
+    "model": "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+    "weight": 1.0
+  },
+  "HIC": {
+    "type": "equal_mean",
+    "models": [
+      "HIC_HYDRO_TITRATION__LASSO",
+      "HIC_ARO_CONTINUOUS_SURFACE__LASSO"
+    ],
+    "weights": [
+      0.5,
+      0.5
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "TmApp": {
+    "public_mae": 3.1185249613955217,
+    "private_mae": 3.289917689937472,
+    "overall_test_mae": 3.2042213256664964,
+    "label": "POSTMORTEM ONLY"
+  },
+  "HIC": {
+    "public_mae": 0.4737108787659602,
+    "private_mae": 0.4685091035883209,
+    "overall_test_mae": 0.4711099911771405,
+    "label": "POSTMORTEM ONLY"
+  }
+}

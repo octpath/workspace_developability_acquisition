@@ -1,0 +1,38 @@
+{
+  "TmApp": {
+    "primary": {
+      "n_folds": 5,
+      "models": [
+        "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+        "TM_PARENT_ABLINGUA_GLOBAL__RIDGE",
+        "TM_BASE_BIOEMU_MPNN__RIDGE"
+      ]
+    },
+    "shadow": {
+      "n_folds": 5,
+      "models": [
+        "TM_PARENT_ABLINGUA_CDR3__RIDGE",
+        "TM_PARENT_ABLINGUA_GLOBAL__RIDGE",
+        "TM_BASE_BIOEMU_MPNN__RIDGE"
+      ]
+    }
+  },
+  "HIC": {
+    "primary": {
+      "n_folds": 5,
+      "models": [
+        "HIC_HYDRO_TITRATION__LASSO",
+        "HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+        "HIC_ESM2_SEQ_AROMATIC__LASSO"
+      ]
+    },
+    "shadow": {
+      "n_folds": 5,
+      "models": [
+        "HIC_HYDRO_TITRATION__LASSO",
+        "HIC_ARO_CONTINUOUS_SURFACE__LASSO",
+        "HIC_ESM2_SEQ_AROMATIC__LASSO"
+      ]
+    }
+  }
+}
