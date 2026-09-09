@@ -1,0 +1,36 @@
+experiment_code: EXP-T011
+experiment_id: LIN_TM_ABLANG2_SEQ_LASSO
+target: TmApp
+family: LINEAR
+model_type: LASSO
+source_model_id: TM_ABLANG2_SEQ__LASSO
+feature_blocks_tokens:
+- AbLang2_HL_paired
+- SEQ_BASIC
+dimensionality_reduction: none
+selection_policy_at_creation: CV_ONLY
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 480
+  pca: false
+- n: 78
+  pca: false
+fitted_params:
+  primary_fold_params:
+  - alpha: 0.3
+  - alpha: 0.3
+  - alpha: 0.3
+  - alpha: 0.3
+  - alpha: 0.3
+  shadow_fold_params:
+  - alpha: 0.3
+  - alpha: 1.0
+  - alpha: 0.3
+  - alpha: 0.1
+  - alpha: 0.3
+  final_refit_rule: fit_full_dev_predict fold0 primary; full Dev
+  estimator_random_state: 0
+  optuna_used: false
+  historical_final_alpha: 0.3
+materialized_from: LINEAR_MODEL_MASTER_REGISTRY + bundle blocks

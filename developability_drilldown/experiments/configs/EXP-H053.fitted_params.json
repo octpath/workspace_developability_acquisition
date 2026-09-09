@@ -1,0 +1,42 @@
+{
+  "primary_fold_params": [
+    {
+      "best_iteration": 304
+    },
+    {
+      "best_iteration": 74
+    },
+    {
+      "best_iteration": 295
+    },
+    {
+      "best_iteration": 165
+    },
+    {
+      "best_iteration": 200
+    }
+  ],
+  "shadow_fold_params": [
+    {
+      "best_iteration": 141
+    },
+    {
+      "best_iteration": 1921
+    },
+    {
+      "best_iteration": 285
+    },
+    {
+      "best_iteration": 88
+    },
+    {
+      "best_iteration": 150
+    }
+  ],
+  "final_refit_rule": "fit_full_dev_predict: hyperparams from primary fold0; fit all Dev",
+  "estimator_random_state": 0,
+  "pca_random_state": 0,
+  "optuna_used": false,
+  "sampler_seed": null,
+  "split_seed": "canonical folds.csv"
+}

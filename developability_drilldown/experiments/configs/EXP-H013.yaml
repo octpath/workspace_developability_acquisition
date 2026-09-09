@@ -1,0 +1,33 @@
+experiment_code: EXP-H013
+experiment_id: LIN_HIC_AROMATIC_LASSO
+target: HIC
+family: LINEAR
+model_type: LASSO
+source_model_id: HIC_AROMATIC__LASSO
+feature_blocks_tokens:
+- AROMATIC_TOPO
+dimensionality_reduction: none
+selection_policy_at_creation: CV_ONLY
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 19
+  pca: false
+fitted_params:
+  primary_fold_params:
+  - alpha: 0.1
+  - alpha: 0.03
+  - alpha: 0.003
+  - alpha: 1.0e-05
+  - alpha: 0.1
+  shadow_fold_params:
+  - alpha: 1.0e-05
+  - alpha: 0.03
+  - alpha: 0.001
+  - alpha: 0.03
+  - alpha: 0.1
+  final_refit_rule: fit_full_dev_predict fold0 primary; full Dev
+  estimator_random_state: 0
+  optuna_used: false
+  historical_final_alpha: 0.03
+materialized_from: LINEAR_MODEL_MASTER_REGISTRY + bundle blocks

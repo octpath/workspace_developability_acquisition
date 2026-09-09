@@ -1,0 +1,40 @@
+{
+  "primary_fold_params": [
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    }
+  ],
+  "shadow_fold_params": [
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    },
+    {
+      "constant_median": true
+    }
+  ],
+  "final_refit_rule": "full_dev_median",
+  "estimator_random_state": 0,
+  "optuna_used": false,
+  "historical_final_alpha": null
+}

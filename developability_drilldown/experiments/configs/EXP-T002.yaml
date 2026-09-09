@@ -33,3 +33,19 @@ experiment_code: EXP-T002
 source_recipe_id: TM_PARENT_ABLINGUA_GLOBAL__RIDGE
 feature_set_id: FS_TM_ABLINGUA_GLOBAL
 legacy_experiment_code: EXP002
+fitted_params:
+  primary_fold_params:
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  shadow_fold_params:
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  final_refit_rule: fit_full_dev_predict fold0 primary params; full Dev
+  estimator_random_state: 0
+  optuna_used: false

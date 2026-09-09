@@ -1,0 +1,40 @@
+{
+  "primary_fold_params": [
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    }
+  ],
+  "shadow_fold_params": [
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    },
+    {
+      "alpha": 0.1
+    }
+  ],
+  "final_refit_rule": "fit_full_dev_predict fold0 primary; full Dev",
+  "estimator_random_state": 0,
+  "optuna_used": false,
+  "historical_final_alpha": 0.1
+}

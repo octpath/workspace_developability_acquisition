@@ -1,0 +1,33 @@
+experiment_code: EXP-T005
+experiment_id: LIN_TM_CONSTANT_LASSO
+target: TmApp
+family: LINEAR
+model_type: LASSO
+source_model_id: TM_CONSTANT__LASSO
+feature_blocks_tokens:
+- none
+dimensionality_reduction: none
+selection_policy_at_creation: CV_ONLY
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups: []
+fitted_params:
+  primary_fold_params:
+  - &id001
+    constant_median: true
+  - *id001
+  - *id001
+  - *id001
+  - *id001
+  shadow_fold_params:
+  - &id002
+    constant_median: true
+  - *id002
+  - *id002
+  - *id002
+  - *id002
+  final_refit_rule: full_dev_median
+  estimator_random_state: 0
+  optuna_used: false
+  historical_final_alpha: null
+materialized_from: LINEAR_MODEL_MASTER_REGISTRY + bundle blocks

@@ -1,0 +1,52 @@
+{
+  "primary_fold_params": [
+    {
+      "alpha": 0.1,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 1.0,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 0.001,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 0.1,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 0.1,
+      "l1_ratio": 0.85
+    }
+  ],
+  "shadow_fold_params": [
+    {
+      "alpha": 1.0,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 0.1,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 0.01,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 0.1,
+      "l1_ratio": 0.15
+    },
+    {
+      "alpha": 0.1,
+      "l1_ratio": 0.85
+    }
+  ],
+  "final_refit_rule": "fit_full_dev_predict: hyperparams from primary fold0; fit all Dev",
+  "estimator_random_state": 0,
+  "pca_random_state": 0,
+  "optuna_used": false,
+  "sampler_seed": null,
+  "split_seed": "canonical folds.csv"
+}

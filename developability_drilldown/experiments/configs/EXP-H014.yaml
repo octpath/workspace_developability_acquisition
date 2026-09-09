@@ -1,0 +1,39 @@
+experiment_code: EXP-H014
+experiment_id: LIN_HIC_ESM2_SEQ_AROMATIC_RIDGE
+target: HIC
+family: LINEAR
+model_type: RIDGE
+source_model_id: HIC_ESM2_SEQ_AROMATIC__RIDGE
+feature_blocks_tokens:
+- ESM2_H
+- SEQ_ALL
+- AROMATIC_TOPO
+dimensionality_reduction: none
+selection_policy_at_creation: CV_ONLY
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 1280
+  pca: false
+- n: 115
+  pca: false
+- n: 19
+  pca: false
+fitted_params:
+  primary_fold_params:
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  shadow_fold_params:
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  - alpha: 100.0
+  final_refit_rule: fit_full_dev_predict fold0 primary; full Dev
+  estimator_random_state: 0
+  optuna_used: false
+  historical_final_alpha: 100.0
+materialized_from: LINEAR_MODEL_MASTER_REGISTRY + bundle blocks

@@ -23,3 +23,23 @@ pca_groups:
   pca: false
 - n: 1280
   pca: true
+fitted_params:
+  primary_fold_params:
+  - best_iteration: 305
+  - best_iteration: 75
+  - best_iteration: 195
+  - best_iteration: 151
+  - best_iteration: 170
+  shadow_fold_params:
+  - best_iteration: 176
+  - best_iteration: 1285
+  - best_iteration: 288
+  - best_iteration: 572
+  - best_iteration: 102
+  final_refit_rule: 'fit_full_dev_predict: hyperparams from primary fold0; fit all
+    Dev'
+  estimator_random_state: 0
+  pca_random_state: 0
+  optuna_used: false
+  sampler_seed: null
+  split_seed: canonical folds.csv

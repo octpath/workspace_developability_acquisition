@@ -33,3 +33,19 @@ experiment_code: EXP-H001
 source_recipe_id: HIC_HYDRO_TITRATION__LASSO
 feature_set_id: FS_HIC_HYDRO_TITRATION
 legacy_experiment_code: EXP004
+fitted_params:
+  primary_fold_params:
+  - alpha: 0.1
+  - alpha: 0.03
+  - alpha: 0.1
+  - alpha: 0.1
+  - alpha: 0.1
+  shadow_fold_params:
+  - alpha: 0.1
+  - alpha: 0.1
+  - alpha: 0.1
+  - alpha: 0.03
+  - alpha: 0.1
+  final_refit_rule: fit_full_dev_predict fold0 primary params; full Dev
+  estimator_random_state: 0
+  optuna_used: false
