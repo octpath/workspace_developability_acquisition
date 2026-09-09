@@ -159,9 +159,22 @@ def _encode_chain(
     return aa, mask, pos, imgt, region
 
 
+def load_npy(path: Path, *, allow_pickle: bool = False) -> np.ndarray:
+    """Load .npy, or concatenate .npy.part0+.part1 if a size-split checkout is present."""
+    path = Path(path)
+    if path.exists():
+        return np.load(path, allow_pickle=allow_pickle)
+    p0, p1 = Path(str(path) + ".part0"), Path(str(path) + ".part1")
+    if p0.exists() and p1.exists():
+        data = p0.read_bytes() + p1.read_bytes()
+        path.write_bytes(data)
+        return np.load(path, allow_pickle=allow_pickle)
+    raise FileNotFoundError(path)
+
+
 def load_plm_pack(subdir: str) -> tuple[list[str], dict]:
     d = RESIDUE_ROOT / subdir
-    ids = [str(x) for x in np.load(d / "ids.npy", allow_pickle=True).tolist()]
+    ids = [str(x) for x in load_npy(d / "ids.npy", allow_pickle=True).tolist()]
     meta = json.loads((d / "metadata.json").read_text())
     return ids, meta
 
@@ -238,14 +251,14 @@ def load_residue_bundle(
     if need_ablingua:
         a_ids, meta = load_plm_pack("ablingua600m")
         order = [a_ids.index(a) for a in ids]
-        eh = np.load(RESIDUE_ROOT / "ablingua600m/heavy_embeddings.npy")[order].astype(
+        eh = load_npy(RESIDUE_ROOT / "ablingua600m/heavy_embeddings.npy")[order].astype(
             np.float32
         )
-        el = np.load(RESIDUE_ROOT / "ablingua600m/light_embeddings.npy")[order].astype(
+        el = load_npy(RESIDUE_ROOT / "ablingua600m/light_embeddings.npy")[order].astype(
             np.float32
         )
-        mh = np.load(RESIDUE_ROOT / "ablingua600m/heavy_mask.npy")[order]
-        ml = np.load(RESIDUE_ROOT / "ablingua600m/light_mask.npy")[order]
+        mh = load_npy(RESIDUE_ROOT / "ablingua600m/heavy_mask.npy")[order]
+        ml = load_npy(RESIDUE_ROOT / "ablingua600m/light_mask.npy")[order]
         rb.ablingua_h = eh[:, :max_h]
         rb.ablingua_l = el[:, :max_l]
         rb.ablingua_h_mask = mh[:, :max_h]
@@ -260,8 +273,8 @@ def load_residue_bundle(
     if need_esm2:
         e_ids, meta = load_plm_pack("esm2")
         order = [e_ids.index(a) for a in ids]
-        eh = np.load(RESIDUE_ROOT / "esm2/heavy_embeddings.npy")[order].astype(np.float32)
-        mh = np.load(RESIDUE_ROOT / "esm2/heavy_mask.npy")[order]
+        eh = load_npy(RESIDUE_ROOT / "esm2/heavy_embeddings.npy")[order].astype(np.float32)
+        mh = load_npy(RESIDUE_ROOT / "esm2/heavy_mask.npy")[order]
         rb.esm2_h = eh[:, :max_h]
         rb.esm2_h_mask = mh[:, :max_h]
         for i in range(N):
