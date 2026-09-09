@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Compose competition submission from Tm + HIC single-target test predictions.
 
-Preferred CLI uses permanent experiment_code (EXPxxx). Descriptive experiment_id
-is also accepted for convenience. Output filename always uses codes.
+Preferred inputs: EXP-Txxx / EXP-Hxxx. Also accepts descriptive experiment_id
+and deprecated legacy EXPxxx (with warning). Filename always uses canonical codes.
 """
 from __future__ import annotations
 
 import argparse
 import sys
+import warnings
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -15,7 +16,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _lib import ROOT  # noqa: E402
-from experiment_codes import resolve_experiment_ref  # noqa: E402
+from experiment_codes import CODE_RE, resolve_experiment_ref  # noqa: E402
 
 
 def load_exp_table() -> pd.DataFrame:
@@ -33,15 +34,26 @@ def load_test_pred(code: str, expect_target: str) -> pd.DataFrame:
     df["id"] = df["id"].astype(str)
     if list(df.columns) != ["id", expect_target]:
         raise SystemExit(f"{path} columns {list(df.columns)} != ['id', '{expect_target}']")
-    rel = str(path.relative_to(ROOT)).lower()
-    if "submission" in path.name.lower() or "/sub_" in rel:
+    if "submission" in path.name.lower() or "/sub_" in str(path).lower():
         raise SystemExit(f"illegal submission naming in prediction path: {path}")
     return df
 
 
 def compose(tm_ref: str, hic_ref: str, register: bool = True) -> Path:
-    tm_code, tm_id = resolve_experiment_ref(tm_ref)
-    hic_code, hic_id = resolve_experiment_ref(hic_ref)
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always", DeprecationWarning)
+        tm_code, tm_id = resolve_experiment_ref(tm_ref)
+        hic_code, hic_id = resolve_experiment_ref(hic_ref)
+    for w in caught:
+        print(f"WARNING: {w.message}", file=sys.stderr)
+
+    if not tm_code.startswith("EXP-T"):
+        raise SystemExit(f"--tm must resolve to EXP-T…, got {tm_code}")
+    if not hic_code.startswith("EXP-H"):
+        raise SystemExit(f"--hic must resolve to EXP-H…, got {hic_code}")
+    if tm_code.startswith("EXP-M") or hic_code.startswith("EXP-M"):
+        raise SystemExit("EXP-M is reserved for joint multi-target experiments; not supported by compose_submission")
+
     ex = load_exp_table().set_index("experiment_code")
     if tm_code not in ex.index or hic_code not in ex.index:
         raise SystemExit("unknown experiment code")
@@ -74,8 +86,10 @@ def compose(tm_ref: str, hic_ref: str, register: bool = True) -> Path:
             "submission_id": fname.replace(".csv", ""),
             "tm_experiment_code": tm_code,
             "tm_experiment_id": tm_id,
+            "tm_legacy_experiment_code": ex.loc[tm_code].get("legacy_experiment_code", ""),
             "hic_experiment_code": hic_code,
             "hic_experiment_id": hic_id,
+            "hic_legacy_experiment_code": ex.loc[hic_code].get("legacy_experiment_code", ""),
             "submission_path": str(dest.relative_to(ROOT)),
             "tm_public_mae": ex.loc[tm_code, "public_mae"],
             "tm_private_mae": ex.loc[tm_code, "private_mae"],
@@ -90,7 +104,6 @@ def compose(tm_ref: str, hic_ref: str, register: bool = True) -> Path:
         if man_path.exists():
             man = pd.read_csv(man_path)
             man = man[man["submission_id"] != row["submission_id"]]
-            # drop legacy descriptive-id filenames for same pair if regenerating
             man = pd.concat([man, pd.DataFrame([row])], ignore_index=True)
         else:
             man = pd.DataFrame([row])
@@ -100,8 +113,8 @@ def compose(tm_ref: str, hic_ref: str, register: bool = True) -> Path:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--tm", required=True, help="TmApp experiment_code or experiment_id")
-    ap.add_argument("--hic", required=True, help="HIC experiment_code or experiment_id")
+    ap.add_argument("--tm", required=True, help="TmApp EXP-Txxx / experiment_id / legacy EXPxxx")
+    ap.add_argument("--hic", required=True, help="HIC EXP-Hxxx / experiment_id / legacy EXPxxx")
     ap.add_argument("--no-register", action="store_true")
     args = ap.parse_args()
     dest = compose(args.tm, args.hic, register=not args.no_register)

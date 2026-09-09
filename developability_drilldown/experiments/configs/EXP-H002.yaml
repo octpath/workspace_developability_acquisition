@@ -1,14 +1,13 @@
-experiment_id: LIN_HIC_HYDRO_TITRATION_LASSO
+experiment_id: LIN_HIC_CONTINUOUS_SURFACE_LASSO
 target: HIC
 family: LINEAR
 model_type: LASSO
-source_model_id: HIC_HYDRO_TITRATION__LASSO
+source_model_id: HIC_ARO_CONTINUOUS_SURFACE__LASSO
 feature_blocks:
 - ESM2_H
 - SEQ_ALL
 - AROMATIC_TOPO
-- HYDRO_FIELD
-- TITRATION_SHAPE
+- CONTINUOUS_SURFACE
 preprocessing:
   description: impute+StandardScaler+Lasso(no_PCA)
   fold_local: true
@@ -24,11 +23,12 @@ reproducibility: EXACT_REPRODUCTION_from_bundle
 license_status: SEE_feature_manifest
 source_paths:
   scores: top_models_feature_bundle/results/MODEL_BENCHMARK_SUMMARY.csv
-  oof_primary: organizer_extension/top3_ensemble_quickcheck/base_predictions/HIC_HYDRO_TITRATION__LASSO__oof_primary.csv
-  oof_shadow: organizer_extension/top3_ensemble_quickcheck/base_predictions/HIC_HYDRO_TITRATION__LASSO__oof_shadow.csv
-  test: organizer_extension/top3_ensemble_quickcheck/base_predictions/HIC_HYDRO_TITRATION__LASSO__test.csv
+  oof_primary: organizer_extension/top3_ensemble_quickcheck/base_predictions/HIC_ARO_CONTINUOUS_SURFACE__LASSO__oof_primary.csv
+  oof_shadow: organizer_extension/top3_ensemble_quickcheck/base_predictions/HIC_ARO_CONTINUOUS_SURFACE__LASSO__oof_shadow.csv
+  test: organizer_extension/top3_ensemble_quickcheck/base_predictions/HIC_ARO_CONTINUOUS_SURFACE__LASSO__test.csv
   recipes: top_models_feature_bundle/recipes.csv
   alpha_policy: top_models_feature_bundle/FULL_DEV_ALPHA_POLICY_BUNDLE.json
-experiment_code: EXP004
-source_recipe_id: HIC_HYDRO_TITRATION__LASSO
-feature_set_id: FS_HIC_HYDRO_TITRATION
+experiment_code: EXP-H002
+source_recipe_id: HIC_ARO_CONTINUOUS_SURFACE__LASSO
+feature_set_id: FS_HIC_CONTINUOUS_SURFACE
+legacy_experiment_code: EXP005

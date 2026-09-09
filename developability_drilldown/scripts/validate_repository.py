@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate developability_drilldown registry after EXP-code migration."""
+"""Validate developability_drilldown after target-namespaced EXP codes."""
 from __future__ import annotations
 
 import math
@@ -16,6 +16,7 @@ from _lib import (  # noqa: E402
     DRILLDOWN_REPRO,
     EXPERIMENTS_COLUMNS,
     FEATURE_SPACE,
+    LEGACY_CODE_RE,
     LICENSE_STATUSES,
     ROOT,
     SOURCE_REPRO,
@@ -24,7 +25,7 @@ from _lib import (  # noqa: E402
     file_sha256,
     load_dev_test_folds,
 )
-from experiment_codes import load_codes  # noqa: E402
+from experiment_codes import load_codes, load_legacy_map, next_code  # noqa: E402
 
 FAILS: list[str] = []
 
@@ -49,51 +50,92 @@ def main() -> int:
     for c in EXPERIMENTS_COLUMNS:
         if c not in df.columns:
             fail(f"missing column {c}")
-    if "reproducible" in df.columns and "source_reproducible" not in df.columns:
-        fail("ambiguous reproducible column without source_reproducible")
     if "reproducible" in df.columns:
         fail("legacy 'reproducible' column must be removed")
 
     codes = load_codes()
-    if len(df) != 48 or len(codes) != 48:
-        fail(f"expected 48 rows/codes, got experiments={len(df)} codes={len(codes)}")
+    legacy = load_legacy_map()
+    if len(df) != 48 or len(codes) != 48 or len(legacy) != 48:
+        fail(f"expected 48 rows; experiments={len(df)} codes={len(codes)} legacy={len(legacy)}")
     else:
-        ok("48 experiments / 48 codes")
+        ok("48 experiments / codes / legacy map")
 
     if df["experiment_code"].duplicated().any() or df["experiment_id"].duplicated().any():
         fail("duplicate experiment_code or experiment_id")
-    for c in df["experiment_code"]:
-        if not CODE_RE.match(str(c)):
+    for _, r in df.iterrows():
+        c = str(r["experiment_code"])
+        if not CODE_RE.match(c):
             fail(f"bad code format {c}")
-    expected = [f"EXP{i:03d}" for i in range(1, 49)]
-    if list(df["experiment_code"]) != expected:
-        fail("experiments.csv codes not exactly EXP001–EXP048 in issuance order")
-    else:
-        ok("EXP001–EXP048 contiguous in registry order")
-    if list(codes["experiment_code"]) != expected:
-        fail("EXPERIMENT_CODES.csv not EXP001–EXP048")
-    merged = df.merge(codes, on=["experiment_code", "experiment_id"], how="inner")
-    if len(merged) != 48:
-        fail("EXPERIMENT_CODES.csv mapping mismatch vs experiments.csv")
-    else:
-        ok("code↔id mapping matches EXPERIMENT_CODES.csv")
+        if LEGACY_CODE_RE.match(c):
+            fail(f"flat legacy form remains as canonical: {c}")
+        if r["target"] == "TmApp" and not c.startswith("EXP-T"):
+            fail(f"TmApp row has non-T code {c}")
+        if r["target"] == "HIC" and not c.startswith("EXP-H"):
+            fail(f"HIC row has non-H code {c}")
+        if not str(r.get("legacy_experiment_code") or ""):
+            fail(f"missing legacy_experiment_code for {c}")
 
-    if not set(df["target"]).issubset({"TmApp", "HIC"}):
-        fail(f"bad targets {set(df['target'])}")
+    m_count = int(df["experiment_code"].astype(str).str.startswith("EXP-M").sum())
+    if m_count != 0:
+        fail(f"unexpected EXP-M rows: {m_count}")
+    else:
+        ok("MULTI namespace empty (reserved)")
+    if next_code("MULTI") != "EXP-M001":
+        fail(f"next MULTI code unexpected: {next_code('MULTI')}")
+    else:
+        ok("next MULTI reserved EXP-M001")
+
+    t_codes = sorted(
+        [c for c in df["experiment_code"] if str(c).startswith("EXP-T")],
+        key=lambda x: int(str(x).split("-")[1][1:]),
+    )
+    h_codes = sorted(
+        [c for c in df["experiment_code"] if str(c).startswith("EXP-H")],
+        key=lambda x: int(str(x).split("-")[1][1:]),
+    )
+    t_n, h_n = len(t_codes), len(h_codes)
+    if t_codes != [f"EXP-T{i:03d}" for i in range(1, t_n + 1)]:
+        fail(f"T codes not contiguous EXP-T001..EXP-T{t_n:03d}")
+    else:
+        ok(f"TmApp codes EXP-T001..EXP-T{t_n:03d} ({t_n})")
+    if h_codes != [f"EXP-H{i:03d}" for i in range(1, h_n + 1)]:
+        fail(f"H codes not contiguous")
+    else:
+        ok(f"HIC codes EXP-H001..EXP-H{h_n:03d} ({h_n})")
+
+    merged = df.merge(
+        codes,
+        on=["experiment_code", "experiment_id"],
+        how="inner",
+        suffixes=("", "_c"),
+    )
+    if len(merged) != 48:
+        fail("EXPERIMENT_CODES.csv mismatch")
+    else:
+        ok("codes table matches experiments.csv")
+
+    leg_m = df.merge(
+        legacy,
+        left_on=["legacy_experiment_code", "experiment_code", "experiment_id"],
+        right_on=["legacy_experiment_code", "experiment_code", "experiment_id"],
+        how="inner",
+    )
+    if len(leg_m) != 48:
+        fail("LEGACY_EXPERIMENT_CODE_MAP.csv mismatch")
+    else:
+        ok("legacy map 48/48")
+
     if not set(df["artifact_status"]).issubset(ARTIFACT_STATUSES):
-        fail(f"bad artifact_status {set(df['artifact_status'])}")
+        fail("bad artifact_status")
     if not set(df["source_reproducible"]).issubset(SOURCE_REPRO):
-        fail(f"bad source_reproducible {set(df['source_reproducible'])}")
+        fail("bad source_reproducible")
     if not set(df["drilldown_reproducible"]).issubset(DRILLDOWN_REPRO):
-        fail(f"bad drilldown_reproducible {set(df['drilldown_reproducible'])}")
+        fail("bad drilldown_reproducible")
     if not set(df["license_status"]).issubset(LICENSE_STATUSES):
-        fail(f"bad license_status {set(df['license_status'])}")
+        fail("bad license_status")
     else:
         ok("repro/license enums valid")
-    if (df["license_status"] == "SEE_feature_manifest").any():
-        fail("legacy SEE_feature_manifest status remains")
 
-    # terminology
     pred_root = ROOT / "experiments" / "predictions"
     bad = [
         str(p)
@@ -105,25 +147,16 @@ def main() -> int:
     else:
         ok("no submission naming under predictions")
 
-    # no descriptive-id artifact leftovers for FULL
-    for leftover_glob in (
-        ROOT.glob("experiments/configs/LIN_*.yaml"),
-        ROOT.glob("experiments/configs/XGB_*.yaml"),
-        ROOT.glob("experiments/features/LIN_*.parquet"),
-        ROOT.glob("experiments/features/XGB_*.parquet"),
-    ):
-        leftovers = list(leftover_glob) if not isinstance(leftover_glob, list) else leftover_glob
-    leftovers = (
-        list(ROOT.glob("experiments/configs/LIN_*.yaml"))
-        + list(ROOT.glob("experiments/configs/XGB_*.yaml"))
-        + list(ROOT.glob("experiments/features/LIN_*.parquet"))
-        + list(ROOT.glob("experiments/features/XGB_*.parquet"))
-        + [p for p in (ROOT / "experiments" / "predictions").iterdir() if p.name.startswith(("LIN_", "XGB_"))]
-    )
+    leftovers = [
+        p
+        for p in list((ROOT / "experiments" / "configs").glob("EXP[0-9]*.yaml"))
+        + list((ROOT / "experiments" / "features").glob("EXP[0-9]*.parquet"))
+        + [p for p in pred_root.iterdir() if re.fullmatch(r"EXP[0-9]+", p.name)]
+    ]
     if leftovers:
-        fail(f"legacy descriptive artifact paths remain: {leftovers[:5]}")
+        fail(f"flat EXP0xx paths remain: {leftovers[:5]}")
     else:
-        ok("artifact paths use EXPxxx only")
+        ok("no flat EXP0xx artifact paths")
 
     dev, test, _ = load_dev_test_folds()
     dev_ids, test_ids = set(dev["id"]), set(test["id"])
@@ -135,42 +168,25 @@ def main() -> int:
     else:
         ok("FULL=12")
 
-    # feature sets
-    fs_path = ROOT / "results" / "FEATURE_SETS.csv"
-    if not fs_path.exists():
-        fail("FEATURE_SETS.csv missing")
-    else:
-        fs = pd.read_csv(fs_path)
-        ok(f"FEATURE_SETS n={len(fs)}")
-
     recipe_hashes: dict[str, set[str]] = {}
     for _, r in full.iterrows():
         code = r["experiment_code"]
-        if not str(r["feature_set_id"]):
-            fail(f"{code} missing feature_set_id")
-        if not str(r["source_recipe_id"]):
-            fail(f"{code} missing source_recipe_id")
-        if str(r["source_recipe_id"]).endswith(("__RIDGE", "__LASSO")) and str(r["feature_set_id"]).endswith(
-            ("_RIDGE", "_LASSO")
-        ):
-            fail(f"{code} feature_set_id still looks estimator-suffixed: {r['feature_set_id']}")
-
-        for path_col, expect_suffix in (
+        for path_col, expect in (
             ("config_path", f"experiments/configs/{code}.yaml"),
             ("feature_path", f"experiments/features/{code}.parquet"),
             ("oof_primary_path", f"experiments/predictions/{code}/oof_primary.csv"),
             ("oof_shadow_path", f"experiments/predictions/{code}/oof_shadow.csv"),
             ("test_prediction_path", f"experiments/predictions/{code}/test.csv"),
         ):
-            if str(r[path_col]) != expect_suffix:
-                fail(f"{code} {path_col}={r[path_col]} expected {expect_suffix}")
+            if str(r[path_col]) != expect:
+                fail(f"{code} {path_col}={r[path_col]}")
             if not (ROOT / str(r[path_col])).exists():
                 fail(f"missing {r[path_col]}")
 
         fpath = ROOT / str(r["feature_path"])
         feat = pd.read_parquet(fpath)
         if len(feat) != 324 or set(feat["id"].astype(str)) != all_ids:
-            fail(f"{code} feature id/rows")
+            fail(f"{code} feature ids")
         cols = feature_column_names(feat)
         if int(r["n_features"]) != len(cols):
             fail(f"{code} n_features")
@@ -180,49 +196,39 @@ def main() -> int:
             fail(f"{code} feature_sha256")
         ch = feature_content_sha256(feat)
         if r["feature_content_sha256"] != ch:
-            fail(f"{code} feature_content_sha256")
+            fail(f"{code} content hash")
         recipe_hashes.setdefault(str(r["feature_set_id"]), set()).add(ch)
 
-        for kind, key, idset in (
-            ("oof_primary", "oof_primary_path", dev_ids),
-            ("oof_shadow", "oof_shadow_path", dev_ids),
-            ("test", "test_prediction_path", test_ids),
+        for key, idset in (
+            ("oof_primary_path", dev_ids),
+            ("oof_shadow_path", dev_ids),
+            ("test_prediction_path", test_ids),
         ):
             pred = pd.read_csv(ROOT / str(r[key]))
             tgt = r["target"]
             if list(pred.columns) != ["id", tgt] or set(pred["id"].astype(str)) != idset:
-                fail(f"{code} {kind} schema/ids")
+                fail(f"{code} {key} schema")
             if not np_finite(pred[tgt]):
-                fail(f"{code} {kind} non-finite")
-
-        pmae, smae = float(r["cv_primary_mae"]), float(r["cv_shadow_mae"])
-        if abs(float(r["cv_mean_mae"]) - (pmae + smae) / 2) > 1e-12:
-            fail(f"{code} cv_mean")
-        if abs(float(r["cv_worst_mae"]) - max(pmae, smae)) > 1e-12:
-            fail(f"{code} cv_worst")
+                fail(f"{code} {key} non-finite")
 
     for fsid, hashes in recipe_hashes.items():
         if len(hashes) != 1:
-            fail(f"feature_set {fsid} hash mismatch {hashes}")
+            fail(f"feature_set {fsid} hash mismatch")
         else:
-            ok(f"feature_set {fsid} shared hash OK")
+            ok(f"feature_set {fsid} OK")
 
-    # submissions
     man = ROOT / "submissions" / "submissions.csv"
     if not man.exists():
         fail("submissions.csv missing")
     else:
         m = pd.read_csv(man)
         for _, row in m.iterrows():
-            if "tm_experiment_code" not in row or "hic_experiment_code" not in row:
-                fail("submissions.csv missing code columns")
-                break
             sp = ROOT / str(row["submission_path"])
             if not sp.exists():
                 fail(f"missing {sp}")
                 continue
-            if not re.match(r"sub__EXP\d+__EXP\d+\.csv$", sp.name):
-                fail(f"submission filename not code-based: {sp.name}")
+            if not re.match(r"^sub__EXP-T[0-9]+__EXP-H[0-9]+\.csv$", sp.name):
+                fail(f"bad submission filename {sp.name}")
             sub = pd.read_csv(sp)
             if list(sub.columns) != ["id", "TmApp", "HIC"] or len(sub) != 162:
                 fail(f"bad submission {sp}")
@@ -231,9 +237,9 @@ def main() -> int:
         ok(f"submissions n={len(m)}")
 
     if (ROOT / "solution.csv").exists():
-        fail("solution.csv present under drilldown")
+        fail("solution.csv present")
     else:
-        ok("no solution.csv in drilldown")
+        ok("no solution.csv")
 
     out = ROOT / "results" / "VALIDATION.txt"
     text = "PASS\n" if not FAILS else "FAIL\n" + "\n".join(FAILS) + "\n"

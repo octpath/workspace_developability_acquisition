@@ -38,6 +38,7 @@ source_paths:
   presets: top_models_feature_bundle/advanced_models/presets.json
   test_predictions: top_models_feature_bundle/advanced_outputs/predictions/HIC__xgboost__HIC_HYDRO_TITRATION__LASSO__test.csv
   oof_rebuild: developability_drilldown/scripts/rebuild_xgb_oof.py
-experiment_code: EXP047
+experiment_code: EXP-H022
 source_recipe_id: HIC_HYDRO_TITRATION__LASSO
 feature_set_id: FS_HIC_HYDRO_TITRATION
+legacy_experiment_code: EXP047

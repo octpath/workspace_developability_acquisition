@@ -31,6 +31,7 @@ def main() -> None:
         lines += [
             f"## `{code}` — `{eid}`",
             "",
+            f"- **legacy_experiment_code:** `{r.get('legacy_experiment_code', '')}`",
             f"- **source_model_id:** `{r['source_model_id']}`",
             f"- **feature_set_id:** `{r['feature_set_id']}`",
             f"- **source_recipe_id:** `{r['source_recipe_id']}`",

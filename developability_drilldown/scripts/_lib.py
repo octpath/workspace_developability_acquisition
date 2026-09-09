@@ -253,6 +253,7 @@ def derived_scores(primary: float, shadow: float, public: Optional[float], priva
 
 EXPERIMENTS_COLUMNS = [
     "experiment_code",
+    "legacy_experiment_code",
     "experiment_id",
     "target",
     "family",
@@ -302,4 +303,12 @@ EXPERIMENTS_COLUMNS = [
 LICENSE_STATUSES = {"OK", "REVIEW", "RESTRICTED", "UNKNOWN"}
 SOURCE_REPRO = {"YES", "NO", "UNKNOWN"}
 DRILLDOWN_REPRO = {"YES", "PARTIAL", "NO"}
-CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
+CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
+LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
+
+# Ensure experiment_code is first identity columns when rewriting tables
+IDENTITY_PREFIX = [
+    "experiment_code",
+    "legacy_experiment_code",
+    "experiment_id",
+]
