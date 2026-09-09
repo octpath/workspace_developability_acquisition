@@ -1,0 +1,62 @@
+experiment_code: EXP-T067
+experiment_id: TRF_TM_ABLINGUA_CA_DISTANCE_FULL_CONCAT_FUS_BIOEMU_MPNN
+target: TmApp
+family: TRANSFORMER
+source_model_id: CA_DISTANCE::EXP-T037
+transformer_type: FUSION
+input_space: RESIDUE_PLUS_FIXED_FEATURES_PLUS_CA_DISTANCE
+input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+plm_source: ABLINGUA
+annotation_mode: FULL
+chain_mode: HL
+merge_mode: concat
+pooling_mode: CONCAT
+content_mode: frozen
+d_model: 128
+n_layers: 2
+n_heads: 4
+ff_dim: 256
+dropout: 0.2
+seeds:
+- 101
+- 202
+- 303
+optimizer: AdamW
+learning_rate: 0.0003
+weight_decay: 0.01
+batch_size: 16
+max_epochs: 300
+patience: 30
+gradient_clip: 1.0
+loss: SmoothL1Loss(beta=0.5)
+cv_protocol: canonical_simple_tvt_primary_shadow
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+representation_status: NOT_EXPORTED
+representation_note: NOT_EXPORTED; full-Dev weight checkpoints may be saved under
+  results/EXP-T067_run/checkpoints/ if size permits
+fusion_feature_set_id: FS_TM_BIOEMU_MPNN
+fusion_projection_dim: 64
+fusion_recipe: TM_BASE_BIOEMU_MPNN__RIDGE
+control_experiment_code: EXP-T037
+pairwise_geometry:
+  enabled: true
+  geometry_source: CA_COORDINATES
+  distance_metric: EUCLIDEAN_ANGSTROM
+  distance_kernel: EXPONENTIAL
+  distance_kernel_count_per_head: 1
+  distance_amplitude_init: ZERO
+  distance_scale: LEARNABLE_PER_HEAD
+  distance_scale_init: TRAIN_MEDIAN_PAIR_DISTANCE
+  distance_kernel_shared_across_layers: true
+  cross_chain_distance: false
+  self_pair_bias: false
+  ca_source: experiments/classical_cache
+  ca_hashes:
+    ca_heavy.npy: 0e58df5fe4d5dc1112db8630fa6067d5b13088ca18d769bd1c44c74717a04eae
+    ca_light.npy: e38e3e9c57c40a22a19cafb16878d3f1a6e139cf2733963c08d2fa7f6ac4a902
+    ca_ids.npy: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    ca_meta.json: cc44895989348c89563b574cdb3cab0495cbdb921b2789fbfb2b9e1e6a0a13a8
+  control_experiment_code: EXP-T037
+  encoder_topology_unchanged: true
+  within_chain_only: true

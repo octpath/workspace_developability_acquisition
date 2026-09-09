@@ -1,0 +1,88 @@
+{
+  "note": "Diagnostic only; not used for selection. Within-chain pairs only (no H-L). Bias kernel: a*exp(-d/ell); summary uses mean |a_h| and median ell.",
+  "summary_params": {
+    "mean_abs_a_h": 0.0038486743720113274,
+    "median_ell_h_angstrom": 17.10286521911621,
+    "n_param_rows_used": 120
+  },
+  "pair_stats": {
+    "n_pairs": 4327494,
+    "distance_quantiles_angstrom": {
+      "q10": 8.658373641967774,
+      "q25": 12.362141132354736,
+      "q50": 17.11317539215088,
+      "q75": 22.441428661346436,
+      "q90": 27.762595939636235
+    },
+    "pair_category_counts": {
+      "sequence_neighbor_|i-j|=1": 74409,
+      "local_1<|i-j|<=4": 219339,
+      "nonlocal_|i-j|>4": 4033746
+    },
+    "pair_category_mean_distance_angstrom": {
+      "sequence_neighbor_|i-j|=1": 3.7797339056404873,
+      "local_1<|i-j|<=4": 8.787722851361254,
+      "nonlocal_|i-j|>4": 18.44939929887112
+    }
+  },
+  "bias_curve_at_distance_quantiles": {
+    "q10": 0.00231978835727973,
+    "q25": 0.0018680921172885884,
+    "q50": 0.0014149949143125351,
+    "q75": 0.0010362250804876148,
+    "q90": 0.0007591598921670238
+  },
+  "per_head": {
+    "0": {
+      "mean_abs_a_h": 0.0038843191251240828,
+      "median_ell_h_angstrom": 17.102943420410156,
+      "bias_at_quantiles": {
+        "q10": 0.0023412786506517027,
+        "q25": 0.0018853998075933473,
+        "q50": 0.0014281065173958741,
+        "q75": 0.0010458284224076114,
+        "q90": 0.0007661965887543112
+      }
+    },
+    "1": {
+      "mean_abs_a_h": 0.0028473856427201766,
+      "median_ell_h_angstrom": 17.102730751037598,
+      "bias_at_quantiles": {
+        "q10": 0.0017162547757291664,
+        "q25": 0.0013820728726386623,
+        "q50": 0.0010468551291507964,
+        "q75": 0.0007666281146162743,
+        "q90": 0.0005616462138522267
+      }
+    },
+    "2": {
+      "mean_abs_a_h": 0.004348070093934993,
+      "median_ell_h_angstrom": 17.103328704833984,
+      "bias_at_quantiles": {
+        "q10": 0.002620835068088119,
+        "q25": 0.002110533078720833,
+        "q50": 0.0015986449633061156,
+        "q75": 0.0011707250496594689,
+        "q90": 0.0008577045785476281
+      }
+    },
+    "3": {
+      "mean_abs_a_h": 0.004314922626266057,
+      "median_ell_h_angstrom": 17.102746963500977,
+      "bias_at_quantiles": {
+        "q10": 0.0026008103739282615,
+        "q25": 0.002094391959411944,
+        "q50": 0.0015864037171510255,
+        "q75": 0.0011617481884595967,
+        "q90": 0.0008511188821537663
+      }
+    }
+  },
+  "category_mean_bias": {
+    "sequence_neighbor_|i-j|=1": 0.0030855463161634728,
+    "local_1<|i-j|<=4": 0.002302309943472548,
+    "nonlocal_|i-j|>4": 0.0013086515802142112
+  },
+  "apparent_geometry_use_dominant_category": "sequence_neighbor_|i-j|=1",
+  "cross_chain_hl": false
+}

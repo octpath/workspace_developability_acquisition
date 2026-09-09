@@ -230,9 +230,17 @@ def main() -> int:
                 fail(f"{code} feature_space")
             if str(r.get("representation_status") or "") not in ("NOT_EXPORTED", "EXPORTED"):
                 fail(f"{code} representation_status")
+            space = str(r.get("input_space") or "")
             rasa = ROOT / "experiments" / "inputs" / f"{code}_rasa.parquet"
-            if not rasa.exists():
-                fail(f"{code} missing RASA input parquet")
+            ca = ROOT / "experiments" / "inputs" / f"{code}_ca.parquet"
+            if "CA_DISTANCE" in space:
+                if not ca.exists():
+                    fail(f"{code} missing CA coordinate input parquet")
+            elif "RASA" in space:
+                if not rasa.exists():
+                    fail(f"{code} missing RASA input parquet")
+            else:
+                fail(f"{code} unexpected new-architecture input_space without RASA/CA artifact: {space}")
         if not str(r.get("input_space") or ""):
             fail(f"{code} missing input_space")
         if not str(r.get("input_asset_ref") or ""):

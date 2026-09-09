@@ -1,0 +1,91 @@
+{
+  "git_rev": "f79b0b0cbb7a69f23d74ef36a41645d617e3ff3c",
+  "quick": false,
+  "elapsed_sec": 228.03240203857422,
+  "cv_primary_mae": 2.7538162749490627,
+  "cv_shadow_mae": 2.7729983702608587,
+  "cv_mean_mae": 2.7634073226049605,
+  "cv_worst_mae": 2.7729983702608587,
+  "config_hash": "6219713d4c306ce1",
+  "best_epochs_primary": {
+    "101": [
+      85,
+      13,
+      26,
+      11,
+      17
+    ],
+    "202": [
+      46,
+      15,
+      8,
+      10,
+      47
+    ],
+    "303": [
+      53,
+      22,
+      27,
+      14,
+      32
+    ]
+  },
+  "n_distance_param_rows": 120,
+  "distance_param_summary": {
+    "n_rows": 120,
+    "mean_abs_a_h": 0.003848674372011374,
+    "median_abs_a_h": 0.002886748989112675,
+    "mean_a_h": 0.001682714299310343,
+    "median_ell_h_angstrom": 17.10286521911621,
+    "mean_ell_h_angstrom": 17.103689336776732,
+    "median_initial_ell": 17.121649742126465,
+    "by_head": {
+      "0": {
+        "mean_abs_a": 0.0038843191251241175,
+        "median_ell": 17.102943420410156
+      },
+      "1": {
+        "mean_abs_a": 0.0028473856427202312,
+        "median_ell": 17.102730751037598
+      },
+      "2": {
+        "mean_abs_a": 0.004348070093935045,
+        "median_ell": 17.103328704833984
+      },
+      "3": {
+        "mean_abs_a": 0.004314922626266101,
+        "median_ell": 17.102746963500977
+      }
+    }
+  },
+  "ca_qc": {
+    "n_expected_residues": 75057,
+    "n_mapped_ca_residues": 75057,
+    "n_missing_ca_residues": 0,
+    "n_aa_mismatch_flags": 0,
+    "ca_hashes": {
+      "ca_heavy.npy": "0e58df5fe4d5dc1112db8630fa6067d5b13088ca18d769bd1c44c74717a04eae",
+      "ca_light.npy": "e38e3e9c57c40a22a19cafb16878d3f1a6e139cf2733963c08d2fa7f6ac4a902",
+      "ca_ids.npy": "ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d",
+      "ca_meta.json": "cc44895989348c89563b574cdb3cab0495cbdb921b2789fbfb2b9e1e6a0a13a8"
+    },
+    "structure_source": "/workspace_developability_acquisition/feature_extension/data/esmfold_fv",
+    "ca_coord_range": {
+      "min": [
+        -28.834999084472656,
+        -27.986000061035156,
+        -27.104999542236328
+      ],
+      "max": [
+        29.632999420166016,
+        26.743999481201172,
+        28.874000549316406
+      ],
+      "mean": [
+        -0.1036619022488594,
+        -0.14308251440525055,
+        -0.34858065843582153
+      ]
+    }
+  }
+}

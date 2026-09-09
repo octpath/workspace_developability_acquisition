@@ -152,3 +152,46 @@ def test_extract_ca_smoke():
     assert mh and ml
     assert h.shape == (len(row.heavy), 3)
     assert np.isfinite(h).all() and np.isfinite(l).all()
+
+
+def test_exp_t067_artifacts_if_present():
+    import pandas as pd
+    import yaml
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    code = "EXP-T067"
+    cfg = ROOT / "experiments" / "configs" / f"{code}.yaml"
+    if not cfg.exists():
+        pytest.skip("EXP-T067 not registered yet")
+    assert (ROOT / "experiments" / "features" / f"{code}.parquet").exists()
+    assert (ROOT / "experiments" / "inputs" / f"{code}_ca.parquet").exists()
+    pred = ROOT / "experiments" / "predictions" / code
+    for name in ("oof_primary.csv", "oof_shadow.csv", "test.csv"):
+        assert (pred / name).exists()
+    freeze_path = ROOT / "results" / "EXP-T067_CV_FREEZE.yaml"
+    assert freeze_path.exists()
+    freeze = yaml.safe_load(freeze_path.read_text())
+    assert freeze["control_experiment_code"] == "EXP-T037"
+    assert freeze["config"]["pairwise_geometry"]["cross_chain_distance"] is False
+    assert freeze["config"]["pairwise_geometry"]["distance_kernel_shared_across_layers"] is True
+    assert "public_mae" in freeze  # recorded after freeze, not used for selection
+    assert freeze.get("selection_statement") or freeze.get("cv_scientific_verdict")
+
+    from _lib import mae  # noqa: E402
+
+    exp = pd.read_csv(ROOT / "results" / "experiments.csv")
+    row = exp[exp["experiment_code"] == code].iloc[0]
+    assert row["input_space"] == "RESIDUE_PLUS_FIXED_FEATURES_PLUS_CA_DISTANCE"
+    assert row["shareability_status"] == "SHAREABLE_COMPLETE"
+    assert row["reproduction_status"] == "REPRODUCED"
+    dev = pd.read_csv(ROOT / "data" / "dev.csv")
+    y = dev.set_index("id")["TmApp"]
+    for scheme, col in (("oof_primary.csv", "cv_primary_mae"), ("oof_shadow.csv", "cv_shadow_mae")):
+        p = pd.read_csv(pred / scheme)
+        p["id"] = p["id"].astype(str)
+        ids = dev["id"].astype(str).tolist()
+        pred_s = p.set_index("id").loc[ids, "TmApp"]
+        assert abs(mae(y.loc[ids].to_numpy(float), pred_s.to_numpy(float)) - float(row[col])) < 1e-10
+    t065 = exp[exp["experiment_code"] == "EXP-T065"].iloc[0]
+    assert row["feature_content_sha256"] == t065["feature_content_sha256"]
+    assert (ROOT / "results" / "EXP-T067_DISTANCE_PARAMETERS.csv").exists()

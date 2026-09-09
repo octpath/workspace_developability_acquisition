@@ -1,0 +1,26 @@
+{
+  "total_bytes": 6760364,
+  "n_files": 4,
+  "files": [
+    {
+      "path": "results/EXP-T067_run/checkpoints/distance_params_fulldev.csv",
+      "sha256": "3a63efbbb7d6b00c6c074094c4635733c7371a1a8dd264fc19a9850eefebbc7d",
+      "bytes": 1040
+    },
+    {
+      "path": "results/EXP-T067_run/checkpoints/fulldev_seed101.pt",
+      "sha256": "b1c4e873ef6243380c2295bc25c5939f48aedf8d27c108feec4d7889df5f8bd3",
+      "bytes": 2253108
+    },
+    {
+      "path": "results/EXP-T067_run/checkpoints/fulldev_seed202.pt",
+      "sha256": "d191859bb0d38112bac57e0f6f3c7a810f87bb5f0aac065386b791d5f6f1a087",
+      "bytes": 2253108
+    },
+    {
+      "path": "results/EXP-T067_run/checkpoints/fulldev_seed303.pt",
+      "sha256": "eca4a41fb810f88659d56912387170929f16b0a0e01aba521cb58446107f7f2b",
+      "bytes": 2253108
+    }
+  ]
+}
