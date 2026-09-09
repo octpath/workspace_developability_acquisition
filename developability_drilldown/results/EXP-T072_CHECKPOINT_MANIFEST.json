@@ -1,0 +1,30 @@
+{
+  "experiment_code": "EXP-T072",
+  "experiment_id": "TRF_TM_ABLINGUA_FULL_SEPARATE_WITH_CROSS_ATTENTION_DUAL_REG",
+  "checkpoint_dir": "results/EXP-T072_run/checkpoints",
+  "n_fulldev": 0,
+  "n_trainable_parameters": 567683,
+  "param_counts": {
+    "EXP-T030_n_trainable": 492417,
+    "EXP-T068_n_trainable": 475905,
+    "EXP-T070_n_trainable": 492417,
+    "EXP-T071_n_trainable": 492417,
+    "EXP-T072_n_trainable": 558467,
+    "repr_dim_t030": 256,
+    "repr_dim_t068": 128,
+    "repr_dim_t070": 256,
+    "repr_dim_t071": 256,
+    "repr_dim_t072": 256,
+    "param_account_t072": {
+      "encoder": 264960,
+      "cross_attention": 66048,
+      "gates": 2,
+      "head": 33025,
+      "other": 194432,
+      "total": 558467
+    }
+  },
+  "files": [],
+  "total_bytes": 0,
+  "git_rev": "ddb98490b287e5c48dea85461cd3db07da5c74d2"
+}

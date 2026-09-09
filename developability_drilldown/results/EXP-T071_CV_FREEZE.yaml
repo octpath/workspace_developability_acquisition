@@ -1,0 +1,149 @@
+experiment_code: EXP-T071
+experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_CHAIN_SPECIFIC_DUAL_REG
+git_rev: ddb98490b287e5c48dea85461cd3db07da5c74d2
+config:
+  experiment_code: EXP-T071
+  experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_CHAIN_SPECIFIC_DUAL_REG
+  target: TmApp
+  family: TRANSFORMER
+  source_model_id: JOINT_HL_CHAIN_SPECIFIC_DUAL_REG::EXP-T030-REPLAY-001
+  transformer_type: FROZEN_PLM
+  input_space: JOINT_HL_CHAIN_SPECIFIC_DUAL_REG_FROZEN_RESIDUE
+  input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  plm_source: ABLINGUA
+  annotation_mode: FULL
+  chain_mode: HL
+  merge_mode: concat
+  pooling_mode: REG
+  content_mode: frozen
+  joint_hl_chain_specific_dual_reg: true
+  joint_hl_dual_reg: false
+  joint_hl_single_reg: false
+  cross_chain_attention: true
+  dual_reg: true
+  use_ca_distance_bias: false
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  ff_dim: 256
+  dropout: 0.2
+  seeds:
+  - 101
+  - 202
+  - 303
+  optimizer: AdamW
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  batch_size: 16
+  max_epochs: 300
+  patience: 30
+  gradient_clip: 1.0
+  loss: SmoothL1Loss(beta=0.5)
+  cv_protocol: canonical_simple_tvt_primary_shadow
+  selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+  current_evaluation_mode: POSTCOMP_EXPLORATORY
+  representation_status: NOT_EXPORTED
+  representation_note: NOT_EXPORTED; full-Dev weight checkpoints under results/EXP-T071_run/checkpoints/
+    if size permits
+  control_experiment_code: EXP-T030
+  contemporary_control_run_id: EXP-T030-REPLAY-001
+  recipe_id: null
+control_experiment_code: EXP-T030
+contemporary_control_run_id: EXP-T030-REPLAY-001
+param_counts:
+  EXP-T030_n_trainable: 492417
+  EXP-T068_n_trainable: 475905
+  EXP-T070_n_trainable: 492417
+  EXP-T071_n_trainable: 492417
+  repr_dim_t030: 256
+  repr_dim_t068: 128
+  repr_dim_t070: 256
+  repr_dim_t071: 256
+EXP-T071:
+  cv_primary_mae: 3.311990549534927
+  cv_shadow_mae: 3.2183434914169
+  cv_mean_mae: 3.2651670204759133
+  cv_worst_mae: 3.311990549534927
+  config_hash: 35f6e3a2607e043d
+  best_epochs_primary:
+    '101':
+    - 22
+    - 13
+    - 10
+    - 11
+    - 19
+    '202':
+    - 13
+    - 9
+    - 11
+    - 9
+    - 17
+    '303':
+    - 23
+    - 8
+    - 9
+    - 9
+    - 29
+  n_trainable_parameters: 501633
+deltas_vs_EXP-T030-REPLAY-001:
+  primary: 0.07931312906398702
+  shadow: 0.016385514059184203
+  worst: 0.07931312906398702
+deltas_vs_historical_EXP-T030:
+  primary: -0.005778740462943244
+  shadow: 0.0037332542639214594
+  worst: -0.005778740462943244
+deltas_vs_EXP-T070:
+  primary: -0.017100024125213942
+  shadow: 0.03138570432309784
+  worst: -0.017100024125213942
+deltas_vs_EXP-T068:
+  primary: -0.2273353765040267
+  shadow: -0.08727856231815023
+  worst: -0.2273353765040267
+bootstrap:
+  vs_EXP-T030-REPLAY-001:
+    primary:
+      mae_delta: 0.07931312906398785
+      ci95_low: -0.07140569471037483
+      ci95_high: 0.22853639606585788
+      n_boot: 10000
+    shadow:
+      mae_delta: 0.016385498360842264
+      ci95_low: -0.1212929847309115
+      ci95_high: 0.15393670399983742
+      n_boot: 10000
+  vs_EXP-T070:
+    primary:
+      mae_delta: -0.017100024125213404
+      ci95_low: -0.25336614067171886
+      ci95_high: 0.21977577543062352
+      n_boot: 10000
+    shadow:
+      mae_delta: 0.031385688624755353
+      ci95_low: -0.17201405964761105
+      ci95_high: 0.2389241917143142
+      n_boot: 10000
+  vs_EXP-T068:
+    primary:
+      mae_delta: -0.22733537650402647
+      ci95_low: -0.49207015920568226
+      ci95_high: 0.02970228312928064
+      n_boot: 10000
+    shadow:
+      mae_delta: -0.08727857801649297
+      ci95_low: -0.33674117586740226
+      ci95_high: 0.16307519355428585
+      n_boot: 10000
+cv_scientific_verdict: NEGATIVE
+selection_statement: CV completed for EXP-T071; config frozen; Public/Private not
+  used before freeze; single full-Dev Test follows. Primary control = contemporary
+  replay.
+public_mae: 3.6099842212818287
+private_mae: 3.38143073187934
+test_overall_mae: 3.4957074765805847
+checkpoints:
+  dir: results/EXP-T071_run/checkpoints
+  n_fulldev: 0
+  paths: []
+  total_bytes: 0

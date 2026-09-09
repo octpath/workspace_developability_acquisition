@@ -1,0 +1,21 @@
+Issued EXP-T071
+=== EXP-T071 CV ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+{
+  "cv_primary_mae": 3.311990549534927,
+  "cv_shadow_mae": 3.2183434914169,
+  "cv_mean_mae": 3.2651670204759133,
+  "cv_worst_mae": 3.311990549534927
+}
+=== artifacts + registry ===
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_t071_chain_specific_dual_reg.py", line 911, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_t071_chain_specific_dual_reg.py", line 904, in main
+    phase_artifacts(code)
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_t071_chain_specific_dual_reg.py", line 619, in phase_artifacts
+    assert abs(recomputed_s - freeze["EXP-T071"]["cv_shadow_mae"]) < 1e-10
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

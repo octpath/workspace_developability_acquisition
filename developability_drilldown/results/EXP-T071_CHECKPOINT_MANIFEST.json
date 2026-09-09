@@ -1,0 +1,20 @@
+{
+  "experiment_code": "EXP-T071",
+  "experiment_id": "TRF_TM_ABLINGUA_FULL_JOINT_CHAIN_SPECIFIC_DUAL_REG",
+  "checkpoint_dir": "results/EXP-T071_run/checkpoints",
+  "n_fulldev": 0,
+  "n_trainable_parameters": 501633,
+  "param_counts": {
+    "EXP-T030_n_trainable": 492417,
+    "EXP-T068_n_trainable": 475905,
+    "EXP-T070_n_trainable": 492417,
+    "EXP-T071_n_trainable": 492417,
+    "repr_dim_t030": 256,
+    "repr_dim_t068": 128,
+    "repr_dim_t070": 256,
+    "repr_dim_t071": 256
+  },
+  "files": [],
+  "total_bytes": 0,
+  "git_rev": "ddb98490b287e5c48dea85461cd3db07da5c74d2"
+}

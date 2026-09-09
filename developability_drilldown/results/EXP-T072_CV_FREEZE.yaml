@@ -1,0 +1,206 @@
+experiment_code: EXP-T072
+experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_WITH_CROSS_ATTENTION_DUAL_REG
+git_rev: ddb98490b287e5c48dea85461cd3db07da5c74d2
+config:
+  experiment_code: EXP-T072
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_WITH_CROSS_ATTENTION_DUAL_REG
+  target: TmApp
+  family: TRANSFORMER
+  source_model_id: SEPARATE_CROSS_ATTENTION_DUAL_REG::EXP-T030-REPLAY-001
+  transformer_type: FROZEN_PLM
+  input_space: SEPARATE_CROSS_ATTENTION_DUAL_REG_FROZEN_RESIDUE
+  input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  plm_source: ABLINGUA
+  annotation_mode: FULL
+  chain_mode: HL
+  merge_mode: concat
+  pooling_mode: REG
+  content_mode: frozen
+  use_cross_attention_bridge: true
+  joint_hl_chain_specific_dual_reg: false
+  joint_hl_dual_reg: false
+  joint_hl_single_reg: false
+  cross_chain_attention: true
+  dual_reg: true
+  use_ca_distance_bias: false
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  ff_dim: 256
+  dropout: 0.2
+  seeds:
+  - 101
+  - 202
+  - 303
+  optimizer: AdamW
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  batch_size: 16
+  max_epochs: 300
+  patience: 30
+  gradient_clip: 1.0
+  loss: SmoothL1Loss(beta=0.5)
+  cv_protocol: canonical_simple_tvt_primary_shadow
+  selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+  current_evaluation_mode: POSTCOMP_EXPLORATORY
+  representation_status: NOT_EXPORTED
+  representation_note: NOT_EXPORTED; full-Dev weight checkpoints under results/EXP-T072_run/checkpoints/
+    if size permits
+  control_experiment_code: EXP-T030
+  contemporary_control_run_id: EXP-T030-REPLAY-001
+  recipe_id: null
+control_experiment_code: EXP-T030
+contemporary_control_run_id: EXP-T030-REPLAY-001
+param_counts:
+  EXP-T030_n_trainable: 492417
+  EXP-T068_n_trainable: 475905
+  EXP-T070_n_trainable: 492417
+  EXP-T071_n_trainable: 492417
+  EXP-T072_n_trainable: 558467
+  repr_dim_t030: 256
+  repr_dim_t068: 128
+  repr_dim_t070: 256
+  repr_dim_t071: 256
+  repr_dim_t072: 256
+  param_account_t072:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 2
+    head: 33025
+    other: 194432
+    total: 558467
+zero_gate_equivalence:
+  ok: true
+  max_pred_diff: 0.0
+  threshold: 1.0e-05
+gate_summary_stats:
+  n_rows: 30
+  g_H:
+    mean: 0.002119354374008253
+    median: 0.0013205084833316505
+    std: 0.0072393714455023924
+    abs_mean: 0.005323402806728457
+    sign_consistency: 0.6
+    frac_positive: 0.6
+    frac_negative: 0.4
+    frac_zero: 0.0
+  g_L:
+    mean: 0.0011513243768907463
+    median: 0.0001250708446605131
+    std: 0.011441935862777513
+    abs_mean: 0.007240998606236341
+    sign_consistency: 0.5
+    frac_positive: 0.5
+    frac_negative: 0.5
+    frac_zero: 0.0
+EXP-T072:
+  cv_primary_mae: 3.2668468648023574
+  cv_shadow_mae: 3.2520755563743813
+  cv_mean_mae: 3.2594612105883694
+  cv_worst_mae: 3.2668468648023574
+  config_hash: efa42ab921c72a5a
+  best_epochs_primary:
+    '101':
+    - 16
+    - 15
+    - 33
+    - 9
+    - 15
+    '202':
+    - 17
+    - 14
+    - 11
+    - 16
+    - 19
+    '303':
+    - 13
+    - 8
+    - 28
+    - 11
+    - 17
+  n_trainable_parameters: 567683
+deltas_vs_EXP-T030-REPLAY-001:
+  primary: 0.03416944433141733
+  shadow: 0.05011757901666547
+  worst: 0.03416944433141733
+deltas_vs_historical_EXP-T030:
+  primary: -0.05092242519551293
+  shadow: 0.03746531922140228
+  worst: -0.05092242519551293
+deltas_vs_EXP-T071:
+  primary: -0.04514368473256969
+  shadow: 0.03373206495748127
+  worst: -0.04514368473256969
+deltas_vs_EXP-T070:
+  primary: -0.06224370885778363
+  shadow: 0.06511776928057911
+  worst: -0.06224370885778363
+deltas_vs_EXP-T068:
+  primary: -0.2724790612365964
+  shadow: -0.053546497360668965
+  worst: -0.2724790612365964
+bootstrap:
+  vs_EXP-T030-REPLAY-001:
+    primary:
+      mae_delta: 0.03416944433141752
+      ci95_low: -0.11844595685417074
+      ci95_high: 0.18495412618535134
+      p_delta_lt_0: 0.3275
+      n_boot: 10000
+    shadow:
+      mae_delta: 0.05011757901666624
+      ci95_low: -0.10196319901894159
+      ci95_high: 0.20190114719877514
+      p_delta_lt_0: 0.2639
+      n_boot: 10000
+  vs_EXP-T071:
+    primary:
+      mae_delta: -0.045143684732570334
+      ci95_low: -0.20050250257484215
+      ci95_high: 0.10946733176463001
+      p_delta_lt_0: 0.7177
+      n_boot: 10000
+    shadow:
+      mae_delta: 0.033732064957481385
+      ci95_low: -0.1181521368615404
+      ci95_high: 0.1807840190306615
+      p_delta_lt_0: 0.3309
+      n_boot: 10000
+  vs_EXP-T070:
+    primary:
+      mae_delta: -0.06224370885778374
+      ci95_low: -0.20923900074429072
+      ci95_high: 0.0840044253157003
+      p_delta_lt_0: 0.8007
+      n_boot: 10000
+    shadow:
+      mae_delta: 0.06511776928057933
+      ci95_low: -0.1564578666608515
+      ci95_high: 0.2793003557150264
+      p_delta_lt_0: 0.2721
+      n_boot: 10000
+  vs_EXP-T068:
+    primary:
+      mae_delta: -0.2724790612365968
+      ci95_low: -0.5379908724576846
+      ci95_high: -0.004273915585174957
+      p_delta_lt_0: 0.9768
+      n_boot: 10000
+    shadow:
+      mae_delta: -0.053546497360668986
+      ci95_low: -0.29424441675099805
+      ci95_high: 0.1809268454955943
+      p_delta_lt_0: 0.66
+      n_boot: 10000
+cv_scientific_verdict: NEGATIVE
+selection_statement: CV completed for EXP-T072; config frozen; Public/Private not
+  used before freeze; single full-Dev Test follows. Primary control = contemporary
+  replay.
+public_mae: 3.6630915889033564
+private_mae: 3.306089707362799
+test_overall_mae: 3.4845906481330777
+checkpoints:
+  dir: results/EXP-T072_run/checkpoints
+  n_fulldev: 0
+  paths: []
+  total_bytes: 0

@@ -66,8 +66,10 @@ class AbDataset(Dataset):
         use_continuous_rasa: bool = False,
         use_rasa_weighted_pool: bool = False,
         use_ca_distance_bias: bool = False,
-    joint_hl_single_reg: bool = False,
-    joint_hl_dual_reg: bool = False,
+        joint_hl_single_reg: bool = False,
+        joint_hl_dual_reg: bool = False,
+        joint_hl_chain_specific_dual_reg: bool = False,
+        use_cross_attention_bridge: bool = False,
     ):
         self.ids = ids
         self.y = y
@@ -180,6 +182,8 @@ def build_transformer(
     use_ca_distance_bias: bool = False,
     joint_hl_single_reg: bool = False,
     joint_hl_dual_reg: bool = False,
+    joint_hl_chain_specific_dual_reg: bool = False,
+    use_cross_attention_bridge: bool = False,
     initial_ell_angstrom: Optional[float] = None,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
@@ -211,6 +215,8 @@ def build_transformer(
         use_ca_distance_bias=use_ca_distance_bias,
         joint_hl_single_reg=joint_hl_single_reg,
         joint_hl_dual_reg=joint_hl_dual_reg,
+            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+            use_cross_attention_bridge=use_cross_attention_bridge,
         initial_ell_angstrom=initial_ell_angstrom,
     )
 
@@ -238,6 +244,8 @@ def train_transformer_seed(
     use_ca_distance_bias: bool = False,
     joint_hl_single_reg: bool = False,
     joint_hl_dual_reg: bool = False,
+    joint_hl_chain_specific_dual_reg: bool = False,
+    use_cross_attention_bridge: bool = False,
 ) -> dict:
     presets = load_presets()
     ncfg = presets["neural"]
@@ -288,6 +296,8 @@ def train_transformer_seed(
             use_ca_distance_bias=use_ca_distance_bias,
             joint_hl_single_reg=joint_hl_single_reg,
             joint_hl_dual_reg=joint_hl_dual_reg,
+            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+            use_cross_attention_bridge=use_cross_attention_bridge,
         )
         return DataLoader(ds, batch_size=batch_sz, shuffle=shuffle, collate_fn=collate_batch)
 
@@ -306,6 +316,8 @@ def train_transformer_seed(
             use_ca_distance_bias=use_ca_distance_bias,
             joint_hl_single_reg=joint_hl_single_reg,
             joint_hl_dual_reg=joint_hl_dual_reg,
+            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+            use_cross_attention_bridge=use_cross_attention_bridge,
             initial_ell_angstrom=initial_ell,
         )
         if fixed_parts is not None:
@@ -406,6 +418,8 @@ def train_transformer_seed(
                     use_ca_distance_bias=use_ca_distance_bias,
                     joint_hl_single_reg=joint_hl_single_reg,
                     joint_hl_dual_reg=joint_hl_dual_reg,
+            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+            use_cross_attention_bridge=use_cross_attention_bridge,
                     initial_ell_angstrom=initial_ell,
                 )
                 model2 = FeatureFusionModel(
@@ -449,6 +463,10 @@ def train_transformer_seed(
                     "ell_angstrom": ell.tolist(),
                 }
 
+            cross_gates = None
+            if use_cross_attention_bridge and getattr(core_ref, "use_cross_attention_bridge", False):
+                cross_gates = core_ref.cross_gate_values()
+
             return {
                 "best_epoch": best_epoch,
                 "val_mae_phase_a": best_val,
@@ -461,6 +479,7 @@ def train_transformer_seed(
                 "batch_size_used": try_bs,
                 "region_gate_weights": region_weights,
                 "distance_params": distance_params,
+                "cross_gates": cross_gates,
             }
         except RuntimeError as e:
             last_err = e
@@ -495,6 +514,8 @@ def run_transformer_cv(
     use_ca_distance_bias: bool = False,
     joint_hl_single_reg: bool = False,
     joint_hl_dual_reg: bool = False,
+    joint_hl_chain_specific_dual_reg: bool = False,
+    use_cross_attention_bridge: bool = False,
 ) -> dict:
     """Primary+Shadow multi-seed ensemble OOF."""
     device_t = torch.device(device if device != "cuda" else "cuda:0")
@@ -526,6 +547,8 @@ def run_transformer_cv(
         "use_ca_distance_bias": bool(use_ca_distance_bias),
         "joint_hl_single_reg": bool(joint_hl_single_reg),
         "joint_hl_dual_reg": bool(joint_hl_dual_reg),
+        "joint_hl_chain_specific_dual_reg": bool(joint_hl_chain_specific_dual_reg),
+        "use_cross_attention_bridge": bool(use_cross_attention_bridge),
     }
     ch = config_hash(cfg)
     cache_path = out_dir / f"cache_{variant_id}_{ch}.json"
@@ -536,6 +559,7 @@ def run_transformer_cv(
     region_gate_rows: list[dict] = []
     batch_sizes_used: list[int] = []
     distance_param_rows: list[dict] = []
+    cross_gate_rows: list[dict] = []
 
     for scheme_name, fmap in (("primary", folds.primary), ("shadow", folds.shadow)):
         oof = pd.Series(0.0, index=dev_ids, dtype=float)
@@ -580,6 +604,18 @@ def run_transformer_cv(
                                     },
                                 }
                             )
+                    if "cross_gates" in z.files and z["cross_gates"].item() is not None:
+                        cg = z["cross_gates"].item()
+                        cross_gate_rows.append(
+                            {
+                                "cv_scheme": scheme_name,
+                                "fold": k,
+                                "seed": seed,
+                                "best_epoch": be,
+                                "g_H": float(cg["g_H"]),
+                                "g_L": float(cg["g_L"]),
+                            }
+                        )
                 else:
                     tr, va, te = tvt_split(fmap, k, dev_ids)
                     out = train_transformer_seed(
@@ -603,6 +639,8 @@ def run_transformer_cv(
                         use_ca_distance_bias=use_ca_distance_bias,
             joint_hl_single_reg=joint_hl_single_reg,
             joint_hl_dual_reg=joint_hl_dual_reg,
+            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+            use_cross_attention_bridge=use_cross_attention_bridge,
                     )
                     pred = out["test_pred"]
                     tids = out["test_ids"]
@@ -610,6 +648,7 @@ def run_transformer_cv(
                     batch_sizes_used.append(int(out.get("batch_size_used", 16)))
                     rg = out.get("region_gate_weights")
                     dp = out.get("distance_params")
+                    cg = out.get("cross_gates")
                     np.savez_compressed(
                         cache_fold,
                         pred=pred,
@@ -619,7 +658,19 @@ def run_transformer_cv(
                         region_gate_weights=rg,
                         batch_size_used=out.get("batch_size_used", 16),
                         distance_params=dp,
+                        cross_gates=cg,
                     )
+                    if cg is not None:
+                        cross_gate_rows.append(
+                            {
+                                "cv_scheme": scheme_name,
+                                "fold": k,
+                                "seed": seed,
+                                "best_epoch": be,
+                                "g_H": float(cg["g_H"]),
+                                "g_L": float(cg["g_L"]),
+                            }
+                        )
                     if dp is not None:
                         for hi, (ah, eh) in enumerate(zip(dp["a"], dp["ell_angstrom"])):
                             distance_param_rows.append(
@@ -701,10 +752,15 @@ def run_transformer_cv(
         "batch_sizes_used": batch_sizes_used,
         "region_gate_rows": region_gate_rows,
         "distance_param_rows": distance_param_rows,
+        "cross_gate_rows": cross_gate_rows,
     }
     cache_path.write_text(
         json.dumps(
-            {k: v for k, v in summary.items() if k not in ("region_gate_rows", "distance_param_rows")},
+            {
+                k: v
+                for k, v in summary.items()
+                if k not in ("region_gate_rows", "distance_param_rows", "cross_gate_rows")
+            },
             indent=2,
         )
         + "\n"
@@ -740,6 +796,8 @@ def full_dev_transformer_predict(
     use_ca_distance_bias: bool = False,
     joint_hl_single_reg: bool = False,
     joint_hl_dual_reg: bool = False,
+    joint_hl_chain_specific_dual_reg: bool = False,
+    use_cross_attention_bridge: bool = False,
     checkpoint_dir: Optional[Path] = None,
 ) -> pd.DataFrame:
     """Median Primary best_epoch per seed → train full DEV → average Test preds."""
@@ -807,6 +865,8 @@ def full_dev_transformer_predict(
             use_ca_distance_bias=use_ca_distance_bias,
             joint_hl_single_reg=joint_hl_single_reg,
             joint_hl_dual_reg=joint_hl_dual_reg,
+            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+            use_cross_attention_bridge=use_cross_attention_bridge,
             initial_ell_angstrom=initial_ell,
         )
         if fixed_parts is not None:
@@ -839,6 +899,8 @@ def full_dev_transformer_predict(
                 use_ca_distance_bias=use_ca_distance_bias,
             joint_hl_single_reg=joint_hl_single_reg,
             joint_hl_dual_reg=joint_hl_dual_reg,
+            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+            use_cross_attention_bridge=use_cross_attention_bridge,
             )
             return DataLoader(ds, batch_size=bs, shuffle=shuffle, collate_fn=collate_batch)
 

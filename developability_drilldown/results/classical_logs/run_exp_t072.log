@@ -1,0 +1,108 @@
+Issued EXP-T072
+=== EXP-T072 CV ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_t072_cross_attention.py:343: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  assert float(t072.cross_gate_h) == 0.0
+zero-gate equivalence smoke: max_pred_diff=0.000e+00
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+{
+  "cv_primary_mae": 3.2668468648023574,
+  "cv_shadow_mae": 3.2520755563743813,
+  "cv_mean_mae": 3.2594612105883694,
+  "cv_worst_mae": 3.2668468648023574
+}
+gate_summary_stats: {
+  "n_rows": 30,
+  "g_H": {
+    "mean": 0.002119354374008253,
+    "median": 0.0013205084833316505,
+    "std": 0.0072393714455023924,
+    "abs_mean": 0.005323402806728457,
+    "sign_consistency": 0.6,
+    "frac_positive": 0.6,
+    "frac_negative": 0.4,
+    "frac_zero": 0.0
+  },
+  "g_L": {
+    "mean": 0.0011513243768907463,
+    "median": 0.0001250708446605131,
+    "std": 0.011441935862777513,
+    "abs_mean": 0.007240998606236341,
+    "sign_consistency": 0.5,
+    "frac_positive": 0.5,
+    "frac_negative": 0.5,
+    "frac_zero": 0.0
+  }
+}
+Wrote /workspace_developability_acquisition/developability_drilldown/results/EXP-T072_CV_FREEZE.yaml verdict=NEGATIVE
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+{'public_mae': 3.6630915889033564, 'private_mae': 3.306089707362799, 'test_overall_mae': 3.4845906481330777}
+=== artifacts + registry ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+Wrote /workspace_developability_acquisition/developability_drilldown/results/EXP-T072_CROSS_ATTENTION_REPORT.md
+DONE EXP-T072

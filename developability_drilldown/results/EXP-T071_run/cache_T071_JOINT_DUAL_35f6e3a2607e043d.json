@@ -1,0 +1,44 @@
+{
+  "target": "TmApp",
+  "family": "frozen_transformer",
+  "variant_id": "T071_JOINT_DUAL",
+  "recipe_id": "",
+  "annotation_mode": "full",
+  "merge_mode": "concat",
+  "chain_mode": "HL",
+  "pooling_mode": "reg",
+  "plm_source": "ablingua",
+  "primary_mae": 3.311990549534927,
+  "shadow_mae": 3.2183434914169,
+  "cv_mean_mae": 3.2651670204759133,
+  "cv_worst_mae": 3.311990549534927,
+  "seed_dispersion_primary": 0.13439107076194556,
+  "seed_dispersion_shadow": 0.0244683467414429,
+  "n_trainable_parameters": 501633,
+  "config_hash": "35f6e3a2607e043d",
+  "best_epochs_primary": {
+    "101": [
+      22,
+      13,
+      10,
+      11,
+      19
+    ],
+    "202": [
+      13,
+      9,
+      11,
+      9,
+      17
+    ],
+    "303": [
+      23,
+      8,
+      9,
+      9,
+      29
+    ]
+  },
+  "quick": false,
+  "batch_sizes_used": []
+}

@@ -51,6 +51,8 @@ class AnnotatedTransformer(nn.Module):
         use_ca_distance_bias: bool = False,
         joint_hl_single_reg: bool = False,
         joint_hl_dual_reg: bool = False,
+        joint_hl_chain_specific_dual_reg: bool = False,
+        use_cross_attention_bridge: bool = False,
         initial_ell_angstrom: Optional[float] = None,
     ):
         super().__init__()
@@ -62,16 +64,21 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("use continuous RASA annotation XOR rasa-weighted pool, not both")
         if use_ca_distance_bias and (use_continuous_rasa or use_rasa_weighted_pool):
             raise ValueError("CA distance bias is mutually exclusive with RASA modes in this experiment series")
-        if joint_hl_single_reg and joint_hl_dual_reg:
-            raise ValueError("joint_hl_single_reg XOR joint_hl_dual_reg")
-        if (joint_hl_single_reg or joint_hl_dual_reg) and (use_continuous_rasa or use_rasa_weighted_pool):
-            raise ValueError("joint H/L modes are mutually exclusive with RASA modes in this series")
-        if (joint_hl_single_reg or joint_hl_dual_reg) and pooling_mode != "reg":
-            raise ValueError("joint H/L modes require pooling_mode='reg'")
-        if (joint_hl_single_reg or joint_hl_dual_reg) and chain_mode != "HL":
-            raise ValueError("joint H/L modes require chain_mode='HL'")
-        if joint_hl_dual_reg and use_ca_distance_bias:
-            raise ValueError("joint_hl_dual_reg does not support CA distance bias in EXP-T070")
+        joint_modes = int(joint_hl_single_reg) + int(joint_hl_dual_reg) + int(joint_hl_chain_specific_dual_reg)
+        if joint_modes > 1:
+            raise ValueError("at most one of joint_hl_single_reg / joint_hl_dual_reg / joint_hl_chain_specific_dual_reg")
+        if use_cross_attention_bridge and joint_modes:
+            raise ValueError("use_cross_attention_bridge is mutually exclusive with joint H/L modes")
+        if (joint_modes or use_cross_attention_bridge) and (use_continuous_rasa or use_rasa_weighted_pool):
+            raise ValueError("joint/cross modes are mutually exclusive with RASA modes in this series")
+        if (joint_modes or use_cross_attention_bridge) and pooling_mode != "reg":
+            raise ValueError("joint/cross modes require pooling_mode='reg'")
+        if (joint_modes or use_cross_attention_bridge) and chain_mode != "HL":
+            raise ValueError("joint/cross modes require chain_mode='HL'")
+        if (joint_hl_dual_reg or joint_hl_chain_specific_dual_reg) and use_ca_distance_bias:
+            raise ValueError("joint dual-REG modes do not support CA distance bias")
+        if use_cross_attention_bridge and use_ca_distance_bias:
+            raise ValueError("cross-attention bridge does not support CA distance bias in EXP-T072")
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
@@ -84,6 +91,8 @@ class AnnotatedTransformer(nn.Module):
         self.use_ca_distance_bias = bool(use_ca_distance_bias)
         self.joint_hl_single_reg = bool(joint_hl_single_reg)
         self.joint_hl_dual_reg = bool(joint_hl_dual_reg)
+        self.joint_hl_chain_specific_dual_reg = bool(joint_hl_chain_specific_dual_reg)
+        self.use_cross_attention_bridge = bool(use_cross_attention_bridge)
         self.rasa_pool_eps = 1e-12
         self.rasa_pool_zero_denom_count = 0
         self.distance_kernel_shared_across_layers = True
@@ -127,7 +136,7 @@ class AnnotatedTransformer(nn.Module):
             self.rasa_pool_proj = None
 
         # REG tokens:
-        # - separate H/L encoding / joint dual-REG: index 0 = REG_H, 1 = REG_L
+        # - separate H/L encoding / joint dual-REG / chain-specific dual-REG: index 0 = REG_H, 1 = REG_L
         # - joint H/L single-REG: one antibody-level REG (neither H nor L)
         if self.joint_hl_single_reg:
             self.register_parameter("reg_token", None)
@@ -164,6 +173,21 @@ class AnnotatedTransformer(nn.Module):
             self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
         self.dropout = nn.Dropout(dropout)
 
+        # EXP-T072: shared bidirectional residue cross-attention + zero-init gates
+        if self.use_cross_attention_bridge:
+            self.cross_attn = nn.MultiheadAttention(
+                embed_dim=d_model,
+                num_heads=n_heads,
+                dropout=dropout,
+                batch_first=True,
+            )
+            self.cross_gate_h = nn.Parameter(torch.zeros(()))
+            self.cross_gate_l = nn.Parameter(torch.zeros(()))
+        else:
+            self.cross_attn = None
+            self.register_parameter("cross_gate_h", None)
+            self.register_parameter("cross_gate_l", None)
+
         if self.joint_hl_single_reg:
             out_dim = d_model
         else:
@@ -178,6 +202,64 @@ class AnnotatedTransformer(nn.Module):
 
     def n_trainable_parameters(self) -> int:
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
+
+    def cross_gate_values(self) -> dict[str, float]:
+        if not self.use_cross_attention_bridge:
+            raise RuntimeError("cross gates only exist with use_cross_attention_bridge")
+        return {
+            "g_H": float(self.cross_gate_h.detach().cpu()),
+            "g_L": float(self.cross_gate_l.detach().cpu()),
+        }
+
+    @staticmethod
+    def build_chain_specific_reg_attn_mask(Lh: int, Ll: int, *, device=None) -> torch.Tensor:
+        """Bool attn mask [T,T]: True = blocked (PyTorch MHA convention).
+
+        Layout: [REG_H]=0, H=1..Lh, [REG_L]=1+Lh, L=2+Lh..T-1
+        """
+        T = 2 + Lh + Ll
+        mask = torch.zeros(T, T, dtype=torch.bool, device=device)
+        reg_h = 0
+        reg_l = 1 + Lh
+        # REG_H: only REG_H + Heavy
+        mask[reg_h, reg_l] = True
+        if Ll:
+            mask[reg_h, 2 + Lh : T] = True
+        # REG_L: only REG_L + Light
+        mask[reg_l, reg_h] = True
+        if Lh:
+            mask[reg_l, 1 : 1 + Lh] = True
+        # Heavy residues: cannot attend REG_L
+        if Lh:
+            mask[1 : 1 + Lh, reg_l] = True
+        # Light residues: cannot attend REG_H
+        if Ll:
+            mask[2 + Lh : T, reg_h] = True
+        return mask
+
+    def param_account(self) -> dict[str, int]:
+        """Trainable param breakdown for reporting."""
+        enc = sum(p.numel() for p in self.encoder.parameters() if p.requires_grad)
+        head = sum(p.numel() for p in self.head.parameters() if p.requires_grad)
+        cross = (
+            sum(p.numel() for p in self.cross_attn.parameters() if p.requires_grad)
+            if self.cross_attn is not None
+            else 0
+        )
+        gates = 0
+        if self.cross_gate_h is not None:
+            gates += int(self.cross_gate_h.numel())
+        if self.cross_gate_l is not None:
+            gates += int(self.cross_gate_l.numel())
+        total = self.n_trainable_parameters()
+        return {
+            "encoder": enc,
+            "cross_attention": cross,
+            "gates": gates,
+            "head": head,
+            "other": total - enc - cross - gates - head,
+            "total": total,
+        }
 
     def region_gate_weights(self) -> dict[str, torch.Tensor]:
         """Return softmax weights [4] per chain (descriptive aggregation weights)."""
@@ -407,6 +489,8 @@ class AnnotatedTransformer(nn.Module):
     def encode_joint_hl_dual_reg(
         self,
         batch: dict,
+        *,
+        chain_specific_reg: bool = False,
     ) -> torch.Tensor:
         """Joint H+L with dual REG slots: [REG_H, H..., REG_L, L...]; return REG_H||REG_L.
 
@@ -414,9 +498,13 @@ class AnnotatedTransformer(nn.Module):
         REG chain semantics match T030 separate encoding: REG_H += chain_emb[0],
         REG_L += chain_emb[1] (historical T030 assigned chain emb to REG tokens).
         REG tokens do not receive IMGT/region/position embeddings.
+
+        If chain_specific_reg=True (EXP-T071): apply directional attention mask so
+        REG_H only queries Heavy(+self), REG_L only Light(+self); residues may still
+        attend cross-chain but not the other chain's REG.
         """
-        if not self.joint_hl_dual_reg:
-            raise RuntimeError("encode_joint_hl_dual_reg requires joint_hl_dual_reg=True")
+        if not (self.joint_hl_dual_reg or self.joint_hl_chain_specific_dual_reg):
+            raise RuntimeError("encode_joint_hl_dual_reg requires a dual-REG joint mode")
         mh = batch["heavy_mask"]
         ml = batch["light_mask"]
         B = mh.shape[0]
@@ -448,16 +536,109 @@ class AnnotatedTransformer(nn.Module):
         # REG_L at index 1+Lh is never padding
         pad[:, 2 + Lh :] = ~ml
 
-        h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
+        attn_mask = None
+        if chain_specific_reg or self.joint_hl_chain_specific_dual_reg:
+            attn_mask = self.build_chain_specific_reg_attn_mask(Lh, Ll, device=mh.device)
+
+        h = self.encoder(
+            self.dropout(x),
+            mask=attn_mask,
+            src_key_padding_mask=pad,
+        )
         z_h = h[:, 0]
         z_l = h[:, 1 + Lh]
         return torch.cat([z_h, z_l], dim=-1)
 
+    def _embed_chain_with_reg(
+        self,
+        *,
+        chain_idx: int,
+        aa: Optional[torch.Tensor],
+        plm: Optional[torch.Tensor],
+        mask: torch.Tensor,
+        pos: torch.Tensor,
+        imgt: Optional[torch.Tensor],
+        region: Optional[torch.Tensor],
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        """Build [REG, residues] embeddings and padding mask (True=pad)."""
+        B, L = mask.shape
+        x_res = self._residue_stream(
+            chain_idx=chain_idx, aa=aa, plm=plm, pos=pos, imgt=imgt, region=region
+        )
+        reg = self.reg_token[chain_idx].view(1, 1, -1).expand(B, 1, -1)
+        reg = reg + self.chain_emb.weight[chain_idx]
+        x = torch.cat([reg, x_res], dim=1)
+        pad = torch.zeros(B, 1 + L, dtype=torch.bool, device=mask.device)
+        pad[:, 1:] = ~mask
+        return x, pad
+
+    def encode_separate_with_cross_attn(self, batch: dict) -> torch.Tensor:
+        """T030-like separate self-attn with residue cross-attn bridge between layers.
+
+        Layer1 self-attn (shared) on each chain independently → residue cross-attn
+        (REG excluded from Q/K/V) with zero-init gates → Layer2 self-attn → REG concat.
+        """
+        if not self.use_cross_attention_bridge:
+            raise RuntimeError("encode_separate_with_cross_attn requires use_cross_attention_bridge")
+        if self.use_ca_distance_bias:
+            raise RuntimeError("CA bias incompatible with cross-attention bridge")
+        layers = self.encoder.layers
+        if len(layers) != 2:
+            raise RuntimeError("expected exactly 2 encoder layers")
+
+        mh = batch["heavy_mask"]
+        ml = batch["light_mask"]
+        x_h, pad_h = self._embed_chain_with_reg(
+            chain_idx=0,
+            aa=batch.get("heavy_aa"),
+            plm=batch.get("heavy_plm"),
+            mask=mh,
+            pos=batch["heavy_pos"],
+            imgt=batch.get("heavy_imgt"),
+            region=batch.get("heavy_region"),
+        )
+        x_l, pad_l = self._embed_chain_with_reg(
+            chain_idx=1,
+            aa=batch.get("light_aa"),
+            plm=batch.get("light_plm"),
+            mask=ml,
+            pos=batch["light_pos"],
+            imgt=batch.get("light_imgt"),
+            region=batch.get("light_region"),
+        )
+        # Match T030: dropout once on input then layer stack
+        h1_h = layers[0](self.dropout(x_h), src_key_padding_mask=pad_h)
+        h1_l = layers[0](self.dropout(x_l), src_key_padding_mask=pad_l)
+
+        # Residue-only cross-attention (exclude REG at index 0)
+        h_res = h1_h[:, 1:]
+        l_res = h1_l[:, 1:]
+        # key_padding_mask True = ignore; residue mask True=valid → invert
+        cross_h, _ = self.cross_attn(
+            h_res, l_res, l_res, key_padding_mask=~ml, need_weights=False
+        )
+        cross_l, _ = self.cross_attn(
+            l_res, h_res, h_res, key_padding_mask=~mh, need_weights=False
+        )
+        h_res = h_res + self.cross_gate_h * cross_h
+        l_res = l_res + self.cross_gate_l * cross_l
+        # REG tokens unchanged at bridge
+        h2_in_h = torch.cat([h1_h[:, :1], h_res], dim=1)
+        h2_in_l = torch.cat([h1_l[:, :1], l_res], dim=1)
+
+        h2_h = layers[1](h2_in_h, src_key_padding_mask=pad_h)
+        h2_l = layers[1](h2_in_l, src_key_padding_mask=pad_l)
+        return torch.cat([h2_h[:, 0], h2_l[:, 0]], dim=-1)
+
     def forward_repr(self, batch: dict) -> torch.Tensor:
+        if self.joint_hl_chain_specific_dual_reg:
+            return self.encode_joint_hl_dual_reg(batch, chain_specific_reg=True)
         if self.joint_hl_dual_reg:
-            return self.encode_joint_hl_dual_reg(batch)
+            return self.encode_joint_hl_dual_reg(batch, chain_specific_reg=False)
         if self.joint_hl_single_reg:
             return self.encode_joint_hl(batch)
+        if self.use_cross_attention_bridge:
+            return self.encode_separate_with_cross_attn(batch)
         h_h = self.encode_chain(
             chain_idx=0,
             aa=batch.get("heavy_aa"),

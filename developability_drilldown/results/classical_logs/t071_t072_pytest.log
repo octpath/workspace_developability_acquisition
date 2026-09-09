@@ -1,0 +1,29 @@
+........................................................................ [ 67%]
+...................................                                      [100%]
+=============================== warnings summary ===============================
+developability_drilldown/tests/test_ca_distance_bias.py: 1 warning
+developability_drilldown/tests/test_chain_specific_dual_reg.py: 2 warnings
+developability_drilldown/tests/test_cross_attention_bridge.py: 4 warnings
+developability_drilldown/tests/test_joint_hl_dual_reg.py: 8 warnings
+developability_drilldown/tests/test_joint_hl_single_reg.py: 5 warnings
+developability_drilldown/tests/test_rasa_weighted_pool.py: 4 warnings
+developability_drilldown/tests/test_transformer_phase2a.py: 10 warnings
+  /workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+
+developability_drilldown/tests/test_ca_distance_bias.py::test_zero_amplitude_equivalence
+developability_drilldown/tests/test_joint_hl_single_reg.py::test_zero_bias_equivalence_joint_ca
+  /workspace_developability_acquisition/.venv/lib/python3.14/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+    src_key_padding_mask = F._canonical_mask(
+
+developability_drilldown/tests/test_ca_distance_bias.py::test_ell_positive
+  /workspace_developability_acquisition/developability_drilldown/tests/test_ca_distance_bias.py:114: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+  Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+    assert abs(float(ell[0]) - 7.5) < 1e-4
+
+developability_drilldown/tests/test_transformer_phase2a.py: 10 warnings
+  /workspace_developability_acquisition/top_models_feature_bundle/advanced_models/models/annotated_transformer.py:101: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+107 passed, 47 warnings in 3.73s
