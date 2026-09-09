@@ -1,0 +1,14 @@
+experiment_code: EXP-T055
+experiment_id: LIN_TM_ALONE_AL2_RASA_P1_RIDGE
+target: TmApp
+family: LINEAR
+model_type: RIDGE
+feature_set_name: ALONE__FB_AL2_RASA_P1
+blocks:
+- FB_AL2_RASA_P1
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 960
+  pca: true

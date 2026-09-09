@@ -1,0 +1,25 @@
+experiment_code: EXP-H045
+experiment_id: LIN_HIC_HIC_HYDRO_TITRATION_ESM2_RASA_CDR3_LASSO
+target: HIC
+family: LINEAR
+model_type: LASSO
+feature_set_name: FS_HIC_HYDRO_TITRATION+FB_ESM2_RASA_CDR3
+blocks:
+- FS_HIC_HYDRO_TITRATION
+- FB_ESM2_RASA_CDR3
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 1280
+  pca: false
+- n: 115
+  pca: false
+- n: 19
+  pca: false
+- n: 16
+  pca: false
+- n: 18
+  pca: false
+- n: 1280
+  pca: true

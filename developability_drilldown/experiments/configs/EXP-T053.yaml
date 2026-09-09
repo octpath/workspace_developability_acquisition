@@ -1,0 +1,30 @@
+experiment_code: EXP-T053
+experiment_id: SVR_TM_TM_ABLINGUA_CDR3_AL2_FR_CDR_SPLIT_AL_CDR3_SVR
+target: TmApp
+family: LINEAR
+model_type: SVR
+feature_set_name: FS_TM_ABLINGUA_CDR3+FB_AL2_FR_CDR_SPLIT+FB_AL_CDR3
+blocks:
+- FS_TM_ABLINGUA_CDR3
+- FB_AL2_FR_CDR_SPLIT
+- FB_AL_CDR3
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 480
+  pca: false
+- n: 78
+  pca: false
+- n: 10
+  pca: false
+- n: 1
+  pca: false
+- n: 2560
+  pca: true
+- n: 2560
+  pca: true
+- n: 1920
+  pca: true
+- n: 2560
+  pca: true

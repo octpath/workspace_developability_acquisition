@@ -1,0 +1,14 @@
+experiment_code: EXP-T062
+experiment_id: ENET_TM_ALONE_AL2_FR_CDR_SPLIT_ENET
+target: TmApp
+family: LINEAR
+model_type: ENET
+feature_set_name: ALONE__FB_AL2_FR_CDR_SPLIT
+blocks:
+- FB_AL2_FR_CDR_SPLIT
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 1920
+  pca: true
