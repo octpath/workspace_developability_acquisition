@@ -1,0 +1,29 @@
+experiment_code: EXP-T045
+experiment_id: LIN_TM_TM_BIOEMU_MPNN_AL_CDR3_AL2_RASA_CDR_AL_CDR_ALL_RIDGE
+target: TmApp
+family: LINEAR
+model_type: RIDGE
+feature_set_name: FS_TM_BIOEMU_MPNN+FB_AL_CDR3+FB_AL2_RASA_CDR+FB_AL_CDR_ALL
+blocks:
+- FS_TM_BIOEMU_MPNN
+- FB_AL_CDR3
+- FB_AL2_RASA_CDR
+- FB_AL_CDR_ALL
+selection_policy_at_creation: CV_SELECTED_POSTCOMP_EVALUATED
+current_evaluation_mode: POSTCOMP_EXPLORATORY
+ensemble: false
+pca_groups:
+- n: 480
+  pca: false
+- n: 78
+  pca: false
+- n: 10
+  pca: false
+- n: 1
+  pca: false
+- n: 2560
+  pca: true
+- n: 960
+  pca: true
+- n: 2560
+  pca: true

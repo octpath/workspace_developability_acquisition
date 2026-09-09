@@ -1,0 +1,8 @@
+{
+  "n_ids": 324,
+  "n_mapped_both": 324,
+  "source": "/workspace_developability_acquisition/feature_extension/data/esmfold_fv",
+  "method": "Bio.PDB.SASA.ShrakeRupley probe=1.4 n_points=100 MaxASA=Tien2013",
+  "exposed_threshold": 0.2,
+  "clip_for_weights": "[0,1]"
+}

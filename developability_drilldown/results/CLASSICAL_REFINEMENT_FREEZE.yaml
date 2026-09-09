@@ -1,0 +1,63 @@
+frozen_at: '2026-09-09T15:52:11Z'
+selection_metric: cv_worst=max(primary,shadow); tie_break=cv_mean
+public_private_used_in_selection: false
+preprocessing_order: per-block impute -> PCA32(if AbLingua/new PLM block) -> StandardScaler
+  -> estimator
+candidates_path: results/CLASSICAL_REFINEMENT_CANDIDATES.csv
+ranking_path: results/CLASSICAL_REFINEMENT_CV_RANKING.csv
+n_results: 40
+top_by_target:
+  TmApp:
+  - feature_set_name: FS_TM_BIOEMU_MPNN+FB_AL_CDR3+FB_AL2_RASA_CDR+FB_AL_CDR_ALL
+    estimator: ridge
+    cv_worst_mae: 2.728948221583707
+    cv_primary_mae: 2.70601456664252
+    cv_shadow_mae: 2.728948221583707
+  - feature_set_name: FS_TM_ABLINGUA_CDR3+FB_AL2_FR_CDR_SPLIT+FB_AL_CDR3
+    estimator: ridge
+    cv_worst_mae: 2.734795279114176
+    cv_primary_mae: 2.723337660788409
+    cv_shadow_mae: 2.734795279114176
+  - feature_set_name: FS_TM_BIOEMU_MPNN+FB_AL_CDR3+FB_AL2_RASA_CDR+FB_AL_CDR_ALL
+    estimator: enet
+    cv_worst_mae: 2.820702409465092
+    cv_primary_mae: 2.780802896696341
+    cv_shadow_mae: 2.820702409465092
+  - feature_set_name: FS_TM_BIOEMU_MPNN+FB_AL_CDR3+FB_AL2_RASA_CDR+FB_AL_CDR_ALL
+    estimator: lasso
+    cv_worst_mae: 2.8668586941406704
+    cv_primary_mae: 2.8668586941406704
+    cv_shadow_mae: 2.762480263111626
+  - feature_set_name: FS_TM_ABLINGUA_CDR3+FB_AL2_FR_CDR_SPLIT+FB_AL_CDR3
+    estimator: lasso
+    cv_worst_mae: 2.895591016386438
+    cv_primary_mae: 2.895591016386438
+    cv_shadow_mae: 2.866209031471103
+  HIC:
+  - feature_set_name: FS_HIC_HYDRO_TITRATION+FB_ESM2_RASA_CDR3
+    estimator: svr
+    cv_worst_mae: 0.45287842313711785
+    cv_primary_mae: 0.45287842313711785
+    cv_shadow_mae: 0.44397914715089143
+  - feature_set_name: FS_HIC_CONTINUOUS_SURFACE+FB_ESM2_RASA_CDR3
+    estimator: svr
+    cv_worst_mae: 0.4538794991423401
+    cv_primary_mae: 0.4538794991423401
+    cv_shadow_mae: 0.44598053778376945
+  - feature_set_name: ALONE__FB_ESM2_RASA_P1
+    estimator: svr
+    cv_worst_mae: 0.46368133550123913
+    cv_primary_mae: 0.45546493800712173
+    cv_shadow_mae: 0.46368133550123913
+  - feature_set_name: ALONE__FB_ESM2_GLOBAL
+    estimator: svr
+    cv_worst_mae: 0.4689388916562481
+    cv_primary_mae: 0.46106489294265446
+    cv_shadow_mae: 0.4689388916562481
+  - feature_set_name: FS_HIC_HYDRO_TITRATION+FB_ESM2_RASA_CDR3
+    estimator: lasso
+    cv_worst_mae: 0.488417028377016
+    cv_primary_mae: 0.488417028377016
+    cv_shadow_mae: 0.4867687601751391
+git_head_at_start: 37e47225
+resumed_from: Stage E after crash
