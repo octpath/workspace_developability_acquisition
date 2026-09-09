@@ -155,6 +155,15 @@ python reproduce_top_recipes.py \
 
 See `RELEASE_FILE_POLICY.md` and `BUNDLE_REPRODUCTION_AUDIT.md`.
 
+## Advanced models (XGBoost / Transformers)
+
+See [`ADVANCED_MODELS_README.md`](ADVANCED_MODELS_README.md) / [`ADVANCED_MODELS_README_JA.md`](ADVANCED_MODELS_README_JA.md).
+
+```bash
+python advanced_models/validate_environment.py
+python advanced_models/run_benchmark.py --stage all --device cuda --dev dev.csv --test test.csv --write-submissions
+```
+
 ## Scope clarification
 
 Earlier chat references to an “Organizer Top-3” meant only the **restricted**

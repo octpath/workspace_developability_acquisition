@@ -156,6 +156,15 @@ python reproduce_top_recipes.py \
 
 詳細は `RELEASE_FILE_POLICY.md` と `BUNDLE_REPRODUCTION_AUDIT.md` を参照。
 
+## 先進モデル（XGBoost / Transformer）
+
+[`ADVANCED_MODELS_README_JA.md`](ADVANCED_MODELS_README_JA.md) / [`ADVANCED_MODELS_README.md`](ADVANCED_MODELS_README.md) を参照。
+
+```bash
+python advanced_models/validate_environment.py
+python advanced_models/run_benchmark.py --stage all --device cuda --dev dev.csv --test test.csv --write-submissions
+```
+
 ## スコープの明確化
 
 以前の会話での「Organizer Top-3」は、endgame Ridge/Lasso の **狭い**
