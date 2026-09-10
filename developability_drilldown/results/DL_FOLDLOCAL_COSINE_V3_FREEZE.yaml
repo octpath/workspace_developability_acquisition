@@ -1,7 +1,7 @@
 status: FROZEN
 platform_id: DL_FOLDLOCAL_COSINE_V3
 freeze_date_utc: '2026-09-10T10:31:36Z'
-repository_commit: cb5dda32be495a24274afe9768f85420d81ca314
+repository_commit: 00ae08b6003a561150c5bf6a1b4a3dc9af22e499
 protocol_implementation_sha256: e7a38afccf250677d71ecb4c6faf70995467d7fae5407c2cc5b6848443b54157
 baseline_experiment: EXP-T075
 optimizer: AdamW
