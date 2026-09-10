@@ -1,0 +1,11 @@
+scheme,fold,selected_lr,best_epoch,best_optimizer_step,best_val_mae,final_epoch,stopped_early,checkpoint,init_hash,seed
+primary,0,0.0009,12,84,2.7758543997099907,32,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k0_lr0.0009_seed101.pt,1e0cea8ee76ae170,101
+primary,1,0.0009,12,72,3.2012102531664297,32,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k1_lr0.0009_seed101.pt,1e0cea8ee76ae170,101
+primary,2,0.0009,12,84,3.146418809890747,32,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k2_lr0.0009_seed101.pt,1e0cea8ee76ae170,101
+primary,3,2.9999999999999997e-05,67,469,2.5896406173706055,87,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k3_lr3e-05_seed101.pt,1e0cea8ee76ae170,101
+primary,4,8.999999999999999e-05,41,287,3.1540610790252686,61,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k4_lr9e-05_seed101.pt,1e0cea8ee76ae170,101
+shadow,0,0.0009,9,63,2.615617694276752,29,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k0_lr0.0009_seed101.pt,1e0cea8ee76ae170,101
+shadow,1,0.0003,7,49,3.3015782833099365,27,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k1_lr0.0003_seed101.pt,1e0cea8ee76ae170,101
+shadow,2,0.0009,24,168,3.2326500415802,44,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k2_lr0.0009_seed101.pt,1e0cea8ee76ae170,101
+shadow,3,0.0003,25,175,3.3490441062233667,45,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k3_lr0.0003_seed101.pt,1e0cea8ee76ae170,101
+shadow,4,0.0009,12,84,2.915994167327881,32,True,/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k4_lr0.0009_seed101.pt,1e0cea8ee76ae170,101

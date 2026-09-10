@@ -122,10 +122,10 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T073":
+    if next_code("TmApp") != "EXP-T074":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T073")
+        ok("next TmApp EXP-T074")
     if next_code("HIC") != "EXP-H054":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
@@ -227,10 +227,11 @@ def main() -> int:
                 "JOINT_HL_SINGLE_REG_FROZEN_RESIDUE"
             )
             is_separate_cross = ("CROSS_ATTENTION" in space) or ("SEPARATE_CROSS" in space)
+            is_protocol_v2 = ("PROTOCOL_V2" in space) or space.endswith("_PROTOCOL_V2")
             rasa = ROOT / "experiments" / "inputs" / f"{code}_rasa.parquet"
             ca = ROOT / "experiments" / "inputs" / f"{code}_ca.parquet"
-            if is_joint_hl or is_separate_cross:
-                # Joint H/L or separate+cross: no fusion feature parquet / RASA
+            if is_joint_hl or is_separate_cross or is_protocol_v2:
+                # Joint H/L, separate+cross, or protocol-V2 baseline: no fusion feature parquet
                 if str(r.get("feature_path") or "") not in ("", "nan"):
                     fail(f"{code} no-fusion arch feature_path must be empty")
                 if str(r.get("feature_space") or "") not in ("", "nan"):

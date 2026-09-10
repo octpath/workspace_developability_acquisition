@@ -1,0 +1,103 @@
+Issued/using EXP-T073
+device NVIDIA GeForce RTX 3090
+=== EXP-T073 primary fold=0 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 primary fold=0 lr=9e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 primary fold=0 lr=0.0003 ===
+=== EXP-T073 primary fold=0 lr=0.0009 ===
+=== EXP-T073 primary fold=1 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 primary fold=1 lr=9e-05 ===
+=== EXP-T073 primary fold=1 lr=0.0003 ===
+=== EXP-T073 primary fold=1 lr=0.0009 ===
+=== EXP-T073 primary fold=2 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 primary fold=2 lr=9e-05 ===
+=== EXP-T073 primary fold=2 lr=0.0003 ===
+=== EXP-T073 primary fold=2 lr=0.0009 ===
+=== EXP-T073 primary fold=3 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 primary fold=3 lr=9e-05 ===
+=== EXP-T073 primary fold=3 lr=0.0003 ===
+=== EXP-T073 primary fold=3 lr=0.0009 ===
+=== EXP-T073 primary fold=4 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 primary fold=4 lr=9e-05 ===
+=== EXP-T073 primary fold=4 lr=0.0003 ===
+=== EXP-T073 primary fold=4 lr=0.0009 ===
+=== EXP-T073 shadow fold=0 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 shadow fold=0 lr=9e-05 ===
+=== EXP-T073 shadow fold=0 lr=0.0003 ===
+=== EXP-T073 shadow fold=0 lr=0.0009 ===
+=== EXP-T073 shadow fold=1 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 shadow fold=1 lr=9e-05 ===
+=== EXP-T073 shadow fold=1 lr=0.0003 ===
+=== EXP-T073 shadow fold=1 lr=0.0009 ===
+=== EXP-T073 shadow fold=2 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 shadow fold=2 lr=9e-05 ===
+=== EXP-T073 shadow fold=2 lr=0.0003 ===
+=== EXP-T073 shadow fold=2 lr=0.0009 ===
+=== EXP-T073 shadow fold=3 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 shadow fold=3 lr=9e-05 ===
+=== EXP-T073 shadow fold=3 lr=0.0003 ===
+=== EXP-T073 shadow fold=3 lr=0.0009 ===
+=== EXP-T073 shadow fold=4 lr=3e-05 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+=== EXP-T073 shadow fold=4 lr=9e-05 ===
+=== EXP-T073 shadow fold=4 lr=0.0003 ===
+=== EXP-T073 shadow fold=4 lr=0.0009 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:173: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+{
+  "oof_val": {
+    "primary": 2.973623393494406,
+    "shadow": 3.081734315848645,
+    "mean": 3.0276788546715254,
+    "worst": 3.081734315848645
+  },
+  "oof_test": {
+    "primary": 3.3619360747160734,
+    "shadow": 3.144959861849561,
+    "mean": 3.253447968282817,
+    "worst": 3.3619360747160734
+  },
+  "ext": {
+    "primary_mean": {
+      "public_mae": 3.541398479320384,
+      "private_mae": 3.3003414672098046,
+      "overall_mae": 3.4208699732650945
+    },
+    "primary_median": {
+      "public_mae": 3.490850848916136,
+      "private_mae": 3.3524253751024786,
+      "overall_mae": 3.4216381120093073
+    },
+    "shadow_mean": {
+      "public_mae": 3.6360184563530815,
+      "private_mae": 3.3190724219804926,
+      "overall_mae": 3.4775454391667866
+    },
+    "shadow_median": {
+      "public_mae": 3.599164515365789,
+      "private_mae": 3.311496122383777,
+      "overall_mae": 3.455330318874783
+    }
+  }
+}
+DONE EXP-T073

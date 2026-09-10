@@ -32,8 +32,8 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 72 and len(h) == 53
-    assert next_code("TmApp") == "EXP-T073"
+    assert len(t) == 73 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T074"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
@@ -42,7 +42,7 @@ def test_transformer_code_append_only():
 def test_30_configs_registered():
     exp = pd.read_csv(ROOT / "results" / "experiments.csv")
     tr = exp[exp["family"] == "TRANSFORMER"]
-    assert len(tr) == 37
+    assert len(tr) == N_TRANSFORMER
     for _, r in tr.iterrows():
         cfg = ROOT / str(r["config_path"])
         assert cfg.exists(), r["experiment_code"]
@@ -184,6 +184,9 @@ def test_input_metadata_by_plm():
     t072 = tr[tr["experiment_code"] == "EXP-T072"]
     assert len(t072) == 1
     assert t072.iloc[0]["input_space"] == "SEPARATE_CROSS_ATTENTION_DUAL_REG_FROZEN_RESIDUE"
+    t073 = tr[tr["experiment_code"] == "EXP-T073"]
+    assert len(t073) == 1
+    assert t073.iloc[0]["input_space"] == "FROZEN_RESIDUE_PROTOCOL_V2"
 
 
 def test_fusion_feature_set_fk():
@@ -216,7 +219,7 @@ def test_historical_representation_unavailable_contract():
     assert t067["representation_status"] == "NOT_EXPORTED"
     assert (ROOT / "experiments" / "features" / "EXP-T067.parquet").exists()
     assert (ROOT / "experiments" / "inputs" / "EXP-T067_ca.parquet").exists()
-    for code in ("EXP-T068", "EXP-T069", "EXP-T070", "EXP-T071", "EXP-T072"):
+    for code in ("EXP-T068", "EXP-T069", "EXP-T070", "EXP-T071", "EXP-T072", "EXP-T073"):
         row = exp[exp["experiment_code"] == code].iloc[0]
         assert row["representation_status"] == "NOT_EXPORTED"
         assert not (ROOT / "experiments" / "features" / f"{code}.parquet").exists()
