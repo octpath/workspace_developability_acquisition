@@ -133,6 +133,8 @@ class ResidueBundle:
     ablang2_l_mask: Optional[np.ndarray] = None
     esm2_h: Optional[np.ndarray] = None
     esm2_h_mask: Optional[np.ndarray] = None
+    esm2_l: Optional[np.ndarray] = None
+    esm2_l_mask: Optional[np.ndarray] = None
     ablingua_hidden: int = 0
     ablang2_hidden: int = 0
     esm2_hidden: int = 0
@@ -314,6 +316,25 @@ def load_residue_bundle(
             if int(rb.esm2_h_mask[i].sum()) != int(heavy_mask[i].sum()):
                 raise DataIntegrityError(f"ESM2 H mask mismatch {ids[i]}")
         rb.esm2_hidden = int(meta["hidden_dim"])
+        # Light embeddings are optional in the current checkout (heavy-only pack).
+        # Prefer on-disk light_*.npy; otherwise leave None (H_ONLY / ARCH-H0 still works).
+        # Materialize with scripts/build_esm2_light_residue_bundle.py from organizer
+        # cache esm2_residue/{id}.npz keys H and L.
+        light_emb_path = RESIDUE_ROOT / "esm2/light_embeddings.npy"
+        light_mask_path = RESIDUE_ROOT / "esm2/light_mask.npy"
+        p0 = Path(str(light_emb_path) + ".part0")
+        if light_emb_path.exists() or p0.exists():
+            el = load_npy(light_emb_path)[order].astype(np.float32)
+            ml = load_npy(light_mask_path)[order]
+            rb.esm2_l = el[:, :max_l]
+            rb.esm2_l_mask = ml[:, :max_l]
+            for i in range(N):
+                if int(rb.esm2_l_mask[i].sum()) != int(light_mask[i].sum()):
+                    raise DataIntegrityError(f"ESM2 L mask mismatch {ids[i]}")
+        else:
+            # Documented absence: heavy pack only until light is built.
+            rb.esm2_l = None
+            rb.esm2_l_mask = None
 
     return rb
 

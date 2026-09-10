@@ -209,5 +209,18 @@ def test_normalize_arch_flags_mutex_and_gate_mode():
     assert flags["use_cross_attention_bridge"] is True
     assert flags["cross_gate_mode"] == "fixed_one"
     assert flags["use_reg_only_cross_attention"] is False
+    assert flags["use_cross_geometry_bias"] is False
+    with pytest.raises(ValueError):
+        normalize_arch_flags({"use_cross_geometry_bias": True})
+    geom = normalize_arch_flags(
+        {
+            "use_cross_attention_bridge": True,
+            "cross_gate_mode": "fixed_one",
+            "use_cross_geometry_bias": True,
+        }
+    )
+    assert geom["use_cross_geometry_bias"] is True
     h = candidate_config_hash(flags, "frozen", "concat", "ablingua")
     assert isinstance(h, str) and len(h) == 64
+    h2 = candidate_config_hash(geom, "frozen", "concat", "ablingua")
+    assert h2 != h

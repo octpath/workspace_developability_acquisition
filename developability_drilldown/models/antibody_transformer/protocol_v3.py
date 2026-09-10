@@ -46,6 +46,8 @@ SMOOTH_L1_BETA = 0.5
 
 # Experiment-specific architecture flags (NOT platform settings).
 # Defaults = EXP-T075 / T030 scientific architecture.
+# use_cross_geometry_bias is a *modifier* on the cross-attention bridge (ARCH-6G),
+# not a 7th mutually exclusive arch switch. HIC batch codes: EXP-H054..EXP-H081.
 ARCH_BOOL_KEYS = (
     "joint_hl_single_reg",
     "joint_hl_dual_reg",
@@ -62,6 +64,7 @@ ARCH_T030 = {
     "use_reg_only_cross_attention": False,
     "use_within_chain_extra_attention": False,
     "cross_gate_mode": "learned",
+    "use_cross_geometry_bias": False,
 }
 
 
@@ -82,6 +85,8 @@ def normalize_arch_flags(arch: Optional[dict] = None) -> dict:
     n_true = sum(1 for k in ARCH_BOOL_KEYS if out[k])
     if n_true > 1:
         raise ValueError(f"mutually exclusive arch flags: {out}")
+    if out["use_cross_geometry_bias"] and not out["use_cross_attention_bridge"]:
+        raise ValueError("use_cross_geometry_bias requires use_cross_attention_bridge=True")
     return out
 
 
@@ -90,6 +95,7 @@ def candidate_config_hash(
     content_mode: str,
     merge_mode: str,
     plm_source: Optional[str],
+    chain_mode: str = "HL",
 ) -> str:
     """Stable hash of architecture + content settings under V3 platform."""
     flags = normalize_arch_flags(arch)
@@ -98,6 +104,7 @@ def candidate_config_hash(
         "content_mode": content_mode,
         "merge_mode": merge_mode,
         "plm_source": plm_source,
+        "chain_mode": chain_mode,
         "platform_id": PLATFORM_ID,
     }
     blob = json.dumps(payload, sort_keys=True, default=str).encode()
@@ -177,16 +184,19 @@ def build_platform_model(
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
     annotation_mode: str = "full",
+    chain_mode: str = "HL",
 ) -> nn.Module:
     """Build model under V3 platform; architecture flags are experiment-specific."""
     flags = normalize_arch_flags(arch)
     presets = load_presets()
     plm = None if content_mode == "scratch" else (plm_source or "ablingua")
+    cm = "H_ONLY" if chain_mode == "H_ONLY" else "HL"
+    mm = "h_only" if cm == "H_ONLY" else merge_mode
     return build_transformer(
         content_mode=content_mode,
         annotation_mode=annotation_mode,
-        merge_mode=merge_mode,
-        chain_mode="HL",
+        merge_mode=mm,
+        chain_mode=cm,
         rb=rb,
         presets=presets,
         plm_source=plm or "ablingua",
@@ -277,12 +287,15 @@ def train_one_candidate_v3(
     content_mode: str = "frozen",
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
+    chain_mode: str = "HL",
 ) -> dict[str, Any]:
     """TRAIN-only; VAL-MAE checkpoint; ordinary patience (no min_epochs)."""
     presets = load_presets()
     ncfg = presets["neural"]
     flags = normalize_arch_flags(arch)
-    cfg_hash = candidate_config_hash(flags, content_mode, merge_mode, plm_source)
+    cfg_hash = candidate_config_hash(
+        flags, content_mode, merge_mode, plm_source, chain_mode=chain_mode
+    )
     resumed = _try_load_complete_manifest(
         ckpt_path=ckpt_path,
         experiment_code=experiment_code,
@@ -308,6 +321,7 @@ def train_one_candidate_v3(
     beta = float(SMOOTH_L1_BETA)
     eta_min = eta_min_for(lr0)
     ds_plm = _dataset_plm_source(content_mode, plm_source)
+    need_ca = bool(flags.get("use_cross_geometry_bias"))
 
     y_tr = np.asarray([y_map[a] for a in train_ids], float)
     y_va = np.asarray([y_map[a] for a in val_ids], float)
@@ -319,6 +333,7 @@ def train_one_candidate_v3(
         content_mode=content_mode,
         merge_mode=merge_mode,
         plm_source=plm_source,
+        chain_mode=chain_mode,
     ).to(device)
     model.load_state_dict(deepcopy(init_state))
     assert state_dict_sha256(model) == init_hash
@@ -329,7 +344,15 @@ def train_one_candidate_v3(
     g.manual_seed(seed)
 
     def make_loader(ids, y_arr, shuffle):
-        ds = AbDataset(ids, y_arr, rb, content_mode=content_mode, plm_source=ds_plm)
+        ds = AbDataset(
+            ids,
+            y_arr,
+            rb,
+            content_mode=content_mode,
+            plm_source=ds_plm,
+            use_cross_geometry_bias=need_ca,
+            chain_mode=chain_mode,
+        )
         return DataLoader(
             ds,
             batch_size=bs,
@@ -520,6 +543,7 @@ def train_one_candidate_v3(
                     "content_mode": content_mode,
                     "merge_mode": merge_mode,
                     "plm_source": plm_source,
+                    "chain_mode": chain_mode,
                 },
                 ckpt_path,
             )
@@ -578,6 +602,7 @@ def train_one_candidate_v3(
         "content_mode": content_mode,
         "merge_mode": merge_mode,
         "plm_source": plm_source,
+        "chain_mode": chain_mode,
         "platform_id": PLATFORM_ID,
         "config_hash": cfg_hash,
         "resumed": False,
@@ -615,18 +640,21 @@ def predict_with_checkpoint(
     content_mode: str = "frozen",
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
+    chain_mode: str = "HL",
 ) -> np.ndarray:
     blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     flags = normalize_arch_flags(blob.get("arch") or arch)
     cm = blob.get("content_mode", content_mode)
     mm = blob.get("merge_mode", merge_mode)
     ps = blob.get("plm_source", plm_source)
+    chm = blob.get("chain_mode", chain_mode)
     model = build_platform_model(
         rb,
         flags,
         content_mode=cm,
         merge_mode=mm,
         plm_source=ps,
+        chain_mode=chm,
     ).to(device)
     model.load_state_dict(blob["model"])
     model.eval()
@@ -639,6 +667,8 @@ def predict_with_checkpoint(
         rb,
         content_mode=cm,
         plm_source=_dataset_plm_source(cm, ps),
+        use_cross_geometry_bias=bool(flags.get("use_cross_geometry_bias")),
+        chain_mode=chm,
     )
     loader = DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch)
     preds = []
@@ -694,9 +724,12 @@ def run_protocol_v3(
     content_mode: str = "frozen",
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
+    chain_mode: str = "HL",
 ) -> dict[str, Any]:
     flags = normalize_arch_flags(arch)
-    cfg_hash = candidate_config_hash(flags, content_mode, merge_mode, plm_source)
+    cfg_hash = candidate_config_hash(
+        flags, content_mode, merge_mode, plm_source, chain_mode=chain_mode
+    )
     lrs = coarse_lr_grid()
     if quick:
         lrs = [1e-3]
@@ -748,6 +781,7 @@ def run_protocol_v3(
                 content_mode=content_mode,
                 merge_mode=merge_mode,
                 plm_source=plm_source,
+                chain_mode=chain_mode,
             )
             pred_te = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -759,6 +793,7 @@ def run_protocol_v3(
                 content_mode=content_mode,
                 merge_mode=merge_mode,
                 plm_source=plm_source,
+                chain_mode=chain_mode,
             )
             pred_ext = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -769,6 +804,7 @@ def run_protocol_v3(
                 content_mode=content_mode,
                 merge_mode=merge_mode,
                 plm_source=plm_source,
+                chain_mode=chain_mode,
             )
             oof_val[scheme_name].loc[va] = pred_va
             oof_test[scheme_name].loc[te] = pred_te
@@ -816,6 +852,7 @@ def run_protocol_v3(
             "dev_ids": dev_ids,
             "y_dev": y_dev,
             "cross_gates_df": pd.DataFrame(doc.get("cross_gates") or []),
+            "geometry_weights_df": pd.DataFrame(doc.get("geometry_weights") or []),
             "resumed_experiment": True,
         }
 
@@ -823,6 +860,7 @@ def run_protocol_v3(
     selected_rows: list[dict] = []
     fold_results: dict[str, list[dict]] = {"primary": [], "shadow": []}
     cross_gates_rows: list[dict] = []
+    geometry_weight_rows: list[dict] = []
 
     oof_val = {
         "primary": pd.Series(np.nan, index=dev_ids, dtype=float),
@@ -850,6 +888,7 @@ def run_protocol_v3(
                 content_mode=content_mode,
                 merge_mode=merge_mode,
                 plm_source=plm_source,
+                chain_mode=chain_mode,
             )
             init_state = deepcopy(model0.state_dict())
             init_hash = state_dict_sha256(model0)
@@ -881,6 +920,7 @@ def run_protocol_v3(
                     content_mode=content_mode,
                     merge_mode=merge_mode,
                     plm_source=plm_source,
+                    chain_mode=chain_mode,
                 )
                 init_hashes.append(summary["init_hash"])
                 cand_summaries.append(summary)
@@ -927,6 +967,7 @@ def run_protocol_v3(
                 content_mode=content_mode,
                 merge_mode=merge_mode,
                 plm_source=plm_source,
+                chain_mode=chain_mode,
             )
             pred_te = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -938,6 +979,7 @@ def run_protocol_v3(
                 content_mode=content_mode,
                 merge_mode=merge_mode,
                 plm_source=plm_source,
+                chain_mode=chain_mode,
             )
             pred_ext = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -948,6 +990,7 @@ def run_protocol_v3(
                 content_mode=content_mode,
                 merge_mode=merge_mode,
                 plm_source=plm_source,
+                chain_mode=chain_mode,
             )
 
             oof_val[scheme_name].loc[va] = pred_va
@@ -965,6 +1008,7 @@ def run_protocol_v3(
                     content_mode=content_mode,
                     merge_mode=merge_mode,
                     plm_source=plm_source,
+                    chain_mode=chain_mode,
                 )
                 mtmp.load_state_dict(blob["model"])
                 gates = mtmp.cross_gate_values()
@@ -979,6 +1023,30 @@ def run_protocol_v3(
                         "lr_at_best_epoch": selected["lr_at_best_epoch"],
                     }
                 )
+
+            if flags.get("use_cross_geometry_bias"):
+                blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
+                mtmp = build_platform_model(
+                    rb,
+                    flags,
+                    content_mode=content_mode,
+                    merge_mode=merge_mode,
+                    plm_source=plm_source,
+                    chain_mode=chain_mode,
+                )
+                mtmp.load_state_dict(blob["model"])
+                w = mtmp.cross_geometry_weight_values().numpy()
+                row = {
+                    "scheme": scheme_name,
+                    "fold": k,
+                    "best_epoch": selected["best_epoch"],
+                    "selected_initial_lr": selected["initial_lr"],
+                    "lr_at_best_epoch": selected["lr_at_best_epoch"],
+                }
+                for hi in range(w.shape[0]):
+                    for bi in range(w.shape[1]):
+                        row[f"w_h{hi}_b{bi}"] = float(w[hi, bi])
+                geometry_weight_rows.append(row)
 
             fold_results[scheme_name].append(
                 {
@@ -1046,6 +1114,7 @@ def run_protocol_v3(
         content_mode=content_mode,
         merge_mode=merge_mode,
         plm_source=plm_source,
+        chain_mode=chain_mode,
     )
     n_params = int(sum(p.numel() for p in model0.parameters() if p.requires_grad))
     param_account = model0.param_account() if hasattr(model0, "param_account") else {}
@@ -1059,6 +1128,7 @@ def run_protocol_v3(
         "content_mode": content_mode,
         "merge_mode": merge_mode,
         "plm_source": plm_source,
+        "chain_mode": chain_mode,
         "config_hash": cfg_hash,
         "lr_grid": lrs,
         "max_epochs": MAX_EPOCHS if not quick else min(8, MAX_EPOCHS),
@@ -1089,6 +1159,7 @@ def run_protocol_v3(
         "selected_lr": selected_rows,
         "fold_results": fold_results,
         "cross_gates": cross_gates_rows,
+        "geometry_weights": geometry_weight_rows,
         "quick": quick,
     }
 
@@ -1103,4 +1174,5 @@ def run_protocol_v3(
         "dev_ids": dev_ids,
         "y_dev": y_dev,
         "cross_gates_df": pd.DataFrame(cross_gates_rows),
+        "geometry_weights_df": pd.DataFrame(geometry_weight_rows),
     }

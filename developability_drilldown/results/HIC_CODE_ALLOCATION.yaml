@@ -1,0 +1,125 @@
+status: LOCKED
+platform_id: DL_FOLDLOCAL_COSINE_V3
+hic_code_block: H054-H081
+n_codes: 28
+reason_H048_H075_unavailable: "EXP-H048..H053 (and adjacent classical/XGB HIC codes\
+  \ through the previously planned H048\u2013H075 window) are already occupied. Contiguous\
+  \ free block starts at EXP-H054. Mapping preserves the exact order from plan \xA7\
+  22 with numeric codes shifted +6."
+shift_from_plan_section_22: 6
+plan_H048_maps_to: EXP-H054
+plan_H075_maps_to: EXP-H081
+esm2:
+- code: EXP-H054
+  arch_id: ARCH-H0
+  merge_mode: h_only
+  description: ESM-2 ARCH-H0 Heavy-only
+- code: EXP-H055
+  arch_id: ARCH-1
+  merge_mode: concat
+  description: ESM-2 ARCH-1 CONCAT
+- code: EXP-H056
+  arch_id: ARCH-1
+  merge_mode: mean
+  description: ESM-2 ARCH-1 MEAN
+- code: EXP-H057
+  arch_id: ARCH-2
+  merge_mode: null
+  description: ESM-2 ARCH-2 single REG
+- code: EXP-H058
+  arch_id: ARCH-3
+  merge_mode: concat
+  description: ESM-2 ARCH-3 CONCAT
+- code: EXP-H059
+  arch_id: ARCH-3
+  merge_mode: mean
+  description: ESM-2 ARCH-3 MEAN
+- code: EXP-H060
+  arch_id: ARCH-4
+  merge_mode: concat
+  description: ESM-2 ARCH-4 CONCAT
+- code: EXP-H061
+  arch_id: ARCH-4
+  merge_mode: mean
+  description: ESM-2 ARCH-4 MEAN
+- code: EXP-H062
+  arch_id: ARCH-6
+  merge_mode: concat
+  description: ESM-2 ARCH-6 CONCAT
+- code: EXP-H063
+  arch_id: ARCH-6
+  merge_mode: mean
+  description: ESM-2 ARCH-6 MEAN
+- code: EXP-H064
+  arch_id: ARCH-6G
+  merge_mode: concat
+  description: ESM-2 ARCH-6G CONCAT
+- code: EXP-H065
+  arch_id: ARCH-6G
+  merge_mode: mean
+  description: ESM-2 ARCH-6G MEAN
+- code: EXP-H066
+  arch_id: ARCH-8
+  merge_mode: concat
+  description: ESM-2 ARCH-8 CONCAT
+- code: EXP-H067
+  arch_id: ARCH-8
+  merge_mode: mean
+  description: ESM-2 ARCH-8 MEAN
+scratch:
+- code: EXP-H068
+  arch_id: ARCH-H0
+  merge_mode: h_only
+  description: Scratch ARCH-H0 Heavy-only
+- code: EXP-H069
+  arch_id: ARCH-1
+  merge_mode: concat
+  description: Scratch ARCH-1 CONCAT
+- code: EXP-H070
+  arch_id: ARCH-1
+  merge_mode: mean
+  description: Scratch ARCH-1 MEAN
+- code: EXP-H071
+  arch_id: ARCH-2
+  merge_mode: null
+  description: Scratch ARCH-2 single REG
+- code: EXP-H072
+  arch_id: ARCH-3
+  merge_mode: concat
+  description: Scratch ARCH-3 CONCAT
+- code: EXP-H073
+  arch_id: ARCH-3
+  merge_mode: mean
+  description: Scratch ARCH-3 MEAN
+- code: EXP-H074
+  arch_id: ARCH-4
+  merge_mode: concat
+  description: Scratch ARCH-4 CONCAT
+- code: EXP-H075
+  arch_id: ARCH-4
+  merge_mode: mean
+  description: Scratch ARCH-4 MEAN
+- code: EXP-H076
+  arch_id: ARCH-6
+  merge_mode: concat
+  description: Scratch ARCH-6 CONCAT
+- code: EXP-H077
+  arch_id: ARCH-6
+  merge_mode: mean
+  description: Scratch ARCH-6 MEAN
+- code: EXP-H078
+  arch_id: ARCH-6G
+  merge_mode: concat
+  description: Scratch ARCH-6G CONCAT
+- code: EXP-H079
+  arch_id: ARCH-6G
+  merge_mode: mean
+  description: Scratch ARCH-6G MEAN
+- code: EXP-H080
+  arch_id: ARCH-8
+  merge_mode: concat
+  description: Scratch ARCH-8 CONCAT
+- code: EXP-H081
+  arch_id: ARCH-8
+  merge_mode: mean
+  description: Scratch ARCH-8 MEAN

@@ -66,10 +66,12 @@ class AbDataset(Dataset):
         use_continuous_rasa: bool = False,
         use_rasa_weighted_pool: bool = False,
         use_ca_distance_bias: bool = False,
+        use_cross_geometry_bias: bool = False,
         joint_hl_single_reg: bool = False,
         joint_hl_dual_reg: bool = False,
         joint_hl_chain_specific_dual_reg: bool = False,
         use_cross_attention_bridge: bool = False,
+        chain_mode: str = "HL",
     ):
         self.ids = ids
         self.y = y
@@ -80,7 +82,10 @@ class AbDataset(Dataset):
         self.use_continuous_rasa = bool(use_continuous_rasa)
         self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
         self.use_ca_distance_bias = bool(use_ca_distance_bias)
+        self.use_cross_geometry_bias = bool(use_cross_geometry_bias)
+        self.chain_mode = str(chain_mode)
         self.need_rasa = self.use_continuous_rasa or self.use_rasa_weighted_pool
+        self.need_ca = self.use_ca_distance_bias or self.use_cross_geometry_bias
         self.idxs = [rb.id_to_idx[a] for a in ids]
 
     def __len__(self):
@@ -105,9 +110,9 @@ class AbDataset(Dataset):
                 raise RuntimeError("RASA requested but ResidueBundle lacks rasa arrays")
             item["heavy_rasa"] = self.rb.heavy_rasa[j]
             item["light_rasa"] = self.rb.light_rasa[j]
-        if self.use_ca_distance_bias:
+        if self.need_ca:
             if self.rb.heavy_ca is None or self.rb.light_ca is None:
-                raise RuntimeError("CA distance bias requested but ResidueBundle lacks CA arrays")
+                raise RuntimeError("CA coords requested but ResidueBundle lacks CA arrays")
             item["heavy_ca"] = self.rb.heavy_ca[j]
             item["light_ca"] = self.rb.light_ca[j]
         if self.content_mode == "frozen":
@@ -119,6 +124,14 @@ class AbDataset(Dataset):
                 item["light_plm"] = self.rb.ablang2_l[j]
             elif self.plm_source == "esm2":
                 item["heavy_plm"] = self.rb.esm2_h[j]
+                # Light only when available and not Heavy-only (ARCH-H0).
+                if self.chain_mode != "H_ONLY" and self.rb.esm2_l is not None:
+                    item["light_plm"] = self.rb.esm2_l[j]
+                elif self.chain_mode != "H_ONLY" and self.rb.esm2_l is None:
+                    raise RuntimeError(
+                        "plm_source=esm2 with HL chain requires ResidueBundle.esm2_l; "
+                        "run scripts/build_esm2_light_residue_bundle.py"
+                    )
             else:
                 raise ValueError(self.plm_source)
         if self.fixed_X is not None:
@@ -187,6 +200,9 @@ def build_transformer(
     use_reg_only_cross_attention: bool = False,
     use_within_chain_extra_attention: bool = False,
     cross_gate_mode: str = "learned",
+    use_cross_geometry_bias: bool = False,
+    cross_geometry_rbf_centers: Optional[list] = None,
+    cross_geometry_rbf_sigma: float = 2.5,
     initial_ell_angstrom: Optional[float] = None,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
@@ -223,6 +239,9 @@ def build_transformer(
         use_reg_only_cross_attention=use_reg_only_cross_attention,
         use_within_chain_extra_attention=use_within_chain_extra_attention,
         cross_gate_mode=cross_gate_mode,
+        use_cross_geometry_bias=use_cross_geometry_bias,
+        cross_geometry_rbf_centers=cross_geometry_rbf_centers,
+        cross_geometry_rbf_sigma=cross_geometry_rbf_sigma,
         initial_ell_angstrom=initial_ell_angstrom,
     )
 

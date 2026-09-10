@@ -2,13 +2,20 @@
 """Small annotation-aware Transformer (2 layers, shared H/L encoder)."""
 from __future__ import annotations
 
-from typing import Optional
+from typing import Optional, Sequence
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 from .config import REGION_TO_IDX
+from .cross_geometry import (
+    DEFAULT_RBF_CENTERS,
+    DEFAULT_RBF_SIGMA,
+    N_RBF,
+    build_hl_distance,
+    rbf_bias,
+)
 from .distance_bias import SharedDistanceBiasTransformerEncoder
 
 # Region-gate groups (global learned weights; descriptive only)
@@ -56,6 +63,9 @@ class AnnotatedTransformer(nn.Module):
         use_reg_only_cross_attention: bool = False,
         use_within_chain_extra_attention: bool = False,
         cross_gate_mode: str = "learned",  # "learned" | "fixed_one"
+        use_cross_geometry_bias: bool = False,
+        cross_geometry_rbf_centers: Optional[Sequence[float]] = None,
+        cross_geometry_rbf_sigma: float = DEFAULT_RBF_SIGMA,
         initial_ell_angstrom: Optional[float] = None,
     ):
         super().__init__()
@@ -69,6 +79,10 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("CA distance bias is mutually exclusive with RASA modes in this experiment series")
         if cross_gate_mode not in ("learned", "fixed_one"):
             raise ValueError(f"cross_gate_mode must be 'learned' or 'fixed_one', got {cross_gate_mode!r}")
+        if use_cross_geometry_bias and not use_cross_attention_bridge:
+            raise ValueError("use_cross_geometry_bias requires use_cross_attention_bridge=True")
+        if use_cross_geometry_bias and use_ca_distance_bias:
+            raise ValueError("use_cross_geometry_bias is mutually exclusive with encoder use_ca_distance_bias")
         arch_switches = (
             int(joint_hl_single_reg)
             + int(joint_hl_dual_reg)
@@ -115,6 +129,16 @@ class AnnotatedTransformer(nn.Module):
         self.use_reg_only_cross_attention = bool(use_reg_only_cross_attention)
         self.use_within_chain_extra_attention = bool(use_within_chain_extra_attention)
         self.cross_gate_mode = str(cross_gate_mode)
+        self.use_cross_geometry_bias = bool(use_cross_geometry_bias)
+        centers = (
+            list(cross_geometry_rbf_centers)
+            if cross_geometry_rbf_centers is not None
+            else list(DEFAULT_RBF_CENTERS)
+        )
+        if len(centers) != N_RBF:
+            raise ValueError(f"cross_geometry_rbf_centers must have length {N_RBF}, got {len(centers)}")
+        self.cross_geometry_rbf_centers = centers
+        self.cross_geometry_rbf_sigma = float(cross_geometry_rbf_sigma)
         self.rasa_pool_eps = 1e-12
         self.rasa_pool_zero_denom_count = 0
         self.distance_kernel_shared_across_layers = True
@@ -218,6 +242,18 @@ class AnnotatedTransformer(nn.Module):
             self.register_parameter("cross_gate_h", None)
             self.register_parameter("cross_gate_l", None)
 
+        # ARCH-6G: per-head RBF weights on H↔L Cα distances (zero-init ≡ ARCH-6).
+        if self.use_cross_geometry_bias:
+            self.cross_geom_weight = nn.Parameter(torch.zeros(n_heads, N_RBF))
+            self.register_buffer(
+                "cross_geom_centers",
+                torch.tensor(self.cross_geometry_rbf_centers, dtype=torch.float32),
+                persistent=False,
+            )
+        else:
+            self.register_parameter("cross_geom_weight", None)
+            self.register_buffer("cross_geom_centers", None, persistent=False)
+
         if self.joint_hl_single_reg:
             out_dim = d_model
         else:
@@ -245,6 +281,12 @@ class AnnotatedTransformer(nn.Module):
             "g_H": float(self.cross_gate_h.detach().cpu()),
             "g_L": float(self.cross_gate_l.detach().cpu()),
         }
+
+    def cross_geometry_weight_values(self) -> torch.Tensor:
+        """Return a detached copy of per-head RBF weights [n_heads, 8]."""
+        if self.cross_geom_weight is None:
+            raise RuntimeError("cross geometry weights only exist with use_cross_geometry_bias=True")
+        return self.cross_geom_weight.detach().cpu().clone()
 
     def _merge_dual_reg(self, z_h: torch.Tensor, z_l: torch.Tensor) -> torch.Tensor:
         if self.merge_mode == "concat":
@@ -293,13 +335,19 @@ class AnnotatedTransformer(nn.Module):
             gates += int(self.cross_gate_h.numel())
         if self.cross_gate_l is not None:
             gates += int(self.cross_gate_l.numel())
+        geometry = (
+            int(self.cross_geom_weight.numel())
+            if self.cross_geom_weight is not None and self.cross_geom_weight.requires_grad
+            else 0
+        )
         total = self.n_trainable_parameters()
         return {
             "encoder": enc,
             "cross_attention": cross,
             "gates": gates,
+            "geometry": geometry,
             "head": head,
-            "other": total - enc - cross - gates - head,
+            "other": total - enc - cross - gates - geometry - head,
             "total": total,
         }
 
@@ -671,13 +719,37 @@ class AnnotatedTransformer(nn.Module):
             h_res = h_res + cross_h
             l_res = l_res + cross_l
         else:
+            attn_mask_hl = None
+            attn_mask_lh = None
+            if self.use_cross_geometry_bias:
+                ca_h = batch.get("heavy_ca")
+                ca_l = batch.get("light_ca")
+                if ca_h is None or ca_l is None:
+                    raise ValueError(
+                        "use_cross_geometry_bias requires batch heavy_ca and light_ca"
+                    )
+                d_hl = build_hl_distance(ca_h, ca_l, mh, ml)
+                bias_hl = rbf_bias(
+                    d_hl,
+                    self.cross_geom_weight,
+                    centers=self.cross_geom_centers,
+                    sigma=self.cross_geometry_rbf_sigma,
+                )  # [B, H, Lh, Ll]
+                B = bias_hl.shape[0]
+                # batch_first MultiheadAttention: float attn_mask [B*n_heads, Lq, Lk]
+                attn_mask_hl = bias_hl.reshape(B * self.n_heads, mh.shape[1], ml.shape[1])
+                attn_mask_lh = bias_hl.transpose(-2, -1).reshape(
+                    B * self.n_heads, ml.shape[1], mh.shape[1]
+                )
             # key_padding_mask True = ignore; residue mask True=valid → invert
-            cross_h, _ = self.cross_attn(
-                h_res, l_res, l_res, key_padding_mask=~ml, need_weights=False
-            )
-            cross_l, _ = self.cross_attn(
-                l_res, h_res, h_res, key_padding_mask=~mh, need_weights=False
-            )
+            hl_kwargs = dict(key_padding_mask=~ml, need_weights=False)
+            lh_kwargs = dict(key_padding_mask=~mh, need_weights=False)
+            if attn_mask_hl is not None:
+                hl_kwargs["attn_mask"] = attn_mask_hl
+            if attn_mask_lh is not None:
+                lh_kwargs["attn_mask"] = attn_mask_lh
+            cross_h, _ = self.cross_attn(h_res, l_res, l_res, **hl_kwargs)
+            cross_l, _ = self.cross_attn(l_res, h_res, h_res, **lh_kwargs)
             if self.cross_gate_mode == "learned":
                 h_res = h_res + self.cross_gate_h * cross_h
                 l_res = l_res + self.cross_gate_l * cross_l
