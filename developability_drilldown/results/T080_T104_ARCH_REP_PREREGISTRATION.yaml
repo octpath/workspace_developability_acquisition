@@ -1,0 +1,895 @@
+status: PREREGISTERED_BEFORE_TRAINING
+git_rev_at_preregistration: 45be529a49005691c4ad3a9c51cf1c759724880f
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+n_experiments: 25
+codes:
+- EXP-T080
+- EXP-T081
+- EXP-T082
+- EXP-T083
+- EXP-T084
+- EXP-T085
+- EXP-T086
+- EXP-T087
+- EXP-T088
+- EXP-T089
+- EXP-T090
+- EXP-T091
+- EXP-T092
+- EXP-T093
+- EXP-T094
+- EXP-T095
+- EXP-T096
+- EXP-T097
+- EXP-T098
+- EXP-T099
+- EXP-T100
+- EXP-T101
+- EXP-T102
+- EXP-T103
+- EXP-T104
+reused_ablingua_cells: results/T075_T079_REUSED.yaml
+primary_comparison_metric: TEST_mean
+robustness_metric: TEST_worst
+external_canonical_aggregation: Primary mean
+planned_comparisons:
+- id: MEAN_VS_CONCAT
+  name: mean_vs_concat
+  note: "matched ARCH\xD7REP pairs"
+- id: ARCH6_VS_5
+  name: ungated_vs_gated_cross
+  contrast: ARCH-6 vs ARCH-5
+- id: ARCH6_VS_8
+  name: cross_vs_within
+  contrast: ARCH-6 vs ARCH-8
+- id: ARCH7_VS_1
+  name: reg_only_vs_separate
+  contrast: ARCH-7 vs ARCH-1
+- id: SCRATCH_VS_ABLINGUA
+  name: representation
+  note: "matched ARCH\xD7merge"
+- id: DoD
+  name: selected_decision_contrasts
+  note: finalize-selected pairs
+scratch_audit:
+  historical_semantics: Historical TMS scratch FULL = learned AA embedding + sequence
+    position + chain ID + IMGT + region embeddings, combined by addition into d_model
+    (no linear projection of the sum). content_mode='scratch' uses aa_emb; no PLM
+    / plm_proj.
+  implementation:
+    model: models/antibody_transformer/model.py::_residue_stream / _content
+    vocab: config.AA_LIST / AA_TO_IDX (pad=0, UNK)
+    d_model: 128
+    annotation_mode: FULL (IMGT + region on)
+    formula: x = aa_emb(aa) + pos_emb(pos) + chain_emb[chain] + imgt_emb(imgt) + region_emb(region)
+  historical_refs:
+  - EXP-T026
+  - EXP-T027
+  - EXP-T028
+  note_vs_t028: "EXP-T028 used FULL scratch + mean merge under older protocol; T090\u2013\
+    T104 reuse the same residue semantics under DL_FOLDLOCAL_COSINE_V3."
+  load_residue_bundle: Scratch may call load_residue_bundle(..., need_ablingua=False);
+    AA/IMGT/region tensors suffice. AbDataset ignores PLM when content_mode=scratch.
+experiments:
+- experiment_code: EXP-T080
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_DUAL_MEAN_V3
+  description: AbLingua ARCH-1 separate dual REG MEAN
+  arch_id: ARCH-1
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: mean
+  input_space: SEPARATE_DUAL_REG_FROZEN_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: "separate H/L self-attn; no H\u2194L communication; dual REG"
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: none
+  n_trainable_preregistered: 476033
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 194432
+    total: 476033
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T080.yaml
+  config_sha256: be690efc0a9190e47e94e23cdc5e040976bc29f3289fed5ce0785190d930b6e6
+- experiment_code: EXP-T081
+  experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_DUAL_MEAN_V3
+  description: AbLingua ARCH-3 joint unrestricted dual REG MEAN
+  arch_id: ARCH-3
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: mean
+  input_space: JOINT_HL_DUAL_REG_FROZEN_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: true
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: full joint; REG_H/REG_L unrestricted across chains
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: joint
+  comm: full joint unrestricted dual REG
+  n_trainable_preregistered: 476033
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 194432
+    total: 476033
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T081.yaml
+  config_sha256: bf50783a7f2fefcb5058215fd493d708fd41f704960fac7da80b65869bf7b938
+- experiment_code: EXP-T082
+  experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_CHAIN_SPECIFIC_DUAL_MEAN_V3
+  description: AbLingua ARCH-4 joint chain-specific dual REG MEAN
+  arch_id: ARCH-4
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: mean
+  input_space: JOINT_HL_CHAIN_SPECIFIC_DUAL_REG_FROZEN_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: true
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: "residue H\u2194L allowed; REG_H attends H only; REG_L attends\
+    \ L only; cross-REG blocked"
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: joint
+  comm: joint residue; chain-specific REG
+  n_trainable_preregistered: 476033
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 194432
+    total: 476033
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T082.yaml
+  config_sha256: bde61bf537c5749d4f860ab7b2b9ef1868602ac5d04e2b31c9cd37bccb78a3a3
+- experiment_code: EXP-T083
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_CROSSATTN_DUAL_MEAN_V3
+  description: AbLingua ARCH-5 gated cross-attn MEAN
+  arch_id: ARCH-5
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: mean
+  input_space: SEPARATE_CROSS_ATTENTION_DUAL_REG_FROZEN_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: separate self-attn; residue-only cross-attn with learned zero-init
+    gates
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: gated cross-attn bridge
+  n_trainable_preregistered: 542083
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 2
+    head: 16641
+    other: 194432
+    total: 542083
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T083.yaml
+  config_sha256: 26dbee112652add77f59d91b8f4760946eaae8f864fdf8cf81699bcac0c6f22a
+- experiment_code: EXP-T084
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_CROSSATTN_UNGATED_CONCAT_V3
+  description: AbLingua ARCH-6 ungated cross-attn CONCAT
+  arch_id: ARCH-6
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: concat
+  input_space: SEPARATE_CROSS_ATTENTION_UNGATED_FROZEN_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: fixed_one
+  attention_semantics: separate self-attn; residue-only cross-attn ungated (fixed
+    g=1 residual)
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: ungated cross-attn bridge
+  n_trainable_preregistered: 558465
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 33025
+    other: 194432
+    total: 558465
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T084.yaml
+  config_sha256: 5f97d875269c7105dad2d004f724feb4902ea8d0cc345a6b731dfc1b9f97ff37
+- experiment_code: EXP-T085
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_CROSSATTN_UNGATED_MEAN_V3
+  description: AbLingua ARCH-6 ungated cross-attn MEAN
+  arch_id: ARCH-6
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: mean
+  input_space: SEPARATE_CROSS_ATTENTION_UNGATED_FROZEN_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: fixed_one
+  attention_semantics: separate self-attn; residue-only cross-attn ungated (fixed
+    g=1 residual)
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: ungated cross-attn bridge
+  n_trainable_preregistered: 542081
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 16641
+    other: 194432
+    total: 542081
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T085.yaml
+  config_sha256: a2ad030f43241acaa3e94e72ebb4584d07d82204fba581edfc9d45262494406e
+- experiment_code: EXP-T086
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_REG_ONLY_CROSS_CONCAT_V3
+  description: AbLingua ARCH-7 REG-only cross CONCAT
+  arch_id: ARCH-7
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: concat
+  input_space: SEPARATE_REG_ONLY_CROSS_ATTENTION_FROZEN_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: true
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: separate encode then REG-only queries attend opposite-chain
+    residues (ungated)
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: REG-only cross-attn
+  n_trainable_preregistered: 558465
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 33025
+    other: 194432
+    total: 558465
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T086.yaml
+  config_sha256: bc10773fe261a5f14a68807d155e894712beb4f2f91af2457110ce30134b2b2e
+- experiment_code: EXP-T087
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_REG_ONLY_CROSS_MEAN_V3
+  description: AbLingua ARCH-7 REG-only cross MEAN
+  arch_id: ARCH-7
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: mean
+  input_space: SEPARATE_REG_ONLY_CROSS_ATTENTION_FROZEN_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: true
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: separate encode then REG-only queries attend opposite-chain
+    residues (ungated)
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: REG-only cross-attn
+  n_trainable_preregistered: 542081
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 16641
+    other: 194432
+    total: 542081
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T087.yaml
+  config_sha256: f56e90ebcaa4a5078ab77d0b2581422be7857ba6b193baef155b3a9763ca58c4
+- experiment_code: EXP-T088
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_WITHIN_CHAIN_EXTRA_CONCAT_V3
+  description: AbLingua ARCH-8 within-chain extra attn CONCAT
+  arch_id: ARCH-8
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: concat
+  input_space: SEPARATE_WITHIN_CHAIN_EXTRA_ATTENTION_FROZEN_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: true
+    cross_gate_mode: learned
+  attention_semantics: "separate self-attn + mid-stack within-chain extra residue\
+    \ attn (ungated H\u2190H / L\u2190L)"
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: within-chain extra attn
+  n_trainable_preregistered: 558465
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 33025
+    other: 194432
+    total: 558465
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T088.yaml
+  config_sha256: 55ec80ae153affe5313c07fe9e54f7306c5df3aaebc7842c8d0974bf3aab1512
+- experiment_code: EXP-T089
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_WITHIN_CHAIN_EXTRA_MEAN_V3
+  description: AbLingua ARCH-8 within-chain extra attn MEAN
+  arch_id: ARCH-8
+  representation: ABLINGUA
+  content_mode: frozen
+  merge_mode: mean
+  input_space: SEPARATE_WITHIN_CHAIN_EXTRA_ATTENTION_FROZEN_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: true
+    cross_gate_mode: learned
+  attention_semantics: "separate self-attn + mid-stack within-chain extra residue\
+    \ attn (ungated H\u2190H / L\u2190L)"
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: within-chain extra attn
+  n_trainable_preregistered: 542081
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 16641
+    other: 194432
+    total: 542081
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T089.yaml
+  config_sha256: f947f2a62f285ad231116942d2c88345e076319bcbdf5b699de42d2907a442ea
+- experiment_code: EXP-T090
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_DUAL_CONCAT_V3
+  description: Scratch ARCH-1 separate dual REG CONCAT
+  arch_id: ARCH-1
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: concat
+  input_space: SEPARATE_DUAL_REG_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: "separate H/L self-attn; no H\u2194L communication; dual REG"
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: none
+  n_trainable_preregistered: 331265
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 33025
+    other: 33280
+    total: 331265
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T090.yaml
+  config_sha256: e27b2b61a806f99afb5c98907b0ff42579c340b5d3fd55c1da27d32ce1c772b1
+- experiment_code: EXP-T091
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_DUAL_MEAN_V3
+  description: Scratch ARCH-1 separate dual REG MEAN
+  arch_id: ARCH-1
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: mean
+  input_space: SEPARATE_DUAL_REG_SCRATCH_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: "separate H/L self-attn; no H\u2194L communication; dual REG"
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: none
+  n_trainable_preregistered: 314881
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 33280
+    total: 314881
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T091.yaml
+  config_sha256: 5eaeaec7a436f89b810e6de2ad178c3e5e07959d1868d68cf01959224b98ffad
+- experiment_code: EXP-T092
+  experiment_id: TRF_TM_SCRATCH_FULL_JOINT_SINGLE_REG_V3
+  description: Scratch ARCH-2 joint single REG
+  arch_id: ARCH-2
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: null
+  input_space: JOINT_HL_SINGLE_REG_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: true
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: "full joint self-attn; H\u2194L allowed; one REG"
+  readout: hidden(REG); dim=d_model=128
+  hl_base: joint
+  comm: full joint
+  n_trainable_preregistered: 314753
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 33152
+    total: 314753
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T092.yaml
+  config_sha256: d223026237ea8cc3b0854e7aaf09358996cbfe130619ba8e1402a80ea9cbdc26
+- experiment_code: EXP-T093
+  experiment_id: TRF_TM_SCRATCH_FULL_JOINT_DUAL_CONCAT_V3
+  description: Scratch ARCH-3 joint unrestricted dual REG CONCAT
+  arch_id: ARCH-3
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: concat
+  input_space: JOINT_HL_DUAL_REG_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: true
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: full joint; REG_H/REG_L unrestricted across chains
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: joint
+  comm: full joint unrestricted dual REG
+  n_trainable_preregistered: 331265
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 33025
+    other: 33280
+    total: 331265
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T093.yaml
+  config_sha256: f7459636a898b06d3aac541c8769ef7a4c4d45aa54168476a23ff2383ad12bcf
+- experiment_code: EXP-T094
+  experiment_id: TRF_TM_SCRATCH_FULL_JOINT_DUAL_MEAN_V3
+  description: Scratch ARCH-3 joint unrestricted dual REG MEAN
+  arch_id: ARCH-3
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: mean
+  input_space: JOINT_HL_DUAL_REG_SCRATCH_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: true
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: full joint; REG_H/REG_L unrestricted across chains
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: joint
+  comm: full joint unrestricted dual REG
+  n_trainable_preregistered: 314881
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 33280
+    total: 314881
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T094.yaml
+  config_sha256: 26665f9d65b1d5d2c67a7321cc53c3f523890c77fc4d6ce13ecd446e38604ad3
+- experiment_code: EXP-T095
+  experiment_id: TRF_TM_SCRATCH_FULL_JOINT_CHAIN_SPECIFIC_DUAL_CONCAT_V3
+  description: Scratch ARCH-4 joint chain-specific dual REG CONCAT
+  arch_id: ARCH-4
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: concat
+  input_space: JOINT_HL_CHAIN_SPECIFIC_DUAL_REG_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: true
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: "residue H\u2194L allowed; REG_H attends H only; REG_L attends\
+    \ L only; cross-REG blocked"
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: joint
+  comm: joint residue; chain-specific REG
+  n_trainable_preregistered: 331265
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 33025
+    other: 33280
+    total: 331265
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T095.yaml
+  config_sha256: f3197aba93e70c40b2e8f999620e9d5b93a4d7fc7bbeee860f3cebcd130ca050
+- experiment_code: EXP-T096
+  experiment_id: TRF_TM_SCRATCH_FULL_JOINT_CHAIN_SPECIFIC_DUAL_MEAN_V3
+  description: Scratch ARCH-4 joint chain-specific dual REG MEAN
+  arch_id: ARCH-4
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: mean
+  input_space: JOINT_HL_CHAIN_SPECIFIC_DUAL_REG_SCRATCH_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: true
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: "residue H\u2194L allowed; REG_H attends H only; REG_L attends\
+    \ L only; cross-REG blocked"
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: joint
+  comm: joint residue; chain-specific REG
+  n_trainable_preregistered: 314881
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 33280
+    total: 314881
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T096.yaml
+  config_sha256: 9dda56103de6fea8d72a018ad4bce75d9dd2431ccf4c72e5a054cdd09eb8b3f1
+- experiment_code: EXP-T097
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_CROSSATTN_CONCAT_V3
+  description: Scratch ARCH-5 gated cross-attn CONCAT
+  arch_id: ARCH-5
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: concat
+  input_space: SEPARATE_CROSS_ATTENTION_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: separate self-attn; residue-only cross-attn with learned zero-init
+    gates
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: gated cross-attn bridge
+  n_trainable_preregistered: 397315
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 2
+    head: 33025
+    other: 33280
+    total: 397315
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T097.yaml
+  config_sha256: 810997243974dbcd55dd094c4a3b404c4fc0cefc1bc9a5bc16170f53e12dd5be
+- experiment_code: EXP-T098
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_CROSSATTN_MEAN_V3
+  description: Scratch ARCH-5 gated cross-attn MEAN
+  arch_id: ARCH-5
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: mean
+  input_space: SEPARATE_CROSS_ATTENTION_SCRATCH_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: separate self-attn; residue-only cross-attn with learned zero-init
+    gates
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: gated cross-attn bridge
+  n_trainable_preregistered: 380931
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 2
+    head: 16641
+    other: 33280
+    total: 380931
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T098.yaml
+  config_sha256: 855fc68a9f4452e355ed396925d3cb70dcce18d64502ae56d2462f8d2ddeb000
+- experiment_code: EXP-T099
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_CROSSATTN_UNGATED_CONCAT_V3
+  description: Scratch ARCH-6 ungated cross-attn CONCAT
+  arch_id: ARCH-6
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: concat
+  input_space: SEPARATE_CROSS_ATTENTION_UNGATED_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: fixed_one
+  attention_semantics: separate self-attn; residue-only cross-attn ungated (fixed
+    g=1 residual)
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: ungated cross-attn bridge
+  n_trainable_preregistered: 397313
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 33025
+    other: 33280
+    total: 397313
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T099.yaml
+  config_sha256: a9b104ba198a0a21227de7ab5af232ca8db889b1739ff575de94f967b5a22850
+- experiment_code: EXP-T100
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_CROSSATTN_UNGATED_MEAN_V3
+  description: Scratch ARCH-6 ungated cross-attn MEAN
+  arch_id: ARCH-6
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: mean
+  input_space: SEPARATE_CROSS_ATTENTION_UNGATED_SCRATCH_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: fixed_one
+  attention_semantics: separate self-attn; residue-only cross-attn ungated (fixed
+    g=1 residual)
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: ungated cross-attn bridge
+  n_trainable_preregistered: 380929
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 16641
+    other: 33280
+    total: 380929
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T100.yaml
+  config_sha256: c41088343724be5c71364c27bb1ab38d9b38f064a4d30a7b0381373836564aec
+- experiment_code: EXP-T101
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_REG_ONLY_CROSS_CONCAT_V3
+  description: Scratch ARCH-7 REG-only cross CONCAT
+  arch_id: ARCH-7
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: concat
+  input_space: SEPARATE_REG_ONLY_CROSS_ATTENTION_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: true
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: separate encode then REG-only queries attend opposite-chain
+    residues (ungated)
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: REG-only cross-attn
+  n_trainable_preregistered: 397313
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 33025
+    other: 33280
+    total: 397313
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T101.yaml
+  config_sha256: da4104857745339e25c0cc60054e15211c1d0ea457f60350af640470949c1060
+- experiment_code: EXP-T102
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_REG_ONLY_CROSS_MEAN_V3
+  description: Scratch ARCH-7 REG-only cross MEAN
+  arch_id: ARCH-7
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: mean
+  input_space: SEPARATE_REG_ONLY_CROSS_ATTENTION_SCRATCH_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: true
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+  attention_semantics: separate encode then REG-only queries attend opposite-chain
+    residues (ungated)
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: REG-only cross-attn
+  n_trainable_preregistered: 380929
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 16641
+    other: 33280
+    total: 380929
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T102.yaml
+  config_sha256: b7618adec5bc5130b16f71569236c99140edbadc227b4cbbab16a7ed6962b979
+- experiment_code: EXP-T103
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_WITHIN_CHAIN_EXTRA_CONCAT_V3
+  description: Scratch ARCH-8 within-chain extra attn CONCAT
+  arch_id: ARCH-8
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: concat
+  input_space: SEPARATE_WITHIN_CHAIN_EXTRA_ATTENTION_SCRATCH_RESIDUE_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: true
+    cross_gate_mode: learned
+  attention_semantics: "separate self-attn + mid-stack within-chain extra residue\
+    \ attn (ungated H\u2190H / L\u2190L)"
+  readout: concat(REG_H, REG_L); dim=256
+  hl_base: separate
+  comm: within-chain extra attn
+  n_trainable_preregistered: 397313
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 33025
+    other: 33280
+    total: 397313
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T103.yaml
+  config_sha256: eb7167caa2f54030f6dd6a5e34ea765600ff19881a019bb5e1820eb263a17b8c
+- experiment_code: EXP-T104
+  experiment_id: TRF_TM_SCRATCH_FULL_SEPARATE_WITHIN_CHAIN_EXTRA_MEAN_V3
+  description: Scratch ARCH-8 within-chain extra attn MEAN
+  arch_id: ARCH-8
+  representation: SCRATCH
+  content_mode: scratch
+  merge_mode: mean
+  input_space: SEPARATE_WITHIN_CHAIN_EXTRA_ATTENTION_SCRATCH_RESIDUE_MEAN_V3
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: true
+    cross_gate_mode: learned
+  attention_semantics: "separate self-attn + mid-stack within-chain extra residue\
+    \ attn (ungated H\u2190H / L\u2190L)"
+  readout: mean(REG_H, REG_L); dim=128
+  hl_base: separate
+  comm: within-chain extra attn
+  n_trainable_preregistered: 380929
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 0
+    head: 16641
+    other: 33280
+    total: 380929
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T104.yaml
+  config_sha256: a07b71bc7aeba6a83f3b21fb906bc0086d24a3995c52d6c00955c311f30ca382
+notes: "All 25 architectures\xD7representation settings fixed before any result inspection.\
+  \ T075\u2013T079 are reused and must not be retrained. No architecture may change\
+  \ after training of T080\u2013T104 begins."

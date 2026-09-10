@@ -53,6 +53,9 @@ class AnnotatedTransformer(nn.Module):
         joint_hl_dual_reg: bool = False,
         joint_hl_chain_specific_dual_reg: bool = False,
         use_cross_attention_bridge: bool = False,
+        use_reg_only_cross_attention: bool = False,
+        use_within_chain_extra_attention: bool = False,
+        cross_gate_mode: str = "learned",  # "learned" | "fixed_one"
         initial_ell_angstrom: Optional[float] = None,
     ):
         super().__init__()
@@ -64,21 +67,37 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("use continuous RASA annotation XOR rasa-weighted pool, not both")
         if use_ca_distance_bias and (use_continuous_rasa or use_rasa_weighted_pool):
             raise ValueError("CA distance bias is mutually exclusive with RASA modes in this experiment series")
-        joint_modes = int(joint_hl_single_reg) + int(joint_hl_dual_reg) + int(joint_hl_chain_specific_dual_reg)
-        if joint_modes > 1:
-            raise ValueError("at most one of joint_hl_single_reg / joint_hl_dual_reg / joint_hl_chain_specific_dual_reg")
-        if use_cross_attention_bridge and joint_modes:
-            raise ValueError("use_cross_attention_bridge is mutually exclusive with joint H/L modes")
-        if (joint_modes or use_cross_attention_bridge) and (use_continuous_rasa or use_rasa_weighted_pool):
+        if cross_gate_mode not in ("learned", "fixed_one"):
+            raise ValueError(f"cross_gate_mode must be 'learned' or 'fixed_one', got {cross_gate_mode!r}")
+        arch_switches = (
+            int(joint_hl_single_reg)
+            + int(joint_hl_dual_reg)
+            + int(joint_hl_chain_specific_dual_reg)
+            + int(use_cross_attention_bridge)
+            + int(use_reg_only_cross_attention)
+            + int(use_within_chain_extra_attention)
+        )
+        if arch_switches > 1:
+            raise ValueError(
+                "at most one of joint_hl_single_reg / joint_hl_dual_reg / "
+                "joint_hl_chain_specific_dual_reg / use_cross_attention_bridge / "
+                "use_reg_only_cross_attention / use_within_chain_extra_attention"
+            )
+        special_arch = arch_switches > 0
+        if special_arch and (use_continuous_rasa or use_rasa_weighted_pool):
             raise ValueError("joint/cross modes are mutually exclusive with RASA modes in this series")
-        if (joint_modes or use_cross_attention_bridge) and pooling_mode != "reg":
+        if special_arch and pooling_mode != "reg":
             raise ValueError("joint/cross modes require pooling_mode='reg'")
-        if (joint_modes or use_cross_attention_bridge) and chain_mode != "HL":
+        if special_arch and chain_mode != "HL":
             raise ValueError("joint/cross modes require chain_mode='HL'")
         if (joint_hl_dual_reg or joint_hl_chain_specific_dual_reg) and use_ca_distance_bias:
             raise ValueError("joint dual-REG modes do not support CA distance bias")
-        if use_cross_attention_bridge and use_ca_distance_bias:
-            raise ValueError("cross-attention bridge does not support CA distance bias in EXP-T072")
+        if (
+            use_cross_attention_bridge
+            or use_reg_only_cross_attention
+            or use_within_chain_extra_attention
+        ) and use_ca_distance_bias:
+            raise ValueError("cross-attention variants do not support CA distance bias")
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
@@ -93,6 +112,9 @@ class AnnotatedTransformer(nn.Module):
         self.joint_hl_dual_reg = bool(joint_hl_dual_reg)
         self.joint_hl_chain_specific_dual_reg = bool(joint_hl_chain_specific_dual_reg)
         self.use_cross_attention_bridge = bool(use_cross_attention_bridge)
+        self.use_reg_only_cross_attention = bool(use_reg_only_cross_attention)
+        self.use_within_chain_extra_attention = bool(use_within_chain_extra_attention)
+        self.cross_gate_mode = str(cross_gate_mode)
         self.rasa_pool_eps = 1e-12
         self.rasa_pool_zero_denom_count = 0
         self.distance_kernel_shared_across_layers = True
@@ -173,18 +195,26 @@ class AnnotatedTransformer(nn.Module):
             self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
         self.dropout = nn.Dropout(dropout)
 
-        # EXP-T072: shared bidirectional residue cross-attention + zero-init gates
-        if self.use_cross_attention_bridge:
+        # Shared MHA for residue bridge / within-chain extra / REG-only cross paths.
+        needs_cross_attn = (
+            self.use_cross_attention_bridge
+            or self.use_reg_only_cross_attention
+            or self.use_within_chain_extra_attention
+        )
+        if needs_cross_attn:
             self.cross_attn = nn.MultiheadAttention(
                 embed_dim=d_model,
                 num_heads=n_heads,
                 dropout=dropout,
                 batch_first=True,
             )
+        else:
+            self.cross_attn = None
+        # Trainable gates only for learned cross-attention bridge (EXP-T072 default).
+        if self.use_cross_attention_bridge and self.cross_gate_mode == "learned":
             self.cross_gate_h = nn.Parameter(torch.zeros(()))
             self.cross_gate_l = nn.Parameter(torch.zeros(()))
         else:
-            self.cross_attn = None
             self.register_parameter("cross_gate_h", None)
             self.register_parameter("cross_gate_l", None)
 
@@ -204,12 +234,24 @@ class AnnotatedTransformer(nn.Module):
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
 
     def cross_gate_values(self) -> dict[str, float]:
-        if not self.use_cross_attention_bridge:
-            raise RuntimeError("cross gates only exist with use_cross_attention_bridge")
+        if not (
+            self.use_cross_attention_bridge
+            and self.cross_gate_mode == "learned"
+            and self.cross_gate_h is not None
+            and self.cross_gate_l is not None
+        ):
+            raise RuntimeError("cross gates only exist with use_cross_attention_bridge and cross_gate_mode='learned'")
         return {
             "g_H": float(self.cross_gate_h.detach().cpu()),
             "g_L": float(self.cross_gate_l.detach().cpu()),
         }
+
+    def _merge_dual_reg(self, z_h: torch.Tensor, z_l: torch.Tensor) -> torch.Tensor:
+        if self.merge_mode == "concat":
+            return torch.cat([z_h, z_l], dim=-1)
+        if self.merge_mode == "mean":
+            return 0.5 * (z_h + z_l)
+        raise ValueError(self.merge_mode)
 
     @staticmethod
     def build_chain_specific_reg_attn_mask(Lh: int, Ll: int, *, device=None) -> torch.Tensor:
@@ -547,7 +589,7 @@ class AnnotatedTransformer(nn.Module):
         )
         z_h = h[:, 0]
         z_l = h[:, 1 + Lh]
-        return torch.cat([z_h, z_l], dim=-1)
+        return self._merge_dual_reg(z_h, z_l)
 
     def _embed_chain_with_reg(
         self,
@@ -573,13 +615,19 @@ class AnnotatedTransformer(nn.Module):
         return x, pad
 
     def encode_separate_with_cross_attn(self, batch: dict) -> torch.Tensor:
-        """T030-like separate self-attn with residue cross-attn bridge between layers.
+        """Separate self-attn with mid-stack residue attention (cross-chain or within-chain).
 
-        Layer1 self-attn (shared) on each chain independently → residue cross-attn
-        (REG excluded from Q/K/V) with zero-init gates → Layer2 self-attn → REG concat.
+        Layer1 self-attn (shared) on each chain independently → residue MHA
+        (REG excluded from Q/K/V) → Layer2 self-attn → dual REG merge.
+
+        - use_cross_attention_bridge: H↔L cross with learned gates or fixed_one residual
+        - use_within_chain_extra_attention: H←H / L←L ungated residual
         """
-        if not self.use_cross_attention_bridge:
-            raise RuntimeError("encode_separate_with_cross_attn requires use_cross_attention_bridge")
+        if not (self.use_cross_attention_bridge or self.use_within_chain_extra_attention):
+            raise RuntimeError(
+                "encode_separate_with_cross_attn requires use_cross_attention_bridge "
+                "or use_within_chain_extra_attention"
+            )
         if self.use_ca_distance_bias:
             raise RuntimeError("CA bias incompatible with cross-attention bridge")
         layers = self.encoder.layers
@@ -610,25 +658,92 @@ class AnnotatedTransformer(nn.Module):
         h1_h = layers[0](self.dropout(x_h), src_key_padding_mask=pad_h)
         h1_l = layers[0](self.dropout(x_l), src_key_padding_mask=pad_l)
 
-        # Residue-only cross-attention (exclude REG at index 0)
+        # Residue-only attention (exclude REG at index 0)
         h_res = h1_h[:, 1:]
         l_res = h1_l[:, 1:]
-        # key_padding_mask True = ignore; residue mask True=valid → invert
-        cross_h, _ = self.cross_attn(
-            h_res, l_res, l_res, key_padding_mask=~ml, need_weights=False
-        )
-        cross_l, _ = self.cross_attn(
-            l_res, h_res, h_res, key_padding_mask=~mh, need_weights=False
-        )
-        h_res = h_res + self.cross_gate_h * cross_h
-        l_res = l_res + self.cross_gate_l * cross_l
+        if self.use_within_chain_extra_attention:
+            cross_h, _ = self.cross_attn(
+                h_res, h_res, h_res, key_padding_mask=~mh, need_weights=False
+            )
+            cross_l, _ = self.cross_attn(
+                l_res, l_res, l_res, key_padding_mask=~ml, need_weights=False
+            )
+            h_res = h_res + cross_h
+            l_res = l_res + cross_l
+        else:
+            # key_padding_mask True = ignore; residue mask True=valid → invert
+            cross_h, _ = self.cross_attn(
+                h_res, l_res, l_res, key_padding_mask=~ml, need_weights=False
+            )
+            cross_l, _ = self.cross_attn(
+                l_res, h_res, h_res, key_padding_mask=~mh, need_weights=False
+            )
+            if self.cross_gate_mode == "learned":
+                h_res = h_res + self.cross_gate_h * cross_h
+                l_res = l_res + self.cross_gate_l * cross_l
+            else:
+                # fixed_one: ungated residual (g ≡ 1)
+                h_res = h_res + cross_h
+                l_res = l_res + cross_l
         # REG tokens unchanged at bridge
         h2_in_h = torch.cat([h1_h[:, :1], h_res], dim=1)
         h2_in_l = torch.cat([h1_l[:, :1], l_res], dim=1)
 
         h2_h = layers[1](h2_in_h, src_key_padding_mask=pad_h)
         h2_l = layers[1](h2_in_l, src_key_padding_mask=pad_l)
-        return torch.cat([h2_h[:, 0], h2_l[:, 0]], dim=-1)
+        return self._merge_dual_reg(h2_h[:, 0], h2_l[:, 0])
+
+    def encode_reg_only_cross_attention(self, batch: dict) -> torch.Tensor:
+        """Full separate 2-layer encode, then REG-only cross-chain attention (ungated).
+
+        REG_H queries all Light residues; REG_L queries all Heavy residues.
+        Residues are unmodified after the cross path; return merged REG' pair.
+        """
+        if not self.use_reg_only_cross_attention:
+            raise RuntimeError("encode_reg_only_cross_attention requires use_reg_only_cross_attention")
+        if self.use_ca_distance_bias:
+            raise RuntimeError("CA bias incompatible with REG-only cross-attention")
+        if self.cross_attn is None:
+            raise RuntimeError("cross_attn module missing")
+
+        mh = batch["heavy_mask"]
+        ml = batch["light_mask"]
+        x_h, pad_h = self._embed_chain_with_reg(
+            chain_idx=0,
+            aa=batch.get("heavy_aa"),
+            plm=batch.get("heavy_plm"),
+            mask=mh,
+            pos=batch["heavy_pos"],
+            imgt=batch.get("heavy_imgt"),
+            region=batch.get("heavy_region"),
+        )
+        x_l, pad_l = self._embed_chain_with_reg(
+            chain_idx=1,
+            aa=batch.get("light_aa"),
+            plm=batch.get("light_plm"),
+            mask=ml,
+            pos=batch["light_pos"],
+            imgt=batch.get("light_imgt"),
+            region=batch.get("light_region"),
+        )
+        # Full shared encoder per chain (same as encode_chain path, keep all hidden)
+        h_h = self.encoder(self.dropout(x_h), src_key_padding_mask=pad_h)
+        h_l = self.encoder(self.dropout(x_l), src_key_padding_mask=pad_l)
+
+        reg_h = h_h[:, :1]
+        reg_l = h_l[:, :1]
+        h_res = h_h[:, 1:]
+        l_res = h_l[:, 1:]
+        delta_h, _ = self.cross_attn(
+            reg_h, l_res, l_res, key_padding_mask=~ml, need_weights=False
+        )
+        delta_l, _ = self.cross_attn(
+            reg_l, h_res, h_res, key_padding_mask=~mh, need_weights=False
+        )
+        # Ungated residual on REG only; residues unused after this
+        reg_h = reg_h + delta_h
+        reg_l = reg_l + delta_l
+        return self._merge_dual_reg(reg_h.squeeze(1), reg_l.squeeze(1))
 
     def forward_repr(self, batch: dict) -> torch.Tensor:
         if self.joint_hl_chain_specific_dual_reg:
@@ -637,7 +752,9 @@ class AnnotatedTransformer(nn.Module):
             return self.encode_joint_hl_dual_reg(batch, chain_specific_reg=False)
         if self.joint_hl_single_reg:
             return self.encode_joint_hl(batch)
-        if self.use_cross_attention_bridge:
+        if self.use_reg_only_cross_attention:
+            return self.encode_reg_only_cross_attention(batch)
+        if self.use_cross_attention_bridge or self.use_within_chain_extra_attention:
             return self.encode_separate_with_cross_attn(batch)
         h_h = self.encode_chain(
             chain_idx=0,
@@ -663,11 +780,7 @@ class AnnotatedTransformer(nn.Module):
             rasa=batch.get("light_rasa"),
             ca_coords=batch.get("light_ca"),
         )
-        if self.merge_mode == "concat":
-            return torch.cat([h_h, h_l], dim=-1)
-        if self.merge_mode == "mean":
-            return 0.5 * (h_h + h_l)
-        raise ValueError(self.merge_mode)
+        return self._merge_dual_reg(h_h, h_l)
 
     def forward(self, batch: dict) -> torch.Tensor:
         return self.head(self.forward_repr(batch)).squeeze(-1)

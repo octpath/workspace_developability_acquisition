@@ -1,0 +1,31 @@
+status: REUSED_DO_NOT_RETRAIN
+platform_id: DL_FOLDLOCAL_COSINE_V3
+note: "T075\u2013T079 already trained under DL_FOLDLOCAL_COSINE_V3. They supply AbLingua\
+  \ CONCAT (or single-REG) cells of the ARCH\xD7REP matrix. Do not retrain or overwrite\
+  \ their prediction/OOF artifacts."
+experiments:
+- experiment_code: EXP-T075
+  arch_id: ARCH-1
+  representation: ABLINGUA
+  merge_mode: concat
+  role: separate dual REG CONCAT baseline
+- experiment_code: EXP-T076
+  arch_id: ARCH-2
+  representation: ABLINGUA
+  merge_mode: null
+  role: joint single REG
+- experiment_code: EXP-T077
+  arch_id: ARCH-3
+  representation: ABLINGUA
+  merge_mode: concat
+  role: joint unrestricted dual REG CONCAT
+- experiment_code: EXP-T078
+  arch_id: ARCH-4
+  representation: ABLINGUA
+  merge_mode: concat
+  role: joint chain-specific dual REG CONCAT
+- experiment_code: EXP-T079
+  arch_id: ARCH-5
+  representation: ABLINGUA
+  merge_mode: concat
+  role: gated cross-attn CONCAT

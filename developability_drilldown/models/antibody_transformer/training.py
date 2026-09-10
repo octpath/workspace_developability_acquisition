@@ -184,6 +184,9 @@ def build_transformer(
     joint_hl_dual_reg: bool = False,
     joint_hl_chain_specific_dual_reg: bool = False,
     use_cross_attention_bridge: bool = False,
+    use_reg_only_cross_attention: bool = False,
+    use_within_chain_extra_attention: bool = False,
+    cross_gate_mode: str = "learned",
     initial_ell_angstrom: Optional[float] = None,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
@@ -215,8 +218,11 @@ def build_transformer(
         use_ca_distance_bias=use_ca_distance_bias,
         joint_hl_single_reg=joint_hl_single_reg,
         joint_hl_dual_reg=joint_hl_dual_reg,
-            joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
-            use_cross_attention_bridge=use_cross_attention_bridge,
+        joint_hl_chain_specific_dual_reg=joint_hl_chain_specific_dual_reg,
+        use_cross_attention_bridge=use_cross_attention_bridge,
+        use_reg_only_cross_attention=use_reg_only_cross_attention,
+        use_within_chain_extra_attention=use_within_chain_extra_attention,
+        cross_gate_mode=cross_gate_mode,
         initial_ell_angstrom=initial_ell_angstrom,
     )
 

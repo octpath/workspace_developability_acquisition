@@ -8,7 +8,11 @@ shared training platform (optimizer, LR grid, cosine schedule, early stop).
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import math
+import os
+import tempfile
 from copy import deepcopy
 from pathlib import Path
 from typing import Any, Optional
@@ -42,38 +46,150 @@ SMOOTH_L1_BETA = 0.5
 
 # Experiment-specific architecture flags (NOT platform settings).
 # Defaults = EXP-T075 / T030 scientific architecture.
+ARCH_BOOL_KEYS = (
+    "joint_hl_single_reg",
+    "joint_hl_dual_reg",
+    "joint_hl_chain_specific_dual_reg",
+    "use_cross_attention_bridge",
+    "use_reg_only_cross_attention",
+    "use_within_chain_extra_attention",
+)
 ARCH_T030 = {
     "joint_hl_single_reg": False,
     "joint_hl_dual_reg": False,
     "joint_hl_chain_specific_dual_reg": False,
     "use_cross_attention_bridge": False,
+    "use_reg_only_cross_attention": False,
+    "use_within_chain_extra_attention": False,
+    "cross_gate_mode": "learned",
 }
 
 
-def normalize_arch_flags(arch: Optional[dict] = None) -> dict[str, bool]:
+def normalize_arch_flags(arch: Optional[dict] = None) -> dict:
     out = dict(ARCH_T030)
     if arch:
         for k in ARCH_T030:
-            if k in arch:
+            if k not in arch:
+                continue
+            if k == "cross_gate_mode":
+                out[k] = str(arch[k])
+            else:
                 out[k] = bool(arch[k])
-    n_true = sum(1 for v in out.values() if v)
+    if out["cross_gate_mode"] not in ("learned", "fixed_one"):
+        raise ValueError(
+            f"cross_gate_mode must be 'learned' or 'fixed_one', got {out['cross_gate_mode']!r}"
+        )
+    n_true = sum(1 for k in ARCH_BOOL_KEYS if out[k])
     if n_true > 1:
         raise ValueError(f"mutually exclusive arch flags: {out}")
     return out
 
 
-def build_platform_model(rb: ResidueBundle, arch: Optional[dict] = None) -> nn.Module:
+def candidate_config_hash(
+    arch: Optional[dict],
+    content_mode: str,
+    merge_mode: str,
+    plm_source: Optional[str],
+) -> str:
+    """Stable hash of architecture + content settings under V3 platform."""
+    flags = normalize_arch_flags(arch)
+    payload = {
+        "arch": flags,
+        "content_mode": content_mode,
+        "merge_mode": merge_mode,
+        "plm_source": plm_source,
+        "platform_id": PLATFORM_ID,
+    }
+    blob = json.dumps(payload, sort_keys=True, default=str).encode()
+    return hashlib.sha256(blob).hexdigest()
+
+
+def _manifest_path(ckpt_path: Path) -> Path:
+    return ckpt_path.with_suffix(".manifest.json")
+
+
+def _atomic_write_json(path: Path, obj: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(prefix=path.name + ".", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w") as f:
+            json.dump(obj, f, indent=2, sort_keys=True)
+            f.write("\n")
+        os.replace(tmp, path)
+    except Exception:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+        raise
+
+
+def _try_load_complete_manifest(
+    *,
+    ckpt_path: Path,
+    experiment_code: str,
+    scheme: str,
+    fold: int,
+    seed: int,
+    lr0: float,
+    config_hash: str,
+) -> Optional[dict[str, Any]]:
+    """Return summary dict if a matching complete sidecar manifest exists."""
+    man_path = _manifest_path(ckpt_path)
+    if not ckpt_path.exists() or not man_path.exists():
+        return None
+    try:
+        man = json.loads(man_path.read_text())
+    except (OSError, json.JSONDecodeError):
+        return None
+    if man.get("status") != "complete":
+        return None
+    if man.get("experiment_code") != experiment_code:
+        return None
+    if man.get("scheme") != scheme:
+        return None
+    if int(man.get("fold", -1)) != int(fold):
+        return None
+    if int(man.get("seed", -1)) != int(seed):
+        return None
+    if abs(float(man.get("initial_lr", float("nan"))) - float(lr0)) > 1e-15:
+        return None
+    if man.get("config_hash") != config_hash:
+        return None
+    best = man.get("best_val_mae")
+    if best is None or not math.isfinite(float(best)):
+        return None
+    summary = man.get("summary")
+    if not isinstance(summary, dict):
+        return None
+    # Ensure checkpoint path is current
+    out = dict(summary)
+    out["checkpoint"] = str(ckpt_path)
+    out["resumed"] = True
+    return out
+
+
+def build_platform_model(
+    rb: ResidueBundle,
+    arch: Optional[dict] = None,
+    *,
+    content_mode: str = "frozen",
+    merge_mode: str = "concat",
+    plm_source: Optional[str] = "ablingua",
+    annotation_mode: str = "full",
+) -> nn.Module:
     """Build model under V3 platform; architecture flags are experiment-specific."""
     flags = normalize_arch_flags(arch)
     presets = load_presets()
+    plm = None if content_mode == "scratch" else (plm_source or "ablingua")
     return build_transformer(
-        content_mode="frozen",
-        annotation_mode="full",
-        merge_mode="concat",
+        content_mode=content_mode,
+        annotation_mode=annotation_mode,
+        merge_mode=merge_mode,
         chain_mode="HL",
         rb=rb,
         presets=presets,
-        plm_source="ablingua",
+        plm_source=plm or "ablingua",
         pooling_mode="reg",
         use_continuous_rasa=False,
         use_rasa_weighted_pool=False,
@@ -133,6 +249,12 @@ def _is_nonfinite(*vals: float) -> bool:
     return False
 
 
+def _dataset_plm_source(content_mode: str, plm_source: Optional[str]) -> str:
+    if content_mode == "scratch":
+        return plm_source or "ablingua"  # ignored by AbDataset when scratch
+    return plm_source or "ablingua"
+
+
 def train_one_candidate_v3(
     *,
     train_ids: list[str],
@@ -152,11 +274,31 @@ def train_one_candidate_v3(
     patience: int = PATIENCE,
     quick: bool = False,
     arch: Optional[dict] = None,
+    content_mode: str = "frozen",
+    merge_mode: str = "concat",
+    plm_source: Optional[str] = "ablingua",
 ) -> dict[str, Any]:
     """TRAIN-only; VAL-MAE checkpoint; ordinary patience (no min_epochs)."""
     presets = load_presets()
     ncfg = presets["neural"]
     flags = normalize_arch_flags(arch)
+    cfg_hash = candidate_config_hash(flags, content_mode, merge_mode, plm_source)
+    resumed = _try_load_complete_manifest(
+        ckpt_path=ckpt_path,
+        experiment_code=experiment_code,
+        scheme=scheme,
+        fold=fold,
+        seed=seed,
+        lr0=lr0,
+        config_hash=cfg_hash,
+    )
+    if resumed is not None:
+        print(
+            f"=== resume skip {experiment_code} {scheme} fold={fold} lr0={lr0:.0e} ===",
+            flush=True,
+        )
+        return resumed
+
     if quick:
         max_epochs = min(8, max_epochs)
         patience = min(3, patience)
@@ -165,12 +307,19 @@ def train_one_candidate_v3(
     clip = float(ncfg["gradient_clip_norm"])
     beta = float(SMOOTH_L1_BETA)
     eta_min = eta_min_for(lr0)
+    ds_plm = _dataset_plm_source(content_mode, plm_source)
 
     y_tr = np.asarray([y_map[a] for a in train_ids], float)
     y_va = np.asarray([y_map[a] for a in val_ids], float)
     mu, sd = _y_stats(y_tr)
 
-    model = build_platform_model(rb, flags).to(device)
+    model = build_platform_model(
+        rb,
+        flags,
+        content_mode=content_mode,
+        merge_mode=merge_mode,
+        plm_source=plm_source,
+    ).to(device)
     model.load_state_dict(deepcopy(init_state))
     assert state_dict_sha256(model) == init_hash
 
@@ -180,7 +329,7 @@ def train_one_candidate_v3(
     g.manual_seed(seed)
 
     def make_loader(ids, y_arr, shuffle):
-        ds = AbDataset(ids, y_arr, rb, content_mode="frozen", plm_source="ablingua")
+        ds = AbDataset(ids, y_arr, rb, content_mode=content_mode, plm_source=ds_plm)
         return DataLoader(
             ds,
             batch_size=bs,
@@ -368,6 +517,9 @@ def train_one_candidate_v3(
                     "seed": seed,
                     "platform_id": PLATFORM_ID,
                     "arch": flags,
+                    "content_mode": content_mode,
+                    "merge_mode": merge_mode,
+                    "plm_source": plm_source,
                 },
                 ckpt_path,
             )
@@ -405,7 +557,7 @@ def train_one_candidate_v3(
     if numerical_failure and not math.isfinite(best_val):
         best_val = float("inf")
 
-    return {
+    summary = {
         "lr": lr0,
         "initial_lr": lr0,
         "eta_min": eta_min,
@@ -423,7 +575,32 @@ def train_one_candidate_v3(
         "sd": sd,
         "n_trainable": int(sum(p.numel() for p in model.parameters() if p.requires_grad)),
         "arch": flags,
+        "content_mode": content_mode,
+        "merge_mode": merge_mode,
+        "plm_source": plm_source,
+        "platform_id": PLATFORM_ID,
+        "config_hash": cfg_hash,
+        "resumed": False,
     }
+
+    # Write resume sidecar only after a successful candidate with a finite best + ckpt.
+    if ckpt_path.exists() and math.isfinite(float(best_val)):
+        _atomic_write_json(
+            _manifest_path(ckpt_path),
+            {
+                "status": "complete",
+                "experiment_code": experiment_code,
+                "scheme": scheme,
+                "fold": fold,
+                "seed": seed,
+                "initial_lr": lr0,
+                "config_hash": cfg_hash,
+                "best_val_mae": best_val,
+                "platform_id": PLATFORM_ID,
+                "summary": summary,
+            },
+        )
+    return summary
 
 
 @torch.no_grad()
@@ -435,16 +612,34 @@ def predict_with_checkpoint(
     device: torch.device,
     y_placeholder: Optional[np.ndarray] = None,
     arch: Optional[dict] = None,
+    content_mode: str = "frozen",
+    merge_mode: str = "concat",
+    plm_source: Optional[str] = "ablingua",
 ) -> np.ndarray:
     blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     flags = normalize_arch_flags(blob.get("arch") or arch)
-    model = build_platform_model(rb, flags).to(device)
+    cm = blob.get("content_mode", content_mode)
+    mm = blob.get("merge_mode", merge_mode)
+    ps = blob.get("plm_source", plm_source)
+    model = build_platform_model(
+        rb,
+        flags,
+        content_mode=cm,
+        merge_mode=mm,
+        plm_source=ps,
+    ).to(device)
     model.load_state_dict(blob["model"])
     model.eval()
     mu = float(blob["mu"])
     sd = float(blob["sd"])
     y_arr = y_placeholder if y_placeholder is not None else np.zeros(len(ids), dtype=float)
-    ds = AbDataset(ids, y_arr, rb, content_mode="frozen", plm_source="ablingua")
+    ds = AbDataset(
+        ids,
+        y_arr,
+        rb,
+        content_mode=cm,
+        plm_source=_dataset_plm_source(cm, ps),
+    )
     loader = DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch)
     preds = []
     for batch in loader:
@@ -454,6 +649,33 @@ def predict_with_checkpoint(
         pred_z = model(batch)
         preds.append((pred_z * sd + mu).cpu().numpy())
     return np.concatenate(preds) if preds else np.array([])
+
+
+def _experiment_summary_complete(
+    out_dir: Path,
+    *,
+    config_hash: str,
+    lrs: list[float],
+    seed: int,
+) -> bool:
+    """Optional early skip: summary.json matches hash and all 10 selected ckpts exist."""
+    summary_path = out_dir / "summary.json"
+    if not summary_path.exists():
+        return False
+    try:
+        doc = json.loads(summary_path.read_text())
+    except (OSError, json.JSONDecodeError):
+        return False
+    if doc.get("config_hash") != config_hash:
+        return False
+    selected = doc.get("selected_lr") or []
+    if len(selected) != 10:
+        return False
+    for row in selected:
+        ckpt = row.get("checkpoint")
+        if not ckpt or not Path(ckpt).exists():
+            return False
+    return True
 
 
 def run_protocol_v3(
@@ -469,8 +691,12 @@ def run_protocol_v3(
     seed: int = DEFAULT_SEED,
     quick: bool = False,
     arch: Optional[dict] = None,
+    content_mode: str = "frozen",
+    merge_mode: str = "concat",
+    plm_source: Optional[str] = "ablingua",
 ) -> dict[str, Any]:
     flags = normalize_arch_flags(arch)
+    cfg_hash = candidate_config_hash(flags, content_mode, merge_mode, plm_source)
     lrs = coarse_lr_grid()
     if quick:
         lrs = [1e-3]
@@ -483,6 +709,115 @@ def run_protocol_v3(
     y_map = {str(r["id"]): float(r[target]) for _, r in dev.iterrows()}
     dev_ids = dev["id"].astype(str).tolist()
     test_ids = test["id"].astype(str).tolist()
+
+    if _experiment_summary_complete(out_dir, config_hash=cfg_hash, lrs=lrs, seed=seed):
+        print(
+            f"=== experiment resume: re-infer from selected ckpts {experiment_code} ===",
+            flush=True,
+        )
+        doc = json.loads((out_dir / "summary.json").read_text())
+        selected_rows = list(doc.get("selected_lr") or [])
+        oof_val = {
+            "primary": pd.Series(np.nan, index=dev_ids, dtype=float),
+            "shadow": pd.Series(np.nan, index=dev_ids, dtype=float),
+        }
+        oof_test = {
+            "primary": pd.Series(np.nan, index=dev_ids, dtype=float),
+            "shadow": pd.Series(np.nan, index=dev_ids, dtype=float),
+        }
+        ext_fold_preds = {
+            "primary": np.zeros((5, len(test_ids)), dtype=float),
+            "shadow": np.zeros((5, len(test_ids)), dtype=float),
+        }
+        for row in selected_rows:
+            scheme_name = str(row["scheme"])
+            k = int(row["fold"])
+            ckpt_path = Path(row["checkpoint"])
+            tr, va, te = tvt_split(
+                folds.primary if scheme_name == "primary" else folds.shadow, k, dev_ids
+            )
+            y_va = np.asarray([y_map[a] for a in va], float)
+            y_te = np.asarray([y_map[a] for a in te], float)
+            pred_va = predict_with_checkpoint(
+                ckpt_path=ckpt_path,
+                ids=va,
+                rb=rb,
+                device=device_t,
+                y_placeholder=y_va,
+                arch=flags,
+                content_mode=content_mode,
+                merge_mode=merge_mode,
+                plm_source=plm_source,
+            )
+            pred_te = predict_with_checkpoint(
+                ckpt_path=ckpt_path,
+                ids=te,
+                rb=rb,
+                device=device_t,
+                y_placeholder=y_te,
+                arch=flags,
+                content_mode=content_mode,
+                merge_mode=merge_mode,
+                plm_source=plm_source,
+            )
+            pred_ext = predict_with_checkpoint(
+                ckpt_path=ckpt_path,
+                ids=test_ids,
+                rb=rb,
+                device=device_t,
+                arch=flags,
+                content_mode=content_mode,
+                merge_mode=merge_mode,
+                plm_source=plm_source,
+            )
+            oof_val[scheme_name].loc[va] = pred_va
+            oof_test[scheme_name].loc[te] = pred_te
+            ext_fold_preds[scheme_name][k] = pred_ext
+        y_dev = np.asarray([y_map[a] for a in dev_ids], float)
+        for scheme_name in ("primary", "shadow"):
+            assert not oof_val[scheme_name].isna().any()
+            assert not oof_test[scheme_name].isna().any()
+        val_p = float(mae(y_dev, oof_val["primary"].loc[dev_ids].to_numpy(float)))
+        val_s = float(mae(y_dev, oof_val["shadow"].loc[dev_ids].to_numpy(float)))
+        test_p = float(mae(y_dev, oof_test["primary"].loc[dev_ids].to_numpy(float)))
+        test_s = float(mae(y_dev, oof_test["shadow"].loc[dev_ids].to_numpy(float)))
+        scores = {
+            "oof_val": {
+                "primary": val_p,
+                "shadow": val_s,
+                "mean": (val_p + val_s) / 2.0,
+                "worst": max(val_p, val_s),
+            },
+            "oof_test": {
+                "primary": test_p,
+                "shadow": test_s,
+                "mean": (test_p + test_s) / 2.0,
+                "worst": max(test_p, test_s),
+            },
+        }
+        doc["scores"] = scores
+        ext = {}
+        for scheme_name in ("primary", "shadow"):
+            mat = ext_fold_preds[scheme_name]
+            ext[f"{scheme_name}_mean"] = mat.mean(axis=0)
+            ext[f"{scheme_name}_median"] = np.median(mat, axis=0)
+            for k in range(5):
+                ext[f"{scheme_name}_fold{k}"] = mat[k]
+        hist_path = out_dir / "training_history.csv"
+        hist_df = pd.read_csv(hist_path) if hist_path.exists() else pd.DataFrame()
+        return {
+            "summary": doc,
+            "history_df": hist_df,
+            "selected_df": pd.DataFrame(selected_rows),
+            "oof_val": oof_val,
+            "oof_test": oof_test,
+            "ext": ext,
+            "test_ids": test_ids,
+            "dev_ids": dev_ids,
+            "y_dev": y_dev,
+            "cross_gates_df": pd.DataFrame(doc.get("cross_gates") or []),
+            "resumed_experiment": True,
+        }
 
     all_history: list[dict] = []
     selected_rows: list[dict] = []
@@ -509,7 +844,13 @@ def run_protocol_v3(
             assert set(va).isdisjoint(tr)
 
             _set_seed(seed)
-            model0 = build_platform_model(rb, flags)
+            model0 = build_platform_model(
+                rb,
+                flags,
+                content_mode=content_mode,
+                merge_mode=merge_mode,
+                plm_source=plm_source,
+            )
             init_state = deepcopy(model0.state_dict())
             init_hash = state_dict_sha256(model0)
 
@@ -537,6 +878,9 @@ def run_protocol_v3(
                     fold=k,
                     quick=quick,
                     arch=flags,
+                    content_mode=content_mode,
+                    merge_mode=merge_mode,
+                    plm_source=plm_source,
                 )
                 init_hashes.append(summary["init_hash"])
                 cand_summaries.append(summary)
@@ -574,22 +918,54 @@ def run_protocol_v3(
             y_va = np.asarray([y_map[a] for a in va], float)
             y_te = np.asarray([y_map[a] for a in te], float)
             pred_va = predict_with_checkpoint(
-                ckpt_path=ckpt_path, ids=va, rb=rb, device=device_t, y_placeholder=y_va, arch=flags
+                ckpt_path=ckpt_path,
+                ids=va,
+                rb=rb,
+                device=device_t,
+                y_placeholder=y_va,
+                arch=flags,
+                content_mode=content_mode,
+                merge_mode=merge_mode,
+                plm_source=plm_source,
             )
             pred_te = predict_with_checkpoint(
-                ckpt_path=ckpt_path, ids=te, rb=rb, device=device_t, y_placeholder=y_te, arch=flags
+                ckpt_path=ckpt_path,
+                ids=te,
+                rb=rb,
+                device=device_t,
+                y_placeholder=y_te,
+                arch=flags,
+                content_mode=content_mode,
+                merge_mode=merge_mode,
+                plm_source=plm_source,
             )
             pred_ext = predict_with_checkpoint(
-                ckpt_path=ckpt_path, ids=test_ids, rb=rb, device=device_t, arch=flags
+                ckpt_path=ckpt_path,
+                ids=test_ids,
+                rb=rb,
+                device=device_t,
+                arch=flags,
+                content_mode=content_mode,
+                merge_mode=merge_mode,
+                plm_source=plm_source,
             )
 
             oof_val[scheme_name].loc[va] = pred_va
             oof_test[scheme_name].loc[te] = pred_te
             ext_fold_preds[scheme_name][k] = pred_ext
 
-            if flags.get("use_cross_attention_bridge"):
+            if (
+                flags.get("use_cross_attention_bridge")
+                and flags.get("cross_gate_mode") == "learned"
+            ):
                 blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
-                mtmp = build_platform_model(rb, flags)
+                mtmp = build_platform_model(
+                    rb,
+                    flags,
+                    content_mode=content_mode,
+                    merge_mode=merge_mode,
+                    plm_source=plm_source,
+                )
                 mtmp.load_state_dict(blob["model"])
                 gates = mtmp.cross_gate_values()
                 cross_gates_rows.append(
@@ -664,7 +1040,13 @@ def run_protocol_v3(
 
     hist_df = pd.DataFrame(all_history)
     sel_df = pd.DataFrame(selected_rows)
-    model0 = build_platform_model(rb, flags)
+    model0 = build_platform_model(
+        rb,
+        flags,
+        content_mode=content_mode,
+        merge_mode=merge_mode,
+        plm_source=plm_source,
+    )
     n_params = int(sum(p.numel() for p in model0.parameters() if p.requires_grad))
     param_account = model0.param_account() if hasattr(model0, "param_account") else {}
 
@@ -674,6 +1056,10 @@ def run_protocol_v3(
         "experiment_code": experiment_code,
         "seed": seed,
         "arch": flags,
+        "content_mode": content_mode,
+        "merge_mode": merge_mode,
+        "plm_source": plm_source,
+        "config_hash": cfg_hash,
         "lr_grid": lrs,
         "max_epochs": MAX_EPOCHS if not quick else min(8, MAX_EPOCHS),
         "min_epochs": MIN_EPOCHS,
