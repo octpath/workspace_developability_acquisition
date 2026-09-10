@@ -122,14 +122,14 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T105":
+    if next_code("TmApp") != "EXP-T124":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T105")
-    if next_code("HIC") != "EXP-H054":
+        ok("next TmApp EXP-T124")
+    if next_code("HIC") != "EXP-H082":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
-        ok("next HIC EXP-H054")
+        ok("next HIC EXP-H082")
 
     t_codes = sorted(
         [c for c in df["experiment_code"] if str(c).startswith("EXP-T")],

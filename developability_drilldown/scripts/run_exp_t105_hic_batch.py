@@ -220,7 +220,8 @@ def register(code: str, spec: dict, summary: dict, ext_scores: dict, notes: str)
             "score_source": f"{code}_{PLATFORM_ID}",
             "prediction_source": f"{code}_run",
             "feature_source": _feature_source(spec),
-            "license_status": "REVIEW" if is_frozen else "OK_COMPETITION_DERIVED",
+            # Scratch: competition-sequence derived → OK (registry enum; see migrate map)
+            "license_status": "REVIEW" if is_frozen else "OK",
             "license_reference": _feature_source(spec),
             "notes": notes,
             "transformer_type": "FROZEN_PLM" if is_frozen else "SCRATCH",

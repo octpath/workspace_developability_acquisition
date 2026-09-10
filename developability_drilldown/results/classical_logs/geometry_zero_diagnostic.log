@@ -1,0 +1,516 @@
+device cuda platform DL_FOLDLOCAL_COSINE_V3
+==== geom-zero EXP-T105 (AbLingua ARCH-6G geometry cross-attn CONCAT) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+  primary k=0 ΔMAE_test=+0.00001 |Δpred|_val=9.687e-05 ||w||=0.02402
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=-0.00003 |Δpred|_val=6.9589e-05 ||w||=0.03218
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=+0.00002 |Δpred|_val=0.00015116 ||w||=0.01307
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=+0.00002 |Δpred|_val=8.5354e-05 ||w||=0.01085
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=+0.00013 |Δpred|_val=0.00035918 ||w||=0.03043
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=+0.00001 |Δpred|_val=9.6408e-05 ||w||=0.06834
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00001 |Δpred|_val=0.00010729 ||w||=0.01148
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=-0.00001 |Δpred|_val=0.00012541 ||w||=0.0788
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=+0.00001 |Δpred|_val=6.2191e-05 ||w||=0.01108
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00002 |Δpred|_val=8.0824e-05 ||w||=0.04874
+==== geom-zero EXP-T106 (AbLingua ARCH-6G geometry cross-attn MEAN) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=+0.00005 |Δpred|_val=0.0013805 ||w||=0.02738
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=+0.00000 |Δpred|_val=6.2422e-06 ||w||=0.005738
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=-0.00000 |Δpred|_val=0.00016379 ||w||=0.06092
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=-0.00001 |Δpred|_val=0.00011826 ||w||=0.01346
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=+0.00000 |Δpred|_val=7.6771e-05 ||w||=0.03547
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=+0.00000 |Δpred|_val=0.00011074 ||w||=0.01342
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00001 |Δpred|_val=8.0824e-05 ||w||=0.0105
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=-0.00019 |Δpred|_val=0.0006001 ||w||=0.01874
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=-0.00008 |Δpred|_val=0.00023235 ||w||=0.07816
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00001 |Δpred|_val=6.6757e-05 ||w||=0.04941
+==== geom-zero EXP-T107 (Scratch ARCH-6G geometry cross-attn CONCAT) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=-0.00013 |Δpred|_val=0.00059532 ||w||=0.05237
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=-0.00180 |Δpred|_val=0.0030455 ||w||=0.1275
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=-0.00001 |Δpred|_val=0.0002234 ||w||=0.02068
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=-0.00035 |Δpred|_val=0.00087738 ||w||=0.08167
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=+0.00018 |Δpred|_val=0.0013957 ||w||=0.1159
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=+0.00004 |Δpred|_val=0.00082837 ||w||=0.09304
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=-0.00003 |Δpred|_val=0.00013208 ||w||=0.01936
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=-0.00006 |Δpred|_val=0.00014091 ||w||=0.04223
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=-0.00001 |Δpred|_val=0.00036089 ||w||=0.05371
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00014 |Δpred|_val=0.00046468 ||w||=0.08112
+==== geom-zero EXP-T108 (Scratch ARCH-6G geometry cross-attn MEAN) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=+0.00018 |Δpred|_val=0.0017469 ||w||=0.09498
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=+0.00020 |Δpred|_val=0.00082328 ||w||=0.06043
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=-0.00000 |Δpred|_val=0.00049257 ||w||=0.02516
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=+0.00010 |Δpred|_val=0.00065136 ||w||=0.05848
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=-0.00011 |Δpred|_val=0.00071943 ||w||=0.04877
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=-0.00076 |Δpred|_val=0.0015541 ||w||=0.08349
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00016 |Δpred|_val=0.00043392 ||w||=0.08252
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=-0.00001 |Δpred|_val=0.00084639 ||w||=0.06927
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=+0.00006 |Δpred|_val=0.00018218 ||w||=0.02659
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00042 |Δpred|_val=0.00077701 ||w||=0.07865
+==== geom-zero EXP-T118 (AbLang2 ARCH-6G geometry cross-attn CONCAT) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=+0.00021 |Δpred|_val=0.0024532 ||w||=0.03446
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=-0.00020 |Δpred|_val=0.0006011 ||w||=0.09098
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=-0.00017 |Δpred|_val=0.0012939 ||w||=0.09013
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=+0.00047 |Δpred|_val=0.0053768 ||w||=0.03183
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=-0.00050 |Δpred|_val=0.0013149 ||w||=0.08734
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=-0.00012 |Δpred|_val=0.00098858 ||w||=0.09257
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=-0.00020 |Δpred|_val=0.00062013 ||w||=0.01938
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=-0.00064 |Δpred|_val=0.0027066 ||w||=0.1837
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=+0.00000 |Δpred|_val=0 ||w||=0.333
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=-0.00011 |Δpred|_val=0.0014913 ||w||=0.1013
+==== geom-zero EXP-T119 (AbLang2 ARCH-6G geometry cross-attn MEAN) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=-0.00005 |Δpred|_val=0.0015159 ||w||=0.04423
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=+0.00009 |Δpred|_val=9.6177e-05 ||w||=0.3903
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=+0.00047 |Δpred|_val=0.001627 ||w||=0.09081
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=-0.00005 |Δpred|_val=0.0010159 ||w||=0.03133
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=+0.00022 |Δpred|_val=0.0024137 ||w||=0.09923
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=-0.00005 |Δpred|_val=0.00062191 ||w||=0.02952
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00016 |Δpred|_val=0.0030708 ||w||=0.09393
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=-0.00010 |Δpred|_val=0.0045111 ||w||=0.1913
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=-0.00000 |Δpred|_val=2.0807e-06 ||w||=0.3758
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00039 |Δpred|_val=0.0021343 ||w||=0.1213
+==== geom-zero EXP-H064 (ESM-2 ARCH-6G CONCAT) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=+0.00000 |Δpred|_val=1.968e-05 ||w||=0.02276
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=+0.00000 |Δpred|_val=5.8579e-05 ||w||=0.06766
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=+0.00001 |Δpred|_val=0.00010452 ||w||=0.1289
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=-0.00004 |Δpred|_val=0.00035927 ||w||=0.1503
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=-0.00004 |Δpred|_val=0.00012326 ||w||=0.1259
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=-0.00001 |Δpred|_val=0.00013684 ||w||=0.1573
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00003 |Δpred|_val=5.6565e-05 ||w||=0.09656
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=+0.00002 |Δpred|_val=6.5774e-05 ||w||=0.1085
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=-0.00008 |Δpred|_val=0.00013513 ||w||=0.1323
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00000 |Δpred|_val=5.278e-05 ||w||=0.07562
+==== geom-zero EXP-H065 (ESM-2 ARCH-6G MEAN) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=+0.00000 |Δpred|_val=8.034e-06 ||w||=0.0145
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=+0.00000 |Δpred|_val=2.1472e-05 ||w||=0.04502
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=+0.00004 |Δpred|_val=7.9215e-05 ||w||=0.09489
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=-0.00005 |Δpred|_val=0.00011876 ||w||=0.08825
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=+0.00000 |Δpred|_val=1.4365e-05 ||w||=0.09055
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=+0.00001 |Δpred|_val=0.00023267 ||w||=0.1388
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00000 |Δpred|_val=0.00018939 ||w||=0.1639
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=+0.00000 |Δpred|_val=2.8759e-05 ||w||=0.01242
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=-0.00007 |Δpred|_val=0.00027061 ||w||=0.02978
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00002 |Δpred|_val=4.9412e-05 ||w||=0.1038
+==== geom-zero EXP-H078 (Scratch ARCH-6G CONCAT) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=+0.00001 |Δpred|_val=0.00010421 ||w||=0.09677
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=+0.00000 |Δpred|_val=3.1009e-05 ||w||=0.08273
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=+0.00009 |Δpred|_val=0.00030309 ||w||=0.1289
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=-0.00008 |Δpred|_val=0.00023073 ||w||=0.04432
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=+0.00022 |Δpred|_val=0.00033537 ||w||=0.1965
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=-0.00008 |Δpred|_val=0.00057703 ||w||=0.1493
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00029 |Δpred|_val=0.00083774 ||w||=0.1786
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=+0.00000 |Δpred|_val=0.00010312 ||w||=0.02163
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=-0.00000 |Δpred|_val=5.7798e-07 ||w||=0.005861
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00002 |Δpred|_val=0.00010911 ||w||=0.04179
+==== geom-zero EXP-H079 (Scratch ARCH-6G MEAN) ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=0 ΔMAE_test=-0.00002 |Δpred|_val=0.00044242 ||w||=0.1625
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=1 ΔMAE_test=+0.00000 |Δpred|_val=7.4849e-06 ||w||=0.03338
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=2 ΔMAE_test=-0.00000 |Δpred|_val=0.0003801 ||w||=0.1077
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=3 ΔMAE_test=+0.00001 |Δpred|_val=7.1526e-05 ||w||=0.0296
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  primary k=4 ΔMAE_test=-0.00018 |Δpred|_val=0.00063279 ||w||=0.1656
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=0 ΔMAE_test=+0.00007 |Δpred|_val=0.00034457 ||w||=0.1578
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=1 ΔMAE_test=+0.00023 |Δpred|_val=0.00038153 ||w||=0.1292
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=2 ΔMAE_test=-0.00003 |Δpred|_val=0.00027871 ||w||=0.04118
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=3 ΔMAE_test=+0.00003 |Δpred|_val=0.00019238 ||w||=0.1296
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:219: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/activation.py:1336: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  key_padding_mask = F._canonical_mask(
+  shadow k=4 ΔMAE_test=+0.00002 |Δpred|_val=6.8873e-05 ||w||=0.03685
+wrote /workspace_developability_acquisition/developability_drilldown/results/TM_HIC_GEOMETRY_ZERO_DIAGNOSTIC.csv /workspace_developability_acquisition/developability_drilldown/results/TM_HIC_GEOMETRY_ZERO_AGGREGATE.csv

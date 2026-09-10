@@ -61,8 +61,8 @@ def test_classical_refinement_codes_issued():
 
     codes = pd.read_csv(ROOT / "results" / "EXPERIMENT_CODES.csv")
     assert len(codes) == N_EXPERIMENTS_TOTAL
-    assert next_code("TmApp") == "EXP-T105"
-    assert next_code("HIC") == "EXP-H054"
+    assert next_code("TmApp") == "EXP-T124"
+    assert next_code("HIC") == "EXP-H082"
     assert next_code("MULTI") == "EXP-M001"
     new = codes[codes["experiment_code"].map(is_classical_refinement_code)]
     assert len(new) == N_CLASSICAL_REFINEMENT
