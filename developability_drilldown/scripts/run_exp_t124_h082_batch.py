@@ -360,9 +360,39 @@ def load_oof_preds(code: str, kind: str, scheme: str) -> pd.Series:
     return df.set_index("id")[col]
 
 
+def _predict_fixed(model, rb, ids, y_arr, X_fixed, blob, device):
+    import torch
+    from antibody_transformer.training import AbDataset, collate_batch, _batch_to_device
+    from antibody_transformer.protocol_v3 import BATCH_SIZE
+    from torch.utils.data import DataLoader
+
+    mu, sd = float(blob["mu"]), float(blob["sd"])
+    ds = AbDataset(
+        ids,
+        y_arr,
+        rb,
+        content_mode=blob["content_mode"],
+        plm_source=blob["plm_source"] or "ablingua",
+        fixed_X=X_fixed,
+        chain_mode=blob["chain_mode"],
+    )
+    preds = []
+    with torch.no_grad():
+        for batch in DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch):
+            batch = _batch_to_device(batch, device)
+            batch.pop("y", None)
+            fixed = batch.pop("fixed")
+            pred_z = model(batch, fixed)
+            preds.append((pred_z * sd + mu).cpu().numpy())
+    return np.concatenate(preds)
+
+
 def permutation_importance(code: str, *, n_perm: int = 100, seed: int = 2026) -> list[dict]:
     """Permute entire aux vector on held-out OOF TEST sets (no retrain)."""
     import torch
+    from antibody_transformer.data import tvt_split
+    from antibody_transformer.protocol_v3_ext import build_platform_model_ext
+    from antibody_transformer.protocol_v3 import normalize_arch_flags
 
     cfg = yaml.safe_load((ROOT / "experiments" / "configs" / f"{code}.yaml").read_text())
     sel = pd.read_csv(ROOT / "results" / f"{code}_SELECTED_LR.csv")
@@ -375,7 +405,6 @@ def permutation_importance(code: str, *, n_perm: int = 100, seed: int = 2026) ->
     dev_ids = dev["id"].astype(str).tolist()
     device = torch.device(device_str())
     rows = []
-    from antibody_transformer.data import tvt_split
 
     for _, row in sel.iterrows():
         scheme = str(row["scheme"])
@@ -386,60 +415,27 @@ def permutation_importance(code: str, *, n_perm: int = 100, seed: int = 2026) ->
         y_te = np.asarray([y_map[a] for a in te], float)
         blob = torch.load(ckpt, map_location="cpu", weights_only=False)
         prep = blob["prep"]
-        # normal
-        pred_n = predict_with_checkpoint_ext(
-            ckpt_path=ckpt,
-            ids=te,
-            rb=rb,
-            device=device,
-            y_placeholder=y_te,
-            aux_store=store,
-        )
-        mae_n = float(mae(y_te, pred_n))
+        flags = normalize_arch_flags(blob.get("arch"))
+        model = build_platform_model_ext(
+            rb,
+            flags,
+            content_mode=blob["content_mode"],
+            merge_mode=blob["merge_mode"],
+            plm_source=blob["plm_source"],
+            chain_mode=blob["chain_mode"],
+            capacity=blob.get("capacity"),
+            aux_dim=blob["aux_dim"],
+        ).to(device)
+        model.load_state_dict(blob["model"])
+        model.eval()
         X = store.transform(prep, te)
+        pred_n = _predict_fixed(model, rb, te, y_te, X, blob, device)
+        mae_n = float(mae(y_te, pred_n))
         rng = np.random.default_rng(seed + k * 17 + (0 if scheme == "primary" else 100))
         deltas = []
         for _ in range(n_perm):
-            Xp = X.copy()
-            Xp = Xp[rng.permutation(len(Xp))]
-            # manual forward with permuted fixed
-            from antibody_transformer.protocol_v3_ext import build_platform_model_ext
-            from antibody_transformer.training import AbDataset, collate_batch, _batch_to_device
-            from torch.utils.data import DataLoader
-            from antibody_transformer.protocol_v3 import BATCH_SIZE, normalize_arch_flags
-
-            flags = normalize_arch_flags(blob.get("arch"))
-            model = build_platform_model_ext(
-                rb,
-                flags,
-                content_mode=blob["content_mode"],
-                merge_mode=blob["merge_mode"],
-                plm_source=blob["plm_source"],
-                chain_mode=blob["chain_mode"],
-                capacity=blob.get("capacity"),
-                aux_dim=blob["aux_dim"],
-            ).to(device)
-            model.load_state_dict(blob["model"])
-            model.eval()
-            mu, sd = float(blob["mu"]), float(blob["sd"])
-            ds = AbDataset(
-                te,
-                y_te,
-                rb,
-                content_mode=blob["content_mode"],
-                plm_source=blob["plm_source"] or "ablingua",
-                fixed_X=Xp,
-                chain_mode=blob["chain_mode"],
-            )
-            preds = []
-            with torch.no_grad():
-                for batch in DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch):
-                    batch = _batch_to_device(batch, device)
-                    batch.pop("y", None)
-                    fixed = batch.pop("fixed")
-                    pred_z = model(batch, fixed)
-                    preds.append((pred_z * sd + mu).cpu().numpy())
-            pred_p = np.concatenate(preds)
+            Xp = X[rng.permutation(len(X))]
+            pred_p = _predict_fixed(model, rb, te, y_te, Xp, blob, device)
             deltas.append(float(mae(y_te, pred_p) - mae_n))
         arr = np.asarray(deltas)
         rows.append(
@@ -464,9 +460,7 @@ def f4_subblock_perm(code: str, *, n_perm: int = 100, seed: int = 3030) -> list[
     import torch
     from antibody_transformer.data import tvt_split
     from antibody_transformer.protocol_v3_ext import build_platform_model_ext
-    from antibody_transformer.training import AbDataset, collate_batch, _batch_to_device
-    from antibody_transformer.protocol_v3 import BATCH_SIZE, normalize_arch_flags
-    from torch.utils.data import DataLoader
+    from antibody_transformer.protocol_v3 import normalize_arch_flags
 
     cfg = yaml.safe_load((ROOT / "experiments" / "configs" / f"{code}.yaml").read_text())
     assert cfg["fusion_bundle_id"] == "F4_H047_AUX_ALL"
@@ -490,10 +484,21 @@ def f4_subblock_perm(code: str, *, n_perm: int = 100, seed: int = 3030) -> list[
         y_te = np.asarray([y_map[a] for a in te], float)
         blob = torch.load(ckpt, map_location="cpu", weights_only=False)
         prep = blob["prep"]
+        flags = normalize_arch_flags(blob.get("arch"))
+        model = build_platform_model_ext(
+            rb,
+            flags,
+            content_mode=blob["content_mode"],
+            merge_mode=blob["merge_mode"],
+            plm_source=blob["plm_source"],
+            chain_mode=blob["chain_mode"],
+            capacity=blob.get("capacity"),
+            aux_dim=blob["aux_dim"],
+        ).to(device)
+        model.load_state_dict(blob["model"])
+        model.eval()
         X = store.transform(prep, te)
-        pred_n = predict_with_checkpoint_ext(
-            ckpt_path=ckpt, ids=te, rb=rb, device=device, y_placeholder=y_te, aux_store=store
-        )
+        pred_n = _predict_fixed(model, rb, te, y_te, X, blob, device)
         mae_n = float(mae(y_te, pred_n))
         for bname, sl in slices.items():
             rng = np.random.default_rng(seed + hash(bname) % 1000 + k)
@@ -502,40 +507,8 @@ def f4_subblock_perm(code: str, *, n_perm: int = 100, seed: int = 3030) -> list[
                 Xp = X.copy()
                 block = Xp[:, sl]
                 Xp[:, sl] = block[rng.permutation(len(block))]
-                flags = normalize_arch_flags(blob.get("arch"))
-                model = build_platform_model_ext(
-                    rb,
-                    flags,
-                    content_mode=blob["content_mode"],
-                    merge_mode=blob["merge_mode"],
-                    plm_source=blob["plm_source"],
-                    chain_mode=blob["chain_mode"],
-                    capacity=blob.get("capacity"),
-                    aux_dim=blob["aux_dim"],
-                ).to(device)
-                model.load_state_dict(blob["model"])
-                model.eval()
-                mu, sd = float(blob["mu"]), float(blob["sd"])
-                ds = AbDataset(
-                    te,
-                    y_te,
-                    rb,
-                    content_mode=blob["content_mode"],
-                    plm_source=blob["plm_source"] or "ablingua",
-                    fixed_X=Xp,
-                    chain_mode=blob["chain_mode"],
-                )
-                preds = []
-                with torch.no_grad():
-                    for batch in DataLoader(
-                        ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch
-                    ):
-                        batch = _batch_to_device(batch, device)
-                        batch.pop("y", None)
-                        fixed = batch.pop("fixed")
-                        pred_z = model(batch, fixed)
-                        preds.append((pred_z * sd + mu).cpu().numpy())
-                deltas.append(float(mae(y_te, np.concatenate(preds)) - mae_n))
+                pred_p = _predict_fixed(model, rb, te, y_te, Xp, blob, device)
+                deltas.append(float(mae(y_te, pred_p) - mae_n))
             arr = np.asarray(deltas)
             rows.append(
                 {

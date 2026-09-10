@@ -1,0 +1,48 @@
+{
+  "experiment_code": "EXP-H085",
+  "platform_id": "DL_FOLDLOCAL_COSINE_V3",
+  "config_hash": "494e993e5dbf9949712a07529b8f00a79323f538bb6b27b6a349bd71c346c54f",
+  "scores": {
+    "oof_val": {
+      "primary": 0.40896896870930977,
+      "shadow": 0.3984798702663845,
+      "mean": 0.4037244194878471,
+      "worst": 0.40896896870930977
+    },
+    "oof_test": {
+      "primary": 0.4728736329255279,
+      "shadow": 0.4887435744485736,
+      "mean": 0.48080860368705075,
+      "worst": 0.4887435744485736
+    }
+  },
+  "n_trainable": 520930,
+  "param_account": {
+    "encoder": 264960,
+    "cross_attention": 0,
+    "gates": 0,
+    "geometry": 0,
+    "head": 16641,
+    "other": 203648,
+    "total": 520930,
+    "late_fusion_aux_head": 35681
+  },
+  "capacity": null,
+  "fusion_bundle_id": "F4_H047_AUX_ALL",
+  "feature_artifact_hash": "1f1aa633ec6ae3e31a00869efdf0ab664964c428cbc6f07196c2f1c1bcfb1b51",
+  "seed": 101,
+  "arch": {
+    "joint_hl_single_reg": false,
+    "joint_hl_dual_reg": false,
+    "joint_hl_chain_specific_dual_reg": false,
+    "use_cross_attention_bridge": false,
+    "use_reg_only_cross_attention": false,
+    "use_within_chain_extra_attention": false,
+    "cross_gate_mode": "learned",
+    "use_cross_geometry_bias": false
+  },
+  "content_mode": "frozen",
+  "merge_mode": "h_only",
+  "plm_source": "esm2",
+  "chain_mode": "H_ONLY"
+}
