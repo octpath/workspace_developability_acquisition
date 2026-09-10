@@ -1,0 +1,38 @@
+{
+  "ext_scores": {
+    "primary_mean": {
+      "public_mae": 3.1694367302788624,
+      "private_mae": 3.153754735876013,
+      "overall_mae": 3.1615957330774376
+    },
+    "primary_median": {
+      "public_mae": 3.298468601556472,
+      "private_mae": 3.218242409788532,
+      "overall_mae": 3.258355505672502
+    },
+    "shadow_mean": {
+      "public_mae": 3.1837385672110097,
+      "private_mae": 3.125666564187886,
+      "overall_mae": 3.1547025656994476
+    },
+    "shadow_median": {
+      "public_mae": 3.1834806277428145,
+      "private_mae": 3.084577113022039,
+      "overall_mae": 3.134028870382427
+    }
+  },
+  "summary_scores": {
+    "oof_val": {
+      "primary": 2.930361971443082,
+      "shadow": 2.9389143578800154,
+      "mean": 2.934638164661549,
+      "worst": 2.9389143578800154
+    },
+    "oof_test": {
+      "primary": 3.1965456597598982,
+      "shadow": 3.30695496076419,
+      "mean": 3.251750310262044,
+      "worst": 3.30695496076419
+    }
+  }
+}
