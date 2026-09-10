@@ -1,0 +1,771 @@
+{
+  "protocol_id": "DL_FOLD_LOCAL_LR_CHECKPOINT_ENSEMBLE_V2",
+  "experiment_code": "EXP-T073",
+  "seed": 101,
+  "lr_ref": 0.0003,
+  "lr_grid": [
+    2.9999999999999997e-05,
+    8.999999999999999e-05,
+    0.0003,
+    0.0009
+  ],
+  "max_epochs": 200,
+  "patience": 20,
+  "scheduler": {
+    "name": "CosineAnnealingLR",
+    "T_max": 200,
+    "eta_min": 0.0
+  },
+  "optimizer": "AdamW",
+  "weight_decay": 0.01,
+  "batch_size": 16,
+  "loss": "SmoothL1Loss(beta=0.5)",
+  "gradient_clip_norm": 1.0,
+  "n_trainable_parameters": 501633,
+  "architecture": "T030_FULL_CONCAT_SEPARATE_HL",
+  "no_full_dev_refit": true,
+  "no_nested_cv": true,
+  "scores": {
+    "oof_val": {
+      "primary": 2.973623393494406,
+      "shadow": 3.081734315848645,
+      "mean": 3.0276788546715254,
+      "worst": 3.081734315848645
+    },
+    "oof_test": {
+      "primary": 3.3619360747160734,
+      "shadow": 3.144959861849561,
+      "mean": 3.253447968282817,
+      "worst": 3.3619360747160734
+    }
+  },
+  "selected_lr": [
+    {
+      "scheme": "primary",
+      "fold": 0,
+      "selected_lr": 0.0009,
+      "best_epoch": 12,
+      "best_optimizer_step": 84,
+      "best_val_mae": 2.7758543997099907,
+      "final_epoch": 32,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k0_lr0.0009_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "primary",
+      "fold": 1,
+      "selected_lr": 0.0009,
+      "best_epoch": 12,
+      "best_optimizer_step": 72,
+      "best_val_mae": 3.2012102531664297,
+      "final_epoch": 32,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k1_lr0.0009_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "primary",
+      "fold": 2,
+      "selected_lr": 0.0009,
+      "best_epoch": 12,
+      "best_optimizer_step": 84,
+      "best_val_mae": 3.146418809890747,
+      "final_epoch": 32,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k2_lr0.0009_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "primary",
+      "fold": 3,
+      "selected_lr": 2.9999999999999997e-05,
+      "best_epoch": 67,
+      "best_optimizer_step": 469,
+      "best_val_mae": 2.5896406173706055,
+      "final_epoch": 87,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k3_lr3e-05_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "primary",
+      "fold": 4,
+      "selected_lr": 8.999999999999999e-05,
+      "best_epoch": 41,
+      "best_optimizer_step": 287,
+      "best_val_mae": 3.1540610790252686,
+      "final_epoch": 61,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k4_lr9e-05_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "shadow",
+      "fold": 0,
+      "selected_lr": 0.0009,
+      "best_epoch": 9,
+      "best_optimizer_step": 63,
+      "best_val_mae": 2.615617694276752,
+      "final_epoch": 29,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k0_lr0.0009_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "shadow",
+      "fold": 1,
+      "selected_lr": 0.0003,
+      "best_epoch": 7,
+      "best_optimizer_step": 49,
+      "best_val_mae": 3.3015782833099365,
+      "final_epoch": 27,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k1_lr0.0003_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "shadow",
+      "fold": 2,
+      "selected_lr": 0.0009,
+      "best_epoch": 24,
+      "best_optimizer_step": 168,
+      "best_val_mae": 3.2326500415802,
+      "final_epoch": 44,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k2_lr0.0009_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "shadow",
+      "fold": 3,
+      "selected_lr": 0.0003,
+      "best_epoch": 25,
+      "best_optimizer_step": 175,
+      "best_val_mae": 3.3490441062233667,
+      "final_epoch": 45,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k3_lr0.0003_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    },
+    {
+      "scheme": "shadow",
+      "fold": 4,
+      "selected_lr": 0.0009,
+      "best_epoch": 12,
+      "best_optimizer_step": 84,
+      "best_val_mae": 2.915994167327881,
+      "final_epoch": 32,
+      "stopped_early": true,
+      "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k4_lr0.0009_seed101.pt",
+      "init_hash": "1e0cea8ee76ae170",
+      "seed": 101
+    }
+  ],
+  "fold_results": {
+    "primary": [
+      {
+        "fold": 0,
+        "selected": {
+          "scheme": "primary",
+          "fold": 0,
+          "selected_lr": 0.0009,
+          "best_epoch": 12,
+          "best_optimizer_step": 84,
+          "best_val_mae": 2.7758543997099907,
+          "final_epoch": 32,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k0_lr0.0009_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 2.7758543997099907,
+        "test_mae": 3.3415626287460327,
+        "n_train": 97,
+        "n_val": 33,
+        "n_test": 32,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 2.8476971712979404,
+            "best_epoch": 148,
+            "best_optimizer_step": 1036,
+            "final_epoch": 168,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 2.8195003162730825,
+            "best_epoch": 50,
+            "best_optimizer_step": 350,
+            "final_epoch": 70,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 2.7894414265950522,
+            "best_epoch": 18,
+            "best_optimizer_step": 126,
+            "final_epoch": 38,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 2.7758543997099907,
+            "best_epoch": 12,
+            "best_optimizer_step": 84,
+            "final_epoch": 32,
+            "stopped_early": true,
+            "selected": true
+          }
+        ]
+      },
+      {
+        "fold": 1,
+        "selected": {
+          "scheme": "primary",
+          "fold": 1,
+          "selected_lr": 0.0009,
+          "best_epoch": 12,
+          "best_optimizer_step": 72,
+          "best_val_mae": 3.2012102531664297,
+          "final_epoch": 32,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k1_lr0.0009_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 3.2012102531664297,
+        "test_mae": 3.2036227601947207,
+        "n_train": 96,
+        "n_val": 33,
+        "n_test": 33,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 3.4252606016216856,
+            "best_epoch": 45,
+            "best_optimizer_step": 270,
+            "final_epoch": 65,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 3.4034511681758994,
+            "best_epoch": 16,
+            "best_optimizer_step": 96,
+            "final_epoch": 36,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 3.3736123749704072,
+            "best_epoch": 6,
+            "best_optimizer_step": 36,
+            "final_epoch": 26,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 3.2012102531664297,
+            "best_epoch": 12,
+            "best_optimizer_step": 72,
+            "final_epoch": 32,
+            "stopped_early": true,
+            "selected": true
+          }
+        ]
+      },
+      {
+        "fold": 2,
+        "selected": {
+          "scheme": "primary",
+          "fold": 2,
+          "selected_lr": 0.0009,
+          "best_epoch": 12,
+          "best_optimizer_step": 84,
+          "best_val_mae": 3.146418809890747,
+          "final_epoch": 32,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k2_lr0.0009_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 3.146418809890747,
+        "test_mae": 3.5291398944276753,
+        "n_train": 97,
+        "n_val": 32,
+        "n_test": 33,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 3.1519927978515625,
+            "best_epoch": 88,
+            "best_optimizer_step": 616,
+            "final_epoch": 108,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 3.172898292541504,
+            "best_epoch": 26,
+            "best_optimizer_step": 182,
+            "final_epoch": 46,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 3.277019500732422,
+            "best_epoch": 11,
+            "best_optimizer_step": 77,
+            "final_epoch": 31,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 3.146418809890747,
+            "best_epoch": 12,
+            "best_optimizer_step": 84,
+            "final_epoch": 32,
+            "stopped_early": true,
+            "selected": true
+          }
+        ]
+      },
+      {
+        "fold": 3,
+        "selected": {
+          "scheme": "primary",
+          "fold": 3,
+          "selected_lr": 2.9999999999999997e-05,
+          "best_epoch": 67,
+          "best_optimizer_step": 469,
+          "best_val_mae": 2.5896406173706055,
+          "final_epoch": 87,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k3_lr3e-05_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 2.5896406173706055,
+        "test_mae": 3.641180992126465,
+        "n_train": 98,
+        "n_val": 32,
+        "n_test": 32,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 2.5896406173706055,
+            "best_epoch": 67,
+            "best_optimizer_step": 469,
+            "final_epoch": 87,
+            "stopped_early": true,
+            "selected": true
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 2.638329029083252,
+            "best_epoch": 23,
+            "best_optimizer_step": 161,
+            "final_epoch": 43,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 2.6271908283233643,
+            "best_epoch": 8,
+            "best_optimizer_step": 56,
+            "final_epoch": 28,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 2.701674222946167,
+            "best_epoch": 6,
+            "best_optimizer_step": 42,
+            "final_epoch": 26,
+            "stopped_early": true,
+            "selected": false
+          }
+        ]
+      },
+      {
+        "fold": 4,
+        "selected": {
+          "scheme": "primary",
+          "fold": 4,
+          "selected_lr": 8.999999999999999e-05,
+          "best_epoch": 41,
+          "best_optimizer_step": 287,
+          "best_val_mae": 3.1540610790252686,
+          "final_epoch": 61,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/primary_k4_lr9e-05_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 3.1540610790252686,
+        "test_mae": 3.093896269798279,
+        "n_train": 98,
+        "n_val": 32,
+        "n_test": 32,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 3.3300538063049316,
+            "best_epoch": 14,
+            "best_optimizer_step": 98,
+            "final_epoch": 34,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 3.1540610790252686,
+            "best_epoch": 41,
+            "best_optimizer_step": 287,
+            "final_epoch": 61,
+            "stopped_early": true,
+            "selected": true
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 3.1819987297058105,
+            "best_epoch": 18,
+            "best_optimizer_step": 126,
+            "final_epoch": 38,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 3.198300361633301,
+            "best_epoch": 10,
+            "best_optimizer_step": 70,
+            "final_epoch": 30,
+            "stopped_early": true,
+            "selected": false
+          }
+        ]
+      }
+    ],
+    "shadow": [
+      {
+        "fold": 0,
+        "selected": {
+          "scheme": "shadow",
+          "fold": 0,
+          "selected_lr": 0.0009,
+          "best_epoch": 9,
+          "best_optimizer_step": 63,
+          "best_val_mae": 2.615617694276752,
+          "final_epoch": 29,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k0_lr0.0009_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 2.615617694276752,
+        "test_mae": 2.8558101654052734,
+        "n_train": 97,
+        "n_val": 33,
+        "n_test": 32,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 2.6426849365234375,
+            "best_epoch": 60,
+            "best_optimizer_step": 420,
+            "final_epoch": 80,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 2.6454303625858193,
+            "best_epoch": 26,
+            "best_optimizer_step": 182,
+            "final_epoch": 46,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 2.63604736328125,
+            "best_epoch": 14,
+            "best_optimizer_step": 98,
+            "final_epoch": 34,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 2.615617694276752,
+            "best_epoch": 9,
+            "best_optimizer_step": 63,
+            "final_epoch": 29,
+            "stopped_early": true,
+            "selected": true
+          }
+        ]
+      },
+      {
+        "fold": 1,
+        "selected": {
+          "scheme": "shadow",
+          "fold": 1,
+          "selected_lr": 0.0003,
+          "best_epoch": 7,
+          "best_optimizer_step": 49,
+          "best_val_mae": 3.3015782833099365,
+          "final_epoch": 27,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k1_lr0.0003_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 3.3015782833099365,
+        "test_mae": 2.8100627552379263,
+        "n_train": 97,
+        "n_val": 32,
+        "n_test": 33,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 3.3285679817199707,
+            "best_epoch": 52,
+            "best_optimizer_step": 364,
+            "final_epoch": 72,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 3.329028367996216,
+            "best_epoch": 18,
+            "best_optimizer_step": 126,
+            "final_epoch": 38,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 3.3015782833099365,
+            "best_epoch": 7,
+            "best_optimizer_step": 49,
+            "final_epoch": 27,
+            "stopped_early": true,
+            "selected": true
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 3.352836847305298,
+            "best_epoch": 9,
+            "best_optimizer_step": 63,
+            "final_epoch": 29,
+            "stopped_early": true,
+            "selected": false
+          }
+        ]
+      },
+      {
+        "fold": 2,
+        "selected": {
+          "scheme": "shadow",
+          "fold": 2,
+          "selected_lr": 0.0009,
+          "best_epoch": 24,
+          "best_optimizer_step": 168,
+          "best_val_mae": 3.2326500415802,
+          "final_epoch": 44,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k2_lr0.0009_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 3.2326500415802,
+        "test_mae": 3.379873037338257,
+        "n_train": 98,
+        "n_val": 32,
+        "n_test": 32,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 3.2403578758239746,
+            "best_epoch": 65,
+            "best_optimizer_step": 455,
+            "final_epoch": 85,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 3.2633883953094482,
+            "best_epoch": 15,
+            "best_optimizer_step": 105,
+            "final_epoch": 35,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 3.244307041168213,
+            "best_epoch": 7,
+            "best_optimizer_step": 49,
+            "final_epoch": 27,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 3.2326500415802,
+            "best_epoch": 24,
+            "best_optimizer_step": 168,
+            "final_epoch": 44,
+            "stopped_early": true,
+            "selected": true
+          }
+        ]
+      },
+      {
+        "fold": 3,
+        "selected": {
+          "scheme": "shadow",
+          "fold": 3,
+          "selected_lr": 0.0003,
+          "best_epoch": 25,
+          "best_optimizer_step": 175,
+          "best_val_mae": 3.3490441062233667,
+          "final_epoch": 45,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k3_lr0.0003_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 3.3490441062233667,
+        "test_mae": 3.3447113037109375,
+        "n_train": 97,
+        "n_val": 33,
+        "n_test": 32,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 3.517859025435014,
+            "best_epoch": 37,
+            "best_optimizer_step": 259,
+            "final_epoch": 57,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 3.480212587298769,
+            "best_epoch": 12,
+            "best_optimizer_step": 84,
+            "final_epoch": 32,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 3.3490441062233667,
+            "best_epoch": 25,
+            "best_optimizer_step": 175,
+            "final_epoch": 45,
+            "stopped_early": true,
+            "selected": true
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 3.601364598129735,
+            "best_epoch": 1,
+            "best_optimizer_step": 7,
+            "final_epoch": 21,
+            "stopped_early": true,
+            "selected": false
+          }
+        ]
+      },
+      {
+        "fold": 4,
+        "selected": {
+          "scheme": "shadow",
+          "fold": 4,
+          "selected_lr": 0.0009,
+          "best_epoch": 12,
+          "best_optimizer_step": 84,
+          "best_val_mae": 2.915994167327881,
+          "final_epoch": 32,
+          "stopped_early": true,
+          "checkpoint": "/workspace_developability_acquisition/developability_drilldown/results/EXP-T073_run/checkpoints/shadow_k4_lr0.0009_seed101.pt",
+          "init_hash": "1e0cea8ee76ae170",
+          "seed": 101
+        },
+        "val_mae_recheck": 2.915994167327881,
+        "test_mae": 3.338751590613163,
+        "n_train": 97,
+        "n_val": 32,
+        "n_test": 33,
+        "candidates": [
+          {
+            "lr": 2.9999999999999997e-05,
+            "best_val_mae": 3.031179428100586,
+            "best_epoch": 75,
+            "best_optimizer_step": 525,
+            "final_epoch": 95,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 8.999999999999999e-05,
+            "best_val_mae": 3.009615421295166,
+            "best_epoch": 28,
+            "best_optimizer_step": 196,
+            "final_epoch": 48,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0003,
+            "best_val_mae": 3.008957624435425,
+            "best_epoch": 10,
+            "best_optimizer_step": 70,
+            "final_epoch": 30,
+            "stopped_early": true,
+            "selected": false
+          },
+          {
+            "lr": 0.0009,
+            "best_val_mae": 2.915994167327881,
+            "best_epoch": 12,
+            "best_optimizer_step": 84,
+            "final_epoch": 32,
+            "stopped_early": true,
+            "selected": true
+          }
+        ]
+      }
+    ]
+  },
+  "quick": false
+}

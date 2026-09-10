@@ -1,0 +1,55 @@
+OK: 222 experiments / codes
+OK: legacy map 48 (Linear/XGB only)
+OK: families LINEAR=74 XGBOOST=14 TRANSFORMER=134
+OK: MULTI namespace empty (reserved)
+OK: next MULTI reserved EXP-M001
+OK: next TmApp EXP-T130
+OK: next HIC EXP-H094
+OK: TmApp codes EXP-T001..EXP-T129 (129)
+OK: HIC codes EXP-H001..EXP-H093 (93)
+OK: codes table matches experiments.csv
+OK: legacy map matches Linear/XGB
+OK: repro/license/selection enums valid
+OK: no submission naming under predictions
+OK: no flat EXP0xx artifact paths
+OK: Transformer feature/representation contracts
+OK: fusion feature_set FK
+OK: TRANSFORMER_BACKFILL_AUDIT.csv
+OK: Linear/XGB FULL=86
+OK: TRANSFORMER FULL=134
+FAIL: EXP-T124 oof_primary_path=nan
+FAIL: missing nan
+FAIL: EXP-T124 oof_shadow_path=nan
+FAIL: missing nan
+FAIL: EXP-T124 test_prediction_path=nan
+FAIL: missing nan
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/validate_repository.py", line 533, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/validate_repository.py", line 383, in main
+    pred = pd.read_csv(ROOT / str(r[key]))
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/io/parsers/readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/io/parsers/readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/io/parsers/readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/io/parsers/readers.py", line 1904, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/workspace_developability_acquisition/.venv/lib/python3.14/site-packages/pandas/io/common.py", line 930, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace_developability_acquisition/developability_drilldown/nan'
