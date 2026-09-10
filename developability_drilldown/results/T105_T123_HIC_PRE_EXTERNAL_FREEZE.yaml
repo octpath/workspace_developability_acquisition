@@ -1,5 +1,5 @@
 status: PRE_EXTERNAL_FREEZE
-git_rev: fc64362cf67a1cb60bd2718c278ddcb6c0933d5e
+git_rev: 5b8ac2c63a4eed2715edfb7301bd5edbac869a0f
 completed_experiments:
 - EXP-T105
 - EXP-T106
@@ -57,3 +57,4 @@ statement: "All T105\u2013T123 and H054\u2013H081 settings were fixed before res
   \ predictions are frozen; comparative reports may now be generated."
 platform_id: DL_FOLDLOCAL_COSINE_V3
 hic_code_block: H054-H081
+finalize_note: Batch complete; geometry-zero diagnostic written; validate+pytest PASS.
