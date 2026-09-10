@@ -1,0 +1,27 @@
+status: PRE_EXTERNAL_FREEZE
+git_rev: d460cd8f5138b5912ee7cdea2180cea3c1b76f3f
+completed:
+- EXP-T124
+- EXP-T125
+- EXP-T126
+- EXP-T127
+- EXP-T128
+- EXP-T129
+- EXP-H082
+- EXP-H083
+- EXP-H084
+- EXP-H085
+- EXP-H086
+- EXP-H087
+- EXP-H088
+- EXP-H089
+- EXP-H090
+- EXP-H091
+- EXP-H092
+- EXP-H093
+n_completed: 18
+preregistration: /workspace_developability_acquisition/developability_drilldown/results/T124_T129_H082_H093_PREREGISTRATION.yaml
+statement: All configs unchanged; internal TEST frozen before comparative reports.
+platform_id: DL_FOLDLOCAL_COSINE_V3
+registry_repaired: true
+reports_complete: true
