@@ -1,0 +1,122 @@
+status: PREREGISTERED_BEFORE_TRAINING
+git_rev_at_preregistration: 36fe31ebeab21dc2ae61bf7a0ec4862483c271e5
+platform_id: DL_FOLDLOCAL_COSINE_V3
+baseline_experiment: EXP-T075
+baseline_n_trainable: 492417
+seed: 101
+planned_comparisons:
+- id: A
+  name: single_summary_penalty
+  contrast: T076 vs T077
+- id: B
+  name: full_joint_effect
+  contrast: T077 vs T075
+- id: C
+  name: reg_specialization
+  contrast: T078 vs T077
+- id: D
+  name: cross_attention_bridge
+  contrast: T079 vs T075
+- id: E
+  name: joint_vs_cross_bridge
+  contrast: T079 vs T077/T078
+primary_comparison_metric: TEST_mean
+robustness_metric: TEST_worst
+external_canonical_aggregation: Primary mean
+experiments:
+- experiment_code: EXP-T076
+  experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_SINGLE_REG_V3
+  description: Joint H/L + single REG (T068-like)
+  scientific_like: EXP-T068
+  architecture:
+    joint_hl_single_reg: true
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+  attention_semantics: full joint self-attn; H<->L allowed; one REG
+  readout: hidden(REG); dim=d_model=128
+  n_trainable_preregistered: 475905
+  repr_dim: 128
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 16641
+    other: 194304
+    total: 475905
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T076.yaml
+  config_sha256: ded46db3f5a05539e26f3b5497cc92a28144be46127dee5b8f3f9f0c2354ffd3
+- experiment_code: EXP-T077
+  experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_DUAL_REG_V3
+  description: Joint H/L + unrestricted dual REG (T070-like)
+  scientific_like: EXP-T070
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: true
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+  attention_semantics: full joint; REG_H/REG_L unrestricted across chains
+  readout: concat(REG_H, REG_L); dim=256
+  n_trainable_preregistered: 492417
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 33025
+    other: 194432
+    total: 492417
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T077.yaml
+  config_sha256: c87608b2f970aedf0f771e4feea4c1600f1ad7524f84a2b447e86b27d9e57fbf
+- experiment_code: EXP-T078
+  experiment_id: TRF_TM_ABLINGUA_FULL_JOINT_CHAIN_SPECIFIC_DUAL_REG_V3
+  description: Joint H/L + chain-specific dual REG masks (T071-like)
+  scientific_like: EXP-T071
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: true
+    use_cross_attention_bridge: false
+  attention_semantics: residue H<->L allowed; REG_H attends H only; REG_L attends
+    L only; cross-REG blocked
+  readout: concat(REG_H, REG_L); dim=256
+  n_trainable_preregistered: 492417
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 0
+    gates: 0
+    head: 33025
+    other: 194432
+    total: 492417
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T078.yaml
+  config_sha256: 93e4f843d0afa3ed50884ad7baf33b68e8f66cfc998e1ac6e31113e2f3304910
+- experiment_code: EXP-T079
+  experiment_id: TRF_TM_ABLINGUA_FULL_SEPARATE_CROSSATTN_DUAL_REG_V3
+  description: Separate H/L + bidirectional residue cross-attn bridge + dual REG (T072-like)
+  scientific_like: EXP-T072
+  architecture:
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: true
+  attention_semantics: separate self-attn; residue-only cross-attn with zero-init
+    gates between layer1/2
+  readout: concat(REG_H, REG_L); dim=256
+  n_trainable_preregistered: 558467
+  repr_dim: 256
+  param_account:
+    encoder: 264960
+    cross_attention: 66048
+    gates: 2
+    head: 33025
+    other: 194432
+    total: 558467
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  config_path: experiments/configs/EXP-T079.yaml
+  config_sha256: 2304de16b43a9b5def1780677f8ee92c3b19b5779982aed65c66477c19b85b1a
+notes: All four architectures fixed before any result inspection. No architecture
+  may change after training begins.

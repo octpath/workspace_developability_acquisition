@@ -23,12 +23,10 @@ from .config import load_presets
 from .data import FoldMaps, ResidueBundle, tvt_split
 from .protocol_v2 import (  # noqa: F401
     DEFAULT_SEED,
-    build_t030_model,
-    predict_with_checkpoint,
     select_lr,
     state_dict_sha256,
 )
-from .training import AbDataset, _batch_to_device, _y_stats, collate_batch, mae
+from .training import AbDataset, _batch_to_device, _y_stats, build_transformer, collate_batch, mae
 
 PLATFORM_ID = "DL_FOLDLOCAL_COSINE_V3"
 PROTOCOL_ID = PLATFORM_ID  # alias
@@ -41,6 +39,52 @@ ETA_MIN_FRAC = 0.01
 WEIGHT_DECAY = 0.01
 BATCH_SIZE = 16
 SMOOTH_L1_BETA = 0.5
+
+# Experiment-specific architecture flags (NOT platform settings).
+# Defaults = EXP-T075 / T030 scientific architecture.
+ARCH_T030 = {
+    "joint_hl_single_reg": False,
+    "joint_hl_dual_reg": False,
+    "joint_hl_chain_specific_dual_reg": False,
+    "use_cross_attention_bridge": False,
+}
+
+
+def normalize_arch_flags(arch: Optional[dict] = None) -> dict[str, bool]:
+    out = dict(ARCH_T030)
+    if arch:
+        for k in ARCH_T030:
+            if k in arch:
+                out[k] = bool(arch[k])
+    n_true = sum(1 for v in out.values() if v)
+    if n_true > 1:
+        raise ValueError(f"mutually exclusive arch flags: {out}")
+    return out
+
+
+def build_platform_model(rb: ResidueBundle, arch: Optional[dict] = None) -> nn.Module:
+    """Build model under V3 platform; architecture flags are experiment-specific."""
+    flags = normalize_arch_flags(arch)
+    presets = load_presets()
+    return build_transformer(
+        content_mode="frozen",
+        annotation_mode="full",
+        merge_mode="concat",
+        chain_mode="HL",
+        rb=rb,
+        presets=presets,
+        plm_source="ablingua",
+        pooling_mode="reg",
+        use_continuous_rasa=False,
+        use_rasa_weighted_pool=False,
+        use_ca_distance_bias=False,
+        **flags,
+    )
+
+
+def build_t030_model(rb: ResidueBundle) -> nn.Module:
+    """Backward-compatible T030/T075 builder."""
+    return build_platform_model(rb, ARCH_T030)
 
 
 def coarse_lr_grid() -> list[float]:
@@ -107,10 +151,12 @@ def train_one_candidate_v3(
     max_epochs: int = MAX_EPOCHS,
     patience: int = PATIENCE,
     quick: bool = False,
+    arch: Optional[dict] = None,
 ) -> dict[str, Any]:
     """TRAIN-only; VAL-MAE checkpoint; ordinary patience (no min_epochs)."""
     presets = load_presets()
     ncfg = presets["neural"]
+    flags = normalize_arch_flags(arch)
     if quick:
         max_epochs = min(8, max_epochs)
         patience = min(3, patience)
@@ -124,7 +170,7 @@ def train_one_candidate_v3(
     y_va = np.asarray([y_map[a] for a in val_ids], float)
     mu, sd = _y_stats(y_tr)
 
-    model = build_t030_model(rb).to(device)
+    model = build_platform_model(rb, flags).to(device)
     model.load_state_dict(deepcopy(init_state))
     assert state_dict_sha256(model) == init_hash
 
@@ -321,6 +367,7 @@ def train_one_candidate_v3(
                     "init_hash": init_hash,
                     "seed": seed,
                     "platform_id": PLATFORM_ID,
+                    "arch": flags,
                 },
                 ckpt_path,
             )
@@ -375,7 +422,38 @@ def train_one_candidate_v3(
         "mu": mu,
         "sd": sd,
         "n_trainable": int(sum(p.numel() for p in model.parameters() if p.requires_grad)),
+        "arch": flags,
     }
+
+
+@torch.no_grad()
+def predict_with_checkpoint(
+    *,
+    ckpt_path: Path,
+    ids: list[str],
+    rb: ResidueBundle,
+    device: torch.device,
+    y_placeholder: Optional[np.ndarray] = None,
+    arch: Optional[dict] = None,
+) -> np.ndarray:
+    blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
+    flags = normalize_arch_flags(blob.get("arch") or arch)
+    model = build_platform_model(rb, flags).to(device)
+    model.load_state_dict(blob["model"])
+    model.eval()
+    mu = float(blob["mu"])
+    sd = float(blob["sd"])
+    y_arr = y_placeholder if y_placeholder is not None else np.zeros(len(ids), dtype=float)
+    ds = AbDataset(ids, y_arr, rb, content_mode="frozen", plm_source="ablingua")
+    loader = DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch)
+    preds = []
+    for batch in loader:
+        batch = _batch_to_device(batch, device)
+        batch.pop("y", None)
+        batch.pop("fixed", None)
+        pred_z = model(batch)
+        preds.append((pred_z * sd + mu).cpu().numpy())
+    return np.concatenate(preds) if preds else np.array([])
 
 
 def run_protocol_v3(
@@ -390,7 +468,9 @@ def run_protocol_v3(
     out_dir: Path,
     seed: int = DEFAULT_SEED,
     quick: bool = False,
+    arch: Optional[dict] = None,
 ) -> dict[str, Any]:
+    flags = normalize_arch_flags(arch)
     lrs = coarse_lr_grid()
     if quick:
         lrs = [1e-3]
@@ -407,6 +487,7 @@ def run_protocol_v3(
     all_history: list[dict] = []
     selected_rows: list[dict] = []
     fold_results: dict[str, list[dict]] = {"primary": [], "shadow": []}
+    cross_gates_rows: list[dict] = []
 
     oof_val = {
         "primary": pd.Series(np.nan, index=dev_ids, dtype=float),
@@ -428,7 +509,7 @@ def run_protocol_v3(
             assert set(va).isdisjoint(tr)
 
             _set_seed(seed)
-            model0 = build_t030_model(rb)
+            model0 = build_platform_model(rb, flags)
             init_state = deepcopy(model0.state_dict())
             init_hash = state_dict_sha256(model0)
 
@@ -455,6 +536,7 @@ def run_protocol_v3(
                     scheme=scheme_name,
                     fold=k,
                     quick=quick,
+                    arch=flags,
                 )
                 init_hashes.append(summary["init_hash"])
                 cand_summaries.append(summary)
@@ -492,18 +574,35 @@ def run_protocol_v3(
             y_va = np.asarray([y_map[a] for a in va], float)
             y_te = np.asarray([y_map[a] for a in te], float)
             pred_va = predict_with_checkpoint(
-                ckpt_path=ckpt_path, ids=va, rb=rb, device=device_t, y_placeholder=y_va
+                ckpt_path=ckpt_path, ids=va, rb=rb, device=device_t, y_placeholder=y_va, arch=flags
             )
             pred_te = predict_with_checkpoint(
-                ckpt_path=ckpt_path, ids=te, rb=rb, device=device_t, y_placeholder=y_te
+                ckpt_path=ckpt_path, ids=te, rb=rb, device=device_t, y_placeholder=y_te, arch=flags
             )
             pred_ext = predict_with_checkpoint(
-                ckpt_path=ckpt_path, ids=test_ids, rb=rb, device=device_t
+                ckpt_path=ckpt_path, ids=test_ids, rb=rb, device=device_t, arch=flags
             )
 
             oof_val[scheme_name].loc[va] = pred_va
             oof_test[scheme_name].loc[te] = pred_te
             ext_fold_preds[scheme_name][k] = pred_ext
+
+            if flags.get("use_cross_attention_bridge"):
+                blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
+                mtmp = build_platform_model(rb, flags)
+                mtmp.load_state_dict(blob["model"])
+                gates = mtmp.cross_gate_values()
+                cross_gates_rows.append(
+                    {
+                        "scheme": scheme_name,
+                        "fold": k,
+                        "g_H": gates["g_H"],
+                        "g_L": gates["g_L"],
+                        "best_epoch": selected["best_epoch"],
+                        "selected_initial_lr": selected["initial_lr"],
+                        "lr_at_best_epoch": selected["lr_at_best_epoch"],
+                    }
+                )
 
             fold_results[scheme_name].append(
                 {
@@ -565,14 +664,16 @@ def run_protocol_v3(
 
     hist_df = pd.DataFrame(all_history)
     sel_df = pd.DataFrame(selected_rows)
-    model0 = build_t030_model(rb)
+    model0 = build_platform_model(rb, flags)
     n_params = int(sum(p.numel() for p in model0.parameters() if p.requires_grad))
+    param_account = model0.param_account() if hasattr(model0, "param_account") else {}
 
     summary = {
         "platform_id": PLATFORM_ID,
         "protocol_id": PROTOCOL_ID,
         "experiment_code": experiment_code,
         "seed": seed,
+        "arch": flags,
         "lr_grid": lrs,
         "max_epochs": MAX_EPOCHS if not quick else min(8, MAX_EPOCHS),
         "min_epochs": MIN_EPOCHS,
@@ -594,12 +695,14 @@ def run_protocol_v3(
         "loss": f"SmoothL1Loss(beta={SMOOTH_L1_BETA})",
         "gradient_clip_norm": float(load_presets()["neural"]["gradient_clip_norm"]),
         "n_trainable_parameters": n_params,
-        "architecture": "T030_FULL_CONCAT_SEPARATE_HL",
+        "param_account": param_account,
+        "architecture": "experiment_specific_under_V3",
         "no_full_dev_refit": True,
         "no_nested_cv": True,
         "scores": scores,
         "selected_lr": selected_rows,
         "fold_results": fold_results,
+        "cross_gates": cross_gates_rows,
         "quick": quick,
     }
 
@@ -613,4 +716,5 @@ def run_protocol_v3(
         "test_ids": test_ids,
         "dev_ids": dev_ids,
         "y_dev": y_dev,
+        "cross_gates_df": pd.DataFrame(cross_gates_rows),
     }
