@@ -1,0 +1,52 @@
+{
+  "experiment_code": "EXP-T125",
+  "platform_id": "DL_FOLDLOCAL_COSINE_V3",
+  "config_hash": "20c6e546c904a47cd3eb0be5687f1db0f26ece7af82c3630ad6944ab0eb27935",
+  "scores": {
+    "oof_val": {
+      "primary": 2.830273804841218,
+      "shadow": 2.842720196570879,
+      "mean": 2.8364970007060486,
+      "worst": 2.842720196570879
+    },
+    "oof_test": {
+      "primary": 3.15643623728811,
+      "shadow": 3.23955276866018,
+      "mean": 3.197994502974145,
+      "worst": 3.23955276866018
+    }
+  },
+  "n_trainable": 1322753,
+  "param_account": {
+    "encoder": 1054208,
+    "cross_attention": 0,
+    "gates": 0,
+    "geometry": 0,
+    "head": 66049,
+    "other": 202496,
+    "total": 1322753
+  },
+  "capacity": {
+    "d_model": 256,
+    "n_layers": 2,
+    "n_heads": 8,
+    "dim_feedforward": 512
+  },
+  "fusion_bundle_id": null,
+  "feature_artifact_hash": null,
+  "seed": 101,
+  "arch": {
+    "joint_hl_single_reg": false,
+    "joint_hl_dual_reg": true,
+    "joint_hl_chain_specific_dual_reg": false,
+    "use_cross_attention_bridge": false,
+    "use_reg_only_cross_attention": false,
+    "use_within_chain_extra_attention": false,
+    "cross_gate_mode": "learned",
+    "use_cross_geometry_bias": false
+  },
+  "content_mode": "frozen",
+  "merge_mode": "mean",
+  "plm_source": "ablang2",
+  "chain_mode": "HL"
+}
