@@ -122,10 +122,10 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T080":
+    if next_code("TmApp") != "EXP-T105":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T080")
+        ok("next TmApp EXP-T105")
     if next_code("HIC") != "EXP-H054":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
@@ -227,16 +227,26 @@ def main() -> int:
                 "JOINT_HL_SINGLE_REG_FROZEN_RESIDUE"
             )
             is_separate_cross = ("CROSS_ATTENTION" in space) or ("SEPARATE_CROSS" in space)
+            is_separate_dual = ("SEPARATE_DUAL_REG" in space) or (
+                "WITHIN_CHAIN_EXTRA_ATTENTION" in space
+            ) or ("REG_ONLY_CROSS" in space)
             is_protocol_v2 = ("PROTOCOL_V2" in space) or space.endswith("_PROTOCOL_V2")
             is_protocol_v3 = (
                 ("COSINE_V3" in space)
                 or ("FOLDLOCAL_COSINE_V3" in space)
                 or space.endswith("_DL_FOLDLOCAL_COSINE_V3")
                 or ("DL_FOLDLOCAL_COSINE_V3" in space)
+                or space.endswith("_V3")  # V3 architecture/representation sweep
             )
             rasa = ROOT / "experiments" / "inputs" / f"{code}_rasa.parquet"
             ca = ROOT / "experiments" / "inputs" / f"{code}_ca.parquet"
-            if is_joint_hl or is_separate_cross or is_protocol_v2 or is_protocol_v3:
+            if (
+                is_joint_hl
+                or is_separate_cross
+                or is_separate_dual
+                or is_protocol_v2
+                or is_protocol_v3
+            ):
                 # Joint H/L, separate+cross, or protocol-V2/V3: no fusion feature parquet
                 if str(r.get("feature_path") or "") not in ("", "nan"):
                     fail(f"{code} no-fusion arch feature_path must be empty")

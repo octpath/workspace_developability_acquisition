@@ -1,0 +1,35 @@
+status: PRE_TEST_FREEZE
+git_rev: 6502a615040ff4046a3208d7dcea4a070cf2890b
+completed_experiments:
+- EXP-T080
+- EXP-T081
+- EXP-T082
+- EXP-T083
+- EXP-T084
+- EXP-T085
+- EXP-T086
+- EXP-T087
+- EXP-T088
+- EXP-T089
+- EXP-T090
+- EXP-T091
+- EXP-T092
+- EXP-T093
+- EXP-T094
+- EXP-T095
+- EXP-T096
+- EXP-T097
+- EXP-T098
+- EXP-T099
+- EXP-T100
+- EXP-T101
+- EXP-T102
+- EXP-T103
+- EXP-T104
+n_completed: 25
+preregistration_sha256: bc71c99653b12742ba728df317b5a41cf0355f40f172df0aaaa034dc393ff791
+preregistration_git_rev: 45be529a49005691c4ad3a9c51cf1c759724880f
+statement: "All T080\u2013T104 architecture\xD7representation settings were fixed\
+  \ before result inspection. No architecture changed based on intermediate scores.\
+  \ T075\u2013T079 were reused without retraining."
+platform_id: DL_FOLDLOCAL_COSINE_V3

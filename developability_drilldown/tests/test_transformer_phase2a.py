@@ -32,8 +32,8 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 79 and len(h) == 53
-    assert next_code("TmApp") == "EXP-T080"
+    assert len(t) == 104 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T105"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
@@ -250,6 +250,7 @@ def test_historical_representation_unavailable_contract():
         "EXP-T077",
         "EXP-T078",
         "EXP-T079",
+        *[f"EXP-T{i:03d}" for i in range(80, 105)],
     ):
         row = exp[exp["experiment_code"] == code].iloc[0]
         assert row["representation_status"] == "NOT_EXPORTED"
