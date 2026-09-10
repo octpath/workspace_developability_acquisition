@@ -1,0 +1,34 @@
+status: FROZEN
+platform_id: DL_FOLDLOCAL_COSINE_V3
+freeze_date_utc: '2026-09-10T10:31:36Z'
+repository_commit: cb5dda32be495a24274afe9768f85420d81ca314
+protocol_implementation_sha256: e7a38afccf250677d71ecb4c6faf70995467d7fae5407c2cc5b6848443b54157
+baseline_experiment: EXP-T075
+optimizer: AdamW
+weight_decay: 0.01
+batch_size: 16
+loss: SmoothL1(beta=0.5)
+initial_lr_candidates:
+- 1.0e-05
+- 0.0001
+- 0.001
+- 0.01
+lr_selection: fold-local validation MAE
+scheduler:
+  type: cosine_annealing
+  T_max: 200
+  eta_min: 0.01 * initial_lr
+  warmup: null
+  restart: null
+  step_timing: LR set at beginning of epoch; history reports LR DURING epoch
+max_epochs: 200
+patience: 30
+min_epochs: null
+checkpoint: best validation MAE
+full_dev_refit: disabled
+external_prediction:
+- fold_checkpoint_mean
+- fold_checkpoint_median
+seed_policy: experiment_specific
+future_contract: Architecture experiments inherit this platform unchanged unless the
+  experiment explicitly declares TRAINING itself as the scientific variable.

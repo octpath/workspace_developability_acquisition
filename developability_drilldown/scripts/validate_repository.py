@@ -122,10 +122,10 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T075":
+    if next_code("TmApp") != "EXP-T076":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T075")
+        ok("next TmApp EXP-T076")
     if next_code("HIC") != "EXP-H054":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
@@ -228,10 +228,16 @@ def main() -> int:
             )
             is_separate_cross = ("CROSS_ATTENTION" in space) or ("SEPARATE_CROSS" in space)
             is_protocol_v2 = ("PROTOCOL_V2" in space) or space.endswith("_PROTOCOL_V2")
+            is_protocol_v3 = (
+                ("COSINE_V3" in space)
+                or ("FOLDLOCAL_COSINE_V3" in space)
+                or space.endswith("_DL_FOLDLOCAL_COSINE_V3")
+                or ("DL_FOLDLOCAL_COSINE_V3" in space)
+            )
             rasa = ROOT / "experiments" / "inputs" / f"{code}_rasa.parquet"
             ca = ROOT / "experiments" / "inputs" / f"{code}_ca.parquet"
-            if is_joint_hl or is_separate_cross or is_protocol_v2:
-                # Joint H/L, separate+cross, or protocol-V2 baseline: no fusion feature parquet
+            if is_joint_hl or is_separate_cross or is_protocol_v2 or is_protocol_v3:
+                # Joint H/L, separate+cross, or protocol-V2/V3: no fusion feature parquet
                 if str(r.get("feature_path") or "") not in ("", "nan"):
                     fail(f"{code} no-fusion arch feature_path must be empty")
                 if str(r.get("feature_space") or "") not in ("", "nan"):

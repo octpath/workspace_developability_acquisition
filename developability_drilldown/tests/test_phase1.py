@@ -28,8 +28,8 @@ def test_code_format_and_counts():
     assert all(CODE_RE.match(c) for c in codes["experiment_code"])
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 74 and len(h) == 53
-    assert sorted(t, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-T{i:03d}" for i in range(1, 75)]
+    assert len(t) == 75 and len(h) == 53
+    assert sorted(t, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-T{i:03d}" for i in range(1, 76)]
     assert sorted(h, key=lambda x: int(x.split("-")[1][1:])) == [f"EXP-H{i:03d}" for i in range(1, 54)]
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
 
@@ -58,10 +58,10 @@ def test_legacy_order_preserved_within_target():
 
 
 def test_next_code_namespaces():
-    assert next_code("TmApp") == "EXP-T075"
+    assert next_code("TmApp") == "EXP-T076"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
-    assert next_code("T") == "EXP-T075"
+    assert next_code("T") == "EXP-T076"
     assert next_code("H") == "EXP-H054"
     assert next_code("M") == "EXP-M001"
 
