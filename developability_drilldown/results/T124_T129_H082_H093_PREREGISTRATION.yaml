@@ -1,0 +1,325 @@
+status: FROZEN
+platform_id: DL_FOLDLOCAL_COSINE_V3
+git_rev: a15400c74d628b1191f17715e61ecdbd2b8c1664
+tm_codes:
+- EXP-T124
+- EXP-T125
+- EXP-T126
+- EXP-T127
+- EXP-T128
+- EXP-T129
+hic_codes:
+- EXP-H082
+- EXP-H083
+- EXP-H084
+- EXP-H085
+- EXP-H086
+- EXP-H087
+- EXP-H088
+- EXP-H089
+- EXP-H090
+- EXP-H091
+- EXP-H092
+- EXP-H093
+n_experiments: 18
+capacity_packages:
+  BASE:
+    d_model: 128
+    n_layers: 2
+    n_heads: 4
+    dim_feedforward: 256
+    label: BASE
+  DEEP:
+    d_model: 128
+    n_layers: 3
+    n_heads: 4
+    dim_feedforward: 256
+    label: DEEP
+  WIDE:
+    d_model: 256
+    n_layers: 2
+    n_heads: 8
+    dim_feedforward: 512
+    label: WIDE
+  DEEP_WIDE:
+    d_model: 256
+    n_layers: 3
+    n_heads: 8
+    dim_feedforward: 512
+    label: DEEP_WIDE
+feature_bundles:
+  F1_SURFACE:
+    artifact_hash: e3788aad831d0b022ebfa682a46e0a27c9fbaf0e5f833aacaa3b191819898a4b
+    raw_dim: 35
+    effective_dim: 35
+    exclude_esm2_h: true
+  F2_SEQUENCE_TITRATION:
+    artifact_hash: c435c73b722618c9e594a7940b11e602286e03ad9bcdaf0b2db0a7100301f7f2
+    raw_dim: 133
+    effective_dim: 133
+    exclude_esm2_h: true
+  F3_LOCAL_RASA_CDR3:
+    artifact_hash: e53785378368d13bded3cd36eea72de083e2ebfab6ac8ac00ed930ffa9edb485
+    raw_dim: 1280
+    effective_dim: 32
+    exclude_esm2_h: true
+  F4_H047_AUX_ALL:
+    artifact_hash: 1f1aa633ec6ae3e31a00869efdf0ab664964c428cbc6f07196c2f1c1bcfb1b51
+    raw_dim: 1448
+    effective_dim: 200
+    exclude_esm2_h: true
+config_sha256:
+  EXP-T124: 9ffb78bc72bcdad9aa57f83cff7a57c0b7843a2e712c606b51617d54eeb07ac8
+  EXP-T125: e720a930c5ec46c9d004f88c8e7f8cf6b114c6b1718ad080abe23269044cd7e2
+  EXP-T126: 2c6b1e318764de91fb83ccb946f32264e554eb5453dbe1397a1c7eea9e054e1b
+  EXP-T127: 54d83afc3ae5d06a1669c8bb7ca56c0239224dc487dfbcd4e46fedfbb2d0af18
+  EXP-T128: 840a63b8dbefae506210bdaf04bec0eef0a89332380a488624841cf85a822944
+  EXP-T129: 0d59b338848b73b20c1a668bae0d5e4018c980061f502b30ae504f092e50e4da
+  EXP-H082: 077dcc868420a69197d4b69efd5d6cf9b6faac9e6acda14dad909ae5b263ae43
+  EXP-H083: 9a0d1fd056abc4a0147c3441d74f5446833b9132cdfa2feaa19b332f8fee36f3
+  EXP-H084: 820f3bf53dcf314a0a8037bf53e646b43b3e87b069e9c15c778f51d3fcf36ac3
+  EXP-H085: 5db609cd3a9d8ac095116cdac575d246ab237608d893c5cbda40197992d16b76
+  EXP-H086: 9aa4870468cd2f764e4c3ecd606c241433c687a6dc51a820865f01c1b48b2deb
+  EXP-H087: 1896d96706d74481d2359d214c62dc5e63f186ba870d780b46bc0ee53d4f40a1
+  EXP-H088: 750751aa8aa2d017f8f5573673f30d178e61f1d62de1fc60f7d4554f94be8d68
+  EXP-H089: 2c0678dc31e5c22cc8cfa4546439bff2ce224745a44a629322fbf0d4cc6e8c8d
+  EXP-H090: d405099954c57749ba420f848ef34a2aa37bed68e9dbc74339211addec4af816
+  EXP-H091: 6abe06febcb82544073f1c1469209b5986a8ca7f1c4b130f66dbc4a5c12a26ec
+  EXP-H092: 985f49671fa9635ef3aba8bbf35d595541bc7d58e8d8c00cb2541b1de491f406
+  EXP-H093: f7b441d47221b6782cc64af68ca8b9cfb66c52a8299af1623df34e73470049c9
+planned_contrasts_tm:
+- T124 vs T113
+- T125 vs T113
+- T126 vs T113
+- T126 vs T125
+- T126 vs T124
+- T127 vs T121
+- T128 vs T121
+- T129 vs T121
+- T129 vs T128
+- T129 vs T127
+- T124 vs T127
+- T125 vs T128
+- T126 vs T129
+planned_contrasts_hic:
+- F1/F2/F3/F4 vs base per backbone H054/H061/H071
+- F4 vs F1/F2/F3 per backbone
+experiments:
+- code: EXP-T124
+  target: TmApp
+  base: EXP-T113
+  representation: ABLANG2
+  architecture: ARCH-3
+  merge: mean
+  capacity_id: DEEP
+  d_model: 128
+  n_layers: 3
+  n_heads: 4
+  FFN: 256
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 9ffb78bc72bcdad9aa57f83cff7a57c0b7843a2e712c606b51617d54eeb07ac8
+- code: EXP-T125
+  target: TmApp
+  base: EXP-T113
+  representation: ABLANG2
+  architecture: ARCH-3
+  merge: mean
+  capacity_id: WIDE
+  d_model: 256
+  n_layers: 2
+  n_heads: 8
+  FFN: 512
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: e720a930c5ec46c9d004f88c8e7f8cf6b114c6b1718ad080abe23269044cd7e2
+- code: EXP-T126
+  target: TmApp
+  base: EXP-T113
+  representation: ABLANG2
+  architecture: ARCH-3
+  merge: mean
+  capacity_id: DEEP_WIDE
+  d_model: 256
+  n_layers: 3
+  n_heads: 8
+  FFN: 512
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 2c6b1e318764de91fb83ccb946f32264e554eb5453dbe1397a1c7eea9e054e1b
+- code: EXP-T127
+  target: TmApp
+  base: EXP-T121
+  representation: ABLANG2
+  architecture: ARCH-7
+  merge: mean
+  capacity_id: DEEP
+  d_model: 128
+  n_layers: 3
+  n_heads: 4
+  FFN: 256
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 54d83afc3ae5d06a1669c8bb7ca56c0239224dc487dfbcd4e46fedfbb2d0af18
+- code: EXP-T128
+  target: TmApp
+  base: EXP-T121
+  representation: ABLANG2
+  architecture: ARCH-7
+  merge: mean
+  capacity_id: WIDE
+  d_model: 256
+  n_layers: 2
+  n_heads: 8
+  FFN: 512
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 840a63b8dbefae506210bdaf04bec0eef0a89332380a488624841cf85a822944
+- code: EXP-T129
+  target: TmApp
+  base: EXP-T121
+  representation: ABLANG2
+  architecture: ARCH-7
+  merge: mean
+  capacity_id: DEEP_WIDE
+  d_model: 256
+  n_layers: 3
+  n_heads: 8
+  FFN: 512
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 0d59b338848b73b20c1a668bae0d5e4018c980061f502b30ae504f092e50e4da
+- code: EXP-H082
+  target: HIC
+  base: EXP-H054
+  representation: ESM2
+  architecture: ARCH-H0
+  merge: h_only
+  fusion_bundle_id: F1_SURFACE
+  aux_effective_dim: 35
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 077dcc868420a69197d4b69efd5d6cf9b6faac9e6acda14dad909ae5b263ae43
+- code: EXP-H083
+  target: HIC
+  base: EXP-H054
+  representation: ESM2
+  architecture: ARCH-H0
+  merge: h_only
+  fusion_bundle_id: F2_SEQUENCE_TITRATION
+  aux_effective_dim: 133
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 9a0d1fd056abc4a0147c3441d74f5446833b9132cdfa2feaa19b332f8fee36f3
+- code: EXP-H084
+  target: HIC
+  base: EXP-H054
+  representation: ESM2
+  architecture: ARCH-H0
+  merge: h_only
+  fusion_bundle_id: F3_LOCAL_RASA_CDR3
+  aux_effective_dim: 32
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 820f3bf53dcf314a0a8037bf53e646b43b3e87b069e9c15c778f51d3fcf36ac3
+- code: EXP-H085
+  target: HIC
+  base: EXP-H054
+  representation: ESM2
+  architecture: ARCH-H0
+  merge: h_only
+  fusion_bundle_id: F4_H047_AUX_ALL
+  aux_effective_dim: 200
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 5db609cd3a9d8ac095116cdac575d246ab237608d893c5cbda40197992d16b76
+- code: EXP-H086
+  target: HIC
+  base: EXP-H061
+  representation: ESM2
+  architecture: ARCH-4
+  merge: mean
+  fusion_bundle_id: F1_SURFACE
+  aux_effective_dim: 35
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 9aa4870468cd2f764e4c3ecd606c241433c687a6dc51a820865f01c1b48b2deb
+- code: EXP-H087
+  target: HIC
+  base: EXP-H061
+  representation: ESM2
+  architecture: ARCH-4
+  merge: mean
+  fusion_bundle_id: F2_SEQUENCE_TITRATION
+  aux_effective_dim: 133
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 1896d96706d74481d2359d214c62dc5e63f186ba870d780b46bc0ee53d4f40a1
+- code: EXP-H088
+  target: HIC
+  base: EXP-H061
+  representation: ESM2
+  architecture: ARCH-4
+  merge: mean
+  fusion_bundle_id: F3_LOCAL_RASA_CDR3
+  aux_effective_dim: 32
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 750751aa8aa2d017f8f5573673f30d178e61f1d62de1fc60f7d4554f94be8d68
+- code: EXP-H089
+  target: HIC
+  base: EXP-H061
+  representation: ESM2
+  architecture: ARCH-4
+  merge: mean
+  fusion_bundle_id: F4_H047_AUX_ALL
+  aux_effective_dim: 200
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 2c0678dc31e5c22cc8cfa4546439bff2ce224745a44a629322fbf0d4cc6e8c8d
+- code: EXP-H090
+  target: HIC
+  base: EXP-H071
+  representation: SCRATCH
+  architecture: ARCH-2
+  merge: concat
+  fusion_bundle_id: F1_SURFACE
+  aux_effective_dim: 35
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: d405099954c57749ba420f848ef34a2aa37bed68e9dbc74339211addec4af816
+- code: EXP-H091
+  target: HIC
+  base: EXP-H071
+  representation: SCRATCH
+  architecture: ARCH-2
+  merge: concat
+  fusion_bundle_id: F2_SEQUENCE_TITRATION
+  aux_effective_dim: 133
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 6abe06febcb82544073f1c1469209b5986a8ca7f1c4b130f66dbc4a5c12a26ec
+- code: EXP-H092
+  target: HIC
+  base: EXP-H071
+  representation: SCRATCH
+  architecture: ARCH-2
+  merge: concat
+  fusion_bundle_id: F3_LOCAL_RASA_CDR3
+  aux_effective_dim: 32
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: 985f49671fa9635ef3aba8bbf35d595541bc7d58e8d8c00cb2541b1de491f406
+- code: EXP-H093
+  target: HIC
+  base: EXP-H071
+  representation: SCRATCH
+  architecture: ARCH-2
+  merge: concat
+  fusion_bundle_id: F4_H047_AUX_ALL
+  aux_effective_dim: 200
+  seed: 101
+  platform: DL_FOLDLOCAL_COSINE_V3
+  config_sha256: f7b441d47221b6782cc64af68ca8b9cfb66c52a8299af1623df34e73470049c9
+statement: "All T124\u2013T129 and H082\u2013H093 configs frozen before training.\
+  \ No architecture/feature changes based on VAL/TEST/Public/Private/Overall."

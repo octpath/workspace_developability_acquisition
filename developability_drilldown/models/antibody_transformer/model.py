@@ -69,8 +69,10 @@ class AnnotatedTransformer(nn.Module):
         initial_ell_angstrom: Optional[float] = None,
     ):
         super().__init__()
-        if n_layers != 2:
-            raise ValueError("n_layers is frozen at 2")
+        # Default platform depth is 2. Capacity refinements (T124–T129) may use 3
+        # only for architectures that stack a full TransformerEncoder (not mid-bridge).
+        if int(n_layers) not in (2, 3):
+            raise ValueError(f"n_layers must be 2 or 3, got {n_layers}")
         if pooling_mode not in ("reg", "region_gate"):
             raise ValueError(pooling_mode)
         if use_continuous_rasa and use_rasa_weighted_pool:
@@ -112,6 +114,13 @@ class AnnotatedTransformer(nn.Module):
             or use_within_chain_extra_attention
         ) and use_ca_distance_bias:
             raise ValueError("cross-attention variants do not support CA distance bias")
+        # Mid-bridge ARCH-6/8 (and gated bridge) hard-code layers[0]/layers[1].
+        if int(n_layers) != 2 and (
+            use_cross_attention_bridge or use_within_chain_extra_attention
+        ):
+            raise ValueError(
+                "use_cross_attention_bridge / use_within_chain_extra_attention require n_layers=2"
+            )
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
@@ -119,6 +128,8 @@ class AnnotatedTransformer(nn.Module):
         self.pooling_mode = pooling_mode
         self.d_model = d_model
         self.n_heads = n_heads
+        self.n_layers = int(n_layers)
+        self.dim_feedforward = int(dim_feedforward)
         self.use_continuous_rasa = bool(use_continuous_rasa)
         self.use_rasa_weighted_pool = bool(use_rasa_weighted_pool)
         self.use_ca_distance_bias = bool(use_ca_distance_bias)

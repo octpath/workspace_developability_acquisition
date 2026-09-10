@@ -204,8 +204,14 @@ def build_transformer(
     cross_geometry_rbf_centers: Optional[list] = None,
     cross_geometry_rbf_sigma: float = 2.5,
     initial_ell_angstrom: Optional[float] = None,
+    capacity: Optional[dict] = None,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
+    cap = capacity or {}
+    d_model = int(cap.get("d_model", ncfg["d_model"]))
+    n_heads = int(cap.get("n_heads", ncfg["n_heads"]))
+    n_layers = int(cap.get("n_layers", ncfg["n_layers"]))
+    dim_ff = int(cap.get("dim_feedforward", cap.get("ff_dim", ncfg["dim_feedforward"])))
     if content_mode == "frozen":
         plm_h = plm_hidden_for(rb, plm_source)
         if plm_h <= 0:
@@ -223,10 +229,10 @@ def build_transformer(
         merge_mode=merge_mode if chain_mode != "H_ONLY" else "h_only",
         chain_mode=chain_mode,
         pooling_mode=pooling_mode,
-        d_model=ncfg["d_model"],
-        n_heads=ncfg["n_heads"],
-        n_layers=ncfg["n_layers"],
-        dim_feedforward=ncfg["dim_feedforward"],
+        d_model=d_model,
+        n_heads=n_heads,
+        n_layers=n_layers,
+        dim_feedforward=dim_ff,
         dropout=ncfg["dropout"],
         norm_first=ncfg["norm_first"],
         use_continuous_rasa=use_continuous_rasa,
