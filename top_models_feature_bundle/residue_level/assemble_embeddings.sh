@@ -38,6 +38,9 @@ main() {
   assemble_one "$ROOT/ablingua600m/heavy_embeddings.npy"
   assemble_one "$ROOT/ablingua600m/light_embeddings.npy"
   assemble_one "$ROOT/esm2/heavy_embeddings.npy"
+  if [[ -f "$ROOT/esm2/light_embeddings.npy.part0" ]]; then
+    assemble_one "$ROOT/esm2/light_embeddings.npy"
+  fi
   if [[ -f "$ROOT/ablang2/heavy_embeddings.npy.part0" ]]; then
     assemble_one "$ROOT/ablang2/heavy_embeddings.npy"
     assemble_one "$ROOT/ablang2/light_embeddings.npy"

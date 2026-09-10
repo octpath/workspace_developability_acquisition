@@ -1,6 +1,6 @@
 {
   "model": "facebook/esm2_t33_650M_UR50D",
-  "chain": "H",
+  "chain": "HL",
   "n_ids": 324,
   "max_len": 140,
   "hidden_dim": 1280,
@@ -12,5 +12,8 @@
   "license_status": "REVIEW_MODEL_OUTPUT",
   "code_license_note": "fair-esm / ESM-2; see Meta ESM license",
   "model_weight_license_note": "facebook/esm2_t33_650M_UR50D weights",
-  "derived_output_redistribution": "REVIEW_MODEL_OUTPUT \u2014 do not mark releasable without organizer approval"
+  "derived_output_redistribution": "REVIEW_MODEL_OUTPUT \u2014 do not mark releasable without organizer approval",
+  "max_len_L": 120,
+  "light_materialized": true,
+  "light_builder": "developability_drilldown/scripts/build_esm2_light_residue_bundle.py"
 }
