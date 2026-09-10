@@ -1,0 +1,95 @@
+OK: 127 experiments / codes
+OK: legacy map 48 (Linear/XGB only)
+OK: families LINEAR=74 XGBOOST=14 TRANSFORMER=39
+OK: MULTI namespace empty (reserved)
+OK: next MULTI reserved EXP-M001
+OK: next TmApp EXP-T075
+OK: next HIC EXP-H054
+OK: TmApp codes EXP-T001..EXP-T074 (74)
+OK: HIC codes EXP-H001..EXP-H053 (53)
+OK: codes table matches experiments.csv
+OK: legacy map matches Linear/XGB
+OK: repro/license/selection enums valid
+OK: no submission naming under predictions
+OK: no flat EXP0xx artifact paths
+OK: Transformer feature/representation contracts
+OK: fusion feature_set FK
+OK: TRANSFORMER_BACKFILL_AUDIT.csv
+OK: Linear/XGB FULL=86
+OK: TRANSFORMER FULL=39
+OK: feature_set FS_TM_ABLINGUA_CDR3 OK
+OK: feature_set FS_TM_ABLINGUA_GLOBAL OK
+OK: feature_set FS_TM_BIOEMU_MPNN OK
+OK: feature_set FS_HIC_HYDRO_TITRATION OK
+OK: feature_set FS_HIC_CONTINUOUS_SURFACE OK
+OK: feature_set FS_HIC_ESM2_SEQ_AROMATIC OK
+OK: feature_set FS_TM_CONSTANT OK
+OK: feature_set FS_TM_SEQ_BASIC OK
+OK: feature_set FS_TM_ABLANG2 OK
+OK: feature_set FS_TM_ABLANG2_SEQ OK
+OK: feature_set FS_TM_BASE_BIOEMU OK
+OK: feature_set FS_TM_BASE_MPNN OK
+OK: feature_set FS_TM_FENNIX_CONTEXT OK
+OK: feature_set FS_HIC_CONSTANT OK
+OK: feature_set FS_HIC_SEQ OK
+OK: feature_set FS_HIC_ESM2_H OK
+OK: feature_set FS_HIC_ESM2_SEQ OK
+OK: feature_set FS_HIC_AROMATIC OK
+OK: feature_set FS_HIC_ARO_TITRATION OK
+OK: feature_set FS_HIC_ARO_CONT_TITR OK
+OK: feature_set FS_EXP-T045 OK
+OK: feature_set FS_EXP-T046 OK
+OK: feature_set FS_EXP-T047 OK
+OK: feature_set FS_EXP-T048 OK
+OK: feature_set FS_EXP-T049 OK
+OK: feature_set FS_EXP-T050 OK
+OK: feature_set FS_EXP-T051 OK
+OK: feature_set FS_EXP-T052 OK
+OK: feature_set FS_EXP-T053 OK
+OK: feature_set FS_EXP-T054 OK
+OK: feature_set FS_EXP-T055 OK
+OK: feature_set FS_EXP-T056 OK
+OK: feature_set FS_EXP-T057 OK
+OK: feature_set FS_EXP-T058 OK
+OK: feature_set FS_EXP-T059 OK
+OK: feature_set FS_EXP-T060 OK
+OK: feature_set FS_EXP-T061 OK
+OK: feature_set FS_EXP-T062 OK
+OK: feature_set FS_EXP-T063 OK
+OK: feature_set FS_EXP-T064 OK
+OK: feature_set FS_EXP-H034 OK
+OK: feature_set FS_EXP-H035 OK
+OK: feature_set FS_EXP-H036 OK
+OK: feature_set FS_EXP-H037 OK
+OK: feature_set FS_EXP-H038 OK
+OK: feature_set FS_EXP-H039 OK
+OK: feature_set FS_EXP-H040 OK
+OK: feature_set FS_EXP-H041 OK
+OK: feature_set FS_EXP-H042 OK
+OK: feature_set FS_EXP-H043 OK
+OK: feature_set FS_EXP-H044 OK
+OK: feature_set FS_EXP-H045 OK
+OK: feature_set FS_EXP-H046 OK
+OK: feature_set FS_EXP-H047 OK
+OK: feature_set FS_EXP-H048 OK
+OK: feature_set FS_EXP-H049 OK
+OK: feature_set FS_EXP-H050 OK
+OK: feature_set FS_EXP-H051 OK
+OK: feature_set FS_EXP-H052 OK
+OK: feature_set FS_EXP-H053 OK
+OK: submissions n=5
+OK: no solution.csv
+OK: classical refinement freeze present
+OK: classical candidates n=40
+OK: classical refinement new experiments=40
+OK: no prediction-level ensemble in classical refinement
+OK: classical selection policy CV_SELECTED_POSTCOMP_EVALUATED
+OK: existing 77 preservation PASS (score delta 0)
+OK: reproduction_status enum OK
+OK: shareability_status enum OK
+OK: canonical_benchmark_eligible enum OK
+OK: EXPERIMENT_ARTIFACT_COMPLETENESS.csv
+OK: new 40 classical shareable+reproduced with canonical features
+OK: UNVERIFIED_HISTORICAL excluded from canonical eligibility
+PASS
+

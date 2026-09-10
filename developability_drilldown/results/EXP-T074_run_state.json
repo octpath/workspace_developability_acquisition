@@ -1,0 +1,39 @@
+{
+  "experiment_code": "EXP-T074",
+  "ext_scores": {
+    "primary_mean": {
+      "public_mae": 3.4840746467496144,
+      "private_mae": 3.2745515611436624,
+      "overall_mae": 3.3793131039466386
+    },
+    "primary_median": {
+      "public_mae": 3.5076802571614585,
+      "private_mae": 3.3793723965868536,
+      "overall_mae": 3.443526326874156
+    },
+    "shadow_mean": {
+      "public_mae": 3.5856922290943287,
+      "private_mae": 3.353617981333791,
+      "overall_mae": 3.4696551052140596
+    },
+    "shadow_median": {
+      "public_mae": 3.637113312144338,
+      "private_mae": 3.3927904293860918,
+      "overall_mae": 3.514951870765215
+    }
+  },
+  "summary_scores": {
+    "oof_val": {
+      "primary": 2.979829058235074,
+      "shadow": 3.0974393773961952,
+      "mean": 3.038634217815635,
+      "worst": 3.0974393773961952
+    },
+    "oof_test": {
+      "primary": 3.2866556144055026,
+      "shadow": 3.4260228003984614,
+      "mean": 3.356339207401982,
+      "worst": 3.4260228003984614
+    }
+  }
+}
