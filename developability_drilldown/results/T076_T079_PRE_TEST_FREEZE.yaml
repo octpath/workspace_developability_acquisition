@@ -1,0 +1,12 @@
+status: PRE_TEST_FREEZE
+git_rev: ddde308c735d9a6cc9fc06b5441fcd6f3c4a01c7
+completed_experiments:
+- EXP-T076
+- EXP-T077
+- EXP-T078
+- EXP-T079
+preregistration_sha256: 9d27b65ae7c135ea3366387815c87a8911ca8c046698b512927afa03530b745a
+preregistration_git_rev: 36fe31ebeab21dc2ae61bf7a0ec4862483c271e5
+statement: All four architectures were fixed before result inspection. No architecture
+  changed based on intermediate scores.
+platform_id: DL_FOLDLOCAL_COSINE_V3

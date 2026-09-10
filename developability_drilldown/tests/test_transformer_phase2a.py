@@ -32,8 +32,8 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 75 and len(h) == 53
-    assert next_code("TmApp") == "EXP-T076"
+    assert len(t) == 79 and len(h) == 53
+    assert next_code("TmApp") == "EXP-T080"
     assert next_code("HIC") == "EXP-H054"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
@@ -193,6 +193,18 @@ def test_input_metadata_by_plm():
     t075 = tr[tr["experiment_code"] == "EXP-T075"]
     assert len(t075) == 1
     assert t075.iloc[0]["input_space"] == "FROZEN_RESIDUE_DL_FOLDLOCAL_COSINE_V3"
+    t076 = tr[tr["experiment_code"] == "EXP-T076"]
+    assert len(t076) == 1
+    assert t076.iloc[0]["input_space"] == "JOINT_HL_SINGLE_REG_FROZEN_RESIDUE_V3"
+    t077 = tr[tr["experiment_code"] == "EXP-T077"]
+    assert len(t077) == 1
+    assert t077.iloc[0]["input_space"] == "JOINT_HL_DUAL_REG_FROZEN_RESIDUE_V3"
+    t078 = tr[tr["experiment_code"] == "EXP-T078"]
+    assert len(t078) == 1
+    assert t078.iloc[0]["input_space"] == "JOINT_HL_CHAIN_SPECIFIC_DUAL_REG_FROZEN_RESIDUE_V3"
+    t079 = tr[tr["experiment_code"] == "EXP-T079"]
+    assert len(t079) == 1
+    assert t079.iloc[0]["input_space"] == "SEPARATE_CROSS_ATTENTION_DUAL_REG_FROZEN_RESIDUE_V3"
 
 
 def test_fusion_feature_set_fk():
@@ -225,7 +237,20 @@ def test_historical_representation_unavailable_contract():
     assert t067["representation_status"] == "NOT_EXPORTED"
     assert (ROOT / "experiments" / "features" / "EXP-T067.parquet").exists()
     assert (ROOT / "experiments" / "inputs" / "EXP-T067_ca.parquet").exists()
-    for code in ("EXP-T068", "EXP-T069", "EXP-T070", "EXP-T071", "EXP-T072", "EXP-T073", "EXP-T074", "EXP-T075"):
+    for code in (
+        "EXP-T068",
+        "EXP-T069",
+        "EXP-T070",
+        "EXP-T071",
+        "EXP-T072",
+        "EXP-T073",
+        "EXP-T074",
+        "EXP-T075",
+        "EXP-T076",
+        "EXP-T077",
+        "EXP-T078",
+        "EXP-T079",
+    ):
         row = exp[exp["experiment_code"] == code].iloc[0]
         assert row["representation_status"] == "NOT_EXPORTED"
         assert not (ROOT / "experiments" / "features" / f"{code}.parquet").exists()

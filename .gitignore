@@ -8,6 +8,8 @@ wheels/
 
 .boltz_cache/
 
+*.pt
+
 # Boltz-2 bulky / regenerable run artifacts (canonical mmCIF/PDB/confidence stay tracked)
 organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/msa/
 organizer_extension/feature_prospecting/structure_sources/boltz2_fv_standard_v1/predictions_native/
