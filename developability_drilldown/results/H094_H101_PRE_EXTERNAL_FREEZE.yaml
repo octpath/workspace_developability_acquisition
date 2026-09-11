@@ -14,3 +14,4 @@ preregistration: /workspace_developability_acquisition/developability_drilldown/
 statement: All H094-H101 internal TEST frozen before comparative external reveal.
 platform_id: DL_FOLDLOCAL_COSINE_V3
 note: Internal freeze recorded after H094-H101 training; final commit follows validate.
+git_rev_final: 076c03f749ac02f280093ac003aad3549df74f11
