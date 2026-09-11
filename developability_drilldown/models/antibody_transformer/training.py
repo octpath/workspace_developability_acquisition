@@ -205,6 +205,7 @@ def build_transformer(
     cross_geometry_rbf_sigma: float = 2.5,
     initial_ell_angstrom: Optional[float] = None,
     capacity: Optional[dict] = None,
+    share_hl_encoder: bool = True,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
     cap = capacity or {}
@@ -249,6 +250,7 @@ def build_transformer(
         cross_geometry_rbf_centers=cross_geometry_rbf_centers,
         cross_geometry_rbf_sigma=cross_geometry_rbf_sigma,
         initial_ell_angstrom=initial_ell_angstrom,
+        share_hl_encoder=share_hl_encoder,
     )
 
 

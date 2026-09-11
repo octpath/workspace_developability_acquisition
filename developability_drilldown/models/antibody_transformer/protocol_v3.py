@@ -65,6 +65,7 @@ ARCH_T030 = {
     "use_within_chain_extra_attention": False,
     "cross_gate_mode": "learned",
     "use_cross_geometry_bias": False,
+    "share_hl_encoder": True,
 }
 
 

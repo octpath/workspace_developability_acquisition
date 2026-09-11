@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Small annotation-aware Transformer (2 layers, shared H/L encoder)."""
+"""Small annotation-aware Transformer (default: shared H/L encoder).
+
+Optional ``share_hl_encoder=False`` creates independent Encoder_H / Encoder_L
+stacks that start with identical weights (EXP-T130–T141 ablation).
+"""
 from __future__ import annotations
 
 from typing import Optional, Sequence
@@ -7,6 +11,7 @@ from typing import Optional, Sequence
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import copy
 
 from .config import REGION_TO_IDX
 from .cross_geometry import (
@@ -67,6 +72,7 @@ class AnnotatedTransformer(nn.Module):
         cross_geometry_rbf_centers: Optional[Sequence[float]] = None,
         cross_geometry_rbf_sigma: float = DEFAULT_RBF_SIGMA,
         initial_ell_angstrom: Optional[float] = None,
+        share_hl_encoder: bool = True,
     ):
         super().__init__()
         # Default platform depth is 2. Capacity refinements (T124–T129) may use 3
@@ -121,6 +127,24 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError(
                 "use_cross_attention_bridge / use_within_chain_extra_attention require n_layers=2"
             )
+        share_hl_encoder = bool(share_hl_encoder)
+        if not share_hl_encoder:
+            if (
+                joint_hl_single_reg
+                or joint_hl_dual_reg
+                or joint_hl_chain_specific_dual_reg
+            ):
+                raise ValueError(
+                    "share_hl_encoder=False is only for separate H/L encoder paths "
+                    "(incompatible with joint H/L architectures)"
+                )
+            if use_cross_attention_bridge or use_within_chain_extra_attention:
+                raise ValueError(
+                    "share_hl_encoder=False is not supported for mid-bridge architectures"
+                )
+            if use_ca_distance_bias:
+                raise ValueError("share_hl_encoder=False incompatible with CA distance bias")
+        self.share_hl_encoder = share_hl_encoder
         self.content_mode = content_mode
         self.annotation_mode = annotation_mode
         self.merge_mode = merge_mode
@@ -211,23 +235,37 @@ class AnnotatedTransformer(nn.Module):
         else:
             self.register_parameter("region_gate_logits", None)
 
-        enc_layer = nn.TransformerEncoderLayer(
-            d_model=d_model,
-            nhead=n_heads,
-            dim_feedforward=dim_feedforward,
-            dropout=dropout,
-            batch_first=True,
-            norm_first=norm_first,
-            activation="gelu",
-        )
+        def _make_encoder_layer() -> nn.TransformerEncoderLayer:
+            return nn.TransformerEncoderLayer(
+                d_model=d_model,
+                nhead=n_heads,
+                dim_feedforward=dim_feedforward,
+                dropout=dropout,
+                batch_first=True,
+                norm_first=norm_first,
+                activation="gelu",
+            )
+
         if self.use_ca_distance_bias:
+            enc_layer = _make_encoder_layer()
             self.encoder = SharedDistanceBiasTransformerEncoder(
                 enc_layer, num_layers=n_layers, n_heads=n_heads
             )
             if initial_ell_angstrom is not None:
                 self.encoder.set_initial_ell(float(initial_ell_angstrom))
+            self.encoder_h = None
+            self.encoder_l = None
+        elif self.share_hl_encoder:
+            self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+            self.encoder_h = None
+            self.encoder_l = None
         else:
-            self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+            # Independent Encoder_H / Encoder_L with identical initialization.
+            # Do NOT alias self.encoder → encoder_h (would double-register parameters).
+            self.encoder = None
+            self.encoder_h = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+            self.encoder_l = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+            self.encoder_l.load_state_dict(copy.deepcopy(self.encoder_h.state_dict()))
         self.dropout = nn.Dropout(dropout)
 
         # Shared MHA for residue bridge / within-chain extra / REG-only cross paths.
@@ -299,6 +337,36 @@ class AnnotatedTransformer(nn.Module):
             raise RuntimeError("cross geometry weights only exist with use_cross_geometry_bias=True")
         return self.cross_geom_weight.detach().cpu().clone()
 
+    def _encoder_for_chain(self, chain_idx: int) -> nn.Module:
+        """Return the Transformer encoder stack for Heavy (0) or Light (1)."""
+        if self.share_hl_encoder:
+            assert self.encoder is not None
+            return self.encoder
+        if int(chain_idx) == 0:
+            assert self.encoder_h is not None
+            return self.encoder_h
+        assert self.encoder_l is not None
+        return self.encoder_l
+
+    def encoder_init_hashes(self) -> dict[str, str]:
+        """SHA256 of flattened encoder weights (H and L); identical at unshared init."""
+        import hashlib
+
+        def _hash(mod: nn.Module) -> str:
+            parts = []
+            for k, v in sorted(mod.state_dict().items()):
+                parts.append(k.encode())
+                parts.append(v.detach().cpu().numpy().tobytes())
+            return hashlib.sha256(b"".join(parts)).hexdigest()
+
+        if self.share_hl_encoder:
+            h = _hash(self.encoder)
+            return {"encoder": h, "encoder_h": h, "encoder_l": h}
+        return {
+            "encoder_h": _hash(self.encoder_h),
+            "encoder_l": _hash(self.encoder_l),
+        }
+
     def _merge_dual_reg(self, z_h: torch.Tensor, z_l: torch.Tensor) -> torch.Tensor:
         if self.merge_mode == "concat":
             return torch.cat([z_h, z_l], dim=-1)
@@ -334,7 +402,14 @@ class AnnotatedTransformer(nn.Module):
 
     def param_account(self) -> dict[str, int]:
         """Trainable param breakdown for reporting."""
-        enc = sum(p.numel() for p in self.encoder.parameters() if p.requires_grad)
+        if self.share_hl_encoder:
+            enc = sum(p.numel() for p in self.encoder.parameters() if p.requires_grad)
+            enc_h = enc
+            enc_l = 0
+        else:
+            enc_h = sum(p.numel() for p in self.encoder_h.parameters() if p.requires_grad)
+            enc_l = sum(p.numel() for p in self.encoder_l.parameters() if p.requires_grad)
+            enc = enc_h + enc_l
         head = sum(p.numel() for p in self.head.parameters() if p.requires_grad)
         cross = (
             sum(p.numel() for p in self.cross_attn.parameters() if p.requires_grad)
@@ -354,12 +429,15 @@ class AnnotatedTransformer(nn.Module):
         total = self.n_trainable_parameters()
         return {
             "encoder": enc,
+            "encoder_h": enc_h,
+            "encoder_l": enc_l,
             "cross_attention": cross,
             "gates": gates,
             "geometry": geometry,
             "head": head,
             "other": total - enc - cross - gates - geometry - head,
             "total": total,
+            "share_hl_encoder": int(self.share_hl_encoder),
         }
 
     def region_gate_weights(self) -> dict[str, torch.Tensor]:
@@ -479,20 +557,21 @@ class AnnotatedTransformer(nn.Module):
 
         pad = torch.zeros(B, 1 + L, dtype=torch.bool, device=mask.device)
         pad[:, 1:] = ~mask
+        enc = self._encoder_for_chain(chain_idx)
         if self.use_ca_distance_bias:
             if ca_coords is None:
                 raise ValueError("CA distance bias enabled but ca_coords missing")
             # Missing CA -> nan; treat as non-contributing residue in pair mask
             coords = torch.nan_to_num(ca_coords, nan=0.0)
             ca_ok = torch.isfinite(ca_coords).all(dim=-1) & mask
-            h = self.encoder(
+            h = enc(
                 self.dropout(x),
                 src_key_padding_mask=pad,
                 residue_coords=coords,
                 residue_mask=ca_ok,
             )
         else:
-            h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
+            h = enc(self.dropout(x), src_key_padding_mask=pad)
         if self.pooling_mode == "reg":
             reg_out = h[:, 0]
             if self.use_rasa_weighted_pool and self.rasa_pool_proj is not None:
@@ -809,9 +888,9 @@ class AnnotatedTransformer(nn.Module):
             imgt=batch.get("light_imgt"),
             region=batch.get("light_region"),
         )
-        # Full shared encoder per chain (same as encode_chain path, keep all hidden)
-        h_h = self.encoder(self.dropout(x_h), src_key_padding_mask=pad_h)
-        h_l = self.encoder(self.dropout(x_l), src_key_padding_mask=pad_l)
+        # Full per-chain encoder (shared or unshared); then REG-only cross.
+        h_h = self._encoder_for_chain(0)(self.dropout(x_h), src_key_padding_mask=pad_h)
+        h_l = self._encoder_for_chain(1)(self.dropout(x_l), src_key_padding_mask=pad_l)
 
         reg_h = h_h[:, :1]
         reg_l = h_l[:, :1]

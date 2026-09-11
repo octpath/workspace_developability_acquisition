@@ -1,0 +1,252 @@
+batch_id: T130_T141_ENCODER_SHARING
+platform_id: DL_FOLDLOCAL_COSINE_V3
+scientific_question: shared vs unshared H/L Transformer encoder weights
+git_rev_at_prereg: 3f8db905262938065708e3f06f2e88fcd65017b2
+n_experiments: 12
+experiments:
+- code: EXP-T130
+  target: TmApp
+  base_experiment: EXP-T075
+  representation: ABLINGUA
+  architecture: ARCH-1
+  merge: concat
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 766593
+  shared_control_parameter_count: 501633
+  delta_params: 264960
+  config_hash: a3720254b5dbb71696e6a161c864d9eadf6ec14ea580e8e398f902d9474ec082
+  planned_contrast: EXP-T130 vs EXP-T075
+  description: ABLINGUA ARCH-1 CONCAT UNSHARED encoder (control EXP-T075)
+- code: EXP-T131
+  target: TmApp
+  base_experiment: EXP-T080
+  representation: ABLINGUA
+  architecture: ARCH-1
+  merge: mean
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 750209
+  shared_control_parameter_count: 485249
+  delta_params: 264960
+  config_hash: cbfe3ecac23ae17ca108f69e65e7f35a2f1f804ce1a42dd9e37977783f0491f0
+  planned_contrast: EXP-T131 vs EXP-T080
+  description: ABLINGUA ARCH-1 MEAN UNSHARED encoder (control EXP-T080)
+- code: EXP-T132
+  target: TmApp
+  base_experiment: EXP-T086
+  representation: ABLINGUA
+  architecture: ARCH-7
+  merge: concat
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 832641
+  shared_control_parameter_count: 567681
+  delta_params: 264960
+  config_hash: 93d9188f405a3ca054091d9978a44728f0f7caa172bfb8d62a0b7916d1bb395f
+  planned_contrast: EXP-T132 vs EXP-T086
+  description: ABLINGUA ARCH-7 CONCAT UNSHARED encoder (control EXP-T086)
+- code: EXP-T133
+  target: TmApp
+  base_experiment: EXP-T087
+  representation: ABLINGUA
+  architecture: ARCH-7
+  merge: mean
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 816257
+  shared_control_parameter_count: 551297
+  delta_params: 264960
+  config_hash: efc3c79e16a8d0fc926db84aabb68e7e1f199c35699e88cfd270463aefc326ae
+  planned_contrast: EXP-T133 vs EXP-T087
+  description: ABLINGUA ARCH-7 MEAN UNSHARED encoder (control EXP-T087)
+- code: EXP-T134
+  target: TmApp
+  base_experiment: EXP-T090
+  representation: SCRATCH
+  architecture: ARCH-1
+  merge: concat
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 605441
+  shared_control_parameter_count: 340481
+  delta_params: 264960
+  config_hash: 473d54cd457a64c1742a1442195d2af8d7e797b3898e45a1152f6881c8abcddd
+  planned_contrast: EXP-T134 vs EXP-T090
+  description: SCRATCH ARCH-1 CONCAT UNSHARED encoder (control EXP-T090)
+- code: EXP-T135
+  target: TmApp
+  base_experiment: EXP-T091
+  representation: SCRATCH
+  architecture: ARCH-1
+  merge: mean
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 589057
+  shared_control_parameter_count: 324097
+  delta_params: 264960
+  config_hash: 8b08adfe30b6a021a99d37394f443ee7a9f4feead17a82e1ff17772e66b46d22
+  planned_contrast: EXP-T135 vs EXP-T091
+  description: SCRATCH ARCH-1 MEAN UNSHARED encoder (control EXP-T091)
+- code: EXP-T136
+  target: TmApp
+  base_experiment: EXP-T101
+  representation: SCRATCH
+  architecture: ARCH-7
+  merge: concat
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 671489
+  shared_control_parameter_count: 406529
+  delta_params: 264960
+  config_hash: 62e07189c3c923e97f6d87787e49adadba2dc49e87668620d6091c66f621d1d9
+  planned_contrast: EXP-T136 vs EXP-T101
+  description: SCRATCH ARCH-7 CONCAT UNSHARED encoder (control EXP-T101)
+- code: EXP-T137
+  target: TmApp
+  base_experiment: EXP-T102
+  representation: SCRATCH
+  architecture: ARCH-7
+  merge: mean
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 655105
+  shared_control_parameter_count: 390145
+  delta_params: 264960
+  config_hash: c2ce13d832670ad47bf9eb6e2269c7c74c60570b3f438a268323ebce5668564b
+  planned_contrast: EXP-T137 vs EXP-T102
+  description: SCRATCH ARCH-7 MEAN UNSHARED encoder (control EXP-T102)
+- code: EXP-T138
+  target: TmApp
+  base_experiment: EXP-T109
+  representation: ABLANG2
+  architecture: ARCH-1
+  merge: concat
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 664193
+  shared_control_parameter_count: 399233
+  delta_params: 264960
+  config_hash: 036ba09316015a916bdf8ac1111cc741c8b4ada9454b1220280e6207a061ff5b
+  planned_contrast: EXP-T138 vs EXP-T109
+  description: ABLANG2 ARCH-1 CONCAT UNSHARED encoder (control EXP-T109)
+- code: EXP-T139
+  target: TmApp
+  base_experiment: EXP-T110
+  representation: ABLANG2
+  architecture: ARCH-1
+  merge: mean
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 647809
+  shared_control_parameter_count: 382849
+  delta_params: 264960
+  config_hash: ab23b9dae4e12a762dd478ffe4534d4273206846bb676ff1f937f5dc88469ffc
+  planned_contrast: EXP-T139 vs EXP-T110
+  description: ABLANG2 ARCH-1 MEAN UNSHARED encoder (control EXP-T110)
+- code: EXP-T140
+  target: TmApp
+  base_experiment: EXP-T120
+  representation: ABLANG2
+  architecture: ARCH-7
+  merge: concat
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 730241
+  shared_control_parameter_count: 465281
+  delta_params: 264960
+  config_hash: bbc6d921f20572dbfc3bf4de003b97a166122f05825acefbc0cd5ba56476f894
+  planned_contrast: EXP-T140 vs EXP-T120
+  description: ABLANG2 ARCH-7 CONCAT UNSHARED encoder (control EXP-T120)
+- code: EXP-T141
+  target: TmApp
+  base_experiment: EXP-T121
+  representation: ABLANG2
+  architecture: ARCH-7
+  merge: mean
+  encoder_sharing: UNSHARED
+  d_model: 128
+  n_layers: 2
+  n_heads: 4
+  FFN: 256
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  seed: 101
+  parameter_count: 713857
+  shared_control_parameter_count: 448897
+  delta_params: 264960
+  config_hash: ca31f2ac2784c81cc9a1120e324bdc1a6c0491d4bf5882d199850741f72806b4
+  planned_contrast: EXP-T141 vs EXP-T121
+  description: ABLANG2 ARCH-7 MEAN UNSHARED encoder (control EXP-T121)
+isolation:
+  untied:
+  - TransformerEncoder stack H
+  - TransformerEncoder stack L
+  remain_shared:
+  - aa_emb
+  - plm_proj
+  - pos_emb
+  - imgt_emb
+  - region_emb
+  - chain_emb
+  - reg_token
+  - cross_attn (ARCH-7)
+  - merge
+  - regression head
+  init: theta_L := exact copy(theta_H) at construction
+freeze_statement: No scientific config may change based on VAL/TEST/Public/Private/Overall
+  after freeze.
