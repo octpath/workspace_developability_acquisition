@@ -68,7 +68,7 @@ def test_exp_h102_unused():
     sys.path.insert(0, str(ROOT.parents[1] / "developability_drilldown" / "scripts"))
     from experiment_codes import next_code
 
-    assert next_code("HIC") == "EXP-H102"
+    assert next_code("HIC") == "EXP-H114"
 
 
 def test_no_hic_in_geometry_if_present():

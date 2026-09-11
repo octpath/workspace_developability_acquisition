@@ -1,0 +1,52 @@
+{
+  "experiment_code": "EXP-H103",
+  "platform_id": "DL_FOLDLOCAL_COSINE_V3",
+  "config_hash": "9c9289cd9b3fb1220ee8c661571ce6aa54d333ebcc207fdb09ce6b82ab261177",
+  "scores": {
+    "oof_val": {
+      "primary": 0.3898861213495701,
+      "shadow": 0.40447484004644707,
+      "mean": 0.3971804806980086,
+      "worst": 0.40447484004644707
+    },
+    "oof_test": {
+      "primary": 0.4409347164483718,
+      "shadow": 0.4892801464693046,
+      "mean": 0.4651074314588382,
+      "worst": 0.4892801464693046
+    }
+  },
+  "n_trainable": 349282,
+  "param_account": {
+    "encoder": 264960,
+    "encoder_h": 264960,
+    "encoder_l": 0,
+    "cross_attention": 0,
+    "gates": 0,
+    "geometry": 0,
+    "head": 16641,
+    "other": 42368,
+    "total": 349282,
+    "share_hl_encoder": 1,
+    "late_fusion_aux_head": 25313
+  },
+  "capacity": null,
+  "fusion_bundle_id": "FS_HIC_SURFACE_PLUS_HSP_BM_R5_PROMOTED",
+  "feature_artifact_hash": "f282375b173becc42248d932132d492c42e7820d1463edd2b70e4deafb6a0f2b",
+  "seed": 101,
+  "arch": {
+    "joint_hl_single_reg": true,
+    "joint_hl_dual_reg": false,
+    "joint_hl_chain_specific_dual_reg": false,
+    "use_cross_attention_bridge": false,
+    "use_reg_only_cross_attention": false,
+    "use_within_chain_extra_attention": false,
+    "cross_gate_mode": "learned",
+    "use_cross_geometry_bias": false,
+    "share_hl_encoder": true
+  },
+  "content_mode": "scratch",
+  "merge_mode": "concat",
+  "plm_source": null,
+  "chain_mode": "HL"
+}

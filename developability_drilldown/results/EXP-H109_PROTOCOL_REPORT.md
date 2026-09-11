@@ -1,0 +1,6 @@
+# EXP-H109 — ESM2 + SURFACE + P1 BM-R5
+
+- platform: `DL_FOLDLOCAL_COSINE_V3`
+- HSP family: `HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0`
+- TEST_mean: 0.457159
+- Overall (P-mean): 0.401274

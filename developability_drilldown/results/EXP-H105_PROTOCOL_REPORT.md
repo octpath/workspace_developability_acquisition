@@ -1,0 +1,6 @@
+# EXP-H105 — Scratch + SURFACE + P2 FP-R5
+
+- platform: `DL_FOLDLOCAL_COSINE_V3`
+- HSP family: `HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0`
+- TEST_mean: 0.473340
+- Overall (P-mean): 0.408980
