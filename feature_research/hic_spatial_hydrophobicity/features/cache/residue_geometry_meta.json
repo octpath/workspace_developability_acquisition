@@ -1,0 +1,9 @@
+{
+  "n_antibodies": 324,
+  "n_residues": 75057,
+  "probe": 1.4,
+  "n_points": 100,
+  "structure_scope": "Fv",
+  "errors": [],
+  "sha256": "1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674"
+}

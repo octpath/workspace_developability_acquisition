@@ -1,0 +1,14 @@
+{
+  "n_antibodies": 324,
+  "n_antibody_features": 21229,
+  "n_generic_families": 504,
+  "n_residue_rows_long": 37828728,
+  "unavailable_scales": {
+    "JAIN_HIC": {
+      "reason": "No verified 20-AA hydrophobicity scale named 'Jain HIC' found; Jain 2017 is assay data, not a residue hydrophobicity table. Janin burial scale is a different quantity and was not substituted.",
+      "status": "UNAVAILABLE"
+    }
+  },
+  "mainline_next_hic": "EXP-H102",
+  "consumed_EXP_H102": false
+}

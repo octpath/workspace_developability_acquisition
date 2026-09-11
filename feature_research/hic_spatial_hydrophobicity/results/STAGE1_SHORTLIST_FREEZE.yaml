@@ -1,0 +1,61 @@
+status: STAGE1_SHORTLIST_FROZEN
+rule: /workspace_developability_acquisition/feature_research/hic_spatial_hydrophobicity/results/STAGE1_SHORTLIST_RULE.yaml
+shortlist:
+- track: alone_ridge
+  family_id: HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  source: data_driven
+- track: alone_ridge
+  family_id: HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0
+  source: data_driven
+- track: alone_svr
+  family_id: HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CENTROID_R7p5
+  source: data_driven
+- track: inc_surface_ridge
+  family_id: HSP_FP_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  source: data_driven
+- track: inc_surface_ridge
+  family_id: HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0
+  source: data_driven
+- track: inc_surface_svr
+  family_id: HSP_EIS_MINMAX_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  source: data_driven
+- track: mandatory
+  family_id: LIT2_STATIC_SAP_BM_R5p0
+  source: mandatory_lit2
+- track: mandatory
+  family_id: LIT3_PSH_KD
+  source: mandatory_lit3
+- track: mandatory
+  family_id: LIT4_POS_SASA_WW
+  source: mandatory_lit4_ww
+- track: mandatory
+  family_id: LIT4_POS_SASA_MEEK
+  source: mandatory_lit4_meek
+- track: mandatory
+  family_id: LIT4_POS_SASA_KD
+  source: mandatory_lit4_kd
+tracks:
+  alone_ridge:
+  - HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  - HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0
+  alone_svr:
+  - HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  - HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CENTROID_R7p5
+  inc_surface_ridge:
+  - HSP_FP_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  - HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0
+  inc_surface_svr:
+  - HSP_FP_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  - HSP_EIS_MINMAX_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+baselines_VAL:
+  SURFACE|Ridge|primary: 0.5411284013302128
+  SURFACE|Ridge|shadow: 0.5659911513983654
+  SURFACE|SVR|primary: 0.48056026703041105
+  SURFACE|SVR|shadow: 0.4735310723616776
+  PHYS_LOWDIM|Ridge|primary: 0.8206858739641452
+  PHYS_LOWDIM|Ridge|shadow: 0.7816455909766423
+  PHYS_LOWDIM|SVR|primary: 0.4560631929300275
+  PHYS_LOWDIM|SVR|shadow: 0.455535434078263
+n_stage1_rows: 15336
+mainline_next_hic: EXP-H102
+consumed_EXP_H102: false

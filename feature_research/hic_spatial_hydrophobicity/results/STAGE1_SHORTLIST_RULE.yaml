@@ -1,0 +1,35 @@
+# Shortlist rule — preregistered BEFORE Stage-1 VAL inspection
+
+status: PREREGISTERED
+created: 2026-09-11
+mainline_next_hic: EXP-H102
+consumed_EXP_H102: false
+
+## Ranking tracks (VAL_mean primary; VAL_worst secondary)
+
+1. descriptor-alone Ridge
+2. descriptor-alone SVR
+3. incremental-over-SURFACE Ridge  (Δ = SURFACE+desc − SURFACE)
+4. incremental-over-SURFACE SVR
+
+## Selection
+
+For each track: take top 2 **nonredundant** families  
+Nonredundant: not in same Spearman≥0.98 redundancy cluster (target-blind clusters).
+
+→ at most 8 data-driven candidates.
+
+## Mandatory literature anchors (if available)
+
+- LIT2 static SAP BM (canonical/static approx)
+- LIT3 PSH-like KD
+- best verified WW among LIT4 positive-SASA / related
+- best verified scale among LIT4 for Meek or KD positive-SASA if WW missing alternate: best LIT4 by VAL among WW/MEEK/KD
+
+## Cap
+
+Maximum shortlist size: **12** families.
+
+## Freeze
+
+After Stage-1 completes, write `STAGE1_SHORTLIST_FREEZE.yaml` with exact IDs/columns/hashes, commit, **then** reveal TEST.
