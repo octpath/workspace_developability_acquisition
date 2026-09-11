@@ -1,0 +1,26 @@
+{
+  "descriptor": "STATIC_SAP_KD",
+  "structure_scope": "Fv",
+  "R_REF": 5.0,
+  "R_REF_label": "SOURCE_SPECIFIED_FROM_STATIC_SAP_FEATURE_SPEC",
+  "n_points_primary": 100,
+  "n_points_label": "SOURCE_SPECIFIED",
+  "n_points_qc": 960,
+  "include_self": true,
+  "artifact_hashes": {
+    "residue": "d69e41fcae1beb6b372bfa42e654f8379c5d6ec0e48b091baee2a71322dc34d0",
+    "global3": "2ae537df33213e4737f2fc1d0b7d8af3f5e7dbf70a66b75841a8b8742e57d1b1",
+    "chain9": "162b4a91413ffb03eaa944083f8af9eca3df410ffbf1923f4194ad11445fa0b5",
+    "n_antibodies": 324,
+    "n_residue_rows": 75057
+  },
+  "issues": [],
+  "errors": [],
+  "sasa_unstable": false,
+  "paths": {
+    "residue": "experiments/features/static_sap_kd_residue.parquet",
+    "global3": "experiments/features/static_sap_kd_antibody_global3.parquet",
+    "chain9": "experiments/features/static_sap_kd_antibody_chain9.parquet"
+  },
+  "sasa_stability_note": "MAX pearson~0.987 under n_points 100vs960 is expected for a max statistic; MEAN/SUM pearson>=0.995 \u2014 proceed with n_points=100 SOURCE_SPECIFIED"
+}
