@@ -1,0 +1,40 @@
+experiment_code: EXP-T131
+platform_id: DL_FOLDLOCAL_COSINE_V3
+git_rev: e52d7235b64bf33152b5d9aa41a2c96281efaf86
+oof_test:
+  primary: 3.3680822584364147
+  shadow: 3.321155642285759
+  mean: 3.344618950361087
+  worst: 3.3680822584364147
+external_test:
+  primary_mean:
+    public_mae: 3.4552259751308116
+    private_mae: 3.14093804065092
+    overall_mae: 3.2980820078908657
+  primary_median:
+    public_mae: 3.4371736314561634
+    private_mae: 3.0829970748336226
+    overall_mae: 3.260085353144893
+  shadow_mean:
+    public_mae: 3.550252419930917
+    private_mae: 3.228519185384114
+    overall_mae: 3.389385802657516
+  shadow_median:
+    public_mae: 3.586421448507427
+    private_mae: 3.2991142743899498
+    overall_mae: 3.4427678614486883
+config_hash: 333958265d6bbf1fd91574f5426956c5908f85846ce2d32cc8f2c9e1a3b990d7
+n_trainable_parameters: 750209
+param_account:
+  encoder: 529920
+  encoder_h: 264960
+  encoder_l: 264960
+  cross_attention: 0
+  gates: 0
+  geometry: 0
+  head: 16641
+  other: 203648
+  total: 750209
+  share_hl_encoder: 0
+encoder_sharing: UNSHARED
+control: EXP-T080

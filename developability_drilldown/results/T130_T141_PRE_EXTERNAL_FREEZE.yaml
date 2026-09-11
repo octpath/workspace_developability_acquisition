@@ -1,0 +1,19 @@
+status: PRE_EXTERNAL_FREEZE
+git_rev: e52d7235b64bf33152b5d9aa41a2c96281efaf86
+completed:
+- EXP-T130
+- EXP-T131
+- EXP-T132
+- EXP-T133
+- EXP-T134
+- EXP-T135
+- EXP-T136
+- EXP-T137
+- EXP-T138
+- EXP-T139
+- EXP-T140
+- EXP-T141
+n_completed: 12
+preregistration: /workspace_developability_acquisition/developability_drilldown/results/T130_T141_ENCODER_SHARING_PREREGISTRATION.yaml
+platform_id: DL_FOLDLOCAL_COSINE_V3
+statement: All configs unchanged; internal TEST frozen before comparative reports.

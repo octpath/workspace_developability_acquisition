@@ -1,0 +1,25 @@
+model_a,model_b,scheme,split,delta_mae,ci95_lo,ci95_hi,sign,rep,arch,merge
+EXP-T130,EXP-T075,primary,test,-0.06335955490300726,-0.28858352472752685,0.14521945376455012,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-1,concat
+EXP-T130,EXP-T075,shadow,test,0.22643046908908415,-0.01661878632910485,0.48110132511751125,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-1,concat
+EXP-T131,EXP-T080,primary,test,0.10783244945384807,-0.08115013852531526,0.2887003698466728,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-1,mean
+EXP-T131,EXP-T080,shadow,test,0.014483463617018355,-0.16531042876066993,0.1993282789065514,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-1,mean
+EXP-T132,EXP-T086,primary,test,0.01416131007818544,-0.13716650774449488,0.16001370571277793,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-7,concat
+EXP-T132,EXP-T086,shadow,test,-0.069302005532347,-0.253417666753133,0.11264727733753355,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-7,concat
+EXP-T133,EXP-T087,primary,test,0.053101009792751785,-0.1344609743283116,0.25161889747337046,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-7,mean
+EXP-T133,EXP-T087,shadow,test,0.08428168591157892,-0.11314398800885236,0.2809955031783493,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLINGUA,ARCH-7,mean
+EXP-T134,EXP-T090,primary,test,-0.18654397093219544,-0.43205756199212714,0.06298717333946666,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-1,concat
+EXP-T134,EXP-T090,shadow,test,-0.2873364201298467,-0.5520739296336236,-0.04150336112505152,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-1,concat
+EXP-T135,EXP-T091,primary,test,-0.11892763773600246,-0.40319960205643274,0.15826609870533898,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-1,mean
+EXP-T135,EXP-T091,shadow,test,-0.27526902563777966,-0.5840098840219005,0.03161410108024662,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-1,mean
+EXP-T136,EXP-T101,primary,test,0.023940098138503174,-0.2390446992568028,0.3071696304980622,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-7,concat
+EXP-T136,EXP-T101,shadow,test,-0.10630056593153192,-0.33759940995110377,0.11938827361589584,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-7,concat
+EXP-T137,EXP-T102,primary,test,0.06719876513069067,-0.18440916862016846,0.3150623144926849,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-7,mean
+EXP-T137,EXP-T102,shadow,test,-0.187296361099055,-0.4169255445032944,0.037434819303912424,delta=MAE_unshared-MAE_shared; negative => unshared better,SCRATCH,ARCH-7,mean
+EXP-T138,EXP-T109,primary,test,0.06084861284420828,-0.18058143074129832,0.3116770697228693,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-1,concat
+EXP-T138,EXP-T109,shadow,test,0.040487666188934845,-0.3218643117834023,0.38818829089035234,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-1,concat
+EXP-T139,EXP-T110,primary,test,0.06432304853274529,-0.17289469801349386,0.30637271728044685,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-1,mean
+EXP-T139,EXP-T110,shadow,test,0.09959972051926602,-0.15417443028202785,0.3534473825384069,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-1,mean
+EXP-T140,EXP-T120,primary,test,0.27361672012894234,0.039963321332578454,0.5156659832707158,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-7,concat
+EXP-T140,EXP-T120,shadow,test,0.029663792362919494,-0.1750989913940432,0.23258621192272813,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-7,concat
+EXP-T141,EXP-T121,primary,test,0.25011411125277316,0.02263094819622249,0.4948162120065564,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-7,mean
+EXP-T141,EXP-T121,shadow,test,-0.01007449774094571,-0.21020993009025646,0.1973623152132388,delta=MAE_unshared-MAE_shared; negative => unshared better,ABLANG2,ARCH-7,mean
