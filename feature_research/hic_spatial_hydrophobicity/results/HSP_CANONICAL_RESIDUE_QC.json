@@ -1,0 +1,8 @@
+{
+  "n_antibodies": 0,
+  "n_residues": 0,
+  "coverage_324": false,
+  "status": "NO_CANONICAL_FAMILY",
+  "b3_reconstruction": {},
+  "note": "No ROBUST_* family; residue canonical parquet not written."
+}
