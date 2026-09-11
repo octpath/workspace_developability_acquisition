@@ -383,7 +383,9 @@ def _predict_fixed(model, rb, ids, y_arr, X_fixed, blob, device):
     with torch.no_grad():
         for batch in DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch):
             batch = _batch_to_device(batch, device)
-            pred_z = model(batch)
+            batch.pop("y", None)
+            fixed = batch.pop("fixed")
+            pred_z = model(batch, fixed)
             preds.append((pred_z * sd + mu).cpu().numpy())
     return np.concatenate(preds)
 
@@ -502,14 +504,16 @@ def feature_correlation_and_descriptive() -> None:
             # max |corr| with any column in block + mean abs
             pears = [abs(pearsonr(m[sap_col], m[c])[0]) for c in cols]
             spears = [abs(spearmanr(m[sap_col], m[c])[0]) for c in cols]
+            pears = [x for x in pears if np.isfinite(x)]
+            spears = [x for x in spears if np.isfinite(x)]
             rows.append(
                 {
                     "sap_feature": sap_col,
                     "block": block_name,
-                    "pearson_max_abs": float(np.nanmax(pears)),
-                    "pearson_mean_abs": float(np.nanmean(pears)),
-                    "spearman_max_abs": float(np.nanmax(spears)),
-                    "spearman_mean_abs": float(np.nanmean(spears)),
+                    "pearson_max_abs": float(np.max(pears)) if pears else float("nan"),
+                    "pearson_mean_abs": float(np.mean(pears)) if pears else float("nan"),
+                    "spearman_max_abs": float(np.max(spears)) if spears else float("nan"),
+                    "spearman_mean_abs": float(np.mean(spears)) if spears else float("nan"),
                 }
             )
         for nuisance in ("n_residues", "n_H", "n_L", "total_SASA"):

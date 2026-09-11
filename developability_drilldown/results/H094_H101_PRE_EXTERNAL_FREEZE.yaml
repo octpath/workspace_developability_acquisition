@@ -1,0 +1,16 @@
+status: PRE_EXTERNAL_FREEZE
+git_rev: e2f05ad0598237c3145f9d85ebbac8331c261c74
+completed:
+- EXP-H094
+- EXP-H095
+- EXP-H096
+- EXP-H097
+- EXP-H098
+- EXP-H099
+- EXP-H100
+- EXP-H101
+n_completed: 8
+preregistration: /workspace_developability_acquisition/developability_drilldown/results/H094_H101_STATIC_SAP_KD_PREREGISTRATION.yaml
+statement: All H094-H101 internal TEST frozen before comparative external reveal.
+platform_id: DL_FOLDLOCAL_COSINE_V3
+note: Internal freeze recorded after H094-H101 training; final commit follows validate.

@@ -322,10 +322,10 @@ CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
 LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
 
 # Expected registry sizes after T130–T141 encoder-sharing ablation (+12 Tm)
-N_EXPERIMENTS_TOTAL = 234  # 222 prior + 12 Tm
+N_EXPERIMENTS_TOTAL = 242  # 234 prior + 8 HIC STATIC_SAP_KD
 N_LEGACY_MAP = 48  # Linear/XGB only; Transformer + classical-refinement rows have empty legacy
 N_FULL_LINEAR_XGB = 86  # 12 historical FULL + 34 reconstructed + 40 classical refinement
-N_TRANSFORMER = 146  # 134 prior + 12 Tm
+N_TRANSFORMER = 154  # 146 prior + 8 HIC STATIC_SAP_KD
 N_HISTORICAL_TRANSFORMER = 29  # Phase2A backfill only (TRANSFORMER_BACKFILL_AUDIT)
 N_CLASSICAL_REFINEMENT = 40
 N_LINEAR = 74
