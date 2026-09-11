@@ -1,0 +1,341 @@
+batch_id: H102_H113_HSP_PROMOTED_MAINLINE
+status: PREREGISTERED_FROZEN
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+git_rev_at_prereg: 210a270d1eec4dc896514a6822f8e91fef2e659b
+source_research_commit: 210a270d
+source_track: feature_research/hic_spatial_hydrophobicity
+canonical_features: /workspace_developability_acquisition/developability_drilldown/results/H102_H113_HSP_CANONICAL_FEATURES.json
+promotion_audit: /workspace_developability_acquisition/developability_drilldown/results/H102_H113_HSP_PROMOTION_AUDIT.md
+bundle_id: B3
+late_fusion: Linear(p,64)->GELU->Dropout(0.2)->Linear(64,32)->GELU; concat with z_DL
+preprocessing: TRAIN-only median impute + StandardScaler per logical block
+training_platform: DL_FOLDLOCAL_COSINE_V3
+matched_comparisons:
+  base_scratch:
+  - H102-H071
+  - H104-H071
+  - H106-H071
+  base_esm2:
+  - H108-H061
+  - H110-H061
+  - H112-H061
+  replace_surface_scratch:
+  - H102-H090
+  - H104-H090
+  - H106-H090
+  replace_surface_esm2:
+  - H108-H086
+  - H110-H086
+  - H112-H086
+  increment_scratch_PRIMARY:
+  - H103-H090
+  - H105-H090
+  - H107-H090
+  increment_esm2_PRIMARY:
+  - H109-H086
+  - H111-H086
+  - H113-H086
+controls_reused_not_retrained:
+- EXP-H071
+- EXP-H090
+- EXP-H093
+- EXP-H061
+- EXP-H086
+- EXP-H089
+forbidden:
+- HSP re-optimization
+- multi-HSP combination
+- F4+HSP
+- residue-level HSP
+- charge/aromatic atlas
+- T142
+- H114+
+series:
+- code: EXP-H102
+  backbone: EXP-H071
+  control_no_aux: EXP-H071
+  control_surface: null
+  fusion_bundle_id: FS_HIC_HSP_BM_R5_PROMOTED
+  aux_dim: 3
+  hsp_family_id: HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: &id001
+  - HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0__ALL_FV__MAX
+  - HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0__ALL_FV__MEAN
+  - HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0__ALL_FV__SUM
+  source_spec_hash: c58f5a41cb071409
+  mainline_feature_hash: 831d72170d5bd5c7
+  property_table_hash: 91c7bdd90bcd5740
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P1
+  description: Scratch + P1 BM-R5 HSP alone
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_HSP_BM_R5_PROMOTED_V3
+  input_space: LATEFUSION_HSP_BM_R5_PROMOTED_SCRATCH_V3
+  plm_source: NONE
+  content_mode: scratch
+  representation: SCRATCH
+  arch_id: ARCH-2
+  merge_mode: concat
+  transformer_type: LATE_FUSION
+- code: EXP-H103
+  backbone: EXP-H071
+  control_no_aux: null
+  control_surface: EXP-H090
+  fusion_bundle_id: FS_HIC_SURFACE_PLUS_HSP_BM_R5_PROMOTED
+  aux_dim: 38
+  hsp_family_id: HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: *id001
+  source_spec_hash: c58f5a41cb071409
+  mainline_feature_hash: 831d72170d5bd5c7
+  property_table_hash: 91c7bdd90bcd5740
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P1
+  description: Scratch + SURFACE + P1 BM-R5
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SURFACE_PLUS_HSP_BM_R5_PROMOTED_V3
+  input_space: LATEFUSION_SURFACE_PLUS_HSP_BM_R5_PROMOTED_SCRATCH_V3
+  plm_source: NONE
+  content_mode: scratch
+  representation: SCRATCH
+  arch_id: ARCH-2
+  merge_mode: concat
+  transformer_type: LATE_FUSION
+- code: EXP-H104
+  backbone: EXP-H071
+  control_no_aux: EXP-H071
+  control_surface: null
+  fusion_bundle_id: FS_HIC_HSP_FP_R5_PROMOTED
+  aux_dim: 3
+  hsp_family_id: HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: &id002
+  - HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0__ALL_FV__MAX
+  - HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0__ALL_FV__MEAN
+  - HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0__ALL_FV__SUM
+  source_spec_hash: 8fe429d458cc0154
+  mainline_feature_hash: 02a25f5f72761516
+  property_table_hash: 5c245bdc00d9f7ed
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P2
+  description: Scratch + P2 FP-R5 HSP alone
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_HSP_FP_R5_PROMOTED_V3
+  input_space: LATEFUSION_HSP_FP_R5_PROMOTED_SCRATCH_V3
+  plm_source: NONE
+  content_mode: scratch
+  representation: SCRATCH
+  arch_id: ARCH-2
+  merge_mode: concat
+  transformer_type: LATE_FUSION
+- code: EXP-H105
+  backbone: EXP-H071
+  control_no_aux: null
+  control_surface: EXP-H090
+  fusion_bundle_id: FS_HIC_SURFACE_PLUS_HSP_FP_R5_PROMOTED
+  aux_dim: 38
+  hsp_family_id: HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: *id002
+  source_spec_hash: 8fe429d458cc0154
+  mainline_feature_hash: 02a25f5f72761516
+  property_table_hash: 5c245bdc00d9f7ed
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P2
+  description: Scratch + SURFACE + P2 FP-R5
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SURFACE_PLUS_HSP_FP_R5_PROMOTED_V3
+  input_space: LATEFUSION_SURFACE_PLUS_HSP_FP_R5_PROMOTED_SCRATCH_V3
+  plm_source: NONE
+  content_mode: scratch
+  representation: SCRATCH
+  arch_id: ARCH-2
+  merge_mode: concat
+  transformer_type: LATE_FUSION
+- code: EXP-H106
+  backbone: EXP-H071
+  control_no_aux: EXP-H071
+  control_surface: null
+  fusion_bundle_id: FS_HIC_HSP_EIS_R8_PROMOTED
+  aux_dim: 3
+  hsp_family_id: HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0
+  hsp_bundle_id: B3
+  hsp_columns: &id003
+  - HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0__ALL_FV__MAX
+  - HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0__ALL_FV__MEAN
+  - HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0__ALL_FV__SUM
+  source_spec_hash: faf5f8cd5c526965
+  mainline_feature_hash: 2be692a559b23c6e
+  property_table_hash: 18538577f6210fc6
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P3
+  description: Scratch + P3 EIS-R8 HSP alone
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_HSP_EIS_R8_PROMOTED_V3
+  input_space: LATEFUSION_HSP_EIS_R8_PROMOTED_SCRATCH_V3
+  plm_source: NONE
+  content_mode: scratch
+  representation: SCRATCH
+  arch_id: ARCH-2
+  merge_mode: concat
+  transformer_type: LATE_FUSION
+- code: EXP-H107
+  backbone: EXP-H071
+  control_no_aux: null
+  control_surface: EXP-H090
+  fusion_bundle_id: FS_HIC_SURFACE_PLUS_HSP_EIS_R8_PROMOTED
+  aux_dim: 38
+  hsp_family_id: HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0
+  hsp_bundle_id: B3
+  hsp_columns: *id003
+  source_spec_hash: faf5f8cd5c526965
+  mainline_feature_hash: 2be692a559b23c6e
+  property_table_hash: 18538577f6210fc6
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P3
+  description: Scratch + SURFACE + P3 EIS-R8
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SURFACE_PLUS_HSP_EIS_R8_PROMOTED_V3
+  input_space: LATEFUSION_SURFACE_PLUS_HSP_EIS_R8_PROMOTED_SCRATCH_V3
+  plm_source: NONE
+  content_mode: scratch
+  representation: SCRATCH
+  arch_id: ARCH-2
+  merge_mode: concat
+  transformer_type: LATE_FUSION
+- code: EXP-H108
+  backbone: EXP-H061
+  control_no_aux: EXP-H061
+  control_surface: null
+  fusion_bundle_id: FS_HIC_HSP_BM_R5_PROMOTED
+  aux_dim: 3
+  hsp_family_id: HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: *id001
+  source_spec_hash: c58f5a41cb071409
+  mainline_feature_hash: 831d72170d5bd5c7
+  property_table_hash: 91c7bdd90bcd5740
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P1
+  description: ESM2 + P1 BM-R5 HSP alone
+  experiment_id: TRF_HIC_ESM2_ARCH4_HSP_BM_R5_PROMOTED_V3
+  input_space: LATEFUSION_HSP_BM_R5_PROMOTED_ESM2_V3
+  plm_source: ESM2
+  content_mode: frozen
+  representation: ESM2
+  arch_id: ARCH-4
+  merge_mode: mean
+  transformer_type: LATE_FUSION
+- code: EXP-H109
+  backbone: EXP-H061
+  control_no_aux: null
+  control_surface: EXP-H086
+  fusion_bundle_id: FS_HIC_SURFACE_PLUS_HSP_BM_R5_PROMOTED
+  aux_dim: 38
+  hsp_family_id: HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: *id001
+  source_spec_hash: c58f5a41cb071409
+  mainline_feature_hash: 831d72170d5bd5c7
+  property_table_hash: 91c7bdd90bcd5740
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P1
+  description: ESM2 + SURFACE + P1 BM-R5
+  experiment_id: TRF_HIC_ESM2_ARCH4_SURFACE_PLUS_HSP_BM_R5_PROMOTED_V3
+  input_space: LATEFUSION_SURFACE_PLUS_HSP_BM_R5_PROMOTED_ESM2_V3
+  plm_source: ESM2
+  content_mode: frozen
+  representation: ESM2
+  arch_id: ARCH-4
+  merge_mode: mean
+  transformer_type: LATE_FUSION
+- code: EXP-H110
+  backbone: EXP-H061
+  control_no_aux: EXP-H061
+  control_surface: null
+  fusion_bundle_id: FS_HIC_HSP_FP_R5_PROMOTED
+  aux_dim: 3
+  hsp_family_id: HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: *id002
+  source_spec_hash: 8fe429d458cc0154
+  mainline_feature_hash: 02a25f5f72761516
+  property_table_hash: 5c245bdc00d9f7ed
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P2
+  description: ESM2 + P2 FP-R5 HSP alone
+  experiment_id: TRF_HIC_ESM2_ARCH4_HSP_FP_R5_PROMOTED_V3
+  input_space: LATEFUSION_HSP_FP_R5_PROMOTED_ESM2_V3
+  plm_source: ESM2
+  content_mode: frozen
+  representation: ESM2
+  arch_id: ARCH-4
+  merge_mode: mean
+  transformer_type: LATE_FUSION
+- code: EXP-H111
+  backbone: EXP-H061
+  control_no_aux: null
+  control_surface: EXP-H086
+  fusion_bundle_id: FS_HIC_SURFACE_PLUS_HSP_FP_R5_PROMOTED
+  aux_dim: 38
+  hsp_family_id: HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0
+  hsp_bundle_id: B3
+  hsp_columns: *id002
+  source_spec_hash: 8fe429d458cc0154
+  mainline_feature_hash: 02a25f5f72761516
+  property_table_hash: 5c245bdc00d9f7ed
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P2
+  description: ESM2 + SURFACE + P2 FP-R5
+  experiment_id: TRF_HIC_ESM2_ARCH4_SURFACE_PLUS_HSP_FP_R5_PROMOTED_V3
+  input_space: LATEFUSION_SURFACE_PLUS_HSP_FP_R5_PROMOTED_ESM2_V3
+  plm_source: ESM2
+  content_mode: frozen
+  representation: ESM2
+  arch_id: ARCH-4
+  merge_mode: mean
+  transformer_type: LATE_FUSION
+- code: EXP-H112
+  backbone: EXP-H061
+  control_no_aux: EXP-H061
+  control_surface: null
+  fusion_bundle_id: FS_HIC_HSP_EIS_R8_PROMOTED
+  aux_dim: 3
+  hsp_family_id: HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0
+  hsp_bundle_id: B3
+  hsp_columns: *id003
+  source_spec_hash: faf5f8cd5c526965
+  mainline_feature_hash: 2be692a559b23c6e
+  property_table_hash: 18538577f6210fc6
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P3
+  description: ESM2 + P3 EIS-R8 HSP alone
+  experiment_id: TRF_HIC_ESM2_ARCH4_HSP_EIS_R8_PROMOTED_V3
+  input_space: LATEFUSION_HSP_EIS_R8_PROMOTED_ESM2_V3
+  plm_source: ESM2
+  content_mode: frozen
+  representation: ESM2
+  arch_id: ARCH-4
+  merge_mode: mean
+  transformer_type: LATE_FUSION
+- code: EXP-H113
+  backbone: EXP-H061
+  control_no_aux: null
+  control_surface: EXP-H086
+  fusion_bundle_id: FS_HIC_SURFACE_PLUS_HSP_EIS_R8_PROMOTED
+  aux_dim: 38
+  hsp_family_id: HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0
+  hsp_bundle_id: B3
+  hsp_columns: *id003
+  source_spec_hash: faf5f8cd5c526965
+  mainline_feature_hash: 2be692a559b23c6e
+  property_table_hash: 18538577f6210fc6
+  structure_hash: 1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674
+  promoted_id: P3
+  description: ESM2 + SURFACE + P3 EIS-R8
+  experiment_id: TRF_HIC_ESM2_ARCH4_SURFACE_PLUS_HSP_EIS_R8_PROMOTED_V3
+  input_space: LATEFUSION_SURFACE_PLUS_HSP_EIS_R8_PROMOTED_ESM2_V3
+  plm_source: ESM2
+  content_mode: frozen
+  representation: ESM2
+  arch_id: ARCH-4
+  merge_mode: mean
+  transformer_type: LATE_FUSION
+statement: Configs + promoted HSP B3 columns frozen before training. No result-dependent
+  changes.

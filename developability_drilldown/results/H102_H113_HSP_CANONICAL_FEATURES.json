@@ -1,0 +1,131 @@
+{
+  "source_commit": "210a270d",
+  "bundle_id": "B3",
+  "source_track": "feature_research/hic_spatial_hydrophobicity",
+  "structure_hash": "1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674",
+  "families": {
+    "P1": {
+      "family_id": "HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0",
+      "fs_id": "FS_HIC_HSP_BM_R5_PROMOTED",
+      "surface_fs_id": "FS_HIC_SURFACE_PLUS_HSP_BM_R5_PROMOTED",
+      "scale": "BM",
+      "transform": "RAW",
+      "parquet": "experiments/features/hsp_bm_r5_promoted.parquet",
+      "columns": [
+        "HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0__ALL_FV__MAX",
+        "HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0__ALL_FV__MEAN",
+        "HSP_BM_RAW_TOTAL_RASA_TIEN_CLOSEST_SC_R5p0__ALL_FV__SUM"
+      ],
+      "short_columns": [
+        "HSP_MAX",
+        "HSP_MEAN",
+        "HSP_SUM"
+      ],
+      "dim": 3,
+      "bundle_id": "B3",
+      "aggregation_scope": "ALL_FV",
+      "aggregations": [
+        "MAX",
+        "MEAN",
+        "SUM"
+      ],
+      "stage1_contexts": [
+        "A_ALONE",
+        "B_SURFACE",
+        "C_PHYS"
+      ],
+      "stage2_contexts": [
+        "A_ALONE",
+        "B_SURFACE"
+      ],
+      "source_spec_hash": "c58f5a41cb071409",
+      "property_table_hash": "91c7bdd90bcd5740",
+      "structure_hash": "1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674",
+      "mainline_feature_hash": "831d72170d5bd5c7",
+      "parquet_sha256": "4c38c540863c0cb90d722bc416575a467922a9d391cf5985c17b504e94358b72",
+      "coverage": "324/324"
+    },
+    "P2": {
+      "family_id": "HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0",
+      "fs_id": "FS_HIC_HSP_FP_R5_PROMOTED",
+      "surface_fs_id": "FS_HIC_SURFACE_PLUS_HSP_FP_R5_PROMOTED",
+      "scale": "FP",
+      "transform": "MINMAX",
+      "parquet": "experiments/features/hsp_fp_r5_promoted.parquet",
+      "columns": [
+        "HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0__ALL_FV__MAX",
+        "HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0__ALL_FV__MEAN",
+        "HSP_FP_MINMAX_SIDECHAIN_SASA_ABS_CLOSEST_SC_R5p0__ALL_FV__SUM"
+      ],
+      "short_columns": [
+        "HSP_MAX",
+        "HSP_MEAN",
+        "HSP_SUM"
+      ],
+      "dim": 3,
+      "bundle_id": "B3",
+      "aggregation_scope": "ALL_FV",
+      "aggregations": [
+        "MAX",
+        "MEAN",
+        "SUM"
+      ],
+      "stage1_contexts": [
+        "A_ALONE",
+        "B_SURFACE",
+        "C_PHYS"
+      ],
+      "stage2_contexts": [
+        "A_ALONE",
+        "B_SURFACE"
+      ],
+      "source_spec_hash": "8fe429d458cc0154",
+      "property_table_hash": "5c245bdc00d9f7ed",
+      "structure_hash": "1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674",
+      "mainline_feature_hash": "02a25f5f72761516",
+      "parquet_sha256": "a28f7a94dd69572df5b35c907d1d386d0212fa03ecab052512c8bb1d6603c59d",
+      "coverage": "324/324"
+    },
+    "P3": {
+      "family_id": "HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0",
+      "fs_id": "FS_HIC_HSP_EIS_R8_PROMOTED",
+      "surface_fs_id": "FS_HIC_SURFACE_PLUS_HSP_EIS_R8_PROMOTED",
+      "scale": "EIS",
+      "transform": "RAW",
+      "parquet": "experiments/features/hsp_eis_r8_promoted.parquet",
+      "columns": [
+        "HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0__ALL_FV__MAX",
+        "HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0__ALL_FV__MEAN",
+        "HSP_EIS_RAW_SIDECHAIN_SASA_ABS_CENTROID_R8p0__ALL_FV__SUM"
+      ],
+      "short_columns": [
+        "HSP_MAX",
+        "HSP_MEAN",
+        "HSP_SUM"
+      ],
+      "dim": 3,
+      "bundle_id": "B3",
+      "aggregation_scope": "ALL_FV",
+      "aggregations": [
+        "MAX",
+        "MEAN",
+        "SUM"
+      ],
+      "stage1_contexts": [
+        "A_ALONE",
+        "B_SURFACE",
+        "C_PHYS"
+      ],
+      "stage2_contexts": [
+        "A_ALONE",
+        "B_SURFACE"
+      ],
+      "source_spec_hash": "faf5f8cd5c526965",
+      "property_table_hash": "18538577f6210fc6",
+      "structure_hash": "1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674",
+      "mainline_feature_hash": "2be692a559b23c6e",
+      "parquet_sha256": "bdd65c4e73dcb7a30cce0bc9781dd6756613d52d66d007c1dbd28f50a0c3687e",
+      "coverage": "324/324"
+    }
+  }
+}
