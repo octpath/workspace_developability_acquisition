@@ -1,0 +1,18 @@
+[1/324] ADI-37123 coord_err=0.0
+[20/324] ADI-45390 coord_err=0.0
+[40/324] ADI-45435 coord_err=0.0
+[60/324] ADI-45469 coord_err=0.0
+[80/324] ADI-46678 coord_err=0.0
+[100/324] ADI-47054 coord_err=0.0
+[120/324] ADI-47074 coord_err=0.0
+[140/324] ADI-47097 coord_err=0.0
+[160/324] ADI-47121 coord_err=0.0
+[180/324] ADI-47146 coord_err=0.0
+[200/324] ADI-47175 coord_err=0.0
+[220/324] ADI-47196 coord_err=0.0
+[240/324] ADI-47218 coord_err=0.0
+[260/324] ADI-47238 coord_err=0.0
+[280/324] ADI-47260 coord_err=0.0
+[300/324] ADI-47291 coord_err=0.0
+[320/324] ADI-47311 coord_err=0.0
+VERDICT PASS-EXACT f1_max 2.2737367544323206e-13 n_exact 324

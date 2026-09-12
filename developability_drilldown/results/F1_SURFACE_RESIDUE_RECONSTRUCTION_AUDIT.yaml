@@ -1,0 +1,208 @@
+status: COMPLETE
+verdict: PASS-EXACT
+aro_block_verdict: PASS-EXACT
+hydro_block_verdict: PASS-EXACT
+n_antibodies_historical: 324
+n_antibodies_reconstructed: 324
+n_failures: 0
+failures: []
+n_antibodies_35D_exact_1e10: 324
+f1_max_abs_err: 2.2737367544323206e-13
+aro_stats:
+  max_abs_err: 2.2737367544323206e-13
+  mean_abs_err: 1.550286808085627e-15
+  median_abs_err: 0.0
+  n_exact_1e10: 6156
+  n_pairs: 6156
+  per_column_max:
+    aro_CDR_aromatic_SASA: 1.1368683772161603e-13
+    aro_CDR_aromatic_fraction: 1.1102230246251565e-16
+    aro_CDR_exposed_aromatic_count: 0.0
+    aro_aromatic_exposed_SASA_fraction: 9.71445146547012e-17
+    aro_aromatic_exposed_SASA_total: 2.2737367544323206e-13
+    aro_aromatic_patch_count: 0.0
+    aro_exposed_PHE_count: 0.0
+    aro_exposed_TRP_count: 0.0
+    aro_exposed_TYR_count: 0.0
+    aro_exposed_aromatic_total_count: 0.0
+    aro_largest_aromatic_patch_exposed_SASA: 5.684341886080802e-14
+    aro_largest_aromatic_patch_n_res: 0.0
+    aro_max_local_aromatic_SASA: 5.684341886080802e-14
+    aro_sequence_PHE_count: 0.0
+    aro_sequence_TRP_count: 0.0
+    aro_sequence_TYR_count: 0.0
+    aro_sequence_aromatic_count: 0.0
+    aro_strongly_exposed_aromatic_SASA: 5.684341886080802e-14
+    aro_strongly_exposed_aromatic_count: 0.0
+  per_column_mean:
+    aro_CDR_aromatic_SASA: 6.776472387341696e-15
+    aro_CDR_aromatic_fraction: 2.741291418827547e-18
+    aro_CDR_exposed_aromatic_count: 0.0
+    aro_aromatic_exposed_SASA_fraction: 4.4133721026163027e-17
+    aro_aromatic_exposed_SASA_total: 9.035296516455596e-15
+    aro_aromatic_patch_count: 0.0
+    aro_exposed_PHE_count: 0.0
+    aro_exposed_TRP_count: 0.0
+    aro_exposed_TYR_count: 0.0
+    aro_exposed_aromatic_total_count: 0.0
+    aro_largest_aromatic_patch_exposed_SASA: 4.912394222538964e-15
+    aro_largest_aromatic_patch_n_res: 0.0
+    aro_max_local_aromatic_SASA: 5.965050127368742e-15
+    aro_sequence_PHE_count: 0.0
+    aro_sequence_TRP_count: 0.0
+    aro_sequence_TYR_count: 0.0
+    aro_sequence_aromatic_count: 0.0
+    aro_strongly_exposed_aromatic_SASA: 2.7193610874769265e-15
+    aro_strongly_exposed_aromatic_count: 0.0
+  per_column_corr:
+    aro_CDR_aromatic_SASA: 0.9999999999999999
+    aro_CDR_aromatic_fraction: 1.0
+    aro_CDR_exposed_aromatic_count: 1.0
+    aro_aromatic_exposed_SASA_fraction: 0.9999999999999998
+    aro_aromatic_exposed_SASA_total: 1.0
+    aro_aromatic_patch_count: 1.0
+    aro_exposed_PHE_count: 0.9999999999999999
+    aro_exposed_TRP_count: 1.0
+    aro_exposed_TYR_count: 1.0
+    aro_exposed_aromatic_total_count: 0.9999999999999999
+    aro_largest_aromatic_patch_exposed_SASA: 1.0
+    aro_largest_aromatic_patch_n_res: 1.0
+    aro_max_local_aromatic_SASA: 1.0
+    aro_sequence_PHE_count: 1.0
+    aro_sequence_TRP_count: 1.0
+    aro_sequence_TYR_count: 1.0
+    aro_sequence_aromatic_count: 0.9999999999999998
+    aro_strongly_exposed_aromatic_SASA: 1.0
+    aro_strongly_exposed_aromatic_count: 1.0
+hydro_stats:
+  max_abs_err: 0.0
+  mean_abs_err: 0.0
+  median_abs_err: 0.0
+  n_exact_1e10: 5184
+  n_pairs: 5184
+  per_column_max:
+    CDR_high_H_area_fraction: 0.0
+    CDR_mean_H: 0.0
+    CDR_q90_H: 0.0
+    high_H_patch_count: 0.0
+    largest_high_H_patch_area_fraction: 0.0
+    largest_high_H_patch_n_vertices: 0.0
+    max_H_surface: 0.0
+    mean_H_surface: 0.0
+    n_surface_points: 0.0
+    phi_finite_frac: 0.0
+    positive_H_area_fraction: 0.0
+    q75_H_surface: 0.0
+    q90_H_surface: 0.0
+    q95_H_surface: 0.0
+    top10_H_area_fraction: 0.0
+    top10_H_mean: 0.0
+  per_column_mean:
+    CDR_high_H_area_fraction: 0.0
+    CDR_mean_H: 0.0
+    CDR_q90_H: 0.0
+    high_H_patch_count: 0.0
+    largest_high_H_patch_area_fraction: 0.0
+    largest_high_H_patch_n_vertices: 0.0
+    max_H_surface: 0.0
+    mean_H_surface: 0.0
+    n_surface_points: 0.0
+    phi_finite_frac: 0.0
+    positive_H_area_fraction: 0.0
+    q75_H_surface: 0.0
+    q90_H_surface: 0.0
+    q95_H_surface: 0.0
+    top10_H_area_fraction: 0.0
+    top10_H_mean: 0.0
+  per_column_corr:
+    CDR_high_H_area_fraction: 1.0
+    CDR_mean_H: 1.0
+    CDR_q90_H: 1.0
+    high_H_patch_count: 1.0
+    largest_high_H_patch_area_fraction: 1.0
+    largest_high_H_patch_n_vertices: 1.0
+    max_H_surface: 1.0
+    mean_H_surface: 1.0
+    n_surface_points: 1.0
+    phi_finite_frac: 1.0
+    positive_H_area_fraction: 1.0
+    q75_H_surface: 0.9999999999999999
+    q90_H_surface: 0.9999999999999998
+    q95_H_surface: 1.0
+    top10_H_area_fraction: 1.0
+    top10_H_mean: 1.0
+coverage:
+  structures_available: 324
+  H_chain_mapping: 324
+  L_chain_mapping: 324
+  ARO_residue_rows: 75057
+  HYDRO_vertices: 305590
+  antibodies_with_any_hydro_vertex: 324
+  full_35D_roundtrip_success_exact: 324
+historical_artifact:
+  h047_parquet: developability_drilldown/experiments/features/EXP-H047.parquet
+  h047_sha256: 79348fa8e9b17344463a677fd99d5976c51c5cce02f0d9c7386f7074fc529225
+  aromatic_topo_sha256: c8c0a02ccac4a48961d3f838ddbd2721c86fa0094be718568fc2d66fd90715b4
+  hydro_field_sha256: e33ad4728bc35613f484e2d9c22d5399e828db583e2ce4036d6a58d322e30de1
+  f1_columns:
+  - aro_exposed_TYR_count
+  - aro_exposed_TRP_count
+  - aro_exposed_PHE_count
+  - aro_exposed_aromatic_total_count
+  - aro_aromatic_exposed_SASA_total
+  - aro_aromatic_exposed_SASA_fraction
+  - aro_strongly_exposed_aromatic_count
+  - aro_strongly_exposed_aromatic_SASA
+  - aro_CDR_exposed_aromatic_count
+  - aro_CDR_aromatic_SASA
+  - aro_CDR_aromatic_fraction
+  - aro_aromatic_patch_count
+  - aro_largest_aromatic_patch_n_res
+  - aro_largest_aromatic_patch_exposed_SASA
+  - aro_max_local_aromatic_SASA
+  - aro_sequence_aromatic_count
+  - aro_sequence_TYR_count
+  - aro_sequence_TRP_count
+  - aro_sequence_PHE_count
+  - mean_H_surface
+  - q75_H_surface
+  - q90_H_surface
+  - q95_H_surface
+  - max_H_surface
+  - positive_H_area_fraction
+  - top10_H_mean
+  - top10_H_area_fraction
+  - high_H_patch_count
+  - largest_high_H_patch_area_fraction
+  - largest_high_H_patch_n_vertices
+  - CDR_mean_H
+  - CDR_q90_H
+  - CDR_high_H_area_fraction
+  - n_surface_points
+  - phi_finite_frac
+  consumed_by:
+  - EXP-H090
+  - EXP-H086
+  loader: H047AuxFeatureStore(F1_SURFACE)
+output_artifacts:
+  residue_surface_aro:
+    path: feature_research/f1_surface_residue_reconstruction/features/residue_surface_aro.parquet
+    sha256: 603321b8ec454b068263dfa0f7f0f0ab8f1f4b772963324b35fd8785386e667c
+  residue_surface_hydro_vertices:
+    path: feature_research/f1_surface_residue_reconstruction/features/residue_surface_hydro_vertices.parquet
+    sha256: 1b4de9e6055cce03257b6acae72d153d328caff74d5d9c970de399986f453b2a
+  residue_surface_hydro:
+    path: feature_research/f1_surface_residue_reconstruction/features/residue_surface_hydro.parquet
+    sha256: c1eeab5a8913c1e638abe0eb7aaaf9cdf005d6b439126145f3bdaa24b1d2c63d
+  residue_surface_aligned:
+    path: feature_research/f1_surface_residue_reconstruction/features/residue_surface_aligned.parquet
+    sha256: 7c4338362ebb6af62108c21701d77798089a5ebab0499b2ed497553adb23dc03
+  reconstructed_f1_35:
+    path: feature_research/f1_surface_residue_reconstruction/features/reconstructed_f1_surface_35.parquet
+    sha256: c304c8ed8fe282dfb0831ca87a6f578fcce69aa57660f455452e5e87d5d0bde5
+hydro_assignment_method: originating_atom_during_surface_construction
+phi_finite_frac_method: historical_surface_field_phi_on_identical_vertices
+no_experiment_issued: true
+next_hic_unchanged: EXP-H128
+git_rev: 498adb611c1565f38df59b0eb44bba827955bab8
+residue_fusion_technically_justified: true
