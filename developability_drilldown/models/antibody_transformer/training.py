@@ -222,6 +222,8 @@ def build_transformer(
     share_hl_encoder: bool = True,
     residue_surface_mode: Optional[str] = None,
     residue_surface_dim: int = 0,
+    reg_cross_variant: Optional[str] = None,
+    pair_interaction_mode: Optional[str] = None,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
     cap = capacity or {}
@@ -269,6 +271,8 @@ def build_transformer(
         share_hl_encoder=share_hl_encoder,
         residue_surface_mode=residue_surface_mode,
         residue_surface_dim=residue_surface_dim,
+        reg_cross_variant=reg_cross_variant,
+        pair_interaction_mode=pair_interaction_mode,
     )
 
 

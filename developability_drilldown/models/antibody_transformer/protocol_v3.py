@@ -66,6 +66,8 @@ ARCH_T030 = {
     "cross_gate_mode": "learned",
     "use_cross_geometry_bias": False,
     "share_hl_encoder": True,
+    "reg_cross_variant": None,
+    "pair_interaction_mode": None,
 }
 
 
@@ -77,6 +79,9 @@ def normalize_arch_flags(arch: Optional[dict] = None) -> dict:
                 continue
             if k == "cross_gate_mode":
                 out[k] = str(arch[k])
+            elif k in ("reg_cross_variant", "pair_interaction_mode"):
+                v = arch[k]
+                out[k] = None if v in (None, "", "NONE", "null") else str(v)
             else:
                 out[k] = bool(arch[k])
     if out["cross_gate_mode"] not in ("learned", "fixed_one"):

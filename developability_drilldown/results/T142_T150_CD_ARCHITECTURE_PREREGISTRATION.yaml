@@ -1,0 +1,210 @@
+batch_id: T142_T150_CD_ARCHITECTURE_EXPLORATION
+status: PREREGISTERED_FROZEN
+git_rev_at_prereg: 2c26f8fdbfcdfb385379463799fc73194142a8d7
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+plm: ablang2
+target: TmApp
+controls:
+  A: EXP-T110
+  B: EXP-T113
+  C0: EXP-T121
+symmetry: shared parameters H<-L and L<-H; no fixed H/L coefficients
+do_not:
+- PLM_matrix
+- T151
+- structural_features
+- Ca_bias
+- RASA
+- aux_fixed
+experiments:
+- code: EXP-T142
+  family: C
+  variant: C1
+  experiment_id: TRF_TM_ABLANG2_C1_SCALAR_GATE_V3
+  control: EXP-T121
+  reg_cross_variant: c1_scalar_gate
+  pair_interaction_mode: null
+  n_trainable: 446370
+  incremental: 6689
+- code: EXP-T143
+  family: C
+  variant: C2
+  experiment_id: TRF_TM_ABLANG2_C2_FEATURE_GATE_V3
+  control: EXP-T121
+  reg_cross_variant: c2_feature_gate
+  pair_interaction_mode: null
+  n_trainable: 446481
+  incremental: 6800
+- code: EXP-T144
+  family: C
+  variant: C3
+  experiment_id: TRF_TM_ABLANG2_C3_FFN_ADAPTER_V3
+  control: EXP-T121
+  reg_cross_variant: c3_ffn_adapter
+  pair_interaction_mode: null
+  n_trainable: 448289
+  incremental: 8608
+- code: EXP-T145
+  family: C
+  variant: C4
+  experiment_id: TRF_TM_ABLANG2_C4_TWO_READ_V3
+  control: EXP-T121
+  reg_cross_variant: c4_two_read
+  pair_interaction_mode: null
+  n_trainable: 444322
+  incremental: 4641
+- code: EXP-T146
+  family: C
+  variant: C5
+  experiment_id: TRF_TM_ABLANG2_C5_TWO_QUERY_V3
+  control: EXP-T121
+  reg_cross_variant: c5_two_query
+  pair_interaction_mode: null
+  n_trainable: 444561
+  incremental: 4880
+- code: EXP-T147
+  family: D
+  variant: D1
+  experiment_id: TRF_TM_ABLANG2_D1_BILINEAR_SCORE_V3
+  control: EXP-T110
+  reg_cross_variant: null
+  pair_interaction_mode: d1_bilinear_score
+  n_trainable: 375953
+  incremental: 2320
+- code: EXP-T148
+  family: D
+  variant: D2
+  experiment_id: TRF_TM_ABLANG2_D2_HADAMARD_RES_V3
+  control: EXP-T110
+  reg_cross_variant: null
+  pair_interaction_mode: d2_hadamard_residual
+  n_trainable: 377985
+  incremental: 4352
+- code: EXP-T149
+  family: D
+  variant: D3
+  experiment_id: TRF_TM_ABLANG2_D3_SYMMETRIC_MLP_V3
+  control: EXP-T110
+  reg_cross_variant: null
+  pair_interaction_mode: d3_symmetric_mlp
+  n_trainable: 378897
+  incremental: 5264
+- code: EXP-T150
+  family: D
+  variant: D4
+  experiment_id: TRF_TM_ABLANG2_D4_TOKEN_ATTN_V3
+  control: EXP-T110
+  reg_cross_variant: null
+  pair_interaction_mode: d4_token_attention
+  n_trainable: 439937
+  incremental: 66304
+param_account:
+  EXP-T142:
+    total: 446370
+    incremental_vs_control_skeleton: 6689
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 98721
+    share_hl_encoder: 1
+  EXP-T143:
+    total: 446481
+    incremental_vs_control_skeleton: 6800
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 98832
+    share_hl_encoder: 1
+  EXP-T144:
+    total: 448289
+    incremental_vs_control_skeleton: 8608
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 100640
+    share_hl_encoder: 1
+  EXP-T145:
+    total: 444322
+    incremental_vs_control_skeleton: 4641
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 96673
+    share_hl_encoder: 1
+  EXP-T146:
+    total: 444561
+    incremental_vs_control_skeleton: 4880
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 96912
+    share_hl_encoder: 1
+  EXP-T147:
+    total: 375953
+    incremental_vs_control_skeleton: 2320
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 94352
+    share_hl_encoder: 1
+  EXP-T148:
+    total: 377985
+    incremental_vs_control_skeleton: 4352
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 96384
+    share_hl_encoder: 1
+  EXP-T149:
+    total: 378897
+    incremental_vs_control_skeleton: 5264
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 97296
+    share_hl_encoder: 1
+  EXP-T150:
+    total: 439937
+    incremental_vs_control_skeleton: 66304
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    head: 16641
+    other: 158336
+    share_hl_encoder: 1

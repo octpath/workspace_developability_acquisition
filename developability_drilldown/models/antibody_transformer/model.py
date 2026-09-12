@@ -76,6 +76,8 @@ class AnnotatedTransformer(nn.Module):
         residue_surface_mode: Optional[str] = None,  # None|additive|gated|surface_aware_pooling
         residue_surface_dim: int = 0,
         residue_surface_attn_dim: int = 32,
+        reg_cross_variant: Optional[str] = None,  # None=C0 | c1..c5
+        pair_interaction_mode: Optional[str] = None,  # None | d1..d4
     ):
         super().__init__()
         # Default platform depth is 2. Capacity refinements (T124–T129) may use 3
@@ -94,6 +96,8 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("use_cross_geometry_bias requires use_cross_attention_bridge=True")
         if use_cross_geometry_bias and use_ca_distance_bias:
             raise ValueError("use_cross_geometry_bias is mutually exclusive with encoder use_ca_distance_bias")
+        from .hl_interaction import PAIR_INTERACTION_MODES, REG_CROSS_VARIANTS
+
         rs_mode = residue_surface_mode
         if rs_mode is not None and rs_mode not in (
             "additive",
@@ -103,6 +107,22 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError(f"unknown residue_surface_mode: {rs_mode}")
         if rs_mode is not None and int(residue_surface_dim) <= 0:
             raise ValueError("residue_surface_dim required when residue_surface_mode is set")
+        if reg_cross_variant is not None and reg_cross_variant not in REG_CROSS_VARIANTS:
+            raise ValueError(f"unknown reg_cross_variant: {reg_cross_variant}")
+        if pair_interaction_mode is not None and pair_interaction_mode not in PAIR_INTERACTION_MODES:
+            raise ValueError(f"unknown pair_interaction_mode: {pair_interaction_mode}")
+        if reg_cross_variant is not None and not use_reg_only_cross_attention:
+            raise ValueError("reg_cross_variant requires use_reg_only_cross_attention=True")
+        if pair_interaction_mode is not None and use_reg_only_cross_attention:
+            raise ValueError("pair_interaction_mode incompatible with REG-only cross-attention")
+        if pair_interaction_mode is not None and (
+            joint_hl_single_reg
+            or joint_hl_dual_reg
+            or joint_hl_chain_specific_dual_reg
+            or use_cross_attention_bridge
+            or use_within_chain_extra_attention
+        ):
+            raise ValueError("pair_interaction_mode requires separate dual-REG (A-style) backbone")
         arch_switches = (
             int(joint_hl_single_reg)
             + int(joint_hl_dual_reg)
@@ -177,6 +197,8 @@ class AnnotatedTransformer(nn.Module):
         self.use_ca_distance_bias = bool(use_ca_distance_bias)
         self.joint_hl_single_reg = bool(joint_hl_single_reg)
         self.joint_hl_dual_reg = bool(joint_hl_dual_reg)
+        self.reg_cross_variant = reg_cross_variant
+        self.pair_interaction_mode = pair_interaction_mode
         self.joint_hl_chain_specific_dual_reg = bool(joint_hl_chain_specific_dual_reg)
         self.use_cross_attention_bridge = bool(use_cross_attention_bridge)
         self.use_reg_only_cross_attention = bool(use_reg_only_cross_attention)
@@ -336,6 +358,46 @@ class AnnotatedTransformer(nn.Module):
         else:
             self.register_parameter("cross_gate_h", None)
             self.register_parameter("cross_gate_l", None)
+
+        # C-family shared adapters (T142–T146); None for C0 / non-C.
+        from .hl_interaction import (
+            PairBilinearScore,
+            PairHadamardResidual,
+            PairSymmetricMLP,
+            PairTokenAttention,
+            SharedFeatureCrossGate,
+            SharedRegFFNAdapter,
+            SharedScalarCrossGate,
+            SharedSecondReadAlpha,
+            SharedTwoQueryCombiner,
+        )
+
+        self.c_scalar_gate = None
+        self.c_feature_gate = None
+        self.c_ffn_adapter = None
+        self.c_second_alpha = None
+        self.c_two_query = None
+        if self.reg_cross_variant == "c1_scalar_gate":
+            self.c_scalar_gate = SharedScalarCrossGate(d_model)
+        elif self.reg_cross_variant == "c2_feature_gate":
+            self.c_feature_gate = SharedFeatureCrossGate(d_model)
+        elif self.reg_cross_variant == "c3_ffn_adapter":
+            self.c_ffn_adapter = SharedRegFFNAdapter(d_model)
+        elif self.reg_cross_variant == "c4_two_read":
+            self.c_second_alpha = SharedSecondReadAlpha(d_model)
+        elif self.reg_cross_variant == "c5_two_query":
+            self.c_two_query = SharedTwoQueryCombiner(d_model)
+
+        # D-family pair modules (T147–T150).
+        self.pair_module = None
+        if self.pair_interaction_mode == "d1_bilinear_score":
+            self.pair_module = PairBilinearScore(d_model)
+        elif self.pair_interaction_mode == "d2_hadamard_residual":
+            self.pair_module = PairHadamardResidual(d_model)
+        elif self.pair_interaction_mode == "d3_symmetric_mlp":
+            self.pair_module = PairSymmetricMLP(d_model)
+        elif self.pair_interaction_mode == "d4_token_attention":
+            self.pair_module = PairTokenAttention(d_model, n_heads=2, dropout=dropout)
 
         # ARCH-6G: per-head RBF weights on H↔L Cα distances (zero-init ≡ ARCH-6).
         if self.use_cross_geometry_bias:
@@ -974,10 +1036,10 @@ class AnnotatedTransformer(nn.Module):
         return self._merge_dual_reg(h2_h[:, 0], h2_l[:, 0])
 
     def encode_reg_only_cross_attention(self, batch: dict) -> torch.Tensor:
-        """Full separate 2-layer encode, then REG-only cross-chain attention (ungated).
+        """Full separate 2-layer encode, then REG-only cross-chain attention.
 
-        REG_H queries all Light residues; REG_L queries all Heavy residues.
-        Residues are unmodified after the cross path; return merged REG' pair.
+        C0 (default): ungated REG' = REG + delta with shared MHA.
+        C1–C5: shared symmetric adapters on top of the same deltas.
         """
         if not self.use_reg_only_cross_attention:
             raise RuntimeError("encode_reg_only_cross_attention requires use_reg_only_cross_attention")
@@ -1006,7 +1068,6 @@ class AnnotatedTransformer(nn.Module):
             imgt=batch.get("light_imgt"),
             region=batch.get("light_region"),
         )
-        # Full per-chain encoder (shared or unshared); then REG-only cross.
         h_h = self._encoder_for_chain(0)(self.dropout(x_h), src_key_padding_mask=pad_h)
         h_l = self._encoder_for_chain(1)(self.dropout(x_l), src_key_padding_mask=pad_l)
 
@@ -1014,16 +1075,77 @@ class AnnotatedTransformer(nn.Module):
         reg_l = h_l[:, :1]
         h_res = h_h[:, 1:]
         l_res = h_l[:, 1:]
-        delta_h, _ = self.cross_attn(
-            reg_h, l_res, l_res, key_padding_mask=~ml, need_weights=False
-        )
-        delta_l, _ = self.cross_attn(
-            reg_l, h_res, h_res, key_padding_mask=~mh, need_weights=False
-        )
-        # Ungated residual on REG only; residues unused after this
-        reg_h = reg_h + delta_h
-        reg_l = reg_l + delta_l
+
+        variant = self.reg_cross_variant
+        if variant == "c5_two_query":
+            assert self.c_two_query is not None
+            qh1, qh2 = self.c_two_query.queries(reg_h)
+            ql1, ql2 = self.c_two_query.queries(reg_l)
+            dh1, _ = self.cross_attn(qh1, l_res, l_res, key_padding_mask=~ml, need_weights=False)
+            dh2, _ = self.cross_attn(qh2, l_res, l_res, key_padding_mask=~ml, need_weights=False)
+            dl1, _ = self.cross_attn(ql1, h_res, h_res, key_padding_mask=~mh, need_weights=False)
+            dl2, _ = self.cross_attn(ql2, h_res, h_res, key_padding_mask=~mh, need_weights=False)
+            reg_h, _ = self.c_two_query.combine(reg_h, dh1, dh2)
+            reg_l, _ = self.c_two_query.combine(reg_l, dl1, dl2)
+        else:
+            delta_h, _ = self.cross_attn(
+                reg_h, l_res, l_res, key_padding_mask=~ml, need_weights=False
+            )
+            delta_l, _ = self.cross_attn(
+                reg_l, h_res, h_res, key_padding_mask=~mh, need_weights=False
+            )
+            if variant is None:
+                reg_h = reg_h + delta_h
+                reg_l = reg_l + delta_l
+            elif variant == "c1_scalar_gate":
+                reg_h, _ = self.c_scalar_gate(reg_h, delta_h)
+                reg_l, _ = self.c_scalar_gate(reg_l, delta_l)
+            elif variant == "c2_feature_gate":
+                reg_h, _ = self.c_feature_gate(reg_h, delta_h)
+                reg_l, _ = self.c_feature_gate(reg_l, delta_l)
+            elif variant == "c3_ffn_adapter":
+                reg_h = self.c_ffn_adapter(reg_h + delta_h)
+                reg_l = self.c_ffn_adapter(reg_l + delta_l)
+            elif variant == "c4_two_read":
+                reg1_h = reg_h + delta_h
+                reg1_l = reg_l + delta_l
+                d2_h, _ = self.cross_attn(
+                    reg1_h, l_res, l_res, key_padding_mask=~ml, need_weights=False
+                )
+                d2_l, _ = self.cross_attn(
+                    reg1_l, h_res, h_res, key_padding_mask=~mh, need_weights=False
+                )
+                reg_h, _ = self.c_second_alpha(reg1_h, d2_h)
+                reg_l, _ = self.c_second_alpha(reg1_l, d2_l)
+            else:
+                raise RuntimeError(f"unhandled reg_cross_variant: {variant}")
         return self._merge_dual_reg(reg_h.squeeze(1), reg_l.squeeze(1))
+
+    def encode_separate_regs(self, batch: dict) -> tuple[torch.Tensor, torch.Tensor]:
+        """A-style independent per-chain REG encodings (no cross, no merge)."""
+        h_h = self.encode_chain(
+            chain_idx=0,
+            aa=batch.get("heavy_aa"),
+            plm=batch.get("heavy_plm"),
+            mask=batch["heavy_mask"],
+            pos=batch["heavy_pos"],
+            imgt=batch.get("heavy_imgt"),
+            region=batch.get("heavy_region"),
+            rasa=batch.get("heavy_rasa"),
+            ca_coords=batch.get("heavy_ca"),
+        )
+        h_l = self.encode_chain(
+            chain_idx=1,
+            aa=batch.get("light_aa"),
+            plm=batch.get("light_plm"),
+            mask=batch["light_mask"],
+            pos=batch["light_pos"],
+            imgt=batch.get("light_imgt"),
+            region=batch.get("light_region"),
+            rasa=batch.get("light_rasa"),
+            ca_coords=batch.get("light_ca"),
+        )
+        return h_h, h_l
 
     def forward_repr(self, batch: dict) -> torch.Tensor:
         if self.joint_hl_chain_specific_dual_reg:
@@ -1036,6 +1158,11 @@ class AnnotatedTransformer(nn.Module):
             return self.encode_reg_only_cross_attention(batch)
         if self.use_cross_attention_bridge or self.use_within_chain_extra_attention:
             return self.encode_separate_with_cross_attn(batch)
+        if self.pair_interaction_mode is not None:
+            z_h, z_l = self.encode_separate_regs(batch)
+            if self.pair_interaction_mode == "d1_bilinear_score":
+                return self.pair_module.mean_repr(z_h, z_l)
+            return self.pair_module(z_h, z_l)
         h_h = self.encode_chain(
             chain_idx=0,
             aa=batch.get("heavy_aa"),
@@ -1063,4 +1190,9 @@ class AnnotatedTransformer(nn.Module):
         return self._merge_dual_reg(h_h, h_l)
 
     def forward(self, batch: dict) -> torch.Tensor:
+        if self.pair_interaction_mode == "d1_bilinear_score":
+            z_h, z_l = self.encode_separate_regs(batch)
+            m = self.pair_module.mean_repr(z_h, z_l)
+            score = self.pair_module.pair_score(z_h, z_l)
+            return self.head(m).squeeze(-1) + score
         return self.head(self.forward_repr(batch)).squeeze(-1)
