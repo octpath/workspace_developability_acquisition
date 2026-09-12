@@ -73,6 +73,9 @@ class AnnotatedTransformer(nn.Module):
         cross_geometry_rbf_sigma: float = DEFAULT_RBF_SIGMA,
         initial_ell_angstrom: Optional[float] = None,
         share_hl_encoder: bool = True,
+        residue_surface_mode: Optional[str] = None,  # None|additive|gated|surface_aware_pooling
+        residue_surface_dim: int = 0,
+        residue_surface_attn_dim: int = 32,
     ):
         super().__init__()
         # Default platform depth is 2. Capacity refinements (T124–T129) may use 3
@@ -91,6 +94,15 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("use_cross_geometry_bias requires use_cross_attention_bridge=True")
         if use_cross_geometry_bias and use_ca_distance_bias:
             raise ValueError("use_cross_geometry_bias is mutually exclusive with encoder use_ca_distance_bias")
+        rs_mode = residue_surface_mode
+        if rs_mode is not None and rs_mode not in (
+            "additive",
+            "gated",
+            "surface_aware_pooling",
+        ):
+            raise ValueError(f"unknown residue_surface_mode: {rs_mode}")
+        if rs_mode is not None and int(residue_surface_dim) <= 0:
+            raise ValueError("residue_surface_dim required when residue_surface_mode is set")
         arch_switches = (
             int(joint_hl_single_reg)
             + int(joint_hl_dual_reg)
@@ -112,6 +124,12 @@ class AnnotatedTransformer(nn.Module):
             raise ValueError("joint/cross modes require pooling_mode='reg'")
         if special_arch and chain_mode != "HL":
             raise ValueError("joint/cross modes require chain_mode='HL'")
+        if rs_mode is not None and not (
+            joint_hl_single_reg or joint_hl_dual_reg or joint_hl_chain_specific_dual_reg
+        ):
+            raise ValueError("residue_surface_mode requires a joint H/L architecture")
+        if rs_mode is not None and (use_continuous_rasa or use_rasa_weighted_pool):
+            raise ValueError("residue_surface_mode mutually exclusive with RASA modes")
         if (joint_hl_dual_reg or joint_hl_chain_specific_dual_reg) and use_ca_distance_bias:
             raise ValueError("joint dual-REG modes do not support CA distance bias")
         if (
@@ -165,6 +183,9 @@ class AnnotatedTransformer(nn.Module):
         self.use_within_chain_extra_attention = bool(use_within_chain_extra_attention)
         self.cross_gate_mode = str(cross_gate_mode)
         self.use_cross_geometry_bias = bool(use_cross_geometry_bias)
+        self.residue_surface_mode = rs_mode
+        self.residue_surface_dim = int(residue_surface_dim) if rs_mode else 0
+        self.residue_surface_attn_dim = int(residue_surface_attn_dim)
         centers = (
             list(cross_geometry_rbf_centers)
             if cross_geometry_rbf_centers is not None
@@ -215,6 +236,31 @@ class AnnotatedTransformer(nn.Module):
             nn.init.zeros_(self.rasa_pool_proj.weight)
         else:
             self.rasa_pool_proj = None
+
+        # Residue-level F1_SURFACE adapters (H128–H133). Defaults None => historical behavior.
+        self.surface_proj = None
+        self.surface_gate_h = None
+        self.surface_gate_s = None
+        self.surface_gate_b = None
+        self.surface_attn_Wh = None
+        self.surface_attn_Ws = None
+        self.surface_attn_v = None
+        self.surface_attn_b = None
+        self.surface_h_ln = None
+        if self.residue_surface_mode in ("additive", "gated"):
+            self.surface_proj = nn.Linear(self.residue_surface_dim, d_model, bias=False)
+            nn.init.zeros_(self.surface_proj.weight)
+            if self.residue_surface_mode == "gated":
+                self.surface_h_ln = nn.LayerNorm(d_model)
+                self.surface_gate_h = nn.Parameter(torch.zeros(d_model))
+                self.surface_gate_s = nn.Parameter(torch.zeros(self.residue_surface_dim))
+                self.surface_gate_b = nn.Parameter(torch.zeros(()))
+        elif self.residue_surface_mode == "surface_aware_pooling":
+            ad = self.residue_surface_attn_dim
+            self.surface_attn_Wh = nn.Linear(d_model, ad, bias=False)
+            self.surface_attn_Ws = nn.Linear(self.residue_surface_dim, ad, bias=False)
+            self.surface_attn_v = nn.Linear(ad, 1, bias=False)
+            self.surface_attn_b = nn.Parameter(torch.zeros(ad))
 
         # REG tokens:
         # - separate H/L encoding / joint dual-REG / chain-specific dual-REG: index 0 = REG_H, 1 = REG_L
@@ -604,6 +650,45 @@ class AnnotatedTransformer(nn.Module):
             x = x + self.region_emb(region)
         return x
 
+    def _apply_residue_surface_adapter(
+        self,
+        h_res: torch.Tensor,
+        s: torch.Tensor,
+        mask: torch.Tensor,
+    ) -> torch.Tensor:
+        """Inject SURFACE into residue stream (no projection on h). mask True=valid."""
+        if self.surface_proj is None:
+            return h_res
+        s = torch.nan_to_num(s, nan=0.0)
+        u = self.surface_proj(s)
+        if self.residue_surface_mode == "additive":
+            delta = u
+        else:
+            assert self.surface_h_ln is not None
+            g_logit = (
+                (self.surface_gate_h * self.surface_h_ln(h_res)).sum(dim=-1)
+                + (self.surface_gate_s * s).sum(dim=-1)
+                + self.surface_gate_b
+            )
+            g = torch.sigmoid(g_logit).unsqueeze(-1)
+            delta = g * u
+        return h_res + delta * mask.unsqueeze(-1).to(delta.dtype)
+
+    def _surface_aware_pool(
+        self,
+        h_res: torch.Tensor,
+        s: torch.Tensor,
+        mask: torch.Tensor,
+    ) -> torch.Tensor:
+        s = torch.nan_to_num(s, nan=0.0)
+        e = self.surface_attn_v(
+            torch.tanh(self.surface_attn_Wh(h_res) + self.surface_attn_Ws(s) + self.surface_attn_b)
+        ).squeeze(-1)
+        e = e.masked_fill(~mask, -1e9)
+        a = torch.softmax(e, dim=-1) * mask.to(h_res.dtype)
+        a = a / a.sum(dim=-1, keepdim=True).clamp_min(1e-12)
+        return (a.unsqueeze(-1) * h_res).sum(dim=1)
+
     def encode_joint_hl(
         self,
         batch: dict,
@@ -632,7 +717,15 @@ class AnnotatedTransformer(nn.Module):
             imgt=batch.get("light_imgt"),
             region=batch.get("light_region"),
         )
-        # Single REG: neither H nor L — no chain / IMGT / region / position embedding.
+        # Additive/gated: inject SURFACE into residue embeddings BEFORE encoder so REG attends.
+        if self.residue_surface_mode in ("additive", "gated"):
+            sh = batch.get("heavy_surface")
+            sl = batch.get("light_surface")
+            if sh is None or sl is None:
+                raise ValueError("residue_surface_mode set but heavy/light_surface missing")
+            x_h = self._apply_residue_surface_adapter(x_h, sh, mh)
+            x_l = self._apply_residue_surface_adapter(x_l, sl, ml)
+
         reg = self.single_reg_token.view(1, 1, -1).expand(B, 1, -1)
         x = torch.cat([reg, x_h, x_l], dim=1)
 
@@ -664,6 +757,15 @@ class AnnotatedTransformer(nn.Module):
             )
         else:
             h = self.encoder(self.dropout(x), src_key_padding_mask=pad)
+
+        if self.residue_surface_mode == "surface_aware_pooling":
+            sh = batch.get("heavy_surface")
+            sl = batch.get("light_surface")
+            if sh is None or sl is None:
+                raise ValueError("residue_surface_mode set but heavy/light_surface missing")
+            z_h = self._surface_aware_pool(h[:, 1 : 1 + Lh], sh, mh)
+            z_l = self._surface_aware_pool(h[:, 1 + Lh :], sl, ml)
+            return 0.5 * (z_h + z_l)
         return h[:, 0]
 
     def encode_joint_hl_dual_reg(
@@ -706,6 +808,14 @@ class AnnotatedTransformer(nn.Module):
             imgt=batch.get("light_imgt"),
             region=batch.get("light_region"),
         )
+        if self.residue_surface_mode in ("additive", "gated"):
+            sh = batch.get("heavy_surface")
+            sl = batch.get("light_surface")
+            if sh is None or sl is None:
+                raise ValueError("residue_surface_mode set but heavy/light_surface missing")
+            x_h = self._apply_residue_surface_adapter(x_h, sh, mh)
+            x_l = self._apply_residue_surface_adapter(x_l, sl, ml)
+
         reg_h = self.reg_token[0].view(1, 1, -1).expand(B, 1, -1) + self.chain_emb.weight[0]
         reg_l = self.reg_token[1].view(1, 1, -1).expand(B, 1, -1) + self.chain_emb.weight[1]
         # Layout: [REG_H], H_1..H_n, [REG_L], L_1..L_m
@@ -725,6 +835,14 @@ class AnnotatedTransformer(nn.Module):
             mask=attn_mask,
             src_key_padding_mask=pad,
         )
+        if self.residue_surface_mode == "surface_aware_pooling":
+            sh = batch.get("heavy_surface")
+            sl = batch.get("light_surface")
+            if sh is None or sl is None:
+                raise ValueError("residue_surface_mode set but heavy/light_surface missing")
+            z_h = self._surface_aware_pool(h[:, 1 : 1 + Lh], sh, mh)
+            z_l = self._surface_aware_pool(h[:, 2 + Lh :], sl, ml)
+            return self._merge_dual_reg(z_h, z_l)
         z_h = h[:, 0]
         z_l = h[:, 1 + Lh]
         return self._merge_dual_reg(z_h, z_l)

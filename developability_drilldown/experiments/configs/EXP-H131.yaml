@@ -1,0 +1,22 @@
+experiment_code: EXP-H131
+experiment_id: TRF_HIC_ESM2_RESIDUE_F1_ADDITIVE_V3
+platform_id: DL_FOLDLOCAL_COSINE_V3
+target: HIC
+family: TRANSFORMER
+control_experiment_code: EXP-H061
+antibody_surface_control: EXP-H086
+residue_surface_mode: additive
+residue_surface_dim: 10
+residue_surface_schema_id: FS_HIC_RESIDUE_F1_SURFACE_COMPACT10
+residue_surface_schema_hash: edf92312e61de4d28b1f1f784327d4dd7e11fc69e70d0768d91fb4e40c882ffb
+content_mode: frozen
+plm_source: esm2
+fusion_bundle_id: null
+no_antibody_level_f1_concat: true
+seed: 101
+description: H061 + residue F1 SURFACE additive
+joint_hl_chain_specific_dual_reg: true
+merge_mode: mean
+chain_mode: HL
+pooling_mode: REG
+no_full_dev_refit: true

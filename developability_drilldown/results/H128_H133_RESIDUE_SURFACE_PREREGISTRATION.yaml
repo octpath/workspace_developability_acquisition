@@ -1,35 +1,64 @@
-batch_id: H128_H133_RESIDUE_SURFACE_FUSION
-status: STOPPED_NO_VALID_RESIDUE_SURFACE_SOURCE
-decision: STOP_BEFORE_TRAINING
-next_hic_unchanged: EXP-H128
-experiments_issued: []
-audit_artifact: results/H128_H133_RESIDUE_SURFACE_AUDIT.md
-central_question: >
-  Does residue-aligned SURFACE improve Transformer HIC when injected
-  before antibody-level pooling?
-gate_result: FAIL
-gate_reason: >
-  Historical F1_SURFACE is antibody-level 35D (AROMATIC_TOPO19 + HYDRO_FIELD16).
-  No frozen residue-token SURFACE table underlies that bundle. HYDRO intermediates
-  are surface vertices; ARO residue intermediates were never persisted. Batch rules
-  forbid inventing new descriptors or deriving residue values from antibody aggregates.
-  F3 RASA residue cache is a different historical family and must not be silently
-  substituted as F1 SURFACE.
-historical_antibody_level_controls:
+batch_id: H128_H133_RESIDUE_F1_SURFACE_FUSION
+status: PREREGISTERED_FROZEN
+git_rev_at_prereg: cb49f6f767948c940bc73a9c8542ae16f2faa213
+schema_path: results/H128_H133_RESIDUE_SURFACE_SCHEMA.yaml
+schema_hash: edf92312e61de4d28b1f1f784327d4dd7e11fc69e70d0768d91fb4e40c882ffb
+schema_content_sha256: e13666619c16135088a31b1bfda2c3b2edf7e2b360c4ecc979314d0a2a8a8596
+p: 10
+channels:
+- rasa
+- sasa
+- is_aromatic
+- is_exposed
+- is_strongly_exposed
+- hydro_area_sum
+- hydro_H_awmean
+- hydro_pos_H_area
+- hydro_neg_H_area
+- availability_hydro
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+controls:
   sequence_only:
-    EXP-H071_TEST_mean: 0.5016881738827552
-    EXP-H061_TEST_mean: 0.5067954770076422
-  antibody_level_F1_SURFACE_late_fusion:
-    EXP-H090_Scratch_TEST_mean: 0.4715122395974618
-    EXP-H086_ESM2_TEST_mean: 0.486326449829855
-planned_modes_not_executed:
-  - residue_surface_additive
-  - residue_surface_gated
-  - surface_aware_pooling
+  - EXP-H071
+  - EXP-H061
+  antibody_level_F1:
+  - EXP-H090
+  - EXP-H086
+experiments:
+- code: EXP-H128
+  backbone: EXP-H071
+  mode: additive
+  experiment_id: TRF_HIC_SCRATCH_RESIDUE_F1_ADDITIVE_V3
+  antibody_surface_control: EXP-H090
+- code: EXP-H129
+  backbone: EXP-H071
+  mode: gated
+  experiment_id: TRF_HIC_SCRATCH_RESIDUE_F1_GATED_V3
+  antibody_surface_control: EXP-H090
+- code: EXP-H130
+  backbone: EXP-H071
+  mode: surface_aware_pooling
+  experiment_id: TRF_HIC_SCRATCH_RESIDUE_F1_POOL_V3
+  antibody_surface_control: EXP-H090
+- code: EXP-H131
+  backbone: EXP-H061
+  mode: additive
+  experiment_id: TRF_HIC_ESM2_RESIDUE_F1_ADDITIVE_V3
+  antibody_surface_control: EXP-H086
+- code: EXP-H132
+  backbone: EXP-H061
+  mode: gated
+  experiment_id: TRF_HIC_ESM2_RESIDUE_F1_GATED_V3
+  antibody_surface_control: EXP-H086
+- code: EXP-H133
+  backbone: EXP-H061
+  mode: surface_aware_pooling
+  experiment_id: TRF_HIC_ESM2_RESIDUE_F1_POOL_V3
+  antibody_surface_control: EXP-H086
 do_not:
-  - invent_new_SURFACE_descriptors
-  - derive_residue_from_antibody_aggregates
-  - substitute_F3_RASA_as_F1
-  - run_cross_attention
-  - issue_or_train_H128_H133_without_residue_source_unlock
-stop: true
+- SAP24
+- SCM24
+- cross_attention
+- H134
+- TEST_tuning

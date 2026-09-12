@@ -142,6 +142,11 @@ class ResidueBundle:
     light_rasa: Optional[np.ndarray] = None
     heavy_ca: Optional[np.ndarray] = None  # [N, Lh, 3] Cα Å; pad/missing = NaN
     light_ca: Optional[np.ndarray] = None
+    heavy_surface: Optional[np.ndarray] = None  # [N, Lh, p] compact F1 residue SURFACE
+    light_surface: Optional[np.ndarray] = None
+    residue_surface_dim: int = 0
+    residue_surface_channels: Optional[list] = None
+    residue_surface_schema_hash: Optional[str] = None
 
 
 def _encode_chain(

@@ -72,6 +72,8 @@ class AbDataset(Dataset):
         joint_hl_chain_specific_dual_reg: bool = False,
         use_cross_attention_bridge: bool = False,
         chain_mode: str = "HL",
+        residue_surface_mode: Optional[str] = None,
+        surface_prep=None,
     ):
         self.ids = ids
         self.y = y
@@ -86,6 +88,9 @@ class AbDataset(Dataset):
         self.chain_mode = str(chain_mode)
         self.need_rasa = self.use_continuous_rasa or self.use_rasa_weighted_pool
         self.need_ca = self.use_ca_distance_bias or self.use_cross_geometry_bias
+        self.residue_surface_mode = residue_surface_mode
+        self.surface_prep = surface_prep
+        self.need_surface = residue_surface_mode is not None
         self.idxs = [rb.id_to_idx[a] for a in ids]
 
     def __len__(self):
@@ -115,6 +120,15 @@ class AbDataset(Dataset):
                 raise RuntimeError("CA coords requested but ResidueBundle lacks CA arrays")
             item["heavy_ca"] = self.rb.heavy_ca[j]
             item["light_ca"] = self.rb.light_ca[j]
+        if self.need_surface:
+            if self.rb.heavy_surface is None or self.rb.light_surface is None:
+                raise RuntimeError("residue SURFACE requested but ResidueBundle lacks surface arrays")
+            if self.surface_prep is None:
+                raise RuntimeError("residue SURFACE requested but surface_prep missing")
+            from antibody_transformer.residue_f1_surface import apply_prep_to_sample
+
+            item["heavy_surface"] = apply_prep_to_sample(self.rb.heavy_surface[j], self.surface_prep)
+            item["light_surface"] = apply_prep_to_sample(self.rb.light_surface[j], self.surface_prep)
         if self.content_mode == "frozen":
             if self.plm_source == "ablingua":
                 item["heavy_plm"] = self.rb.ablingua_h[j]
@@ -206,6 +220,8 @@ def build_transformer(
     initial_ell_angstrom: Optional[float] = None,
     capacity: Optional[dict] = None,
     share_hl_encoder: bool = True,
+    residue_surface_mode: Optional[str] = None,
+    residue_surface_dim: int = 0,
 ) -> AnnotatedTransformer:
     ncfg = presets["neural"]
     cap = capacity or {}
@@ -251,6 +267,8 @@ def build_transformer(
         cross_geometry_rbf_sigma=cross_geometry_rbf_sigma,
         initial_ell_angstrom=initial_ell_angstrom,
         share_hl_encoder=share_hl_encoder,
+        residue_surface_mode=residue_surface_mode,
+        residue_surface_dim=residue_surface_dim,
     )
 
 

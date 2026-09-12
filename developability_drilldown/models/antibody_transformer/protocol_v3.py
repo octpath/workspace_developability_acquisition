@@ -186,6 +186,8 @@ def build_platform_model(
     plm_source: Optional[str] = "ablingua",
     annotation_mode: str = "full",
     chain_mode: str = "HL",
+    residue_surface_mode: Optional[str] = None,
+    residue_surface_dim: int = 0,
 ) -> nn.Module:
     """Build model under V3 platform; architecture flags are experiment-specific."""
     flags = normalize_arch_flags(arch)
@@ -205,6 +207,8 @@ def build_platform_model(
         use_continuous_rasa=False,
         use_rasa_weighted_pool=False,
         use_ca_distance_bias=False,
+        residue_surface_mode=residue_surface_mode,
+        residue_surface_dim=int(residue_surface_dim or 0),
         **flags,
     )
 
@@ -289,6 +293,9 @@ def train_one_candidate_v3(
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
     chain_mode: str = "HL",
+    residue_surface_mode: Optional[str] = None,
+    residue_surface_dim: int = 0,
+    surface_prep=None,
 ) -> dict[str, Any]:
     """TRAIN-only; VAL-MAE checkpoint; ordinary patience (no min_epochs)."""
     presets = load_presets()
@@ -335,6 +342,8 @@ def train_one_candidate_v3(
         merge_mode=merge_mode,
         plm_source=plm_source,
         chain_mode=chain_mode,
+        residue_surface_mode=residue_surface_mode,
+        residue_surface_dim=residue_surface_dim,
     ).to(device)
     model.load_state_dict(deepcopy(init_state))
     assert state_dict_sha256(model) == init_hash
@@ -353,6 +362,8 @@ def train_one_candidate_v3(
             plm_source=ds_plm,
             use_cross_geometry_bias=need_ca,
             chain_mode=chain_mode,
+            residue_surface_mode=residue_surface_mode,
+            surface_prep=surface_prep,
         )
         return DataLoader(
             ds,
@@ -545,6 +556,9 @@ def train_one_candidate_v3(
                     "merge_mode": merge_mode,
                     "plm_source": plm_source,
                     "chain_mode": chain_mode,
+                    "residue_surface_mode": residue_surface_mode,
+                    "residue_surface_dim": residue_surface_dim,
+                    "surface_prep": None if surface_prep is None else surface_prep.to_dict(),
                 },
                 ckpt_path,
             )
@@ -642,6 +656,9 @@ def predict_with_checkpoint(
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
     chain_mode: str = "HL",
+    residue_surface_mode: Optional[str] = None,
+    residue_surface_dim: int = 0,
+    surface_prep=None,
 ) -> np.ndarray:
     blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     flags = normalize_arch_flags(blob.get("arch") or arch)
@@ -649,6 +666,13 @@ def predict_with_checkpoint(
     mm = blob.get("merge_mode", merge_mode)
     ps = blob.get("plm_source", plm_source)
     chm = blob.get("chain_mode", chain_mode)
+    rs_mode = blob.get("residue_surface_mode", residue_surface_mode)
+    rs_dim = int(blob.get("residue_surface_dim", residue_surface_dim) or 0)
+    prep = surface_prep
+    if prep is None and blob.get("surface_prep"):
+        from .residue_f1_surface import FoldSurfacePrep
+
+        prep = FoldSurfacePrep.from_dict(blob["surface_prep"])
     model = build_platform_model(
         rb,
         flags,
@@ -656,6 +680,8 @@ def predict_with_checkpoint(
         merge_mode=mm,
         plm_source=ps,
         chain_mode=chm,
+        residue_surface_mode=rs_mode,
+        residue_surface_dim=rs_dim,
     ).to(device)
     model.load_state_dict(blob["model"])
     model.eval()
@@ -670,6 +696,8 @@ def predict_with_checkpoint(
         plm_source=_dataset_plm_source(cm, ps),
         use_cross_geometry_bias=bool(flags.get("use_cross_geometry_bias")),
         chain_mode=chm,
+        residue_surface_mode=rs_mode,
+        surface_prep=prep,
     )
     loader = DataLoader(ds, batch_size=BATCH_SIZE, shuffle=False, collate_fn=collate_batch)
     preds = []
@@ -726,11 +754,18 @@ def run_protocol_v3(
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
     chain_mode: str = "HL",
+    residue_surface_mode: Optional[str] = None,
+    residue_surface_dim: int = 0,
+    residue_surface_compact: Optional[pd.DataFrame] = None,
 ) -> dict[str, Any]:
     flags = normalize_arch_flags(arch)
     cfg_hash = candidate_config_hash(
         flags, content_mode, merge_mode, plm_source, chain_mode=chain_mode
     )
+    if residue_surface_mode:
+        cfg_hash = hashlib.sha256(
+            f"{cfg_hash}|rs:{residue_surface_mode}|p:{residue_surface_dim}".encode()
+        ).hexdigest()
     lrs = coarse_lr_grid()
     if quick:
         lrs = [1e-3]
@@ -783,6 +818,8 @@ def run_protocol_v3(
                 merge_mode=merge_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
+                residue_surface_mode=residue_surface_mode,
+                residue_surface_dim=residue_surface_dim,
             )
             pred_te = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -795,6 +832,8 @@ def run_protocol_v3(
                 merge_mode=merge_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
+                residue_surface_mode=residue_surface_mode,
+                residue_surface_dim=residue_surface_dim,
             )
             pred_ext = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -806,6 +845,8 @@ def run_protocol_v3(
                 merge_mode=merge_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
+                residue_surface_mode=residue_surface_mode,
+                residue_surface_dim=residue_surface_dim,
             )
             oof_val[scheme_name].loc[va] = pred_va
             oof_test[scheme_name].loc[te] = pred_te
@@ -883,6 +924,13 @@ def run_protocol_v3(
             assert set(va).isdisjoint(tr)
 
             _set_seed(seed)
+            fold_prep = None
+            if residue_surface_mode is not None:
+                from .residue_f1_surface import fit_fold_surface_prep
+
+                if residue_surface_compact is None:
+                    raise ValueError("residue_surface_compact required")
+                fold_prep = fit_fold_surface_prep(residue_surface_compact, tr)
             model0 = build_platform_model(
                 rb,
                 flags,
@@ -890,6 +938,8 @@ def run_protocol_v3(
                 merge_mode=merge_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
+                residue_surface_mode=residue_surface_mode,
+                residue_surface_dim=residue_surface_dim,
             )
             init_state = deepcopy(model0.state_dict())
             init_hash = state_dict_sha256(model0)
@@ -922,6 +972,9 @@ def run_protocol_v3(
                     merge_mode=merge_mode,
                     plm_source=plm_source,
                     chain_mode=chain_mode,
+                    residue_surface_mode=residue_surface_mode,
+                    residue_surface_dim=residue_surface_dim,
+                    surface_prep=fold_prep,
                 )
                 init_hashes.append(summary["init_hash"])
                 cand_summaries.append(summary)
@@ -969,6 +1022,8 @@ def run_protocol_v3(
                 merge_mode=merge_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
+                residue_surface_mode=residue_surface_mode,
+                residue_surface_dim=residue_surface_dim,
             )
             pred_te = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -981,6 +1036,8 @@ def run_protocol_v3(
                 merge_mode=merge_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
+                residue_surface_mode=residue_surface_mode,
+                residue_surface_dim=residue_surface_dim,
             )
             pred_ext = predict_with_checkpoint(
                 ckpt_path=ckpt_path,
@@ -992,6 +1049,8 @@ def run_protocol_v3(
                 merge_mode=merge_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
+                residue_surface_mode=residue_surface_mode,
+                residue_surface_dim=residue_surface_dim,
             )
 
             oof_val[scheme_name].loc[va] = pred_va
@@ -1010,6 +1069,8 @@ def run_protocol_v3(
                     merge_mode=merge_mode,
                     plm_source=plm_source,
                     chain_mode=chain_mode,
+                    residue_surface_mode=residue_surface_mode,
+                    residue_surface_dim=residue_surface_dim,
                 )
                 mtmp.load_state_dict(blob["model"])
                 gates = mtmp.cross_gate_values()
@@ -1034,6 +1095,8 @@ def run_protocol_v3(
                     merge_mode=merge_mode,
                     plm_source=plm_source,
                     chain_mode=chain_mode,
+                    residue_surface_mode=residue_surface_mode,
+                    residue_surface_dim=residue_surface_dim,
                 )
                 mtmp.load_state_dict(blob["model"])
                 w = mtmp.cross_geometry_weight_values().numpy()
@@ -1116,6 +1179,8 @@ def run_protocol_v3(
         merge_mode=merge_mode,
         plm_source=plm_source,
         chain_mode=chain_mode,
+        residue_surface_mode=residue_surface_mode,
+        residue_surface_dim=residue_surface_dim,
     )
     n_params = int(sum(p.numel() for p in model0.parameters() if p.requires_grad))
     param_account = model0.param_account() if hasattr(model0, "param_account") else {}
