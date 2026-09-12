@@ -1,0 +1,14 @@
+experiment_code: EXP-H126
+experiment_id: XGB_HIC_SOURCE_SAP24_DEPTH2_FOLDLOCAL
+target: HIC
+family: XGBOOST
+model_type: XGBOOST
+feature_set_id: FS_HIC_SOURCE_SAP24
+max_depth: 2
+learning_rate: 0.02
+n_estimators: 5000
+early_stopping_rounds: 200
+seed: 101
+cv_protocol: dl_foldlocal_cosine_v3_oof_test_xgb
+no_full_dev_refit: true
+description: SOURCE_SAP24 shallow XGBoost depth=2 fold-local

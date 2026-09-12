@@ -126,10 +126,10 @@ def main() -> int:
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
         ok("next TmApp EXP-T142")
-    if next_code("HIC") != "EXP-H114":
+    if next_code("HIC") != "EXP-H128":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
-        ok("next HIC EXP-H114")
+        ok("next HIC EXP-H128")
 
     t_codes = sorted(
         [c for c in df["experiment_code"] if str(c).startswith("EXP-T")],

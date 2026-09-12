@@ -1,0 +1,69 @@
+batch_id: H126_H127_SOURCE_SAP24_SHALLOW_XGB
+status: PREREGISTERED_FROZEN
+git_rev_at_prereg: 41ed6a9ffae4f6243a82f7d97b63687f5e9af4b4
+next_code_at_prereg: EXP-H126
+feature_block: FS_HIC_SOURCE_SAP24
+n_dims: 24
+feature_columns:
+- SAP_VH_R5_MAX
+- SAP_VH_R5_TOP5_MEAN
+- SAP_VH_R5_POSITIVE_SUM_MEAN
+- SAP_VH_R10_MAX
+- SAP_VH_R10_TOP5_MEAN
+- SAP_VH_R10_POSITIVE_SUM_MEAN
+- SAP_VL_R5_MAX
+- SAP_VL_R5_TOP5_MEAN
+- SAP_VL_R5_POSITIVE_SUM_MEAN
+- SAP_VL_R10_MAX
+- SAP_VL_R10_TOP5_MEAN
+- SAP_VL_R10_POSITIVE_SUM_MEAN
+- SAP_CDR_R5_MAX
+- SAP_CDR_R5_TOP5_MEAN
+- SAP_CDR_R5_POSITIVE_SUM_MEAN
+- SAP_CDR_R10_MAX
+- SAP_CDR_R10_TOP5_MEAN
+- SAP_CDR_R10_POSITIVE_SUM_MEAN
+- SAP_FR_R5_MAX
+- SAP_FR_R5_TOP5_MEAN
+- SAP_FR_R5_POSITIVE_SUM_MEAN
+- SAP_FR_R10_MAX
+- SAP_FR_R10_TOP5_MEAN
+- SAP_FR_R10_POSITIVE_SUM_MEAN
+feature_content_sha256: 2cbf7fa4b9db9e77c434c0fd201c38939d2a6598ae5ae6c66d3a782dc23fcac2
+source_parquet: /workspace_developability_acquisition/developability_drilldown/experiments/features/antibody_source_sap24.parquet
+estimator: xgboost_shallow_fold_local
+shared_hyperparams:
+  learning_rate: 0.02
+  n_estimators_upper: 5000
+  early_stopping_rounds: 200
+  random_state: 101
+  objective: reg:squarederror
+  eval_metric: mae
+  min_child_weight: 5
+  subsample: 0.9
+  colsample_bytree: 0.7
+  reg_lambda: 10
+experiments:
+- code: EXP-H126
+  max_depth: 2
+  experiment_id: XGB_HIC_SOURCE_SAP24_DEPTH2_FOLDLOCAL
+  description: SOURCE_SAP24 shallow XGBoost depth=2 fold-local
+  canonical: true
+- code: EXP-H127
+  max_depth: 3
+  experiment_id: XGB_HIC_SOURCE_SAP24_DEPTH3_FOLDLOCAL
+  description: SOURCE_SAP24 shallow XGBoost depth=3 fold-local (sensitivity)
+  canonical: false
+semantics:
+  splits: existing Primary/Shadow folds.csv
+  preprocessing: TRAIN-only median impute; no StandardScaler
+  early_stopping: VAL MAE only
+  no_full_dev_refit: true
+  aggregation: same as Transformer V3 (fold mean/median external)
+do_not:
+- SCM24
+- COMBINED48
+- SURFACE
+- residue
+- Optuna
+- TEST tuning
