@@ -1,0 +1,68 @@
+........................................................................ [ 40%]
+........................................................................ [ 80%]
+....................................                                     [100%]
+=============================== warnings summary ===============================
+developability_drilldown/tests/test_arch6g_geometry.py: 7 warnings
+developability_drilldown/tests/test_ca_distance_bias.py: 1 warning
+developability_drilldown/tests/test_chain_specific_dual_reg.py: 2 warnings
+developability_drilldown/tests/test_cross_attention_bridge.py: 4 warnings
+developability_drilldown/tests/test_encoder_sharing.py: 3 warnings
+developability_drilldown/tests/test_joint_hl_dual_reg.py: 8 warnings
+developability_drilldown/tests/test_joint_hl_single_reg.py: 5 warnings
+developability_drilldown/tests/test_protocol_v2.py: 2 warnings
+developability_drilldown/tests/test_protocol_v2_coarse.py: 1 warning
+developability_drilldown/tests/test_protocol_v3.py: 1 warning
+developability_drilldown/tests/test_rasa_weighted_pool.py: 4 warnings
+developability_drilldown/tests/test_t076_t079_series.py: 4 warnings
+developability_drilldown/tests/test_t080_t104_series.py: 7 warnings
+developability_drilldown/tests/test_t124_h082_capacity_fusion.py: 2 warnings
+developability_drilldown/tests/test_transformer_phase2a.py: 10 warnings
+  /workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:259: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+
+developability_drilldown/tests/test_arch6g_geometry.py::test_zero_init_equivalence_arch6_vs_arch6g
+developability_drilldown/tests/test_arch6g_geometry.py::test_geometry_weights_receive_nonzero_grad
+  /workspace_developability_acquisition/.venv/lib/python3.14/site-packages/torch/nn/modules/activation.py:1337: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+    key_padding_mask = F._canonical_mask(
+
+developability_drilldown/tests/test_ca_distance_bias.py::test_zero_amplitude_equivalence
+developability_drilldown/tests/test_joint_hl_single_reg.py::test_zero_bias_equivalence_joint_ca
+  /workspace_developability_acquisition/.venv/lib/python3.14/site-packages/torch/nn/modules/transformer.py:823: UserWarning: Support for mismatched src_key_padding_mask and src_mask is deprecated. Use same type for both instead.
+    src_key_padding_mask = F._canonical_mask(
+
+developability_drilldown/tests/test_ca_distance_bias.py::test_ell_positive
+  /workspace_developability_acquisition/developability_drilldown/tests/test_ca_distance_bias.py:114: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+  Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+    assert abs(float(ell[0]) - 7.5) < 1e-4
+
+developability_drilldown/tests/test_encoder_sharing.py::test_unshared_init_hashes_identical
+developability_drilldown/tests/test_encoder_sharing.py::test_shared_unshared_initial_forward_equivalence_arch1
+developability_drilldown/tests/test_encoder_sharing.py::test_shared_unshared_initial_forward_equivalence_arch7
+developability_drilldown/tests/test_encoder_sharing.py::test_unshared_encoders_can_diverge_after_asymmetric_update
+developability_drilldown/tests/test_encoder_sharing.py::test_unshared_param_count_doubles_encoder
+developability_drilldown/tests/test_encoder_sharing.py::test_cross_attn_still_shared_under_unshared_encoder
+  /workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:266: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder_h = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+
+developability_drilldown/tests/test_encoder_sharing.py::test_unshared_init_hashes_identical
+developability_drilldown/tests/test_encoder_sharing.py::test_shared_unshared_initial_forward_equivalence_arch1
+developability_drilldown/tests/test_encoder_sharing.py::test_shared_unshared_initial_forward_equivalence_arch7
+developability_drilldown/tests/test_encoder_sharing.py::test_unshared_encoders_can_diverge_after_asymmetric_update
+developability_drilldown/tests/test_encoder_sharing.py::test_unshared_param_count_doubles_encoder
+developability_drilldown/tests/test_encoder_sharing.py::test_cross_attn_still_shared_under_unshared_encoder
+  /workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:267: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder_l = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+
+developability_drilldown/tests/test_encoder_sharing.py::test_unshared_encoders_can_diverge_after_asymmetric_update
+  /workspace_developability_acquisition/developability_drilldown/tests/test_encoder_sharing.py:121: UserWarning: This overload of add_ is deprecated:
+  	add_(Number alpha, Tensor other)
+  Consider using one of the following signatures instead:
+  	add_(Tensor other, *, Number alpha = 1) (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/python_arg_parser.cpp:1841.)
+    p.add_(-0.1, p.grad)
+
+developability_drilldown/tests/test_transformer_phase2a.py: 10 warnings
+  /workspace_developability_acquisition/top_models_feature_bundle/advanced_models/models/annotated_transformer.py:101: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+180 passed, 89 warnings in 4.39s

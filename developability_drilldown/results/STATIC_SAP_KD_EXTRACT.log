@@ -1,0 +1,8 @@
+STATIC_SAP_KD 50 antibodies
+STATIC_SAP_KD 100 antibodies
+STATIC_SAP_KD 150 antibodies
+STATIC_SAP_KD 200 antibodies
+STATIC_SAP_KD 250 antibodies
+STATIC_SAP_KD 300 antibodies
+QC n_points=960 sensitivity...
+STOP: SASA n_points instability too large — do not train

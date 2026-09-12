@@ -1,0 +1,24 @@
+....F.......................F....................................        [100%]
+=================================== FAILURES ===================================
+E   AssertionError: assert (141 == 141 and 113 == 101)
+     +  where 141 = len(['EXP-T001', 'EXP-T002', 'EXP-T003', 'EXP-T004', 'EXP-T005', 'EXP-T006', ...])
+     +  and   113 = len(['EXP-H001', 'EXP-H002', 'EXP-H003', 'EXP-H004', 'EXP-H005', 'EXP-H006', ...])
+/workspace_developability_acquisition/developability_drilldown/tests/test_phase1.py:31: AssertionError: assert (141 == 141 and 113 == 101)
+E   AssertionError: assert (141 == 141 and 113 == 101)
+     +  where 141 = len(['EXP-T001', 'EXP-T002', 'EXP-T003', 'EXP-T004', 'EXP-T005', 'EXP-T006', ...])
+     +  and   113 = len(['EXP-H001', 'EXP-H002', 'EXP-H003', 'EXP-H004', 'EXP-H005', 'EXP-H006', ...])
+/workspace_developability_acquisition/developability_drilldown/tests/test_transformer_phase2a.py:35: AssertionError: assert (141 == 141 and 113 == 101)
+=============================== warnings summary ===============================
+developability_drilldown/tests/test_transformer_phase2a.py: 10 warnings
+  /workspace_developability_acquisition/top_models_feature_bundle/advanced_models/models/annotated_transformer.py:101: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder = nn.TransformerEncoder(enc_layer, num_layers=n_layers)
+
+developability_drilldown/tests/test_transformer_phase2a.py: 10 warnings
+  /workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:259: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED developability_drilldown/tests/test_phase1.py::test_code_format_and_counts
+FAILED developability_drilldown/tests/test_transformer_phase2a.py::test_transformer_code_append_only
+2 failed, 63 passed, 20 warnings in 4.50s
