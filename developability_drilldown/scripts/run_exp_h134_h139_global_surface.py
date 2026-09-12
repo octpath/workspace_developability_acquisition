@@ -411,7 +411,12 @@ def run_one(spec: dict, *, quick: bool, rb, folds, dev, test, aux_store) -> dict
         save_pred(result["test_ids"], result["ext"][key], pred / f"test_{key}.csv", "HIC")
     for scheme in ("primary", "shadow"):
         for k in range(5):
-            save_pred(result["test_ids"], result["ext"][f"{scheme}_fold{k}"], pred / f"test_{scheme}_fold{k}.csv", "HIC")
+            save_pred(
+                result["test_ids"],
+                result["ext"][f"{scheme}_folds"][k],
+                pred / f"test_{scheme}_fold{k}.csv",
+                "HIC",
+            )
     save_pred(result["test_ids"], result["ext"]["primary_mean"], pred / "test.csv", "HIC")
 
     sol = load_solution(BUNDLE_ROOT / "solution.csv")

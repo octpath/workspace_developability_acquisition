@@ -102,8 +102,7 @@ def test_next_code_after_batch():
     from experiment_codes import load_codes, next_code
 
     codes = set(load_codes()["experiment_code"].astype(str))
-    if "EXP-H139" in codes:
-        assert next_code("HIC") == "EXP-H140"
-        assert (ROOT / "results/HIC_GLOBAL_F1_SURFACE_CONDITIONING_REPORT.md").exists() or True
-    else:
-        assert next_code("HIC") in ("EXP-H134", "EXP-H140")
+    assert "EXP-H139" in codes
+    assert next_code("HIC") == "EXP-H140"
+    assert (ROOT / "results/HIC_GLOBAL_F1_SURFACE_CONDITIONING_REPORT.md").exists()
+    assert (ROOT / "results/H134_H139_PRE_EXTERNAL_FREEZE.yaml").exists()

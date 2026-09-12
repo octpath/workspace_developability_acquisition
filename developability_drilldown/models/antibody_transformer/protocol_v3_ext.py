@@ -742,7 +742,7 @@ def run_protocol_v3_ext(
         fusion_mode=fusion_mode if aux_store is not None else "late_concat_aux32",
     )
     n_trainable = int(sum(p.numel() for p in probe.parameters() if p.requires_grad))
-    is_fusion = isinstance(probe, (LateFusionModel, DirectLateFusionModel))
+    is_fusion = isinstance(probe, (LateFusionModel, DirectLateFusionModel, GlobalSurfaceConditioningModel))
     account = (
         probe.transformer.param_account()
         if is_fusion
@@ -753,6 +753,8 @@ def run_protocol_v3_ext(
         account["late_fusion_aux_head"] = n_trainable - int(account.get("total", 0))
         account["total"] = n_trainable
         account["fusion_mode"] = getattr(probe, "fusion_mode", fusion_mode)
+        if isinstance(probe, GlobalSurfaceConditioningModel):
+            account["global_surface_conditioning"] = int(probe.n_added_conditioning_parameters())
 
     summary = {
         "experiment_code": experiment_code,

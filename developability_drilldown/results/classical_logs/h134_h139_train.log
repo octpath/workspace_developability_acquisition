@@ -1,0 +1,942 @@
+N_EXPERIMENTS_TOTAL=274 next=EXP-H134
+==== TRAIN EXP-H134 mode=global_surface_film ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=0 lr0=1e-05 ===
+=== EXP-H134 primary fold=0 lr0=1e-04 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=0 lr0=1e-03 ===
+=== EXP-H134 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=1 lr0=1e-05 ===
+=== EXP-H134 primary fold=1 lr0=1e-04 ===
+=== EXP-H134 primary fold=1 lr0=1e-03 ===
+=== EXP-H134 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=2 lr0=1e-05 ===
+=== EXP-H134 primary fold=2 lr0=1e-04 ===
+=== EXP-H134 primary fold=2 lr0=1e-03 ===
+=== EXP-H134 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=3 lr0=1e-05 ===
+=== EXP-H134 primary fold=3 lr0=1e-04 ===
+=== EXP-H134 primary fold=3 lr0=1e-03 ===
+=== EXP-H134 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=4 lr0=1e-05 ===
+=== EXP-H134 primary fold=4 lr0=1e-04 ===
+=== EXP-H134 primary fold=4 lr0=1e-03 ===
+=== EXP-H134 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=0 lr0=1e-05 ===
+=== EXP-H134 shadow fold=0 lr0=1e-04 ===
+=== EXP-H134 shadow fold=0 lr0=1e-03 ===
+=== EXP-H134 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=1 lr0=1e-05 ===
+=== EXP-H134 shadow fold=1 lr0=1e-04 ===
+=== EXP-H134 shadow fold=1 lr0=1e-03 ===
+=== EXP-H134 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=2 lr0=1e-05 ===
+=== EXP-H134 shadow fold=2 lr0=1e-04 ===
+=== EXP-H134 shadow fold=2 lr0=1e-03 ===
+=== EXP-H134 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=3 lr0=1e-05 ===
+=== EXP-H134 shadow fold=3 lr0=1e-04 ===
+=== EXP-H134 shadow fold=3 lr0=1e-03 ===
+=== EXP-H134 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=4 lr0=1e-05 ===
+=== EXP-H134 shadow fold=4 lr0=1e-04 ===
+=== EXP-H134 shadow fold=4 lr0=1e-03 ===
+=== EXP-H134 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_h134_h139_global_surface.py", line 470, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_h134_h139_global_surface.py", line 463, in main
+    run_one(spec, quick=args.quick, rb=rb, folds=folds, dev=dev, test=test, aux_store=aux_store)
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_h134_h139_global_surface.py", line 380, in run_one
+    result = run_protocol_v3_ext(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/protocol_v3_ext.py", line 749, in run_protocol_v3_ext
+    else probe.param_account()
+         ^^^^^^^^^^^^^^^^^^^
+  File "/workspace_developability_acquisition/.venv_b1/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1965, in __getattr__
+    raise AttributeError(
+AttributeError: 'GlobalSurfaceConditioningModel' object has no attribute 'param_account'
+N_EXPERIMENTS_TOTAL=274 next=EXP-H135
+==== TRAIN EXP-H134 mode=global_surface_film ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=0 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-05 ===
+=== EXP-H134 primary fold=0 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-04 ===
+=== EXP-H134 primary fold=0 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-03 ===
+=== EXP-H134 primary fold=0 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=1 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-05 ===
+=== EXP-H134 primary fold=1 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-04 ===
+=== EXP-H134 primary fold=1 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-03 ===
+=== EXP-H134 primary fold=1 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=2 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-05 ===
+=== EXP-H134 primary fold=2 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-04 ===
+=== EXP-H134 primary fold=2 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-03 ===
+=== EXP-H134 primary fold=2 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=3 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-05 ===
+=== EXP-H134 primary fold=3 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-04 ===
+=== EXP-H134 primary fold=3 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-03 ===
+=== EXP-H134 primary fold=3 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=4 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-05 ===
+=== EXP-H134 primary fold=4 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-04 ===
+=== EXP-H134 primary fold=4 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-03 ===
+=== EXP-H134 primary fold=4 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=0 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-05 ===
+=== EXP-H134 shadow fold=0 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-04 ===
+=== EXP-H134 shadow fold=0 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-03 ===
+=== EXP-H134 shadow fold=0 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=1 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-05 ===
+=== EXP-H134 shadow fold=1 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-04 ===
+=== EXP-H134 shadow fold=1 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-03 ===
+=== EXP-H134 shadow fold=1 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=2 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-05 ===
+=== EXP-H134 shadow fold=2 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-04 ===
+=== EXP-H134 shadow fold=2 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-03 ===
+=== EXP-H134 shadow fold=2 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=3 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-05 ===
+=== EXP-H134 shadow fold=3 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-04 ===
+=== EXP-H134 shadow fold=3 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-03 ===
+=== EXP-H134 shadow fold=3 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=4 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-05 ===
+=== EXP-H134 shadow fold=4 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-04 ===
+=== EXP-H134 shadow fold=4 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-03 ===
+=== EXP-H134 shadow fold=4 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+Traceback (most recent call last):
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_h134_h139_global_surface.py", line 470, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_h134_h139_global_surface.py", line 463, in main
+    run_one(spec, quick=args.quick, rb=rb, folds=folds, dev=dev, test=test, aux_store=aux_store)
+  File "/workspace_developability_acquisition/developability_drilldown/scripts/run_exp_h134_h139_global_surface.py", line 414, in run_one
+    save_pred(result["test_ids"], result["ext"][f"{scheme}_fold{k}"], pred / f"test_{scheme}_fold{k}.csv", "HIC")
+                                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'primary_fold0'
+N_EXPERIMENTS_TOTAL=274 next=EXP-H135
+==== TRAIN EXP-H134 mode=global_surface_film ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=0 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-05 ===
+=== EXP-H134 primary fold=0 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-04 ===
+=== EXP-H134 primary fold=0 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-03 ===
+=== EXP-H134 primary fold=0 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=1 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-05 ===
+=== EXP-H134 primary fold=1 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-04 ===
+=== EXP-H134 primary fold=1 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-03 ===
+=== EXP-H134 primary fold=1 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=2 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-05 ===
+=== EXP-H134 primary fold=2 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-04 ===
+=== EXP-H134 primary fold=2 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-03 ===
+=== EXP-H134 primary fold=2 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=3 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-05 ===
+=== EXP-H134 primary fold=3 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-04 ===
+=== EXP-H134 primary fold=3 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-03 ===
+=== EXP-H134 primary fold=3 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 primary fold=4 lr0=1e-05 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-05 ===
+=== EXP-H134 primary fold=4 lr0=1e-04 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-04 ===
+=== EXP-H134 primary fold=4 lr0=1e-03 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-03 ===
+=== EXP-H134 primary fold=4 lr0=1e-02 ===
+=== resume skip EXP-H134 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=0 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-05 ===
+=== EXP-H134 shadow fold=0 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-04 ===
+=== EXP-H134 shadow fold=0 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-03 ===
+=== EXP-H134 shadow fold=0 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=1 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-05 ===
+=== EXP-H134 shadow fold=1 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-04 ===
+=== EXP-H134 shadow fold=1 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-03 ===
+=== EXP-H134 shadow fold=1 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=2 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-05 ===
+=== EXP-H134 shadow fold=2 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-04 ===
+=== EXP-H134 shadow fold=2 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-03 ===
+=== EXP-H134 shadow fold=2 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=3 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-05 ===
+=== EXP-H134 shadow fold=3 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-04 ===
+=== EXP-H134 shadow fold=3 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-03 ===
+=== EXP-H134 shadow fold=3 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H134 shadow fold=4 lr0=1e-05 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-05 ===
+=== EXP-H134 shadow fold=4 lr0=1e-04 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-04 ===
+=== EXP-H134 shadow fold=4 lr0=1e-03 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-03 ===
+=== EXP-H134 shadow fold=4 lr0=1e-02 ===
+=== resume skip EXP-H134 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+DONE EXP-H134 TEST_mean=0.504069
+==== TRAIN EXP-H135 mode=global_surface_gated_residual ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 primary fold=0 lr0=1e-05 ===
+=== EXP-H135 primary fold=0 lr0=1e-04 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 primary fold=0 lr0=1e-03 ===
+=== EXP-H135 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 primary fold=1 lr0=1e-05 ===
+=== EXP-H135 primary fold=1 lr0=1e-04 ===
+=== EXP-H135 primary fold=1 lr0=1e-03 ===
+=== EXP-H135 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 primary fold=2 lr0=1e-05 ===
+=== EXP-H135 primary fold=2 lr0=1e-04 ===
+=== EXP-H135 primary fold=2 lr0=1e-03 ===
+=== EXP-H135 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 primary fold=3 lr0=1e-05 ===
+=== EXP-H135 primary fold=3 lr0=1e-04 ===
+=== EXP-H135 primary fold=3 lr0=1e-03 ===
+=== EXP-H135 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 primary fold=4 lr0=1e-05 ===
+=== EXP-H135 primary fold=4 lr0=1e-04 ===
+=== EXP-H135 primary fold=4 lr0=1e-03 ===
+=== EXP-H135 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 shadow fold=0 lr0=1e-05 ===
+=== EXP-H135 shadow fold=0 lr0=1e-04 ===
+=== EXP-H135 shadow fold=0 lr0=1e-03 ===
+=== EXP-H135 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 shadow fold=1 lr0=1e-05 ===
+=== EXP-H135 shadow fold=1 lr0=1e-04 ===
+=== EXP-H135 shadow fold=1 lr0=1e-03 ===
+=== EXP-H135 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 shadow fold=2 lr0=1e-05 ===
+=== EXP-H135 shadow fold=2 lr0=1e-04 ===
+=== EXP-H135 shadow fold=2 lr0=1e-03 ===
+=== EXP-H135 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 shadow fold=3 lr0=1e-05 ===
+=== EXP-H135 shadow fold=3 lr0=1e-04 ===
+=== EXP-H135 shadow fold=3 lr0=1e-03 ===
+=== EXP-H135 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H135 shadow fold=4 lr0=1e-05 ===
+=== EXP-H135 shadow fold=4 lr0=1e-04 ===
+=== EXP-H135 shadow fold=4 lr0=1e-03 ===
+=== EXP-H135 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+DONE EXP-H135 TEST_mean=0.510073
+==== TRAIN EXP-H136 mode=global_surface_token_attention ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 primary fold=0 lr0=1e-05 ===
+=== EXP-H136 primary fold=0 lr0=1e-04 ===
+=== EXP-H136 primary fold=0 lr0=1e-03 ===
+=== EXP-H136 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 primary fold=1 lr0=1e-05 ===
+=== EXP-H136 primary fold=1 lr0=1e-04 ===
+=== EXP-H136 primary fold=1 lr0=1e-03 ===
+=== EXP-H136 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 primary fold=2 lr0=1e-05 ===
+=== EXP-H136 primary fold=2 lr0=1e-04 ===
+=== EXP-H136 primary fold=2 lr0=1e-03 ===
+=== EXP-H136 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 primary fold=3 lr0=1e-05 ===
+=== EXP-H136 primary fold=3 lr0=1e-04 ===
+=== EXP-H136 primary fold=3 lr0=1e-03 ===
+=== EXP-H136 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 primary fold=4 lr0=1e-05 ===
+=== EXP-H136 primary fold=4 lr0=1e-04 ===
+=== EXP-H136 primary fold=4 lr0=1e-03 ===
+=== EXP-H136 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 shadow fold=0 lr0=1e-05 ===
+=== EXP-H136 shadow fold=0 lr0=1e-04 ===
+=== EXP-H136 shadow fold=0 lr0=1e-03 ===
+=== EXP-H136 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 shadow fold=1 lr0=1e-05 ===
+=== EXP-H136 shadow fold=1 lr0=1e-04 ===
+=== EXP-H136 shadow fold=1 lr0=1e-03 ===
+=== EXP-H136 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 shadow fold=2 lr0=1e-05 ===
+=== EXP-H136 shadow fold=2 lr0=1e-04 ===
+=== EXP-H136 shadow fold=2 lr0=1e-03 ===
+=== EXP-H136 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 shadow fold=3 lr0=1e-05 ===
+=== EXP-H136 shadow fold=3 lr0=1e-04 ===
+=== EXP-H136 shadow fold=3 lr0=1e-03 ===
+=== EXP-H136 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H136 shadow fold=4 lr0=1e-05 ===
+=== EXP-H136 shadow fold=4 lr0=1e-04 ===
+=== EXP-H136 shadow fold=4 lr0=1e-03 ===
+=== EXP-H136 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+DONE EXP-H136 TEST_mean=0.473872
+==== TRAIN EXP-H137 mode=global_surface_film ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 primary fold=0 lr0=1e-05 ===
+=== EXP-H137 primary fold=0 lr0=1e-04 ===
+=== EXP-H137 primary fold=0 lr0=1e-03 ===
+=== EXP-H137 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 primary fold=1 lr0=1e-05 ===
+=== EXP-H137 primary fold=1 lr0=1e-04 ===
+=== EXP-H137 primary fold=1 lr0=1e-03 ===
+=== EXP-H137 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 primary fold=2 lr0=1e-05 ===
+=== EXP-H137 primary fold=2 lr0=1e-04 ===
+=== EXP-H137 primary fold=2 lr0=1e-03 ===
+=== EXP-H137 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 primary fold=3 lr0=1e-05 ===
+=== EXP-H137 primary fold=3 lr0=1e-04 ===
+=== EXP-H137 primary fold=3 lr0=1e-03 ===
+=== EXP-H137 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 primary fold=4 lr0=1e-05 ===
+=== EXP-H137 primary fold=4 lr0=1e-04 ===
+=== EXP-H137 primary fold=4 lr0=1e-03 ===
+=== EXP-H137 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 shadow fold=0 lr0=1e-05 ===
+=== EXP-H137 shadow fold=0 lr0=1e-04 ===
+=== EXP-H137 shadow fold=0 lr0=1e-03 ===
+=== EXP-H137 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 shadow fold=1 lr0=1e-05 ===
+=== EXP-H137 shadow fold=1 lr0=1e-04 ===
+=== EXP-H137 shadow fold=1 lr0=1e-03 ===
+=== EXP-H137 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 shadow fold=2 lr0=1e-05 ===
+=== EXP-H137 shadow fold=2 lr0=1e-04 ===
+=== EXP-H137 shadow fold=2 lr0=1e-03 ===
+=== EXP-H137 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 shadow fold=3 lr0=1e-05 ===
+=== EXP-H137 shadow fold=3 lr0=1e-04 ===
+=== EXP-H137 shadow fold=3 lr0=1e-03 ===
+=== EXP-H137 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H137 shadow fold=4 lr0=1e-05 ===
+=== EXP-H137 shadow fold=4 lr0=1e-04 ===
+=== EXP-H137 shadow fold=4 lr0=1e-03 ===
+=== EXP-H137 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+DONE EXP-H137 TEST_mean=0.511159
+==== TRAIN EXP-H138 mode=global_surface_gated_residual ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 primary fold=0 lr0=1e-05 ===
+=== EXP-H138 primary fold=0 lr0=1e-04 ===
+=== EXP-H138 primary fold=0 lr0=1e-03 ===
+=== EXP-H138 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 primary fold=1 lr0=1e-05 ===
+=== EXP-H138 primary fold=1 lr0=1e-04 ===
+=== EXP-H138 primary fold=1 lr0=1e-03 ===
+=== EXP-H138 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 primary fold=2 lr0=1e-05 ===
+=== EXP-H138 primary fold=2 lr0=1e-04 ===
+=== EXP-H138 primary fold=2 lr0=1e-03 ===
+=== EXP-H138 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 primary fold=3 lr0=1e-05 ===
+=== EXP-H138 primary fold=3 lr0=1e-04 ===
+=== EXP-H138 primary fold=3 lr0=1e-03 ===
+=== EXP-H138 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 primary fold=4 lr0=1e-05 ===
+=== EXP-H138 primary fold=4 lr0=1e-04 ===
+=== EXP-H138 primary fold=4 lr0=1e-03 ===
+=== EXP-H138 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 shadow fold=0 lr0=1e-05 ===
+=== EXP-H138 shadow fold=0 lr0=1e-04 ===
+=== EXP-H138 shadow fold=0 lr0=1e-03 ===
+=== EXP-H138 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 shadow fold=1 lr0=1e-05 ===
+=== EXP-H138 shadow fold=1 lr0=1e-04 ===
+=== EXP-H138 shadow fold=1 lr0=1e-03 ===
+=== EXP-H138 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 shadow fold=2 lr0=1e-05 ===
+=== EXP-H138 shadow fold=2 lr0=1e-04 ===
+=== EXP-H138 shadow fold=2 lr0=1e-03 ===
+=== EXP-H138 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 shadow fold=3 lr0=1e-05 ===
+=== EXP-H138 shadow fold=3 lr0=1e-04 ===
+=== EXP-H138 shadow fold=3 lr0=1e-03 ===
+=== EXP-H138 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H138 shadow fold=4 lr0=1e-05 ===
+=== EXP-H138 shadow fold=4 lr0=1e-04 ===
+=== EXP-H138 shadow fold=4 lr0=1e-03 ===
+=== EXP-H138 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+DONE EXP-H138 TEST_mean=0.497101
+==== TRAIN EXP-H139 mode=global_surface_token_attention ====
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 primary fold=0 lr0=1e-05 ===
+=== EXP-H139 primary fold=0 lr0=1e-04 ===
+=== EXP-H139 primary fold=0 lr0=1e-03 ===
+=== EXP-H139 primary fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 primary fold=1 lr0=1e-05 ===
+=== EXP-H139 primary fold=1 lr0=1e-04 ===
+=== EXP-H139 primary fold=1 lr0=1e-03 ===
+=== EXP-H139 primary fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 primary fold=2 lr0=1e-05 ===
+=== EXP-H139 primary fold=2 lr0=1e-04 ===
+=== EXP-H139 primary fold=2 lr0=1e-03 ===
+=== EXP-H139 primary fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 primary fold=3 lr0=1e-05 ===
+=== EXP-H139 primary fold=3 lr0=1e-04 ===
+=== EXP-H139 primary fold=3 lr0=1e-03 ===
+=== EXP-H139 primary fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 primary fold=4 lr0=1e-05 ===
+=== EXP-H139 primary fold=4 lr0=1e-04 ===
+=== EXP-H139 primary fold=4 lr0=1e-03 ===
+=== EXP-H139 primary fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 shadow fold=0 lr0=1e-05 ===
+=== EXP-H139 shadow fold=0 lr0=1e-04 ===
+=== EXP-H139 shadow fold=0 lr0=1e-03 ===
+=== EXP-H139 shadow fold=0 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 shadow fold=1 lr0=1e-05 ===
+=== EXP-H139 shadow fold=1 lr0=1e-04 ===
+=== EXP-H139 shadow fold=1 lr0=1e-03 ===
+=== EXP-H139 shadow fold=1 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 shadow fold=2 lr0=1e-05 ===
+=== EXP-H139 shadow fold=2 lr0=1e-04 ===
+=== EXP-H139 shadow fold=2 lr0=1e-03 ===
+=== EXP-H139 shadow fold=2 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 shadow fold=3 lr0=1e-05 ===
+=== EXP-H139 shadow fold=3 lr0=1e-04 ===
+=== EXP-H139 shadow fold=3 lr0=1e-03 ===
+=== EXP-H139 shadow fold=3 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+=== EXP-H139 shadow fold=4 lr0=1e-05 ===
+=== EXP-H139 shadow fold=4 lr0=1e-04 ===
+=== EXP-H139 shadow fold=4 lr0=1e-03 ===
+=== EXP-H139 shadow fold=4 lr0=1e-02 ===
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+/workspace_developability_acquisition/developability_drilldown/models/antibody_transformer/model.py:305: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(_make_encoder_layer(), num_layers=n_layers)
+DONE EXP-H139 TEST_mean=0.473081

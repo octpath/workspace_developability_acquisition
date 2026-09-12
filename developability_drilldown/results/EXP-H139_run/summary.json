@@ -1,0 +1,55 @@
+{
+  "experiment_code": "EXP-H139",
+  "platform_id": "DL_FOLDLOCAL_COSINE_V3",
+  "config_hash": "938cc7d771a04f06d5ea37129fa7becc521767c866f3e0c63efdfb060d9bc61b",
+  "scores": {
+    "oof_val": {
+      "primary": 0.41802874266071083,
+      "shadow": 0.41702403523009496,
+      "mean": 0.4175263889454029,
+      "worst": 0.41802874266071083
+    },
+    "oof_test": {
+      "primary": 0.4798935166818124,
+      "shadow": 0.4662688719667033,
+      "mean": 0.4730811943242579,
+      "worst": 0.4798935166818124
+    }
+  },
+  "n_trainable": 556161,
+  "param_account": {
+    "encoder": 264960,
+    "encoder_h": 264960,
+    "encoder_l": 0,
+    "cross_attention": 0,
+    "gates": 0,
+    "geometry": 0,
+    "head": 16641,
+    "other": 203648,
+    "total": 556161,
+    "share_hl_encoder": 1,
+    "late_fusion_aux_head": 70912,
+    "fusion_mode": "global_surface_token_attention",
+    "global_surface_conditioning": 70912
+  },
+  "capacity": null,
+  "fusion_bundle_id": "F1_SURFACE",
+  "feature_artifact_hash": "e3788aad831d0b022ebfa682a46e0a27c9fbaf0e5f833aacaa3b191819898a4b",
+  "fusion_mode": "global_surface_token_attention",
+  "seed": 101,
+  "arch": {
+    "joint_hl_single_reg": false,
+    "joint_hl_dual_reg": false,
+    "joint_hl_chain_specific_dual_reg": true,
+    "use_cross_attention_bridge": false,
+    "use_reg_only_cross_attention": false,
+    "use_within_chain_extra_attention": false,
+    "cross_gate_mode": "learned",
+    "use_cross_geometry_bias": false,
+    "share_hl_encoder": true
+  },
+  "content_mode": "frozen",
+  "merge_mode": "mean",
+  "plm_source": "esm2",
+  "chain_mode": "HL"
+}
