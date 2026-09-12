@@ -1,0 +1,54 @@
+{
+  "experiment_code": "EXP-H114",
+  "platform_id": "DL_FOLDLOCAL_COSINE_V3",
+  "config_hash": "279d441e020e89b131622b0345d8b6b724c6d711c3796083e085c51efa934bd4",
+  "scores": {
+    "oof_val": {
+      "primary": 0.4580135838543927,
+      "shadow": 0.47880777688673987,
+      "mean": 0.4684106803705663,
+      "worst": 0.47880777688673987
+    },
+    "oof_test": {
+      "primary": 0.5109377613774052,
+      "shadow": 0.5170250933140885,
+      "mean": 0.5139814273457468,
+      "worst": 0.5170250933140885
+    }
+  },
+  "n_trainable": 343682,
+  "param_account": {
+    "encoder": 264960,
+    "encoder_h": 264960,
+    "encoder_l": 0,
+    "cross_attention": 0,
+    "gates": 0,
+    "geometry": 0,
+    "head": 16641,
+    "other": 42368,
+    "total": 343682,
+    "share_hl_encoder": 1,
+    "late_fusion_aux_head": 19713,
+    "fusion_mode": "late_concat_direct"
+  },
+  "capacity": null,
+  "fusion_bundle_id": "FS_HIC_SOURCE_SAP24",
+  "feature_artifact_hash": "ecf8b3362c8986232b7cb84b79385e519dcd820df06ad9b3dd0e95c9bcb4a947",
+  "fusion_mode": "late_concat_direct",
+  "seed": 101,
+  "arch": {
+    "joint_hl_single_reg": true,
+    "joint_hl_dual_reg": false,
+    "joint_hl_chain_specific_dual_reg": false,
+    "use_cross_attention_bridge": false,
+    "use_reg_only_cross_attention": false,
+    "use_within_chain_extra_attention": false,
+    "cross_gate_mode": "learned",
+    "use_cross_geometry_bias": false,
+    "share_hl_encoder": true
+  },
+  "content_mode": "scratch",
+  "merge_mode": "concat",
+  "plm_source": null,
+  "chain_mode": "HL"
+}

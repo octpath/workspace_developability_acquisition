@@ -1,1 +1,7 @@
-PASS
+FAIL
+expected 254 experiments/codes; experiments=266 codes=266
+family counts unexpected: {'TRANSFORMER': 178, 'LINEAR': 74, 'XGBOOST': 14}
+next HIC unexpected: EXP-H126
+EXPERIMENT_CODES.csv mismatch
+TRANSFORMER FULL count 178
+completeness rows 266
