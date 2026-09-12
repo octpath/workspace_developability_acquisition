@@ -35,6 +35,7 @@ class SharedScalarCrossGate(nn.Module):
 
     def __init__(self, d_model: int, bottleneck: int = RANK):
         super().__init__()
+        self.force_identity = False  # ablation: g=1
         self.ln_q = nn.LayerNorm(d_model)
         self.ln_d = nn.LayerNorm(d_model)
         self.mlp = nn.Sequential(
@@ -53,6 +54,8 @@ class SharedScalarCrossGate(nn.Module):
         f = torch.cat([q, d, q * d], dim=-1)
         a = self.mlp(f)
         g = 2.0 * torch.sigmoid(a)
+        if self.force_identity:
+            g = torch.ones_like(g)
         out = reg + g * delta
         return out, g.squeeze(-1) if squeeze else g.squeeze(-1)
 
@@ -62,6 +65,7 @@ class SharedFeatureCrossGate(nn.Module):
 
     def __init__(self, d_model: int, bottleneck: int = RANK):
         super().__init__()
+        self.force_identity = False  # ablation: g=1
         self.ln_q = nn.LayerNorm(d_model)
         self.ln_d = nn.LayerNorm(d_model)
         self.proj = nn.Linear(2 * d_model, bottleneck)
@@ -74,6 +78,8 @@ class SharedFeatureCrossGate(nn.Module):
         d = self.ln_d(delta)
         h = F.gelu(self.proj(torch.cat([q, d], dim=-1)))
         g = 2.0 * torch.sigmoid(self.out(h))
+        if self.force_identity:
+            g = torch.ones_like(g)
         return reg + g * delta, g
 
 
@@ -82,6 +88,7 @@ class SharedRegFFNAdapter(nn.Module):
 
     def __init__(self, d_model: int, hidden: int = 32):
         super().__init__()
+        self.force_identity = False  # ablation: zero adapter
         self.ln = nn.LayerNorm(d_model)
         self.fc1 = nn.Linear(d_model, hidden)
         self.fc2 = nn.Linear(hidden, d_model)
@@ -89,6 +96,8 @@ class SharedRegFFNAdapter(nn.Module):
         nn.init.zeros_(self.fc2.bias)
 
     def forward(self, r: torch.Tensor) -> torch.Tensor:
+        if self.force_identity:
+            return r
         a = F.gelu(self.fc1(self.ln(r)))
         a = self.fc2(a)
         return r + a
@@ -99,6 +108,7 @@ class SharedSecondReadAlpha(nn.Module):
 
     def __init__(self, d_model: int, bottleneck: int = RANK):
         super().__init__()
+        self.force_identity = False  # ablation: alpha=0
         self.ln_r = nn.LayerNorm(d_model)
         self.ln_d = nn.LayerNorm(d_model)
         self.mlp = nn.Sequential(
@@ -112,6 +122,8 @@ class SharedSecondReadAlpha(nn.Module):
     def forward(self, reg1: torch.Tensor, delta2: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
         a = self.mlp(torch.cat([self.ln_r(reg1), self.ln_d(delta2)], dim=-1))
         alpha = torch.tanh(a)
+        if self.force_identity:
+            alpha = torch.zeros_like(alpha)
         return reg1 + alpha * delta2, alpha.squeeze(-1)
 
 
@@ -120,6 +132,7 @@ class SharedTwoQueryCombiner(nn.Module):
 
     def __init__(self, d_model: int, bottleneck: int = RANK):
         super().__init__()
+        self.force_identity = False  # ablation: single-query (slot0 only, weight=[1,0])
         self.slot = nn.Parameter(torch.zeros(2, d_model))
         # tiny symmetric perturbation
         nn.init.normal_(self.slot, mean=0.0, std=1e-3)
@@ -132,6 +145,8 @@ class SharedTwoQueryCombiner(nn.Module):
 
     def queries(self, reg: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
         # reg: [B,1,D]
+        if self.force_identity:
+            return reg, reg
         q1 = reg + self.slot[0].view(1, 1, -1)
         q2 = reg + self.slot[1].view(1, 1, -1)
         return q1, q2
@@ -139,6 +154,11 @@ class SharedTwoQueryCombiner(nn.Module):
     def combine(
         self, reg: torch.Tensor, delta1: torch.Tensor, delta2: torch.Tensor
     ) -> tuple[torch.Tensor, torch.Tensor]:
+        if self.force_identity:
+            # collapse to single-query C0-equivalent: use delta1 only
+            w = torch.zeros(reg.shape[0], 2, device=reg.device, dtype=reg.dtype)
+            w[:, 0] = 1.0
+            return reg + delta1, w
         r = self.ln_reg(reg)
         d1 = self.ln_delta(delta1)
         d2 = self.ln_delta(delta2)
@@ -154,11 +174,14 @@ class PairBilinearScore(nn.Module):
 
     def __init__(self, d_model: int, rank: int = RANK):
         super().__init__()
+        self.force_identity = False  # ablation: pair score off
         self.ln = nn.LayerNorm(d_model)
         self.U = nn.Linear(d_model, rank, bias=False)
         self.w_pair = nn.Parameter(torch.zeros(rank))
 
     def pair_score(self, z_h: torch.Tensor, z_l: torch.Tensor) -> torch.Tensor:
+        if self.force_identity:
+            return torch.zeros(z_h.shape[0], device=z_h.device, dtype=z_h.dtype)
         u_h = self.U(self.ln(z_h))
         u_l = self.U(self.ln(z_l))
         p = u_h * u_l
@@ -173,6 +196,7 @@ class PairHadamardResidual(nn.Module):
 
     def __init__(self, d_model: int, rank: int = RANK):
         super().__init__()
+        self.force_identity = False  # ablation: pair residual off
         self.ln = nn.LayerNorm(d_model)
         self.U = nn.Linear(d_model, rank, bias=False)
         self.W = nn.Linear(rank, d_model, bias=False)
@@ -180,6 +204,8 @@ class PairHadamardResidual(nn.Module):
 
     def forward(self, z_h: torch.Tensor, z_l: torch.Tensor) -> torch.Tensor:
         m = 0.5 * (z_h + z_l)
+        if self.force_identity:
+            return m
         p = self.U(self.ln(z_h)) * self.U(self.ln(z_l))
         return m + self.W(p)
 
@@ -189,6 +215,7 @@ class PairSymmetricMLP(nn.Module):
 
     def __init__(self, d_model: int, rank: int = RANK):
         super().__init__()
+        self.force_identity = False  # ablation: pair residual off
         self.ln = nn.LayerNorm(d_model)
         self.U = nn.Linear(d_model, rank, bias=False)
         self.fc1 = nn.Linear(3 * rank, rank)
@@ -197,6 +224,9 @@ class PairSymmetricMLP(nn.Module):
         nn.init.zeros_(self.fc2.bias)
 
     def forward(self, z_h: torch.Tensor, z_l: torch.Tensor) -> torch.Tensor:
+        m = 0.5 * (z_h + z_l)
+        if self.force_identity:
+            return m
         u_h = self.U(self.ln(z_h))
         u_l = self.U(self.ln(z_l))
         s = u_h + u_l
@@ -204,7 +234,7 @@ class PairSymmetricMLP(nn.Module):
         p = u_h * u_l
         h = F.gelu(self.fc1(torch.cat([s, d, p], dim=-1)))
         delta = self.fc2(h)
-        return 0.5 * (z_h + z_l) + delta
+        return m + delta
 
 
 class PairTokenAttention(nn.Module):
@@ -212,6 +242,7 @@ class PairTokenAttention(nn.Module):
 
     def __init__(self, d_model: int, n_heads: int = 2, dropout: float = 0.2):
         super().__init__()
+        self.force_identity = False  # ablation: skip attention, mean only
         if d_model % int(n_heads) != 0:
             n_heads = 1
         self.mha = nn.MultiheadAttention(
@@ -225,6 +256,10 @@ class PairTokenAttention(nn.Module):
 
     def forward(self, z_h: torch.Tensor, z_l: torch.Tensor) -> torch.Tensor:
         tokens = torch.stack([z_h, z_l], dim=1)  # [B,2,D]
+        if self.force_identity:
+            # pair-off: keep LN residual path without attention (matches zero out_proj init)
+            out = self.norm(tokens)
+            return 0.5 * (out[:, 0] + out[:, 1])
         attn_out, _ = self.mha(tokens, tokens, tokens, need_weights=False)
         out = self.norm(tokens + attn_out)
         return 0.5 * (out[:, 0] + out[:, 1])

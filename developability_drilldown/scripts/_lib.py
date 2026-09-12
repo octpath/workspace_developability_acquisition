@@ -321,11 +321,11 @@ DRILLDOWN_REPRO = {"YES", "PARTIAL", "NO"}
 CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
 LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
 
-# Expected registry sizes after H134–H139 global F1 conditioning (+6)
-N_EXPERIMENTS_TOTAL = 280  # 274 after H128–H133 + 6 global F1 conditioning
+# Expected registry sizes after T142–T150 C/D architecture (+9)
+N_EXPERIMENTS_TOTAL = 289  # 280 prior + 9 T142–T150
 N_LEGACY_MAP = 48  # Linear/XGB only; Transformer + classical-refinement rows have empty legacy
 N_FULL_LINEAR_XGB = 88  # 86 prior + 2 SOURCE_SAP24 XGB
-N_TRANSFORMER = 190  # 184 prior + 6 global F1 conditioning
+N_TRANSFORMER = 199  # 190 prior + 9 T142–T150
 N_HISTORICAL_TRANSFORMER = 29  # Phase2A backfill only (TRANSFORMER_BACKFILL_AUDIT)
 N_CLASSICAL_REFINEMENT = 40
 N_LINEAR = 74

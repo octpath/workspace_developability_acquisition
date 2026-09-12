@@ -508,6 +508,19 @@ class AnnotatedTransformer(nn.Module):
             mask[2 + Lh : T, reg_h] = True
         return mask
 
+    def set_mechanism_ablation(self, enabled: bool) -> None:
+        """Inference ablation: disable C/D added mechanism → C0 / A-style mean."""
+        for mod in (
+            self.c_scalar_gate,
+            self.c_feature_gate,
+            self.c_ffn_adapter,
+            self.c_second_alpha,
+            self.c_two_query,
+            self.pair_module,
+        ):
+            if mod is not None and hasattr(mod, "force_identity"):
+                mod.force_identity = bool(enabled)
+
     def param_account(self) -> dict[str, int]:
         """Trainable param breakdown for reporting."""
         if self.share_hl_encoder:
@@ -534,6 +547,17 @@ class AnnotatedTransformer(nn.Module):
             if self.cross_geom_weight is not None and self.cross_geom_weight.requires_grad
             else 0
         )
+        cd_extra = 0
+        for mod in (
+            self.c_scalar_gate,
+            self.c_feature_gate,
+            self.c_ffn_adapter,
+            self.c_second_alpha,
+            self.c_two_query,
+            self.pair_module,
+        ):
+            if mod is not None:
+                cd_extra += sum(p.numel() for p in mod.parameters() if p.requires_grad)
         total = self.n_trainable_parameters()
         return {
             "encoder": enc,
@@ -542,8 +566,9 @@ class AnnotatedTransformer(nn.Module):
             "cross_attention": cross,
             "gates": gates,
             "geometry": geometry,
+            "cross_interaction": cd_extra,
             "head": head,
-            "other": total - enc - cross - gates - geometry - head,
+            "other": total - enc - cross - gates - geometry - cd_extra - head,
             "total": total,
             "share_hl_encoder": int(self.share_hl_encoder),
         }
@@ -1077,6 +1102,7 @@ class AnnotatedTransformer(nn.Module):
         l_res = h_l[:, 1:]
 
         variant = self.reg_cross_variant
+        diag: dict = {}
         if variant == "c5_two_query":
             assert self.c_two_query is not None
             qh1, qh2 = self.c_two_query.queries(reg_h)
@@ -1085,8 +1111,20 @@ class AnnotatedTransformer(nn.Module):
             dh2, _ = self.cross_attn(qh2, l_res, l_res, key_padding_mask=~ml, need_weights=False)
             dl1, _ = self.cross_attn(ql1, h_res, h_res, key_padding_mask=~mh, need_weights=False)
             dl2, _ = self.cross_attn(ql2, h_res, h_res, key_padding_mask=~mh, need_weights=False)
-            reg_h, _ = self.c_two_query.combine(reg_h, dh1, dh2)
-            reg_l, _ = self.c_two_query.combine(reg_l, dl1, dl2)
+            reg_h, wh = self.c_two_query.combine(reg_h, dh1, dh2)
+            reg_l, wl = self.c_two_query.combine(reg_l, dl1, dl2)
+            # cosine between delta1/delta2
+            def _cos(a, b):
+                a2 = a.squeeze(1)
+                b2 = b.squeeze(1)
+                num = (a2 * b2).sum(-1)
+                den = a2.norm(dim=-1) * b2.norm(dim=-1) + 1e-8
+                return (num / den).detach()
+
+            diag["w_h"] = wh.detach()
+            diag["w_l"] = wl.detach()
+            diag["cos_h"] = _cos(dh1, dh2)
+            diag["cos_l"] = _cos(dl1, dl2)
         else:
             delta_h, _ = self.cross_attn(
                 reg_h, l_res, l_res, key_padding_mask=~ml, need_weights=False
@@ -1098,11 +1136,15 @@ class AnnotatedTransformer(nn.Module):
                 reg_h = reg_h + delta_h
                 reg_l = reg_l + delta_l
             elif variant == "c1_scalar_gate":
-                reg_h, _ = self.c_scalar_gate(reg_h, delta_h)
-                reg_l, _ = self.c_scalar_gate(reg_l, delta_l)
+                reg_h, g_h = self.c_scalar_gate(reg_h, delta_h)
+                reg_l, g_l = self.c_scalar_gate(reg_l, delta_l)
+                diag["g_h"] = g_h.detach().reshape(-1)
+                diag["g_l"] = g_l.detach().reshape(-1)
             elif variant == "c2_feature_gate":
-                reg_h, _ = self.c_feature_gate(reg_h, delta_h)
-                reg_l, _ = self.c_feature_gate(reg_l, delta_l)
+                reg_h, g_h = self.c_feature_gate(reg_h, delta_h)
+                reg_l, g_l = self.c_feature_gate(reg_l, delta_l)
+                diag["g_h_mean"] = g_h.detach().mean(dim=-1).reshape(-1)
+                diag["g_l_mean"] = g_l.detach().mean(dim=-1).reshape(-1)
             elif variant == "c3_ffn_adapter":
                 reg_h = self.c_ffn_adapter(reg_h + delta_h)
                 reg_l = self.c_ffn_adapter(reg_l + delta_l)
@@ -1115,10 +1157,13 @@ class AnnotatedTransformer(nn.Module):
                 d2_l, _ = self.cross_attn(
                     reg1_l, h_res, h_res, key_padding_mask=~mh, need_weights=False
                 )
-                reg_h, _ = self.c_second_alpha(reg1_h, d2_h)
-                reg_l, _ = self.c_second_alpha(reg1_l, d2_l)
+                reg_h, a_h = self.c_second_alpha(reg1_h, d2_h)
+                reg_l, a_l = self.c_second_alpha(reg1_l, d2_l)
+                diag["alpha_h"] = a_h.detach().reshape(-1)
+                diag["alpha_l"] = a_l.detach().reshape(-1)
             else:
                 raise RuntimeError(f"unhandled reg_cross_variant: {variant}")
+        self._last_cd_diag = diag
         return self._merge_dual_reg(reg_h.squeeze(1), reg_l.squeeze(1))
 
     def encode_separate_regs(self, batch: dict) -> tuple[torch.Tensor, torch.Tensor]:

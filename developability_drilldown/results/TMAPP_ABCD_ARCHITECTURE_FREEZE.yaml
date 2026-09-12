@@ -1,0 +1,125 @@
+status: ABCD_ARCHITECTURE_FROZEN
+git_rev: ea2449715f3b3726524cc6a103ad01bd1245929a
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+selection:
+  C_star:
+    variant: C0
+    code: EXP-T121
+    rationale: No new C showed convincing incremental value over C0/T121.
+  D_star:
+    variant: D3
+    code: EXP-T149
+    rationale: D4 capacity flagged; selected simpler D by mean/worst/params (D4 mean
+      gain vs A not large enough to justify +66k params).
+A:
+  label: A
+  source_experiment: EXP-T110
+  family_note: Separate H/L encoding + dual REG; no explicit H/L communication before
+    merge
+  scores_internal:
+    code: EXP-T110
+    primary: 3.2029204191984952
+    shadow: 3.280289826569734
+    mean: 3.2416051228841143
+    worst: 3.280289826569734
+    n_trainable: null
+  config_path: experiments/configs/EXP-T110.yaml
+  config_sha16: 74204a8f9701b2e0
+  oof_sha16: e3219d20287574e1
+  architecture:
+    use_reg_only_cross_attention: false
+    joint_hl_dual_reg: false
+    reg_cross_variant: null
+    pair_interaction_mode: null
+  merge_mode: mean
+  share_hl_encoder: true
+  plm: ablang2_frozen
+  d_model: 128
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+B:
+  label: B
+  source_experiment: EXP-T113
+  family_note: ARCH-3 joint unrestricted H/L Transformer + dual REG
+  scores_internal:
+    code: EXP-T113
+    primary: 2.9950552575382186
+    shadow: 3.2830708586139443
+    mean: 3.139063058076081
+    worst: 3.2830708586139443
+    n_trainable: null
+  config_path: experiments/configs/EXP-T113.yaml
+  config_sha16: 4dd81170dc7bb169
+  oof_sha16: ceef3da2bdb70d85
+  architecture:
+    joint_hl_dual_reg: true
+    use_reg_only_cross_attention: false
+    reg_cross_variant: null
+    pair_interaction_mode: null
+  merge_mode: mean
+  share_hl_encoder: true
+  plm: ablang2_frozen
+  d_model: 128
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+C_star:
+  label: C*
+  source_experiment: EXP-T121
+  family_note: ARCH-7 family REG-level cross-chain reading (C0 ungated)
+  scores_internal:
+    code: EXP-T121
+    primary: 3.0232212867265864
+    shadow: 3.252085108815888
+    mean: 3.137653197771237
+    worst: 3.252085108815888
+    n_trainable: null
+  config_path: experiments/configs/EXP-T121.yaml
+  config_sha16: 2ee7e5c8b0b2f4fd
+  oof_sha16: 04bf4841d2b6a43a
+  architecture:
+    use_reg_only_cross_attention: true
+    reg_cross_variant: null
+    pair_interaction_mode: null
+    parameter_sharing: "shared cross-attn and gates H\u2194L"
+    initialization: ungated one-shot
+  merge_mode: mean
+  share_hl_encoder: true
+  plm: ablang2_frozen
+  d_model: 128
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+D_star:
+  label: D*
+  source_experiment: EXP-T149
+  family_note: Global H/L pair interaction (D3); no residue-level cross-attn
+  scores_internal:
+    code: EXP-T149
+    primary: 3.2233047014401284
+    shadow: 3.37154711028676
+    mean: 3.2974259058634443
+    worst: 3.37154711028676
+    n_trainable: null
+  config_path: experiments/configs/EXP-T149.yaml
+  config_sha16: 15d8cce49d0fd9c0
+  oof_sha16: d9cf6902301451a1
+  architecture:
+    use_reg_only_cross_attention: false
+    pair_interaction_mode: d3_symmetric_mlp
+    reg_cross_variant: null
+    rank: 16
+    parameter_sharing: shared U / pair module; swap-symmetric where applicable
+    initialization: "zero-init pair contribution \u2192 A-style mean at start"
+  merge_mode: mean
+  share_hl_encoder: true
+  plm: ablang2_frozen
+  d_model: 128
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+do_not_start_until_plm_matrix:
+- EXP-T151
+- PLM_x_architecture_matrix
+asymmetry_descriptive:
+  EXP-T142:
+    g_h_mean: 0.9328544735908508
+    g_l_mean: 0.9918574690818787
+    note: sample-dependent activation difference under shared params
+  EXP-T145:
+    alpha_h_mean: 0.11201624572277069
+    alpha_l_mean: 0.1936771422624588

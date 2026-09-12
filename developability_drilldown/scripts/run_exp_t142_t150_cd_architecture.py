@@ -444,7 +444,9 @@ def main() -> int:
         for spec in SERIES:
             run_one(spec, quick=args.quick, rb=rb, folds=folds, dev=dev, test=test)
     if args.phase == "analyze":
-        print("analyze: use separate diagnostics writer", flush=True)
+        from analyze_t142_t150_cd_architecture import run_analyze
+
+        run_analyze()
     return 0
 
 

@@ -1,0 +1,198 @@
+diagnostics:
+  EXP-T142:
+    g_h:
+      mean: 0.9328544735908508
+      std: 0.2610866129398346
+      p05: 0.41132694482803345
+      p50: 1.003805160522461
+      p95: 1.280808448791504
+      n: 324
+    g_l:
+      mean: 0.9918574690818787
+      std: 0.18991290032863617
+      p05: 0.6491668820381165
+      p50: 1.0100769996643066
+      p95: 1.2852253913879395
+      n: 324
+  EXP-T143:
+    g_h_mean:
+      mean: 0.892974317073822
+      std: 0.2501576244831085
+      p05: 0.15654869377613068
+      p50: 0.9934403896331787
+      p95: 1.025731086730957
+      n: 324
+    g_l_mean:
+      mean: 0.910175085067749
+      std: 0.24126102030277252
+      p05: 0.18414850533008575
+      p50: 0.9925174713134766
+      p95: 1.0212209224700928
+      n: 324
+  EXP-T144: {}
+  EXP-T145:
+    alpha_h:
+      mean: 0.11201624572277069
+      std: 0.43462076783180237
+      p05: -0.9999880790710449
+      p50: 0.07330963015556335
+      p95: 0.5632432699203491
+      n: 324
+    alpha_l:
+      mean: 0.1936771422624588
+      std: 0.4566463530063629
+      p05: -0.9999992251396179
+      p50: 0.39941728115081787
+      p95: 0.6982052326202393
+      n: 324
+  EXP-T146:
+    w_h:
+      mean: 0.5
+      std: 0.00014684749476145953
+      p05: 0.49983981251716614
+      p50: 0.5
+      p95: 0.5001601576805115
+      n: 648
+    w_l:
+      mean: 0.5
+      std: 0.00016488105757161975
+      p05: 0.49982717633247375
+      p50: 0.5
+      p95: 0.5001727938652039
+      n: 648
+    cos_h:
+      mean: 0.9999956488609314
+      std: 1.3217040759627707e-05
+      p05: 0.999980628490448
+      p50: 0.999999463558197
+      p95: 1.0
+      n: 324
+    cos_l:
+      mean: 0.9999960660934448
+      std: 1.0812841537699569e-05
+      p05: 0.9999818205833435
+      p50: 0.9999995231628418
+      p95: 1.0000001192092896
+      n: 324
+  EXP-T147: {}
+  EXP-T148: {}
+  EXP-T149: {}
+  EXP-T150: {}
+params:
+  EXP-T142:
+    total: 446370
+    incremental_vs_control_skeleton: 6689
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    cross_interaction: 6689
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T143:
+    total: 446481
+    incremental_vs_control_skeleton: 6800
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    cross_interaction: 6800
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T144:
+    total: 448289
+    incremental_vs_control_skeleton: 8608
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    cross_interaction: 8608
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T145:
+    total: 444322
+    incremental_vs_control_skeleton: 4641
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    cross_interaction: 4641
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T146:
+    total: 444561
+    incremental_vs_control_skeleton: 4880
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 66048
+    gates: 0
+    geometry: 0
+    cross_interaction: 4880
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T147:
+    total: 375953
+    incremental_vs_control_skeleton: 2320
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    cross_interaction: 2320
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T148:
+    total: 377985
+    incremental_vs_control_skeleton: 4352
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    cross_interaction: 4352
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T149:
+    total: 378897
+    incremental_vs_control_skeleton: 5264
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    cross_interaction: 5264
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
+  EXP-T150:
+    total: 439937
+    incremental_vs_control_skeleton: 66304
+    encoder: 264960
+    encoder_h: 264960
+    encoder_l: 0
+    cross_attention: 0
+    gates: 0
+    geometry: 0
+    cross_interaction: 66304
+    head: 16641
+    other: 92032
+    share_hl_encoder: 1
