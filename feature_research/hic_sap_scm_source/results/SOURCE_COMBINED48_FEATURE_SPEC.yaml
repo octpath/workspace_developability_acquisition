@@ -1,0 +1,5 @@
+status: ACTIVE
+block_id: FS_HIC_SOURCE_SAP24_SCM24
+dimensions: 48
+definition: SAP24 + SCM24
+parquet: features/antibody_source_sap_scm48.parquet

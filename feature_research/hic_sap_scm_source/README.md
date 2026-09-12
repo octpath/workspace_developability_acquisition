@@ -1,6 +1,15 @@
-# SAP / SCM source-specified feature research (isolated)
+# SAP / SCM source-specified feature research
 
-**Status:** SOURCE_SAP24 and SOURCE_SCM24 are **BLOCKED** pending resolution of
-`positive_sum_mean` and SCM charge semantics. See `results/SOURCE_SPEC_AUDIT.md`.
+Isolated from mainline HIC (`EXP-H114` unused).
 
-Do **not** run EXP-H114 from this track.
+- Prior fidelity-blocked state: commit `83dfed7d`
+- Active SOURCE24 after resolved `positive_sum_mean` and SCM charge
+- Artifacts under `results/` and `features/`
+
+## Reproduce
+
+```bash
+.venv/bin/python feature_research/hic_sap_scm_source/src/generate_features.py
+.venv/bin/python feature_research/hic_sap_scm_source/src/run_pipeline.py
+.venv/bin/python -m pytest feature_research/hic_sap_scm_source/tests -q
+```

@@ -1,0 +1,28 @@
+{
+  "geometry_cache": "/workspace_developability_acquisition/feature_research/hic_spatial_hydrophobicity/features/cache/residue_geometry_sasa.parquet",
+  "geometry_meta": {
+    "n_antibodies": 324,
+    "n_residues": 75057,
+    "probe": 1.4,
+    "n_points": 100,
+    "structure_scope": "Fv",
+    "errors": [],
+    "sha256": "1c14c6eab5771b45cf6bb8585ba5c6408caf34f092e88136995e118220289674"
+  },
+  "structure_scope": "Fv",
+  "KD_RAW_HASH": "6f3e3e13ea54ed74eceff4fe42775cd88d51d1a810f5e64f82d5c0af00a7305f",
+  "KD_NORM_HASH": "f4fde02f727bec88cebdfea7d7a5f1f60e94b771dfe307aed2afc7b0a01d9625",
+  "CHARGE_HASH": "fe708195fe47496346857c5ac1a9b13ffad6e8ef8d2f7b90d9eaa1aa3b73a6ad",
+  "TIEN_MAXASA_HASH": "1ba576949c3ebbfc77c261dd9dbaed923f1f04582f533292a915046d7666dad3",
+  "n_antibodies": 324,
+  "n_residues": 75057,
+  "SOURCE_SAP24_dim": 24,
+  "SOURCE_SCM24_dim": 24,
+  "radii_A": [
+    5.0,
+    10.0
+  ],
+  "self_neighbor": "included",
+  "neighborhood": "sidechain_centroid",
+  "SCM_exposure": "SOURCE_DERIVED_INFERENCE same RASAclip as SAP"
+}

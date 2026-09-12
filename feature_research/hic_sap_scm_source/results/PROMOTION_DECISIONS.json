@@ -1,0 +1,36 @@
+{
+  "sap": "NONE",
+  "scm": "NONE",
+  "combined": "NONE",
+  "residue_level_justified": false,
+  "source_verdicts": {
+    "SAP24": "NOT_SUPPORTED",
+    "SCM24": "NOT_SUPPORTED",
+    "COMBINED48": "NOT_SUPPORTED",
+    "metrics": {
+      "sap24_alone": 0.5983875751764176,
+      "scm24_alone": 0.597423966861063,
+      "comb_alone": 0.6579747217869214,
+      "h094_alone": 0.5316233392208678,
+      "sap24_surface_delta": -0.06471310306457484,
+      "scm24_surface_delta": -0.053472283430001266,
+      "comb_surface_delta": -0.117877459041561
+    }
+  },
+  "s2_alone_test_mean": {
+    "B1_SAP24": 0.5956849409894929,
+    "B2_SCM24": 0.6055216592844663,
+    "B3_SAP24_SCM24": 0.6595206189503768,
+    "B5_SCM30": 0.6171735644237674,
+    "B6_SAP30_SCM30": 0.6673035246647745,
+    "B7_SAP50": 0.5891700985113548
+  },
+  "s2_surface_test_mean": {
+    "B1_SAP24": 0.5704619565823204,
+    "B2_SCM24": 0.5552405443685344,
+    "B3_SAP24_SCM24": 0.619310394197741,
+    "B5_SCM30": 0.566056589583043,
+    "B6_SAP30_SCM30": 0.6321773051917019,
+    "B7_SAP50": 0.5933612464994391
+  }
+}

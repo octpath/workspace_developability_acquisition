@@ -1,46 +1,64 @@
 # SOURCE SAP / SCM Feature Research Report
 
 **Track:** `feature_research/hic_sap_scm_source/`  
-**Date:** 2026-09-12  
-**Mainline:** EXP-H114 **not run**; H054–H113 / HSP results **not modified**.
+**Prior blocked commit:** `83dfed7d` (auditable)  
+**Mainline:** EXP-H114 **not run**
 
-## Executive verdict
+## Source Stage-1 (frozen before extensions)
 
-| Question | Answer |
-|----------|--------|
-| SOURCE_SAP24 | **BLOCKED_SOURCE_UNRESOLVED** (`positive_sum_mean`) |
-| SOURCE_SCM24 | **BLOCKED_SOURCE_UNRESOLVED** (charge semantics) |
-| SOURCE_SAP24+SCM24 | **unsupported** (both blocked) |
-| GLOBAL6 / EXTRA20 | **not evaluated** (depends on SOURCE24) |
-| Residue-level modeling | **not justified** |
-| Mainline promotion | **none** |
+See `SOURCE24_STAGE1_INTERPRETATION.md`.
 
-## Why generation stopped
+| Block | VAL_mean alone | SURFACEΔ | Verdict |
+|-------|----------------|----------|---------|
+| H094 GLOBAL3 | 0.532 | — | reference |
+| SAP24 | 0.598 | −0.065 | **NOT_SUPPORTED** |
+| SCM24 | 0.597 | −0.053 | **NOT_SUPPORTED** |
+| SAP24+SCM24 | 0.658 | −0.118 | **NOT_SUPPORTED** (not complementary) |
 
-Section 3 (strict fidelity gate) forbids inventing `positive_sum_mean` and forbids labeling any 24-D block as `SOURCE_SAP24` while it is unresolved. SCM charge is independently unresolved.
+SURFACE alone VAL_mean ≈ 0.515. Positive SURFACEΔ would mean improvement; observed deltas are negative (SURFACE+block worse).
 
-Closest repo/literature near-misses (explicitly **not** used as source formulas):
+Ridge overfits high-D blocks when fused with SURFACE; SVR is flatter but does not rescue SOURCE24 over SURFACE.
 
-- Organizer STATIC-SAP: Black–Mould × CA × R5/R10; stats include `mean_positive` / `sum_positive` / `top5_mean` (18-D).
-- STATIC_SAP_KD (H094): KD min-max × centroid; Ab stats MAX/MEAN/SUM (not positive_sum_mean).
-- DeepSP: MD SAP/SCM domain sums of positive / negative scores (30-D region set ≠ VH/VL/CDR/FR × 3 stats).
+## Extensions (VAL alone)
 
-## What was confirmed without inventing
+| Block | VAL_mean | vs source |
+|-------|----------|-----------|
+| SAP30 | 0.595 | ≈ SAP24 (GLOBAL6 negligible) |
+| SAP50 | 0.580 | slight alone gain; SURFACE fusion still worse |
+| SCM30 | 0.607 | no gain |
+| SCM50 | 0.637 | worse |
 
-- Shrake–Rupley: probe **1.4 Å**, `n_points` **100** (repo SAP lineage).
-- KD for repo KD-SAP: **min-max** over 20 AA.
-- RASA: SASA / Tien MaxASA, clip [0,1].
-- Neighborhood for KD-SAP lineage: side-chain centroid, self included.
-- User-intended layout: 4 regions × {5,10} × {MAX, TOP5_MEAN, POSITIVE_SUM_MEAN}.
+**GLOBAL6:** no material incremental value.  
+**EXTRA20:** small alone improvement for SAP50 only; not justified as a block (no SURFACE increment; still worse than H094).
 
-## Stage-1 / Stage-2
+## Stage-2 TEST (shortlist; mean Ridge/SVR)
 
-Skipped. No VAL/TEST numbers. Shortlist freeze records `BLOCKED_NO_STAGE1`.
+| Block | alone TEST_mean | SURFACE+ TEST_mean |
+|-------|-----------------|--------------------|
+| SAP24 | 0.596 | 0.570 |
+| SCM24 | 0.606 | 0.555 |
+| SAP24+SCM24 | 0.660 | 0.619 |
+| SAP50 | 0.589 | 0.593 |
+| SCM30 | 0.617 | 0.566 |
+| SAP30+SCM30 | 0.667 | 0.632 |
 
-## Unblocking requirements
+Paired bootstrap (SURFACE+SAP24 vs SURFACE): Ridge ΔMAE ≈ +0.12 (harmful); SVR CI includes 0.
 
-1. Authoritative equation for `positive_sum_mean` (numerator, denominator, empty-region rule).  
-2. Authoritative SCM per-residue property + sign convention.  
-3. Confirm KD min-max vs Black–Mould and centroid vs CA if the external source differs from repo KD-SAP.
+## Answers to scientific questions
 
-After unblocking: implement generic aggregation engine → SOURCE24 → GLOBAL6 → EXTRA20 QC → Stage-1/2 as specified — still without running EXP-H114 until a separate promotion decision.
+1. **Does SAP24 rescue H094?** No — H094 GLOBAL3 remains better alone.
+2. **Does multi-region / multi-scale / top5 help KD/Tien?** Not under fixed Ridge/SVR; R5↔R10 are only moderately correlated (mean ρ≈0.4) so scales differ, but predictive MAE does not improve vs GLOBAL3.
+3. **Is SCM24 predictive?** Weak alone; worse than SURFACE; not supported for promotion.
+4. **SAP24 ∩ SCM24 complementary?** No — combined worse (REDUNDANT/harmful under Ridge).
+5–7. **SURFACE increments?** No — SURFACE+SOURCE blocks worsen MAE (esp. Ridge).
+8. **ALL_FV GLOBAL6?** Negligible.
+9–10. **STD / TOP5_SHARE_POSITIVE?** Slight alone SAP50 effect; largely not useful; no near-dup |ρ|≥0.98 vs source but no promotion case.
+11. **More robust than BM-R5 / EIS-R8 isolated winners?** Methodologically cleaner (fixed multi-region/scale, no radius cherry-pick) but **weaker predictive evidence** than those HSP late-fusion confirmations.
+12. **Suitable for EXP-H114+?** None.
+13. **Residue-level justified?** **No.**
+
+## Promotion
+
+No SAP / SCM / SAP+SCM block recommended. Residue-level modeling not justified.
+
+**STOP — do not run EXP-H114.**
