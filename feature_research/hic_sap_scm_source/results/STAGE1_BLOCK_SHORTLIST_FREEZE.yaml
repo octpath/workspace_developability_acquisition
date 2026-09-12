@@ -1,0 +1,11 @@
+# STAGE-1 shortlist freeze — BLOCKED
+
+status: BLOCKED_NO_STAGE1
+reason: SOURCE_SAP24 and SOURCE_SCM24 fidelity gates failed (positive_sum_mean and SCM charge unresolved).
+mandatory_shortlist:
+  SOURCE_SAP24: NOT_AVAILABLE
+  SOURCE_SCM24: NOT_AVAILABLE
+frozen_at: "2026-09-12"
+do_not_modify_after_test_reveal: true
+test_reveal: NOT_PERFORMED
+mainline: EXP-H114_UNUSED

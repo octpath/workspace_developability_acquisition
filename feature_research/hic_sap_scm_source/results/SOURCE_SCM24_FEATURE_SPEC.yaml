@@ -1,0 +1,20 @@
+# SOURCE_SCM24 FEATURE SPEC — BLOCKED
+
+status: BLOCKED_SOURCE_UNRESOLVED
+block_id: FS_HIC_SOURCE_SCM24
+reason: |
+  SCM / spatial charge map per-residue property and sign/magnitude convention
+  are UNRESOLVED. Do not assume K/R=+1, D/E=-1, H=0, PROPKA, or partial charges.
+blocking_items:
+  - scm_per_residue_property
+  - scm_sign_magnitude_convention
+  - positive_sum_mean  # shared aggregation statistic also unresolved
+partially_resolved:
+  - regions: [VH, VL, CDR, FR]
+  - radii_A: [5.0, 10.0]
+  - statistics_intended: [MAX, TOP5_MEAN, POSITIVE_SUM_MEAN]
+dimensions: null
+parquet: null
+audit: results/SOURCE_SPEC_AUDIT.md
+generated_at: "2026-09-12"
+mainline_isolation: EXP-H114_UNUSED

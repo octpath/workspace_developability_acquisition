@@ -1,0 +1,22 @@
+# SOURCE_SAP24 FEATURE SPEC — BLOCKED
+
+status: BLOCKED_SOURCE_UNRESOLVED
+block_id: FS_HIC_SOURCE_SAP24
+reason: |
+  positive_sum_mean mathematical definition is UNRESOLVED in repository and
+  no authoritative external source equation was confirmed. Per fidelity gate,
+  inventing a formula is forbidden; no 24-D block may be labeled SOURCE_SAP24.
+blocking_items:
+  - positive_sum_mean
+partially_resolved:
+  - regions: [VH, VL, CDR, FR]
+  - radii_A: [5.0, 10.0]
+  - statistics_intended: [MAX, TOP5_MEAN, POSITIVE_SUM_MEAN]
+  - property_intended: Kyte-Doolittle (repo KD-SAP uses min-max)
+  - exposure_intended: RASA_Tien_clipped_01
+  - neighborhood_repo_kd_sap: sidechain_centroid_self_included
+dimensions: null
+parquet: null
+audit: results/SOURCE_SPEC_AUDIT.md
+generated_at: "2026-09-12"
+mainline_isolation: EXP-H114_UNUSED
