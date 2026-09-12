@@ -1,0 +1,62 @@
+schema_id: FS_HIC_RESIDUE_F1_SURFACE_COMPACT10
+status: FROZEN
+p: 10
+channels:
+- rasa
+- sasa
+- is_aromatic
+- is_exposed
+- is_strongly_exposed
+- hydro_area_sum
+- hydro_H_awmean
+- hydro_pos_H_area
+- hydro_neg_H_area
+- availability_hydro
+continuous_channels:
+- rasa
+- sasa
+- hydro_area_sum
+- hydro_H_awmean
+- hydro_pos_H_area
+- hydro_neg_H_area
+binary_channels:
+- is_aromatic
+- is_exposed
+- is_strongly_exposed
+- availability_hydro
+provenance_block_map:
+  rasa: ARO
+  sasa: ARO
+  is_aromatic: ARO
+  is_exposed: ARO
+  is_strongly_exposed: ARO
+  hydro_area_sum: HYDRO
+  hydro_H_awmean: HYDRO
+  hydro_pos_H_area: HYDRO
+  hydro_neg_H_area: HYDRO
+  availability_hydro: HYDRO
+formulas:
+  hydro_area_sum: sum(area) over vertices with originating residue
+  hydro_H_awmean: sum(H*area)/sum(area)
+  hydro_pos_H_area: sum(area where H>0)
+  hydro_neg_H_area: sum(area where H<=0)
+  availability_hydro: 1 if n_originating_vertices>=1 else 0
+coverage:
+  n_residue_rows: 75057
+  n_antibodies: 324
+  frac_residues_with_hydro: 0.6603914358420934
+not_equivalent_to_f1_35: true
+full_provenance_artifacts:
+  aro: feature_research/f1_surface_residue_reconstruction/features/residue_surface_aro.parquet
+  hydro_vertices: feature_research/f1_surface_residue_reconstruction/features/residue_surface_hydro_vertices.parquet
+  audit: developability_drilldown/results/F1_SURFACE_RESIDUE_RECONSTRUCTION_AUDIT.yaml
+compact_artifact:
+  path: feature_research/f1_surface_residue_reconstruction/features/residue_surface_compact10.parquet
+  file_sha256: 14e6143a49071044556d6f4069bce766bc7301fd40f867778ef1ad4a13cb44bb
+  content_sha256: e13666619c16135088a31b1bfda2c3b2edf7e2b360c4ecc979314d0a2a8a8596
+pass_exact_audit_verdict: PASS-EXACT
+forbidden:
+- SAP24
+- SCM24
+- target_driven_selection
+- copy_F1_35_onto_residues
