@@ -1,0 +1,104 @@
+experiment_code: EXP-H127
+max_depth: 3
+learning_rate: 0.02
+oof_val:
+  primary: 0.5687253804618929
+  shadow: 0.5539277904651783
+  mean: 0.5613265854635356
+  worst: 0.5687253804618929
+oof_test:
+  primary: 0.5803791624940472
+  shadow: 0.5535449643547151
+  mean: 0.5669620634243812
+  worst: 0.5803791624940472
+external:
+  primary_mean:
+    public_mae: 0.634651744512864
+    private_mae: 0.5736707777800383
+    overall_mae: 0.6041612611464511
+  primary_median:
+    public_mae: 0.6257751347106179
+    private_mae: 0.5720884342900029
+    overall_mae: 0.5989317845003104
+  shadow_mean:
+    public_mae: 0.6350310737704051
+    private_mae: 0.5687997131347655
+    overall_mae: 0.6019153934525854
+  shadow_median:
+    public_mae: 0.6351650944462528
+    private_mae: 0.5636549274774245
+    overall_mae: 0.5994100109618387
+best_iteration_mean: 55.1
+best_iteration_median: 48.5
+no_full_dev_refit: true
+selected:
+- scheme: primary
+  fold: 0
+  best_iteration: 91
+  best_val_mae: 0.5862769992712773
+  n_train: 97
+  n_val: 33
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k0_seed101.json
+- scheme: primary
+  fold: 1
+  best_iteration: 1
+  best_val_mae: 0.6092686379172584
+  n_train: 96
+  n_val: 33
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k1_seed101.json
+- scheme: primary
+  fold: 2
+  best_iteration: 0
+  best_val_mae: 0.5489882180690766
+  n_train: 97
+  n_val: 32
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k2_seed101.json
+- scheme: primary
+  fold: 3
+  best_iteration: 159
+  best_val_mae: 0.5895699796676636
+  n_train: 98
+  n_val: 32
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k3_seed101.json
+- scheme: primary
+  fold: 4
+  best_iteration: 24
+  best_val_mae: 0.5077076025009154
+  n_train: 98
+  n_val: 32
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k4_seed101.json
+- scheme: shadow
+  fold: 0
+  best_iteration: 100
+  best_val_mae: 0.5500402048284356
+  n_train: 97
+  n_val: 33
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k0_seed101.json
+- scheme: shadow
+  fold: 1
+  best_iteration: 46
+  best_val_mae: 0.5515870764255524
+  n_train: 97
+  n_val: 32
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k1_seed101.json
+- scheme: shadow
+  fold: 2
+  best_iteration: 51
+  best_val_mae: 0.5624129097461701
+  n_train: 98
+  n_val: 32
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k2_seed101.json
+- scheme: shadow
+  fold: 3
+  best_iteration: 61
+  best_val_mae: 0.6036560835404831
+  n_train: 97
+  n_val: 33
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k3_seed101.json
+- scheme: shadow
+  fold: 4
+  best_iteration: 18
+  best_val_mae: 0.5005101556777953
+  n_train: 97
+  n_val: 32
+  model_path: /workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k4_seed101.json

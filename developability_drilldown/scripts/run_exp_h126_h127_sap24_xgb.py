@@ -446,6 +446,21 @@ def write_report() -> None:
 
     can = tab[tab.Model == "EXP-H126"].iloc[0]
     sens = tab[tab.Model == "EXP-H127"].iloc[0]
+    val_rows = []
+    for spec in SERIES:
+        code = spec["code"]
+        oof = yaml.safe_load((ROOT / "results" / f"{code}_OOF_EVALUATION.yaml").read_text())
+        ov = oof["oof_val"]
+        val_rows.append(
+            {
+                "Model": code,
+                "VAL_P": ov["primary"],
+                "VAL_S": ov["shadow"],
+                "VAL_mean": ov["mean"],
+                "VAL_worst": ov["worst"],
+            }
+        )
+    val_tab = pd.DataFrame(val_rows)
 
     def case(tm: float) -> str:
         if tm <= 0.48:
@@ -475,6 +490,20 @@ def write_report() -> None:
 
     lines += [
         "",
+        "## Internal VAL (OOF)",
+        "",
+        "| Model | VAL_P | VAL_S | VAL_mean | VAL_worst |",
+        "|-------|------:|------:|---------:|----------:|",
+    ]
+    for _, r in val_tab.iterrows():
+        lines.append(
+            f"| {r.Model} | {r.VAL_P:.4f} | {r.VAL_S:.4f} | {r.VAL_mean:.4f} | {r.VAL_worst:.4f} |"
+        )
+
+    better_ridge = float(can.TEST_mean) < ridge_test
+    better_svr = float(can.TEST_mean) < svr_test
+    lines += [
+        "",
         "## Comparisons",
         "",
         f"- Ridge SOURCE_SAP24 TEST_mean ≈ {ridge_test:.3f}",
@@ -490,18 +519,23 @@ def write_report() -> None:
         f"- TEST_mean = **{can.TEST_mean:.4f}** → **{case(float(can.TEST_mean))}**",
         f"- depth=3 sensitivity H127 TEST_mean = {sens.TEST_mean:.4f}",
         "",
+        "Interpretation (CASE C): exact SOURCE_SAP24 + shallow XGBoost does not reproduce the "
+        "reported ~0.46 approximate-SAP XGB result, and does not beat Transformer baselines. "
+        "Deprioritize exact SOURCE_SAP24 as an HIC mainline feature track.",
+        "",
         "### Final questions",
         "",
-        f"1. Beat H071/H061? {'YES' if can.TEST_mean < min(h071,h061) else 'NO'} "
-        f"(H126={can.TEST_mean:.4f} vs {h071:.4f}/{h061:.4f})",
-        f"2. Better than Ridge/SVR? {'YES' if can.TEST_mean < svr_test else 'NO'}",
-        f"3. Reproduce ≈0.46? {'YES' if can.TEST_mean <= 0.48 else 'NO'}",
-        f"4. depth=2 enough vs depth=3? "
-        f"{'YES (similar/better)' if can.TEST_mean <= sens.TEST_mean + 0.005 else 'depth=3 better'}; "
+        f"1. Beat H071/H061? **NO** (H126={can.TEST_mean:.4f} vs {h071:.4f}/{h061:.4f})",
+        f"2. Better than Ridge/SVR? Ridge={'YES' if better_ridge else 'NO'}; "
+        f"SVR={'YES' if better_svr else 'NO'} "
+        f"(H126={can.TEST_mean:.4f} vs Ridge {ridge_test:.3f} / SVR {svr_test:.3f})",
+        f"3. Reproduce ≈0.46? **NO** ({can.TEST_mean:.4f})",
+        f"4. depth=2 enough vs depth=3? **YES** (nearly identical); "
         f"Δ(d3−d2)={sens.TEST_mean - can.TEST_mean:+.4f}",
-        f"5. Tree-specific signal vs Ridge/SVR? "
-        f"{'YES' if can.TEST_mean < ridge_test - 0.05 else 'WEAK/NO'}",
-        "6. Continue SAP for HIC? See CASE; if CASE_C, deprioritize exact SOURCE_SAP24 as HIC mainline.",
+        "5. Tree-specific predictive signal? **WEAK** — better than Ridge, worse than RBF-SVR, "
+        "far from Transformer; no clear tree-unique win.",
+        "6. Continue SAP24 for HIC? **NO strong remaining justification** under CASE C for exact "
+        "SOURCE_SAP24 as HIC mainline.",
         "",
         *fold_lines,
         "",

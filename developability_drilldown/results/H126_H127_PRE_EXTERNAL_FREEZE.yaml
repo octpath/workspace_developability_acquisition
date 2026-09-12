@@ -1,0 +1,7 @@
+status: INTERNAL_THEN_EXTERNAL_COMPLETE
+canonical_code: EXP-H126
+sensitivity_code: EXP-H127
+TEST_mean_H126: 0.5685598969871615
+TEST_mean_H127: 0.5669620634243812
+case: CASE_C_no_reproduce_0.46
+git_rev: c118dd182c486bb1431f1b3120a9cdf0fa9cb71e

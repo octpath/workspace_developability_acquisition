@@ -1,0 +1,11 @@
+scheme,fold,best_iteration,best_val_mae,n_train,n_val,model_path
+primary,0,91,0.5862769992712773,97,33,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k0_seed101.json
+primary,1,1,0.6092686379172584,96,33,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k1_seed101.json
+primary,2,0,0.5489882180690766,97,32,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k2_seed101.json
+primary,3,159,0.5895699796676636,98,32,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k3_seed101.json
+primary,4,24,0.5077076025009154,98,32,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/primary_k4_seed101.json
+shadow,0,100,0.5500402048284356,97,33,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k0_seed101.json
+shadow,1,46,0.5515870764255524,97,32,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k1_seed101.json
+shadow,2,51,0.5624129097461701,98,32,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k2_seed101.json
+shadow,3,61,0.6036560835404831,97,33,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k3_seed101.json
+shadow,4,18,0.5005101556777953,97,32,/workspace_developability_acquisition/developability_drilldown/results/EXP-H127_run/fold_models/shadow_k4_seed101.json

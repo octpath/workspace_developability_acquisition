@@ -1,0 +1,24 @@
+==== TRAIN EXP-H126 depth=2 ====
+=== EXP-H126 primary fold=0 best_iter=102 VAL_MAE=0.556558 ===
+=== EXP-H126 primary fold=1 best_iter=1 VAL_MAE=0.608177 ===
+=== EXP-H126 primary fold=2 best_iter=2 VAL_MAE=0.548495 ===
+=== EXP-H126 primary fold=3 best_iter=78 VAL_MAE=0.595072 ===
+=== EXP-H126 primary fold=4 best_iter=24 VAL_MAE=0.510515 ===
+=== EXP-H126 shadow fold=0 best_iter=56 VAL_MAE=0.564519 ===
+=== EXP-H126 shadow fold=1 best_iter=50 VAL_MAE=0.547546 ===
+=== EXP-H126 shadow fold=2 best_iter=83 VAL_MAE=0.560423 ===
+=== EXP-H126 shadow fold=3 best_iter=36 VAL_MAE=0.607038 ===
+=== EXP-H126 shadow fold=4 best_iter=16 VAL_MAE=0.501618 ===
+DONE EXP-H126 TEST_mean=0.568560
+==== TRAIN EXP-H127 depth=3 ====
+=== EXP-H127 primary fold=0 best_iter=91 VAL_MAE=0.586277 ===
+=== EXP-H127 primary fold=1 best_iter=1 VAL_MAE=0.609269 ===
+=== EXP-H127 primary fold=2 best_iter=0 VAL_MAE=0.548988 ===
+=== EXP-H127 primary fold=3 best_iter=159 VAL_MAE=0.589570 ===
+=== EXP-H127 primary fold=4 best_iter=24 VAL_MAE=0.507708 ===
+=== EXP-H127 shadow fold=0 best_iter=100 VAL_MAE=0.550040 ===
+=== EXP-H127 shadow fold=1 best_iter=46 VAL_MAE=0.551587 ===
+=== EXP-H127 shadow fold=2 best_iter=51 VAL_MAE=0.562413 ===
+=== EXP-H127 shadow fold=3 best_iter=61 VAL_MAE=0.603656 ===
+=== EXP-H127 shadow fold=4 best_iter=18 VAL_MAE=0.500510 ===
+DONE EXP-H127 TEST_mean=0.566962
