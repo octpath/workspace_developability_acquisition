@@ -1,0 +1,113 @@
+batch_id: H134_H139_GLOBAL_F1_SURFACE_CONDITIONING
+status: PREREGISTERED_FROZEN
+git_rev_at_prereg: ed6bdbc16679596a80936fb8e33ebe29bc7258a6
+audit_path: results/H134_H139_GLOBAL_SURFACE_FUSION_AUDIT.md
+fusion_bundle_id: F1_SURFACE
+f1_dim: 35
+f1_artifact_hash: e3788aad831d0b022ebfa682a46e0a27c9fbaf0e5f833aacaa3b191819898a4b
+f1_columns:
+- aro_exposed_TYR_count
+- aro_exposed_TRP_count
+- aro_exposed_PHE_count
+- aro_exposed_aromatic_total_count
+- aro_aromatic_exposed_SASA_total
+- aro_aromatic_exposed_SASA_fraction
+- aro_strongly_exposed_aromatic_count
+- aro_strongly_exposed_aromatic_SASA
+- aro_CDR_exposed_aromatic_count
+- aro_CDR_aromatic_SASA
+- aro_CDR_aromatic_fraction
+- aro_aromatic_patch_count
+- aro_largest_aromatic_patch_n_res
+- aro_largest_aromatic_patch_exposed_SASA
+- aro_max_local_aromatic_SASA
+- aro_sequence_aromatic_count
+- aro_sequence_TYR_count
+- aro_sequence_TRP_count
+- aro_sequence_PHE_count
+- mean_H_surface
+- q75_H_surface
+- q90_H_surface
+- q95_H_surface
+- max_H_surface
+- positive_H_area_fraction
+- top10_H_mean
+- top10_H_area_fraction
+- high_H_patch_count
+- largest_high_H_patch_area_fraction
+- largest_high_H_patch_n_vertices
+- CDR_mean_H
+- CDR_q90_H
+- CDR_high_H_area_fraction
+- n_surface_points
+- phi_finite_frac
+preprocessing: TRAIN_median_impute_StandardScaler_no_PCA
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+bottleneck: 16
+token_attention:
+  n_layers: 1
+  n_heads: 2
+  form: '[z_seq, t_surf]'
+controls:
+  sequence_only:
+  - EXP-H071
+  - EXP-H061
+  historical_F1_late_fusion:
+  - EXP-H090
+  - EXP-H086
+added_params_by_mode:
+  global_surface_film: 4928
+  global_surface_gated_residual: 5665
+  global_surface_token_attention: 70912
+experiments:
+- code: EXP-H134
+  backbone: EXP-H071
+  fusion_mode: global_surface_film
+  experiment_id: TRF_HIC_SCRATCH_GLOBAL_F1_FILM_V3
+  historical_f1_control: EXP-H090
+  added_params: 4928
+  initialization: film_gamma_beta_zero
+- code: EXP-H135
+  backbone: EXP-H071
+  fusion_mode: global_surface_gated_residual
+  experiment_id: TRF_HIC_SCRATCH_GLOBAL_F1_GATED_RES_V3
+  historical_f1_control: EXP-H090
+  added_params: 5665
+  initialization: residual_u_and_gate_out_zero
+- code: EXP-H136
+  backbone: EXP-H071
+  fusion_mode: global_surface_token_attention
+  experiment_id: TRF_HIC_SCRATCH_GLOBAL_F1_TOKEN_ATTN_V3
+  historical_f1_control: EXP-H090
+  added_params: 70912
+  initialization: default
+- code: EXP-H137
+  backbone: EXP-H061
+  fusion_mode: global_surface_film
+  experiment_id: TRF_HIC_ESM2_GLOBAL_F1_FILM_V3
+  historical_f1_control: EXP-H086
+  added_params: 4928
+  initialization: film_gamma_beta_zero
+- code: EXP-H138
+  backbone: EXP-H061
+  fusion_mode: global_surface_gated_residual
+  experiment_id: TRF_HIC_ESM2_GLOBAL_F1_GATED_RES_V3
+  historical_f1_control: EXP-H086
+  added_params: 5665
+  initialization: residual_u_and_gate_out_zero
+- code: EXP-H139
+  backbone: EXP-H061
+  fusion_mode: global_surface_token_attention
+  experiment_id: TRF_HIC_ESM2_GLOBAL_F1_TOKEN_ATTN_V3
+  historical_f1_control: EXP-H086
+  added_params: 70912
+  initialization: default
+do_not:
+- COMPACT10
+- SAP24
+- SCM24
+- AUX32
+- residue_tokens
+- H140
+- TEST_tuning

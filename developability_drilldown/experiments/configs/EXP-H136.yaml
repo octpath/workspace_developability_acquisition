@@ -1,0 +1,23 @@
+experiment_code: EXP-H136
+experiment_id: TRF_HIC_SCRATCH_GLOBAL_F1_TOKEN_ATTN_V3
+platform_id: DL_FOLDLOCAL_COSINE_V3
+target: HIC
+family: TRANSFORMER
+transformer_type: GLOBAL_SURFACE_CONDITIONING
+control_experiment_code: EXP-H071
+historical_f1_control: EXP-H090
+fusion_bundle_id: F1_SURFACE
+fusion_mode: global_surface_token_attention
+content_mode: scratch
+plm_source: NONE
+merge_mode: concat
+chain_mode: HL
+pooling_mode: REG
+seed: 101
+no_full_dev_refit: true
+no_aux32: true
+no_late_f1_concat: true
+bottleneck: 16
+description: H071 + global F1_SURFACE 2-token attention
+input_asset_ref: assets/transformer/residue_asset_manifest.yaml
+joint_hl_single_reg: true

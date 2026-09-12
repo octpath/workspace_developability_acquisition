@@ -20,6 +20,8 @@ from torch.utils.data import DataLoader
 
 from .data import FoldMaps, ResidueBundle, tvt_split
 from .h047_aux_features import FoldPreprocessor, H047AuxFeatureStore
+from .global_surface_conditioning import FUSION_MODES as GLOBAL_SURFACE_MODES
+from .global_surface_conditioning import GlobalSurfaceConditioningModel
 from .late_fusion import DirectLateFusionModel, LateFusionModel
 from .metrics import mae
 from .protocol_v3 import (
@@ -75,6 +77,8 @@ def candidate_config_hash_ext(
         aux_mlp = "Linear64_GELU_Drop_Linear32_GELU"
     elif fm == "late_concat_direct":
         aux_mlp = None
+    elif fm in GLOBAL_SURFACE_MODES:
+        aux_mlp = f"global_surface_conditioning:{fm}:rank16"
     else:
         aux_mlp = None
     payload = {
@@ -133,6 +137,10 @@ def build_platform_model_ext(
         return DirectLateFusionModel(backbone, int(aux_dim), dropout=drop)
     if fusion_mode == "late_concat_aux32":
         return LateFusionModel(backbone, int(aux_dim), dropout=drop)
+    if fusion_mode in GLOBAL_SURFACE_MODES:
+        return GlobalSurfaceConditioningModel(
+            backbone, int(aux_dim), fusion_mode, dropout=drop
+        )
     raise ValueError(f"unknown fusion_mode: {fusion_mode}")
 
 
