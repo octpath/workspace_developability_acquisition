@@ -1,0 +1,35 @@
+batch_id: H128_H133_RESIDUE_SURFACE_FUSION
+status: STOPPED_NO_VALID_RESIDUE_SURFACE_SOURCE
+decision: STOP_BEFORE_TRAINING
+next_hic_unchanged: EXP-H128
+experiments_issued: []
+audit_artifact: results/H128_H133_RESIDUE_SURFACE_AUDIT.md
+central_question: >
+  Does residue-aligned SURFACE improve Transformer HIC when injected
+  before antibody-level pooling?
+gate_result: FAIL
+gate_reason: >
+  Historical F1_SURFACE is antibody-level 35D (AROMATIC_TOPO19 + HYDRO_FIELD16).
+  No frozen residue-token SURFACE table underlies that bundle. HYDRO intermediates
+  are surface vertices; ARO residue intermediates were never persisted. Batch rules
+  forbid inventing new descriptors or deriving residue values from antibody aggregates.
+  F3 RASA residue cache is a different historical family and must not be silently
+  substituted as F1 SURFACE.
+historical_antibody_level_controls:
+  sequence_only:
+    EXP-H071_TEST_mean: 0.5016881738827552
+    EXP-H061_TEST_mean: 0.5067954770076422
+  antibody_level_F1_SURFACE_late_fusion:
+    EXP-H090_Scratch_TEST_mean: 0.4715122395974618
+    EXP-H086_ESM2_TEST_mean: 0.486326449829855
+planned_modes_not_executed:
+  - residue_surface_additive
+  - residue_surface_gated
+  - surface_aware_pooling
+do_not:
+  - invent_new_SURFACE_descriptors
+  - derive_residue_from_antibody_aggregates
+  - substitute_F3_RASA_as_F1
+  - run_cross_attention
+  - issue_or_train_H128_H133_without_residue_source_unlock
+stop: true
