@@ -68,16 +68,17 @@ def test_model_modes_invariants():
     assert p.surface_attn_v is not None
 
 
-def test_h090_h086_unchanged_and_h128_unissued_until_train():
+def test_h090_h086_unchanged_and_next_h134():
     from experiment_codes import load_codes, next_code
     import pandas as pd
 
     e = pd.read_csv(ROOT / "results/experiments.csv")
     h090 = e[e.experiment_code == "EXP-H090"].iloc[0]
     assert abs(float(h090.cv_mean_mae) - 0.4715122395974618) < 1e-12
-    # if not yet trained, next may still be H128
+    h086 = e[e.experiment_code == "EXP-H086"].iloc[0]
+    assert abs(float(h086.cv_mean_mae) - 0.486326449829855) < 1e-12
     codes = set(load_codes()["experiment_code"].astype(str))
-    if "EXP-H133" in codes:
-        assert next_code("HIC") == "EXP-H134"
-    else:
-        assert "EXP-H128" not in codes or next_code("HIC") in ("EXP-H128", "EXP-H134")
+    assert "EXP-H133" in codes
+    assert next_code("HIC") == "EXP-H134"
+    assert (ROOT / "results/HIC_RESIDUE_F1_SURFACE_FUSION_REPORT.md").exists()
+    assert (ROOT / "results/H128_H133_PRE_EXTERNAL_FREEZE.yaml").exists()

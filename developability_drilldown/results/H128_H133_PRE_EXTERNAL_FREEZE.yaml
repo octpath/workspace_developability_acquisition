@@ -1,0 +1,214 @@
+status: INTERNAL_THEN_EXTERNAL_COMPLETE
+batch: H128_H133_RESIDUE_F1_SURFACE_FUSION
+schema_hash: edf92312e61de4d28b1f1f784327d4dd7e11fc69e70d0768d91fb4e40c882ffb
+p: 10
+case: CASE_G
+fusion_verdict: No residue-level mode improves sequence baseline enough to beat antibody-level
+  F1; Scratch residue models worsen vs H071; ESM2 gated/pool ≈ H061; none beat H090/H086.
+  Cross-attention NOT justified.
+cross_attention_justified: false
+residue_shuffle_n_perm: 100
+residue_shuffle_note: 100 within-antibody within-chain permutations per fold (primary+shadow);
+  aggregated 500 fold×perm pairs per scheme.
+controls:
+  EXP-H071:
+    code: EXP-H071
+    VAL_P: 0.4745217752338927
+    VAL_S: 0.4611378543053144
+    VAL_mean: 0.46782981476960356
+    VAL_worst: 0.4745217752338927
+    TEST_P: 0.5284297512666679
+    TEST_S: 0.4749465964988425
+    TEST_mean: 0.5016881738827552
+    TEST_worst: 0.5284297512666679
+    Public: 0.47957107581621333
+    Private: 0.48002688447928726
+    Overall: 0.47979898014775024
+  EXP-H090:
+    code: EXP-H090
+    VAL_P: 0.4209381839139962
+    VAL_S: 0.4048693486908336
+    VAL_mean: 0.4129037663024149
+    VAL_worst: 0.4209381839139962
+    TEST_P: 0.45757075571130823
+    TEST_S: 0.4854537234836154
+    TEST_mean: 0.4715122395974618
+    TEST_worst: 0.4854537234836154
+    Public: 0.40587610484935605
+    Private: 0.41287480832323614
+    Overall: 0.40937545658629615
+  EXP-H061:
+    code: EXP-H061
+    VAL_P: 0.45679617822906116
+    VAL_S: 0.4382358740347403
+    VAL_mean: 0.4475160261319007
+    VAL_worst: 0.45679617822906116
+    TEST_P: 0.5330681005407263
+    TEST_S: 0.4805228534745581
+    TEST_mean: 0.5067954770076422
+    TEST_worst: 0.5330681005407263
+    Public: 0.48163518693712026
+    Private: 0.46151962496910576
+    Overall: 0.471577405953113
+  EXP-H086:
+    code: EXP-H086
+    VAL_P: 0.4051649687967182
+    VAL_S: 0.4100291601110386
+    VAL_mean: 0.40759706445387844
+    VAL_worst: 0.4100291601110386
+    TEST_P: 0.4714368941224652
+    TEST_S: 0.501216005537245
+    TEST_mean: 0.48632644982985507
+    TEST_worst: 0.501216005537245
+    Public: 0.4017567271479853
+    Private: 0.4109313752916124
+    Overall: 0.4063440512197989
+experiments:
+  EXP-H128:
+    code: EXP-H128
+    mode: additive
+    VAL_P: 0.42255721584367156
+    VAL_S: 0.43654757012261286
+    VAL_mean: 0.4295523929831422
+    VAL_worst: 0.43654757012261286
+    TEST_P: 0.5456844004878291
+    TEST_S: 0.48175944481366945
+    TEST_mean: 0.5137219226507492
+    TEST_worst: 0.5456844004878291
+    Public: 0.4947303676840701
+    Private: 0.46537817401650516
+    Overall: 0.4800542708502876
+    n_trainable: 325249
+    delta_seq_TEST_mean: 0.012033748767994012
+    delta_ab_SURFACE_TEST_mean: 0.04220968305328743
+    bootstrap_vs_seq_primary: +0.017 [-0.046,+0.079]
+    bootstrap_vs_ab_primary: +0.088 [+0.021,+0.164]
+    zero_SURFACE_delta_P: -0.0147342242959104
+    zero_SURFACE_delta_S: 0.0203613423476984
+    residue_shuffle_delta_mean_P: -0.0150148576683131
+    residue_shuffle_delta_mean_S: 0.0146142705156875
+  EXP-H129:
+    code: EXP-H129
+    mode: gated
+    VAL_P: 0.4219515189653562
+    VAL_S: 0.4564665573025928
+    VAL_mean: 0.4392090381339745
+    VAL_worst: 0.4564665573025928
+    TEST_P: 0.5402040597892102
+    TEST_S: 0.4954431612462173
+    TEST_mean: 0.5178236105177138
+    TEST_worst: 0.5402040597892102
+    Public: 0.49617908939314476
+    Private: 0.4615321067527489
+    Overall: 0.4788555980729468
+    n_trainable: 325644
+    delta_seq_TEST_mean: 0.016135436634958533
+    delta_ab_SURFACE_TEST_mean: 0.04631137092025195
+    bootstrap_vs_seq_primary: +0.012 [-0.053,+0.074]
+    bootstrap_vs_ab_primary: +0.083 [+0.014,+0.159]
+    zero_SURFACE_delta_P: -0.0151492822906117
+    zero_SURFACE_delta_S: 0.0103327079584569
+    residue_shuffle_delta_mean_P: -0.0153679170587424
+    residue_shuffle_delta_mean_S: 0.0093671188504045
+  EXP-H130:
+    code: EXP-H130
+    mode: surface_aware_pooling
+    VAL_P: 0.4552515498502755
+    VAL_S: 0.4606972786703228
+    VAL_mean: 0.45797441426029917
+    VAL_worst: 0.4606972786703228
+    TEST_P: 0.542922152766475
+    TEST_S: 0.5192202768679018
+    TEST_mean: 0.5310712148171884
+    TEST_worst: 0.542922152766475
+    Public: 0.49100585626672805
+    Private: 0.4669076743420258
+    Overall: 0.478956765304377
+    n_trainable: 328449
+    delta_seq_TEST_mean: 0.029383040934433224
+    delta_ab_SURFACE_TEST_mean: 0.05955897521972664
+    bootstrap_vs_seq_primary: +0.014 [-0.029,+0.055]
+    bootstrap_vs_ab_primary: +0.085 [+0.025,+0.146]
+    zero_SURFACE_delta_P: -0.0074556802820276
+    zero_SURFACE_delta_S: 0.007599084265438
+    residue_shuffle_delta_mean_P: -0.0166065096153924
+    residue_shuffle_delta_mean_S: 0.0051154385251276
+  EXP-H131:
+    code: EXP-H131
+    mode: additive
+    VAL_P: 0.47925509262084953
+    VAL_S: 0.4367761627950787
+    VAL_mean: 0.4580156277079641
+    VAL_worst: 0.47925509262084953
+    TEST_P: 0.5339463419973114
+    TEST_S: 0.5255419067100242
+    TEST_mean: 0.5297441243536678
+    TEST_worst: 0.5339463419973114
+    Public: 0.4888459234355408
+    Private: 0.4728276289009752
+    Overall: 0.480836776168258
+    n_trainable: 486529
+    delta_seq_TEST_mean: 0.02294864734602564
+    delta_ab_SURFACE_TEST_mean: 0.04341767452381273
+    bootstrap_vs_seq_primary: +0.001 [-0.046,+0.044]
+    bootstrap_vs_ab_primary: +0.063 [+0.003,+0.125]
+    zero_SURFACE_delta_P: -0.0105605519141679
+    zero_SURFACE_delta_S: 0.0002839401150926
+    residue_shuffle_delta_mean_P: -0.0098733236133546
+    residue_shuffle_delta_mean_S: -0.0039004825408386
+  EXP-H132:
+    code: EXP-H132
+    mode: gated
+    VAL_P: 0.47772411233407475
+    VAL_S: 0.440137516869439
+    VAL_mean: 0.4589308146017569
+    VAL_worst: 0.47772411233407475
+    TEST_P: 0.5235502163922345
+    TEST_S: 0.4907508014160909
+    TEST_mean: 0.5071505089041627
+    TEST_worst: 0.5235502163922345
+    Public: 0.47926541910053766
+    Private: 0.46316059216157884
+    Overall: 0.4712130056310583
+    n_trainable: 486924
+    delta_seq_TEST_mean: 0.00035503189652053013
+    delta_ab_SURFACE_TEST_mean: 0.02082405907430762
+    bootstrap_vs_seq_primary: -0.010 [-0.057,+0.035]
+    bootstrap_vs_ab_primary: +0.052 [-0.009,+0.115]
+    zero_SURFACE_delta_P: -0.0070716317259236
+    zero_SURFACE_delta_S: 0.0006241465909981
+    residue_shuffle_delta_mean_P: -0.0077724462046767
+    residue_shuffle_delta_mean_S: 0.0004986827653971
+  EXP-H133:
+    code: EXP-H133
+    mode: surface_aware_pooling
+    VAL_P: 0.45222068018972145
+    VAL_S: 0.44019826573501397
+    VAL_mean: 0.4462094729623677
+    VAL_worst: 0.45222068018972145
+    TEST_P: 0.4961283113927017
+    TEST_S: 0.5185518341535403
+    TEST_mean: 0.507340072773121
+    TEST_worst: 0.5185518341535403
+    Public: 0.46423787566761904
+    Private: 0.4525188819979442
+    Overall: 0.4583783788327816
+    n_trainable: 489729
+    delta_seq_TEST_mean: 0.000544595765478828
+    delta_ab_SURFACE_TEST_mean: 0.02101362294326592
+    bootstrap_vs_seq_primary: -0.037 [-0.093,+0.016]
+    bootstrap_vs_ab_primary: +0.025 [-0.041,+0.086]
+    zero_SURFACE_delta_P: -0.0027073202721867
+    zero_SURFACE_delta_S: 0.0047881750412929
+    residue_shuffle_delta_mean_P: -0.0058824163630369
+    residue_shuffle_delta_mean_S: 0.0037919227489124
+diagnostics:
+  bootstrap_csv: results/H128_H133_BOOTSTRAP.csv
+  zero_csv: results/H128_H133_ZERO_SURFACE.csv
+  shuffle_csv: results/H128_H133_RESIDUE_SHUFFLE.csv
+  gate_csv: results/H128_H133_GATE_DIAGNOSTICS.csv
+  attn_csv: results/H128_H133_ATTENTION_DIAGNOSTICS.csv
+next_hic: EXP-H134
+do_not_run:
+- EXP-H134
+residue_shuffle_n_fold_perm_pairs: 500

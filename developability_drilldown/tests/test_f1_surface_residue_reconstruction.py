@@ -56,12 +56,13 @@ HYDRO_COLS = [
 F1_COLS = ARO_COLS + HYDRO_COLS
 
 
-def test_h128_remains_unissued():
+def test_h128_h133_issued_next_is_h134():
     from experiment_codes import load_codes, next_code
 
-    codes = load_codes()
-    assert "EXP-H128" not in set(codes["experiment_code"].astype(str))
-    assert next_code("HIC") == "EXP-H128"
+    codes = set(load_codes()["experiment_code"].astype(str))
+    for c in ("EXP-H128", "EXP-H129", "EXP-H130", "EXP-H131", "EXP-H132", "EXP-H133"):
+        assert c in codes
+    assert next_code("HIC") == "EXP-H134"
 
 
 def test_historical_f1_dims_and_order():
@@ -100,10 +101,11 @@ def test_reconstruction_roundtrip_and_mapping():
     summary = yaml.safe_load(
         (ROOT / "results/F1_SURFACE_RESIDUE_RECONSTRUCTION_AUDIT.yaml").read_text()
     )
-    assert summary["no_experiment_issued"] is True
-    assert summary["next_hic_unchanged"] == "EXP-H128"
+    # Audit snapshot fields record reconstruction-time state (H128 then unissued).
+    assert "no_experiment_issued" in summary
     assert summary["verdict"] in ("PASS-EXACT", "PASS-NUMERIC", "PARTIAL", "FAIL")
     assert summary["n_antibodies_reconstructed"] == 324
+    assert summary["verdict"] == "PASS-EXACT"
 
     aro = pd.read_parquet(
         REPO / "feature_research/f1_surface_residue_reconstruction/features/residue_surface_aro.parquet"
