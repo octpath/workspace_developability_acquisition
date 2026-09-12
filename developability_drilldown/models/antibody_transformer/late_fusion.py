@@ -36,6 +36,8 @@ class LateFusionAuxMLP(nn.Module):
 class LateFusionModel(nn.Module):
     """Wrap backbone.forward_repr with aux MLP + regression head."""
 
+    fusion_mode = "late_concat_aux32"
+
     def __init__(
         self,
         transformer: AnnotatedTransformer,
@@ -68,6 +70,48 @@ class LateFusionModel(nn.Module):
         z_dl = self.transformer.forward_repr(batch)
         z_aux = self.aux_mlp(fixed)
         return torch.cat([z_dl, z_aux], dim=-1)
+
+    def forward(self, batch: dict, fixed: torch.Tensor) -> torch.Tensor:
+        return self.head(self.forward_repr(batch, fixed)).squeeze(-1)
+
+
+class DirectLateFusionModel(nn.Module):
+    """Late fusion with genuine direct concat of standardized aux features.
+
+    No Linear/LayerNorm/GELU/Dropout on the auxiliary branch before concat.
+    Head: Linear(repr_dim + p, d_model) -> GELU -> Dropout -> Linear(d_model, 1).
+    """
+
+    fusion_mode = "late_concat_direct"
+
+    def __init__(
+        self,
+        transformer: AnnotatedTransformer,
+        aux_dim: int,
+        *,
+        dropout: float = 0.2,
+    ):
+        super().__init__()
+        self.transformer = transformer
+        self.aux_mlp = None  # explicit: no aux encoder
+        head_hidden = int(getattr(transformer, "d_model", transformer.repr_dim))
+        in_dim = int(transformer.repr_dim) + int(aux_dim)
+        self.head = nn.Sequential(
+            nn.Linear(in_dim, head_hidden),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(head_hidden, 1),
+        )
+        self.repr_dim = in_dim
+        self.aux_dim = int(aux_dim)
+
+    def n_trainable_parameters(self) -> int:
+        return sum(p.numel() for p in self.parameters() if p.requires_grad)
+
+    def forward_repr(self, batch: dict, fixed: torch.Tensor) -> torch.Tensor:
+        z_dl = self.transformer.forward_repr(batch)
+        # Direct: pass TRAIN-standardized features unchanged into concat.
+        return torch.cat([z_dl, fixed], dim=-1)
 
     def forward(self, batch: dict, fixed: torch.Tensor) -> torch.Tensor:
         return self.head(self.forward_repr(batch, fixed)).squeeze(-1)

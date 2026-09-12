@@ -20,7 +20,7 @@ from torch.utils.data import DataLoader
 
 from .data import FoldMaps, ResidueBundle, tvt_split
 from .h047_aux_features import FoldPreprocessor, H047AuxFeatureStore
-from .late_fusion import LateFusionModel
+from .late_fusion import DirectLateFusionModel, LateFusionModel
 from .metrics import mae
 from .protocol_v3 import (
     BATCH_SIZE,
@@ -67,8 +67,16 @@ def candidate_config_hash_ext(
     capacity: Optional[dict] = None,
     fusion_bundle_id: Optional[str] = None,
     feature_artifact_hash: Optional[str] = None,
+    fusion_mode: Optional[str] = None,
 ) -> str:
     flags = normalize_arch_flags(arch)
+    fm = fusion_mode or ("late_concat_aux32" if fusion_bundle_id else None)
+    if fm == "late_concat_aux32":
+        aux_mlp = "Linear64_GELU_Drop_Linear32_GELU"
+    elif fm == "late_concat_direct":
+        aux_mlp = None
+    else:
+        aux_mlp = None
     payload = {
         "arch": flags,
         "content_mode": content_mode,
@@ -80,7 +88,8 @@ def candidate_config_hash_ext(
         "fusion_bundle_id": fusion_bundle_id,
         "feature_artifact_hash": feature_artifact_hash,
         "late_fusion": bool(fusion_bundle_id),
-        "aux_mlp": "Linear64_GELU_Drop_Linear32_GELU" if fusion_bundle_id else None,
+        "fusion_mode": fm,
+        "aux_mlp": aux_mlp if fusion_bundle_id else None,
     }
     return hashlib.sha256(
         json.dumps(payload, sort_keys=True, default=str).encode()
@@ -98,6 +107,7 @@ def build_platform_model_ext(
     chain_mode: str = "HL",
     capacity: Optional[dict] = None,
     aux_dim: Optional[int] = None,
+    fusion_mode: str = "late_concat_aux32",
 ) -> nn.Module:
     flags = normalize_arch_flags(arch)
     presets = load_presets()
@@ -118,7 +128,12 @@ def build_platform_model_ext(
     )
     if aux_dim is None:
         return backbone
-    return LateFusionModel(backbone, int(aux_dim), dropout=float(presets["neural"]["dropout"]))
+    drop = float(presets["neural"]["dropout"])
+    if fusion_mode == "late_concat_direct":
+        return DirectLateFusionModel(backbone, int(aux_dim), dropout=drop)
+    if fusion_mode == "late_concat_aux32":
+        return LateFusionModel(backbone, int(aux_dim), dropout=drop)
+    raise ValueError(f"unknown fusion_mode: {fusion_mode}")
 
 
 def train_one_candidate_ext(
@@ -150,6 +165,7 @@ def train_one_candidate_ext(
     fusion_bundle_id: Optional[str] = None,
     feature_artifact_hash: Optional[str] = None,
     prep: Optional[FoldPreprocessor] = None,
+    fusion_mode: str = "late_concat_aux32",
 ) -> dict[str, Any]:
     presets = load_presets()
     ncfg = presets["neural"]
@@ -164,6 +180,7 @@ def train_one_candidate_ext(
         capacity=capacity,
         fusion_bundle_id=fusion_bundle_id,
         feature_artifact_hash=feature_artifact_hash,
+        fusion_mode=fusion_mode if aux_dim is not None else None,
     )
     resumed = _try_load_complete_manifest(
         ckpt_path=ckpt_path,
@@ -204,6 +221,7 @@ def train_one_candidate_ext(
         chain_mode=chain_mode,
         capacity=capacity,
         aux_dim=aux_dim,
+        fusion_mode=fusion_mode,
     ).to(device)
     model.load_state_dict(deepcopy(init_state))
     assert state_dict_sha256(model) == init_hash
@@ -323,6 +341,7 @@ def train_one_candidate_ext(
                     "fusion_bundle_id": fusion_bundle_id,
                     "feature_artifact_hash": feature_artifact_hash,
                     "aux_dim": aux_dim,
+                    "fusion_mode": fusion_mode,
                     "prep": prep,
                     "platform_id": PLATFORM_ID,
                     "init_hash": init_hash,
@@ -400,6 +419,7 @@ def predict_with_checkpoint_ext(
     chain_mode: str = "HL",
     capacity: Optional[dict] = None,
     aux_store: Optional[H047AuxFeatureStore] = None,
+    fusion_mode: Optional[str] = None,
 ) -> np.ndarray:
     blob = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     flags = normalize_arch_flags(blob.get("arch") or arch)
@@ -409,6 +429,7 @@ def predict_with_checkpoint_ext(
     chm = blob.get("chain_mode", chain_mode)
     cap = blob.get("capacity") or capacity
     aux_dim = blob.get("aux_dim")
+    fm = blob.get("fusion_mode") or fusion_mode or "late_concat_aux32"
     prep: Optional[FoldPreprocessor] = blob.get("prep")
     model = build_platform_model_ext(
         rb,
@@ -419,6 +440,7 @@ def predict_with_checkpoint_ext(
         chain_mode=chm,
         capacity=cap,
         aux_dim=aux_dim,
+        fusion_mode=fm,
     ).to(device)
     model.load_state_dict(blob["model"])
     model.eval()
@@ -472,10 +494,12 @@ def run_protocol_v3_ext(
     chain_mode: str = "HL",
     capacity: Optional[dict] = None,
     aux_store: Optional[H047AuxFeatureStore] = None,
+    fusion_mode: str = "late_concat_aux32",
 ) -> dict[str, Any]:
     flags = normalize_arch_flags(arch)
     fusion_bundle_id = aux_store.bundle_id if aux_store is not None else None
     feature_artifact_hash = aux_store.artifact_hash if aux_store is not None else None
+    fm = fusion_mode if aux_store is not None else None
     cfg_hash = candidate_config_hash_ext(
         flags,
         content_mode,
@@ -485,6 +509,7 @@ def run_protocol_v3_ext(
         capacity=capacity,
         fusion_bundle_id=fusion_bundle_id,
         feature_artifact_hash=feature_artifact_hash,
+        fusion_mode=fm,
     )
     lrs = coarse_lr_grid()
     if quick:
@@ -547,6 +572,7 @@ def run_protocol_v3_ext(
                 chain_mode=chain_mode,
                 capacity=capacity,
                 aux_dim=aux_dim,
+                fusion_mode=fusion_mode if aux_dim is not None else "late_concat_aux32",
             )
             init_state = deepcopy(model0.state_dict())
             init_hash = state_dict_sha256(model0)
@@ -585,6 +611,7 @@ def run_protocol_v3_ext(
                     fusion_bundle_id=fusion_bundle_id,
                     feature_artifact_hash=feature_artifact_hash,
                     prep=prep,
+                    fusion_mode=fusion_mode if aux_dim is not None else "late_concat_aux32",
                 )
                 init_hashes.append(summary["init_hash"])
                 cand_summaries.append(summary)
@@ -704,17 +731,20 @@ def run_protocol_v3_ext(
         chain_mode=chain_mode,
         capacity=capacity,
         aux_dim=(aux_store.effective_dim if aux_store is not None else None),
+        fusion_mode=fusion_mode if aux_store is not None else "late_concat_aux32",
     )
     n_trainable = int(sum(p.numel() for p in probe.parameters() if p.requires_grad))
+    is_fusion = isinstance(probe, (LateFusionModel, DirectLateFusionModel))
     account = (
         probe.transformer.param_account()
-        if isinstance(probe, LateFusionModel)
+        if is_fusion
         else probe.param_account()
     )
-    if isinstance(probe, LateFusionModel):
+    if is_fusion:
         account = dict(account)
         account["late_fusion_aux_head"] = n_trainable - int(account.get("total", 0))
         account["total"] = n_trainable
+        account["fusion_mode"] = getattr(probe, "fusion_mode", fusion_mode)
 
     summary = {
         "experiment_code": experiment_code,
@@ -726,6 +756,7 @@ def run_protocol_v3_ext(
         "capacity": normalize_capacity(capacity),
         "fusion_bundle_id": fusion_bundle_id,
         "feature_artifact_hash": feature_artifact_hash,
+        "fusion_mode": fm,
         "seed": seed,
         "arch": flags,
         "content_mode": content_mode,

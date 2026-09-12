@@ -1,0 +1,290 @@
+batch_id: H114_H125_SOURCE24_FUSION_ABLATION
+status: PREREGISTERED_FROZEN
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+git_rev_at_prereg: fb3c419284cf9f24f626242c340d8242651e99b5
+source_research_commit: fb3c4192
+next_code_at_prereg: EXP-H114
+central_contrasts:
+  sap24_vs_base:
+    scratch:
+    - EXP-H114
+    - EXP-H115
+    - vs EXP-H071
+    esm2:
+    - EXP-H120
+    - EXP-H121
+    - vs EXP-H061
+  fusion_mode:
+    pairs:
+    - - EXP-H114
+      - EXP-H115
+    - - EXP-H116
+      - EXP-H117
+    - - EXP-H118
+      - EXP-H119
+    - - EXP-H120
+      - EXP-H121
+    - - EXP-H122
+      - EXP-H123
+    - - EXP-H124
+      - EXP-H125
+  sap_vs_scm_vs_combined:
+    direct_scratch:
+    - EXP-H114
+    - EXP-H116
+    - EXP-H118
+    aux32_scratch:
+    - EXP-H115
+    - EXP-H117
+    - EXP-H119
+    direct_esm2:
+    - EXP-H120
+    - EXP-H122
+    - EXP-H124
+    aux32_esm2:
+    - EXP-H121
+    - EXP-H123
+    - EXP-H125
+feature_blocks:
+  FS_HIC_SOURCE_SAP24:
+    parquet: experiments/features/antibody_source_sap24.parquet
+    columns: &id001
+    - SAP_VH_R5_MAX
+    - SAP_VH_R5_TOP5_MEAN
+    - SAP_VH_R5_POSITIVE_SUM_MEAN
+    - SAP_VH_R10_MAX
+    - SAP_VH_R10_TOP5_MEAN
+    - SAP_VH_R10_POSITIVE_SUM_MEAN
+    - SAP_VL_R5_MAX
+    - SAP_VL_R5_TOP5_MEAN
+    - SAP_VL_R5_POSITIVE_SUM_MEAN
+    - SAP_VL_R10_MAX
+    - SAP_VL_R10_TOP5_MEAN
+    - SAP_VL_R10_POSITIVE_SUM_MEAN
+    - SAP_CDR_R5_MAX
+    - SAP_CDR_R5_TOP5_MEAN
+    - SAP_CDR_R5_POSITIVE_SUM_MEAN
+    - SAP_CDR_R10_MAX
+    - SAP_CDR_R10_TOP5_MEAN
+    - SAP_CDR_R10_POSITIVE_SUM_MEAN
+    - SAP_FR_R5_MAX
+    - SAP_FR_R5_TOP5_MEAN
+    - SAP_FR_R5_POSITIVE_SUM_MEAN
+    - SAP_FR_R10_MAX
+    - SAP_FR_R10_TOP5_MEAN
+    - SAP_FR_R10_POSITIVE_SUM_MEAN
+    n_dims: 24
+    file_sha256: 823da1f1516c7bd16d9facdc8371a32f0724f5554a03e3766c36e43bd8f4eb0f
+    n_antibodies: 324
+    store_artifact_hash: ecf8b3362c8986232b7cb84b79385e519dcd820df06ad9b3dd0e95c9bcb4a947
+  FS_HIC_SOURCE_SCM24:
+    parquet: experiments/features/antibody_source_scm24.parquet
+    columns: &id002
+    - SCM_VH_R5_MAX
+    - SCM_VH_R5_TOP5_MEAN
+    - SCM_VH_R5_POSITIVE_SUM_MEAN
+    - SCM_VH_R10_MAX
+    - SCM_VH_R10_TOP5_MEAN
+    - SCM_VH_R10_POSITIVE_SUM_MEAN
+    - SCM_VL_R5_MAX
+    - SCM_VL_R5_TOP5_MEAN
+    - SCM_VL_R5_POSITIVE_SUM_MEAN
+    - SCM_VL_R10_MAX
+    - SCM_VL_R10_TOP5_MEAN
+    - SCM_VL_R10_POSITIVE_SUM_MEAN
+    - SCM_CDR_R5_MAX
+    - SCM_CDR_R5_TOP5_MEAN
+    - SCM_CDR_R5_POSITIVE_SUM_MEAN
+    - SCM_CDR_R10_MAX
+    - SCM_CDR_R10_TOP5_MEAN
+    - SCM_CDR_R10_POSITIVE_SUM_MEAN
+    - SCM_FR_R5_MAX
+    - SCM_FR_R5_TOP5_MEAN
+    - SCM_FR_R5_POSITIVE_SUM_MEAN
+    - SCM_FR_R10_MAX
+    - SCM_FR_R10_TOP5_MEAN
+    - SCM_FR_R10_POSITIVE_SUM_MEAN
+    n_dims: 24
+    file_sha256: 389d888237142ff614b11a7a7863efefe0081dc4bb05b2ee02b1976e6e7eadef
+    n_antibodies: 324
+    store_artifact_hash: c4e6475caef56157902bcb5ee1fce0f50d75dc4f9322a7b12dc9df32defa054f
+  FS_HIC_SOURCE_SAP24_SCM24:
+    parquet: experiments/features/antibody_source_sap_scm48.parquet
+    columns: &id003
+    - SAP_VH_R5_MAX
+    - SAP_VH_R5_TOP5_MEAN
+    - SAP_VH_R5_POSITIVE_SUM_MEAN
+    - SAP_VH_R10_MAX
+    - SAP_VH_R10_TOP5_MEAN
+    - SAP_VH_R10_POSITIVE_SUM_MEAN
+    - SAP_VL_R5_MAX
+    - SAP_VL_R5_TOP5_MEAN
+    - SAP_VL_R5_POSITIVE_SUM_MEAN
+    - SAP_VL_R10_MAX
+    - SAP_VL_R10_TOP5_MEAN
+    - SAP_VL_R10_POSITIVE_SUM_MEAN
+    - SAP_CDR_R5_MAX
+    - SAP_CDR_R5_TOP5_MEAN
+    - SAP_CDR_R5_POSITIVE_SUM_MEAN
+    - SAP_CDR_R10_MAX
+    - SAP_CDR_R10_TOP5_MEAN
+    - SAP_CDR_R10_POSITIVE_SUM_MEAN
+    - SAP_FR_R5_MAX
+    - SAP_FR_R5_TOP5_MEAN
+    - SAP_FR_R5_POSITIVE_SUM_MEAN
+    - SAP_FR_R10_MAX
+    - SAP_FR_R10_TOP5_MEAN
+    - SAP_FR_R10_POSITIVE_SUM_MEAN
+    - SCM_VH_R5_MAX
+    - SCM_VH_R5_TOP5_MEAN
+    - SCM_VH_R5_POSITIVE_SUM_MEAN
+    - SCM_VH_R10_MAX
+    - SCM_VH_R10_TOP5_MEAN
+    - SCM_VH_R10_POSITIVE_SUM_MEAN
+    - SCM_VL_R5_MAX
+    - SCM_VL_R5_TOP5_MEAN
+    - SCM_VL_R5_POSITIVE_SUM_MEAN
+    - SCM_VL_R10_MAX
+    - SCM_VL_R10_TOP5_MEAN
+    - SCM_VL_R10_POSITIVE_SUM_MEAN
+    - SCM_CDR_R5_MAX
+    - SCM_CDR_R5_TOP5_MEAN
+    - SCM_CDR_R5_POSITIVE_SUM_MEAN
+    - SCM_CDR_R10_MAX
+    - SCM_CDR_R10_TOP5_MEAN
+    - SCM_CDR_R10_POSITIVE_SUM_MEAN
+    - SCM_FR_R5_MAX
+    - SCM_FR_R5_TOP5_MEAN
+    - SCM_FR_R5_POSITIVE_SUM_MEAN
+    - SCM_FR_R10_MAX
+    - SCM_FR_R10_TOP5_MEAN
+    - SCM_FR_R10_POSITIVE_SUM_MEAN
+    n_dims: 48
+    file_sha256: 17dd2f6df07fc8bdd78415e05a26af03f05b304be4a0e8afcf66fa2a07ea66d2
+    n_antibodies: 324
+    store_artifact_hash: ae7cbce029c16c3501c41f9f630aee0aea6c4b1d3a32ee76f155582f70c84bb8
+experiments:
+- code: EXP-H114
+  backbone: EXP-H071
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24
+  fusion_mode: late_concat_direct
+  aux_dim: 24
+  feature_file_sha256: 823da1f1516c7bd16d9facdc8371a32f0724f5554a03e3766c36e43bd8f4eb0f
+  feature_columns: *id001
+  fusion_params_approx_excl_backbone: 19713
+  description: Scratch + SAP24 DIRECT
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SOURCE_SAP24_DIRECT_V3
+- code: EXP-H115
+  backbone: EXP-H071
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24
+  fusion_mode: late_concat_aux32
+  aux_dim: 24
+  feature_file_sha256: 823da1f1516c7bd16d9facdc8371a32f0724f5554a03e3766c36e43bd8f4eb0f
+  feature_columns: *id001
+  fusion_params_approx_excl_backbone: 24417
+  description: Scratch + SAP24 AUX32
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SOURCE_SAP24_AUX32_V3
+- code: EXP-H116
+  backbone: EXP-H071
+  fusion_bundle_id: FS_HIC_SOURCE_SCM24
+  fusion_mode: late_concat_direct
+  aux_dim: 24
+  feature_file_sha256: 389d888237142ff614b11a7a7863efefe0081dc4bb05b2ee02b1976e6e7eadef
+  feature_columns: *id002
+  fusion_params_approx_excl_backbone: 19713
+  description: Scratch + SCM24 DIRECT
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SOURCE_SCM24_DIRECT_V3
+- code: EXP-H117
+  backbone: EXP-H071
+  fusion_bundle_id: FS_HIC_SOURCE_SCM24
+  fusion_mode: late_concat_aux32
+  aux_dim: 24
+  feature_file_sha256: 389d888237142ff614b11a7a7863efefe0081dc4bb05b2ee02b1976e6e7eadef
+  feature_columns: *id002
+  fusion_params_approx_excl_backbone: 24417
+  description: Scratch + SCM24 AUX32
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SOURCE_SCM24_AUX32_V3
+- code: EXP-H118
+  backbone: EXP-H071
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24_SCM24
+  fusion_mode: late_concat_direct
+  aux_dim: 48
+  feature_file_sha256: 17dd2f6df07fc8bdd78415e05a26af03f05b304be4a0e8afcf66fa2a07ea66d2
+  feature_columns: *id003
+  fusion_params_approx_excl_backbone: 22785
+  description: Scratch + COMBINED48 DIRECT
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SOURCE_SAP24_SCM24_DIRECT_V3
+- code: EXP-H119
+  backbone: EXP-H071
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24_SCM24
+  fusion_mode: late_concat_aux32
+  aux_dim: 48
+  feature_file_sha256: 17dd2f6df07fc8bdd78415e05a26af03f05b304be4a0e8afcf66fa2a07ea66d2
+  feature_columns: *id003
+  fusion_params_approx_excl_backbone: 25953
+  description: Scratch + COMBINED48 AUX32
+  experiment_id: TRF_HIC_SCRATCH_ARCH2_SOURCE_SAP24_SCM24_AUX32_V3
+- code: EXP-H120
+  backbone: EXP-H061
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24
+  fusion_mode: late_concat_direct
+  aux_dim: 24
+  feature_file_sha256: 823da1f1516c7bd16d9facdc8371a32f0724f5554a03e3766c36e43bd8f4eb0f
+  feature_columns: *id001
+  fusion_params_approx_excl_backbone: 19713
+  description: ESM2 + SAP24 DIRECT
+  experiment_id: TRF_HIC_ESM2_ARCH4_SOURCE_SAP24_DIRECT_V3
+- code: EXP-H121
+  backbone: EXP-H061
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24
+  fusion_mode: late_concat_aux32
+  aux_dim: 24
+  feature_file_sha256: 823da1f1516c7bd16d9facdc8371a32f0724f5554a03e3766c36e43bd8f4eb0f
+  feature_columns: *id001
+  fusion_params_approx_excl_backbone: 24417
+  description: ESM2 + SAP24 AUX32
+  experiment_id: TRF_HIC_ESM2_ARCH4_SOURCE_SAP24_AUX32_V3
+- code: EXP-H122
+  backbone: EXP-H061
+  fusion_bundle_id: FS_HIC_SOURCE_SCM24
+  fusion_mode: late_concat_direct
+  aux_dim: 24
+  feature_file_sha256: 389d888237142ff614b11a7a7863efefe0081dc4bb05b2ee02b1976e6e7eadef
+  feature_columns: *id002
+  fusion_params_approx_excl_backbone: 19713
+  description: ESM2 + SCM24 DIRECT
+  experiment_id: TRF_HIC_ESM2_ARCH4_SOURCE_SCM24_DIRECT_V3
+- code: EXP-H123
+  backbone: EXP-H061
+  fusion_bundle_id: FS_HIC_SOURCE_SCM24
+  fusion_mode: late_concat_aux32
+  aux_dim: 24
+  feature_file_sha256: 389d888237142ff614b11a7a7863efefe0081dc4bb05b2ee02b1976e6e7eadef
+  feature_columns: *id002
+  fusion_params_approx_excl_backbone: 24417
+  description: ESM2 + SCM24 AUX32
+  experiment_id: TRF_HIC_ESM2_ARCH4_SOURCE_SCM24_AUX32_V3
+- code: EXP-H124
+  backbone: EXP-H061
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24_SCM24
+  fusion_mode: late_concat_direct
+  aux_dim: 48
+  feature_file_sha256: 17dd2f6df07fc8bdd78415e05a26af03f05b304be4a0e8afcf66fa2a07ea66d2
+  feature_columns: *id003
+  fusion_params_approx_excl_backbone: 22785
+  description: ESM2 + COMBINED48 DIRECT
+  experiment_id: TRF_HIC_ESM2_ARCH4_SOURCE_SAP24_SCM24_DIRECT_V3
+- code: EXP-H125
+  backbone: EXP-H061
+  fusion_bundle_id: FS_HIC_SOURCE_SAP24_SCM24
+  fusion_mode: late_concat_aux32
+  aux_dim: 48
+  feature_file_sha256: 17dd2f6df07fc8bdd78415e05a26af03f05b304be4a0e8afcf66fa2a07ea66d2
+  feature_columns: *id003
+  fusion_params_approx_excl_backbone: 25953
+  description: ESM2 + COMBINED48 AUX32
+  experiment_id: TRF_HIC_ESM2_ARCH4_SOURCE_SAP24_SCM24_AUX32_V3
+notes:
+- DIRECT = no aux MLP; AUX32 = historical LateFusionAuxMLP unchanged.
+- Do not run SURFACE+SOURCE, XGBoost, residue-level, H126, or T142 in this batch.
