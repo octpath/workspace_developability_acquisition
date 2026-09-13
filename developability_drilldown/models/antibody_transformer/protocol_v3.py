@@ -564,6 +564,7 @@ def train_one_candidate_v3(
                     "content_mode": content_mode,
                     "merge_mode": merge_mode,
                     "plm_source": plm_source,
+                    "annotation_mode": annotation_mode,
                     "chain_mode": chain_mode,
                     "residue_surface_mode": residue_surface_mode,
                     "residue_surface_dim": residue_surface_dim,
@@ -664,6 +665,7 @@ def predict_with_checkpoint(
     content_mode: str = "frozen",
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
+    annotation_mode: str = "full",
     chain_mode: str = "HL",
     residue_surface_mode: Optional[str] = None,
     residue_surface_dim: int = 0,
@@ -674,6 +676,7 @@ def predict_with_checkpoint(
     cm = blob.get("content_mode", content_mode)
     mm = blob.get("merge_mode", merge_mode)
     ps = blob.get("plm_source", plm_source)
+    am = str(blob.get("annotation_mode", annotation_mode)).lower()
     chm = blob.get("chain_mode", chain_mode)
     rs_mode = blob.get("residue_surface_mode", residue_surface_mode)
     rs_dim = int(blob.get("residue_surface_dim", residue_surface_dim) or 0)
@@ -687,7 +690,7 @@ def predict_with_checkpoint(
         flags,
         content_mode=cm,
         merge_mode=mm,
-        annotation_mode=annotation_mode,
+        annotation_mode=am,
         plm_source=ps,
         chain_mode=chm,
         residue_surface_mode=rs_mode,
