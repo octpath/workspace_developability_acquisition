@@ -1,0 +1,54 @@
+[
+  {
+    "code": "EXP-T157",
+    "plm": "ablang1",
+    "status": "PASS",
+    "reason": null,
+    "raw_dim": 768,
+    "oof_test": {
+      "primary": 3.4670958342375577,
+      "shadow": 3.2599392172731,
+      "mean": 3.363517525755329,
+      "worst": 3.4670958342375577
+    }
+  },
+  {
+    "code": "EXP-T158",
+    "plm": "esm1b",
+    "status": "PASS",
+    "reason": null,
+    "raw_dim": 1280,
+    "oof_test": {
+      "primary": 3.317988831319927,
+      "shadow": 3.2039646101586614,
+      "mean": 3.2609767207392943,
+      "worst": 3.317988831319927
+    }
+  },
+  {
+    "code": "EXP-T159",
+    "plm": "esmc600m",
+    "status": "PASS",
+    "reason": null,
+    "raw_dim": 1152,
+    "oof_test": {
+      "primary": 3.3240260842405718,
+      "shadow": 3.3664297409999517,
+      "mean": 3.3452279126202615,
+      "worst": 3.3664297409999517
+    }
+  },
+  {
+    "code": "EXP-T160",
+    "plm": "currab",
+    "status": "PASS",
+    "reason": null,
+    "raw_dim": 1280,
+    "oof_test": {
+      "primary": 3.3158010788905767,
+      "shadow": 3.1833025143470293,
+      "mean": 3.2495517966188032,
+      "worst": 3.3158010788905767
+    }
+  }
+]

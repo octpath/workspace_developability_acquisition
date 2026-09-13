@@ -142,6 +142,6 @@ def test_next_code_gate():
 
     codes = set(load_codes()["experiment_code"].astype(str))
     if "EXP-T156" in codes:
-        assert next_code("TmApp") == "EXP-T157"
+        assert next_code("TmApp") == "EXP-T161"
     else:
         assert next_code("TmApp") == "EXP-T151"

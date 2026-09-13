@@ -79,8 +79,12 @@ def test_one_vector_per_residue_and_dim(subdir, expected_dim):
     for i, ab in enumerate(ids):
         assert int(mh[i].sum()) == len(str(seqs.loc[ab, "heavy"]))
         assert int(ml[i].sum()) == len(str(seqs.loc[ab, "light"]))
-        # padded region must be zero-ish (fp16 zeros)
-        assert float(np.abs(eh[i, int(mh[i].sum()) :].astype(np.float32)).max() or 0) == 0.0 or int(mh[i].sum()) == eh.shape[1]
+        # padded region must be zeros when present
+        lh, ll = int(mh[i].sum()), int(ml[i].sum())
+        if lh < eh.shape[1]:
+            assert float(np.max(np.abs(eh[i, lh:].astype(np.float32)))) == 0.0
+        if ll < el.shape[1]:
+            assert float(np.max(np.abs(el[i, ll:].astype(np.float32)))) == 0.0
 
 
 def test_esmc_dim_inferred_not_hardcoded_only():

@@ -32,8 +32,8 @@ def test_transformer_code_append_only():
     assert len(codes) == N_EXPERIMENTS_TOTAL
     t = [c for c in codes["experiment_code"] if c.startswith("EXP-T")]
     h = [c for c in codes["experiment_code"] if c.startswith("EXP-H")]
-    assert len(t) == 156 and len(h) == 139
-    assert next_code("TmApp") == "EXP-T157"
+    assert len(t) == 160 and len(h) == 139
+    assert next_code("TmApp") == "EXP-T161"
     assert next_code("HIC") == "EXP-H140"
     assert next_code("MULTI") == "EXP-M001"
     assert not any(c.startswith("EXP-M") for c in codes["experiment_code"])
