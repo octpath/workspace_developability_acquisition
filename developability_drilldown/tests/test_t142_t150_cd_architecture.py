@@ -112,7 +112,9 @@ def test_next_after_batch():
     from experiment_codes import load_codes, next_code
 
     codes = set(load_codes()["experiment_code"].astype(str))
-    if "EXP-T160" in codes:
+    if "EXP-T337" in codes:
+        assert next_code("TmApp") == "EXP-T338"
+    elif "EXP-T160" in codes:
         assert next_code("TmApp") == "EXP-T161"
     elif "EXP-T156" in codes:
         assert next_code("TmApp") == "EXP-T157"

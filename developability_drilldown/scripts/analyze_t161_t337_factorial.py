@@ -317,10 +317,10 @@ def run_analysis() -> None:
                     y = np.asarray([ymap[i] for i in m.index.astype(str)], float)
                     # contrast on abs errors: (F-B) - (I-B) - (R-B) = F - I - R + B
                     dvec = (
-                        np.abs(m["f"] - y)
-                        - np.abs(m["i"] - y)
-                        - np.abs(m["r"] - y)
-                        + np.abs(m["b"] - y)
+                        np.abs(m["f"].to_numpy(float) - y)
+                        - np.abs(m["i"].to_numpy(float) - y)
+                        - np.abs(m["r"].to_numpy(float) - y)
+                        + np.abs(m["b"].to_numpy(float) - y)
                     )
                     rng = np.random.default_rng(SEED)
                     boots = np.asarray(

@@ -1,0 +1,24 @@
+{
+  "ext_scores": {
+    "primary_mean": {
+      "public_mae": 3.2240281940978246,
+      "private_mae": 3.1784428726007907,
+      "overall_mae": 3.2012355333493083
+    },
+    "primary_median": {
+      "public_mae": 3.2762222290039062,
+      "private_mae": 3.1920051103756752,
+      "overall_mae": 3.2341136696897905
+    },
+    "shadow_mean": {
+      "public_mae": 3.2785610434449755,
+      "private_mae": 3.131230945351683,
+      "overall_mae": 3.20489599439833
+    },
+    "shadow_median": {
+      "public_mae": 3.2586483425564237,
+      "private_mae": 3.11050565743152,
+      "overall_mae": 3.184576999993972
+    }
+  }
+}

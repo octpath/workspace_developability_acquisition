@@ -194,6 +194,33 @@ def write_config(row: dict) -> None:
 def register(code: str, row: dict, summary: dict, ext_scores: dict) -> None:
     pm = ext_scores["primary_mean"]
     oof = summary["scores"]["oof_test"]
+    topo = row["topology"]
+    rep = row["representation"]
+    asset_map = {
+        "scratch": "assets/transformer/residue_asset_manifest.yaml#annotations+scratch_sequences",
+        "ablingua": "assets/transformer/residue_asset_manifest.yaml#ablingua600m",
+        "ablang2_paired": "assets/transformer/residue_asset_manifest.yaml#ablang2",
+        "ablang2_unpaired": "assets/transformer/residue_asset_manifest.yaml#ablang2_unpaired",
+        "ablang1": "assets/transformer/residue_asset_manifest.yaml#ablang1",
+        "esm1b": "assets/transformer/residue_asset_manifest.yaml#esm1b",
+        "esm2": "assets/transformer/residue_asset_manifest.yaml#esm2",
+        "esmc600m": "assets/transformer/residue_asset_manifest.yaml#esmc600m",
+        "currab_paired": "assets/transformer/residue_asset_manifest.yaml#currab",
+        "currab_unpaired": "assets/transformer/residue_asset_manifest.yaml#currab_unpaired",
+    }
+    topo_prefix = {
+        "A": "SEPARATE_DUAL_REG",
+        "B1": "JOINT_HL_DUAL_REG",
+        "B2": "JOINT_HL_CHAIN_SPECIFIC_DUAL_REG",
+        "C": "SEPARATE_REG_ONLY_CROSS_ATTENTION",
+        "D": "PAIR_D3",
+    }[topo]
+    if rep == "scratch":
+        input_space = "PAIR_D3_SCRATCH_MEAN_V3" if topo == "D" else f"{topo_prefix}_SCRATCH_RESIDUE_MEAN_V3"
+    elif topo == "D":
+        input_space = f"PAIR_D3_FROZEN_{rep.upper()}_MEAN_V3"
+    else:
+        input_space = f"{topo_prefix}_FROZEN_{rep.upper()}_RESIDUE_MEAN_V3"
     exp_path = ROOT / "results/experiments.csv"
     df = pd.read_csv(exp_path)
     df = df[df["experiment_code"] != code]
@@ -235,6 +262,8 @@ def register(code: str, row: dict, summary: dict, ext_scores: dict) -> None:
             "plm_source": _plm_source_label(row),
             "representation_status": "NOT_EXPORTED",
             "prediction_reproduction_max_delta": 0.0,
+            "input_space": input_space,
+            "input_asset_ref": asset_map[rep],
         }
     )
     pd.concat([df, pd.DataFrame([{c: rec.get(c, "") for c in df.columns}])], ignore_index=True).to_csv(

@@ -97,9 +97,10 @@ def test_factorial_plan_if_present():
     df = pd.read_csv(p)
     assert len(df) == 200
     assert (df.execution_status == "REUSE").sum() == 23
-    assert (df.execution_status == "PLANNED").sum() + (df.execution_status == "COMPLETE").sum() + (
-        df.execution_status == "FAILED"
-    ).sum() + (df.execution_status == "BLOCKED").sum() + (df.execution_status == "REUSE").sum() >= 23
+    assert set(df.execution_status.unique()) <= {"REUSE", "PLANNED", "COMPLETE", "FAILED", "BLOCKED", "BLOCKED_MAPPING"}
+    assert (df.execution_status.isin(["REUSE", "COMPLETE", "FAILED", "BLOCKED", "BLOCKED_MAPPING", "PLANNED"])).all()
+    n_new = (df.execution_status != "REUSE").sum()
+    assert n_new == 177
     assert df.duplicated(["representation", "topology", "annotation"]).sum() == 0
     assert df.duplicated("experiment_code").sum() == 0
     t210 = df[df.experiment_code == "EXP-T210"].iloc[0]
@@ -112,6 +113,13 @@ def test_factorial_plan_if_present():
         # when pristine: 161..337
         if len(nums) == 177:
             assert nums == list(range(161, 338))
+    complete_new = df[df.execution_status == "COMPLETE"]
+    if len(complete_new) == 177:
+        assert (df.execution_status.isin(["REUSE", "COMPLETE"])).all()
+        # spot-check V3 on a new cell config
+        cfg = yaml.safe_load((ROOT / "experiments/configs/EXP-T210.yaml").read_text())
+        assert cfg.get("platform_id") == "DL_FOLDLOCAL_COSINE_V3" or "V3" in str(cfg.get("platform_id", ""))
+        assert int(cfg.get("seed", 101)) == 101
 
 
 def test_matched_assets_if_present():
