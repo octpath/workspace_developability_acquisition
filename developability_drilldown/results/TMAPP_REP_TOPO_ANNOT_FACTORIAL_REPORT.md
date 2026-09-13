@@ -143,3 +143,5 @@ None.
 - PRE_REG_COMMIT_SHA: `7727ecc0f82798c8788d4b2f9ba3295e50502802`
 - INTERNAL_FREEZE / FINAL SHAs recorded at commit time
 - Hard STOP after this factorial: no new topologies/annotations/PLMs/ensembles/HIC.
+
+- FINAL_COMMIT_SHA: `99981196b158d7931fbce88c14259aef11358a36`
