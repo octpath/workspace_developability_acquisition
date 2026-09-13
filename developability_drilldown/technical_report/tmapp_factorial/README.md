@@ -1,3 +1,7 @@
+## Finished report
+
+- `TMAPP_TECHNICAL_REPORT.md` — finalized TmApp-only technical report
+
 # TmApp factorial — technical report analysis package
 
 Presentation-layer analysis only. No new training. Historical experiment IDs and result files are not rewritten.

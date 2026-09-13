@@ -1,3 +1,7 @@
+# Status: FINISHED
+
+Polished prose: `TMAPP_TECHNICAL_REPORT.md`
+
 # TECHNICAL_REPORT_OUTLINE.md
 
 Proposed structure for a later technical report. **Do not treat this as polished manuscript prose.**
