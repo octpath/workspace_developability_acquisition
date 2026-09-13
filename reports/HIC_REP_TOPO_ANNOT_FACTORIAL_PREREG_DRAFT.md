@@ -1,408 +1,237 @@
 # HIC Representation × Topology × Annotation Factorial — PREREGISTRATION DRAFT
 
-**STATUS:** `DRAFT_ONLY` — **not** `PREREGISTERED_FROZEN`  
-**This document does not authorize training, ID issuance, or registry mutation.**
+**STATUS:** `READY_FOR_FORMAL_FREEZE` — **not** `PREREGISTERED_FROZEN`  
+**Training / EXP-H issuance / registry write:** **NOT authorized** until human formal-freeze approval.
 
 | Field | Value |
 |-------|--------|
 | Evaluation freeze SHA | **`379e0751a93c2af8f6fbfeedaad4d72f3556996b`** |
 | Evaluation contract | `reports/HIC_EVALUATION_PROTOCOL_FREEZE.md` |
-| Design proposal | `reports/HIC_FACTORIAL_DESIGN_PROPOSAL.md` |
-| Final design | **Design A — Full 10 × 5 × 4 = 200** |
-| Target | **HIC only** |
-| Surface / physics aux | **Excluded**（separate future physics program） |
+| Design | **FULL FACTORIAL 10 × 5 × 4 = 200** |
+| Cell manifest | `reports/HIC_REP_TOPO_ANNOT_FACTORIAL_CELL_MANIFEST.csv` |
+| **Manifest SHA256** | **`ffdf88d6d59cc6af9864fa041c4a057d398f523ce724fb55d392c50282e5f7cf`** |
+| REUSE audit | `reports/HIC_FACTORIAL_REUSE_AUDIT.csv` |
+| Embedding inventory | `reports/HIC_FACTORIAL_EMBEDDING_INVENTORY.csv` |
+| Surface / physics aux | **Excluded** |
 
-TmApp reference definitions: `developability_drilldown/technical_report/tmapp_factorial/terminology.yaml`；`results/TMAPP_REP_TOPO_ANNOT_FACTORIAL_*`。
+---
+
+## Gate summary (this finalization)
+
+| Check | Result |
+|-------|--------|
+| Manifest rows / unique cells | **200 / 200 PASS** |
+| REUSE confirmed | **0** |
+| REUSE → RETRAIN_REQUIRED | **6/6** (share_hl_encoder & pair_interaction_mode UNKNOWN) |
+| Expected new training | **200** |
+| Embedding blockers | **None** (all 9 PLM assets N=324; Scratch OK) |
+| Topology implementation blockers | **None** (TmApp flag semantics available; HIC must copy them) |
+| Annotation blockers | **None** (annotations.parquet 324 Abs; model modes match) |
+| Bootstrap structural audit | **PASS** |
+| Pub/Priv dependency in manifest | **False** |
+| Surface flags in manifest | **False** |
 
 ---
 
 ## 1. Status / scope
 
-* Draft for human review after adopting **Full factorial**.  
-* No EXP-H codes reserved or issued in this draft.  
-* No embeddings extracted, no GPU jobs, no Public/Private scoring.  
-* Formal freeze requires a later commit that sets status to `PREREGISTERED_FROZEN` with plan SHA256 + binding commitments.
+Human-approved Full factorial. This document is the **pre-freeze gate** output.  
+Still forbidden: training, GPU jobs, Public/Private scoring, midway MAE cell selection, factor changes, surface addition, formal FROZEN prereg commit, EXP-H issuance.
 
 ---
 
 ## 2. Evaluation freeze SHA
 
-All cells inherit:
-
-* Primary / Secondary / HIGH-tail / External rules from  
-  **`reports/HIC_EVALUATION_PROTOCOL_FREEZE.md`**  
-  at commit **`379e0751a93c2af8f6fbfeedaad4d72f3556996b`**.
-
-Any conflict between this draft and that freeze → **freeze wins**.
+All cells inherit `reports/HIC_EVALUATION_PROTOCOL_FREEZE.md` at **`379e0751…`**.  
+Conflict → freeze wins.
 
 ---
 
 ## 3. Scientific questions
 
-1. Without surface/physics features, where is reproducible HIC headroom across **Representation / Topology / Annotation**?  
-2. Are topology gains representation-dependent on HIC as on TmApp?  
-3. Does annotation (BASE→IMGT/REGION/FULL) help, harm, or interact on HIC given historical FULL-only V3 work?  
-4. For AbLang2 and CurrAb, how does **PAIRED_NATIVE vs SEPARATE_CHAIN** change HIC error surfaces relative to downstream topologies?  
-5. After HIC internal freeze, how do factor patterns compare to the TmApp 200-cell factorial (**post hoc only**; never for HIC cell selection)?
-
-Non-questions for this batch: surface patch / SASA / HSP late fusion; leaderboard optimization; HIGH-tail as selection objective.
+Unchanged from prior draft: HIC headroom in Rep/Topo/Annot without surface; context contrasts; post-hoc TmApp comparison only.
 
 ---
 
 ## 4. Complete 200-cell design
 
-| Factor | n | Levels |
-|--------|--:|--------|
-| Representation | 10 | see §5–6 |
-| Topology | 5 | SEP, JOINT, REG-SEP, XREG, FUSE |
-| Annotation | 4 | BASE, IMGT, REGION, FULL |
-| **Cells** | **200** | full Cartesian product |
+| | |
+|--|--:|
+| Total cells | **200** |
+| CONFIRMED_REUSE | **0** |
+| NEW training | **200** |
 
-| Execution | Count |
-|-----------|------:|
-| Total | 200 |
-| REUSE (after checksum) | **0–6** |
-| New training | **194–200** |
+Platform lock (at formal prereg): `DL_FOLDLOCAL_COSINE_V3`, seed **101**, `d_model=128`, merge **mean**, pooling REG, fold-local LR, `share_hl_encoder=True` **explicit**, Primary/Shadow V3 schemes.
 
-Platform (intended; locked at formal prereg):
-
-* `DL_FOLDLOCAL_COSINE_V3`  
-* seed **101**  
-* `d_model=128`, `n_layers=2`, merge **mean**, pooling **REG**  
-* fold-local LR on VAL only；`no_full_dev_refit=true`  
-* Primary / Shadow schemes as in V3  
+Manifest asserts: 10 reps × 5 topos × 4 annots; no duplicates.
 
 ---
 
-## 5. Exact factor definitions
+## 5–7. Factor / provenance / hierarchy
 
-### 5.1 Topology（TmApp terminology 正本）
-
-| ID | Meaning (abbrev.) |
-|----|-------------------|
-| **SEP** | Separate H/L；no downstream H/L interaction before final merge |
-| **JOINT** | Unrestricted joint Transformer over H/L residues + REG_H/REG_L |
-| **REG-SEP** | Joint residues；chain-specific REGs |
-| **XREG** | Separate encode then REG reads opposite-chain residues |
-| **FUSE** | Separate encode then REG↔REG via frozen D3 (`pair_interaction_mode=d3_symmetric_mlp`) |
-
-**REG** = learned chain-level token gathering residue information in the downstream Transformer（do not call “summary”）.
-
-Implementation flags follow TmApp factorial `topology_flags` / ARCH-1/3/4/7/D3 mapping with **mean** merge only.
-
-### 5.2 Annotation
-
-Sequence-position and chain-ID embeddings **on in all cells**. Plus:
-
-| ID | IMGT | CDR/FR region |
-|----|------|---------------|
-| BASE | off | off |
-| IMGT | on | off |
-| REGION | off | on |
-| FULL | on | on |
+As Design A / TmApp terminology. Context metadata over allocation names.  
+Families (8) + AbLang2/CurrAb contexts analyzed hierarchically without collapsing the 10-level grid.
 
 ---
 
-## 6. Representation provenance
+## 8. Reuse policy — FINAL GATE OUTCOME
 
-Authority: **metadata `representation_context`**, not historical allocation nicknames.
+| Code | Cell | audit_verdict | formal disposition |
+|------|------|---------------|--------------------|
+| H056 | ESM2×SEP×FULL | UNRESOLVED | **RETRAIN_REQUIRED** |
+| H059 | ESM2×JOINT×FULL | UNRESOLVED | **RETRAIN_REQUIRED** |
+| H061 | ESM2×REG-SEP×FULL | UNRESOLVED | **RETRAIN_REQUIRED** |
+| H070 | Scratch×SEP×FULL | UNRESOLVED | **RETRAIN_REQUIRED** |
+| H073 | Scratch×JOINT×FULL | UNRESOLVED | **RETRAIN_REQUIRED** |
+| H075 | Scratch×REG-SEP×FULL | UNRESOLVED | **RETRAIN_REQUIRED** |
 
-| Display name | Typical internal / subdir | Context |
-|--------------|---------------------------|---------|
-| Scratch | — | LEARNED_AA |
-| AbLingua | ablingua600m | SEPARATE_CHAIN |
-| AbLang1 | ablang1 | SEPARATE_CHAIN |
-| AbLang2（鎖別推論） | `ablang2`（alloc historically `ablang2_paired`） | **SEPARATE_CHAIN** |
-| AbLang2（H/Lペア推論） | `ablang2_unpaired` | **PAIRED_NATIVE** |
-| ESM-1b | esm1b | SEPARATE_CHAIN |
-| ESM-2 | esm2 | SEPARATE_CHAIN |
-| ESM-C 600M | esmc600m | SEPARATE_CHAIN |
-| CurrAb（鎖別推論） | currab_unpaired | **SEPARATE_CHAIN** |
-| CurrAb（H/Lペア推論） | currab | **PAIRED_NATIVE** |
+**Reason:** `share_hl_encoder` and `pair_interaction_mode` not recorded in config/run_state → UNKNOWN. Rule: unknown ≠ PASS.  
+Other fields (target HIC, arch flags, merge mean, seed 101, V3, TEST_mean=mean(P,S), OOF artifacts) were consistent but insufficient for CONFIRMED_REUSE.
 
-Matched AbLang2 contexts share the same AbLang2 checkpoint family；CurrAb contexts share revision **`92e28534663e163f1b398f773b3fe041085737d9`** (as in TmApp factorial). Formal prereg must pin content hashes / manifest entries for N=324 coverage.
-
-**No new PLMs** beyond this list.
+→ **No REUSE in formal plan; train all 200.**
 
 ---
 
-## 7. Hierarchical family / context definition
+## 9. Exact primary contrasts
 
-### Grid layer（primary factorial）
+* Topology − SEP (fixed Rep×Annot)  
+* Annotation − BASE (fixed Rep×Topo)  
+* PLM − Scratch (fixed Topo×Annot; separate from absolute ranking)  
+* PAIRED_NATIVE − SEPARATE_CHAIN (AbLang2 & CurrAb; fixed Topo×Annot)  
 
-Treat **10 representation levels** as the factorial factor (TmApp parity).
-
-### Hierarchy layer（additional analysis）
-
-**Families (8):** Scratch, AbLingua, AbLang1, AbLang2, ESM-1b, ESM-2, ESM-C, CurrAb  
-
-**Contexts (where applicable):** SEPARATE_CHAIN, PAIRED_NATIVE  
-
-| Family | Levels in 10-grid |
-|--------|-------------------|
-| AbLang2 | 鎖別 + H/Lペア |
-| CurrAb | 鎖別 + H/Lペア |
-| Others | single context each |
-
-**Do not conflate:** reporting “best of 10 representations” vs “AbLang2 family context effect.” Both are allowed；separate sections.
+Secondary: `Δ_P`/`Δ_S` sign agreement; improvement ⇒ both `<0`. Does not replace Primary `TEST_mean`.
 
 ---
 
-## 8. Reuse policy
+## 10. Interactions
 
-### Provisional candidates
-
-`EXP-H056`, `EXP-H059`, `EXP-H061`, `EXP-H070`, `EXP-H073`, `EXP-H075`
-
-### Required exact match checklist
-
-target；representation；embedding source + hash/metadata；topology implementation flags；annotation；**`share_hl_encoder`**；**`pair_interaction_mode`**；`d_model`；merge mode；seed；LR procedure；V3 protocol；Primary/Shadow definitions；evaluation implementation.
-
-### Current draft finding
-
-`share_hl_encoder` / explicit `pair_interaction_mode` are **not recorded** in candidate yamls/run_state → under the rule “不明なら REUSE しない,” **confirmed REUSE count = 0** until the REUSE checksum gate resolves each field from training-time evidence.
-
-If any check fails → cell becomes **new training**.  
-Planning envelope: **reuse 0–6；new 194–200**.
-
-Surface/late-fusion H082–H139: **never** reusable for this factorial.
+Level-1: Rep×Topo, Rep×Annot, Topo×Annot.  
+Exploratory: AbLang2/CurrAb Family×Context×Topo/Annot.  
+Conclusion hierarchy: factor patterns > predefined contrasts > single best cell (descriptive).
 
 ---
 
-## 9. Exact primary contrasts（predefined）
+## 11. Primary / Secondary / Diagnostic / External
 
-All contrasts use MAE；**negative Δ = improvement**.
+| Role | Rule |
+|------|------|
+| Primary | `TEST_mean = mean(TEST_P, TEST_S)` |
+| Secondary | directional Δ replication |
+| HIGH-tail | `HIC>11.5`; record only; no selection |
+| External | GEN_0001 after internal freeze only; embargo on selection/reinterpretation |
 
-### 9.1 Topology（within fixed Representation × Annotation）
-
-Baseline = **SEP**
-
-* JOINT − SEP  
-* REG-SEP − SEP  
-* XREG − SEP  
-* FUSE − SEP  
-
-Compute on `TEST_mean` for ranking tables；also on `TEST_P` and `TEST_S` for Secondary.
-
-### 9.2 Annotation（within fixed Representation × Topology）
-
-Baseline = **BASE**
-
-* IMGT − BASE  
-* REGION − BASE  
-* FULL − BASE  
-
-### 9.3 PLM vs Scratch（within fixed Topology × Annotation）
-
-For each non-Scratch representation level:
-
-`PLM − Scratch`
-
-Report **separately** from absolute 10-way ranking of representations.
-
-### 9.4 Inference-context（AbLang2 and CurrAb；within fixed Topology × Annotation）
-
-`PAIRED_NATIVE − SEPARATE_CHAIN`
-
-Pre-registered as a **cross-target priority contrast** (compare later to TmApp Figure-6-style analyses).  
-Does **not** replace the 10-level grid.
-
-### 9.5 Secondary directional replication
-
-For any predefined contrast with baseline B and candidate C:
-
-`Δ = MAE(C) − MAE(B)` on Primary and Shadow OOF (`Δ_P`, `Δ_S`).
-
-**Directionally replicated** iff signs agree；for an improvement claim, require **`Δ_P < 0` and `Δ_S < 0`** (unless formal prereg amends with written exception).  
-Secondary never replaces Primary `TEST_mean` ranking.
+Surface excluded. TmApp results do **not** alter HIC selection.
 
 ---
 
-## 10. Interaction analysis
+## 12. Bootstrap / uncertainty — AUDITED
 
-### Primary interactions（Level 1 patterns）
+| Item | Definition |
+|------|------------|
+| Method | Antibody-level paired residual bootstrap (`paired_boot` / `did_boot` family) |
+| Resampling unit | **antibody `id`** (Dev OOF vector) |
+| N_BOOT | **2000** |
+| Seed | **101** |
+| CI | percentile **2.5% / 97.5%** |
+| Pairing | same id index for candidate vs baseline predictions and `y=HIC` |
+| Primary vs Shadow | **bootstrap separately** on `oof_test_primary` / `oof_test_shadow` |
+| TEST_mean reporting | rank/select on mean of scheme MAEs; for uncertainty on mean-level contrasts, report both scheme bootstraps + require sign agreement; do **not** treat folds as i.i.d. resample units |
+| Forbidden | resampling folds as independent samples; mixing Public/Private ids into internal bootstrap |
 
-* Representation × Topology  
-* Representation × Annotation  
-* Topology × Annotation  
-
-### Hierarchical / exploratory（AbLang2, CurrAb）
-
-* Family × Context × Topology  
-* Family × Context × Annotation  
-（or equivalent paired-context interaction tables）
-
-Label exploratory unless Primary/Shadow agree and bootstrap CIs support.
-
-### Analysis hierarchy（conclusion strength）
-
-| Level | Content | Role |
-|------:|---------|------|
-| **1** | Factor-pattern conclusions across many cells | **Primary scientific weight** |
-| **2** | Predefined paired contrasts (§9) + uncertainty | Confirmatory support |
-| **3** | Individual best cell | **Descriptive only** — not main conclusion |
+**Structural PASS:** HIC V3 OOF (`EXP-H056`) has 162 Dev ids, Primary/Shadow aligned, subset of competition Dev, HIC labels present — TmApp bootstrap math applies. Analysis code must load **HIC** paths/labels (not copy TmApp blindly).
 
 ---
 
-## 11. Primary / Secondary / Diagnostic / External rules
+## 13. Cross-target TmApp vs HIC
 
-| Role | Definition | Selection use |
-|------|------------|---------------|
-| **Primary** | `TEST_mean = mean(TEST_P, TEST_S)` | **Yes** — cell/factor ranking |
-| **Secondary** | `Δ_P`/`Δ_S` sign replication vs baseline | No — does not override Primary |
-| **HIGH-tail diagnostic** | `HIC > 11.5 min`；record n, MAE, mean signed error `(pred−true)`, observed range, predicted range | **No** |
-| **External diagnostic** | GEN_0001 Public/Private MAE（after internal factorial freeze） | **No** for rep/topo/annot/HP/cell selection or rewriting factorial interpretation |
-
-`cv_worst_mae` is legacy classical read-only；**not** used in this factorial.
+After HIC internal freeze only. Align names/contrasts. Never use TmApp to select HIC cells.
 
 ---
 
-## 12. Bootstrap / uncertainty plan
+## 14. Technical gates (MAE-blind)
 
-### Source (TmApp)
-
-`developability_drilldown/scripts/run_exp_t151_t156_plm_topology.py` → `paired_boot` / `did_boot`；used by `analyze_t161_t337_factorial.py` with:
-
-* `SEED = 101`  
-* `N_BOOT = 2000`  
-
-### Definition to reuse for HIC（do not blindly copy scripts without path checks）
-
-**Resampling unit:** antibody `id` in the Dev OOF prediction vector for a given scheme（Primary or Shadow），aligned on common ids.
-
-**Paired structure:** for contrast of predictors `a` vs `b` with labels `y`:
-
-* per-id absolute errors `e_a = |a−y|`, `e_b = |b−y|`  
-* `d_i = e_a,i − e_b,i`  
-* point estimate = `mean(d)`  
-* bootstrap: resample ids with replacement `N_BOOT` times；each replicate = `mean(d_boot)`  
-* **CI:** percentile **2.5% / 97.5%** of bootstrap means  
-
-（`paired_boot` docstring: Δ=MAE(a)−MAE(b)；negative ⇒ a better.）
-
-**DiD:** same antibody-level pairing via `did_boot` for non-additivity / interaction contrasts；exploratory unless Primary & Shadow agree.
-
-### Why applicable to HIC V3
-
-HIC V3 cells already emit `oof_test_primary.csv` / `oof_test_shadow.csv` under `experiments/predictions/EXP-Hxxx/`（verified for reuse candidates）.  
-`TEST_P`/`TEST_S` are MAE of those OOF vectors — **same structure** as TmApp factorial internal metrics.  
-Resampling antibodies (not folds as independent units) matches TmApp’s paired residual bootstrap.
-
-### Reporting rules
-
-* Prefer contrasts with **Primary/Shadow agreement**.  
-* If CI includes 0, do not claim strong superiority.  
-* Stars/markers = descriptive（TmApp policy）.
-
-Formal prereg must name the HIC analysis entrypoint (new or adapted script) and confirm it loads **HIC** OOF paths and **HIC** labels (`HIC` column), not TmApp.
+1. REUSE checksum — **done** → 0 reuse  
+2. Representation asset inventory — **PASS**  
+3. Annotation wiring smoke — config/asset **PASS**; optional forward smoke at execution  
+4. Topology wiring smoke — semantics **PASS** vs TmApp flags; smoke at execution  
+5. Primary/Shadow prediction smoke — at execution  
+6. Artifact completeness / nonzero variance — at execution  
+7. Analysis pipeline dry-run — at execution  
 
 ---
 
-## 13. Cross-target TmApp vs HIC comparison plan
+## 15–16. Failure / missing-cell policy (FROZEN for this draft)
 
-**Timing:** only after HIC **internal** factorial freeze.
+### Technical failure (OOM, code, corrupt asset)
 
-**Align:** factor names, level names, SEP/BASE/Scratch/context contrasts, topology/annotation gain tables.
+Repair and **re-run the same cell**.
 
-**Compare (descriptive):**
+### Scientifically bad MAE
 
-* best representation family patterns  
-* topology gain vs SEP  
-* annotation gain vs BASE  
-* Rep×Topo / Rep×Annot  
-* AbLang2 context effect；CurrAb context effect  
-* Scratch vs PLM behavior  
+**Keep the cell.** Not a failure.
 
-**Forbidden:** using TmApp results for HIC representation/topology/annotation/HP/cell selection at any time before or during HIC execution.
+### Asset impossible
 
----
+Mark **BLOCKED**; record reason. **No substitution** of another representation.
 
-## 14. Technical gates（MAE-blind）
+### Missing cells
 
-| # | Gate | Pass criterion (technical) |
-|---|------|----------------------------|
-| 1 | REUSE checksum | All checklist fields resolved；else demote to new |
-| 2 | Representation asset inventory | All 10 reps load；coverage N=324；context metadata OK |
-| 3 | Annotation wiring smoke | BASE/IMGT/REGION/FULL toggle without crash |
-| 4 | Topology wiring smoke | SEP and at least one of XREG/FUSE train/eval with variance>0 |
-| 5 | Primary/Shadow prediction smoke | OOF artifacts written for both schemes |
-| 6 | Artifact completeness | configs, OOF, run_state；nonzero pred variance |
-| 7 | Analysis pipeline dry-run | contrast + bootstrap code runs on smoke outputs |
-
-**MAE quality is not a gate.** Gates must not drop scientifically inconvenient cells.
+Aim for complete 200 before analysis. If unavoidable BLOCKED remain: document broken contrasts; **do not freeze strong factor-level conclusions** until human review.
 
 ---
 
-## 15. Failure / blocked-cell policy
+## 17. No-midway-selection
 
-* Train failures: **one** automatic retry（TmApp-style）；then mark FAILED with reason.  
-* Blocked (missing asset / irreversible config error): BLOCKED with reason；do not silently skip without record.  
-* No replacement topology/annotation/PLM mid-batch.  
-* Matrix remains 200 logical cells；FAILED/BLOCKED counted explicitly in reports.
-
----
-
-## 16. Missing-cell policy
-
-* Every planned cell appears in the plan table with status ∈ {PLANNED, REUSE, COMPLETE, FAILED, BLOCKED}.  
-* Missing artifacts after claimed COMPLETE → treat as FAILED until restored.  
-* No imputation of MAE for missing cells in primary tables.
-
----
-
-## 17. No-midway-selection commitment
-
-* All 200 cells defined before inspecting new factorial HIC results.  
-* **No** dropping PLM / topology / annotation from intermediate `TEST_mean`.  
-* **No** expanding surface features into this batch.  
-* Gates may only enforce technical validity.
+All 200 predefined. No dropping factors from intermediate scores. No surface injection mid-batch.
 
 ---
 
 ## 18. Public / Private embargo
 
-* GEN_0001 scores computed only after **internal** freeze of all planned cells’ internal metrics.  
-* Embargo on using Public/Private for selection, HP, or reinterpretation of internal factor conclusions.  
-* Post-embargo analyses labeled **external diagnostic** / post-hoc.
+GEN_0001 only after internal freeze. No selection / HP / reinterpretation use.
 
 ---
 
-## 19. Required artifacts（at formal prereg / execution）
+## 19. Required artifacts
 
-1. Frozen plan CSV/YAML（200 rows）+ SHA256  
-2. REUSE checksum report  
-3. Embedding inventory（path, context, hash, N）  
-4. Per-cell config + OOF Primary/Shadow + run_state  
-5. Master results table（`TEST_P/S/mean/worst`）  
-6. Contrast tables（topo/annot/Scratch/context）+ bootstrap CIs  
-7. HIGH-tail diagnostic table（non-selection）  
-8. Internal freeze yaml（pre-external）  
-9. Optional post-freeze external score table  
-10. Analysis report + cross-target comparison note  
+Manifest + SHA256; reuse audit; embedding inventory; per-cell configs/OOF; master table; contrasts+bootstrap; HIGH-tail diagnostics; internal freeze yaml; optional external table post-embargo.
 
 ---
 
-## 20. Items still requiring human approval before execution
+## 20. Experiment ID policy draft (**no issuance**)
 
-1. Approve **Design A** prereg draft → authorize **formal** `PREREGISTERED_FROZEN` commit  
-2. Resolve REUSE 0–6 via checksum（especially `share_hl_encoder` evidence）  
-3. Confirm embedding coverage/hashes for all 10 reps（extract only if approved）  
-4. Authorize EXP-H **code issuance** / registry writes  
-5. Authorize technical gate smoke **training** (minimal) vs full 194–200 train  
-6. Confirm analysis script ownership (adapt TmApp analyzer for HIC labels/paths)  
-7. Confirm no surface leakage in runners  
-8. Schedule external embargo end conditions  
+| Item | Value |
+|------|--------|
+| Last issued HIC code | **EXP-H139** |
+| Next free | **EXP-H140** |
+| Contiguous range for 200 new | **EXP-H140 … EXP-H339** |
+| If any future REUSE revived | fewer new IDs; not applicable now |
 
----
-
-## Binding commitments（to be signed at formal prereg）
-
-* Design A 200 cells；no mid-batch factor dropping  
-* Primary=`TEST_mean`；Secondary=Δ sign replication；HIGH-tail & Pub/Priv non-selection  
-* Context metadata over allocation nicknames  
-* TmApp results never select HIC cells  
-* Surface/physics excluded from this factorial  
+**Do not reserve/write registry in this gate.**
 
 ---
 
-**END OF DRAFT — stop here until human approval.**
+## 21. Binding commitments (to sign at formal freeze)
+
+* Full 200; no mid-batch factor drop  
+* Primary TEST_mean; Secondary Δ signs; HIGH-tail & Pub/Priv non-selection  
+* Context metadata authority  
+* TmApp ≠ HIC selector  
+* Surface excluded  
+* Missing/failed policy as §15–16  
+
+---
+
+## 22. Remaining blockers before formal freeze
+
+1. **Human approval** to set status `PREREGISTERED_FROZEN` and commit  
+2. Authorize **EXP-H140–H339** issuance / registry write  
+3. Pin formal prereg git SHA + re-hash manifest at freeze commit  
+4. Confirm runner will set `share_hl_encoder=True` and TmApp-identical topology flags explicitly  
+5. Optional: enrich AbLang2/ESM2 metadata context fields (non-blocking; inventory OK)
+
+**No embedding blockers. No topology/annotation definition blockers. Bootstrap PASS.**
+
+---
+
+**STOP — await human formal-freeze approval.**

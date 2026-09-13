@@ -1,10 +1,12 @@
 # HIC Factorial Design Proposal
 
-**STATUS:** DESIGN REVISED — awaiting human approval of preregistration draft  
-**Not** formally preregistered; **not** executable  
+**STATUS:** `READY_FOR_FORMAL_FREEZE` — Full factorial human-approved; pre-freeze gate complete  
+**Not** `PREREGISTERED_FROZEN`; **not** executable  
 **Evaluation freeze SHA:** `379e0751a93c2af8f6fbfeedaad4d72f3556996b`  
 **Evaluation contract:** `reports/HIC_EVALUATION_PROTOCOL_FREEZE.md`  
 **Companion prereg draft:** `reports/HIC_REP_TOPO_ANNOT_FACTORIAL_PREREG_DRAFT.md`  
+**Cell manifest:** `reports/HIC_REP_TOPO_ANNOT_FACTORIAL_CELL_MANIFEST.csv`  
+**Manifest SHA256:** `ffdf88d6d59cc6af9864fa041c4a057d398f523ce724fb55d392c50282e5f7cf`  
 **Scope:** Representation × Topology × Annotation only — **no** surface / SASA / HSP / late-fusion physics
 
 禁止（本段階）: training、GPU、embedding 新規生成、EXP-H 正式発行、registry 変更、Public/Private 評価、prereg FROZEN 化、実行スクリプト起動。
@@ -21,8 +23,8 @@
 | Topology | **5**（SEP / JOINT / REG-SEP / XREG / FUSE） |
 | Annotation | **4**（BASE / IMGT / REGION / FULL） |
 | **Total cells** | **200** |
-| Reuse | **0–6**（checksum 後；現時点 confirmed = 未確定） |
-| New training | **194–200** |
+| Reuse (gate) | **0 CONFIRMED**（候補6はすべて RETRAIN_REQUIRED） |
+| New training | **200** |
 
 **Design B（8×5×4）の事前 representation 削減推奨は撤回する。**  
 Design B / C は比較履歴として残すが、最終採用ではない。
@@ -34,7 +36,7 @@ Design B / C は比較履歴として残すが、最終採用ではない。
 * 10×5×4 により TmApp との **cell-definition-level parity が最大**  
 * Rep×Topo / Rep×Annot / Topo×Annot を **全 representation** で解釈可能  
 * 中途半端な事前 representation selection を避ける  
-* Compute: total-cell ratio vs TmApp = **200/200 = 1.00×**；new-cell ratio（reuse=6 仮定）= **194/177 ≈ 1.10×**（許容）
+* Compute: total-cell ratio vs TmApp = **200/200 = 1.00×**；new-cell ratio（reuse=0）= **200/177 ≈ 1.13×**（gate 結果）
 
 ---
 
@@ -126,8 +128,9 @@ H070 (Scratch×SEP×FULL), H073 (Scratch×JOINT×FULL), H075 (Scratch×REG-SEP×
 | `pair_interaction_mode` explicit | **不明/未記録**（SEP/JOINT/REG-SEP では null 想定） |
 | embedding content hash pinned in cell record | **要 gate** |
 
-**規則:** 1 項目でも不一致または不明なら REUSE しない → 現時点 **confirmed REUSE = 0**；gate 通過後のみ 1–6。  
-したがって計画レンジ: **reuse 0–6；new 194–200**。
+**Pre-freeze gate 結果:** 6 候補すべて `UNRESOLVED` → formal disposition **`RETRAIN_REQUIRED`**  
+（`share_hl_encoder` / `pair_interaction_mode` が config・run_state に未記録 = UNKNOWN）。  
+→ **confirmed REUSE = 0；new training = 200。** 詳細: `reports/HIC_FACTORIAL_REUSE_AUDIT.csv`。
 
 H082–H139 および ARCH-H0/2/6/6G/8/concat は sequence-only factorial に **NON-reusable**。
 
@@ -140,8 +143,8 @@ H082–H139 および ARCH-H0/2/6/6G/8/concat は sequence-only factorial に **
 | | |
 |--|--:|
 | Total | 200 |
-| Reused | 0–6 |
-| New | 194–200 |
+| Reused | **0** |
+| New | **200** |
 
 全 main effects；全 2-way；10-level 格子内 3-way；TmApp parity 最大。
 
@@ -163,7 +166,7 @@ FULL 先行 → annot 展開。selection bias と Annot interaction 欠損のた
 
 | Design | New (approx) | Reused | Total | Main effects | 2-way | Bias risk | Compute notes | Status |
 |--------|-------------:|-------:|------:|--------------|-------|-----------|---------------|--------|
-| **A Full** | 194–200 | 0–6 | **200** | All 10×5×4 | Complete | Low | total **1.00×** TmApp；new≈**1.10×** if reuse=6 | **ADOPTED** |
+| **A Full** | **200** | **0** | **200** | All 10×5×4 | Complete | Low | total **1.00×**；new **≈1.13×** | **ADOPTED** |
 | B Reduced | 154–160 | 0–6 | 160 | 8×5×4 | Complete in 8 | Low | new≈0.87× TmApp-177 | Rejected by human |
 | C Staged | ~94+ | 0–6 | ~100 | Annot incomplete | Annot 2-way lost | **High** | ~0.5× A | Rejected |
 
@@ -172,8 +175,7 @@ FULL 先行 → annot 展開。selection bias と Annot interaction 欠損のた
 | Ratio | Definition | Value |
 |-------|------------|------:|
 | **Total-cell ratio vs TmApp** | `200 / 200` | **1.00×** |
-| **New-cell ratio vs TmApp new**（reuse=6） | `194 / 177` | **≈1.10×** |
-| **New-cell ratio**（reuse=0） | `200 / 177` | **≈1.13×** |
+| **New-cell ratio vs TmApp new**（gate: reuse=0） | `200 / 177` | **≈1.13×** |
 
 ---
 
@@ -194,8 +196,8 @@ FULL 先行 → annot 展開。selection bias と Annot interaction 欠損のた
 | | Count |
 |--|------:|
 | Total | **200** |
-| Reusable | **0–6** |
-| New | **194–200** |
+| Reusable | **0** |
+| New | **200** |
 
 ### Predefined primary contrasts（詳細は prereg draft）
 
@@ -211,7 +213,7 @@ FULL 先行 → annot 展開。selection bias と Annot interaction 欠損のた
 
 ### Largest remaining compromise
 
-Surface/physics を意図的に除外（次段）。REUSE が 0 なら compute 上振れ（≈1.13× new）。
+Surface/physics を意図的に除外（次段）。REUSE=0 により new-cell compute ≈ **1.13×** TmApp new（177）。
 
 ### Surface
 
@@ -263,8 +265,7 @@ MAE で pass/fail しない。科学的 cell 削除禁止。
 | Design A total | 200 |
 | TmApp total | 200 → **total-cell ratio 1.00×** |
 | TmApp new | 177 |
-| HIC new if reuse=6 | 194 → **new-cell ratio ≈1.10×** |
-| HIC new if reuse=0 | 200 → **new-cell ratio ≈1.13×** |
+| HIC new (gate) | **200** → **new-cell ratio ≈1.13×** |
 
 ---
 
@@ -283,13 +284,13 @@ MAE で pass/fail しない。科学的 cell 削除禁止。
 
 ## 16. Items before formal preregistration / execution
 
-1. 人間が prereg **draft** を承認  
-2. REUSE checksum 完了 → reuse 0–6 確定  
-3. Embedding inventory + hashes  
-4. Exact 200-cell plan CSV/YAML  
-5. EXP-H code 範囲の **予約/発行**（承認後のみ）  
+1. 人間が **`READY_FOR_FORMAL_FREEZE` → `PREREGISTERED_FROZEN`** を承認  
+2. ~~REUSE checksum~~ **完了（0 reuse）**  
+3. ~~Embedding inventory~~ **完了（blocker なし）**  
+4. ~~200-cell manifest~~ **完了**（SHA256 `ffdf88d6…e5f7cf`）  
+5. EXP-H **H140–H339** 発行 / registry（承認後のみ）  
 6. Formal prereg commit（FROZEN）— **未実施**  
-7. Gates → training  
+7. Execution gates → training  
 
 ---
 
@@ -299,9 +300,10 @@ MAE で pass/fail しない。科学的 cell 削除禁止。
 |------|--------|
 | **FINAL design** | **Design A — Full 10×5×4** |
 | Total cells | **200** |
-| Reuse | **0–6** |
-| New | **194–200** |
+| Reuse | **0** |
+| New | **200** |
 | Evaluation freeze | `379e0751…` |
-| Prereg draft | `reports/HIC_REP_TOPO_ANNOT_FACTORIAL_PREREG_DRAFT.md` |
+| Prereg status | **`READY_FOR_FORMAL_FREEZE`** |
+| Proposed ID range（未発行） | **EXP-H140 … EXP-H339** |
 
 **ここで停止。人間承認まで formal prereg freeze / ID 発行 / training に進まない。**
