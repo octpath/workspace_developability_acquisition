@@ -1,0 +1,43 @@
+phase: technical_smoke
+codes:
+- EXP-H140
+- EXP-H234
+- EXP-H317
+- EXP-H287
+quick: true
+results:
+- code: EXP-H140
+  status: SMOKE_PASS
+  oof_test:
+    primary: 0.5252510750382035
+    shadow: 0.521047972738007
+    mean: 0.5231495238881052
+    worst: 0.5252510750382035
+  smoke_dir: /workspace_developability_acquisition/developability_drilldown/results/h140_h339_technical_smoke/EXP-H140
+- code: EXP-H234
+  status: SMOKE_PASS
+  oof_test:
+    primary: 0.519516975120262
+    shadow: 0.5167017606570397
+    mean: 0.5181093678886508
+    worst: 0.519516975120262
+  smoke_dir: /workspace_developability_acquisition/developability_drilldown/results/h140_h339_technical_smoke/EXP-H234
+- code: EXP-H317
+  status: SMOKE_PASS
+  oof_test:
+    primary: 0.5279392801920573
+    shadow: 0.5254026942311981
+    mean: 0.5266709872116278
+    worst: 0.5279392801920573
+  smoke_dir: /workspace_developability_acquisition/developability_drilldown/results/h140_h339_technical_smoke/EXP-H317
+- code: EXP-H287
+  status: SMOKE_PASS
+  oof_test:
+    primary: 0.5223840149773492
+    shadow: 0.5185472748367874
+    mean: 0.5204656449070684
+    worst: 0.5223840149773492
+  smoke_dir: /workspace_developability_acquisition/developability_drilldown/results/h140_h339_technical_smoke/EXP-H287
+pass: true
+mae_is_pass_criterion: false
+public_private_inspected: false

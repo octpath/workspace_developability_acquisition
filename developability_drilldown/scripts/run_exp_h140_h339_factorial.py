@@ -125,13 +125,15 @@ def already_complete(code: str) -> bool:
 
 
 def load_bundle_for_rows(rows: list[dict], dev, test):
-    kwargs = {v: False for v in NEED_KW.values()}
-    kwargs["need_annotations"] = True
+    need: dict[str, bool] = {}
     for r in rows:
-        ps = _norm_plm_source(r)
-        if ps and ps in NEED_KW:
-            kwargs[NEED_KW[ps]] = True
-    return load_residue_bundle(dev, test, **kwargs)
+        ps = _norm_plm_source(r) or ""
+        if not ps or r.get("content_mode") == "scratch":
+            continue
+        kw = NEED_KW.get(ps)
+        if kw:
+            need[kw] = True
+    return load_residue_bundle(dev, test, **need)
 
 
 def update_status(rows: list[dict]) -> None:
