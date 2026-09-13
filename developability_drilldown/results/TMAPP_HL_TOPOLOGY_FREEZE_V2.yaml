@@ -1,0 +1,101 @@
+status: HL_TOPOLOGY_FREEZE_V2
+supersedes_for_matrix: true
+historical_abcd_freeze_unchanged: results/TMAPP_ABCD_ARCHITECTURE_FREEZE.yaml
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+d_model: 128
+merge_mode: mean
+share_hl_encoder: true
+annotation_mode: FULL
+n_layers: 2
+n_heads: 4
+topologies:
+  A:
+    name: independent_HL
+    concept: Separate H/L encoders + dual REG; merge only after chain encoding
+    flags:
+      joint_hl_single_reg: false
+      joint_hl_dual_reg: false
+      joint_hl_chain_specific_dual_reg: false
+      use_reg_only_cross_attention: false
+      use_cross_attention_bridge: false
+      pair_interaction_mode: null
+      reg_cross_variant: null
+    sources:
+      ablang2: EXP-T110
+      ablingua: EXP-T080
+      scratch_context: EXP-T091
+  B1:
+    name: full_joint_ARCH3
+    concept: Joint unrestricted H/L Transformer + dual REG
+    flags:
+      joint_hl_dual_reg: true
+      joint_hl_chain_specific_dual_reg: false
+      use_reg_only_cross_attention: false
+      pair_interaction_mode: null
+    sources:
+      ablang2: EXP-T113
+      ablingua: EXP-T081
+      scratch_context: EXP-T094
+  B2:
+    name: residue_joint_ARCH4
+    concept: Residue-level H/L communication with chain-specific REG masks
+    flags:
+      joint_hl_dual_reg: false
+      joint_hl_chain_specific_dual_reg: true
+      use_reg_only_cross_attention: false
+      pair_interaction_mode: null
+    sources:
+      ablang2: EXP-T115
+      ablingua: EXP-T082
+      scratch_context: EXP-T096
+  C:
+    name: reg_only_cross_ARCH7_C0
+    concept: Separate encoders then REG queries opposite-chain residues only
+    flags:
+      use_reg_only_cross_attention: true
+      joint_hl_dual_reg: false
+      joint_hl_chain_specific_dual_reg: false
+      pair_interaction_mode: null
+      reg_cross_variant: null
+    note: Exactly C0; do not use C1-C5
+    sources:
+      ablang2: EXP-T121
+      ablingua: EXP-T087
+      scratch_context: EXP-T102
+  D:
+    name: post_summary_pair_D3
+    concept: Independent z_H/z_L then symmetric low-rank pair MLP residual
+    flags:
+      pair_interaction_mode: d3_symmetric_mlp
+      use_reg_only_cross_attention: false
+      joint_hl_dual_reg: false
+      joint_hl_chain_specific_dual_reg: false
+      rank: 16
+    note: Frozen D3 from T149; not D4
+    sources:
+      ablang2: EXP-T149
+      ablingua: EXP-T151
+      scratch_context: null
+plm_artifacts:
+  ablingua:
+    subdir: ablingua600m
+    raw_dim: 1280
+    ids_sha256_prefix: ce62b155c7355352
+  ablang2:
+    subdir: ablang2
+    raw_dim: 480
+    ids_sha256_prefix: ce62b155c7355352
+  esm2:
+    subdir: esm2
+    raw_dim: 1280
+    model: facebook/esm2_t33_650M_UR50D
+    ids_sha256_prefix: ce62b155c7355352
+matrix_new_experiments:
+  EXP-T151: {plm: ablingua, topology: D}
+  EXP-T152: {plm: esm2, topology: A}
+  EXP-T153: {plm: esm2, topology: B1}
+  EXP-T154: {plm: esm2, topology: B2}
+  EXP-T155: {plm: esm2, topology: C}
+  EXP-T156: {plm: esm2, topology: D}
+do_not_run: [EXP-T157]

@@ -1,0 +1,490 @@
+batch_id: T151_T156_PLM_TOPOLOGY_MATRIX
+status: PREREGISTERED_FROZEN
+git_rev_at_prereg: 8a70a10cbd31eedd29e779d55d421123948a35ca
+audit: results/TMAPP_PLM_TOPOLOGY_MATRIX_AUDIT.md
+freeze_v2: results/TMAPP_HL_TOPOLOGY_FREEZE_V2.yaml
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+do_not:
+- EXP-T157
+- retrain_historical_cells
+- scratch_primary_matrix
+scratch_context:
+  A: EXP-T091
+  B1: EXP-T094
+  B2: EXP-T096
+  C: EXP-T102
+plm_packs:
+  ablingua:
+    subdir: ablingua600m
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_mask_sha256: 9a692c4270e23fac84fe511c3a4a1bf951255875e2aaa1b145e23a8894a8de76
+    light_mask_sha256: 2426222dbfe16d09b439a8bf97216c860148c6df6354654b265dde105497deeb
+    heavy_emb_sha256: e5fd6155935a6cd6748dcf9574e066c28ccef569ee7f7289f422ddcd9489feb9
+    light_emb_sha256: 856300f1fad2c60974505cb19da06a69562bf194f320138e778c22d882fa83d5
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  ablang2:
+    subdir: ablang2
+    raw_dim: 480
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_mask_sha256: 9a692c4270e23fac84fe511c3a4a1bf951255875e2aaa1b145e23a8894a8de76
+    light_mask_sha256: 2426222dbfe16d09b439a8bf97216c860148c6df6354654b265dde105497deeb
+    heavy_emb_sha256: 689a5786ec3bbde644171ea439701ad5ee9dcb16633a769c2f16169cd5b75f80
+    light_emb_sha256: c847f39bc5889e592b9edb222903601232b3b62006f924cafde44e0cd7db95c1
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablang2
+  esm2:
+    subdir: esm2
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_mask_sha256: 9a692c4270e23fac84fe511c3a4a1bf951255875e2aaa1b145e23a8894a8de76
+    light_mask_sha256: 2426222dbfe16d09b439a8bf97216c860148c6df6354654b265dde105497deeb
+    heavy_emb_sha256: daf68bb1acf9863e34dad328549f54c00ca77d8b12d51cd934d607830d81c2e7
+    light_emb_sha256: fbff5754cd6536c0a87ba421322e61650fc337840baf010b63cad385ae6f9c2c
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#esm2
+cells:
+- code: EXP-T080
+  plm: ablingua
+  topology: A
+  reuse: true
+  embedding:
+    subdir: ablingua600m
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: e5fd6155935a6cd6748dcf9574e066c28ccef569ee7f7289f422ddcd9489feb9
+    light_emb_sha256: 856300f1fad2c60974505cb19da06a69562bf194f320138e778c22d882fa83d5
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: &id001
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+    use_cross_geometry_bias: false
+    share_hl_encoder: true
+    reg_cross_variant: null
+    pair_interaction_mode: null
+  trainable:
+    total: 476033
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: c600e358cbfe9978
+  source_experiment: EXP-T080
+- code: EXP-T081
+  plm: ablingua
+  topology: B1
+  reuse: true
+  embedding:
+    subdir: ablingua600m
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: e5fd6155935a6cd6748dcf9574e066c28ccef569ee7f7289f422ddcd9489feb9
+    light_emb_sha256: 856300f1fad2c60974505cb19da06a69562bf194f320138e778c22d882fa83d5
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: &id002
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: true
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+    use_cross_geometry_bias: false
+    share_hl_encoder: true
+    reg_cross_variant: null
+    pair_interaction_mode: null
+  trainable:
+    total: 476033
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: d931610c45a66270
+  source_experiment: EXP-T081
+- code: EXP-T082
+  plm: ablingua
+  topology: B2
+  reuse: true
+  embedding:
+    subdir: ablingua600m
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: e5fd6155935a6cd6748dcf9574e066c28ccef569ee7f7289f422ddcd9489feb9
+    light_emb_sha256: 856300f1fad2c60974505cb19da06a69562bf194f320138e778c22d882fa83d5
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: &id003
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: true
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+    use_cross_geometry_bias: false
+    share_hl_encoder: true
+    reg_cross_variant: null
+    pair_interaction_mode: null
+  trainable:
+    total: 476033
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: ed2fa1844b06d6f9
+  source_experiment: EXP-T082
+- code: EXP-T087
+  plm: ablingua
+  topology: C
+  reuse: true
+  embedding:
+    subdir: ablingua600m
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: e5fd6155935a6cd6748dcf9574e066c28ccef569ee7f7289f422ddcd9489feb9
+    light_emb_sha256: 856300f1fad2c60974505cb19da06a69562bf194f320138e778c22d882fa83d5
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: &id004
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: true
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+    use_cross_geometry_bias: false
+    share_hl_encoder: true
+    reg_cross_variant: null
+    pair_interaction_mode: null
+  trainable:
+    total: 542081
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 66048
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: b6f3eb79f7270b34
+  source_experiment: EXP-T087
+- code: EXP-T151
+  plm: ablingua
+  topology: D
+  reuse: false
+  embedding:
+    subdir: ablingua600m
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: e5fd6155935a6cd6748dcf9574e066c28ccef569ee7f7289f422ddcd9489feb9
+    light_emb_sha256: 856300f1fad2c60974505cb19da06a69562bf194f320138e778c22d882fa83d5
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablingua600m
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: &id005
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: false
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+    use_cross_geometry_bias: false
+    share_hl_encoder: true
+    reg_cross_variant: null
+    pair_interaction_mode: d3_symmetric_mlp
+  trainable:
+    total: 481297
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 5264
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  experiment_id: TRF_TM_ABLINGUA_D3_SYMMETRIC_MLP_V3
+  description: AbLingua + D3 symmetric pair interaction
+- code: EXP-T110
+  plm: ablang2
+  topology: A
+  reuse: true
+  embedding:
+    subdir: ablang2
+    raw_dim: 480
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: 689a5786ec3bbde644171ea439701ad5ee9dcb16633a769c2f16169cd5b75f80
+    light_emb_sha256: c847f39bc5889e592b9edb222903601232b3b62006f924cafde44e0cd7db95c1
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablang2
+  projection: Linear(480,128)
+  projection_params: 61568
+  topology_flags: *id001
+  trainable:
+    total: 373633
+    projection: 61568
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: ca5c81205c0d37f6
+  source_experiment: EXP-T110
+- code: EXP-T113
+  plm: ablang2
+  topology: B1
+  reuse: true
+  embedding:
+    subdir: ablang2
+    raw_dim: 480
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: 689a5786ec3bbde644171ea439701ad5ee9dcb16633a769c2f16169cd5b75f80
+    light_emb_sha256: c847f39bc5889e592b9edb222903601232b3b62006f924cafde44e0cd7db95c1
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablang2
+  projection: Linear(480,128)
+  projection_params: 61568
+  topology_flags: *id002
+  trainable:
+    total: 373633
+    projection: 61568
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: c505ed55beb92300
+  source_experiment: EXP-T113
+- code: EXP-T115
+  plm: ablang2
+  topology: B2
+  reuse: true
+  embedding:
+    subdir: ablang2
+    raw_dim: 480
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: 689a5786ec3bbde644171ea439701ad5ee9dcb16633a769c2f16169cd5b75f80
+    light_emb_sha256: c847f39bc5889e592b9edb222903601232b3b62006f924cafde44e0cd7db95c1
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablang2
+  projection: Linear(480,128)
+  projection_params: 61568
+  topology_flags: *id003
+  trainable:
+    total: 373633
+    projection: 61568
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: 10d5f67cc6e148f9
+  source_experiment: EXP-T115
+- code: EXP-T121
+  plm: ablang2
+  topology: C
+  reuse: true
+  embedding:
+    subdir: ablang2
+    raw_dim: 480
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: 689a5786ec3bbde644171ea439701ad5ee9dcb16633a769c2f16169cd5b75f80
+    light_emb_sha256: c847f39bc5889e592b9edb222903601232b3b62006f924cafde44e0cd7db95c1
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablang2
+  projection: Linear(480,128)
+  projection_params: 61568
+  topology_flags: *id004
+  trainable:
+    total: 439681
+    projection: 61568
+    encoder: 264960
+    head: 16641
+    cross_attention: 66048
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: 9b7e25be7146f1e6
+  source_experiment: EXP-T121
+- code: EXP-T149
+  plm: ablang2
+  topology: D
+  reuse: true
+  embedding:
+    subdir: ablang2
+    raw_dim: 480
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: 689a5786ec3bbde644171ea439701ad5ee9dcb16633a769c2f16169cd5b75f80
+    light_emb_sha256: c847f39bc5889e592b9edb222903601232b3b62006f924cafde44e0cd7db95c1
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#ablang2
+  projection: Linear(480,128)
+  projection_params: 61568
+  topology_flags: *id005
+  trainable:
+    total: 378897
+    projection: 61568
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 5264
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  prediction_oof_primary_sha16: 8a4c761c807d8ffb
+  source_experiment: EXP-T149
+- code: EXP-T152
+  plm: esm2
+  topology: A
+  reuse: false
+  embedding:
+    subdir: esm2
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: daf68bb1acf9863e34dad328549f54c00ca77d8b12d51cd934d607830d81c2e7
+    light_emb_sha256: fbff5754cd6536c0a87ba421322e61650fc337840baf010b63cad385ae6f9c2c
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#esm2
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: *id001
+  trainable:
+    total: 476033
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  experiment_id: TRF_TM_ESM2_FULL_SEPARATE_DUAL_MEAN_V3
+  description: ESM-2 + topology A independent dual REG
+- code: EXP-T153
+  plm: esm2
+  topology: B1
+  reuse: false
+  embedding:
+    subdir: esm2
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: daf68bb1acf9863e34dad328549f54c00ca77d8b12d51cd934d607830d81c2e7
+    light_emb_sha256: fbff5754cd6536c0a87ba421322e61650fc337840baf010b63cad385ae6f9c2c
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#esm2
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: *id002
+  trainable:
+    total: 476033
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  experiment_id: TRF_TM_ESM2_FULL_JOINT_DUAL_MEAN_V3
+  description: ESM-2 + topology B1 ARCH-3 joint dual REG
+- code: EXP-T154
+  plm: esm2
+  topology: B2
+  reuse: false
+  embedding:
+    subdir: esm2
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: daf68bb1acf9863e34dad328549f54c00ca77d8b12d51cd934d607830d81c2e7
+    light_emb_sha256: fbff5754cd6536c0a87ba421322e61650fc337840baf010b63cad385ae6f9c2c
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#esm2
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: *id003
+  trainable:
+    total: 476033
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  experiment_id: TRF_TM_ESM2_FULL_JOINT_CHAIN_SPECIFIC_DUAL_MEAN_V3
+  description: ESM-2 + topology B2 ARCH-4 chain-specific dual REG
+- code: EXP-T155
+  plm: esm2
+  topology: C
+  reuse: false
+  embedding:
+    subdir: esm2
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: daf68bb1acf9863e34dad328549f54c00ca77d8b12d51cd934d607830d81c2e7
+    light_emb_sha256: fbff5754cd6536c0a87ba421322e61650fc337840baf010b63cad385ae6f9c2c
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#esm2
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: *id004
+  trainable:
+    total: 542081
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 66048
+    cross_interaction: 0
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  experiment_id: TRF_TM_ESM2_FULL_SEPARATE_REG_ONLY_CROSS_MEAN_V3
+  description: ESM-2 + topology C ARCH-7 REG-only cross
+- code: EXP-T156
+  plm: esm2
+  topology: D
+  reuse: false
+  embedding:
+    subdir: esm2
+    raw_dim: 1280
+    ids_sha256: ce62b155c7355352d9941f19d3be50263c6835ed0f3ce3429a77f9b0714c665d
+    heavy_emb_sha256: daf68bb1acf9863e34dad328549f54c00ca77d8b12d51cd934d607830d81c2e7
+    light_emb_sha256: fbff5754cd6536c0a87ba421322e61650fc337840baf010b63cad385ae6f9c2c
+    asset_ref: assets/transformer/residue_asset_manifest.yaml#esm2
+  projection: Linear(1280,128)
+  projection_params: 163968
+  topology_flags: *id005
+  trainable:
+    total: 481297
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 0
+    cross_interaction: 5264
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  fold_sha16: 09e0df54d280b4fe
+  experiment_id: TRF_TM_ESM2_D3_SYMMETRIC_MLP_V3
+  description: ESM-2 + topology D D3 pair MLP
