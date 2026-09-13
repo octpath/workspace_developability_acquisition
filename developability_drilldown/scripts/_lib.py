@@ -321,15 +321,17 @@ DRILLDOWN_REPRO = {"YES", "PARTIAL", "NO"}
 CODE_RE = re.compile(r"^EXP-[THM][0-9]{3,}$")
 LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
 
-# Expected registry sizes after T157–T160 new PLM C+FULL smoke (+4)
-N_EXPERIMENTS_TOTAL = 476  # 299 prior + 177 T161–T337 factorial
+# Expected registry sizes after H140–H339 HIC factorial prereg (+200 PARTIAL)
+N_EXPERIMENTS_TOTAL = 676  # 476 prior + 200 H140–H339 factorial
 N_LEGACY_MAP = 48  # Linear/XGB only; Transformer + classical-refinement rows have empty legacy
 N_FULL_LINEAR_XGB = 88  # 86 prior + 2 SOURCE_SAP24 XGB
-N_TRANSFORMER = 386  # 209 prior + 177 T161–T337 factorial
+N_TRANSFORMER = 586  # 386 prior FULL + 200 H140–H339 PARTIAL prereg
+N_TRANSFORMER_FULL = 386  # trained/shareable FULL transformers only
 N_HISTORICAL_TRANSFORMER = 29  # Phase2A backfill only (TRANSFORMER_BACKFILL_AUDIT)
 N_CLASSICAL_REFINEMENT = 40
 N_LINEAR = 74
 N_XGBOOST = 16  # 14 prior + 2 SOURCE_SAP24 XGB
+N_HIC_FACTORIAL_PREREG = 200  # EXP-H140..EXP-H339
 PRESERVATION_SNAPSHOT_77 = ROOT / "results" / "_preservation_snapshot_77_classical.csv"
 
 
@@ -351,7 +353,12 @@ def is_historical_transformer_code(code: str) -> bool:
         return 24 <= int(s.split("-H")[1]) <= 33
     return False
 
-REPRODUCIBILITY_STATUSES = {"REPRODUCED", "RESULT_VERIFIED", "UNVERIFIED_HISTORICAL"}
+REPRODUCIBILITY_STATUSES = {
+    "REPRODUCED",
+    "RESULT_VERIFIED",
+    "UNVERIFIED_HISTORICAL",
+    "PREREGISTERED",
+}
 SHAREABILITY_STATUSES = {"SHAREABLE_COMPLETE", "SHAREABLE_PARTIAL", "HISTORICAL_ONLY"}
 CANONICAL_ELIGIBLE = {"YES", "NO"}
 

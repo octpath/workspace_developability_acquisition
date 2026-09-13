@@ -79,6 +79,6 @@ def test_h090_h086_unchanged_and_next_h134():
     assert abs(float(h086.cv_mean_mae) - 0.486326449829855) < 1e-12
     codes = set(load_codes()["experiment_code"].astype(str))
     assert "EXP-H133" in codes
-    assert next_code("HIC") == "EXP-H140"
+    assert next_code("HIC") == "EXP-H340"
     assert (ROOT / "results/HIC_RESIDUE_F1_SURFACE_FUSION_REPORT.md").exists()
     assert (ROOT / "results/H128_H133_PRE_EXTERNAL_FREEZE.yaml").exists()

@@ -21,6 +21,8 @@ from _lib import (  # noqa: E402
     LICENSE_STATUSES,
     N_CLASSICAL_REFINEMENT,
     N_EXPERIMENTS_TOTAL,
+    N_TRANSFORMER_FULL,
+    N_HIC_FACTORIAL_PREREG,
     N_FULL_LINEAR_XGB,
     N_HISTORICAL_TRANSFORMER,
     N_LEGACY_MAP,
@@ -126,10 +128,10 @@ def main() -> int:
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
         ok("next TmApp EXP-T338")
-    if next_code("HIC") != "EXP-H140":
+    if next_code("HIC") != "EXP-H340":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
-        ok("next HIC EXP-H140")
+        ok("next HIC EXP-H340")
 
     t_codes = sorted(
         [c for c in df["experiment_code"] if str(c).startswith("EXP-T")],
@@ -315,10 +317,29 @@ def main() -> int:
         fail(f"Linear/XGB FULL count {len(lin_xgb_full)}")
     else:
         ok(f"Linear/XGB FULL={N_FULL_LINEAR_XGB}")
-    if len(tr_full) != N_TRANSFORMER:
-        fail(f"TRANSFORMER FULL count {len(tr_full)}")
+    if len(tr_full) != N_TRANSFORMER_FULL:
+        fail(f"TRANSFORMER FULL count {len(tr_full)} expected {N_TRANSFORMER_FULL}")
     else:
-        ok(f"TRANSFORMER FULL={N_TRANSFORMER}")
+        ok(f"TRANSFORMER FULL={N_TRANSFORMER_FULL}")
+    tr_partial = df[(df["family"] == "TRANSFORMER") & (df["artifact_status"] == "PARTIAL")]
+    if len(tr_partial) != N_HIC_FACTORIAL_PREREG:
+        fail(f"TRANSFORMER PARTIAL prereg count {len(tr_partial)}")
+    else:
+        ok(f"TRANSFORMER PARTIAL prereg={N_HIC_FACTORIAL_PREREG}")
+    for _, r in tr_partial.iterrows():
+        code = str(r["experiment_code"])
+        n = int(code.split("-H")[1])
+        if n < 140 or n > 339:
+            fail(f"unexpected PARTIAL transformer {code}")
+        cfg = ROOT / "experiments" / "configs" / f"{code}.yaml"
+        if not cfg.exists():
+            fail(f"prereg missing config {code}")
+        if str(r.get("reproduction_status")) != "PREREGISTERED":
+            fail(f"{code} expected PREREGISTERED")
+        if str(r.get("canonical_benchmark_eligible")) != "NO":
+            fail(f"{code} prereg must not be canonical yet")
+    else:
+        ok("H140–H339 PARTIAL prereg configs present")
 
     recipe_hashes: dict[str, set[str]] = {}
     for _, r in lin_xgb_full.iterrows():

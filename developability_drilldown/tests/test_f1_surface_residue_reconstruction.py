@@ -62,7 +62,7 @@ def test_h128_h133_issued_next_is_h134():
     codes = set(load_codes()["experiment_code"].astype(str))
     for c in ("EXP-H128", "EXP-H129", "EXP-H130", "EXP-H131", "EXP-H132", "EXP-H133"):
         assert c in codes
-    assert next_code("HIC") == "EXP-H140"
+    assert next_code("HIC") == "EXP-H340"
 
 
 def test_historical_f1_dims_and_order():

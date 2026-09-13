@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "n_cells": 200,
+  "n_configs": 200,
+  "id_range": "EXP-H140..EXP-H339",
+  "formal_manifest_sha256": "b0790d0609da3beaa22c7aaa63be10835ce0833247575c5ee039467d64e5b6c3",
+  "pre_freeze_manifest_sha256": "ffdf88d6d59cc6af9864fa041c4a057d398f523ce724fb55d392c50282e5f7cf",
+  "evaluation_freeze_sha": "379e0751a93c2af8f6fbfeedaad4d72f3556996b",
+  "n_reuse": 0,
+  "next_free_hic": "EXP-H340"
+}
