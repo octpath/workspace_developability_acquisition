@@ -1,0 +1,145 @@
+# Human-facing terminology for the TmApp Representation × Topology × Annotation factorial.
+# Presentation layer only — does not rewrite historical experiment IDs.
+
+version: 1
+source_results: developability_drilldown/results/TMAPP_REP_TOPO_ANNOT_FACTORIAL_RESULTS.csv
+
+reg_definition: >
+  a learned chain-level token that gathers information from the residues
+  processed by the downstream Transformer
+
+topology:
+  A:
+    topology_id: SEP
+    topology_display: Separate H/L
+    residue_hl_communication: false
+    reg_cross_chain_communication: false
+    interaction_point: none_before_merge
+    definition: >
+      Heavy and Light are processed independently.
+      No downstream H/L interaction before final prediction merge.
+  B1:
+    topology_id: JOINT
+    topology_display: Full Joint
+    residue_hl_communication: true
+    reg_cross_chain_communication: true
+    interaction_point: joint_transformer
+    definition: >
+      H residues, L residues, REG_H and REG_L participate in unrestricted
+      joint Transformer communication.
+  B2:
+    topology_id: REG-SEP
+    topology_display: Joint Residues, Separate REGs
+    residue_hl_communication: true
+    reg_cross_chain_communication: false
+    interaction_point: joint_residues_chain_specific_regs
+    definition: >
+      H/L biological residues communicate jointly, while REG_H and REG_L
+      retain chain-specific roles.
+  C:
+    topology_id: XREG
+    topology_display: Cross-REG Read
+    residue_hl_communication: false
+    reg_cross_chain_communication: true
+    interaction_point: reg_queries_opposite_chain_residues
+    definition: >
+      H and L are first encoded separately. Then REG_H reads Light residues
+      and REG_L reads Heavy residues. Biological residues themselves do not
+      directly cross-attend in this stage.
+  D:
+    topology_id: FUSE
+    topology_display: REG Fusion
+    residue_hl_communication: false
+    reg_cross_chain_communication: true
+    interaction_point: post_encoding_reg_reg_d3
+    definition: >
+      H and L are first encoded separately. Then REG_H and REG_L interact
+      through the frozen canonical D3 fusion module.
+
+annotation:
+  BASE:
+    annotation_display: Base
+    sequence_position: true
+    chain_id: true
+    imgt_position: false
+    cdr_fr_region: false
+  IMGT:
+    annotation_display: IMGT Position
+    sequence_position: true
+    chain_id: true
+    imgt_position: true
+    cdr_fr_region: false
+  REGION:
+    annotation_display: CDR/FR Region
+    sequence_position: true
+    chain_id: true
+    imgt_position: false
+    cdr_fr_region: true
+  FULL:
+    annotation_display: IMGT + Region
+    sequence_position: true
+    chain_id: true
+    imgt_position: true
+    cdr_fr_region: true
+
+# Display names keyed by representation_raw; context is ground truth.
+representation:
+  scratch:
+    representation_display: Scratch
+    domain: Scratch
+    notes: Learned amino-acid embedding; no frozen PLM.
+  ablingua:
+    representation_display: AbLingua
+    domain: Antibody PLM
+    notes: Frozen AbLingua 600M residue embeddings.
+  ablang1:
+    representation_display: AbLang1
+    domain: Antibody PLM
+    notes: Official AbLang heavy/light models.
+  ablang2_paired:
+    representation_display: AbLang2 (separate-chain)
+    domain: Antibody PLM
+    notes: >
+      Historical allocation label retains "paired"; actual inference context
+      is SEPARATE_CHAIN (<H>| / |<L>) with ablang2-paired checkpoint.
+  ablang2_unpaired:
+    representation_display: AbLang2 (paired H/L)
+    domain: Antibody PLM
+    notes: >
+      Historical allocation label retains "unpaired"; actual inference context
+      is PAIRED_NATIVE joint <H>|<L> with the same ablang2-paired checkpoint.
+  esm1b:
+    representation_display: ESM-1b
+    domain: General protein PLM
+    notes: facebook/esm1b_t33_650M_UR50S.
+  esm2:
+    representation_display: ESM-2
+    domain: General protein PLM
+    notes: facebook/esm2_t33_650M_UR50D.
+  esmc600m:
+    representation_display: ESM-C 600M
+    domain: General protein PLM
+    notes: biohub/ESMC-600M.
+  currab_paired:
+    representation_display: CurrAb (paired H/L)
+    domain: Antibody PLM
+    notes: brineylab/CurrAb PAIRED_NATIVE; revision 92e2853...
+  currab_unpaired:
+    representation_display: CurrAb (separate-chain)
+    domain: Antibody PLM
+    notes: Same CurrAb revision; SEPARATE_CHAIN H-only / L-only inference.
+
+representation_order:
+  - Scratch
+  - AbLingua
+  - AbLang1
+  - AbLang2 (separate-chain)
+  - AbLang2 (paired H/L)
+  - ESM-1b
+  - ESM-2
+  - ESM-C 600M
+  - CurrAb (separate-chain)
+  - CurrAb (paired H/L)
+
+topology_order: [SEP, JOINT, REG-SEP, XREG, FUSE]
+annotation_order: [BASE, IMGT, REGION, FULL]

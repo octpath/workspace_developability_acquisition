@@ -1,0 +1,6 @@
+topology_id,topology_display,legacy_id,residue_level_HL_communication,REG_cross_chain_communication,point_of_HL_interaction,definition
+SEP,Separate H/L,A,False,False,none_before_merge,Heavy and Light are processed independently. No downstream H/L interaction before final prediction merge.
+JOINT,Full Joint,B1,True,True,joint_transformer,"H residues, L residues, REG_H and REG_L participate in unrestricted joint Transformer communication."
+REG-SEP,"Joint Residues, Separate REGs",B2,True,False,joint_residues_chain_specific_regs,"H/L biological residues communicate jointly, while REG_H and REG_L retain chain-specific roles."
+XREG,Cross-REG Read,C,False,True,reg_queries_opposite_chain_residues,H and L are first encoded separately. Then REG_H reads Light residues and REG_L reads Heavy residues. Biological residues themselves do not directly cross-attend in this stage.
+FUSE,REG Fusion,D,False,True,post_encoding_reg_reg_d3,H and L are first encoded separately. Then REG_H and REG_L interact through the frozen canonical D3 fusion module.

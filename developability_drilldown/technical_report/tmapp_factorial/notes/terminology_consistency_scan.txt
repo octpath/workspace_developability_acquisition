@@ -1,0 +1,1 @@
+PASS: no unexpected summary/legacy-axis issues in new narrative files.

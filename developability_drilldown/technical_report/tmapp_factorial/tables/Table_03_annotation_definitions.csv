@@ -1,0 +1,5 @@
+annotation_id,annotation_display,sequence_position,chain_id,IMGT_position,CDR_FR_region
+BASE,Base,True,True,False,False
+IMGT,IMGT Position,True,True,True,False
+REGION,CDR/FR Region,True,True,False,True
+FULL,IMGT + Region,True,True,True,True
