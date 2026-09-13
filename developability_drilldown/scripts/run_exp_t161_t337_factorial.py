@@ -130,6 +130,9 @@ def issue_one(row: dict) -> str:
     if (codes["experiment_id"] == eid).any():
         return str(codes.set_index("experiment_id").loc[eid, "experiment_code"])
     expect = row["experiment_code"]
+    # Prefer already-reserved code row if present
+    if expect in set(codes["experiment_code"].astype(str)):
+        return expect
     if next_code("TmApp") != expect:
         raise SystemExit(f"expected {expect}, got {next_code('TmApp')}")
     code = issue_code(
@@ -412,8 +415,38 @@ def phase_prereg() -> None:
     print("prereg complete", flush=True)
 
 
+def reserve_all_planned_ids(df: pd.DataFrame) -> None:
+    """Issue EXP-T161..T337 sequentially so gate cells T210/T321 can run first."""
+    planned = df[df.execution_status == "PLANNED"].sort_values("experiment_code")
+    codes = load_codes()
+    issued = set(codes["experiment_code"].astype(str))
+    for _, row in planned.iterrows():
+        code = row["experiment_code"]
+        if code in issued:
+            continue
+        eid = f"TRF_TM_{row['representation'].upper()}_{row['annotation']}_{row['topology']}_MEAN_V3"
+        if (codes["experiment_id"] == eid).any():
+            continue
+        expect = next_code("TmApp")
+        if expect != code:
+            raise SystemExit(f"reserve mismatch: want {code}, next={expect}")
+        got = issue_code(
+            eid,
+            "TmApp",
+            source_model_id="REP_TOPO_ANNOT_FACTORIAL",
+            phase="T161_FACTORIAL_RESERVE",
+            notes=f"reserve {row['representation']}/{row['topology']}/{row['annotation']}",
+        )
+        if got != code:
+            raise SystemExit(got)
+        issued.add(code)
+        codes = load_codes()
+    print(f"reserved planned IDs; next={next_code('TmApp')}", flush=True)
+
+
 def phase_gate(*, quick: bool = False) -> None:
     df = load_plan()
+    reserve_all_planned_ids(df)
     subprocess.check_call(["bash", str(RESIDUE_ROOT / "assemble_embeddings.sh")])
     # ensure matched assets exist
     for sub in ("ablang2_unpaired", "currab_unpaired"):
