@@ -70,7 +70,13 @@ for **TmApp** under a frozen downstream platform, testing how these design choic
 
 ### 2.1 Task and data
 
-Internal evaluation uses the existing TmApp Primary and Shadow OOF protocols on the competition-derived VH/VL dataset (same folds as the frozen drilldown platform). Metrics reported here are Primary MAE, Shadow MAE, mean(P,S), worst(P,S), and |P−S|.
+**Prediction task.** Predict a continuous **TmApp** value from paired **VH/VL** amino-acid sequences (`heavy`, `light`).
+
+**Source study.** Labels and sequences originate from Shehata et al. (2019), *Affinity Maturation Enhances Antibody Specificity but Compromises Conformational Stability* (*Cell Reports*; see References). Repository assay metadata (`gate_b1/reports/assay_definitions.md`) define **TmApp** as the authors’ reported **apparent thermal transition / conformational stability** measure with units **°C** (supplement column **TmApp (°C)**; internal column `tm_app_C`). Higher TmApp corresponds to greater apparent thermal stability. That frozen assay note does **not** separately record an operational method string such as “Fab fragment + DSF”; this report therefore follows the repository wording rather than adding assay details absent from that metadata.
+
+**Cohort size.** This drilldown / competition cohort contains **exactly 324 antibodies** with both TmApp and HIC labels available (162 Dev + 162 Test unique IDs; residue assets likewise use `n_ids = 324`). The Shehata supplement has a larger TmApp-complete count (**N = 346** in the same assay-definition note); the modeling tables used here are the frozen **324-ID** intersection, not the full TmApp-complete supplement.
+
+**Evaluation.** Internal evaluation uses the existing TmApp Primary and Shadow OOF protocols on these VH/VL tables (same folds as the frozen drilldown platform). Metrics reported here are Primary MAE, Shadow MAE, mean(P,S), worst(P,S), and |P−S| (MAE in °C on the TmApp scale).
 
 ### 2.2 Representations (10)
 
@@ -204,7 +210,15 @@ This report does not claim that PLMs “understand antibody structure,” that R
 
 ---
 
-## 6. Reproducibility pointers
+## 6. References
+
+1. Shehata, L., Maurer, D. P., Wec, A. Z., Lilov, A., Champney, E., Sun, T., Archambault, K., Burnina, I., Lynaugh, H., Zhi, X., Xu, Y., & Walker, L. M. (2019). Affinity Maturation Enhances Antibody Specificity but Compromises Conformational Stability. *Cell Reports*, *28*(13), 3300–3308.e4. https://doi.org/10.1016/j.celrep.2019.08.056
+
+2. Repository assay metadata used for TmApp wording and supplement completeness counts: `gate_b1/reports/assay_definitions.md` (Shehata et al. 2019 supplement column **TmApp (°C)**).
+
+---
+
+## 7. Reproducibility pointers
 
 | Item | Location |
 | --- | --- |
@@ -218,5 +232,7 @@ This report does not claim that PLMs “understand antibody structure,” that R
 | Legacy topology map | A→SEP, B1→JOINT, B2→REG-SEP, C→XREG, D→FUSE |
 
 ---
+
+**TmApp REPORT FROZEN.** No further TmApp experiments, retraining, or redesign are launched from this document.
 
 *End of TmApp technical report. No new experiments were run for this document.*

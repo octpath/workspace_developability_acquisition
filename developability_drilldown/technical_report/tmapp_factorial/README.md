@@ -1,6 +1,8 @@
 ## Finished report
 
-- `TMAPP_TECHNICAL_REPORT.md` — finalized TmApp-only technical report
+- `TMAPP_TECHNICAL_REPORT.md` — finalized TmApp-only technical report (EN)
+- `TMAPP_TECHNICAL_REPORT_JA.md` — same report (JA)
+- Status: **TmApp REPORT FROZEN**
 
 # TmApp factorial — technical report analysis package
 
