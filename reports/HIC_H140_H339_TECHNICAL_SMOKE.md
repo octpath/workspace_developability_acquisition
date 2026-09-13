@@ -1,34 +1,49 @@
-# HIC H140–H339 technical smoke report
+# HIC H140–H339 technical smoke — frozen evidence
 
-**STATUS: SMOKE_PASS**  
-**Date context:** post formal prereg commit `4e175ab4f98864ba7f7c6496f832e06ea9730519`  
-**MAE is not a PASS criterion.** Public/Private not inspected.
+**STATUS: SMOKE_PASS (technical wiring only)**
 
-## Configurations tested (`--quick`)
+| Field | Value |
+|-------|--------|
+| Formal prereg commit | `4e175ab4f98864ba7f7c6496f832e06ea9730519` |
+| Evaluation freeze | `379e0751a93c2af8f6fbfeedaad4d72f3556996b` |
+| Implementation patch (bundle loader) | `cc305d4b4e06209fb15281e3ae6431c2664a1318` |
+| Environment | `.venv_b1` |
+| CUDA | available (RTX 3090 via `CUDA_VISIBLE_DEVICES=0`) |
+| Mode | `--quick` (reduced epochs/patience) |
+| Smoke log SHA256 | `9fbee4405cd31aeae229a29a2e0a3cc21dc2bb11e2f8d875e4bad358c49913a0` |
+| Summary artifact | `developability_drilldown/results/h140_h339_technical_smoke/SMOKE_SUMMARY.yaml` |
 
-| Code | Representation | Topology | Annotation | Coverage |
-|------|----------------|----------|------------|----------|
-| EXP-H140 | Scratch | SEP | BASE | Scratch + SEP + BASE + Primary/Shadow |
-| EXP-H234 | AbLang2 PAIRED_NATIVE (`ablang2_unpaired`) | XREG | REGION | PLM + PAIRED_NATIVE + XREG + non-BASE |
-| EXP-H317 | CurrAb SEPARATE_CHAIN (`currab_unpaired`) | FUSE | IMGT | PLM + SEPARATE_CHAIN + FUSE + non-BASE |
-| EXP-H287 | ESM-C 600M | JOINT | FULL | PLM + JOINT + FULL |
+## Exact smoke cells (4)
 
-## PASS checks observed
+| Code | Representation | Topology | Annotation |
+|------|----------------|----------|------------|
+| EXP-H140 | Scratch | SEP | BASE |
+| EXP-H234 | AbLang2 PAIRED_NATIVE (`ablang2_unpaired`) | XREG | REGION |
+| EXP-H317 | CurrAb SEPARATE_CHAIN (`currab_unpaired`) | FUSE | IMGT |
+| EXP-H287 | ESM-C 600M | JOINT | FULL |
 
-- Config load; residue/annotation assets load
-- Topology flags match frozen semantics (`share_hl_encoder=True` explicit at runtime)
-- Forward/backward; Primary and Shadow paths succeed
-- Predictions finite; variance > 0
-- Smoke artifacts under `developability_drilldown/results/h140_h339_technical_smoke/`
-- No TmApp target/path contamination; no surface features
-- Resume/status path exercised via runner (`status` / smoke isolation from scientific COMPLETE)
+## PASS criteria verified
 
-## Implementation patch
+- Primary path: **PASS** (all 4)
+- Shadow path: **PASS** (all 4)
+- Predictions finite: **PASS**
+- Nonzero prediction variance: **PASS**
+- `share_hl_encoder=True` confirmed at runtime: **PASS**
+- Topology flags logged and match frozen semantics: **PASS**
+- Surface / SASA / HSP features: **not activated**
+- TmApp target/path contamination: **none**
+- Public/Private: **not inspected**
 
-- Fixed `load_bundle_for_rows` (`need_annotations` was invalid for `load_residue_bundle`).
-- Smoke executed with `.venv_b1` (CUDA). Default `.venv` is CPU-only torch.
+## Implementation fix during smoke
 
-## Not done
+`load_bundle_for_rows` initially passed invalid `need_annotations=` to `load_residue_bundle`. Fixed to match the TmApp factorial loader (PLM need-flags only). Patch SHA above.
 
-- Full EXP-H140–H339 batch **not** launched (awaits next human approval).
-- Quick smoke results are **not** scientific factorial COMPLETE cells.
+## Scientific non-claims (binding)
+
+- Smoke **MAE is not scientific evidence** and is irrelevant to PASS/FAIL.
+- Smoke used `--quick` reduced training; results **must never enter** the 200-cell factorial scientific table / COMPLETE registry as production cells.
+- Raw smoke directories (`EXP-H140/`, `EXP-H234/`, `EXP-H287/`, `EXP-H317/`, `smoke_console.log`) are operational evidence only and are gitignored from version control; they remain outside scientific factorial prediction paths.
+
+## After this freeze
+
+Full production execution of EXP-H140–H339 (no `--quick`) is separately authorized and must use `.venv_b1`.

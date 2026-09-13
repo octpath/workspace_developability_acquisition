@@ -16,3 +16,10 @@ __pycache__/
 # Classical refinement CV cache (regenerable from blocks + cv_eval)
 experiments/classical_cache/cv_cache/
 experiments/classical_cache/stage_e_progress.jsonl
+
+# HIC factorial technical smoke — raw checkpoints/logs (keep SMOKE_SUMMARY.yaml only)
+results/h140_h339_technical_smoke/EXP-*/
+results/h140_h339_technical_smoke/smoke_console.log
+results/h140_h339_technical_smoke/**/checkpoints/
+results/h140_h339_technical_smoke/**/*.pt
+results/h140_h339_technical_smoke/**/*.pth
