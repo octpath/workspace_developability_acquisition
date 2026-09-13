@@ -125,10 +125,27 @@ def device_str() -> str:
 def require_cuda_for_train() -> None:
     import torch
 
-    exe = Path(sys.executable).resolve()
-    if ".venv_b1" not in str(exe):
+    markers = [
+        sys.executable,
+        sys.prefix,
+        os.environ.get("VIRTUAL_ENV", ""),
+        str(Path(sys.executable).resolve()),
+    ]
+    # uv-managed venvs may resolve the interpreter outside .venv_b1; also check argv0
+    if len(sys.argv) >= 1:
+        markers.append(sys.argv[0])
+    ok_env = any(".venv_b1" in str(m) for m in markers)
+    # Fallback: site-packages path under .venv_b1
+    try:
+        import torch as _t
+
+        ok_env = ok_env or (".venv_b1" in str(Path(_t.__file__).resolve()))
+    except Exception:
+        pass
+    if not ok_env:
         raise SystemExit(
-            f"Refusing train: python must be .venv_b1 (got {exe}). "
+            f"Refusing train: must run under .venv_b1 "
+            f"(executable={sys.executable} prefix={sys.prefix}). "
             "Default .venv is CPU-only torch."
         )
     if not torch.cuda.is_available():
@@ -136,8 +153,9 @@ def require_cuda_for_train() -> None:
     if torch.version.cuda is None:
         raise SystemExit("Refusing train: torch build has no CUDA")
     print(
-        f"EXEC env python={exe} torch={torch.__version__} "
-        f"cuda_build={torch.version.cuda} gpu={torch.cuda.get_device_name(0)}",
+        f"EXEC env python={sys.executable} prefix={sys.prefix} "
+        f"torch={torch.__version__} cuda_build={torch.version.cuda} "
+        f"gpu={torch.cuda.get_device_name(0)}",
         flush=True,
     )
 
