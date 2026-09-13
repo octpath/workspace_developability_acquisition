@@ -138,6 +138,8 @@ None.
 
 ## 18. Reproducibility / commits
 
+- INTERNAL_FREEZE_COMMIT_SHA: `941c373416426103424d7fa89f20b6bb96cec895`
+
 - PRE_REG_COMMIT_SHA: `7727ecc0f82798c8788d4b2f9ba3295e50502802`
 - INTERNAL_FREEZE / FINAL SHAs recorded at commit time
 - Hard STOP after this factorial: no new topologies/annotations/PLMs/ensembles/HIC.

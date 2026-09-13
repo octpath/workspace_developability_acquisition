@@ -22,7 +22,7 @@ conclusions:
   n_failed: 0
   n_blocked: 0
   pre_reg_commit: 7727ecc0f82798c8788d4b2f9ba3295e50502802
-  internal_freeze_commit: PENDING
+  internal_freeze_commit: 941c373416426103424d7fa89f20b6bb96cec895
   head_sha: a7ad8c9c373e55501dcf5bb051957f672fe90708
 top_by_mean_ps:
 - experiment_code: EXP-T205
@@ -425,3 +425,4 @@ status_counts:
   REUSE: 23
   FAILED: 0
   BLOCKED: 0
+INTERNAL_FREEZE_COMMIT_SHA: 941c373416426103424d7fa89f20b6bb96cec895
