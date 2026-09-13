@@ -1,0 +1,25 @@
+topology,plm_p1,plm_p2,scheme,did,ci95_lo,ci95_hi,interpretation,note
+B1,ablingua,ablang2,primary,0.3789837213210118,0.07532541074870545,0.713499105123826,ablang2 gains more from B1 than ablingua (CI>0),DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B1,ablingua,ablang2,shadow,0.17036539242591386,-0.1334599730409222,0.4579537438757625,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B1,ablingua,esm2,primary,0.29397783161681373,0.003908149107002918,0.6013637831181654,esm2 gains more from B1 than ablingua (CI>0),DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B1,ablingua,esm2,shadow,0.3097135520275728,0.017900380970519266,0.5737591390256527,esm2 gains more from B1 than ablingua (CI>0),DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B1,ablang2,esm2,primary,-0.08500588970419806,-0.41281281341741116,0.22070528901653502,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B1,ablang2,esm2,shadow,0.13934815960165892,-0.1668828116522895,0.4594080471698146,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B2,ablingua,ablang2,primary,-0.05483137531045038,-0.30015763235680837,0.18747047789302843,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B2,ablingua,ablang2,shadow,0.025906621673960746,-0.29839656971119066,0.3310580600926904,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B2,ablingua,esm2,primary,0.10486510947898582,-0.10431901378396116,0.32317198235311595,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B2,ablingua,esm2,shadow,0.24807828738365645,-0.03377167560436107,0.518757585242942,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B2,ablang2,esm2,primary,0.1596964847894362,-0.09770857610820256,0.4158012201756605,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+B2,ablang2,esm2,shadow,0.2221716657096957,-0.07296848061644001,0.519027583981737,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+C,ablingua,ablang2,primary,0.15482071299611783,-0.0840502338644899,0.40728671168103614,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+C,ablingua,ablang2,shadow,-0.002033586855287949,-0.2963748390291945,0.294934879703286,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+C,ablingua,esm2,primary,0.17440925409764416,-0.06952654756145712,0.4249230225880938,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+C,ablingua,esm2,shadow,0.003169448287398683,-0.262504643569758,0.2920305776007377,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+C,ablang2,esm2,primary,0.01958854110152633,-0.28143677299405323,0.31001720192991655,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+C,ablang2,esm2,shadow,0.0052030351426866316,-0.31035674766257954,0.3111199926446985,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+D,ablingua,ablang2,primary,0.09208363662531346,-0.20968128133703162,0.3895147141115164,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+D,ablingua,ablang2,shadow,-0.06401000788182389,-0.3248666657341851,0.19762189241103179,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+D,ablingua,esm2,primary,0.3511196419044777,0.09871458712919258,0.6080701745586627,esm2 gains more from D than ablingua (CI>0),DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+D,ablingua,esm2,shadow,0.17673647845232932,-0.10016513753820348,0.458201527301176,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+D,ablang2,esm2,primary,0.25903600527916426,-0.07867436644471722,0.5976585064405274,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
+D,ablang2,esm2,shadow,0.24074648633415321,-0.031478690512386366,0.5193692531114744,DiD CI includes 0 — no strong interaction claim,DiD=(MAE_P1X-MAE_P1A)-(MAE_P2X-MAE_P2A); negative => P1 benefits more
