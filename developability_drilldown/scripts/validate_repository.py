@@ -122,10 +122,10 @@ def main() -> int:
         fail(f"next MULTI code unexpected: {next_code('MULTI')}")
     else:
         ok("next MULTI reserved EXP-M001")
-    if next_code("TmApp") != "EXP-T151":
+    if next_code("TmApp") != "EXP-T157":
         fail(f"next TmApp unexpected: {next_code('TmApp')}")
     else:
-        ok("next TmApp EXP-T151")
+        ok("next TmApp EXP-T157")
     if next_code("HIC") != "EXP-H140":
         fail(f"next HIC unexpected: {next_code('HIC')}")
     else:
