@@ -215,25 +215,30 @@ def load_status() -> pd.DataFrame:
 def save_status(df: pd.DataFrame) -> None:
     STATUS_CSV.parent.mkdir(parents=True, exist_ok=True)
     tmp = STATUS_CSV.with_suffix(".csv.tmp")
-    out = df.reindex(columns=STATUS_FIELDS)
+    out = df.reindex(columns=STATUS_FIELDS).astype(str)
     out.to_csv(tmp, index=False)
     tmp.replace(STATUS_CSV)
-    # mirror under results for convenience
     STATUS_CSV_ALT.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(STATUS_CSV_ALT, index=False)
 
 
 def upsert_status(row: dict) -> None:
+    """Rewrite-row upsert; all fields stored as strings for resilience."""
     df = load_status()
-    code = row["experiment_code"]
-    if len(df) and code in set(df["experiment_code"].astype(str)):
-        for k, v in row.items():
-            if k in df.columns:
-                df.loc[df.experiment_code == code, k] = v
+    if not len(df):
+        df = pd.DataFrame(columns=STATUS_FIELDS)
+    df = df.astype(str)
+    code = str(row["experiment_code"])
+    # normalize incoming
+    norm = {k: ("" if v is None else str(v)) for k, v in row.items() if k in STATUS_FIELDS}
+    if code in set(df["experiment_code"].astype(str)):
+        idx = df.index[df["experiment_code"].astype(str) == code][0]
+        for k, v in norm.items():
+            df.at[idx, k] = v
     else:
         blank = {c: "" for c in STATUS_FIELDS}
-        blank.update(row)
-        df = pd.concat([df, pd.DataFrame([blank])], ignore_index=True)
+        blank.update(norm)
+        df = pd.concat([df, pd.DataFrame([blank]).astype(str)], ignore_index=True)
     save_status(df)
 
 
@@ -244,27 +249,28 @@ def init_status_from_plan(plan: pd.DataFrame) -> None:
     for _, r in plan.iterrows():
         code = str(r.experiment_code)
         prev = by.get(code, {})
-        st = prev.get("status") or "PENDING"
+        st = str(prev.get("status") or "PENDING")
         if already_complete(code):
             st = "COMPLETE"
+        done = st == "COMPLETE"
         rows.append(
             {
                 "experiment_code": code,
-                "representation": r["representation"],
-                "topology": r["topology"],
-                "annotation": r["annotation"],
+                "representation": str(r["representation"]),
+                "topology": str(r["topology"]),
+                "annotation": str(r["annotation"]),
                 "status": st,
-                "start_time": prev.get("start_time", ""),
-                "end_time": prev.get("end_time", ""),
-                "primary_complete": True if st == "COMPLETE" else prev.get("primary_complete", False),
-                "shadow_complete": True if st == "COMPLETE" else prev.get("shadow_complete", False),
-                "artifact_complete": True if st == "COMPLETE" else prev.get("artifact_complete", False),
-                "retry_count": prev.get("retry_count", 0),
-                "failure_reason": prev.get("failure_reason", ""),
-                "code_sha": prev.get("code_sha", "") or git_rev(),
+                "start_time": str(prev.get("start_time") or ""),
+                "end_time": str(prev.get("end_time") or ""),
+                "primary_complete": "True" if done else str(prev.get("primary_complete") or "False"),
+                "shadow_complete": "True" if done else str(prev.get("shadow_complete") or "False"),
+                "artifact_complete": "True" if done else str(prev.get("artifact_complete") or "False"),
+                "retry_count": str(prev.get("retry_count") or "0"),
+                "failure_reason": str(prev.get("failure_reason") or ""),
+                "code_sha": str(prev.get("code_sha") or "") or git_rev(),
             }
         )
-    save_status(pd.DataFrame(rows))
+    save_status(pd.DataFrame(rows).astype(str))
 
 
 def assert_no_tmapp_leak(cfg: dict, code: str) -> None:
