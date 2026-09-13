@@ -1,0 +1,9 @@
+{
+  "plm": "ablang1",
+  "n": 3,
+  "max_abs_diff_vs_fp16_roundtrip": 0.0,
+  "max_abs_diff_vs_raw_fp32": 0.001895904541015625,
+  "tolerance": 1e-05,
+  "disk_dtype": "float16",
+  "pass": true
+}

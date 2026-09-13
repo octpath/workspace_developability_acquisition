@@ -34,6 +34,14 @@ assemble_one() {
   echo "assembled: ${out#"$ROOT"/} (${expected} bytes)"
 }
 
+assemble_hl_pack() {
+  local sub="$1"
+  if [[ -f "$ROOT/$sub/heavy_embeddings.npy.part0" ]]; then
+    assemble_one "$ROOT/$sub/heavy_embeddings.npy"
+    assemble_one "$ROOT/$sub/light_embeddings.npy"
+  fi
+}
+
 main() {
   assemble_one "$ROOT/ablingua600m/heavy_embeddings.npy"
   assemble_one "$ROOT/ablingua600m/light_embeddings.npy"
@@ -41,10 +49,11 @@ main() {
   if [[ -f "$ROOT/esm2/light_embeddings.npy.part0" ]]; then
     assemble_one "$ROOT/esm2/light_embeddings.npy"
   fi
-  if [[ -f "$ROOT/ablang2/heavy_embeddings.npy.part0" ]]; then
-    assemble_one "$ROOT/ablang2/heavy_embeddings.npy"
-    assemble_one "$ROOT/ablang2/light_embeddings.npy"
-  fi
+  assemble_hl_pack "ablang2"
+  assemble_hl_pack "ablang1"
+  assemble_hl_pack "esm1b"
+  assemble_hl_pack "esmc600m"
+  assemble_hl_pack "currab"
   echo "Done. Residue embeddings are ready under residue_level/."
 }
 

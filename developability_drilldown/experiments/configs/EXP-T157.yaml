@@ -1,0 +1,39 @@
+experiment_code: EXP-T157
+experiment_id: TRF_TM_ABLANG1_FULL_SEPARATE_REG_ONLY_CROSS_MEAN_V3
+platform_id: DL_FOLDLOCAL_COSINE_V3
+target: TmApp
+family: TRANSFORMER
+transformer_type: FROZEN_PLM
+input_space: SEPARATE_REG_ONLY_CROSS_ATTENTION_FROZEN_ABLANG1_RESIDUE_MEAN_V3
+input_asset_ref: assets/transformer/residue_asset_manifest.yaml#ablang1
+plm_source: ABLANG1
+annotation_mode: FULL
+chain_mode: HL
+merge_mode: mean
+pooling_mode: REG
+content_mode: frozen
+seed: 101
+d_model: 128
+share_hl_encoder: true
+control_experiment_code: EXP-T121
+no_full_dev_refit: true
+description: AbLang1 residue + C + FULL smoke
+representation_context: SEPARATE_CHAIN
+raw_plm_hidden_dim: 768
+arch_joint_hl_single_reg: false
+arch_joint_hl_dual_reg: false
+arch_joint_hl_chain_specific_dual_reg: false
+arch_use_cross_attention_bridge: false
+arch_use_reg_only_cross_attention: true
+arch_use_within_chain_extra_attention: false
+arch_cross_gate_mode: learned
+arch_use_cross_geometry_bias: false
+arch_share_hl_encoder: true
+n_trainable_preregistered: 476545
+param_account_preregistered:
+  total: 476545
+  projection: 98432
+  encoder: 264960
+  head: 16641
+  cross_attention: 66048
+projection_params: 98432

@@ -75,6 +75,14 @@ top_models_feature_bundle/residue_level/esm2/heavy_embeddings.npy
 top_models_feature_bundle/residue_level/esm2/light_embeddings.npy
 top_models_feature_bundle/residue_level/ablang2/heavy_embeddings.npy
 top_models_feature_bundle/residue_level/ablang2/light_embeddings.npy
+top_models_feature_bundle/residue_level/ablang1/heavy_embeddings.npy
+top_models_feature_bundle/residue_level/ablang1/light_embeddings.npy
+top_models_feature_bundle/residue_level/esm1b/heavy_embeddings.npy
+top_models_feature_bundle/residue_level/esm1b/light_embeddings.npy
+top_models_feature_bundle/residue_level/esmc600m/heavy_embeddings.npy
+top_models_feature_bundle/residue_level/esmc600m/light_embeddings.npy
+top_models_feature_bundle/residue_level/currab/heavy_embeddings.npy
+top_models_feature_bundle/residue_level/currab/light_embeddings.npy
 
 # HSP feature-research: regenerable bulky residue atlases (>100MB); rebuild via build_atlas.py
 feature_research/hic_spatial_hydrophobicity/features/residue_spatial_hydrophobicity.parquet

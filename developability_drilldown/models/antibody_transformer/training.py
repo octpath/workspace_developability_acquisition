@@ -61,7 +61,7 @@ class AbDataset(Dataset):
         rb: ResidueBundle,
         *,
         content_mode: str,
-        plm_source: str = "ablingua",  # ablingua | esm2 | ablang2
+        plm_source: str = "ablingua",  # ablingua | esm2 | ablang2 | ablang1 | esm1b | esmc600m | currab
         fixed_X: Optional[np.ndarray] = None,
         use_continuous_rasa: bool = False,
         use_rasa_weighted_pool: bool = False,
@@ -136,6 +136,18 @@ class AbDataset(Dataset):
             elif self.plm_source == "ablang2":
                 item["heavy_plm"] = self.rb.ablang2_h[j]
                 item["light_plm"] = self.rb.ablang2_l[j]
+            elif self.plm_source == "ablang1":
+                item["heavy_plm"] = self.rb.ablang1_h[j]
+                item["light_plm"] = self.rb.ablang1_l[j]
+            elif self.plm_source == "esm1b":
+                item["heavy_plm"] = self.rb.esm1b_h[j]
+                item["light_plm"] = self.rb.esm1b_l[j]
+            elif self.plm_source == "esmc600m":
+                item["heavy_plm"] = self.rb.esmc600m_h[j]
+                item["light_plm"] = self.rb.esmc600m_l[j]
+            elif self.plm_source == "currab":
+                item["heavy_plm"] = self.rb.currab_h[j]
+                item["light_plm"] = self.rb.currab_l[j]
             elif self.plm_source == "esm2":
                 item["heavy_plm"] = self.rb.esm2_h[j]
                 # Light only when available and not Heavy-only (ARCH-H0).
@@ -191,6 +203,14 @@ def plm_hidden_for(rb: ResidueBundle, plm_source: str) -> int:
         return rb.ablang2_hidden
     if plm_source == "esm2":
         return rb.esm2_hidden
+    if plm_source == "ablang1":
+        return rb.ablang1_hidden
+    if plm_source == "esm1b":
+        return rb.esm1b_hidden
+    if plm_source == "esmc600m":
+        return rb.esmc600m_hidden
+    if plm_source == "currab":
+        return rb.currab_hidden
     raise ValueError(plm_source)
 
 

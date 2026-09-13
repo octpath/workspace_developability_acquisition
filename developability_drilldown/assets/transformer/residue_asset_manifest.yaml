@@ -43,11 +43,65 @@ esm2:
   path: top_models_feature_bundle/residue_level/esm2/
   hidden_dim: 1280
   max_len_H: 140
-  chains: [H]
+  max_len_L: 120
+  chains: [H, L]
   model: facebook/esm2_t33_650M_UR50D
-  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1]
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
   license_status: REVIEW_MODEL_OUTPUT
   metadata: top_models_feature_bundle/residue_level/esm2/metadata.json
+  # 2026-09 audit: light_embeddings were materialized for HL topology matrix (T151–T156).
+  # Historical manifest listed chains: [H] only; corrected to [H, L] to match on-disk assets.
+  audit_note: "corrected chains H-only -> HL after light pack materialization"
+
+ablang1:
+  path: top_models_feature_bundle/residue_level/ablang1/
+  hidden_dim: 768
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  mapping: EXACT_AA_1TO1
+  representation: res-codings (ablang.pretrained heavy/light)
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/ablang1/metadata.json
+
+esm1b:
+  path: top_models_feature_bundle/residue_level/esm1b/
+  hidden_dim: 1280
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  model: facebook/esm1b_t33_650M_UR50S
+  mapping: EXACT_AA_1TO1_BOS_EOS_STRIPPED
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/esm1b/metadata.json
+
+esmc600m:
+  path: top_models_feature_bundle/residue_level/esmc600m/
+  # hidden_dim inferred from loaded checkpoint (1152); see metadata.json
+  hidden_dim: 1152
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  model: biohub/ESMC-600M
+  mapping: EXACT_AA_1TO1_BOS_EOS_STRIPPED
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/esmc600m/metadata.json
+
+currab:
+  path: top_models_feature_bundle/residue_level/currab/
+  hidden_dim: 1280
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  model: brineylab/CurrAb
+  representation_context: PAIRED_NATIVE
+  mapping: EXACT_AA_1TO1_CLS_SEPARATOR_STRIPPED
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/currab/metadata.json
 
 scratch_sequences:
   source: competition antibody sequences in data/dev.csv and data/test.csv

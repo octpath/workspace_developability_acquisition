@@ -135,9 +135,29 @@ class ResidueBundle:
     esm2_h_mask: Optional[np.ndarray] = None
     esm2_l: Optional[np.ndarray] = None
     esm2_l_mask: Optional[np.ndarray] = None
+    ablang1_h: Optional[np.ndarray] = None
+    ablang1_l: Optional[np.ndarray] = None
+    ablang1_h_mask: Optional[np.ndarray] = None
+    ablang1_l_mask: Optional[np.ndarray] = None
+    esm1b_h: Optional[np.ndarray] = None
+    esm1b_l: Optional[np.ndarray] = None
+    esm1b_h_mask: Optional[np.ndarray] = None
+    esm1b_l_mask: Optional[np.ndarray] = None
+    esmc600m_h: Optional[np.ndarray] = None
+    esmc600m_l: Optional[np.ndarray] = None
+    esmc600m_h_mask: Optional[np.ndarray] = None
+    esmc600m_l_mask: Optional[np.ndarray] = None
+    currab_h: Optional[np.ndarray] = None
+    currab_l: Optional[np.ndarray] = None
+    currab_h_mask: Optional[np.ndarray] = None
+    currab_l_mask: Optional[np.ndarray] = None
     ablingua_hidden: int = 0
     ablang2_hidden: int = 0
     esm2_hidden: int = 0
+    ablang1_hidden: int = 0
+    esm1b_hidden: int = 0
+    esmc600m_hidden: int = 0
+    currab_hidden: int = 0
     heavy_rasa: Optional[np.ndarray] = None  # [N, Lh] continuous RASA; pad/missing = NaN
     light_rasa: Optional[np.ndarray] = None
     heavy_ca: Optional[np.ndarray] = None  # [N, Lh, 3] Cα Å; pad/missing = NaN
@@ -196,6 +216,38 @@ def load_plm_pack(subdir: str) -> tuple[list[str], dict]:
     return ids, meta
 
 
+def _attach_hl_plm_pack(
+    rb: ResidueBundle,
+    *,
+    subdir: str,
+    prefix: str,
+    ids: list[str],
+    max_h: int,
+    max_l: int,
+    heavy_mask: np.ndarray,
+    light_mask: np.ndarray,
+    label: str,
+) -> None:
+    """Attach heavy/light residue embeddings from a standard HL pack under residue_level/."""
+    a_ids, meta = load_plm_pack(subdir)
+    order = [a_ids.index(a) for a in ids]
+    eh = load_npy(RESIDUE_ROOT / subdir / "heavy_embeddings.npy")[order].astype(np.float32)
+    el = load_npy(RESIDUE_ROOT / subdir / "light_embeddings.npy")[order].astype(np.float32)
+    mh = load_npy(RESIDUE_ROOT / subdir / "heavy_mask.npy")[order]
+    ml = load_npy(RESIDUE_ROOT / subdir / "light_mask.npy")[order]
+    setattr(rb, f"{prefix}_h", eh[:, :max_h])
+    setattr(rb, f"{prefix}_l", el[:, :max_l])
+    setattr(rb, f"{prefix}_h_mask", mh[:, :max_h])
+    setattr(rb, f"{prefix}_l_mask", ml[:, :max_l])
+    N = len(ids)
+    for i in range(N):
+        if int(getattr(rb, f"{prefix}_h_mask")[i].sum()) != int(heavy_mask[i].sum()):
+            raise DataIntegrityError(f"{label} H mask mismatch {ids[i]}")
+        if int(getattr(rb, f"{prefix}_l_mask")[i].sum()) != int(light_mask[i].sum()):
+            raise DataIntegrityError(f"{label} L mask mismatch {ids[i]}")
+    setattr(rb, f"{prefix}_hidden", int(meta["hidden_dim"]))
+
+
 def load_residue_bundle(
     dev: pd.DataFrame,
     test: pd.DataFrame,
@@ -203,6 +255,10 @@ def load_residue_bundle(
     need_ablingua: bool = False,
     need_ablang2: bool = False,
     need_esm2: bool = False,
+    need_ablang1: bool = False,
+    need_esm1b: bool = False,
+    need_esmc600m: bool = False,
+    need_currab: bool = False,
 ) -> ResidueBundle:
     seqs = pd.concat(
         [dev[["id", "heavy", "light"]], test[["id", "heavy", "light"]]],
@@ -267,48 +323,82 @@ def load_residue_bundle(
     )
 
     if need_ablingua:
-        a_ids, meta = load_plm_pack("ablingua600m")
-        order = [a_ids.index(a) for a in ids]
-        eh = load_npy(RESIDUE_ROOT / "ablingua600m/heavy_embeddings.npy")[order].astype(
-            np.float32
+        _attach_hl_plm_pack(
+            rb,
+            subdir="ablingua600m",
+            prefix="ablingua",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="AbLingua",
         )
-        el = load_npy(RESIDUE_ROOT / "ablingua600m/light_embeddings.npy")[order].astype(
-            np.float32
-        )
-        mh = load_npy(RESIDUE_ROOT / "ablingua600m/heavy_mask.npy")[order]
-        ml = load_npy(RESIDUE_ROOT / "ablingua600m/light_mask.npy")[order]
-        rb.ablingua_h = eh[:, :max_h]
-        rb.ablingua_l = el[:, :max_l]
-        rb.ablingua_h_mask = mh[:, :max_h]
-        rb.ablingua_l_mask = ml[:, :max_l]
-        for i in range(N):
-            if int(rb.ablingua_h_mask[i].sum()) != int(heavy_mask[i].sum()):
-                raise DataIntegrityError(f"AbLingua H mask mismatch {ids[i]}")
-            if int(rb.ablingua_l_mask[i].sum()) != int(light_mask[i].sum()):
-                raise DataIntegrityError(f"AbLingua L mask mismatch {ids[i]}")
-        rb.ablingua_hidden = int(meta["hidden_dim"])
 
     if need_ablang2:
-        a_ids, meta = load_plm_pack("ablang2")
-        order = [a_ids.index(a) for a in ids]
-        eh = load_npy(RESIDUE_ROOT / "ablang2/heavy_embeddings.npy")[order].astype(
-            np.float32
+        _attach_hl_plm_pack(
+            rb,
+            subdir="ablang2",
+            prefix="ablang2",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="AbLang2",
         )
-        el = load_npy(RESIDUE_ROOT / "ablang2/light_embeddings.npy")[order].astype(
-            np.float32
+
+    if need_ablang1:
+        _attach_hl_plm_pack(
+            rb,
+            subdir="ablang1",
+            prefix="ablang1",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="AbLang1",
         )
-        mh = load_npy(RESIDUE_ROOT / "ablang2/heavy_mask.npy")[order]
-        ml = load_npy(RESIDUE_ROOT / "ablang2/light_mask.npy")[order]
-        rb.ablang2_h = eh[:, :max_h]
-        rb.ablang2_l = el[:, :max_l]
-        rb.ablang2_h_mask = mh[:, :max_h]
-        rb.ablang2_l_mask = ml[:, :max_l]
-        for i in range(N):
-            if int(rb.ablang2_h_mask[i].sum()) != int(heavy_mask[i].sum()):
-                raise DataIntegrityError(f"AbLang2 H mask mismatch {ids[i]}")
-            if int(rb.ablang2_l_mask[i].sum()) != int(light_mask[i].sum()):
-                raise DataIntegrityError(f"AbLang2 L mask mismatch {ids[i]}")
-        rb.ablang2_hidden = int(meta["hidden_dim"])
+
+    if need_esm1b:
+        _attach_hl_plm_pack(
+            rb,
+            subdir="esm1b",
+            prefix="esm1b",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="ESM-1b",
+        )
+
+    if need_esmc600m:
+        _attach_hl_plm_pack(
+            rb,
+            subdir="esmc600m",
+            prefix="esmc600m",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="ESM-C 600M",
+        )
+
+    if need_currab:
+        _attach_hl_plm_pack(
+            rb,
+            subdir="currab",
+            prefix="currab",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="CurrAb",
+        )
 
     if need_esm2:
         e_ids, meta = load_plm_pack("esm2")

@@ -1,0 +1,102 @@
+batch_id: T157_T160_NEW_PLM_C_FULL_SMOKE
+status: PREREGISTERED
+git_rev_at_prereg: 22162df5411de218be787056b5174d2d87d551cb
+platform_id: DL_FOLDLOCAL_COSINE_V3
+seed: 101
+do_not:
+- topology_A
+- topology_B1
+- topology_B2
+- topology_D
+- annotation_BASE
+- annotation_IMGT_only
+- annotation_REGION_only
+- full_plm_topology_matrix
+cells:
+- code: EXP-T157
+  plm: ablang1
+  topology: C
+  annotation: FULL
+  pack_status: READY
+  pack_reason: null
+  raw_dim: 768
+  representation_context: SEPARATE_CHAIN
+  trainable:
+    total: 476545
+    projection: 98432
+    encoder: 264960
+    head: 16641
+    cross_attention: 66048
+  projection_params: 98432
+  topology_flags: &id001
+    joint_hl_single_reg: false
+    joint_hl_dual_reg: false
+    joint_hl_chain_specific_dual_reg: false
+    use_cross_attention_bridge: false
+    use_reg_only_cross_attention: true
+    use_within_chain_extra_attention: false
+    cross_gate_mode: learned
+    use_cross_geometry_bias: false
+    share_hl_encoder: true
+    reg_cross_variant: null
+    pair_interaction_mode: null
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  control: EXP-T121
+- code: EXP-T158
+  plm: esm1b
+  topology: C
+  annotation: FULL
+  pack_status: READY
+  pack_reason: null
+  raw_dim: 1280
+  representation_context: SEPARATE_CHAIN
+  trainable:
+    total: 542081
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 66048
+  projection_params: 163968
+  topology_flags: *id001
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  control: EXP-T121
+- code: EXP-T159
+  plm: esmc600m
+  topology: C
+  annotation: FULL
+  pack_status: READY
+  pack_reason: null
+  raw_dim: 1152
+  representation_context: SEPARATE_CHAIN
+  trainable:
+    total: 525697
+    projection: 147584
+    encoder: 264960
+    head: 16641
+    cross_attention: 66048
+  projection_params: 147584
+  topology_flags: *id001
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  control: EXP-T121
+- code: EXP-T160
+  plm: currab
+  topology: C
+  annotation: FULL
+  pack_status: READY
+  pack_reason: null
+  raw_dim: 1280
+  representation_context: PAIRED_NATIVE
+  trainable:
+    total: 542081
+    projection: 163968
+    encoder: 264960
+    head: 16641
+    cross_attention: 66048
+  projection_params: 163968
+  topology_flags: *id001
+  seed: 101
+  platform_id: DL_FOLDLOCAL_COSINE_V3
+  control: EXP-T121
