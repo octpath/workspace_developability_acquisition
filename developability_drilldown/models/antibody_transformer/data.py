@@ -158,6 +158,16 @@ class ResidueBundle:
     esm1b_hidden: int = 0
     esmc600m_hidden: int = 0
     currab_hidden: int = 0
+    ablang2_unpaired_h: Optional[np.ndarray] = None
+    ablang2_unpaired_l: Optional[np.ndarray] = None
+    ablang2_unpaired_h_mask: Optional[np.ndarray] = None
+    ablang2_unpaired_l_mask: Optional[np.ndarray] = None
+    ablang2_unpaired_hidden: int = 0
+    currab_unpaired_h: Optional[np.ndarray] = None
+    currab_unpaired_l: Optional[np.ndarray] = None
+    currab_unpaired_h_mask: Optional[np.ndarray] = None
+    currab_unpaired_l_mask: Optional[np.ndarray] = None
+    currab_unpaired_hidden: int = 0
     heavy_rasa: Optional[np.ndarray] = None  # [N, Lh] continuous RASA; pad/missing = NaN
     light_rasa: Optional[np.ndarray] = None
     heavy_ca: Optional[np.ndarray] = None  # [N, Lh, 3] Cα Å; pad/missing = NaN
@@ -259,6 +269,8 @@ def load_residue_bundle(
     need_esm1b: bool = False,
     need_esmc600m: bool = False,
     need_currab: bool = False,
+    need_ablang2_unpaired: bool = False,
+    need_currab_unpaired: bool = False,
 ) -> ResidueBundle:
     seqs = pd.concat(
         [dev[["id", "heavy", "light"]], test[["id", "heavy", "light"]]],
@@ -398,6 +410,32 @@ def load_residue_bundle(
             heavy_mask=heavy_mask,
             light_mask=light_mask,
             label="CurrAb",
+        )
+
+    if need_ablang2_unpaired:
+        _attach_hl_plm_pack(
+            rb,
+            subdir="ablang2_unpaired",
+            prefix="ablang2_unpaired",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="AbLang2-unpaired-asset",
+        )
+
+    if need_currab_unpaired:
+        _attach_hl_plm_pack(
+            rb,
+            subdir="currab_unpaired",
+            prefix="currab_unpaired",
+            ids=ids,
+            max_h=max_h,
+            max_l=max_l,
+            heavy_mask=heavy_mask,
+            light_mask=light_mask,
+            label="CurrAb-unpaired",
         )
 
     if need_esm2:

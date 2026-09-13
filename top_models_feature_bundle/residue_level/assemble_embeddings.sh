@@ -54,6 +54,8 @@ main() {
   assemble_hl_pack "esm1b"
   assemble_hl_pack "esmc600m"
   assemble_hl_pack "currab"
+  assemble_hl_pack "ablang2_unpaired"
+  assemble_hl_pack "currab_unpaired"
   echo "Done. Residue embeddings are ready under residue_level/."
 }
 

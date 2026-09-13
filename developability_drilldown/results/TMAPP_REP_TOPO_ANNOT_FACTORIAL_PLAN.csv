@@ -1,0 +1,201 @@
+representation,plm_family,plm_source,content_mode,subdir,representation_context,paired_match_group,topology,annotation,annotation_mode,experiment_code,execution_status,reuse_source,raw_dim,config_path,primary_mae,shadow_mae,mean_ps,worst_ps,notes
+scratch,scratch,,scratch,,LEARNED_AA,,A,FULL,full,EXP-T091,REUSE,EXP-T091,0,,3.365534535160771,3.5994807113835843,3.482507623272178,3.5994807113835843,
+scratch,scratch,,scratch,,LEARNED_AA,,B1,FULL,full,EXP-T094,REUSE,EXP-T094,0,,3.1879845136477623,3.407729254828559,3.2978568842381604,3.407729254828559,
+scratch,scratch,,scratch,,LEARNED_AA,,B2,FULL,full,EXP-T096,REUSE,EXP-T096,0,,3.252413337613329,3.2638315271448204,3.258122432379075,3.2638315271448204,
+scratch,scratch,,scratch,,LEARNED_AA,,C,FULL,full,EXP-T102,REUSE,EXP-T102,0,,3.2751123404797213,3.4288495852623457,3.3519809628710338,3.4288495852623457,
+scratch,scratch,,scratch,,LEARNED_AA,,D,FULL,full,EXP-T161,PLANNED,,0,experiments/configs/EXP-T161.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,A,BASE,base,EXP-T162,PLANNED,,0,experiments/configs/EXP-T162.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,B1,BASE,base,EXP-T163,PLANNED,,0,experiments/configs/EXP-T163.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,B2,BASE,base,EXP-T164,PLANNED,,0,experiments/configs/EXP-T164.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,C,BASE,base,EXP-T165,PLANNED,,0,experiments/configs/EXP-T165.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,D,BASE,base,EXP-T166,PLANNED,,0,experiments/configs/EXP-T166.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,A,IMGT,imgt,EXP-T167,PLANNED,,0,experiments/configs/EXP-T167.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,B1,IMGT,imgt,EXP-T168,PLANNED,,0,experiments/configs/EXP-T168.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,B2,IMGT,imgt,EXP-T169,PLANNED,,0,experiments/configs/EXP-T169.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,C,IMGT,imgt,EXP-T170,PLANNED,,0,experiments/configs/EXP-T170.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,D,IMGT,imgt,EXP-T171,PLANNED,,0,experiments/configs/EXP-T171.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,A,REGION,region,EXP-T172,PLANNED,,0,experiments/configs/EXP-T172.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,B1,REGION,region,EXP-T173,PLANNED,,0,experiments/configs/EXP-T173.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,B2,REGION,region,EXP-T174,PLANNED,,0,experiments/configs/EXP-T174.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,C,REGION,region,EXP-T175,PLANNED,,0,experiments/configs/EXP-T175.yaml,,,,,
+scratch,scratch,,scratch,,LEARNED_AA,,D,REGION,region,EXP-T176,PLANNED,,0,experiments/configs/EXP-T176.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,A,FULL,full,EXP-T080,REUSE,EXP-T080,1280,,3.2602498089825667,3.3066721786687405,3.2834609938256536,3.3066721786687405,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B1,FULL,full,EXP-T081,REUSE,EXP-T081,1280,,3.4313683686433016,3.479818603138865,3.455593485891084,3.479818603138865,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B2,FULL,full,EXP-T082,REUSE,EXP-T082,1280,,3.24324784455476,3.36413852079415,3.303693182674455,3.36413852079415,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,C,FULL,full,EXP-T087,REUSE,EXP-T087,1280,,3.2353713895067755,3.2764338740596064,3.255902631783191,3.2764338740596064,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,D,FULL,full,EXP-T151,REUSE,EXP-T151,1280,,3.372717727849513,3.3339194545039423,3.353318591176728,3.372717727849513,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,A,BASE,base,EXP-T177,PLANNED,,1280,experiments/configs/EXP-T177.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B1,BASE,base,EXP-T178,PLANNED,,1280,experiments/configs/EXP-T178.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B2,BASE,base,EXP-T179,PLANNED,,1280,experiments/configs/EXP-T179.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,C,BASE,base,EXP-T180,PLANNED,,1280,experiments/configs/EXP-T180.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,D,BASE,base,EXP-T181,PLANNED,,1280,experiments/configs/EXP-T181.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,A,IMGT,imgt,EXP-T182,PLANNED,,1280,experiments/configs/EXP-T182.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B1,IMGT,imgt,EXP-T183,PLANNED,,1280,experiments/configs/EXP-T183.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B2,IMGT,imgt,EXP-T184,PLANNED,,1280,experiments/configs/EXP-T184.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,C,IMGT,imgt,EXP-T185,PLANNED,,1280,experiments/configs/EXP-T185.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,D,IMGT,imgt,EXP-T186,PLANNED,,1280,experiments/configs/EXP-T186.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,A,REGION,region,EXP-T187,PLANNED,,1280,experiments/configs/EXP-T187.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B1,REGION,region,EXP-T188,PLANNED,,1280,experiments/configs/EXP-T188.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,B2,REGION,region,EXP-T189,PLANNED,,1280,experiments/configs/EXP-T189.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,C,REGION,region,EXP-T190,PLANNED,,1280,experiments/configs/EXP-T190.yaml,,,,,
+ablingua,ablingua,ablingua,frozen,ablingua600m,SEPARATE_CHAIN,,D,REGION,region,EXP-T191,PLANNED,,1280,experiments/configs/EXP-T191.yaml,,,,,
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,A,FULL,full,EXP-T110,REUSE,EXP-T110,480,,3.2029204191984952,3.280289826569734,3.2416051228841143,3.280289826569734,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B1,FULL,full,EXP-T113,REUSE,EXP-T113,480,,2.9950552575382186,3.2830708586139443,3.139063058076081,3.2830708586139443,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B2,FULL,full,EXP-T115,REUSE,EXP-T115,480,,3.240749830081139,3.311849547021183,3.276299688551161,3.311849547021183,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,C,FULL,full,EXP-T121,REUSE,EXP-T121,480,,3.0232212867265864,3.252085108815888,3.137653197771237,3.252085108815888,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,D,FULL,full,EXP-T149,REUSE,EXP-T149,480,,3.2233047014401284,3.37154711028676,3.2974259058634443,3.37154711028676,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,A,BASE,base,EXP-T192,PLANNED,,480,experiments/configs/EXP-T192.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B1,BASE,base,EXP-T193,PLANNED,,480,experiments/configs/EXP-T193.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B2,BASE,base,EXP-T194,PLANNED,,480,experiments/configs/EXP-T194.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,C,BASE,base,EXP-T195,PLANNED,,480,experiments/configs/EXP-T195.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,D,BASE,base,EXP-T196,PLANNED,,480,experiments/configs/EXP-T196.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,A,IMGT,imgt,EXP-T197,PLANNED,,480,experiments/configs/EXP-T197.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B1,IMGT,imgt,EXP-T198,PLANNED,,480,experiments/configs/EXP-T198.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B2,IMGT,imgt,EXP-T199,PLANNED,,480,experiments/configs/EXP-T199.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,C,IMGT,imgt,EXP-T200,PLANNED,,480,experiments/configs/EXP-T200.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,D,IMGT,imgt,EXP-T201,PLANNED,,480,experiments/configs/EXP-T201.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,A,REGION,region,EXP-T202,PLANNED,,480,experiments/configs/EXP-T202.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B1,REGION,region,EXP-T203,PLANNED,,480,experiments/configs/EXP-T203.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,B2,REGION,region,EXP-T204,PLANNED,,480,experiments/configs/EXP-T204.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,C,REGION,region,EXP-T205,PLANNED,,480,experiments/configs/EXP-T205.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_paired,ablang2,ablang2,frozen,ablang2,SEPARATE_CHAIN,ablang2,D,REGION,region,EXP-T206,PLANNED,,480,experiments/configs/EXP-T206.yaml,,,,,ASSET AUDIT: historical ablang2 bundle uses SEPARATE_CHAIN formats (<H>| / |<L>) with ablang2-paired checkpoint; name retains historical label.
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,A,FULL,full,EXP-T207,PLANNED,,480,experiments/configs/EXP-T207.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B1,FULL,full,EXP-T208,PLANNED,,480,experiments/configs/EXP-T208.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B2,FULL,full,EXP-T209,PLANNED,,480,experiments/configs/EXP-T209.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,C,FULL,full,EXP-T210,PLANNED,,480,experiments/configs/EXP-T210.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,D,FULL,full,EXP-T211,PLANNED,,480,experiments/configs/EXP-T211.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,A,BASE,base,EXP-T212,PLANNED,,480,experiments/configs/EXP-T212.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B1,BASE,base,EXP-T213,PLANNED,,480,experiments/configs/EXP-T213.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B2,BASE,base,EXP-T214,PLANNED,,480,experiments/configs/EXP-T214.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,C,BASE,base,EXP-T215,PLANNED,,480,experiments/configs/EXP-T215.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,D,BASE,base,EXP-T216,PLANNED,,480,experiments/configs/EXP-T216.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,A,IMGT,imgt,EXP-T217,PLANNED,,480,experiments/configs/EXP-T217.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B1,IMGT,imgt,EXP-T218,PLANNED,,480,experiments/configs/EXP-T218.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B2,IMGT,imgt,EXP-T219,PLANNED,,480,experiments/configs/EXP-T219.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,C,IMGT,imgt,EXP-T220,PLANNED,,480,experiments/configs/EXP-T220.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,D,IMGT,imgt,EXP-T221,PLANNED,,480,experiments/configs/EXP-T221.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,A,REGION,region,EXP-T222,PLANNED,,480,experiments/configs/EXP-T222.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B1,REGION,region,EXP-T223,PLANNED,,480,experiments/configs/EXP-T223.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,B2,REGION,region,EXP-T224,PLANNED,,480,experiments/configs/EXP-T224.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,C,REGION,region,EXP-T225,PLANNED,,480,experiments/configs/EXP-T225.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang2_unpaired,ablang2,ablang2_unpaired,frozen,ablang2_unpaired,PAIRED_NATIVE,ablang2,D,REGION,region,EXP-T226,PLANNED,,480,experiments/configs/EXP-T226.yaml,,,,,"Allocation name ablang2_unpaired holds JOINT paired inference (<H>|<L>) with the SAME ablang2-paired checkpoint, complementary to historical SEPARATE ablang2_paired asset, enabling matched inference-context contrast."
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,A,FULL,full,EXP-T227,PLANNED,,768,experiments/configs/EXP-T227.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B1,FULL,full,EXP-T228,PLANNED,,768,experiments/configs/EXP-T228.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B2,FULL,full,EXP-T229,PLANNED,,768,experiments/configs/EXP-T229.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,C,FULL,full,EXP-T157,REUSE,EXP-T157,768,,3.4670958342375577,3.2599392172731,3.363517525755329,3.4670958342375577,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,D,FULL,full,EXP-T230,PLANNED,,768,experiments/configs/EXP-T230.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,A,BASE,base,EXP-T231,PLANNED,,768,experiments/configs/EXP-T231.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B1,BASE,base,EXP-T232,PLANNED,,768,experiments/configs/EXP-T232.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B2,BASE,base,EXP-T233,PLANNED,,768,experiments/configs/EXP-T233.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,C,BASE,base,EXP-T234,PLANNED,,768,experiments/configs/EXP-T234.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,D,BASE,base,EXP-T235,PLANNED,,768,experiments/configs/EXP-T235.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,A,IMGT,imgt,EXP-T236,PLANNED,,768,experiments/configs/EXP-T236.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B1,IMGT,imgt,EXP-T237,PLANNED,,768,experiments/configs/EXP-T237.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B2,IMGT,imgt,EXP-T238,PLANNED,,768,experiments/configs/EXP-T238.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,C,IMGT,imgt,EXP-T239,PLANNED,,768,experiments/configs/EXP-T239.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,D,IMGT,imgt,EXP-T240,PLANNED,,768,experiments/configs/EXP-T240.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,A,REGION,region,EXP-T241,PLANNED,,768,experiments/configs/EXP-T241.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B1,REGION,region,EXP-T242,PLANNED,,768,experiments/configs/EXP-T242.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,B2,REGION,region,EXP-T243,PLANNED,,768,experiments/configs/EXP-T243.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,C,REGION,region,EXP-T244,PLANNED,,768,experiments/configs/EXP-T244.yaml,,,,,
+ablang1,ablang1,ablang1,frozen,ablang1,SEPARATE_CHAIN,,D,REGION,region,EXP-T245,PLANNED,,768,experiments/configs/EXP-T245.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,A,FULL,full,EXP-T246,PLANNED,,1280,experiments/configs/EXP-T246.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B1,FULL,full,EXP-T247,PLANNED,,1280,experiments/configs/EXP-T247.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B2,FULL,full,EXP-T248,PLANNED,,1280,experiments/configs/EXP-T248.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,C,FULL,full,EXP-T158,REUSE,EXP-T158,1280,,3.317988831319927,3.2039646101586614,3.2609767207392943,3.317988831319927,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,D,FULL,full,EXP-T249,PLANNED,,1280,experiments/configs/EXP-T249.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,A,BASE,base,EXP-T250,PLANNED,,1280,experiments/configs/EXP-T250.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B1,BASE,base,EXP-T251,PLANNED,,1280,experiments/configs/EXP-T251.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B2,BASE,base,EXP-T252,PLANNED,,1280,experiments/configs/EXP-T252.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,C,BASE,base,EXP-T253,PLANNED,,1280,experiments/configs/EXP-T253.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,D,BASE,base,EXP-T254,PLANNED,,1280,experiments/configs/EXP-T254.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,A,IMGT,imgt,EXP-T255,PLANNED,,1280,experiments/configs/EXP-T255.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B1,IMGT,imgt,EXP-T256,PLANNED,,1280,experiments/configs/EXP-T256.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B2,IMGT,imgt,EXP-T257,PLANNED,,1280,experiments/configs/EXP-T257.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,C,IMGT,imgt,EXP-T258,PLANNED,,1280,experiments/configs/EXP-T258.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,D,IMGT,imgt,EXP-T259,PLANNED,,1280,experiments/configs/EXP-T259.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,A,REGION,region,EXP-T260,PLANNED,,1280,experiments/configs/EXP-T260.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B1,REGION,region,EXP-T261,PLANNED,,1280,experiments/configs/EXP-T261.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,B2,REGION,region,EXP-T262,PLANNED,,1280,experiments/configs/EXP-T262.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,C,REGION,region,EXP-T263,PLANNED,,1280,experiments/configs/EXP-T263.yaml,,,,,
+esm1b,esm1b,esm1b,frozen,esm1b,SEPARATE_CHAIN,,D,REGION,region,EXP-T264,PLANNED,,1280,experiments/configs/EXP-T264.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,A,FULL,full,EXP-T152,REUSE,EXP-T152,1280,,3.482475163024149,3.5690759258505738,3.5257755444373613,3.5690759258505738,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B1,FULL,full,EXP-T153,REUSE,EXP-T153,1280,,3.3596158910680702,3.4325087982931253,3.396062344680597,3.4325087982931253,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B2,FULL,full,EXP-T154,REUSE,EXP-T154,1280,,3.360608089117356,3.378463980592328,3.3695360348548418,3.378463980592328,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,C,FULL,full,EXP-T155,REUSE,EXP-T155,1280,,3.2831874894507136,3.535668172954041,3.409427831202377,3.535668172954041,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,D,FULL,full,EXP-T156,REUSE,EXP-T156,1280,,3.2438234399866173,3.4195867232334467,3.331705081610032,3.4195867232334467,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,A,BASE,base,EXP-T265,PLANNED,,1280,experiments/configs/EXP-T265.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B1,BASE,base,EXP-T266,PLANNED,,1280,experiments/configs/EXP-T266.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B2,BASE,base,EXP-T267,PLANNED,,1280,experiments/configs/EXP-T267.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,C,BASE,base,EXP-T268,PLANNED,,1280,experiments/configs/EXP-T268.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,D,BASE,base,EXP-T269,PLANNED,,1280,experiments/configs/EXP-T269.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,A,IMGT,imgt,EXP-T270,PLANNED,,1280,experiments/configs/EXP-T270.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B1,IMGT,imgt,EXP-T271,PLANNED,,1280,experiments/configs/EXP-T271.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B2,IMGT,imgt,EXP-T272,PLANNED,,1280,experiments/configs/EXP-T272.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,C,IMGT,imgt,EXP-T273,PLANNED,,1280,experiments/configs/EXP-T273.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,D,IMGT,imgt,EXP-T274,PLANNED,,1280,experiments/configs/EXP-T274.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,A,REGION,region,EXP-T275,PLANNED,,1280,experiments/configs/EXP-T275.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B1,REGION,region,EXP-T276,PLANNED,,1280,experiments/configs/EXP-T276.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,B2,REGION,region,EXP-T277,PLANNED,,1280,experiments/configs/EXP-T277.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,C,REGION,region,EXP-T278,PLANNED,,1280,experiments/configs/EXP-T278.yaml,,,,,
+esm2,esm2,esm2,frozen,esm2,SEPARATE_CHAIN,,D,REGION,region,EXP-T279,PLANNED,,1280,experiments/configs/EXP-T279.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,A,FULL,full,EXP-T280,PLANNED,,1152,experiments/configs/EXP-T280.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B1,FULL,full,EXP-T281,PLANNED,,1152,experiments/configs/EXP-T281.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B2,FULL,full,EXP-T282,PLANNED,,1152,experiments/configs/EXP-T282.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,C,FULL,full,EXP-T159,REUSE,EXP-T159,1152,,3.324026084240572,3.366429740999952,3.345227912620261,3.366429740999952,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,D,FULL,full,EXP-T283,PLANNED,,1152,experiments/configs/EXP-T283.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,A,BASE,base,EXP-T284,PLANNED,,1152,experiments/configs/EXP-T284.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B1,BASE,base,EXP-T285,PLANNED,,1152,experiments/configs/EXP-T285.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B2,BASE,base,EXP-T286,PLANNED,,1152,experiments/configs/EXP-T286.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,C,BASE,base,EXP-T287,PLANNED,,1152,experiments/configs/EXP-T287.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,D,BASE,base,EXP-T288,PLANNED,,1152,experiments/configs/EXP-T288.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,A,IMGT,imgt,EXP-T289,PLANNED,,1152,experiments/configs/EXP-T289.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B1,IMGT,imgt,EXP-T290,PLANNED,,1152,experiments/configs/EXP-T290.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B2,IMGT,imgt,EXP-T291,PLANNED,,1152,experiments/configs/EXP-T291.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,C,IMGT,imgt,EXP-T292,PLANNED,,1152,experiments/configs/EXP-T292.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,D,IMGT,imgt,EXP-T293,PLANNED,,1152,experiments/configs/EXP-T293.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,A,REGION,region,EXP-T294,PLANNED,,1152,experiments/configs/EXP-T294.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B1,REGION,region,EXP-T295,PLANNED,,1152,experiments/configs/EXP-T295.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,B2,REGION,region,EXP-T296,PLANNED,,1152,experiments/configs/EXP-T296.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,C,REGION,region,EXP-T297,PLANNED,,1152,experiments/configs/EXP-T297.yaml,,,,,
+esmc600m,esmc600m,esmc600m,frozen,esmc600m,SEPARATE_CHAIN,,D,REGION,region,EXP-T298,PLANNED,,1152,experiments/configs/EXP-T298.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,A,FULL,full,EXP-T299,PLANNED,,1280,experiments/configs/EXP-T299.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B1,FULL,full,EXP-T300,PLANNED,,1280,experiments/configs/EXP-T300.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B2,FULL,full,EXP-T301,PLANNED,,1280,experiments/configs/EXP-T301.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,C,FULL,full,EXP-T160,REUSE,EXP-T160,1280,,3.3158010788905767,3.1833025143470293,3.2495517966188032,3.3158010788905767,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,D,FULL,full,EXP-T302,PLANNED,,1280,experiments/configs/EXP-T302.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,A,BASE,base,EXP-T303,PLANNED,,1280,experiments/configs/EXP-T303.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B1,BASE,base,EXP-T304,PLANNED,,1280,experiments/configs/EXP-T304.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B2,BASE,base,EXP-T305,PLANNED,,1280,experiments/configs/EXP-T305.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,C,BASE,base,EXP-T306,PLANNED,,1280,experiments/configs/EXP-T306.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,D,BASE,base,EXP-T307,PLANNED,,1280,experiments/configs/EXP-T307.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,A,IMGT,imgt,EXP-T308,PLANNED,,1280,experiments/configs/EXP-T308.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B1,IMGT,imgt,EXP-T309,PLANNED,,1280,experiments/configs/EXP-T309.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B2,IMGT,imgt,EXP-T310,PLANNED,,1280,experiments/configs/EXP-T310.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,C,IMGT,imgt,EXP-T311,PLANNED,,1280,experiments/configs/EXP-T311.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,D,IMGT,imgt,EXP-T312,PLANNED,,1280,experiments/configs/EXP-T312.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,A,REGION,region,EXP-T313,PLANNED,,1280,experiments/configs/EXP-T313.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B1,REGION,region,EXP-T314,PLANNED,,1280,experiments/configs/EXP-T314.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,B2,REGION,region,EXP-T315,PLANNED,,1280,experiments/configs/EXP-T315.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,C,REGION,region,EXP-T316,PLANNED,,1280,experiments/configs/EXP-T316.yaml,,,,,
+currab_paired,currab,currab,frozen,currab,PAIRED_NATIVE,currab,D,REGION,region,EXP-T317,PLANNED,,1280,experiments/configs/EXP-T317.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,A,FULL,full,EXP-T318,PLANNED,,1280,experiments/configs/EXP-T318.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B1,FULL,full,EXP-T319,PLANNED,,1280,experiments/configs/EXP-T319.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B2,FULL,full,EXP-T320,PLANNED,,1280,experiments/configs/EXP-T320.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,C,FULL,full,EXP-T321,PLANNED,,1280,experiments/configs/EXP-T321.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,D,FULL,full,EXP-T322,PLANNED,,1280,experiments/configs/EXP-T322.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,A,BASE,base,EXP-T323,PLANNED,,1280,experiments/configs/EXP-T323.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B1,BASE,base,EXP-T324,PLANNED,,1280,experiments/configs/EXP-T324.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B2,BASE,base,EXP-T325,PLANNED,,1280,experiments/configs/EXP-T325.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,C,BASE,base,EXP-T326,PLANNED,,1280,experiments/configs/EXP-T326.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,D,BASE,base,EXP-T327,PLANNED,,1280,experiments/configs/EXP-T327.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,A,IMGT,imgt,EXP-T328,PLANNED,,1280,experiments/configs/EXP-T328.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B1,IMGT,imgt,EXP-T329,PLANNED,,1280,experiments/configs/EXP-T329.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B2,IMGT,imgt,EXP-T330,PLANNED,,1280,experiments/configs/EXP-T330.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,C,IMGT,imgt,EXP-T331,PLANNED,,1280,experiments/configs/EXP-T331.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,D,IMGT,imgt,EXP-T332,PLANNED,,1280,experiments/configs/EXP-T332.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,A,REGION,region,EXP-T333,PLANNED,,1280,experiments/configs/EXP-T333.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B1,REGION,region,EXP-T334,PLANNED,,1280,experiments/configs/EXP-T334.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,B2,REGION,region,EXP-T335,PLANNED,,1280,experiments/configs/EXP-T335.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,C,REGION,region,EXP-T336,PLANNED,,1280,experiments/configs/EXP-T336.yaml,,,,,
+currab_unpaired,currab,currab_unpaired,frozen,currab_unpaired,SEPARATE_CHAIN,currab,D,REGION,region,EXP-T337,PLANNED,,1280,experiments/configs/EXP-T337.yaml,,,,,

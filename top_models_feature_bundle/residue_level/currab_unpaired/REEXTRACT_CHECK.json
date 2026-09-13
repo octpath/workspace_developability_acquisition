@@ -1,0 +1,7 @@
+{
+  "plm": "currab_unpaired",
+  "n": 3,
+  "max_abs_diff_vs_fp16_roundtrip": 0.0,
+  "tolerance": 1e-05,
+  "pass": true
+}

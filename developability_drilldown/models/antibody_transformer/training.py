@@ -148,6 +148,12 @@ class AbDataset(Dataset):
             elif self.plm_source == "currab":
                 item["heavy_plm"] = self.rb.currab_h[j]
                 item["light_plm"] = self.rb.currab_l[j]
+            elif self.plm_source == "ablang2_unpaired":
+                item["heavy_plm"] = self.rb.ablang2_unpaired_h[j]
+                item["light_plm"] = self.rb.ablang2_unpaired_l[j]
+            elif self.plm_source == "currab_unpaired":
+                item["heavy_plm"] = self.rb.currab_unpaired_h[j]
+                item["light_plm"] = self.rb.currab_unpaired_l[j]
             elif self.plm_source == "esm2":
                 item["heavy_plm"] = self.rb.esm2_h[j]
                 # Light only when available and not Heavy-only (ARCH-H0).
@@ -211,6 +217,10 @@ def plm_hidden_for(rb: ResidueBundle, plm_source: str) -> int:
         return rb.esmc600m_hidden
     if plm_source == "currab":
         return rb.currab_hidden
+    if plm_source == "ablang2_unpaired":
+        return rb.ablang2_unpaired_hidden
+    if plm_source == "currab_unpaired":
+        return rb.currab_unpaired_hidden
     raise ValueError(plm_source)
 
 

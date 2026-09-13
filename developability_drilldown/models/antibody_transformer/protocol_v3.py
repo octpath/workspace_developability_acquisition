@@ -102,6 +102,7 @@ def candidate_config_hash(
     merge_mode: str,
     plm_source: Optional[str],
     chain_mode: str = "HL",
+    annotation_mode: str = "full",
 ) -> str:
     """Stable hash of architecture + content settings under V3 platform."""
     flags = normalize_arch_flags(arch)
@@ -111,6 +112,7 @@ def candidate_config_hash(
         "merge_mode": merge_mode,
         "plm_source": plm_source,
         "chain_mode": chain_mode,
+        "annotation_mode": str(annotation_mode).lower(),
         "platform_id": PLATFORM_ID,
     }
     blob = json.dumps(payload, sort_keys=True, default=str).encode()
@@ -297,6 +299,7 @@ def train_one_candidate_v3(
     content_mode: str = "frozen",
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
+    annotation_mode: str = "full",
     chain_mode: str = "HL",
     residue_surface_mode: Optional[str] = None,
     residue_surface_dim: int = 0,
@@ -307,7 +310,7 @@ def train_one_candidate_v3(
     ncfg = presets["neural"]
     flags = normalize_arch_flags(arch)
     cfg_hash = candidate_config_hash(
-        flags, content_mode, merge_mode, plm_source, chain_mode=chain_mode
+        flags, content_mode, merge_mode, plm_source, chain_mode=chain_mode, annotation_mode=annotation_mode
     )
     resumed = _try_load_complete_manifest(
         ckpt_path=ckpt_path,
@@ -345,6 +348,7 @@ def train_one_candidate_v3(
         flags,
         content_mode=content_mode,
         merge_mode=merge_mode,
+        annotation_mode=annotation_mode,
         plm_source=plm_source,
         chain_mode=chain_mode,
         residue_surface_mode=residue_surface_mode,
@@ -683,6 +687,7 @@ def predict_with_checkpoint(
         flags,
         content_mode=cm,
         merge_mode=mm,
+        annotation_mode=annotation_mode,
         plm_source=ps,
         chain_mode=chm,
         residue_surface_mode=rs_mode,
@@ -758,6 +763,7 @@ def run_protocol_v3(
     content_mode: str = "frozen",
     merge_mode: str = "concat",
     plm_source: Optional[str] = "ablingua",
+    annotation_mode: str = "full",
     chain_mode: str = "HL",
     residue_surface_mode: Optional[str] = None,
     residue_surface_dim: int = 0,
@@ -765,7 +771,7 @@ def run_protocol_v3(
 ) -> dict[str, Any]:
     flags = normalize_arch_flags(arch)
     cfg_hash = candidate_config_hash(
-        flags, content_mode, merge_mode, plm_source, chain_mode=chain_mode
+        flags, content_mode, merge_mode, plm_source, chain_mode=chain_mode, annotation_mode=annotation_mode
     )
     if residue_surface_mode:
         cfg_hash = hashlib.sha256(
@@ -821,6 +827,7 @@ def run_protocol_v3(
                 arch=flags,
                 content_mode=content_mode,
                 merge_mode=merge_mode,
+                annotation_mode=annotation_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
                 residue_surface_mode=residue_surface_mode,
@@ -835,6 +842,7 @@ def run_protocol_v3(
                 arch=flags,
                 content_mode=content_mode,
                 merge_mode=merge_mode,
+                annotation_mode=annotation_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
                 residue_surface_mode=residue_surface_mode,
@@ -848,6 +856,7 @@ def run_protocol_v3(
                 arch=flags,
                 content_mode=content_mode,
                 merge_mode=merge_mode,
+                annotation_mode=annotation_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
                 residue_surface_mode=residue_surface_mode,
@@ -941,7 +950,8 @@ def run_protocol_v3(
                 flags,
                 content_mode=content_mode,
                 merge_mode=merge_mode,
-                plm_source=plm_source,
+                annotation_mode=annotation_mode,
+        plm_source=plm_source,
                 chain_mode=chain_mode,
                 residue_surface_mode=residue_surface_mode,
                 residue_surface_dim=residue_surface_dim,
@@ -975,6 +985,7 @@ def run_protocol_v3(
                     arch=flags,
                     content_mode=content_mode,
                     merge_mode=merge_mode,
+                    annotation_mode=annotation_mode,
                     plm_source=plm_source,
                     chain_mode=chain_mode,
                     residue_surface_mode=residue_surface_mode,
@@ -1025,6 +1036,7 @@ def run_protocol_v3(
                 arch=flags,
                 content_mode=content_mode,
                 merge_mode=merge_mode,
+                annotation_mode=annotation_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
                 residue_surface_mode=residue_surface_mode,
@@ -1039,6 +1051,7 @@ def run_protocol_v3(
                 arch=flags,
                 content_mode=content_mode,
                 merge_mode=merge_mode,
+                annotation_mode=annotation_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
                 residue_surface_mode=residue_surface_mode,
@@ -1052,6 +1065,7 @@ def run_protocol_v3(
                 arch=flags,
                 content_mode=content_mode,
                 merge_mode=merge_mode,
+                annotation_mode=annotation_mode,
                 plm_source=plm_source,
                 chain_mode=chain_mode,
                 residue_surface_mode=residue_surface_mode,
@@ -1072,7 +1086,8 @@ def run_protocol_v3(
                     flags,
                     content_mode=content_mode,
                     merge_mode=merge_mode,
-                    plm_source=plm_source,
+                    annotation_mode=annotation_mode,
+        plm_source=plm_source,
                     chain_mode=chain_mode,
                     residue_surface_mode=residue_surface_mode,
                     residue_surface_dim=residue_surface_dim,
@@ -1098,7 +1113,8 @@ def run_protocol_v3(
                     flags,
                     content_mode=content_mode,
                     merge_mode=merge_mode,
-                    plm_source=plm_source,
+                    annotation_mode=annotation_mode,
+        plm_source=plm_source,
                     chain_mode=chain_mode,
                     residue_surface_mode=residue_surface_mode,
                     residue_surface_dim=residue_surface_dim,
@@ -1182,6 +1198,7 @@ def run_protocol_v3(
         flags,
         content_mode=content_mode,
         merge_mode=merge_mode,
+        annotation_mode=annotation_mode,
         plm_source=plm_source,
         chain_mode=chain_mode,
         residue_surface_mode=residue_surface_mode,

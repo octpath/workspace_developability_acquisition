@@ -48,7 +48,7 @@ class AnnotatedTransformer(nn.Module):
         max_seq_pos: int = 160,
         n_imgt: int = 64,
         n_region: int = len(REGION_TO_IDX),
-        annotation_mode: str = "full",  # minimal | full
+        annotation_mode: str = "full",  # minimal|base|imgt|region|full
         merge_mode: str = "concat",  # concat | mean | h_only
         chain_mode: str = "HL",  # HL | H_ONLY
         pooling_mode: str = "reg",  # reg | region_gate
@@ -184,7 +184,7 @@ class AnnotatedTransformer(nn.Module):
                 raise ValueError("share_hl_encoder=False incompatible with CA distance bias")
         self.share_hl_encoder = share_hl_encoder
         self.content_mode = content_mode
-        self.annotation_mode = annotation_mode
+        self.annotation_mode = str(annotation_mode).lower()
         self.merge_mode = merge_mode
         self.chain_mode = chain_mode
         self.pooling_mode = pooling_mode
@@ -234,8 +234,28 @@ class AnnotatedTransformer(nn.Module):
 
         self.pos_emb = nn.Embedding(max_seq_pos + 1, d_model, padding_idx=0)
         self.chain_emb = nn.Embedding(2, d_model)  # H=0, L=1
-        self.use_imgt = annotation_mode == "full"
-        self.use_region = annotation_mode == "full"
+        # Annotation modes (position + chain always on):
+        #   minimal|base -> IMGT off, region off
+        #   imgt         -> IMGT on,  region off
+        #   region       -> IMGT off, region on
+        #   full         -> IMGT on,  region on (historical)
+        if self.annotation_mode in ("minimal", "base"):
+            self.use_imgt = False
+            self.use_region = False
+        elif self.annotation_mode == "imgt":
+            self.use_imgt = True
+            self.use_region = False
+        elif self.annotation_mode == "region":
+            self.use_imgt = False
+            self.use_region = True
+        elif self.annotation_mode == "full":
+            self.use_imgt = True
+            self.use_region = True
+        else:
+            raise ValueError(
+                "annotation_mode must be one of minimal|base|imgt|region|full, "
+                f"got {annotation_mode!r}"
+            )
         if self.use_imgt:
             self.imgt_emb = nn.Embedding(n_imgt, d_model, padding_idx=0)
         if self.use_region:

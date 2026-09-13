@@ -103,6 +103,36 @@ currab:
   license_status: REVIEW_MODEL_OUTPUT
   metadata: top_models_feature_bundle/residue_level/currab/metadata.json
 
+ablang2_unpaired:
+  path: top_models_feature_bundle/residue_level/ablang2_unpaired/
+  hidden_dim: 480
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  model: ablang2-paired (joint <H>|<L> inference)
+  representation_context: PAIRED_NATIVE
+  matched_to: ablang2_paired
+  mapping: EXACT_AA_1TO1_SPECIAL_STRIPPED
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/ablang2_unpaired/metadata.json
+  audit_note: "factorial allocation name; JOINT paired complementary to historical SEPARATE ablang2 pack"
+
+currab_unpaired:
+  path: top_models_feature_bundle/residue_level/currab_unpaired/
+  hidden_dim: 1280
+  max_len_H: 140
+  max_len_L: 120
+  chains: [H, L]
+  model: brineylab/CurrAb
+  revision: 92e28534663e163f1b398f773b3fe041085737d9
+  representation_context: SEPARATE_CHAIN
+  matched_to: currab_paired
+  mapping: EXACT_AA_1TO1_CLS_STRIPPED
+  parts: [heavy_embeddings.npy.part0, heavy_embeddings.npy.part1, light_embeddings.npy.part0, light_embeddings.npy.part1]
+  license_status: REVIEW_MODEL_OUTPUT
+  metadata: top_models_feature_bundle/residue_level/currab_unpaired/metadata.json
+
 scratch_sequences:
   source: competition antibody sequences in data/dev.csv and data/test.csv
   license_note: competition-derived amino-acid sequences
