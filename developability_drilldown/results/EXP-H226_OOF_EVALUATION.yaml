@@ -1,0 +1,175 @@
+experiment_code: EXP-H226
+target: HIC
+representation: ablang2_unpaired
+topology: JOINT
+annotation: REGION
+quick: false
+technical_smoke: false
+share_hl_encoder: true
+oof_test:
+  primary: 0.5309602096934377
+  shadow: 0.4987537739129714
+  mean: 0.5148569918032045
+  worst: 0.5309602096934377
+oof_val:
+  primary: 0.460665120065948
+  shadow: 0.47442455856888394
+  mean: 0.467544839317416
+  worst: 0.47442455856888394
+n_trainable: null
+param_account:
+  encoder: 264960
+  encoder_h: 264960
+  encoder_l: 0
+  cross_attention: 0
+  gates: 0
+  geometry: 0
+  cross_interaction: 0
+  head: 16641
+  other: 81536
+  total: 363137
+  share_hl_encoder: 1
+selected:
+- scheme: primary
+  fold: 0
+  selected_initial_lr: 0.01
+  eta_min: 0.0001
+  best_epoch: 8
+  best_optimizer_step: 56
+  lr_at_best_epoch: 0.00997010672950314
+  best_val_mae: 0.518960045554421
+  final_epoch: 38
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/primary_k0_lr1e-02_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: primary
+  fold: 1
+  selected_initial_lr: 0.0001
+  eta_min: 1.0000000000000002e-06
+  best_epoch: 84
+  best_optimizer_step: 504
+  lr_at_best_epoch: 6.356171597328596e-05
+  best_val_mae: 0.4894995877815014
+  final_epoch: 114
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/primary_k1_lr1e-04_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: primary
+  fold: 2
+  selected_initial_lr: 0.001
+  eta_min: 1.0e-05
+  best_epoch: 58
+  best_optimizer_step: 406
+  lr_at_best_epoch: 0.0008144951148861742
+  best_val_mae: 0.4089326248168944
+  final_epoch: 88
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/primary_k2_lr1e-03_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: primary
+  fold: 3
+  selected_initial_lr: 0.0001
+  eta_min: 1.0000000000000002e-06
+  best_epoch: 88
+  best_optimizer_step: 616
+  lr_at_best_epoch: 6.053797112014738e-05
+  best_val_mae: 0.48590697097778324
+  final_epoch: 118
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/primary_k3_lr1e-04_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: primary
+  fold: 4
+  selected_initial_lr: 0.001
+  eta_min: 1.0e-05
+  best_epoch: 34
+  best_optimizer_step: 238
+  lr_at_best_epoch: 0.0009349725996469047
+  best_val_mae: 0.39730357766151436
+  final_epoch: 64
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/primary_k4_lr1e-03_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: shadow
+  fold: 0
+  selected_initial_lr: 0.001
+  eta_min: 1.0e-05
+  best_epoch: 70
+  best_optimizer_step: 490
+  lr_at_best_epoch: 0.0007366252580589839
+  best_val_mae: 0.4798219565189245
+  final_epoch: 100
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/shadow_k0_lr1e-03_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: shadow
+  fold: 1
+  selected_initial_lr: 0.0001
+  eta_min: 1.0000000000000002e-06
+  best_epoch: 27
+  best_optimizer_step: 189
+  lr_at_best_epoch: 9.592885397135707e-05
+  best_val_mae: 0.5180961966514588
+  final_epoch: 57
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/shadow_k1_lr1e-04_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: shadow
+  fold: 2
+  selected_initial_lr: 0.001
+  eta_min: 1.0e-05
+  best_epoch: 9
+  best_optimizer_step: 63
+  lr_at_best_epoch: 0.0009960967771506667
+  best_val_mae: 0.5134842767715455
+  final_epoch: 39
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/shadow_k2_lr1e-03_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: shadow
+  fold: 3
+  selected_initial_lr: 0.001
+  eta_min: 1.0e-05
+  best_epoch: 42
+  best_optimizer_step: 294
+  lr_at_best_epoch: 0.0009008439059511099
+  best_val_mae: 0.46848704898718635
+  final_epoch: 72
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/shadow_k3_lr1e-03_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+- scheme: shadow
+  fold: 4
+  selected_initial_lr: 0.001
+  eta_min: 1.0e-05
+  best_epoch: 52
+  best_optimizer_step: 364
+  lr_at_best_epoch: 0.0008494768343131955
+  best_val_mae: 0.39225019240379333
+  final_epoch: 82
+  stopped_early: true
+  numerical_failure: false
+  checkpoint: /workspace_developability_acquisition/developability_drilldown/results/EXP-H226_run/checkpoints/shadow_k4_lr1e-03_seed101.pt
+  init_hash: 02690a0b71d4477f
+  seed: 101
+prediction_variance_oof_primary: 0.1314862853115912
+public_private_inspected: false
+code_sha: e4271b245493b03e93160270127fbc4168646a42

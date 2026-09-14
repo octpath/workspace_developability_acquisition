@@ -23,3 +23,7 @@ results/h140_h339_technical_smoke/smoke_console.log
 results/h140_h339_technical_smoke/**/checkpoints/
 results/h140_h339_technical_smoke/**/*.pt
 results/h140_h339_technical_smoke/**/*.pth
+
+# HIC factorial training run dirs (predictions+OOF are canonical)
+results/EXP-H*_run/
+results/h140_h339_logs/

@@ -23,6 +23,7 @@ from _lib import (  # noqa: E402
     N_EXPERIMENTS_TOTAL,
     N_TRANSFORMER_FULL,
     N_HIC_FACTORIAL_PREREG,
+    N_HIC_FACTORIAL_PARTIAL,
     N_FULL_LINEAR_XGB,
     N_HISTORICAL_TRANSFORMER,
     N_LEGACY_MAP,
@@ -322,10 +323,18 @@ def main() -> int:
     else:
         ok(f"TRANSFORMER FULL={N_TRANSFORMER_FULL}")
     tr_partial = df[(df["family"] == "TRANSFORMER") & (df["artifact_status"] == "PARTIAL")]
-    if len(tr_partial) != N_HIC_FACTORIAL_PREREG:
-        fail(f"TRANSFORMER PARTIAL prereg count {len(tr_partial)}")
+    if len(tr_partial) != N_HIC_FACTORIAL_PARTIAL:
+        fail(f"TRANSFORMER PARTIAL count {len(tr_partial)} expected {N_HIC_FACTORIAL_PARTIAL}")
     else:
-        ok(f"TRANSFORMER PARTIAL prereg={N_HIC_FACTORIAL_PREREG}")
+        ok(f"TRANSFORMER PARTIAL={N_HIC_FACTORIAL_PARTIAL}")
+    hic_fac = df[df["experiment_code"].astype(str).str.match(r"^EXP-H(1[4-9]\d|2\d\d|3[0-2]\d|33[0-9])$")]
+    if len(hic_fac) != N_HIC_FACTORIAL_PREREG:
+        fail(f"H140–H339 registry rows {len(hic_fac)}")
+    elif (hic_fac["artifact_status"] != "FULL").any():
+        fail("H140–H339 not all FULL")
+    else:
+        ok("H140–H339 FULL=200")
+    # legacy PARTIAL loop retained only if any PARTIAL remain
     for _, r in tr_partial.iterrows():
         code = str(r["experiment_code"])
         n = int(code.split("-H")[1])
@@ -334,12 +343,8 @@ def main() -> int:
         cfg = ROOT / "experiments" / "configs" / f"{code}.yaml"
         if not cfg.exists():
             fail(f"prereg missing config {code}")
-        if str(r.get("reproduction_status")) != "PREREGISTERED":
-            fail(f"{code} expected PREREGISTERED")
-        if str(r.get("canonical_benchmark_eligible")) != "NO":
-            fail(f"{code} prereg must not be canonical yet")
     else:
-        ok("H140–H339 PARTIAL prereg configs present")
+        ok("PARTIAL transformer contract OK")
 
     recipe_hashes: dict[str, set[str]] = {}
     for _, r in lin_xgb_full.iterrows():

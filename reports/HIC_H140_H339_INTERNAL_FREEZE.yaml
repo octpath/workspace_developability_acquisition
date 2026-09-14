@@ -1,0 +1,29 @@
+status: INTERNAL_FROZEN
+public_private_consulted: false
+n_complete: 200
+n_failed: 0
+n_blocked: 0
+prereg_sha: 4e175ab4f98864ba7f7c6496f832e06ea9730519
+evaluation_freeze_sha: 379e0751a93c2af8f6fbfeedaad4d72f3556996b
+smoke_freeze_sha: 51db0e0cf38487c4de452a6345880a3c125c0fad
+execution_patches:
+- cc305d4b4e06209fb15281e3ae6431c2664a1318
+- c5000a0a6f3b085ed5db727b5fa803e28b93e853
+- d15edb8925fa8b4e07d8bd2dabcfb7ba7e91e9bf
+- e4271b245493b03e93160270127fbc4168646a42
+hashes:
+  manifest: b0790d0609da3beaa22c7aaa63be10835ce0833247575c5ee039467d64e5b6c3
+  results: 9499c17672c89e5515412cf525bb975d0fe170fe40ec706700d95f10e15e4a04
+  report: ef227e4fa949fd241ca3b1d882f9b786bbf7bae64a311cefd2c8f19b9d484d59
+  bootstrap: 12664f72cea4c86f2e98a47ff5b5ea2782f89c2f0becdac5622610689dd2e445
+  status: 2553bc42fdd30fe3d9352111a13070effba28cd7867f31065cabce3993fd1926
+best_cell_descriptive:
+  experiment_code: EXP-H266
+  representation: esm2
+  topology: JOINT
+  annotation: REGION
+  TEST_mean: 0.4945231558481852
+major_patterns:
+  best_rep_by_mean: ablingua
+  best_topo_by_mean: JOINT
+  best_annot_by_mean: FULL

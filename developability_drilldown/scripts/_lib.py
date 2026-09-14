@@ -325,13 +325,14 @@ LEGACY_CODE_RE = re.compile(r"^EXP[0-9]{3,}$")
 N_EXPERIMENTS_TOTAL = 676  # 476 prior + 200 H140–H339 factorial
 N_LEGACY_MAP = 48  # Linear/XGB only; Transformer + classical-refinement rows have empty legacy
 N_FULL_LINEAR_XGB = 88  # 86 prior + 2 SOURCE_SAP24 XGB
-N_TRANSFORMER = 586  # 386 prior FULL + 200 H140–H339 PARTIAL prereg
-N_TRANSFORMER_FULL = 386  # trained/shareable FULL transformers only
+N_TRANSFORMER = 586  # 386 prior FULL + 200 H140–H339 factorial
+N_TRANSFORMER_FULL = 586  # all transformers FULL after H140–H339 completion
 N_HISTORICAL_TRANSFORMER = 29  # Phase2A backfill only (TRANSFORMER_BACKFILL_AUDIT)
 N_CLASSICAL_REFINEMENT = 40
 N_LINEAR = 74
 N_XGBOOST = 16  # 14 prior + 2 SOURCE_SAP24 XGB
-N_HIC_FACTORIAL_PREREG = 200  # EXP-H140..EXP-H339
+N_HIC_FACTORIAL_PREREG = 200  # EXP-H140..EXP-H339 (now trained FULL)
+N_HIC_FACTORIAL_PARTIAL = 0  # none remain PARTIAL after full execution
 PRESERVATION_SNAPSHOT_77 = ROOT / "results" / "_preservation_snapshot_77_classical.csv"
 
 
