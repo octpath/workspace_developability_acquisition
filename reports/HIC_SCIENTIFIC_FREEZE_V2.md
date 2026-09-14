@@ -27,7 +27,6 @@ It does **not** rewrite or edit:
 |-------|--------|
 | Freeze v2 parent HEAD | `4a2568b454e0b039a5566576b50768e7c0595938` |
 | Freeze v2 content commit | `08f8993bb2b617bf95e94cbef8d5461644e9ab24` |
-| Freeze v2 tip | `bb7c19fe5adcbfe6799cfca13b97e9fb45480c72` |
 | Internal scientific freeze | `559980e37576eaffaeba9603cee591544e52d991` |
 | External diagnosis | `4a2568b454e0b039a5566576b50768e7c0595938` |
 | Evaluation freeze | `379e0751a93c2af8f6fbfeedaad4d72f3556996b` |
