@@ -6,7 +6,7 @@
 |-------|--------|
 | Freeze v3 SHA | `1bfdf9107f55d14c58117aaa7f64e255dc387ed9` |
 | Decomposition prereg SHA | `40f8ac0a7cf9caff59cbae913f99638d8cc93c4b` |
-| Analysis code SHA | `4c47a6902a5b73ab7cc61781a90d8b5d59f7ee32` |
+| Analysis code SHA | `ebf2fda9615c12f037914bc5b605a6ec6ba2eabc` |
 | Mechanistic classification | `ARO_HYDRO_COMPLEMENTARY` |
 
 ## 1–3. Provenance & experiment codes
