@@ -1,0 +1,23 @@
+experiment_code: EXP-H343
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: 67517338a1d2b12e2f45230a0d5a9d90d30ce84674d7213fa9bee435555433f7
+fusion_bundle_id: REAL_F1_SURFACE35
+surface_arm: REAL_F1_SURFACE35
+parent: EXP-H167
+prereg_sha: 993b8a9e268f65ed8d203949c34cbe3ef87446e6
+oof_val:
+  primary: 0.4046322293693637
+  shadow: 0.3990205367759422
+  mean: 0.40182638307265295
+  worst: 0.4046322293693637
+oof_test:
+  primary: 0.47927375840552056
+  shadow: 0.4697127017268428
+  mean: 0.4744932300661817
+  worst: 0.47927375840552056
+external_scored: false
+external: null
+n_trainable: 510370
+quick: false
+embargo: NO_PUBLIC_PRIVATE_TEST_SCORING
+code_sha: 1cc984df144f851f41ef50c8dd03adcba06d4c55

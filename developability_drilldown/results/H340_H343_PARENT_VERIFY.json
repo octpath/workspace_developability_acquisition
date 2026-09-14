@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "details": [
+    {
+      "parent": "EXP-H187",
+      "representation": "ablang1",
+      "checks": {
+        "representation": true,
+        "topology_id_JOINT": true,
+        "topology_B1": true,
+        "annotation_full": true,
+        "dual_reg": true,
+        "share_hl": true,
+        "pooling_REG": true,
+        "merge_mean": true,
+        "seed_101": true,
+        "frozen": true,
+        "context_SEPARATE": true,
+        "surface_off": true
+      },
+      "ok": true
+    },
+    {
+      "parent": "EXP-H167",
+      "representation": "ablingua",
+      "checks": {
+        "representation": true,
+        "topology_id_JOINT": true,
+        "topology_B1": true,
+        "annotation_full": true,
+        "dual_reg": true,
+        "share_hl": true,
+        "pooling_REG": true,
+        "merge_mean": true,
+        "seed_101": true,
+        "frozen": true,
+        "context_SEPARATE": true,
+        "surface_off": true
+      },
+      "ok": true
+    }
+  ]
+}

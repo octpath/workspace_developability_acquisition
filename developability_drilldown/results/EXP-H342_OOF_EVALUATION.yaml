@@ -1,0 +1,23 @@
+experiment_code: EXP-H342
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: 87641fc80f8e0f9a34faed516a866efa37276ae5d183a34991bb3610e63f0abc
+fusion_bundle_id: SHAM35
+surface_arm: SHAM35
+parent: EXP-H167
+prereg_sha: 993b8a9e268f65ed8d203949c34cbe3ef87446e6
+oof_val:
+  primary: 0.45697755879531676
+  shadow: 0.4309667098904834
+  mean: 0.44397213434290006
+  worst: 0.45697755879531676
+oof_test:
+  primary: 0.49513655302259657
+  shadow: 0.5327797420642995
+  mean: 0.513958147543448
+  worst: 0.5327797420642995
+external_scored: false
+external: null
+n_trainable: 510370
+quick: false
+embargo: NO_PUBLIC_PRIVATE_TEST_SCORING
+code_sha: 1cc984df144f851f41ef50c8dd03adcba06d4c55

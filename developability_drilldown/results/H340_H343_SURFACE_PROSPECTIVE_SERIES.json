@@ -1,0 +1,46 @@
+[
+  {
+    "key": "ablang1_sham",
+    "parent": "EXP-H187",
+    "representation": "ablang1",
+    "plm_source": "ablang1",
+    "arm": "SHAM35",
+    "fusion_bundle_id": "SHAM35",
+    "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_SHAM35_V3",
+    "description": "Prospective AbLang1 JOINT FULL + SHAM35",
+    "experiment_code": "EXP-H340"
+  },
+  {
+    "key": "ablang1_real",
+    "parent": "EXP-H187",
+    "representation": "ablang1",
+    "plm_source": "ablang1",
+    "arm": "REAL_F1_SURFACE35",
+    "fusion_bundle_id": "REAL_F1_SURFACE35",
+    "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_REAL_F1_SURFACE35_V3",
+    "description": "Prospective AbLang1 JOINT FULL + REAL F1_SURFACE35",
+    "experiment_code": "EXP-H341"
+  },
+  {
+    "key": "ablingua_sham",
+    "parent": "EXP-H167",
+    "representation": "ablingua",
+    "plm_source": "ablingua",
+    "arm": "SHAM35",
+    "fusion_bundle_id": "SHAM35",
+    "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_SHAM35_V3",
+    "description": "Prospective AbLingua JOINT FULL + SHAM35",
+    "experiment_code": "EXP-H342"
+  },
+  {
+    "key": "ablingua_real",
+    "parent": "EXP-H167",
+    "representation": "ablingua",
+    "plm_source": "ablingua",
+    "arm": "REAL_F1_SURFACE35",
+    "fusion_bundle_id": "REAL_F1_SURFACE35",
+    "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_REAL_F1_SURFACE35_V3",
+    "description": "Prospective AbLingua JOINT FULL + REAL F1_SURFACE35",
+    "experiment_code": "EXP-H343"
+  }
+]

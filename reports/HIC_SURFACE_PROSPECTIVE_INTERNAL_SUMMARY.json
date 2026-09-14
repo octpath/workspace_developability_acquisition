@@ -1,0 +1,64 @@
+{
+  "verdict": "INTERNAL_SURFACE_REPLICATION_DIRECTIONAL",
+  "mean_deltas": {
+    "ablang1": -0.03456779447013958,
+    "ablingua": -0.039464917477266326
+  },
+  "scheme_improve_count": 4,
+  "agg_primary": {
+    "n": 162,
+    "mean": -0.0319479391074475,
+    "ci95_lo": -0.08135542423577959,
+    "ci95_hi": 0.0188200876795216
+  },
+  "series": [
+    {
+      "key": "ablang1_sham",
+      "parent": "EXP-H187",
+      "representation": "ablang1",
+      "plm_source": "ablang1",
+      "arm": "SHAM35",
+      "fusion_bundle_id": "SHAM35",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_SHAM35_V3",
+      "description": "Prospective AbLang1 JOINT FULL + SHAM35",
+      "experiment_code": "EXP-H340"
+    },
+    {
+      "key": "ablang1_real",
+      "parent": "EXP-H187",
+      "representation": "ablang1",
+      "plm_source": "ablang1",
+      "arm": "REAL_F1_SURFACE35",
+      "fusion_bundle_id": "REAL_F1_SURFACE35",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_REAL_F1_SURFACE35_V3",
+      "description": "Prospective AbLang1 JOINT FULL + REAL F1_SURFACE35",
+      "experiment_code": "EXP-H341"
+    },
+    {
+      "key": "ablingua_sham",
+      "parent": "EXP-H167",
+      "representation": "ablingua",
+      "plm_source": "ablingua",
+      "arm": "SHAM35",
+      "fusion_bundle_id": "SHAM35",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_SHAM35_V3",
+      "description": "Prospective AbLingua JOINT FULL + SHAM35",
+      "experiment_code": "EXP-H342"
+    },
+    {
+      "key": "ablingua_real",
+      "parent": "EXP-H167",
+      "representation": "ablingua",
+      "plm_source": "ablingua",
+      "arm": "REAL_F1_SURFACE35",
+      "fusion_bundle_id": "REAL_F1_SURFACE35",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_REAL_F1_SURFACE35_V3",
+      "description": "Prospective AbLingua JOINT FULL + REAL F1_SURFACE35",
+      "experiment_code": "EXP-H343"
+    }
+  ],
+  "prereg_sha": "993b8a9e268f65ed8d203949c34cbe3ef87446e6",
+  "public_private_consulted": false,
+  "test_predictions_generated": true,
+  "test_scored": false
+}
