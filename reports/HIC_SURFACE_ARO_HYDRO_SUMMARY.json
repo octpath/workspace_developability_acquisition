@@ -1,0 +1,64 @@
+{
+  "classification": "ARO_HYDRO_COMPLEMENTARY",
+  "rationale": "aro_vs_sham_improve=True mean_primary=+0.0019; hydro_vs_sham_improve=True mean_primary=-0.0133; full_vs_sham_improve=True mean_primary=-0.0319; aro_incremental_on_hydro=True mean_primary=-0.0187; hydro_incremental_on_aro=True mean_primary=-0.0339",
+  "aromatic_hypothesis_status": "PARTIAL \u2014 aromatics informative but not sole; HYDRO also contributes. Avoid aromatics-only causal story. ARO19 win is not claimed.",
+  "next_experiment": "Because complementary (not ARO-dominant): modest paired ARO/HYDRO family probes or HIGH-tail localization; no 35-way search.",
+  "prereg_sha": "40f8ac0a7cf9caff59cbae913f99638d8cc93c4b",
+  "freeze_v3_sha": "1bfdf9107f55d14c58117aaa7f64e255dc387ed9",
+  "arms": {
+    "ablang1": {
+      "SHAM35": "EXP-H340",
+      "ARO_ONLY35": "EXP-H344",
+      "HYDRO_ONLY35": "EXP-H345",
+      "FULL35": "EXP-H341"
+    },
+    "ablingua": {
+      "SHAM35": "EXP-H342",
+      "ARO_ONLY35": "EXP-H346",
+      "HYDRO_ONLY35": "EXP-H347",
+      "FULL35": "EXP-H343"
+    }
+  },
+  "series": [
+    {
+      "key": "ablang1_aro",
+      "parent": "EXP-H187",
+      "representation": "ablang1",
+      "arm": "ARO_ONLY35",
+      "fusion_bundle_id": "ARO_ONLY35",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_ARO_ONLY35_V3",
+      "description": "ARO/HYDRO decomp AbLang1 JOINT FULL + ARO_ONLY35",
+      "experiment_code": "EXP-H344"
+    },
+    {
+      "key": "ablang1_hydro",
+      "parent": "EXP-H187",
+      "representation": "ablang1",
+      "arm": "HYDRO_ONLY35",
+      "fusion_bundle_id": "HYDRO_ONLY35",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_HYDRO_ONLY35_V3",
+      "description": "ARO/HYDRO decomp AbLang1 JOINT FULL + HYDRO_ONLY35",
+      "experiment_code": "EXP-H345"
+    },
+    {
+      "key": "ablingua_aro",
+      "parent": "EXP-H167",
+      "representation": "ablingua",
+      "arm": "ARO_ONLY35",
+      "fusion_bundle_id": "ARO_ONLY35",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_ARO_ONLY35_V3",
+      "description": "ARO/HYDRO decomp AbLingua JOINT FULL + ARO_ONLY35",
+      "experiment_code": "EXP-H346"
+    },
+    {
+      "key": "ablingua_hydro",
+      "parent": "EXP-H167",
+      "representation": "ablingua",
+      "arm": "HYDRO_ONLY35",
+      "fusion_bundle_id": "HYDRO_ONLY35",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_HYDRO_ONLY35_V3",
+      "description": "ARO/HYDRO decomp AbLingua JOINT FULL + HYDRO_ONLY35",
+      "experiment_code": "EXP-H347"
+    }
+  ]
+}

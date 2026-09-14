@@ -27,9 +27,59 @@ ROOT = Path(__file__).resolve().parents[2]
 
 BUNDLE_SHAM = "SHAM35"
 BUNDLE_REAL = "REAL_F1_SURFACE35"
+BUNDLE_ARO_ONLY = "ARO_ONLY35"
+BUNDLE_HYDRO_ONLY = "HYDRO_ONLY35"
 ARO_DIM = 19
 HYDRO_DIM = 16
 TOTAL_DIM = ARO_DIM + HYDRO_DIM  # 35
+
+
+def _fit_two_block(store, train_ids: list[str], *, expect_zero_blocks: set[str] | None = None) -> FoldPreprocessor:
+    Xb = store._slice_blocks(train_ids)
+    medians: dict[str, np.ndarray] = {}
+    scalers: dict[str, StandardScaler] = {}
+    for name in store.block_order:
+        X = Xb[name]
+        med = _impute_fit(X)
+        medians[name] = med
+        Xi = _impute_apply(X, med)
+        sc = StandardScaler()
+        sc.fit(Xi)
+        if not np.all(np.isfinite(sc.scale_)) or not np.all(sc.scale_ > 0):
+            raise RuntimeError(f"{store.bundle_id} StandardScaler unsafe for block {name}: scale_={sc.scale_}")
+        scalers[name] = sc
+    prep = FoldPreprocessor(
+        medians=medians,
+        scalers=scalers,
+        pca=None,
+        block_order=list(store.block_order),
+        effective_dim=store.effective_dim,
+        train_ids=list(train_ids),
+        hash="",
+    )
+    prep.hash = _sha(
+        {
+            "bundle": store.bundle_id,
+            "train_ids": train_ids,
+            "artifact_hash": store.artifact_hash,
+        }
+    )
+    Xt = prep.transform(store._slice_blocks(train_ids))
+    if Xt.shape != (len(train_ids), TOTAL_DIM):
+        raise RuntimeError(f"{store.bundle_id} transform shape {Xt.shape}")
+    if expect_zero_blocks:
+        # After scaling zeros remain zeros; real blocks should not be all-zero
+        aro = Xt[:, :ARO_DIM]
+        hydro = Xt[:, ARO_DIM:]
+        if "AROMATIC_TOPO" in expect_zero_blocks and not np.allclose(aro, 0.0):
+            raise RuntimeError(f"{store.bundle_id}: ARO slots expected zero after scale")
+        if "HYDRO_FIELD" in expect_zero_blocks and not np.allclose(hydro, 0.0):
+            raise RuntimeError(f"{store.bundle_id}: HYDRO slots expected zero after scale")
+        if "AROMATIC_TOPO" not in expect_zero_blocks and np.allclose(aro, 0.0):
+            raise RuntimeError(f"{store.bundle_id}: ARO slots unexpectedly all zero")
+        if "HYDRO_FIELD" not in expect_zero_blocks and np.allclose(hydro, 0.0):
+            raise RuntimeError(f"{store.bundle_id}: HYDRO slots unexpectedly all zero")
+    return prep
 
 
 class Sham35AuxFeatureStore:
@@ -38,7 +88,6 @@ class Sham35AuxFeatureStore:
     def __init__(self, ids: Optional[list[str]] = None):
         self.bundle_id = BUNDLE_SHAM
         if ids is None:
-            # Align id universe with H047 / F1 coverage (324 antibodies)
             df = pd.read_parquet(H047_PARQUET)
             ids = df["id"].astype(str).tolist()
         self.ids = list(ids)
@@ -69,42 +118,7 @@ class Sham35AuxFeatureStore:
         return {k: self.blocks_raw[k][idx] for k in self.block_order}
 
     def fit(self, train_ids: list[str]) -> FoldPreprocessor:
-        Xb = self._slice_blocks(train_ids)
-        medians: dict[str, np.ndarray] = {}
-        scalers: dict[str, StandardScaler] = {}
-        for name in self.block_order:
-            X = Xb[name]
-            med = _impute_fit(X)
-            medians[name] = med
-            Xi = _impute_apply(X, med)
-            sc = StandardScaler()
-            sc.fit(Xi)
-            # Constant features: sklearn sets scale_=1.0; assert finite
-            if not np.all(np.isfinite(sc.scale_)) or not np.all(sc.scale_ > 0):
-                raise RuntimeError(f"SHAM35 StandardScaler unsafe for block {name}: scale_={sc.scale_}")
-            scalers[name] = sc
-        prep = FoldPreprocessor(
-            medians=medians,
-            scalers=scalers,
-            pca=None,
-            block_order=list(self.block_order),
-            effective_dim=self.effective_dim,
-            train_ids=list(train_ids),
-            hash="",
-        )
-        prep.hash = _sha(
-            {
-                "bundle": self.bundle_id,
-                "train_ids": train_ids,
-                "artifact_hash": self.artifact_hash,
-            }
-        )
-        # smoke transform
-        Xt = prep.transform(self._slice_blocks(train_ids))
-        if Xt.shape != (len(train_ids), TOTAL_DIM):
-            raise RuntimeError(f"SHAM35 transform shape {Xt.shape}")
-        if not np.allclose(Xt, 0.0):
-            raise RuntimeError("SHAM35 expected zeros after scale of zeros")
+        prep = _fit_two_block(self, train_ids, expect_zero_blocks={"AROMATIC_TOPO", "HYDRO_FIELD"})
         return prep
 
     def transform(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
@@ -136,9 +150,12 @@ class RealF1Surface35AuxFeatureStore:
             }
         )
 
+    def _slice_blocks(self, ids: list[str]) -> dict[str, np.ndarray]:
+        idx = [self.id_to_idx[a] for a in ids]
+        return {k: self.blocks_raw[k][idx] for k in self.block_order}
+
     def fit(self, train_ids: list[str]) -> FoldPreprocessor:
         prep = self._inner.fit(train_ids)
-        # Relabel hash to include outer bundle id
         prep.hash = _sha(
             {
                 "bundle": self.bundle_id,
@@ -158,9 +175,91 @@ class RealF1Surface35AuxFeatureStore:
         return self.transform(prep, ids)
 
 
+class AroOnly35AuxFeatureStore:
+    """[ARO19 | ZERO16] with F1-matched two-block pathway."""
+
+    def __init__(self):
+        self.bundle_id = BUNDLE_ARO_ONLY
+        inner = H047AuxFeatureStore("F1_SURFACE", H047_PARQUET)
+        self.ids = inner.ids
+        self.id_to_idx = inner.id_to_idx
+        n = len(self.ids)
+        self.blocks_raw = {
+            "AROMATIC_TOPO": np.array(inner.blocks_raw["AROMATIC_TOPO"], dtype=np.float64, copy=True),
+            "HYDRO_FIELD": np.zeros((n, HYDRO_DIM), dtype=np.float64),
+        }
+        self.block_order = ["AROMATIC_TOPO", "HYDRO_FIELD"]
+        self.uses_pca = False
+        self.raw_dim = TOTAL_DIM
+        self.effective_dim = TOTAL_DIM
+        self.artifact_hash = _sha(
+            {
+                "bundle": self.bundle_id,
+                "layout": "[ARO19|ZERO16]",
+                "inner_f1_hash": inner.artifact_hash,
+            }
+        )
+
+    def _slice_blocks(self, ids: list[str]) -> dict[str, np.ndarray]:
+        idx = [self.id_to_idx[a] for a in ids]
+        return {k: self.blocks_raw[k][idx] for k in self.block_order}
+
+    def fit(self, train_ids: list[str]) -> FoldPreprocessor:
+        return _fit_two_block(self, train_ids, expect_zero_blocks={"HYDRO_FIELD"})
+
+    def transform(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
+        return prep.transform(self._slice_blocks(ids))
+
+    def matrix_for_ids(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
+        return self.transform(prep, ids)
+
+
+class HydroOnly35AuxFeatureStore:
+    """[ZERO19 | HYDRO16] with F1-matched two-block pathway."""
+
+    def __init__(self):
+        self.bundle_id = BUNDLE_HYDRO_ONLY
+        inner = H047AuxFeatureStore("F1_SURFACE", H047_PARQUET)
+        self.ids = inner.ids
+        self.id_to_idx = inner.id_to_idx
+        n = len(self.ids)
+        self.blocks_raw = {
+            "AROMATIC_TOPO": np.zeros((n, ARO_DIM), dtype=np.float64),
+            "HYDRO_FIELD": np.array(inner.blocks_raw["HYDRO_FIELD"], dtype=np.float64, copy=True),
+        }
+        self.block_order = ["AROMATIC_TOPO", "HYDRO_FIELD"]
+        self.uses_pca = False
+        self.raw_dim = TOTAL_DIM
+        self.effective_dim = TOTAL_DIM
+        self.artifact_hash = _sha(
+            {
+                "bundle": self.bundle_id,
+                "layout": "[ZERO19|HYDRO16]",
+                "inner_f1_hash": inner.artifact_hash,
+            }
+        )
+
+    def _slice_blocks(self, ids: list[str]) -> dict[str, np.ndarray]:
+        idx = [self.id_to_idx[a] for a in ids]
+        return {k: self.blocks_raw[k][idx] for k in self.block_order}
+
+    def fit(self, train_ids: list[str]) -> FoldPreprocessor:
+        return _fit_two_block(self, train_ids, expect_zero_blocks={"AROMATIC_TOPO"})
+
+    def transform(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
+        return prep.transform(self._slice_blocks(ids))
+
+    def matrix_for_ids(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
+        return self.transform(prep, ids)
+
+
 def make_surface_prospective_aux(bundle_id: str):
     if bundle_id == BUNDLE_SHAM:
         return Sham35AuxFeatureStore()
     if bundle_id == BUNDLE_REAL:
         return RealF1Surface35AuxFeatureStore()
+    if bundle_id == BUNDLE_ARO_ONLY:
+        return AroOnly35AuxFeatureStore()
+    if bundle_id == BUNDLE_HYDRO_ONLY:
+        return HydroOnly35AuxFeatureStore()
     raise ValueError(bundle_id)

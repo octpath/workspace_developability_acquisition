@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "details": [
+    {
+      "parent": "EXP-H187",
+      "representation": "ablang1",
+      "checks": {
+        "representation": true,
+        "topology_id_JOINT": true,
+        "topology_B1": true,
+        "annotation_full": true,
+        "dual_reg": true,
+        "share_hl": true,
+        "pooling_REG": true,
+        "merge_mean": true,
+        "seed_101": true,
+        "frozen": true
+      },
+      "ok": true
+    },
+    {
+      "parent": "EXP-H167",
+      "representation": "ablingua",
+      "checks": {
+        "representation": true,
+        "topology_id_JOINT": true,
+        "topology_B1": true,
+        "annotation_full": true,
+        "dual_reg": true,
+        "share_hl": true,
+        "pooling_REG": true,
+        "merge_mean": true,
+        "seed_101": true,
+        "frozen": true
+      },
+      "ok": true
+    }
+  ],
+  "reused": [
+    {
+      "key": "ablang1_SHAM35",
+      "code": "EXP-H340",
+      "ok": true
+    },
+    {
+      "key": "ablang1_FULL35",
+      "code": "EXP-H341",
+      "ok": true
+    },
+    {
+      "key": "ablingua_SHAM35",
+      "code": "EXP-H342",
+      "ok": true
+    },
+    {
+      "key": "ablingua_FULL35",
+      "code": "EXP-H343",
+      "ok": true
+    }
+  ]
+}

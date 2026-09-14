@@ -1,0 +1,22 @@
+experiment_code: EXP-H346
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: d09d13e3a5974826c2dd7e762913750c087f53d71869e3b310a7a9ffdf0e3c07
+fusion_bundle_id: ARO_ONLY35
+surface_arm: ARO_ONLY35
+parent: EXP-H167
+prereg_sha: 40f8ac0a7cf9caff59cbae913f99638d8cc93c4b
+freeze_v3_sha: 1bfdf9107f55d14c58117aaa7f64e255dc387ed9
+oof_val:
+  primary: 0.40929357279082873
+  shadow: 0.39655710366331504
+  mean: 0.4029253382270719
+  worst: 0.40929357279082873
+oof_test:
+  primary: 0.47571155204301996
+  shadow: 0.503078109976686
+  mean: 0.489394831009853
+  worst: 0.503078109976686
+external_scored: false
+n_trainable: 510370
+quick: false
+code_sha: 4c47a6902a5b73ab7cc61781a90d8b5d59f7ee32

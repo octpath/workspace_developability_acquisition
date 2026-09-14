@@ -1,0 +1,22 @@
+experiment_code: EXP-H344
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: 28b12916dfef24f53f71f2f2100a0970c655fbd528b04535df718cd523011247
+fusion_bundle_id: ARO_ONLY35
+surface_arm: ARO_ONLY35
+parent: EXP-H187
+prereg_sha: 40f8ac0a7cf9caff59cbae913f99638d8cc93c4b
+freeze_v3_sha: 1bfdf9107f55d14c58117aaa7f64e255dc387ed9
+oof_val:
+  primary: 0.4624719901379243
+  shadow: 0.44041396882798933
+  mean: 0.4514429794829568
+  worst: 0.4624719901379243
+oof_test:
+  primary: 0.5469314383518549
+  shadow: 0.503261871855936
+  mean: 0.5250966551038954
+  worst: 0.5469314383518549
+external_scored: false
+n_trainable: 444834
+quick: false
+code_sha: 4c47a6902a5b73ab7cc61781a90d8b5d59f7ee32

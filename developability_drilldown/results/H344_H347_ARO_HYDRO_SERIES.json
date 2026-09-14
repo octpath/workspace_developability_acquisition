@@ -1,0 +1,42 @@
+[
+  {
+    "key": "ablang1_aro",
+    "parent": "EXP-H187",
+    "representation": "ablang1",
+    "arm": "ARO_ONLY35",
+    "fusion_bundle_id": "ARO_ONLY35",
+    "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_ARO_ONLY35_V3",
+    "description": "ARO/HYDRO decomp AbLang1 JOINT FULL + ARO_ONLY35",
+    "experiment_code": "EXP-H344"
+  },
+  {
+    "key": "ablang1_hydro",
+    "parent": "EXP-H187",
+    "representation": "ablang1",
+    "arm": "HYDRO_ONLY35",
+    "fusion_bundle_id": "HYDRO_ONLY35",
+    "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_HYDRO_ONLY35_V3",
+    "description": "ARO/HYDRO decomp AbLang1 JOINT FULL + HYDRO_ONLY35",
+    "experiment_code": "EXP-H345"
+  },
+  {
+    "key": "ablingua_aro",
+    "parent": "EXP-H167",
+    "representation": "ablingua",
+    "arm": "ARO_ONLY35",
+    "fusion_bundle_id": "ARO_ONLY35",
+    "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_ARO_ONLY35_V3",
+    "description": "ARO/HYDRO decomp AbLingua JOINT FULL + ARO_ONLY35",
+    "experiment_code": "EXP-H346"
+  },
+  {
+    "key": "ablingua_hydro",
+    "parent": "EXP-H167",
+    "representation": "ablingua",
+    "arm": "HYDRO_ONLY35",
+    "fusion_bundle_id": "HYDRO_ONLY35",
+    "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_HYDRO_ONLY35_V3",
+    "description": "ARO/HYDRO decomp AbLingua JOINT FULL + HYDRO_ONLY35",
+    "experiment_code": "EXP-H347"
+  }
+]

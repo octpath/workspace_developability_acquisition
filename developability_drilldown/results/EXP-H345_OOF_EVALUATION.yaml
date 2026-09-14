@@ -1,0 +1,22 @@
+experiment_code: EXP-H345
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: f481bd22934129360338732ab298194937590ac15bd2fa2be4d92690b350283b
+fusion_bundle_id: HYDRO_ONLY35
+surface_arm: HYDRO_ONLY35
+parent: EXP-H187
+prereg_sha: 40f8ac0a7cf9caff59cbae913f99638d8cc93c4b
+freeze_v3_sha: 1bfdf9107f55d14c58117aaa7f64e255dc387ed9
+oof_val:
+  primary: 0.4554496459960938
+  shadow: 0.4340398479037815
+  mean: 0.4447447469499376
+  worst: 0.4554496459960938
+oof_test:
+  primary: 0.5079083423849977
+  shadow: 0.4903136303748613
+  mean: 0.4991109863799295
+  worst: 0.5079083423849977
+external_scored: false
+n_trainable: 444834
+quick: false
+code_sha: 4c47a6902a5b73ab7cc61781a90d8b5d59f7ee32
