@@ -1,0 +1,31 @@
+{
+  "match_counts": {
+    "STRICT_MATCH": 0,
+    "NEAR_MATCH_WITH_DIFFERENCES": 6,
+    "NOT_VALID_MATCH": 0
+  },
+  "agg_cv_mean": {
+    "n": 6,
+    "mean": -0.007197293493482804,
+    "median": -0.003324544011810704,
+    "improve_count": 4
+  },
+  "agg_test": {
+    "n": 6,
+    "mean": -0.04124153536729854,
+    "median": -0.04064120499881699,
+    "improve_count": 6
+  },
+  "test_improve": 6,
+  "pub_priv_both": 6,
+  "primary_shadow_both": 2,
+  "evidence": "PARTIAL_MATCHED_SUPPORT",
+  "decision": "PROSPECTIVE_SURFACE_REPLICATION_RECOMMENDED",
+  "decision_code": "C2",
+  "high": {
+    "mean_delta_mae_high": -0.5168168507530578,
+    "mean_delta_mae_nonhigh": -0.019763940478909392,
+    "mean_delta_signed_high": 0.5543558166140604,
+    "n_high": 7
+  }
+}
