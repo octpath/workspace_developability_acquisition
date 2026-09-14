@@ -26,7 +26,7 @@ It does **not** rewrite or edit:
 | Field | Value |
 |-------|--------|
 | Freeze v2 parent HEAD | `4a2568b454e0b039a5566576b50768e7c0595938` |
-| Freeze v2 introducing commit | *(this commit on main)* |
+| Freeze v2 introducing commit |  |
 | Internal scientific freeze | `559980e37576eaffaeba9603cee591544e52d991` |
 | External diagnosis | `4a2568b454e0b039a5566576b50768e7c0595938` |
 | Evaluation freeze | `379e0751a93c2af8f6fbfeedaad4d72f3556996b` |
