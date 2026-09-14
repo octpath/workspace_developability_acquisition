@@ -1,0 +1,28 @@
+{
+  "scientific_doc": "/workspace_developability_acquisition/reports/HIC_FACTORIAL_SCIENTIFIC_CONCLUSION_FREEZE.md",
+  "contrasts": "/workspace_developability_acquisition/reports/HIC_FACTORIAL_VALIDATED_CONTRASTS.csv",
+  "interactions": "/workspace_developability_acquisition/reports/HIC_FACTORIAL_INTERACTION_ROBUSTNESS.csv",
+  "tmapp_comparison": "/workspace_developability_acquisition/reports/TMAPP_VS_HIC_FACTORIAL_SCIENTIFIC_COMPARISON.md",
+  "contrast_tier_counts": {
+    "Tier3": 13,
+    "Tier4": 5
+  },
+  "curated_claim_tier_counts": {
+    "Tier1": 5,
+    "Tier2": 3,
+    "Tier3": 4,
+    "Tier4": 4
+  },
+  "best_rep": "AbLingua",
+  "best_cell": "EXP-H266",
+  "validation": {
+    "status": "PASS",
+    "n_complete": 200,
+    "manifest_sha256": "b0790d0609da3beaa22c7aaa63be10835ce0833247575c5ee039467d64e5b6c3",
+    "prereg_sha": "4e175ab4f98864ba7f7c6496f832e06ea9730519",
+    "internal_freeze_sha": "cca9bd5016ecd14f06727f285bd26bf58fc46647",
+    "missing_oof": 0,
+    "public_private_accessed": false,
+    "head": "cca9bd5016ecd14f06727f285bd26bf58fc46647"
+  }
+}
