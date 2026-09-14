@@ -21,7 +21,7 @@ Do **not** edit:
 | Freeze v3 SHA | `1bfdf9107f55d14c58117aaa7f64e255dc387ed9` |
 | SURFACE prospective prereg | `993b8a9e268f65ed8d203949c34cbe3ef87446e6` |
 | Reused SHAM/FULL arms | EXP-H340–H343 (no retrain) |
-| Prereg introducing commit | *(filled after sole prereg commit)* |
+| Prereg introducing commit |  |
 
 **Holdout note:** Project-wide Test is **not** a pristine unused holdout for all HIC history.
 New ARO_ONLY / HYDRO_ONLY predictions are unevaluated at this prereg and are treated as
