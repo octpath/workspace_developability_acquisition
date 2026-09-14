@@ -241,7 +241,7 @@ Maximum allowed strong claim:
 
 | Field | Value |
 |-------|--------|
-| Prereg introducing commit |  |
+| Prereg introducing commit | `993b8a9e268f65ed8d203949c34cbe3ef87446e6` |
 | Parent AbLang1 | EXP-H187 |
 | Parent AbLingua | EXP-H167 |
 | F1_SURFACE audit | `developability_drilldown/results/F1_SURFACE_RESIDUE_RECONSTRUCTION_AUDIT.md` |
