@@ -5,7 +5,7 @@
 | Field | Value |
 |-------|--------|
 | Prereg SHA | `993b8a9e268f65ed8d203949c34cbe3ef87446e6` |
-| Code/config SHA at freeze | `1cc984df144f851f41ef50c8dd03adcba06d4c55` |
+| Code/config SHA at freeze | `f53039ffe606a2ca685fe64efaaeafb9c3993c6b` |
 | External scoring | **NONE (embargo)** |
 | solution.csv loaded | **NO** |
 | Public/Private consulted | **NO** |
