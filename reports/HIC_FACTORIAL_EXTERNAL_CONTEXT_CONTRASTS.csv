@@ -1,0 +1,3 @@
+family,n_strata,mean_delta_test,median_delta_test,improve_fraction,note
+ablang2,20,0.004625739829922909,0.0027700202376752525,0.4,external additive only; does not rewrite internal no-robust-advantage conclusion
+currab,20,-0.012618826006665654,-0.017568827169912787,0.7,external additive only; does not rewrite internal no-robust-advantage conclusion

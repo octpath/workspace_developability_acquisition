@@ -1,0 +1,96 @@
+{
+  "pipeline": {
+    "status": "PASS",
+    "max_abs_delta": 2.988838854189879e-08
+  },
+  "transfer": {
+    "pearson_cv_mean_vs_test": 0.1150134442480086,
+    "spearman_cv_mean_vs_test": 0.12675616890422262,
+    "kendall_cv_mean_vs_test": 0.0850251256281407,
+    "pearson_primary_vs_test": 0.12295157014162156,
+    "spearman_primary_vs_test": 0.11662491562289058,
+    "top10_internal": [
+      "EXP-H152",
+      "EXP-H162",
+      "EXP-H177",
+      "EXP-H265",
+      "EXP-H266",
+      "EXP-H271",
+      "EXP-H280",
+      "EXP-H284",
+      "EXP-H288",
+      "EXP-H298"
+    ],
+    "top10_external": [
+      "EXP-H166",
+      "EXP-H167",
+      "EXP-H185",
+      "EXP-H194",
+      "EXP-H214",
+      "EXP-H231",
+      "EXP-H240",
+      "EXP-H244",
+      "EXP-H331",
+      "EXP-H335"
+    ],
+    "top10_both": [],
+    "mean_abs_rank_change": 61.89,
+    "median_test_minus_cv": -0.05030745669941841,
+    "mean_abs_PS": 0.026865290835816125,
+    "mean_pub_priv_gap": 0.01731590888411908
+  },
+  "claims": {
+    "R1_AbLingua_best_average": "WEAKENED",
+    "R2_ESM2_best_cell_not_avg": "INCONCLUSIVE",
+    "R3_several_AbPLM_worse_than_Scratch": "CONTRADICTED",
+    "topology_effects_small_no_strong_winner": "SUPPORTED",
+    "annotation_small_rep_dependent": "SUPPORTED",
+    "scratch_surprisingly_competitive": "CONTRADICTED",
+    "ablang2_no_robust_context_advantage_internal": "NOT_REWRITTEN_external_additive_only",
+    "currab_no_robust_context_advantage_internal": "NOT_REWRITTEN_external_additive_only",
+    "high_tail_unresolved": "SUPPORTED",
+    "sequence_only_plateau_near_0_50": "WEAKENED"
+  },
+  "answers": {
+    "q1_h266_external": {
+      "test_overall": 0.4660266931321886,
+      "external_rank": 26,
+      "internal_rank": 1,
+      "note": "strong if top ~20%; check rank"
+    },
+    "q2_ablingua_avg": "WEAKENED",
+    "q3_esm2": "INCONCLUSIVE",
+    "q4_scratch": "CONTRADICTED",
+    "q5_topology_small": "SUPPORTED",
+    "q6_annotation": "SUPPORTED",
+    "q7_high_tail": "SUPPORTED",
+    "q8_plateau": "WEAKENED",
+    "q9_surface_stronger_externally": true,
+    "q10_surface_cv_supported": true
+  },
+  "surface_compare": {
+    "factorial_test_mean": 0.48028166767308733,
+    "factorial_test_best": 0.4418336767031823,
+    "surface_n": 68,
+    "surface_test_mean": 0.4620117025406262,
+    "surface_test_best": 0.3907397689348386,
+    "surface_cv_mean": 0.4983074521365752,
+    "non_surface_hist_test_best": 0.4142215296427409
+  },
+  "best_factorial_external": {
+    "code": "EXP-H185",
+    "test_overall": 0.4418336767031823,
+    "representation": "ablang1",
+    "topology": "JOINT",
+    "annotation": "IMGT"
+  },
+  "best_rep_external_avg": "ablang1",
+  "best_all_history": {
+    "code": "EXP-H137",
+    "test_overall": 0.3907397689348386,
+    "provenance": "retrospective_historical",
+    "surfaceish": true
+  },
+  "start_head": "559980e37576eaffaeba9603cee591544e52d991",
+  "end_head_placeholder": "559980e37576eaffaeba9603cee591544e52d991"
+}
