@@ -7,7 +7,7 @@
 | Taxonomy / prereg SHA | `e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f` |
 | Freeze v3 SHA | `1bfdf9107f55d14c58117aaa7f64e255dc387ed9` |
 | ARO/HYDRO decomp SHA | `ebf2fda9615c12f037914bc5b605a6ec6ba2eabc` |
-| Analysis code SHA | `ed8773ca944dfd8b17f92d62a51c6709caf2095e` |
+| Analysis code SHA | `b26a7e1e9b691f8c267476746a438863c0f5a4f7` |
 | n_families | 8 |
 | Global interpretation | `HYDRO_FAMILY_ENRICHED` |
 
