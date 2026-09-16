@@ -253,6 +253,57 @@ class HydroOnly35AuxFeatureStore:
         return self.transform(prep, ids)
 
 
+class PostTransformMaskedF1SurfaceAuxStore:
+    """FULL35 with post-StandardScaler zero-mask on selected coordinates.
+
+    Mask is applied in *model-input* space after fold-local impute+scale so that
+    removed family slots are exactly neutral zero (not re-centered nonzero).
+    """
+
+    def __init__(self, zero_indices: list[int], *, family_id: str):
+        idxs = sorted({int(i) for i in zero_indices})
+        if not idxs or idxs[0] < 0 or idxs[-1] >= TOTAL_DIM:
+            raise ValueError(f"invalid zero_indices={zero_indices}")
+        if len(idxs) != len(zero_indices):
+            raise ValueError("duplicate zero_indices")
+        self.family_id = family_id
+        self.zero_indices = idxs
+        self._inner = RealF1Surface35AuxFeatureStore()
+        self.bundle_id = f"FULL35_MINUS_{family_id}"
+        self.ids = self._inner.ids
+        self.id_to_idx = self._inner.id_to_idx
+        self.blocks_raw = self._inner.blocks_raw
+        self.block_order = self._inner.block_order
+        self.uses_pca = False
+        self.raw_dim = TOTAL_DIM
+        self.effective_dim = TOTAL_DIM
+        self.artifact_hash = _sha(
+            {
+                "bundle": self.bundle_id,
+                "family_id": family_id,
+                "zero_indices": idxs,
+                "mask_stage": "post_standardscaler_model_input",
+                "inner_hash": self._inner.artifact_hash,
+            }
+        )
+
+    def fit(self, train_ids: list[str]) -> FoldPreprocessor:
+        # Fit on unmasked FULL35 pathway (identical scaler to FULL baseline).
+        return self._inner.fit(train_ids)
+
+    def transform(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
+        X = self._inner.transform(prep, ids)
+        X = np.array(X, dtype=np.float32, copy=True)
+        X[:, self.zero_indices] = 0.0
+        return X
+
+    def matrix_for_ids(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
+        return self.transform(prep, ids)
+
+    def unmasked_transform(self, prep: FoldPreprocessor, ids: list[str]) -> np.ndarray:
+        return self._inner.transform(prep, ids)
+
+
 def make_surface_prospective_aux(bundle_id: str):
     if bundle_id == BUNDLE_SHAM:
         return Sham35AuxFeatureStore()
@@ -263,3 +314,7 @@ def make_surface_prospective_aux(bundle_id: str):
     if bundle_id == BUNDLE_HYDRO_ONLY:
         return HydroOnly35AuxFeatureStore()
     raise ValueError(bundle_id)
+
+
+def make_family_lofo_aux(family_id: str, zero_indices: list[int]) -> PostTransformMaskedF1SurfaceAuxStore:
+    return PostTransformMaskedF1SurfaceAuxStore(zero_indices, family_id=family_id)

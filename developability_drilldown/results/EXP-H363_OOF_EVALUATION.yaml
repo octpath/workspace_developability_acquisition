@@ -1,0 +1,25 @@
+experiment_code: EXP-H363
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: 26c26f886dea30eea7b3fed3e5e7569c7a0946a15af0b30bf30ce15940d824cc
+fusion_bundle_id: FULL35_MINUS_HYDRO_SURFACE_CONSTRUCTION_QC
+family_id: HYDRO_SURFACE_CONSTRUCTION_QC
+zero_indices:
+- 33
+- 34
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H343
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.4031153923788188
+  shadow: 0.398071006021382
+  mean: 0.4005931992001004
+  worst: 0.4031153923788188
+oof_test:
+  primary: 0.4548432235246822
+  shadow: 0.5149798176612382
+  mean: 0.4849115205929602
+  worst: 0.5149798176612382
+external_scored: false
+n_trainable: 510370
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e

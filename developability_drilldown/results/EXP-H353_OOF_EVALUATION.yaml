@@ -1,0 +1,27 @@
+experiment_code: EXP-H353
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: efd324e63b71199261afe5706a35f44cdfc4bc5b93816717dbfd422a0f4e4af7
+fusion_bundle_id: FULL35_MINUS_ARO_PATCH_TOPOLOGY
+family_id: ARO_PATCH_TOPOLOGY
+zero_indices:
+- 11
+- 12
+- 13
+- 14
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H343
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.3968650102026669
+  shadow: 0.3840393821810499
+  mean: 0.3904521961918584
+  worst: 0.3968650102026669
+oof_test:
+  primary: 0.46285860023969494
+  shadow: 0.520908442038077
+  mean: 0.49188352113888595
+  worst: 0.520908442038077
+external_scored: false
+n_trainable: 510370
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e

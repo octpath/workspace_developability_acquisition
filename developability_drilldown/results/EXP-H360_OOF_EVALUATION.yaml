@@ -1,0 +1,26 @@
+experiment_code: EXP-H360
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: f3c594946ef3eab27dc5f0499623d56ed1d69aac38d86aa44a12946f590c5b0c
+fusion_bundle_id: FULL35_MINUS_HYDRO_CDR_FIELD
+family_id: HYDRO_CDR_FIELD
+zero_indices:
+- 30
+- 31
+- 32
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H341
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.4287924320079662
+  shadow: 0.4118135366086606
+  mean: 0.42030298430831337
+  worst: 0.4287924320079662
+oof_test:
+  primary: 0.5029080467224121
+  shadow: 0.5415344105002321
+  mean: 0.5222212286113221
+  worst: 0.5415344105002321
+external_scored: false
+n_trainable: 444834
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e

@@ -1,0 +1,31 @@
+experiment_code: EXP-H349
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: bfa0fb8266badb6ff885e58b082caaecb089bedf3ab8e5fa7852b258e855adac
+fusion_bundle_id: FULL35_MINUS_ARO_EXPOSED_AMOUNT
+family_id: ARO_EXPOSED_AMOUNT
+zero_indices:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H343
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.4185014407781908
+  shadow: 0.4000517086923858
+  mean: 0.40927657473528833
+  worst: 0.4185014407781908
+oof_test:
+  primary: 0.4656906774073471
+  shadow: 0.47964361379176007
+  mean: 0.4726671455995536
+  worst: 0.47964361379176007
+external_scored: false
+n_trainable: 510370
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e

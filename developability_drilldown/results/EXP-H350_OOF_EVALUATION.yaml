@@ -1,0 +1,26 @@
+experiment_code: EXP-H350
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: 9c8cecdfe55328127b5f992769528d09635367f65f5642e8f68a54cf4c69110e
+fusion_bundle_id: FULL35_MINUS_ARO_CDR_LOCALIZATION
+family_id: ARO_CDR_LOCALIZATION
+zero_indices:
+- 8
+- 9
+- 10
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H341
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.4341726942180114
+  shadow: 0.39064294636102365
+  mean: 0.4124078202895175
+  worst: 0.4341726942180114
+oof_test:
+  primary: 0.45624343104421355
+  shadow: 0.4883451076083713
+  mean: 0.4722942693262924
+  worst: 0.4883451076083713
+external_scored: false
+n_trainable: 444834
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e

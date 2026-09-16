@@ -1,0 +1,19 @@
+experiment_code,representation,family_id,aux_dim,mask_stage,zero_indices,seed,topology_id,annotation_mode,n_trainable,full_baseline
+EXP-H348,ablang1,ARO_EXPOSED_AMOUNT,35,post_standardscaler_model_input,"[0, 1, 2, 3, 4, 5, 6, 7]",101,JOINT,full,444834,EXP-H341
+EXP-H349,ablingua,ARO_EXPOSED_AMOUNT,35,post_standardscaler_model_input,"[0, 1, 2, 3, 4, 5, 6, 7]",101,JOINT,full,510370,EXP-H343
+EXP-H350,ablang1,ARO_CDR_LOCALIZATION,35,post_standardscaler_model_input,"[8, 9, 10]",101,JOINT,full,444834,EXP-H341
+EXP-H351,ablingua,ARO_CDR_LOCALIZATION,35,post_standardscaler_model_input,"[8, 9, 10]",101,JOINT,full,510370,EXP-H343
+EXP-H352,ablang1,ARO_PATCH_TOPOLOGY,35,post_standardscaler_model_input,"[11, 12, 13, 14]",101,JOINT,full,444834,EXP-H341
+EXP-H353,ablingua,ARO_PATCH_TOPOLOGY,35,post_standardscaler_model_input,"[11, 12, 13, 14]",101,JOINT,full,510370,EXP-H343
+EXP-H354,ablang1,ARO_SEQUENCE_COMPOSITION,35,post_standardscaler_model_input,"[15, 16, 17, 18]",101,JOINT,full,444834,EXP-H341
+EXP-H355,ablingua,ARO_SEQUENCE_COMPOSITION,35,post_standardscaler_model_input,"[15, 16, 17, 18]",101,JOINT,full,510370,EXP-H343
+EXP-H356,ablang1,HYDRO_GLOBAL_FIELD,35,post_standardscaler_model_input,"[19, 20, 21, 22, 23, 24]",101,JOINT,full,444834,EXP-H341
+EXP-H357,ablingua,HYDRO_GLOBAL_FIELD,35,post_standardscaler_model_input,"[19, 20, 21, 22, 23, 24]",101,JOINT,full,510370,EXP-H343
+EXP-H358,ablang1,HYDRO_LOCAL_HIGH_INTENSITY,35,post_standardscaler_model_input,"[25, 26, 27, 28, 29]",101,JOINT,full,444834,EXP-H341
+EXP-H359,ablingua,HYDRO_LOCAL_HIGH_INTENSITY,35,post_standardscaler_model_input,"[25, 26, 27, 28, 29]",101,JOINT,full,510370,EXP-H343
+EXP-H360,ablang1,HYDRO_CDR_FIELD,35,post_standardscaler_model_input,"[30, 31, 32]",101,JOINT,full,444834,EXP-H341
+EXP-H361,ablingua,HYDRO_CDR_FIELD,35,post_standardscaler_model_input,"[30, 31, 32]",101,JOINT,full,510370,EXP-H343
+EXP-H362,ablang1,HYDRO_SURFACE_CONSTRUCTION_QC,35,post_standardscaler_model_input,"[33, 34]",101,JOINT,full,444834,EXP-H341
+EXP-H363,ablingua,HYDRO_SURFACE_CONSTRUCTION_QC,35,post_standardscaler_model_input,"[33, 34]",101,JOINT,full,510370,EXP-H343
+EXP-H341,ablang1,FULL35,35,none,[],101,JOINT,full,444834,EXP-H341
+EXP-H343,ablingua,FULL35,35,none,[],101,JOINT,full,510370,EXP-H343

@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "details": [
+    {
+      "baseline": "EXP-H341",
+      "rep": "ablang1",
+      "ok": true
+    },
+    {
+      "baseline": "EXP-H343",
+      "rep": "ablingua",
+      "ok": true
+    },
+    {
+      "parent": "EXP-H187",
+      "checks": {
+        "representation": true,
+        "topology_id_JOINT": true,
+        "annotation_full": true,
+        "dual_reg": true,
+        "seed_101": true
+      },
+      "ok": true
+    },
+    {
+      "parent": "EXP-H167",
+      "checks": {
+        "representation": true,
+        "topology_id_JOINT": true,
+        "annotation_full": true,
+        "dual_reg": true,
+        "seed_101": true
+      },
+      "ok": true
+    }
+  ]
+}

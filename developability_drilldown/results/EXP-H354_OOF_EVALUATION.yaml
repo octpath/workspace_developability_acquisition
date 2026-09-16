@@ -1,0 +1,27 @@
+experiment_code: EXP-H354
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: 0a78b38c9c9365a75061e14662ec106d22f657a9c6a75982ff22149a5493e644
+fusion_bundle_id: FULL35_MINUS_ARO_SEQUENCE_COMPOSITION
+family_id: ARO_SEQUENCE_COMPOSITION
+zero_indices:
+- 15
+- 16
+- 17
+- 18
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H341
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.42181929958013836
+  shadow: 0.4281948218639986
+  mean: 0.4250070607220685
+  worst: 0.4281948218639986
+oof_test:
+  primary: 0.4939967937704957
+  shadow: 0.5336020367940266
+  mean: 0.5137994152822611
+  worst: 0.5336020367940266
+external_scored: false
+n_trainable: 444834
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e

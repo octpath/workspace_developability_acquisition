@@ -1,0 +1,297 @@
+{
+  "prereg_sha": "e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f",
+  "n_families": 8,
+  "evidence_classes": {
+    "ARO_EXPOSED_AMOUNT": "LITTLE_UNIQUE_CONDITIONAL_VALUE",
+    "ARO_CDR_LOCALIZATION": "CONTEXT_DEPENDENT_CONTRIBUTOR",
+    "ARO_PATCH_TOPOLOGY": "CONTEXT_DEPENDENT_CONTRIBUTOR",
+    "ARO_SEQUENCE_COMPOSITION": "CONTEXT_DEPENDENT_CONTRIBUTOR",
+    "HYDRO_GLOBAL_FIELD": "EXTERNAL_DIRECTIONAL_CONTRIBUTOR",
+    "HYDRO_LOCAL_HIGH_INTENSITY": "EXTERNAL_DIRECTIONAL_CONTRIBUTOR",
+    "HYDRO_CDR_FIELD": "CONTEXT_DEPENDENT_CONTRIBUTOR",
+    "HYDRO_SURFACE_CONSTRUCTION_QC": "CONTEXT_DEPENDENT_CONTRIBUTOR"
+  },
+  "global_interpretation": "HYDRO_FAMILY_ENRICHED",
+  "aromatic_hypothesis_status": "NOT_SUPPORTED_AS_PRIMARY_STORY \u2014 hydro families dominate; avoid aromatics-only narrative.",
+  "next_recommendation": "Consider HYDRO-family-internal coarse probes for robust hydro families only.",
+  "series": [
+    {
+      "key": "ablang1__ARO_EXPOSED_AMOUNT",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "ARO_EXPOSED_AMOUNT",
+      "zero_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "arm": "FULL_MINUS_ARO_EXPOSED_AMOUNT",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_ARO_EXPOSED_AMOUNT_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus ARO_EXPOSED_AMOUNT",
+      "experiment_code": "EXP-H348"
+    },
+    {
+      "key": "ablingua__ARO_EXPOSED_AMOUNT",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "ARO_EXPOSED_AMOUNT",
+      "zero_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "arm": "FULL_MINUS_ARO_EXPOSED_AMOUNT",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_ARO_EXPOSED_AMOUNT_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus ARO_EXPOSED_AMOUNT",
+      "experiment_code": "EXP-H349"
+    },
+    {
+      "key": "ablang1__ARO_CDR_LOCALIZATION",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "ARO_CDR_LOCALIZATION",
+      "zero_indices": [
+        8,
+        9,
+        10
+      ],
+      "arm": "FULL_MINUS_ARO_CDR_LOCALIZATION",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_ARO_CDR_LOCALIZATION_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus ARO_CDR_LOCALIZATION",
+      "experiment_code": "EXP-H350"
+    },
+    {
+      "key": "ablingua__ARO_CDR_LOCALIZATION",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "ARO_CDR_LOCALIZATION",
+      "zero_indices": [
+        8,
+        9,
+        10
+      ],
+      "arm": "FULL_MINUS_ARO_CDR_LOCALIZATION",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_ARO_CDR_LOCALIZATION_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus ARO_CDR_LOCALIZATION",
+      "experiment_code": "EXP-H351"
+    },
+    {
+      "key": "ablang1__ARO_PATCH_TOPOLOGY",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "ARO_PATCH_TOPOLOGY",
+      "zero_indices": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "arm": "FULL_MINUS_ARO_PATCH_TOPOLOGY",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_ARO_PATCH_TOPOLOGY_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus ARO_PATCH_TOPOLOGY",
+      "experiment_code": "EXP-H352"
+    },
+    {
+      "key": "ablingua__ARO_PATCH_TOPOLOGY",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "ARO_PATCH_TOPOLOGY",
+      "zero_indices": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "arm": "FULL_MINUS_ARO_PATCH_TOPOLOGY",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_ARO_PATCH_TOPOLOGY_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus ARO_PATCH_TOPOLOGY",
+      "experiment_code": "EXP-H353"
+    },
+    {
+      "key": "ablang1__ARO_SEQUENCE_COMPOSITION",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "ARO_SEQUENCE_COMPOSITION",
+      "zero_indices": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "arm": "FULL_MINUS_ARO_SEQUENCE_COMPOSITION",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_ARO_SEQUENCE_COMPOSITION_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus ARO_SEQUENCE_COMPOSITION",
+      "experiment_code": "EXP-H354"
+    },
+    {
+      "key": "ablingua__ARO_SEQUENCE_COMPOSITION",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "ARO_SEQUENCE_COMPOSITION",
+      "zero_indices": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "arm": "FULL_MINUS_ARO_SEQUENCE_COMPOSITION",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_ARO_SEQUENCE_COMPOSITION_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus ARO_SEQUENCE_COMPOSITION",
+      "experiment_code": "EXP-H355"
+    },
+    {
+      "key": "ablang1__HYDRO_GLOBAL_FIELD",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "HYDRO_GLOBAL_FIELD",
+      "zero_indices": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "arm": "FULL_MINUS_HYDRO_GLOBAL_FIELD",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_HYDRO_GLOBAL_FIELD_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus HYDRO_GLOBAL_FIELD",
+      "experiment_code": "EXP-H356"
+    },
+    {
+      "key": "ablingua__HYDRO_GLOBAL_FIELD",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "HYDRO_GLOBAL_FIELD",
+      "zero_indices": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "arm": "FULL_MINUS_HYDRO_GLOBAL_FIELD",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_HYDRO_GLOBAL_FIELD_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus HYDRO_GLOBAL_FIELD",
+      "experiment_code": "EXP-H357"
+    },
+    {
+      "key": "ablang1__HYDRO_LOCAL_HIGH_INTENSITY",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "HYDRO_LOCAL_HIGH_INTENSITY",
+      "zero_indices": [
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "arm": "FULL_MINUS_HYDRO_LOCAL_HIGH_INTENSITY",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_HYDRO_LOCAL_HIGH_INTENSITY_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus HYDRO_LOCAL_HIGH_INTENSITY",
+      "experiment_code": "EXP-H358"
+    },
+    {
+      "key": "ablingua__HYDRO_LOCAL_HIGH_INTENSITY",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "HYDRO_LOCAL_HIGH_INTENSITY",
+      "zero_indices": [
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "arm": "FULL_MINUS_HYDRO_LOCAL_HIGH_INTENSITY",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_HYDRO_LOCAL_HIGH_INTENSITY_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus HYDRO_LOCAL_HIGH_INTENSITY",
+      "experiment_code": "EXP-H359"
+    },
+    {
+      "key": "ablang1__HYDRO_CDR_FIELD",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "HYDRO_CDR_FIELD",
+      "zero_indices": [
+        30,
+        31,
+        32
+      ],
+      "arm": "FULL_MINUS_HYDRO_CDR_FIELD",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_HYDRO_CDR_FIELD_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus HYDRO_CDR_FIELD",
+      "experiment_code": "EXP-H360"
+    },
+    {
+      "key": "ablingua__HYDRO_CDR_FIELD",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "HYDRO_CDR_FIELD",
+      "zero_indices": [
+        30,
+        31,
+        32
+      ],
+      "arm": "FULL_MINUS_HYDRO_CDR_FIELD",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_HYDRO_CDR_FIELD_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus HYDRO_CDR_FIELD",
+      "experiment_code": "EXP-H361"
+    },
+    {
+      "key": "ablang1__HYDRO_SURFACE_CONSTRUCTION_QC",
+      "parent": "EXP-H187",
+      "full_baseline": "EXP-H341",
+      "representation": "ablang1",
+      "family_id": "HYDRO_SURFACE_CONSTRUCTION_QC",
+      "zero_indices": [
+        33,
+        34
+      ],
+      "arm": "FULL_MINUS_HYDRO_SURFACE_CONSTRUCTION_QC",
+      "experiment_id": "TRF_HIC_ABLANG1_JOINT_FULL_MINUS_HYDRO_SURFACE_CONSTRUCTION_QC_V3",
+      "description": "Family LOFO ablang1 JOINT FULL minus HYDRO_SURFACE_CONSTRUCTION_QC",
+      "experiment_code": "EXP-H362"
+    },
+    {
+      "key": "ablingua__HYDRO_SURFACE_CONSTRUCTION_QC",
+      "parent": "EXP-H167",
+      "full_baseline": "EXP-H343",
+      "representation": "ablingua",
+      "family_id": "HYDRO_SURFACE_CONSTRUCTION_QC",
+      "zero_indices": [
+        33,
+        34
+      ],
+      "arm": "FULL_MINUS_HYDRO_SURFACE_CONSTRUCTION_QC",
+      "experiment_id": "TRF_HIC_ABLINGUA_JOINT_FULL_MINUS_HYDRO_SURFACE_CONSTRUCTION_QC_V3",
+      "description": "Family LOFO ablingua JOINT FULL minus HYDRO_SURFACE_CONSTRUCTION_QC",
+      "experiment_code": "EXP-H363"
+    }
+  ]
+}

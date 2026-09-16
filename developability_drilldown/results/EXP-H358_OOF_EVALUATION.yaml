@@ -1,0 +1,28 @@
+experiment_code: EXP-H358
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: b22fc6f4b9124bd1fdaefed5c66f59f8c1db6866ed44e06806d15530c07789fc
+fusion_bundle_id: FULL35_MINUS_HYDRO_LOCAL_HIGH_INTENSITY
+family_id: HYDRO_LOCAL_HIGH_INTENSITY
+zero_indices:
+- 25
+- 26
+- 27
+- 28
+- 29
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H341
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.42290549770402314
+  shadow: 0.42279603788587783
+  mean: 0.42285076779495046
+  worst: 0.42290549770402314
+oof_test:
+  primary: 0.5113985328203365
+  shadow: 0.49133223955130867
+  mean: 0.5013653861858226
+  worst: 0.5113985328203365
+external_scored: false
+n_trainable: 444834
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e

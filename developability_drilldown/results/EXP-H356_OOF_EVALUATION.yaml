@@ -1,0 +1,29 @@
+experiment_code: EXP-H356
+platform_id: DL_FOLDLOCAL_COSINE_V3
+config_hash: 3f2ec44d81a7bfd3919f094df57f4d03c49d55871c16d8b0ea7640b800c576f6
+fusion_bundle_id: FULL35_MINUS_HYDRO_GLOBAL_FIELD
+family_id: HYDRO_GLOBAL_FIELD
+zero_indices:
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+mask_stage: post_standardscaler_model_input
+full_baseline: EXP-H341
+prereg_sha: e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f
+oof_val:
+  primary: 0.4234360704304259
+  shadow: 0.4241253409209074
+  mean: 0.42378070567566667
+  worst: 0.4241253409209074
+oof_test:
+  primary: 0.476374272711483
+  shadow: 0.48978925747341573
+  mean: 0.4830817650924494
+  worst: 0.48978925747341573
+external_scored: false
+n_trainable: 444834
+quick: false
+code_sha: ed8773ca944dfd8b17f92d62a51c6709caf2095e
