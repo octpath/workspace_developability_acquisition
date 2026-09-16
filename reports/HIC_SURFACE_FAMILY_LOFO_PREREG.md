@@ -25,7 +25,7 @@ Do **not** redefine families after seeing CV / Public / Private / Test / HIGH-ta
 | ARO/HYDRO prereg SHA | `40f8ac0a7cf9caff59cbae913f99638d8cc93c4b` |
 | Taxonomy CSV | `reports/HIC_SURFACE_FAMILY_TAXONOMY.csv` |
 | Machine taxonomy | `developability_drilldown/results/HIC_SURFACE_FAMILY_TAXONOMY_FROZEN.json` |
-| Prereg introducing commit | *(filled after sole prereg+taxonomy commit)* |
+| Prereg introducing commit | `e45d9ea8c4720ac92388f7219e7c0d6a0b92cf3f` |
 
 **Holdout note:** Project-wide Test is not pristine for all HIC history.
 New `FULL_MINUS_F` predictions are unevaluated at this prereg and are treated as
