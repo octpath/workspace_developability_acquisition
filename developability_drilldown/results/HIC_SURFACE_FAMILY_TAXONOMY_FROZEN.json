@@ -1,0 +1,109 @@
+{
+  "n_families": 8,
+  "family_order": [
+    "ARO_EXPOSED_AMOUNT",
+    "ARO_CDR_LOCALIZATION",
+    "ARO_PATCH_TOPOLOGY",
+    "ARO_SEQUENCE_COMPOSITION",
+    "HYDRO_GLOBAL_FIELD",
+    "HYDRO_LOCAL_HIGH_INTENSITY",
+    "HYDRO_CDR_FIELD",
+    "HYDRO_SURFACE_CONSTRUCTION_QC"
+  ],
+  "family_indices_0based": {
+    "ARO_EXPOSED_AMOUNT": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ARO_CDR_LOCALIZATION": [
+      8,
+      9,
+      10
+    ],
+    "ARO_PATCH_TOPOLOGY": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "ARO_SEQUENCE_COMPOSITION": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "HYDRO_GLOBAL_FIELD": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "HYDRO_LOCAL_HIGH_INTENSITY": [
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "HYDRO_CDR_FIELD": [
+      30,
+      31,
+      32
+    ],
+    "HYDRO_SURFACE_CONSTRUCTION_QC": [
+      33,
+      34
+    ]
+  },
+  "canonical_columns": [
+    "aro_exposed_TYR_count",
+    "aro_exposed_TRP_count",
+    "aro_exposed_PHE_count",
+    "aro_exposed_aromatic_total_count",
+    "aro_aromatic_exposed_SASA_total",
+    "aro_aromatic_exposed_SASA_fraction",
+    "aro_strongly_exposed_aromatic_count",
+    "aro_strongly_exposed_aromatic_SASA",
+    "aro_CDR_exposed_aromatic_count",
+    "aro_CDR_aromatic_SASA",
+    "aro_CDR_aromatic_fraction",
+    "aro_aromatic_patch_count",
+    "aro_largest_aromatic_patch_n_res",
+    "aro_largest_aromatic_patch_exposed_SASA",
+    "aro_max_local_aromatic_SASA",
+    "aro_sequence_aromatic_count",
+    "aro_sequence_TYR_count",
+    "aro_sequence_TRP_count",
+    "aro_sequence_PHE_count",
+    "mean_H_surface",
+    "q75_H_surface",
+    "q90_H_surface",
+    "q95_H_surface",
+    "max_H_surface",
+    "positive_H_area_fraction",
+    "top10_H_mean",
+    "top10_H_area_fraction",
+    "high_H_patch_count",
+    "largest_high_H_patch_area_fraction",
+    "largest_high_H_patch_n_vertices",
+    "CDR_mean_H",
+    "CDR_q90_H",
+    "CDR_high_H_area_fraction",
+    "n_surface_points",
+    "phi_finite_frac"
+  ],
+  "concat_order": "ARO19|HYDRO16",
+  "loader": "H047AuxFeatureStore(\"F1_SURFACE\") / RealF1Surface35AuxFeatureStore",
+  "parquet_slices": {
+    "ARO": "feat[1395:1414]",
+    "HYDRO": "feat[1414:1430]"
+  }
+}
